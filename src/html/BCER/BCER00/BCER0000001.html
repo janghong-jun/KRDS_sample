@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>하이코칭</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../../components/_skip.html" -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <!-- breadcrumb -->
+          <nav
+            class="krds-breadcrumb-wrap"
+            aria-label="현재 경로"
+            id="breadcrumb"
+          >
+            <ol class="breadcrumb">
+              <li class="home"><a href="#" class="txt">홈</a></li>
+              <li><a href="#" class="txt">서비스 신청</a></li>
+              <li><a href="#" class="txt">서비스 신청2</a></li>
+            </ol>
+          </nav>
+          <!-- breadcrumb -->
+
+          <!-- Page Title -->
+          <div class="page-title-wrap">
+            <h2 class="h-tit">KRDS 컴포넌트 샘플 페이지</h2>
+          </div>
+
+          <!-- Critical Alerts -->
+          <div class="main-urgent-wrap">
+            <ul class="krds-critical-alerts">
+              <li>
+                <div class="critical-ban">
+                  <span class="critical-badge danger">긴급</span>
+                  <p class="critical-txt">중요한 공지사항입니다</p>
+                  <a href="#" class="krds-btn medium link basic">
+                    <span class="m-hide">자세히 보기</span>
+                    <i class="svg-icon ico-angle right"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab -->
+          <div class="krds-tab-area layer">
+            <div class="tab line full">
+              <ul role="tablist">
+                <li
+                  id="tab01"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel01"
+                  class="active"
+                >
+                  <button type="button" class="btn-tab">
+                    버튼 컴포넌트 <i class="sr-only created">선택됨</i>
+                  </button>
+                </li>
+                <li
+                  id="tab02"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel02"
+                >
+                  <button type="button" class="btn-tab">폼 컴포넌트</button>
+                </li>
+                <li
+                  id="tab03"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel03"
+                >
+                  <button type="button" class="btn-tab">기타 컴포넌트</button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-conts-wrap">
+              <!-- Tab 1: 버튼 컴포넌트 -->
+              <section
+                id="panel01"
+                aria-labelledby="tab01"
+                class="tab-conts active"
+              >
+                <h3 class="sec-tit">버튼 컴포넌트</h3>
+
+                <!-- Buttons -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">기본 버튼</h4>
+                  <div class="box-conts">
+                    <button type="button" class="krds-btn primary">
+                      Primary 버튼
+                    </button>
+                    <button type="button" class="krds-btn secondary">
+                      Secondary 버튼
+                    </button>
+                    <button type="button" class="krds-btn tertiary">
+                      Tertiary 버튼
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Button Sizes -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">버튼 크기</h4>
+                  <div class="box-conts">
+                    <button type="button" class="krds-btn xsmall">
+                      X-Small
+                    </button>
+                    <button type="button" class="krds-btn small">Small</button>
+                    <button type="button" class="krds-btn medium">
+                      Medium
+                    </button>
+                    <button type="button" class="krds-btn large">Large</button>
+                    <button type="button" class="krds-btn xlarge">
+                      X-Large
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Icon Buttons -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">아이콘 버튼</h4>
+                  <div class="box-conts">
+                    <button type="button" class="krds-btn medium">
+                      검색 <i class="svg-icon ico-sch"></i>
+                    </button>
+                    <button type="button" class="krds-btn icon medium">
+                      <span class="sr-only">검색</span>
+                      <i class="svg-icon ico-sch"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Badge -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">배지</h4>
+                  <div class="box-conts">
+                    <div class="krds-badge-wrap">
+                      <span class="krds-badge bg-primary">Primary</span>
+                      <span class="krds-badge bg-secondary">Secondary</span>
+                      <span class="krds-badge bg-point">Point</span>
+                      <span class="krds-badge bg-danger">Danger</span>
+                      <span class="krds-badge bg-success">Success</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Links -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">링크</h4>
+                  <div class="box-conts">
+                    <a
+                      href="#"
+                      class="krds-btn small link"
+                      target="_blank"
+                      title="새 창 열림"
+                    >
+                      <span class="underline">기본 링크</span>
+                      <i class="svg-icon ico-go"></i>
+                    </a>
+                    <a href="#" class="krds-btn large link basic">
+                      <span class="underline">본문 텍스트 컬러 링크</span>
+                      <i class="svg-icon ico-angle right"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">태그</h4>
+                  <div class="box-conts">
+                    <div class="krds-tag-wrap medium">
+                      <span class="krds-btn-tag">
+                        태그1
+                        <button type="button" class="btn-delete">
+                          <span class="sr-only">삭제</span>
+                        </button>
+                      </span>
+                      <span class="krds-btn-tag">
+                        태그2
+                        <button type="button" class="btn-delete">
+                          <span class="sr-only">삭제</span>
+                        </button>
+                      </span>
+                      <a href="#" class="krds-btn-tag link">링크 태그</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Tab 2: 폼 컴포넌트 -->
+              <section id="panel02" aria-labelledby="tab02" class="tab-conts">
+                <h3 class="sec-tit">폼 컴포넌트</h3>
+
+                <div class="fieldset">
+                  <!-- Text Input -->
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="sample_input">텍스트 입력</label>
+                    </div>
+                    <div class="form-conts">
+                      <input
+                        type="text"
+                        id="sample_input"
+                        class="krds-input"
+                        placeholder="내용을 입력하세요"
+                      />
+                    </div>
+                    <p class="form-hint">도움말 텍스트입니다</p>
+                  </div>
+
+                  <!-- Select -->
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="sample_select">선택 박스</label>
+                    </div>
+                    <div class="form-conts">
+                      <select id="sample_select" class="krds-form-select">
+                        <option value="">선택하세요</option>
+                        <option value="1">옵션 1</option>
+                        <option value="2">옵션 2</option>
+                        <option value="3">옵션 3</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Checkbox -->
+                  <div class="form-group">
+                    <div class="form-tit">체크박스</div>
+                    <div class="form-conts">
+                      <div class="krds-check-area">
+                        <div class="krds-form-check">
+                          <input type="checkbox" name="chk_sample" id="chk_1" />
+                          <label for="chk_1">옵션 1</label>
+                        </div>
+                        <div class="krds-form-check">
+                          <input
+                            type="checkbox"
+                            name="chk_sample"
+                            id="chk_2"
+                            checked
+                          />
+                          <label for="chk_2">옵션 2 (선택됨)</label>
+                        </div>
+                        <div class="krds-form-check">
+                          <input type="checkbox" name="chk_sample" id="chk_3" />
+                          <label for="chk_3">옵션 3</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Radio -->
+                  <div class="form-group">
+                    <div class="form-tit">라디오 버튼</div>
+                    <div class="form-conts">
+                      <div class="krds-check-area">
+                        <div class="krds-form-check">
+                          <input
+                            type="radio"
+                            name="rdo_sample"
+                            id="rdo_1"
+                            checked
+                          />
+                          <label for="rdo_1">옵션 1</label>
+                        </div>
+                        <div class="krds-form-check">
+                          <input type="radio" name="rdo_sample" id="rdo_2" />
+                          <label for="rdo_2">옵션 2</label>
+                        </div>
+                        <div class="krds-form-check">
+                          <input type="radio" name="rdo_sample" id="rdo_3" />
+                          <label for="rdo_3">옵션 3</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Switch -->
+                  <div class="form-group">
+                    <div class="form-tit">토글 스위치</div>
+                    <div class="form-conts">
+                      <div class="krds-form-toggle-switch">
+                        <input type="checkbox" id="switch1" checked />
+                        <label for="switch1"
+                          ><span class="switch-toggle"><i></i></span
+                          >활성화</label
+                        >
+                      </div>
+                      <div class="krds-form-toggle-switch">
+                        <input type="checkbox" id="switch2" />
+                        <label for="switch2"
+                          ><span class="switch-toggle"><i></i></span
+                          >비활성화</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Textarea -->
+                  <div class="form-group">
+                    <div class="form-tit">
+                      <label for="sample_textarea">텍스트 영역</label>
+                    </div>
+                    <div class="form-conts">
+                      <div class="textarea-wrap">
+                        <textarea
+                          class="krds-input"
+                          placeholder="내용을 입력하세요"
+                          id="sample_textarea"
+                        ></textarea>
+                        <p class="textarea-count">
+                          <span class="count-now">0</span
+                          ><span class="count-total">/500</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Tab 3: 기타 컴포넌트 -->
+              <section id="panel03" aria-labelledby="tab03" class="tab-conts">
+                <h3 class="sec-tit">기타 컴포넌트</h3>
+
+                <!-- Accordion -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">아코디언</h4>
+                  <div class="box-conts">
+                    <div class="krds-accordion">
+                      <div class="accordion-item active">
+                        <h5 class="accordion-header">
+                          <button type="button" class="btn-accordion">
+                            아코디언 타이틀 1
+                          </button>
+                        </h5>
+                        <div class="accordion-collapse collapse">
+                          <div class="accordion-body">
+                            아코디언 내용 영역입니다. 여기에 상세 내용이
+                            표시됩니다.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h5 class="accordion-header">
+                          <button type="button" class="btn-accordion">
+                            아코디언 타이틀 2
+                          </button>
+                        </h5>
+                        <div class="accordion-collapse collapse">
+                          <div class="accordion-body">
+                            두 번째 아코디언 내용입니다.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Trigger -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">모달</h4>
+                  <div class="box-conts">
+                    <button
+                      type="button"
+                      class="krds-btn large primary open-modal"
+                      data-target="sample_modal"
+                    >
+                      모달 열기
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Tooltip -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">툴팁</h4>
+                  <div class="box-conts">
+                    <button
+                      type="button"
+                      class="krds-btn krds-tooltip"
+                      data-tooltip="이것은 툴팁 메시지입니다"
+                    >
+                      툴팁 버튼
+                    </button>
+                    <button
+                      type="button"
+                      class="krds-btn icon krds-tooltip"
+                      data-tooltip="도움말 툴팁"
+                    >
+                      <span class="sr-only">도움말</span>
+                      <i class="svg-icon ico-help"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Disclosure -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">접기/펼치기</h4>
+                  <div class="box-conts">
+                    <div class="krds-disclosure conts-expand-area">
+                      <button type="button" class="btn-conts-expand">
+                        더보기
+                      </button>
+                      <div class="expand-wrap">
+                        <div class="expand-in">
+                          <ul class="krds-info-list dash">
+                            <li>숨겨진 내용 1</li>
+                            <li>숨겨진 내용 2</li>
+                            <li>숨겨진 내용 3</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">페이지네이션</h4>
+                  <div class="box-conts">
+                    <div class="krds-pagination">
+                      <span class="page-navi prev disabled">이전</span>
+                      <div class="page-links">
+                        <a class="page-link active" href="#"
+                          ><span class="sr-only">현재페이지 </span>1</a
+                        >
+                        <a class="page-link" href="#">2</a>
+                        <a class="page-link" href="#">3</a>
+                        <a class="page-link" href="#">4</a>
+                        <a class="page-link" href="#">5</a>
+                      </div>
+                      <a class="page-navi next" href="#">다음</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Spinner -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">스피너</h4>
+                  <div class="box-conts">
+                    <div class="krds-spinner" role="status">
+                      <span class="sr-only">로딩 중</span>
+                      로딩 중...
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Table -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">테이블</h4>
+                  <div class="box-conts">
+                    <div class="krds-table-wrap">
+                      <table class="tbl col data">
+                        <caption>
+                          샘플 테이블
+                        </caption>
+                        <colgroup>
+                          <col style="width: 30%" />
+                          <col />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th scope="col">항목</th>
+                            <th scope="col">내용</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">항목 1</th>
+                            <td>내용 1</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">항목 2</th>
+                            <td>내용 2</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">항목 3</th>
+                            <td>내용 3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text List -->
+                <div class="txt-box bg-white">
+                  <h4 class="box-tit">텍스트 목록</h4>
+                  <div class="box-conts">
+                    <ul class="krds-info-list decimal">
+                      <li>첫 번째 항목</li>
+                      <li>
+                        두 번째 항목
+                        <ul class="krds-info-list dash">
+                          <li>하위 항목 1</li>
+                          <li>하위 항목 2</li>
+                        </ul>
+                      </li>
+                      <li>세 번째 항목</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+
+    <!-- Modal -->
+    <section
+      id="sample_modal"
+      class="krds-modal fade"
+      role="dialog"
+      aria-labelledby="modal_title"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modal_title" class="modal-title">모달 제목</h2>
+          </div>
+          <div class="modal-conts">
+            <div class="conts-area">
+              <p>모달 내용입니다. 여기에 원하는 내용을 넣을 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="modal-btn btn-wrap">
+            <button type="button" class="krds-btn medium tertiary close-modal">
+              취소
+            </button>
+            <button type="button" class="krds-btn medium primary close-modal">
+              확인
+            </button>
+          </div>
+          <button
+            type="button"
+            class="krds-btn medium icon btn-close close-modal"
+          >
+            <span class="sr-only">닫기</span>
+            <i class="svg-icon ico-popup-close"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-back"></div>
+    </section>
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+  </body>
+</html>

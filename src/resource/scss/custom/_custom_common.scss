@@ -1,0 +1,30 @@
+@mixin component-size-variable() {
+  --krds-component--title-font-size: var(--krds-pc-font-size-heading-small);
+  --krds-component--title-margin-bottom: var(--krds-padding-5);
+  --krds-component--margin-bottom: var(--krds-gap-10);
+}
+.component {
+  @include component-size-variable();
+  margin-bottom: var(--krds-component--margin-bottom);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-title {
+    margin-bottom: var(--krds-component--title-margin-bottom);
+    font-size: var(--krds-component--title-font-size);
+    font-weight: $font-weight-bold;
+    line-height: $font-line-height-base;
+  }
+}
+
+@include size-medium {
+  .component {
+    --krds-component--title-font-size: var(
+      --krds-mobile-font-size-heading-small
+    );
+    --krds-component--title-margin-bottom: var(--krds-padding-3);
+    --krds-component--margin-bottom: var(--krds-gap-8);
+  }
+}

@@ -1,0 +1,7 @@
+#container {
+  & > .inner {
+    &:first-child {
+      padding-bottom: var(--krds-pc-gap-layout-contents-footer);
+    }
+  }
+}

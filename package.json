@@ -1,0 +1,47 @@
+{
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "browser-sync": "latest",
+    "connect-ssi": "^1.1.1",
+    "del": "^4.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cache": "^1.1.1",
+    "gulp-clean-css": "latest",
+    "gulp-css-replace-url": "^0.2.4",
+    "gulp-cssnano": "^1.1.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-file-include": "^2.2.2",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-html-partial": "^1.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "latest",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-string-replace": "^1.1.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^3.0.4",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.8.6",
+    "autoprefixer": "^9.7.4",
+    "core-js": "^3.2.1",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-file-include": "^2.1.0",
+    "gulp-ssi": "^0.1.5"
+  },
+  "name": "netive",
+  "description": "본 프로젝트는 Gulp로 구성 되어 있으며 다음 환경에서 정상적인 개발이 가능합니다.",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
