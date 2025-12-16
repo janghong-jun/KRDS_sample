@@ -82,7 +82,7 @@ const fonts = () =>
 
 const sassBuild = () =>
   gulp
-    .src(path.scssEntry)
+    .src(path.scssEntry, { base: `${src}/resource/scss` })
     .pipe(sourcemap.init())
     .pipe(gulpSass({ outputStyle: 'compressed' }))
     .pipe(autoprefix({ cascade: false }))
