@@ -32,14 +32,14 @@ npm install -g gulp-cli
 node -v
 
 /* Result */
-v8.11.4
+v24.12.0
 ```
 
 ```javascript
 gulp -v
 
 /* Result */
-CLI version 2.0.1
+CLI version 3.1.0
 Local version 4.0.2
 ```
 
@@ -56,7 +56,13 @@ npm install -d
 ### 웹서버 실행하기
 
 ```javascript
-gulp run
+gulp;
+```
+
+### Build 실행하기
+
+```javascript
+gulp build
 ```
 
 웹서버 실행 후 터미널에서 다음 메시시가 확인 되면 모든 준비가 완료 된 상태입니다.
@@ -69,7 +75,7 @@ gulp run
          UI: http://localhost:3001
 UI External: http://localhost:3001
 ---------------------------------------
-[Browsersync] Serving files from: ./dist
+[Browsersync] Serving files from: ./src
 ```
 
 브라우저에서 http://localhost:3000 으로 접속후 개발을 시작하세요.
