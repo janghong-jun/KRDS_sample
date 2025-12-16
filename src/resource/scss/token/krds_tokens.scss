@@ -1,6 +1,8 @@
-@charset "UTF-8";
+@charset "utf-8";
+
 /* Do not edit directly */
 /* Generated on Mon, Dec 9, 2024, 10:32:10 AM GMT+9 */
+
 :root {
   /* PRIMITIVE */
   --krds-color-light-primary-5: #ecf2fe;
@@ -245,6 +247,7 @@
   --krds-number-20: 8rem;
   --krds-number-21: 9.6rem;
   --krds-number-max: 100rem;
+
   /* MODE-LIGHT */
   --krds-light-color-surface-gray-subtler: var(--krds-color-light-gray-5);
   --krds-light-color-surface-gray-subtle: var(--krds-color-light-gray-10);
@@ -492,6 +495,7 @@
   --krds-light-border-width-variable-medium: 0.2rem;
   --krds-light-border-width-static-regular: 0.1rem;
   --krds-light-border-width-static-medium: 0.2rem;
+
   /* MODE-HIGH-CONTRAST */
   --krds-high-contrast-color-surface-gray-subtler: var(
     --krds-color-high-contrast-gray-95
@@ -1039,6 +1043,7 @@
   --krds-high-contrast-border-width-variable-medium: 0.3rem;
   --krds-high-contrast-border-width-static-regular: 0.1rem;
   --krds-high-contrast-border-width-static-medium: 0.2rem;
+
   /* RESPONSIVE-PC */
   --krds-pc-font-size-display-large: 6rem;
   --krds-pc-font-size-display-medium: 4.4rem;
@@ -1089,6 +1094,7 @@
   --krds-pc-padding-card-medium: var(--krds-number-12);
   --krds-pc-padding-card-small: var(--krds-number-10);
   --krds-pc-padding-card-xsmall: var(--krds-number-8);
+
   /* RESPONSIVE-MOBILE */
   --krds-mobile-font-size-display-large: 4.4rem;
   --krds-mobile-font-size-display-medium: 3.2rem;
@@ -1139,6 +1145,7 @@
   --krds-mobile-padding-card-medium: var(--krds-number-10);
   --krds-mobile-padding-card-small: var(--krds-number-9);
   --krds-mobile-padding-card-xsmall: var(--krds-number-7);
+
   /* SEMANTIC */
   --krds-gap-1: var(--krds-number-2);
   --krds-gap-2: var(--krds-number-3);
@@ -1189,7 +1196,6 @@
   --krds-radius-xlarge2: var(--krds-number-7);
   --krds-radius-max: var(--krds-number-max);
 }
-
 body {
   background-color: beige;
 }

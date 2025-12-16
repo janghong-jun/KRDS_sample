@@ -1,3 +1,5 @@
+@use 'breakpoints' as *;
+
 //focus color
 //추후삭제
 @mixin focus(
@@ -32,7 +34,7 @@
 
 //pseudo element setting
 @mixin pseudo($c: null) {
-  content: "" + $c + "";
+  content: '' + $c + '';
 }
 
 //flex layout
@@ -67,17 +69,17 @@
 //position 중앙 정렬
 @mixin position-center($type: both) {
   //좌우중앙
-  @if ($type == "x") {
+  @if ($type == 'x') {
     left: 50%;
     transform: translateX(-50%);
   }
   //상하중앙
-  @else if ($type == "y") {
+  @else if ($type == 'y') {
     top: 50%;
     transform: translateY(-50%);
   }
   //상하좌우중앙
-  @else if ($type == "both") {
+  @else if ($type == 'both') {
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -173,7 +175,7 @@
 //color mode setting
 //$mode-theme: (light, dark) !default;
 @mixin color-mode($mode: light) {
-  [data-krds-mode="#{$mode}"] {
+  [data-krds-mode='#{$mode}'] {
     @content;
   }
 
@@ -185,7 +187,7 @@
   }
 
   //data-krds-mode가 theme일 경우 dark mode 생성
-  [data-krds-mode="theme"] {
+  [data-krds-mode='theme'] {
     @media (prefers-color-scheme: #{$mode-theme}) {
       @content;
     }

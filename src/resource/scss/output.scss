@@ -1,10 +1,10 @@
 //component with common setting file
 
 //common
-@import "./common/common";
+@use './common/common';
 
 //component
-@import "./component/component";
+@use './component/component';
 
 //custom
-@import "./custom/custom";
+@use './custom/custom';

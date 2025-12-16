@@ -1,4 +1,7 @@
-@import "group_variables";
+@use 'group_variables' as *;
+@use 'mixins/utils' as *;
+@use 'mixins/breakpoints' as *;
+@use 'mixins/icons' as *;
 
 //모드 설정
 $mode-setting: light;

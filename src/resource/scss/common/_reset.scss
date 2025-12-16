@@ -1,3 +1,7 @@
+@use 'mixins/breakpoints' as *;
+@use 'mixins/utils' as *;
+@use 'mixins/icons' as *;
+
 /* reset */
 //모드 설정
 $mode-setting: light;
@@ -178,8 +182,8 @@ a:visited {
   }
 }
 button,
-input[type="submit"],
-input[type="button"] {
+input[type='submit'],
+input[type='button'] {
   overflow: visible;
   margin: 0;
   background-color: transparent;
@@ -211,14 +215,14 @@ select {
   -moz-appearance: none;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="password"],
-input[type="file"],
-input[type="number"],
-input[type="email"],
-input[type="date"],
-input[type="search"],
+input[type='text'],
+input[type='tel'],
+input[type='password'],
+input[type='file'],
+input[type='number'],
+input[type='email'],
+input[type='date'],
+input[type='search'],
 textarea {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -227,18 +231,18 @@ textarea {
   -moz-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfiled;
   margin: 0;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="text"]::-ms-clear {
+input[type='text']::-ms-clear {
   display: none;
 }
 
@@ -255,7 +259,7 @@ table {
   border-collapse: collapse;
 }
 
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 

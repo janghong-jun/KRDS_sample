@@ -1,3 +1,6 @@
+@use '../common/group_variables' as *;
+@use '../common/mixins/breakpoints' as *;
+
 @mixin component-size-variable() {
   --krds-component--title-font-size: var(--krds-pc-font-size-heading-small);
   --krds-component--title-margin-bottom: var(--krds-padding-5);

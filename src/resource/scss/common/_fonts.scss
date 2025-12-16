@@ -1,5 +1,7 @@
+@use 'path' as *;
+
 @font-face {
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   src: url(#{$url}/fonts/PretendardGOV-Regular.subset.woff),
     url(#{$url}/fonts/PretendardGOV-Regular.subset.woff2);
   font-weight: 400;
@@ -7,7 +9,7 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   src: url(#{$url}/fonts/PretendardGOV-Medium.subset.woff),
     url(#{$url}/fonts/PretendardGOV-Medium.subset.woff2);
   font-weight: 500;
@@ -15,7 +17,7 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   src: url(#{$url}/fonts/PretendardGOV-bold.subset.woff),
     url(#{$url}/fonts/PretendardGOV-bold.subset.woff2);
   font-weight: 700;

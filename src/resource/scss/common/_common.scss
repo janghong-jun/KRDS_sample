@@ -1,13 +1,10 @@
 //공통
 
-@import "path";
-@import "./token/krds_tokens.css"; //디자인 토큰
-@import "include";
-
-@import "root";
-@import "icon";
-
-@import "dropdown";
-
-@import "reset";
-@import "fonts";
+@forward 'path';
+@forward '../token/krds_tokens';
+@forward 'include';
+@forward 'root' hide $mode-setting;
+@forward 'icon' hide $mode-setting;
+@forward 'dropdown' hide $mode-setting;
+@forward 'reset' hide $mode-setting;
+@forward 'fonts';

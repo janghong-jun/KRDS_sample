@@ -1,6 +1,6 @@
 //공통
-@import "../common/include";
+@forward '../common/include';
 
-@import "./custom_layout";
-@import "./custom_common";
-@import "./custom_pages";
+@use './custom_layout';
+@use './custom_common';
+@use './custom_pages';
