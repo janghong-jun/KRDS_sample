@@ -89,7 +89,7 @@ $mode-setting: light;
   .help-panel-wrap {
     @include position($t: 0, $l: 0, $b: 0, $r: 0);
     background-color: var(--krds-help-panel--color-background);
-    border-left: 1px solid var(--krds-help-panel--color-border);
+    border-left: 0.1rem solid var(--krds-help-panel--color-border);
     transition: var(--krds-transition-base);
     z-index: 1;
     box-shadow: var(--krds-help-panel--shadow);
@@ -124,7 +124,7 @@ $mode-setting: light;
     }
     .help-panel-action {
       width: 100%;
-      border-top: 1px solid var(--krds-help-panel--service-color-divider);
+      border-top: 0.1rem solid var(--krds-help-panel--service-color-divider);
       padding-top: var(--krds-padding-9);
       .coach-btn-stop {
         position: static;
@@ -201,7 +201,7 @@ $mode-setting: light;
       &.related-service {
         padding-top: var(--krds-padding-9);
         gap: var(--krds-gap-8);
-        border-top: 1px solid var(--krds-help-panel--service-color-divider);
+        border-top: 0.1rem solid var(--krds-help-panel--service-color-divider);
         transition: var(--krds-transition-base);
       }
     }

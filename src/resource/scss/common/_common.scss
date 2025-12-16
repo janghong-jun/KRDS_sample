@@ -1,7 +1,6 @@
 //공통
 
-@forward 'path';
-@forward '../token/krds_tokens';
+@use '../token/krds_tokens';
 @forward 'include';
 @forward 'root' hide $mode-setting;
 @forward 'icon' hide $mode-setting;

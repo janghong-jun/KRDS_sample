@@ -114,7 +114,7 @@ $mode-setting: light;
     @include position($t: 0.8rem, $l: 0);
     width: 38.4rem;
     background-color: var(--krds-calendar--color-surface);
-    border: 1px solid var(--krds-calendar--color-border);
+    border: 0.1rem solid var(--krds-calendar--color-border);
     border-radius: var(--krds-calendar--radius);
     overflow: hidden;
     &.bottom {
@@ -131,7 +131,8 @@ $mode-setting: light;
         @include flex-layout($ai: center, $jc: center);
         @include square(var(--krds-calendar--head-btn-cal-move-size));
         background-color: var(--krds-calendar--head-btn-cal-move-color-action);
-        border: 1px solid var(--krds-calendar--head-btn-cal-move-color-border);
+        border: 0.1rem solid
+          var(--krds-calendar--head-btn-cal-move-color-border);
         border-radius: var(--krds-radius-max);
         flex-shrink: 0;
         &::before {
@@ -206,7 +207,8 @@ $mode-setting: light;
               (var(--krds-calendar-drop-down-btn-height) * 6) +
                 (var(--krds-padding-3) * 2)
             );
-            border: 1px solid var(--krds-calendar--action-btn-wrap-color-border);
+            border: 0.1rem solid
+              var(--krds-calendar--action-btn-wrap-color-border);
             background-color: var(
               --krds-calendar--action-btn-wrap-color-surface
             );
@@ -249,7 +251,7 @@ $mode-setting: light;
                   color: var(
                     --krds-calendar--head-btn-cal-move-color-text-active
                   );
-                  border: 1px solid
+                  border: 0.1rem solid
                     var(--krds-calendar--head-btn-cal-move-color-border-active);
                   background-color: var(
                     --krds-calendar--action-btn-wrap-color-surface
@@ -420,7 +422,8 @@ $mode-setting: light;
         @include flex-layout($jc: flex-end, $ai: center);
         gap: var(--krds-gap-3);
         padding: var(--krds-padding-6) var(--krds-padding-8);
-        border-top: 1px solid var(--krds-calendar--action-btn-wrap-color-border);
+        border-top: 0.1rem solid
+          var(--krds-calendar--action-btn-wrap-color-border);
         background-color: var(--krds-calendar--action-btn-wrap-color-surface);
         & .krds-btn:first-child {
           margin-right: auto;

@@ -95,7 +95,7 @@ $mode-setting: light;
     width: 100%;
     height: var(--krds-tab--button-size-height);
     background-color: var(--krds-tab--button-color-action);
-    border: 1px solid var(--krds-tab--button-color-border);
+    border: 0.1rem solid var(--krds-tab--button-color-border);
     font-size: var(--krds-tab--button-pc-font-size);
     color: var(--krds-tab--button-color-text);
     font-weight: var(--krds-font-weight-bold);
@@ -219,7 +219,7 @@ $mode-setting: light;
     &.full {
       .btn-tab {
         border: 0;
-        border-bottom: 2px solid var(--krds-tab--line-button-color-border);
+        border-bottom: 0.2rem solid var(--krds-tab--line-button-color-border);
         &:before {
           bottom: -0.2rem;
         }

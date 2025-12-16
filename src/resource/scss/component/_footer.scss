@@ -179,7 +179,7 @@ $mode-setting: light;
               font-weight: var(--krds-font-weight-regular);
             }
             //360 아래
-            @media (max-width: (360px - 1px)) {
+            @media (max-width: 359px) {
               flex-wrap: wrap;
               row-gap: 0;
             }

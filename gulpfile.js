@@ -15,7 +15,10 @@ const dist = './dist';
 
 const path = {
   main: src,
-  scssEntry: `${src}/resource/scss/output.scss`,
+  scssEntry: [
+    `${src}/resource/scss/output.scss`,
+    `${src}/resource/scss/plugin/swiper-bundle.min.scss`,
+  ],
   scssWatch: `${src}/resource/scss/**/*.scss`,
   css: `${src}/resource/css`,
   js: `${src}/resource/js/**/*.js`,
@@ -31,7 +34,7 @@ const clean = () => del([dist]);
 ========================= */
 gulp.task('sass', () => {
   return gulp
-    .src(path.scssEntry)
+    .src(path.scssEntry, { base: `${src}/resource/scss` })
     .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
     .pipe(gulp.dest(path.css))
     .pipe(browser.stream({ match: '**/*.css' }));

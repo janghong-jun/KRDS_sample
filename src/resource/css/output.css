@@ -2546,10 +2546,10 @@ hr,
 legend,
 caption {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
   padding: 0 !important;
-  margin: -1px !important;
+  margin: -0.1rem !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
@@ -2616,10 +2616,10 @@ caption {
   }
   .pc-only.read {
     position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    width: 0.1rem !important;
+    height: 0.1rem !important;
     padding: 0 !important;
-    margin: -1px !important;
+    margin: -0.1rem !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
@@ -2641,10 +2641,10 @@ caption {
   }
   .mob-only.read {
     position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    width: 0.1rem !important;
+    height: 0.1rem !important;
     padding: 0 !important;
-    margin: -1px !important;
+    margin: -0.1rem !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
@@ -3928,7 +3928,7 @@ caption {
   width: 100%;
   height: var(--krds-tab--button-size-height);
   background-color: var(--krds-tab--button-color-action);
-  border: 1px solid var(--krds-tab--button-color-border);
+  border: 0.1rem solid var(--krds-tab--button-color-border);
   font-size: var(--krds-tab--button-pc-font-size);
   color: var(--krds-tab--button-color-text);
   font-weight: var(--krds-font-weight-bold);
@@ -4037,7 +4037,7 @@ caption {
 }
 .tab.line.full .btn-tab {
   border: 0;
-  border-bottom: 2px solid var(--krds-tab--line-button-color-border);
+  border-bottom: 0.2rem solid var(--krds-tab--line-button-color-border);
 }
 .tab.line.full .btn-tab:before {
   bottom: -0.2rem;
@@ -4900,7 +4900,7 @@ caption {
   left: 0;
   right: 0;
   background-color: var(--krds-help-panel--color-background);
-  border-left: 1px solid var(--krds-help-panel--color-border);
+  border-left: 0.1rem solid var(--krds-help-panel--color-border);
   transition: var(--krds-transition-base);
   z-index: 1;
   box-shadow: var(--krds-help-panel--shadow);
@@ -4942,7 +4942,7 @@ caption {
 }
 .krds-help-panel .help-panel-wrap .help-panel-action {
   width: 100%;
-  border-top: 1px solid var(--krds-help-panel--service-color-divider);
+  border-top: 0.1rem solid var(--krds-help-panel--service-color-divider);
   padding-top: var(--krds-padding-9);
 }
 .krds-help-panel .help-panel-wrap .help-panel-action .coach-btn-stop {
@@ -5026,7 +5026,7 @@ caption {
 .krds-help-panel .help-panel-wrap .conts-area.related-service {
   padding-top: var(--krds-padding-9);
   gap: var(--krds-gap-8);
-  border-top: 1px solid var(--krds-help-panel--service-color-divider);
+  border-top: 0.1rem solid var(--krds-help-panel--service-color-divider);
   transition: var(--krds-transition-base);
 }
 .krds-help-panel .coach-help-process {
@@ -6013,10 +6013,10 @@ caption {
 }
 .krds-file-upload .file-upload [type=file] {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
   padding: 0 !important;
-  margin: -1px !important;
+  margin: -0.1rem !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
@@ -6574,10 +6574,10 @@ caption {
 }
 #krds-skip-link a:not(:focus) {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
   padding: 0 !important;
-  margin: -1px !important;
+  margin: -0.1rem !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
@@ -11142,10 +11142,10 @@ caption {
   }
   .krds-breadcrumb-wrap .breadcrumb li:not(.home):not(:last-child) {
     position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    width: 0.1rem !important;
+    height: 0.1rem !important;
     padding: 0 !important;
-    margin: -1px !important;
+    margin: -0.1rem !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
@@ -11421,10 +11421,10 @@ caption {
   }
   .krds-step-wrap > li .step {
     position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    width: 0.1rem !important;
+    height: 0.1rem !important;
     padding: 0 !important;
-    margin: -1px !important;
+    margin: -0.1rem !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
@@ -11432,10 +11432,10 @@ caption {
   }
   .krds-step-wrap > li .step-tit {
     position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    width: 0.1rem !important;
+    height: 0.1rem !important;
     padding: 0 !important;
-    margin: -1px !important;
+    margin: -0.1rem !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
@@ -13725,10 +13725,10 @@ textarea.krds-input {
 input[type=radio],
 input[type=checkbox] {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
   padding: 0 !important;
-  margin: -1px !important;
+  margin: -0.1rem !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
@@ -15268,7 +15268,7 @@ label {
   left: 0;
   width: 38.4rem;
   background-color: var(--krds-calendar--color-surface);
-  border: 1px solid var(--krds-calendar--color-border);
+  border: 0.1rem solid var(--krds-calendar--color-border);
   border-radius: var(--krds-calendar--radius);
   overflow: hidden;
 }
@@ -15294,7 +15294,7 @@ label {
   width: var(--krds-calendar--head-btn-cal-move-size);
   height: var(--krds-calendar--head-btn-cal-move-size);
   background-color: var(--krds-calendar--head-btn-cal-move-color-action);
-  border: 1px solid var(--krds-calendar--head-btn-cal-move-color-border);
+  border: 0.1rem solid var(--krds-calendar--head-btn-cal-move-color-border);
   border-radius: var(--krds-radius-max);
   flex-shrink: 0;
 }
@@ -15383,7 +15383,7 @@ label {
   overflow-y: auto;
   min-width: 14rem;
   max-height: calc(var(--krds-calendar-drop-down-btn-height) * 6 + var(--krds-padding-3) * 2);
-  border: 1px solid var(--krds-calendar--action-btn-wrap-color-border);
+  border: 0.1rem solid var(--krds-calendar--action-btn-wrap-color-border);
   background-color: var(--krds-calendar--action-btn-wrap-color-surface);
   border-radius: var(--krds-radius-medium4);
   padding: var(--krds-padding-3);
@@ -15424,7 +15424,7 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button.active {
   color: var(--krds-calendar--head-btn-cal-move-color-text-active);
-  border: 1px solid var(--krds-calendar--head-btn-cal-move-color-border-active);
+  border: 0.1rem solid var(--krds-calendar--head-btn-cal-move-color-border-active);
   background-color: var(--krds-calendar--action-btn-wrap-color-surface);
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:disabled {
@@ -15561,7 +15561,7 @@ label {
   flex-direction: row;
   gap: var(--krds-gap-3);
   padding: var(--krds-padding-6) var(--krds-padding-8);
-  border-top: 1px solid var(--krds-calendar--action-btn-wrap-color-border);
+  border-top: 0.1rem solid var(--krds-calendar--action-btn-wrap-color-border);
   background-color: var(--krds-calendar--action-btn-wrap-color-surface);
 }
 .krds-calendar-area .calendar-wrap .calendar-footer .calendar-btn-wrap .krds-btn:first-child {
