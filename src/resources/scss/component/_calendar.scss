@@ -149,6 +149,8 @@ $mode-setting: light;
       .calendar-switch-wrap {
         @include flex-layout($ai: center, $jc: center);
         gap: var(--krds-gap-2);
+
+        /* 수정: 드롭다운 버튼 스타일 개선 */
         .btn-cal-switch {
           @include flex-layout($ai: center, $jc: center);
           gap: var(--krds-gap-2);
@@ -156,6 +158,9 @@ $mode-setting: light;
           border-radius: var(--krds-calendar--head-btn-cal-switch-radius);
           padding: 0 var(--krds-padding-3);
           transition: var(--krds-transition-base);
+          position: relative; /* 추가: 화살표 아이콘 위치 기준 */
+          padding-right: 2.4rem; /* 추가: 화살표 공간 확보 */
+
           &::after {
             @include pseudo();
             @include svg-icon(
@@ -163,6 +168,11 @@ $mode-setting: light;
               $mode: #{$mode-setting}
             );
             @include icon-set(ico_arrow_dropdown);
+            position: absolute; /* 추가: 절대 위치 */
+            right: 0.8rem; /* 추가: 오른쪽 정렬 */
+            top: 50%; /* 추가: 수직 중앙 */
+            transform: translateY(-50%); /* 추가: 정확한 중앙 정렬 */
+            transition: transform 0.2s ease; /* 추가: 회전 애니메이션 */
           }
           &:hover {
             background-color: var(
@@ -170,12 +180,22 @@ $mode-setting: light;
             );
           }
           &:focus,
-          &:active,
-          &.active {
+          &:active {
             background-color: var(
               --krds-calendar--head-btn-cal-switch-color-action-active
             );
           }
+
+          /* 추가: active 상태일 때 화살표 회전 */
+          &.active {
+            background-color: var(
+              --krds-calendar--head-btn-cal-switch-color-action-active
+            );
+            &::after {
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+
           &:disabled {
             cursor: default;
             color: var(
@@ -191,10 +211,13 @@ $mode-setting: light;
             }
           }
         }
+
         .calendar-drop-down {
           --krds-calendar-drop-down-btn-height: var(--krds-size-height-6);
 
           position: relative;
+
+          /* 수정: calendar-select 구조 (KRDS 공식) */
           .calendar-select {
             @include visibility(hidden);
             @include position($t: calc(100% + 0.4rem), $l: 0);
@@ -215,15 +238,25 @@ $mode-setting: light;
             padding: var(--krds-padding-3);
             transition: var(--krds-transition-base);
             box-shadow: var(--krds-calendar--head-drop-down-shadow);
+            z-index: 1001; /* 추가: 다른 요소 위에 표시 */
+
+            /* 추가: active 클래스로 표시 제어 */
             &.active {
               @include visibility(visible);
               z-index: 10;
             }
+
+            /* 수정: ul.sel 스타일 (KRDS 공식) */
             .sel {
               @include flex-layout($fd: column);
+              list-style: none; /* 추가 */
+              padding: 0; /* 추가 */
+              margin: 0; /* 추가 */
+
               & li {
                 width: 100%;
               }
+
               button {
                 @include flex-layout($jc: center, $ai: center);
                 @include square(
@@ -235,6 +268,11 @@ $mode-setting: light;
                   --krds-calendar--head-btn-cal-switch-pc-font-size
                 );
                 font-weight: var(--krds-font-weight-regular);
+                border: none; /* 추가 */
+                background: transparent; /* 추가 */
+                cursor: pointer; /* 추가 */
+                transition: var(--krds-transition-base); /* 추가 */
+
                 &:hover {
                   background-color: var(
                     --krds-calendar--head-btn-cal-switch-color-action-hover
@@ -306,6 +344,7 @@ $mode-setting: light;
               width: 44px;
               height: 44px;
               margin-inline: auto;
+              border-radius: var(--krds-calendar--set-date-radius);
               & span {
                 z-index: 1;
               }
@@ -379,7 +418,16 @@ $mode-setting: light;
                 cursor: default;
               }
             }
+
+            /* 수정: period 클래스 스타일 개선 */
             &.period {
+              /* 추가: between 상태 (기간 사이) */
+              &.between {
+                background-color: var(
+                  --krds-calendar--date-set-color-action-period
+                );
+              }
+
               .btn-set-date {
                 background-color: var(
                   --krds-calendar--date-set-color-action-period
@@ -528,6 +576,7 @@ $mode-setting: light;
 }
 
 @include size-large-more {
+  /* 수정: .drop-menu → .calendar-select */
   .calendar-select {
     @include scrollbar;
   }

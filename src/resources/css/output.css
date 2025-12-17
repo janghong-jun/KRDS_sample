@@ -15322,6 +15322,7 @@ label {
   justify-content: center;
   flex-direction: row;
   gap: var(--krds-gap-2);
+  /* 수정: 드롭다운 버튼 스타일 개선 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch {
   display: flex;
@@ -15333,6 +15334,9 @@ label {
   border-radius: var(--krds-calendar--head-btn-cal-switch-radius);
   padding: 0 var(--krds-padding-3);
   transition: var(--krds-transition-base);
+  position: relative; /* 추가: 화살표 아이콘 위치 기준 */
+  padding-right: 2.4rem; /* 추가: 화살표 공간 확보 */
+  /* 추가: active 상태일 때 화살표 회전 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch::after {
   content: "";
@@ -15349,12 +15353,23 @@ label {
   mask-size: contain;
   -webkit-mask-image: url(../img/component/icon/ico_arrow_dropdown.svg);
   mask-image: url(../img/component/icon/ico_arrow_dropdown.svg);
+  position: absolute; /* 추가: 절대 위치 */
+  right: 0.8rem; /* 추가: 오른쪽 정렬 */
+  top: 50%; /* 추가: 수직 중앙 */
+  transform: translateY(-50%); /* 추가: 정확한 중앙 정렬 */
+  transition: transform 0.2s ease; /* 추가: 회전 애니메이션 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:hover {
   background-color: var(--krds-calendar--head-btn-cal-switch-color-action-hover);
 }
-.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:focus, .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:active, .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch.active {
+.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:focus, .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:active {
   background-color: var(--krds-calendar--head-btn-cal-switch-color-action-active);
+}
+.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch.active {
+  background-color: var(--krds-calendar--head-btn-cal-switch-color-action-active);
+}
+.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch.active::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:disabled {
   cursor: default;
@@ -15367,6 +15382,7 @@ label {
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down {
   --krds-calendar-drop-down-btn-height: var(--krds-size-height-6);
   position: relative;
+  /* 수정: calendar-select 구조 (KRDS 공식) */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select {
   visibility: hidden;
@@ -15387,6 +15403,9 @@ label {
   padding: var(--krds-padding-3);
   transition: var(--krds-transition-base);
   box-shadow: var(--krds-calendar--head-drop-down-shadow);
+  z-index: 1001; /* 추가: 다른 요소 위에 표시 */
+  /* 추가: active 클래스로 표시 제어 */
+  /* 수정: ul.sel 스타일 (KRDS 공식) */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select.active {
   visibility: visible;
@@ -15399,6 +15418,9 @@ label {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  list-style: none; /* 추가 */
+  padding: 0; /* 추가 */
+  margin: 0; /* 추가 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel li {
   width: 100%;
@@ -15413,6 +15435,10 @@ label {
   border-radius: var(--krds-radius-medium1);
   font-size: var(--krds-calendar--head-btn-cal-switch-pc-font-size);
   font-weight: var(--krds-font-weight-regular);
+  border: none; /* 추가 */
+  background: transparent; /* 추가 */
+  cursor: pointer; /* 추가 */
+  transition: var(--krds-transition-base); /* 추가 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:hover {
   background-color: var(--krds-calendar--head-btn-cal-switch-color-action-hover);
@@ -15459,6 +15485,7 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
   padding: var(--krds-padding-1) 0;
+  /* 수정: period 클래스 스타일 개선 */
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button {
   display: flex;
@@ -15471,6 +15498,7 @@ label {
   width: 44px;
   height: 44px;
   margin-inline: auto;
+  border-radius: var(--krds-calendar--set-date-radius);
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button span {
   z-index: 1;
@@ -15533,6 +15561,12 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.old button, .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.new button, .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.disabled button {
   cursor: default;
+}
+.krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period {
+  /* 추가: between 상태 (기간 사이) */
+}
+.krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period.between {
+  background-color: var(--krds-calendar--date-set-color-action-period);
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period .btn-set-date {
   background-color: var(--krds-calendar--date-set-color-action-period);
@@ -15765,6 +15799,7 @@ label {
 }
 
 @media (min-width: 1024px) {
+  /* 수정: .drop-menu → .calendar-select */
   .calendar-select::-webkit-scrollbar {
     width: 0.8rem;
   }

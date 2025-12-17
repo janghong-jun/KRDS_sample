@@ -55,12 +55,16 @@
               <div class="form-tit">
                 <label>날짜 선택</label>
               </div>
-              <div class="form-conts calendar-conts">
+              <div
+                class="form-conts calendar-conts"
+                data-calendar-type="single"
+              >
                 <div class="calendar-input">
                   <input
-                    type="number"
+                    type="text"
                     class="krds-input datepicker"
                     placeholder="YYYY.MM.DD"
+                    readonly
                   />
                   <button
                     type="button"
@@ -70,6 +74,7 @@
                     ><i class="svg-icon ico-calendar"></i>
                   </button>
                 </div>
+                <div class="krds-calendar-area"></div>
               </div>
             </div>
           </div>
@@ -79,13 +84,14 @@
               <div class="form-tit">
                 <label>기간 선택</label>
               </div>
-              <div class="form-conts calendar-conts">
+              <div class="form-conts calendar-conts" data-calendar-type="range">
                 <div class="calendar-input">
                   <ul class="input-group range">
                     <li>
                       <input
                         class="krds-input datepicker"
                         placeholder="시작일"
+                        readonly
                       />
                     </li>
                     <li class="mark">-</li>
@@ -93,6 +99,7 @@
                       <input
                         class="krds-input datepicker"
                         placeholder="종료일"
+                        readonly
                       />
                     </li>
                   </ul>
@@ -104,6 +111,7 @@
                     ><i class="svg-icon ico-calendar"></i>
                   </button>
                 </div>
+                <div class="krds-calendar-area"></div>
               </div>
             </div>
           </div>
