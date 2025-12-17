@@ -15256,7 +15256,6 @@ label {
   --krds-calendar--action-btn-wrap-color-surface: var(
     --krds-light-color-surface-white
   );
-  display: none;
   position: relative;
   z-index: 1000;
   width: 100%;
@@ -15946,7 +15945,10 @@ label {
   }
 }
 
-#container > .inner:first-child {
+#container {
+  min-height: 100rem;
+}
+#container > .inner:last-child {
   padding-bottom: var(--krds-pc-gap-layout-contents-footer);
 }
 
@@ -15990,3 +15992,4 @@ label {
     --krds-component--margin-bottom: var(--krds-gap-8);
   }
 }
+/*# sourceMappingURL=output.css.map */

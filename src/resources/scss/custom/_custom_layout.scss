@@ -1,7 +1,8 @@
 #container {
   & > .inner {
-    &:first-child {
+    &:last-child {
       padding-bottom: var(--krds-pc-gap-layout-contents-footer);
     }
   }
+  min-height: 100rem;
 }

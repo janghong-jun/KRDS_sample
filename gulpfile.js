@@ -33,7 +33,6 @@ const path = {
   scssEntry: [
     `${src}/resources/scss/output.scss`,
     `${src}/resources/scss/plugin/swiper-bundle.min.scss`,
-    `${src}/guide/resources/css/guide.scss`,
   ],
   scssWatch: `${src}/resources/scss/**/*.scss`,
   css: `${src}/resources/css`,
@@ -41,6 +40,7 @@ const path = {
   images: `${src}/resources/img/**/*.{jpg,jpeg,png,gif,svg,webp,ico}`,
   font: `${src}/resources/fonts/**/*.{otf,woff,woff2}`,
   html: [`${src}/**/*.html`, `!${src}/components/**/*.html`],
+  guideResources: `${src}/guide/resources/**/*`,
 };
 
 const clean = () => del([dist]);
@@ -50,7 +50,9 @@ const clean = () => del([dist]);
 gulp.task('sass', () => {
   return gulp
     .src(path.scssEntry, { base: `${src}/resources/scss` })
+    .pipe(sourcemap.init())
     .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
+    .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(path.css))
     .pipe(browser.stream({ match: '**/*.css' }));
 });
@@ -107,14 +109,19 @@ const sassBuild = () =>
       })
     )
     .pipe(postcss([removeEmptyRulesWithComments()]))
-    // .pipe(sourcemap.write('.'))
+    .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(`${dist}/resources/css`));
 
 const js = () => gulp.src(path.js).pipe(gulp.dest(`${dist}/resources/js`));
 
+const guideResources = () =>
+  gulp.src(path.guideResources).pipe(gulp.dest(`${dist}/guide/resources`));
 /* =========================
    COMMANDS
 ========================= */
 gulp.task('default', gulp.series('sass', 'serv'));
 
-gulp.task('build', gulp.series(clean, html, fonts, imageBuild, sassBuild, js));
+gulp.task(
+  'build',
+  gulp.series(clean, html, fonts, imageBuild, sassBuild, js, guideResources)
+);

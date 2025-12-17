@@ -106,7 +106,6 @@ $mode-setting: light;
   @include calendar-size-variable();
   @include calendar-color-variable(#{$mode-setting});
 
-  display: none;
   position: relative;
   z-index: 1000;
   width: 100%;

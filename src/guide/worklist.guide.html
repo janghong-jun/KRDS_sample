@@ -20,7 +20,7 @@
     ></script>
     <script>
       $(document).ready(function () {
-        $(".tobe_section").find(".btn_guide").eq(0).addClass("active");
+        $('.tobe_section').find('.btn_guide').eq(0).addClass('active');
       });
     </script>
   </head>
@@ -99,15 +99,53 @@
             </script>
             <tbody>
               <tr>
-                <td class="depth2">a</td>
-                <td class="depth3">a</td>
-                <td class="depth4">a</td>
-                <td class="depth5">a</td>
+                <td class="depth2">accordion</td>
+                <td class="depth3"></td>
+                <td class="depth4"></td>
+                <td class="depth5"></td>
                 <td class="path">
                   <a href="./UI/accordion.html" target="_blank">accordion</a>
                 </td>
-                <td class="corder"></td>
-                <td class="rdate"></td>
+                <td class="corder">장홍준</td>
+                <td class="rdate">/</td>
+                <td class="info"></td>
+                <td class="tag"></td>
+                <td class="log">
+                  <dl>
+                    <dt></dt>
+                    <dd></dd>
+                  </dl>
+                </td>
+              </tr>
+              <tr>
+                <td class="depth2">badge</td>
+                <td class="depth3"></td>
+                <td class="depth4"></td>
+                <td class="depth5"></td>
+                <td class="path">
+                  <a href="./UI/badge.html" target="_blank">badge</a>
+                </td>
+                <td class="corder">장홍준</td>
+                <td class="rdate">/</td>
+                <td class="info"></td>
+                <td class="tag"></td>
+                <td class="log">
+                  <dl>
+                    <dt></dt>
+                    <dd></dd>
+                  </dl>
+                </td>
+              </tr>
+              <tr>
+                <td class="depth2">button</td>
+                <td class="depth3"></td>
+                <td class="depth4"></td>
+                <td class="depth5"></td>
+                <td class="path">
+                  <a href="./UI/button.html" target="_blank">button</a>
+                </td>
+                <td class="corder">장홍준</td>
+                <td class="rdate">/</td>
                 <td class="info"></td>
                 <td class="tag"></td>
                 <td class="log">
@@ -132,10 +170,10 @@
     <script>
       (function connect() {
         const origin = location.origin; // http://localhost:3000
-        const evt = new EventSource(origin + "/__reload");
+        const evt = new EventSource(origin + '/__reload');
 
         evt.onmessage = (e) => {
-          if (e.data === "reload") {
+          if (e.data === 'reload') {
             location.reload();
           }
         };
