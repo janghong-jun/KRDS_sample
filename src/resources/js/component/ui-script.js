@@ -1404,8 +1404,6 @@ const krds_tooltip = {
 };
 
 /*** * krds_calendar - KRDS 표준 캘린더 * ***/
-// 🌟 수정: 기간 선택시 버그 및 UI 선택 반영 개선 (range 모드)
-// range 모드에서 기간(시작/종료) 클릭 동작을 좀 더 직관적으로, 정확하게 하고, 여러달 이동 중에도 잘 동작하도록 개선
 const krds_calendar = {
   currentYear: new Date().getFullYear(),
   currentMonth: new Date().getMonth() + 1,
@@ -1433,8 +1431,9 @@ const krds_calendar = {
       if (!area) return;
 
       // 이미 열려있으면 닫기
-      if (area.style.display === 'block') {
+      if (area.dataset.keyboardBound === true) {
         this.closeAllDatePickers();
+        console.log('1');
         return;
       }
 
@@ -1571,7 +1570,7 @@ const krds_calendar = {
     }
 
     area.innerHTML = this.renderCalendar(this.currentYear, this.currentMonth);
-    area.style.display = 'block';
+    area.dataset.keyboardBound = true;
 
     this.bindCalendarEvents(area);
     this.activateFocusTrap(area);
@@ -1581,7 +1580,7 @@ const krds_calendar = {
 
   closeAllDatePickers() {
     document.querySelectorAll('.krds-calendar-area').forEach((area) => {
-      area.style.display = 'none';
+      area.dataset.keyboardBound = false;
       area.innerHTML = '';
     });
 
@@ -2083,9 +2082,7 @@ const krds_calendar = {
     }
 
     return `
-<div class="calendar-wrap bottom ${
-      this.calendarType
-    }" aria-label="달력" tabindex="0">
+<div class="calendar-wrap ${this.calendarType}" aria-label="달력" tabindex="0">
   <div class="calendar-head">
     <button type="button" class="btn-cal-move prev">
       <span class="sr-only">이전 달</span>
