@@ -2454,7 +2454,6 @@ input[type=button] {
   margin: 0;
   background-color: transparent;
   border: none;
-  -webkit-appearance: button;
   appearance: button;
   cursor: pointer;
   font: inherit;
@@ -15955,16 +15954,31 @@ label {
   --krds-component--title-font-size: var(--krds-pc-font-size-heading-small);
   --krds-component--title-margin-bottom: var(--krds-padding-5);
   --krds-component--margin-bottom: var(--krds-gap-10);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--krds-gap-3);
   margin-bottom: var(--krds-component--margin-bottom);
 }
 .component:last-child {
   margin-bottom: 0;
 }
 .component-title {
+  width: 100%;
   margin-bottom: var(--krds-component--title-margin-bottom);
   font-size: var(--krds-component--title-font-size);
   font-weight: 700;
   line-height: 1.5;
+  flex: none;
+}
+.component-title + * {
+  width: 100%;
+}
+.component .krds-badge-wrap {
+  width: 100%;
+  margin-bottom: var(--krds-badge--wrap-gap);
+}
+.component .krds-badge-wrap:last-child {
+  margin: 0;
 }
 
 @media (max-width: 767px) {

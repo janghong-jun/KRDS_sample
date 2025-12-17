@@ -13,11 +13,12 @@
     "connect-ssi": "^1.1.1",
     "del": "^4.1.0",
     "gulp": "^4.0.2",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.56.1",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-autoprefixer": "^7.0.1"
+    "sass": "^1.56.1"
   },
   "dependencies": {
     "gulp-ssi": "^0.1.5"

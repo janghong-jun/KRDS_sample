@@ -8,6 +8,10 @@
 }
 .component {
   @include component-size-variable();
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--krds-gap-3);
   margin-bottom: var(--krds-component--margin-bottom);
 
   &:last-child {
@@ -15,10 +19,25 @@
   }
 
   &-title {
+    width: 100%;
     margin-bottom: var(--krds-component--title-margin-bottom);
     font-size: var(--krds-component--title-font-size);
     font-weight: $font-weight-bold;
     line-height: $font-line-height-base;
+    flex: none;
+
+    & + * {
+      width: 100%;
+    }
+  }
+
+  .krds-badge-wrap {
+    width: 100%;
+    margin-bottom: var(--krds-badge--wrap-gap);
+
+    &:last-child {
+      margin: 0;
+    }
   }
 }
 
