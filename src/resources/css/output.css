@@ -15463,23 +15463,22 @@ label {
   padding: 0 var(--krds-calendar--table-wrap-padding);
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl caption {
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  clip: auto !important;
-  text-align: left;
-  top: 4.6rem;
-  left: var(--krds-calendar--table-wrap-padding);
-  color: var(--krds-calendar--color-text-sub);
-  font-weight: var(--krds-font-weight-bold);
-  font-size: var(--krds-calendar--table-caption-pc-font-size);
+  position: absolute !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
+  padding: 0 !important;
+  margin: -0.1rem !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl th,
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
   width: 14.2857142857%;
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl th {
-  padding-bottom: 4.6rem;
+  padding-bottom: var(--krds-calendar--table-wrap-padding);
   font-weight: var(--krds-font-weight-regular);
   font-size: var(--krds-calendar--table-head-pc-font-size);
 }
@@ -15492,11 +15491,9 @@ label {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 4.4rem;
+  height: 4.4rem;
   margin-inline: auto;
   border-radius: var(--krds-calendar--set-date-radius);
 }
@@ -15617,6 +15614,9 @@ label {
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.period::after {
   background-color: var(--krds-calendar--date-set-color-action-period);
 }
+.krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.start .btn-set-date {
+  border-radius: var(--krds-calendar--set-date-radius) 0 0 var(--krds-calendar--set-date-radius);
+}
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.start::after {
   background-color: var(--krds-calendar--date-set-color-action);
   border-top-left-radius: var(--krds-calendar--set-date-radius);
@@ -15625,6 +15625,9 @@ label {
   height: var(--krds-calendar--after-size);
   right: 0;
   left: unset;
+}
+.krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.end .btn-set-date {
+  border-radius: 0 var(--krds-calendar--set-date-radius) var(--krds-calendar--set-date-radius) 0;
 }
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.end::after {
   background-color: var(--krds-calendar--date-set-color-action);
@@ -15811,10 +15814,33 @@ label {
     background-color: var(--krds-light-color-element-secondary-lighter);
   }
 }
-@media (max-width: 440px) {
+@media (max-width: 420px) {
   .krds-calendar-area .calendar-wrap {
     left: calc(50% - (100vw - var(--krds-contents-padding-x) * 2) / 2);
     width: calc(100vw - var(--krds-contents-padding-x) * 2);
+  }
+  .krds-calendar-area .calendar-wrap .calendar-head {
+    padding: var(--krds-padding-6) var(--krds-padding-3);
+    gap: var(--krds-gap-3);
+  }
+  .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch {
+    font-size: var(--krds-mobile-font-size-body-small);
+  }
+  .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select {
+    min-width: 8rem;
+  }
+  .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button {
+    font-size: var(--krds-mobile-font-size-body-small);
+  }
+  .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button {
+    width: 11vw;
+    max-width: 4.4rem;
+    height: 11vw;
+    max-height: 4.4rem;
+    font-size: var(--krds-mobile-font-size-body-small);
+  }
+  .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button span::before {
+    bottom: -0.1rem !important;
   }
 }
 /* 화면 크기 조정 */

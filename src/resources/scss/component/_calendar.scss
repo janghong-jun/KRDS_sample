@@ -315,23 +315,24 @@ $mode-setting: light;
         padding: 0 var(--krds-calendar--table-wrap-padding);
         .calendar-tbl {
           caption {
-            width: auto !important;
-            height: auto !important;
-            margin: 0 !important;
-            clip: auto !important;
-            text-align: left;
-            top: 4.6rem;
-            left: var(--krds-calendar--table-wrap-padding);
-            color: var(--krds-calendar--color-text-sub);
-            font-weight: var(--krds-font-weight-bold);
-            font-size: var(--krds-calendar--table-caption-pc-font-size);
+            // width: auto !important;
+            // height: auto !important;
+            // margin: 0 !important;
+            // clip: auto !important;
+            // text-align: left;
+            // top: 4.6rem;
+            // left: var(--krds-calendar--table-wrap-padding);
+            // color: var(--krds-calendar--color-text-sub);
+            // font-weight: var(--krds-font-weight-bold);
+            // font-size: var(--krds-calendar--table-caption-pc-font-size);
+            @include sr-only;
           }
           th,
           td {
             width: calc(100% / 7);
           }
           th {
-            padding-bottom: 4.6rem;
+            padding-bottom: var(--krds-calendar--table-wrap-padding);
             font-weight: var(--krds-font-weight-regular);
             font-size: var(--krds-calendar--table-head-pc-font-size);
           }
@@ -339,10 +340,9 @@ $mode-setting: light;
             padding: var(--krds-padding-1) 0;
             > button {
               @include flex-layout($ai: center, $jc: center);
-              @include square(100%);
               position: relative;
-              width: 44px;
-              height: 44px;
+              width: 4.4rem;
+              height: 4.4rem;
               margin-inline: auto;
               border-radius: var(--krds-calendar--set-date-radius);
               & span {
@@ -499,6 +499,10 @@ $mode-setting: light;
               }
             }
             td.start {
+              .btn-set-date {
+                border-radius: var(--krds-calendar--set-date-radius) 0 0
+                  var(--krds-calendar--set-date-radius);
+              }
               &::after {
                 background-color: var(--krds-calendar--date-set-color-action);
                 border-top-left-radius: var(--krds-calendar--set-date-radius);
@@ -514,6 +518,10 @@ $mode-setting: light;
               }
             }
             td.end {
+              .btn-set-date {
+                border-radius: 0 var(--krds-calendar--set-date-radius)
+                  var(--krds-calendar--set-date-radius) 0;
+              }
               &::after {
                 background-color: var(--krds-calendar--date-set-color-action);
                 border-top-right-radius: var(--krds-calendar--set-date-radius);
@@ -582,12 +590,52 @@ $mode-setting: light;
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 420px) {
   .krds-calendar-area {
     .calendar-wrap {
       $w: calc(100vw - (var(--krds-contents-padding-x) * 2));
       left: calc(50% - ($w / 2));
       width: $w;
+
+      .calendar-head {
+        padding: var(--krds-padding-6) var(--krds-padding-3);
+        gap: var(--krds-gap-3);
+        .calendar-switch-wrap {
+          .btn-cal-switch {
+            font-size: var(--krds-mobile-font-size-body-small);
+          }
+          .calendar-drop-down {
+            .calendar-select {
+              min-width: 8rem;
+              .sel {
+                button {
+                  font-size: var(--krds-mobile-font-size-body-small);
+                }
+              }
+            }
+          }
+        }
+      }
+      .calendar-body {
+        .calendar-table-wrap {
+          .calendar-tbl {
+            td {
+              > button {
+                width: 11vw;
+                max-width: 4.4rem;
+                height: 11vw;
+                max-height: 4.4rem;
+                font-size: var(--krds-mobile-font-size-body-small);
+                span {
+                  &::before {
+                    bottom: -0.1rem !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

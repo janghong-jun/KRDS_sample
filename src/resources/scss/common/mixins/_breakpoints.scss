@@ -1,5 +1,11 @@
 @use '../group_variables' as *;
 
+@mixin size-small {
+  @media (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+
 @mixin size-medium {
   // 767까지
   @media (max-width: calc($breakpoint-medium - 1px)) {

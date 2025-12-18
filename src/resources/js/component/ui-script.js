@@ -1403,7 +1403,7 @@ const krds_tooltip = {
   },
 };
 
-/*** * krds_calendar - KRDS 표준 캘린더 * ***/
+/*** * krds_calendar - KRDS 표준 캘린더 (접근성 개선) * ***/
 const krds_calendar = {
   currentYear: new Date().getFullYear(),
   currentMonth: new Date().getMonth() + 1,
@@ -1412,7 +1412,7 @@ const krds_calendar = {
   endDate: null,
   currentArea: null,
   currentConts: null,
-  calendarType: 'single', // 'single' or 'range'
+  calendarType: 'single',
 
   init() {
     this.bindOpen();
@@ -1430,14 +1430,11 @@ const krds_calendar = {
 
       if (!area) return;
 
-      // 이미 열려있으면 닫기
-      if (area.dataset.keyboardBound === true) {
+      if (area.dataset.keyboardBound === 'true') {
         this.closeAllDatePickers();
-        console.log('1');
         return;
       }
 
-      // 다른 캘린더 닫기
       this.closeAllDatePickers();
 
       this.calendarType = type;
@@ -1445,12 +1442,13 @@ const krds_calendar = {
       this.currentArea = area;
       this.openTrigger = btn;
       this.selectedDate = null;
-      // 선택 값 유지(수정): range 타입에서 input value로부터 값을 가져올 수 있도록
+
+      area.dataset.keyboardBound = 'true';
+
       if (type === 'single') {
         this.startDate = null;
         this.endDate = null;
       } else {
-        // range 타입이면 두 개의 input에서 값을 복원하도록!
         const inputs = conts.querySelectorAll('.datepicker');
         if (inputs.length >= 2) {
           this.startDate = inputs[0].value || null;
@@ -1462,7 +1460,6 @@ const krds_calendar = {
       }
 
       this.openDatePicker(area);
-      this.bindKeyboardNavigation(area);
     });
   },
 
@@ -1471,7 +1468,6 @@ const krds_calendar = {
       if (e.target.closest('.calendar-wrap')) return;
       if (e.target.closest('.form-btn-datepicker')) return;
       if (e.target.closest('.calendar-drop-down')) return;
-
       this.closeAllDatePickers();
     });
   },
@@ -1481,13 +1477,11 @@ const krds_calendar = {
     if (this.calendarType === 'single') {
       targetDate = this.selectedDate;
     } else {
-      // range
       targetDate = this.endDate || this.startDate;
     }
     if (!targetDate) return;
 
     requestAnimationFrame(() => {
-      // 선택 상태도 즉시 반영
       if (this.calendarType === 'single' && this.selectedDate) {
         this.handleSingleDateSelect(this.selectedDate, area);
       } else if (
@@ -1511,11 +1505,11 @@ const krds_calendar = {
         ?.focus();
     });
   },
+
   openDatePicker(area) {
     const input = this.currentConts.querySelector('.datepicker');
     const hasValue = input && input.value;
 
-    // 날짜 값을 유지하기 위해 range는 start/endDate, single은 selectedDate만 변경
     if (this.calendarType === 'single') {
       if (hasValue) {
         const [y, m] = input.value.split('.').map(Number);
@@ -1523,7 +1517,6 @@ const krds_calendar = {
         this.currentMonth = m;
         this.selectedDate = input.value;
       } else {
-        // 값 없을 때만 오늘
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
@@ -1532,8 +1525,6 @@ const krds_calendar = {
         ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
       }
     } else {
-      // range
-      // 기존 input에 값이 남아 있다면, 유지
       const inputs = this.currentConts.querySelectorAll('.datepicker');
       if (inputs.length >= 2 && (inputs[0].value || inputs[1].value)) {
         if (inputs[0].value) {
@@ -1557,7 +1548,6 @@ const krds_calendar = {
         this.startDate = input.value;
         this.endDate = null;
       } else {
-        // 값 없을 때만 오늘
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
@@ -1570,27 +1560,31 @@ const krds_calendar = {
     }
 
     area.innerHTML = this.renderCalendar(this.currentYear, this.currentMonth);
-    area.dataset.keyboardBound = true;
 
     this.bindCalendarEvents(area);
+    this.bindKeyboardNavigation(area);
     this.activateFocusTrap(area);
-    // 이미 선택된 날짜의 선택상태 + 포커스 유지
     this.focusSelectedDate(area);
   },
 
   closeAllDatePickers() {
     document.querySelectorAll('.krds-calendar-area').forEach((area) => {
-      area.dataset.keyboardBound = false;
+      // 이벤트 리스너 정리
+      if (area._keydownHandler) {
+        area.removeEventListener('keydown', area._keydownHandler);
+        area._keydownHandler = null;
+      }
+      area.dataset.keyboardBound = 'false';
       area.innerHTML = '';
     });
 
-    // 드롭다운 닫기
     document.querySelectorAll('.calendar-select').forEach((selectBox) => {
       selectBox.classList.remove('active');
     });
     document.querySelectorAll('.btn-cal-switch').forEach((btn) => {
       btn.classList.remove('active');
     });
+
     if (this.openTrigger) {
       requestAnimationFrame(() => {
         this.openTrigger.focus();
@@ -1600,12 +1594,11 @@ const krds_calendar = {
   },
 
   bindCalendarEvents(area) {
-    // 이전/다음 달 버튼
     const prevBtn = area.querySelector('.btn-cal-move.prev');
     const nextBtn = area.querySelector('.btn-cal-move.next');
 
     prevBtn?.addEventListener('click', () => {
-      const focusTarget = prevBtn; // 🔒 포커스 기억
+      const focusTarget = prevBtn;
       this.currentMonth--;
       if (this.currentMonth < 1) {
         this.currentMonth = 12;
@@ -1615,7 +1608,7 @@ const krds_calendar = {
     });
 
     nextBtn?.addEventListener('click', () => {
-      const focusTarget = nextBtn; // 🔒 포커스 기억
+      const focusTarget = nextBtn;
       this.currentMonth++;
       if (this.currentMonth > 12) {
         this.currentMonth = 1;
@@ -1624,18 +1617,15 @@ const krds_calendar = {
       this.updateCalendar(area, focusTarget);
     });
 
-    // 년도/월 선택 드롭다운
     this.bindDropdown(area, 'year');
     this.bindDropdown(area, 'month');
 
-    // 오늘 버튼
     const todayBtn = area.querySelector('.get-today');
     todayBtn?.addEventListener('click', () => {
       const today = new Date();
       this.currentYear = today.getFullYear();
       this.currentMonth = today.getMonth() + 1;
 
-      // 수정: 오늘 날짜 자동 선택
       const todayStr = `${this.currentYear}.${String(
         this.currentMonth
       ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
@@ -1651,7 +1641,6 @@ const krds_calendar = {
       this.focusSelectedDate(area);
     });
 
-    // 날짜 선택
     const dateBtns = area.querySelectorAll('.btn-set-date:not(:disabled)');
     dateBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -1666,13 +1655,11 @@ const krds_calendar = {
       });
     });
 
-    // 취소 버튼
     const cancelBtn = area.querySelector('.calendar-footer .krds-btn.tertiary');
     cancelBtn?.addEventListener('click', () => {
       this.closeAllDatePickers();
     });
 
-    // 확인 버튼
     const confirmBtn = area.querySelector('.calendar-footer .krds-btn.primary');
     confirmBtn?.addEventListener('click', () => {
       this.confirmSelection();
@@ -1689,7 +1676,6 @@ const krds_calendar = {
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-
       const isOpen = selectBox.classList.contains('active');
 
       area
@@ -1737,52 +1723,40 @@ const krds_calendar = {
   handleSingleDateSelect(dateStr, area) {
     this.selectedDate = dateStr;
 
-    // 모든 선택 해제
     area.querySelectorAll('.btn-set-date').forEach((btn) => {
       btn.closest('td').classList.remove('period', 'start', 'end');
     });
 
-    // 선택된 날짜 표시
     const selectedTd = area.querySelector(`td[data-date="${dateStr}"]`);
     if (selectedTd) {
       selectedTd.classList.add('period', 'start', 'end');
     }
   },
 
-  // range 기간 클릭 동작: 항상 "한 번 선택: 시작일, 두 번째 선택: 종료일" 로직
-  // isRestore=true: UI 상태만 복구, 내부 값은 변화 없음
   handleRangeDateSelect(dateStr, area, isRestore = false) {
     const clickedDate = this.parseDate(dateStr);
 
-    let startDateObj = null;
-    let endDateObj = null;
-
-    // 기간 선택 로직
     if (!this.startDate || (this.startDate && this.endDate)) {
-      // 1. 새로운 시작
       if (!isRestore) {
         this.startDate = dateStr;
         this.endDate = null;
       }
-      // 모든 선택 해제 (UI)
+
       area.querySelectorAll('td').forEach((td) => {
         td.classList.remove('period', 'start', 'end', 'between');
       });
 
-      // 시작일 표시
       const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
       if (startTd) startTd.classList.add('period', 'start');
     } else {
-      // 2. 종료일 선택
-      startDateObj = this.parseDate(this.startDate);
-      endDateObj = clickedDate;
+      const startDateObj = this.parseDate(this.startDate);
 
       if (clickedDate < startDateObj) {
-        // 더 이전 날짜 클릭: 다시 시작
         if (!isRestore) {
           this.startDate = dateStr;
           this.endDate = null;
         }
+
         area.querySelectorAll('td').forEach((td) => {
           td.classList.remove('period', 'start', 'end', 'between');
         });
@@ -1790,24 +1764,25 @@ const krds_calendar = {
         const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
         if (startTd) startTd.classList.add('period', 'start');
       } else if (clickedDate.getTime() === startDateObj.getTime()) {
-        // 동일 날짜 클릭 시(동일 날짜를 시작/끝으로 허용): 종료일만 null로 놔두고 표시만
         if (!isRestore) {
           this.endDate = null;
         }
+
         area.querySelectorAll('td').forEach((td) => {
           td.classList.remove('period', 'start', 'end', 'between');
         });
+
         const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
         if (startTd) startTd.classList.add('period', 'start');
       } else {
-        // 시작~종료, 올바른 날짜 범위
         if (!isRestore) {
           this.endDate = dateStr;
         }
-        // 전체 먼저 해제
+
         area.querySelectorAll('td').forEach((td) => {
           td.classList.remove('period', 'start', 'end', 'between');
         });
+
         this.highlightRange(area);
       }
     }
@@ -1841,12 +1816,9 @@ const krds_calendar = {
     if (this.calendarType === 'single') {
       if (this.selectedDate) {
         const input = this.currentConts.querySelector('.datepicker');
-        if (input) {
-          input.value = this.selectedDate;
-        }
+        if (input) input.value = this.selectedDate;
       }
     } else {
-      // range 타입
       if (this.startDate && this.endDate) {
         const inputs = this.currentConts.querySelectorAll('.datepicker');
         if (inputs.length >= 2) {
@@ -1858,11 +1830,11 @@ const krds_calendar = {
 
     this.closeAllDatePickers();
   },
+
   updateCalendar(area, focusTarget = null) {
     area.innerHTML = this.renderCalendar(this.currentYear, this.currentMonth);
     this.bindCalendarEvents(area);
 
-    // 선택 상태 복원 (range/single mode)
     if (this.calendarType === 'range' && this.startDate) {
       if (this.endDate) {
         this.highlightRange(area);
@@ -1877,28 +1849,7 @@ const krds_calendar = {
         ?.classList.add('period', 'start', 'end');
     }
 
-    // 🔒 포커스 복원
-    if (focusTarget) {
-      let selector = '';
-      if (focusTarget.classList.contains('prev'))
-        selector = '.btn-cal-move.prev';
-      else if (focusTarget.classList.contains('next'))
-        selector = '.btn-cal-move.next';
-      else if (focusTarget.classList.contains('year'))
-        selector = '.btn-cal-switch.year';
-      else if (focusTarget.classList.contains('month'))
-        selector = '.btn-cal-switch.month';
-      else if (focusTarget.classList.contains('get-today'))
-        selector = '.get-today';
-
-      requestAnimationFrame(() => {
-        area.querySelector(selector)?.focus();
-      });
-    }
-
-    // 선택된 날짜에 포커스 및 상태 복구
     requestAnimationFrame(() => {
-      // 1️⃣ 명시적 포커스 대상 (이전/다음, 드롭다운)
       if (focusTarget) {
         let selector = '';
         if (focusTarget.classList.contains('prev'))
@@ -1917,7 +1868,6 @@ const krds_calendar = {
         }
       }
 
-      // 2️⃣ 이미 선택된 날짜: 선택상태+포커스 모두 적용
       let focusDate = null;
 
       if (this.calendarType === 'single' && this.selectedDate) {
@@ -1945,7 +1895,6 @@ const krds_calendar = {
         }
       }
 
-      // 3️⃣ 오늘
       const todayBtn = area.querySelector(
         'td.today .btn-set-date:not([disabled])'
       );
@@ -1954,12 +1903,11 @@ const krds_calendar = {
         return;
       }
 
-      // 4️⃣ fallback
       area.querySelector('.btn-set-date:not([disabled])')?.focus();
     });
   },
+
   parseDate(dateStr) {
-    // "YYYY.MM.DD" 형식을 Date 객체로 변환
     const [year, month, day] = dateStr.split('.').map(Number);
     return new Date(year, month - 1, day);
   },
@@ -1968,6 +1916,10 @@ const krds_calendar = {
     const firstDay = new Date(year, month - 1, 1).getDay();
     const lastDate = new Date(year, month, 0).getDate();
     const prevLastDate = new Date(year, month - 1, 0).getDate();
+    const today = new Date();
+    const todayStr = `${today.getFullYear()}.${String(
+      today.getMonth() + 1
+    ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
 
     let day = 1;
     let nextDay = 1;
@@ -1980,58 +1932,59 @@ const krds_calendar = {
         let td = '';
 
         if (r === 0 && c < firstDay) {
-          // 이전 달
           const d = prevLastDate - firstDay + c + 1;
           const prevMonth = month === 1 ? 12 : month - 1;
           const prevYear = month === 1 ? year - 1 : year;
-          td = `
-            <td class="old${
-              c === 0 ? ' day-off' : ''
-            }" data-date="${prevYear}.${String(prevMonth).padStart(
+          const dateStr = `${prevYear}.${String(prevMonth).padStart(
             2,
             '0'
-          )}.${String(d).padStart(2, '0')}">
-              <button type="button" class="btn-set-date" disabled>
-                <span>${d}</span>
-              </button>
-            </td>`;
+          )}.${String(d).padStart(2, '0')}`;
+
+          td = `<td class="old${
+            c === 0 ? ' day-off' : ''
+          }" data-date="${dateStr}">
+            <button type="button" class="btn-set-date" disabled aria-label="${prevYear}년 ${prevMonth}월 ${d}일, 이전 달">
+              <span aria-hidden="true">${d}</span>
+            </button>
+          </td>`;
         } else if (day > lastDate) {
-          // 다음 달
           const nextMonth = month === 12 ? 1 : month + 1;
           const nextYear = month === 12 ? year + 1 : year;
-          td = `
-            <td class="new${
-              c === 0 ? ' day-off' : ''
-            }" data-date="${nextYear}.${String(nextMonth).padStart(
+          const dateStr = `${nextYear}.${String(nextMonth).padStart(
             2,
             '0'
-          )}.${String(nextDay).padStart(2, '0')}">
-              <button type="button" class="btn-set-date" disabled>
-                <span>${nextDay++}</span>
-              </button>
-            </td>`;
-        } else {
-          const isToday =
-            year === new Date().getFullYear() &&
-            month === new Date().getMonth() + 1 &&
-            day === new Date().getDate();
+          )}.${String(nextDay).padStart(2, '0')}`;
 
+          td = `<td class="new${
+            c === 0 ? ' day-off' : ''
+          }" data-date="${dateStr}">
+            <button type="button" class="btn-set-date" disabled aria-label="${nextYear}년 ${nextMonth}월 ${nextDay}일, 다음 달">
+              <span aria-hidden="true">${nextDay++}</span>
+            </button>
+          </td>`;
+        } else {
+          const dateStr = `${year}.${String(month).padStart(2, '0')}.${String(
+            day
+          ).padStart(2, '0')}`;
+          const isToday = dateStr === todayStr;
           const classes = [];
+
           if (c === 0) classes.push('day-off');
           if (isToday) classes.push('today');
 
-          td = `
-            <td${
-              classes.length ? ` class="${classes.join(' ')}"` : ''
-            } data-date="${year}.${String(month).padStart(2, '0')}.${String(
-            day
-          ).padStart(2, '0')}">
-              <button type="button" class="btn-set-date"${
-                isToday ? ' aria-label="오늘"' : ''
-              }>
-                <span>${day}</span>
-              </button>
-            </td>`;
+          let ariaLabel = `${year}년 ${month}월 ${day}일`;
+          if (isToday) ariaLabel += ', 오늘';
+          if (c === 0) ariaLabel += ', 일요일';
+
+          const ariaCurrent = isToday ? ' aria-current="date"' : '';
+
+          td = `<td${
+            classes.length ? ` class="${classes.join(' ')}"` : ''
+          } data-date="${dateStr}">
+            <button type="button" class="btn-set-date" aria-label="${ariaLabel}"${ariaCurrent}>
+              <span aria-hidden="true">${day}</span>
+            </button>
+          </td>`;
           day++;
         }
 
@@ -2039,22 +1992,21 @@ const krds_calendar = {
       }
 
       rows.push(`<tr>${tds.join('')}</tr>`);
-
       if (day > lastDate && r >= 4) break;
     }
 
-    // 년도 옵션 생성 (현재 년도 기준 -10년 ~ +10년)
     const yearOptions = [];
     const uniqueYearId = `combo-list-year-${Math.random()
       .toString(36)
       .substring(2, 9)}`;
+
     for (let y = year - 10; y <= year + 10; y++) {
       const isCurrentYear = y === year;
       yearOptions.push(`
         <li role="none">
           <button type="button" role="option" data-value="${y}" 
                   class="${isCurrentYear ? 'active' : ''}"
-                  aria-selected="${isCurrentYear ? 'true' : 'false'}"
+                  aria-selected="${isCurrentYear}"
                   ${isCurrentYear ? 'disabled' : ''}>
             ${y}년
           </button>
@@ -2062,18 +2014,18 @@ const krds_calendar = {
       `);
     }
 
-    // 월 옵션 생성
     const monthOptions = [];
     const uniqueMonthId = `combo-list-month-${Math.random()
       .toString(36)
       .substring(2, 9)}`;
+
     for (let m = 1; m <= 12; m++) {
       const isCurrentMonth = m === month;
       monthOptions.push(`
         <li role="none">
           <button type="button" role="option" data-value="${m}"
                   class="${isCurrentMonth ? 'active' : ''}"
-                  aria-selected="${isCurrentMonth ? 'true' : 'false'}"
+                  aria-selected="${isCurrentMonth}"
                   ${isCurrentMonth ? 'disabled' : ''}>
             ${String(m).padStart(2, '0')}월
           </button>
@@ -2082,42 +2034,50 @@ const krds_calendar = {
     }
 
     return `
-<div class="calendar-wrap ${this.calendarType}" aria-label="달력" tabindex="0">
+<div class="calendar-wrap ${
+      this.calendarType
+    }" role="application" aria-label="날짜 선택 캘린더" tabindex="0">
   <div class="calendar-head">
-    <button type="button" class="btn-cal-move prev">
+    <button type="button" class="btn-cal-move prev" aria-label="이전 달로 이동">
       <span class="sr-only">이전 달</span>
     </button>
     <div class="calendar-switch-wrap">
       <div class="calendar-drop-down year">
-        <button type="button" class="btn-cal-switch year">${year}년</button>
+        <button type="button" class="btn-cal-switch year" aria-label="년도 선택, 현재 ${year}년" aria-expanded="false" aria-haspopup="listbox">${year}년</button>
         <div class="calendar-select calendar-year-wrap">
-          <ul class="sel year" role="listbox" id="${uniqueYearId}">
+          <ul class="sel year" role="listbox" id="${uniqueYearId}" aria-label="년도 목록">
             ${yearOptions.join('')}
           </ul>
         </div>
       </div>
       <div class="calendar-drop-down month">
-        <button type="button" class="btn-cal-switch month">${String(
-          month
-        ).padStart(2, '0')}월</button>
+        <button type="button" class="btn-cal-switch month" aria-label="월 선택, 현재 ${month}월" aria-expanded="false" aria-haspopup="listbox">${String(
+      month
+    ).padStart(2, '0')}월</button>
         <div class="calendar-select calendar-month-wrap">
-          <ul class="sel month" role="listbox" id="${uniqueMonthId}">
+          <ul class="sel month" role="listbox" id="${uniqueMonthId}" aria-label="월 목록">
             ${monthOptions.join('')}
           </ul>
         </div>
       </div>
     </div>
-    <button type="button" class="btn-cal-move next">
+    <button type="button" class="btn-cal-move next" aria-label="다음 달로 이동">
       <span class="sr-only">다음 달</span>
     </button>
   </div>
   <div class="calendar-body">
     <div class="calendar-table-wrap">
-      <table class="calendar-tbl">
-        <caption>${year}년 ${month}월</caption>
+      <table class="calendar-tbl" role="grid" aria-labelledby="calendar-caption">
+        <caption id="calendar-caption">${year}년 ${month}월</caption>
         <thead>
           <tr>
-            <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+            <th scope="col" abbr="일요일">일</th>
+            <th scope="col" abbr="월요일">월</th>
+            <th scope="col" abbr="화요일">화</th>
+            <th scope="col" abbr="수요일">수</th>
+            <th scope="col" abbr="목요일">목</th>
+            <th scope="col" abbr="금요일">금</th>
+            <th scope="col" abbr="토요일">토</th>
           </tr>
         </thead>
         <tbody>
@@ -2128,9 +2088,9 @@ const krds_calendar = {
   </div>
   <div class="calendar-footer">
     <div class="calendar-btn-wrap">
-      <button type="button" class="krds-btn small text get-today" >오늘</button>
-      <button type="button" class="krds-btn small tertiary">취소</button>
-      <button type="button" class="krds-btn small primary">확인</button>
+      <button type="button" class="krds-btn small text get-today" aria-label="오늘 날짜로 이동">오늘</button>
+      <button type="button" class="krds-btn small tertiary" aria-label="날짜 선택 취소">취소</button>
+      <button type="button" class="krds-btn small primary" aria-label="선택한 날짜 확인">확인</button>
     </div>
   </div>
 </div>`;
@@ -2159,55 +2119,113 @@ const krds_calendar = {
   },
 
   bindKeyboardNavigation(area) {
-    if (area.dataset.keyboardBound === 'true') return;
-    area.dataset.keyboardBound = 'true';
-    area.addEventListener('keydown', (e) => {
+    // 기존 이벤트 리스너 제거 후 새로 등록
+    const handler = (e) => {
       const key = e.key;
-      if (
-        ![
-          'ArrowLeft',
-          'ArrowRight',
-          'ArrowUp',
-          'ArrowDown',
-          'Enter',
-          'Escape',
-        ].includes(key)
-      )
-        return;
-
       const active = document.activeElement;
-      if (!active.classList.contains('btn-set-date')) return;
 
-      e.preventDefault();
+      // 날짜 버튼이 포커스된 경우만 처리
+      if (!active.classList.contains('btn-set-date')) return;
 
       const td = active.closest('td');
       let targetTd;
 
       switch (key) {
         case 'ArrowLeft':
+          e.preventDefault();
           targetTd = td.previousElementSibling;
           break;
+
         case 'ArrowRight':
+          e.preventDefault();
           targetTd = td.nextElementSibling;
           break;
+
         case 'ArrowUp':
+          e.preventDefault();
           targetTd =
             td.parentElement.previousElementSibling?.children[td.cellIndex];
           break;
+
         case 'ArrowDown':
+          e.preventDefault();
           targetTd =
             td.parentElement.nextElementSibling?.children[td.cellIndex];
           break;
+
+        case 'PageUp':
+          e.preventDefault();
+          if (e.shiftKey) {
+            // Shift + PageUp: 1년 전
+            this.currentYear--;
+          } else {
+            // PageUp: 1개월 전
+            this.currentMonth--;
+            if (this.currentMonth < 1) {
+              this.currentMonth = 12;
+              this.currentYear--;
+            }
+          }
+          this.updateCalendar(area);
+          return;
+
+        case 'PageDown':
+          e.preventDefault();
+          if (e.shiftKey) {
+            // Shift + PageDown: 1년 후
+            this.currentYear++;
+          } else {
+            // PageDown: 1개월 후
+            this.currentMonth++;
+            if (this.currentMonth > 12) {
+              this.currentMonth = 1;
+              this.currentYear++;
+            }
+          }
+          this.updateCalendar(area);
+          return;
+
+        case 'Home':
+          e.preventDefault();
+          // 현재 주의 첫 번째 날 (일요일)
+          targetTd = td.parentElement.children[0];
+          break;
+
+        case 'End':
+          e.preventDefault();
+          // 현재 주의 마지막 날 (토요일)
+          const tr = td.parentElement;
+          targetTd = tr.children[tr.children.length - 1];
+          break;
+
         case 'Enter':
+        case ' ':
+          e.preventDefault();
           active.click();
           return;
+
         case 'Escape':
+          e.preventDefault();
           this.closeAllDatePickers();
+          return;
+
+        default:
           return;
       }
 
-      targetTd?.querySelector('.btn-set-date:not([disabled])')?.focus();
-    });
+      // 대상 셀의 버튼으로 포커스 이동
+      const targetBtn = targetTd?.querySelector(
+        '.btn-set-date:not([disabled])'
+      );
+      if (targetBtn) {
+        targetBtn.focus();
+      }
+    };
+
+    // 기존 핸들러 제거 및 새 핸들러 등록
+    area.removeEventListener('keydown', area._keydownHandler);
+    area._keydownHandler = handler;
+    area.addEventListener('keydown', handler);
   },
 };
 
