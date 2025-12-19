@@ -169,7 +169,7 @@ $mode-setting: light;
         );
         transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
         & > i {
-          @include position($t: 0, $l: 0);
+          @include position($t: 50%, $l: 0);
           @include flex-layout($ai: center, $jc: center);
           @include form-toggle-switch-check(#{$size});
           background-color: var(
@@ -178,6 +178,7 @@ $mode-setting: light;
           border: 0.2rem solid
             var(--krds-form-toggle-switch--check-color-border);
           box-sizing: border-box;
+          transform: translateY(-50%);
           transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
           &::before {
             @include pseudo();

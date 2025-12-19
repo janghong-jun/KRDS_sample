@@ -1,75 +1,131 @@
-<!-- step indicator -->
-<!-- 스텝 -->
-<ol class="krds-step-wrap">
-	<li class="done">
-        <span>
-            <i class="step">1단계</i>
-            <span class="step-tit">단계 레이블</span>
-        </span>
-	</li>
-	<li class="done">
-        <span>
-            <i class="step">2단계</i>
-            <span class="step-tit">단계 레이블</span>
-        </span>
-	</li>
-	<li class="done">
-        <span>
-            <i class="step">3단계</i>
-            <span class="step-tit">단계 레이블</span>
-        </span>
-	</li>
-	<li class="active">
-        <span>
-            <em class="sr-only">현재단계</em>
-            <i class="step">4단계</i>
-            <span class="step-tit">단계 레이블</span>
-        </span>
-	</li>
-	<li>
-        <span>
-            <i class="step">5단계</i>
-            <span class="step-tit">단계 레이블</span>
-        </span>
-	</li>
-</ol>
-<!-- //스텝 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../components/_meta.html" -->
+    <title>하이코칭</title>
+    <!-- 공통 css -->
+    <link
+      rel="stylesheet"
+      href="../../resources/css/plugin/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../resources/css/output.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../resources/js/component/ui-script.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../components/_skip.html" -->
 
-<br>
-<br>
+      <!--# include virtual="../../components/_masthead.html" -->
+      <!--# include virtual="../../components/_header.html" -->
 
-<!-- 페이지 타이틀과 스텝 혼합 -->
-<div class="page-title-wrap between">
-	<h2 class="h-tit">타이틀</h2>
-	<!-- 스텝 영역 -->
-	<ol class="krds-step-wrap">
-		<li class="done">
-            <span>
-                <i class="step">1단계</i>
-                <span class="step-tit">유의 사항 확인</span>
-            </span>
-		</li>
-		<li class="done">
-            <span>
-                <i class="step">2단계</i>
-                <span class="step-tit">신청인 정보</span>
-            </span>
-		</li>
-		<li class="active">
-            <span>
-                <em class="sr-only">현재단계</em>
-                <i class="step">3단계</i>
-                <span class="step-tit">이사 전 살던 곳</span>
-            </span>
-		</li>
-		<li>
-            <span>
-                <i class="step">4단계</i>
-                <span class="step-tit">이사 온 곳</span>
-            </span>
-		</li>
-	</ol>
-	<!-- //스텝 영역 -->
-</div>
-<!-- //페이지 타이틀과 스텝 혼합 -->
-<!-- //step indicator -->
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <!-- breadcrumb -->
+          <nav
+            class="krds-breadcrumb-wrap"
+            aria-label="현재 경로"
+            id="breadcrumb"
+          >
+            <ol class="breadcrumb">
+              <li class="home"><a href="#" class="txt">홈</a></li>
+              <li><a href="#" class="txt">서비스 신청</a></li>
+              <li><a href="#" class="txt">서비스 신청2</a></li>
+            </ol>
+          </nav>
+          <!-- /breadcrumb -->
+          <div class="guide">
+            <!-- step indicator -->
+            <!-- 스텝 -->
+            <ol class="krds-step-wrap">
+              <li class="done">
+                <span>
+                  <i class="step">1단계</i>
+                  <span class="step-tit">단계 레이블</span>
+                </span>
+              </li>
+              <li class="done">
+                <span>
+                  <i class="step">2단계</i>
+                  <span class="step-tit">단계 레이블</span>
+                </span>
+              </li>
+              <li class="done">
+                <span>
+                  <i class="step">3단계</i>
+                  <span class="step-tit">단계 레이블</span>
+                </span>
+              </li>
+              <li class="active">
+                <span>
+                  <em class="sr-only">현재단계</em>
+                  <i class="step">4단계</i>
+                  <span class="step-tit">단계 레이블</span>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class="step">5단계</i>
+                  <span class="step-tit">단계 레이블</span>
+                </span>
+              </li>
+            </ol>
+            <!-- //스텝 -->
+
+            <br />
+            <br />
+
+            <!-- 페이지 타이틀과 스텝 혼합 -->
+            <div class="page-title-wrap between">
+              <h2 class="h-tit">타이틀</h2>
+              <!-- 스텝 영역 -->
+              <ol class="krds-step-wrap">
+                <li class="done">
+                  <span>
+                    <i class="step">1단계</i>
+                    <span class="step-tit">유의 사항 확인</span>
+                  </span>
+                </li>
+                <li class="done">
+                  <span>
+                    <i class="step">2단계</i>
+                    <span class="step-tit">신청인 정보</span>
+                  </span>
+                </li>
+                <li class="active">
+                  <span>
+                    <em class="sr-only">현재단계</em>
+                    <i class="step">3단계</i>
+                    <span class="step-tit">이사 전 살던 곳</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <i class="step">4단계</i>
+                    <span class="step-tit">이사 온 곳</span>
+                  </span>
+                </li>
+              </ol>
+              <!-- //스텝 영역 -->
+            </div>
+            <!-- //페이지 타이틀과 스텝 혼합 -->
+            <!-- //step indicator -->
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

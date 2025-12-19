@@ -308,7 +308,8 @@ $mode-setting: light;
     @include btn-text-variable();
 
     //large 사이즈 기준 기본 세팅수정
-    display: inline-block;
+    display: inline-flex;
+    width: max-content;
     height: auto !important;
     padding: var(--krds-button--padding-y-large)
       var(--krds-button--padding-x-large);

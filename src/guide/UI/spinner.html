@@ -1,27 +1,84 @@
-<!-- spinner -->
-<!-- 인풋 내 스피너 -->
-<div class="form-group">
-	<div class="form-tit">
-		<label for="consult_name">Label</label>
-	</div>
-	<div class="form-conts">
-		<div class="form-spinner">
-			<input type="text" id="consult_name" class="krds-input" placeholder="placeholder">
-			<div class="krds-spinner" role="status">
-				<span class="sr-only">로딩 중</span>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- //인풋 내 스피너 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../components/_meta.html" -->
+    <title>하이코칭</title>
+    <!-- 공통 css -->
+    <link
+      rel="stylesheet"
+      href="../../resources/css/plugin/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../resources/css/output.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../resources/js/component/ui-script.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../components/_skip.html" -->
 
-<br>
-<br>
+      <!--# include virtual="../../components/_masthead.html" -->
+      <!--# include virtual="../../components/_header.html" -->
 
-<!-- 스피너 -->
-<div class="krds-spinner" role="status">
-	<span class="sr-only">로딩 중</span>
-	Loading data..
-</div>
-<!-- //스피너 -->
-<!-- //spinner -->
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <!-- breadcrumb -->
+          <nav
+            class="krds-breadcrumb-wrap"
+            aria-label="현재 경로"
+            id="breadcrumb"
+          >
+            <ol class="breadcrumb">
+              <li class="home"><a href="#" class="txt">홈</a></li>
+              <li><a href="#" class="txt">서비스 신청</a></li>
+              <li><a href="#" class="txt">서비스 신청2</a></li>
+            </ol>
+          </nav>
+          <!-- /breadcrumb -->
+          <div class="guide">
+            <!-- 인풋 내 스피너 -->
+            <div class="form-group">
+              <div class="form-tit">
+                <label for="consult_name">Label</label>
+              </div>
+              <div class="form-conts">
+                <div class="form-spinner">
+                  <input
+                    type="text"
+                    id="consult_name"
+                    class="krds-input"
+                    placeholder="placeholder"
+                  />
+                  <div class="krds-spinner" role="status">
+                    <span class="sr-only">로딩 중</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- //인풋 내 스피너 -->
+          </div>
+          <div class="guide">
+            <!-- 스피너 -->
+            <div class="krds-spinner" role="status">
+              <span class="sr-only">로딩 중</span>
+              Loading data..
+            </div>
+            <!-- //스피너 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

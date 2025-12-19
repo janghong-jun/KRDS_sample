@@ -10,9 +10,17 @@
 .guide:last-child {
   margin-bottom: 0;
 }
+.guide.col {
+  flex-direction: column;
+}
+.guide > .krds-step-wrap,
+.guide .fieldset,
 .guide .krds-accordion,
-.guide .fieldset {
+.guide .page-title-wrap {
   width: 100%;
+}
+.guide > .krds-info-list {
+  width: calc(50% - var(--krds-gap-3) / 2);
 }
 .guide .krds-badge-wrap {
   width: 100%;

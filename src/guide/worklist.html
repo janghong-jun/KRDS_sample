@@ -20,7 +20,7 @@
     ></script>
     <script>
       $(document).ready(function () {
-        $(".tobe_section").find(".btn_app").eq(0).addClass("active");
+        $('.tobe_section').find('.btn_app').eq(0).addClass('active');
       });
     </script>
   </head>
@@ -67,7 +67,7 @@
                       <div data-ui="more" data-title="Basic">
                         <dl>
                           <dt>Device</dt>
-                          <dd>~360 MO, 361~768 TAB, 769~ PC</dd>
+                          <dd>~768 MO , 769~1023 TAB, 1024~ PC</dd>
                         </dl>
                         <dl>
                           <dt>Encoding</dt>
@@ -181,10 +181,10 @@
     <script>
       (function connect() {
         const origin = location.origin; // http://localhost:3000
-        const evt = new EventSource(origin + "/__reload");
+        const evt = new EventSource(origin + '/__reload');
 
         evt.onmessage = (e) => {
-          if (e.data === "reload") {
+          if (e.data === 'reload') {
             location.reload();
           }
         };

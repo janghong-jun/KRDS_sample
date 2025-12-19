@@ -62,9 +62,10 @@ $mode-setting: light;
 
 .form-spinner {
   //spinner - form-spinner - padding
+  position: relative;
+  width: 100%;
   --krds-spinner-form-spinner-padding-x: var(--krds-number-8);
 
-  position: relative;
   .krds-spinner {
     position: absolute;
     justify-content: flex-end;

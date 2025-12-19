@@ -1,17 +1,78 @@
-<!-- textarea -->
-<!-- 폼그룹 -->
-<div class="form-group">
-	<div class="form-tit">
-		<label for="textarea">레이블</label>
-	</div>
-	<div class="form-conts">
-		<div class="textarea-wrap">
-			<textarea class="krds-input" placeholder="플레이스홀더" id="textarea"></textarea>
-			<p class="textarea-count">
-				<span class="count-now">0</span><span class="count-total">/100</span>
-			</p>
-		</div>
-	</div>
-</div>
-<!-- //폼그룹 -->
-<!-- //textarea -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../components/_meta.html" -->
+    <title>하이코칭</title>
+    <!-- 공통 css -->
+    <link
+      rel="stylesheet"
+      href="../../resources/css/plugin/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../resources/css/output.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../resources/js/component/ui-script.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../components/_skip.html" -->
+
+      <!--# include virtual="../../components/_masthead.html" -->
+      <!--# include virtual="../../components/_header.html" -->
+
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <!-- breadcrumb -->
+          <nav
+            class="krds-breadcrumb-wrap"
+            aria-label="현재 경로"
+            id="breadcrumb"
+          >
+            <ol class="breadcrumb">
+              <li class="home"><a href="#" class="txt">홈</a></li>
+              <li><a href="#" class="txt">서비스 신청</a></li>
+              <li><a href="#" class="txt">서비스 신청2</a></li>
+            </ol>
+          </nav>
+          <!-- /breadcrumb -->
+          <div class="guide">
+            <!-- textarea -->
+            <!-- 폼그룹 -->
+            <div class="form-group">
+              <div class="form-tit">
+                <label for="textarea">레이블</label>
+              </div>
+              <div class="form-conts">
+                <div class="textarea-wrap">
+                  <textarea
+                    class="krds-input"
+                    placeholder="플레이스홀더"
+                    id="textarea"
+                  ></textarea>
+                  <p class="textarea-count">
+                    <span class="count-now">0</span
+                    ><span class="count-total">/100</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- //폼그룹 -->
+            <!-- //textarea -->
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

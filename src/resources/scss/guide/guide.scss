@@ -18,9 +18,18 @@
     margin-bottom: 0;
   }
 
+  &.col {
+    flex-direction: column;
+  }
+  > .krds-step-wrap,
+  .fieldset,
   .krds-accordion,
-  .fieldset {
+  .page-title-wrap {
     width: 100%;
+  }
+
+  > .krds-info-list {
+    width: calc(50% - (var(--krds-gap-3) / 2));
   }
   .krds-badge-wrap {
     width: 100%;
