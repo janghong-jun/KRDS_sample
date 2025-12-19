@@ -1,0 +1,50 @@
+@use '../common/group_variables' as *;
+@use '../common/mixins/breakpoints' as *;
+
+@mixin guide-size-variable() {
+  --krds-guide--title-font-size: var(--krds-pc-font-size-heading-small);
+  --krds-guide--title-margin-bottom: var(--krds-padding-5);
+  --krds-guide--margin-bottom: var(--krds-gap-10);
+}
+.guide {
+  @include guide-size-variable();
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--krds-gap-3);
+  margin-bottom: var(--krds-guide--margin-bottom);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .krds-accordion,
+  .fieldset {
+    width: 100%;
+  }
+  .krds-badge-wrap {
+    width: 100%;
+    margin-bottom: var(--krds-badge--wrap-gap);
+    flex-wrap: wrap;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .krds-contextual-help {
+    margin: auto;
+  }
+  .krds-coach-mark {
+    margin-top: 10rem;
+    flex: 1;
+  }
+}
+
+@include size-medium {
+  .guide {
+    --krds-guide--title-font-size: var(--krds-mobile-font-size-heading-small);
+    --krds-guide--title-margin-bottom: var(--krds-padding-3);
+    --krds-guide--margin-bottom: var(--krds-gap-8);
+  }
+}

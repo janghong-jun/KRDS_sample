@@ -1,8 +1,16 @@
 #container {
+  min-height: 100rem;
+
   & > .inner {
     &:last-child {
       padding-bottom: var(--krds-pc-gap-layout-contents-footer);
     }
   }
-  min-height: 100rem;
+  & > .krds-breadcrumb-wrap {
+    .breadcrumb {
+      max-width: var(--krds-contents-wrap-size);
+      padding-left: var(--krds-contents-padding-x);
+      padding-right: var(--krds-contents-padding-x);
+    }
+  }
 }

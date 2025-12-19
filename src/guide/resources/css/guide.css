@@ -1,0 +1,40 @@
+.guide {
+  --krds-guide--title-font-size: var(--krds-pc-font-size-heading-small);
+  --krds-guide--title-margin-bottom: var(--krds-padding-5);
+  --krds-guide--margin-bottom: var(--krds-gap-10);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--krds-gap-3);
+  margin-bottom: var(--krds-guide--margin-bottom);
+}
+.guide:last-child {
+  margin-bottom: 0;
+}
+.guide .krds-accordion,
+.guide .fieldset {
+  width: 100%;
+}
+.guide .krds-badge-wrap {
+  width: 100%;
+  margin-bottom: var(--krds-badge--wrap-gap);
+  flex-wrap: wrap;
+}
+.guide .krds-badge-wrap:last-child {
+  margin: 0;
+}
+.guide .krds-contextual-help {
+  margin: auto;
+}
+.guide .krds-coach-mark {
+  margin-top: 10rem;
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .guide {
+    --krds-guide--title-font-size: var(--krds-mobile-font-size-heading-small);
+    --krds-guide--title-margin-bottom: var(--krds-padding-3);
+    --krds-guide--margin-bottom: var(--krds-gap-8);
+  }
+}
+/*# sourceMappingURL=guide.css.map */

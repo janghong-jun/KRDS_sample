@@ -1012,7 +1012,7 @@ const krds_modal = {
     // const modalTitle = modalElement.querySelector(".modal-title");
     const modalConts = modalElement.querySelector('.modal-conts');
 
-    document.querySelector('body').classList.add('scroll-no');
+    // document.querySelector('body').classList.add('scroll-no');
     dialogElement.removeAttribute('tabindex');
     modalElement.setAttribute('role', 'dialog');
     modalElement.classList.add('shown');
@@ -1030,6 +1030,10 @@ const krds_modal = {
     setTimeout(() => {
       modalElement.classList.add('in');
     }, 150);
+
+    setTimeout(() => {
+      document.querySelector('body').classList.add('scroll-no');
+    }, 0);
 
     //열린 팝업창 포커스
     const focusables = modalElement.querySelectorAll(
@@ -2636,32 +2640,62 @@ const krds_adjustContentScale = {
   },
   scaleValue(value) {
     this.scaleLevel = value;
-    this.body.style.zoom = this.scaleLevel;
+    if (!this.body) {
+      this.body = document.body;
+    }
+    if (this.body) {
+      this.body.style.zoom = this.scaleLevel;
+    }
   },
   scaleDefault() {
     this.scaleLevel = 1;
-    this.body.style.zoom = this.scaleLevel;
+    if (!this.body) {
+      this.body = document.body;
+    }
+    if (this.body) {
+      this.body.style.zoom = this.scaleLevel;
+    }
   },
   scaleMin() {
     this.scaleLevel = this.minScale;
-    this.body.style.zoom = this.scaleLevel;
+    if (!this.body) {
+      this.body = document.body;
+    }
+    if (this.body) {
+      this.body.style.zoom = this.scaleLevel;
+    }
   },
   scaleMax() {
     this.scaleLevel = this.maxScale;
-    this.body.style.zoom = this.scaleLevel;
+    if (!this.body) {
+      this.body = document.body;
+    }
+    if (this.body) {
+      this.body.style.zoom = this.scaleLevel;
+    }
   },
   scaleUp() {
     if (this.scaleLevel < this.maxScale) {
       this.scaleLevel += 0.1;
       if (this.scaleLevel > this.maxScale) this.scaleLevel = this.maxScale;
-      this.body.style.zoom = this.scaleLevel;
+      if (!this.body) {
+        this.body = document.body;
+      }
+      if (this.body) {
+        this.body.style.zoom = this.scaleLevel;
+      }
     }
   },
   scaleDown() {
     if (this.scaleLevel > this.minScale) {
       this.scaleLevel -= 0.1;
       if (this.scaleLevel < this.minScale) this.scaleLevel = this.minScale;
-      this.body.style.zoom = this.scaleLevel;
+      if (!this.body) {
+        this.body = document.body;
+      }
+      if (this.body) {
+        this.body.style.zoom = this.scaleLevel;
+      }
     }
   },
 };

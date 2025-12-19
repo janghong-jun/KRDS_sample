@@ -1,29 +1,89 @@
-<!-- coach mark -->
-<div class="txt-box bg-white bg-white krds-coach-mark">
-	<!-- 따라하기 말풍선 -->
-	<div class="coach-balloon">
-		<h5 class="sr-only">따라하기 가이드</h5>
-		<h6 class="coach-tit">1단계 : 코치 마크</h6>
-		<p class="desc">1단계 코치 마크 내용입니다.</p>
-		<div class="coach-controls">
-			<div class="num">
-				<span class="sr-only">현재 단계</span>
-				<strong>1</strong>
-				<span class="sr-only">총 단계</span>
-				<span>4</span>
-			</div>
-			<div class="btn-wrap">
-				<button type="button" class="krds-btn small text">그만보기</button>
-				<button type="button" class="krds-btn small tertiary">다음으로</button>
-			</div>
-		</div>
-	</div>
-	<!--// 따라하기 말풍선 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../components/_meta.html" -->
+    <title>하이코칭</title>
+    <!-- 공통 css -->
+    <link
+      rel="stylesheet"
+      href="../../resources/css/plugin/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../resources/css/output.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../resources/js/component/ui-script.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../components/_skip.html" -->
 
-	<!-- 코치 마크 내용 -->
-	<div>
-		<h3>코치 마크 내용</h3>
-	</div>
-	<!-- //코치 마크 내용 -->
-</div>
-<!-- coach mark -->
+      <!--# include virtual="../../components/_masthead.html" -->
+      <!--# include virtual="../../components/_header.html" -->
+
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <!-- breadcrumb -->
+          <nav
+            class="krds-breadcrumb-wrap"
+            aria-label="현재 경로"
+            id="breadcrumb"
+          >
+            <ol class="breadcrumb">
+              <li class="home"><a href="#" class="txt">홈</a></li>
+              <li><a href="#" class="txt">서비스 신청</a></li>
+              <li><a href="#" class="txt">서비스 신청2</a></li>
+            </ol>
+          </nav>
+          <!-- /breadcrumb -->
+          <div class="guide">
+            <!-- coach mark -->
+            <div class="txt-box bg-white bg-white krds-coach-mark">
+              <!-- 따라하기 말풍선 -->
+              <div class="coach-balloon">
+                <h5 class="sr-only">따라하기 가이드</h5>
+                <h6 class="coach-tit">1단계 : 코치 마크</h6>
+                <p class="desc">1단계 코치 마크 내용입니다.</p>
+                <div class="coach-controls">
+                  <div class="num">
+                    <span class="sr-only">현재 단계</span>
+                    <strong>1</strong>
+                    <span class="sr-only">총 단계</span>
+                    <span>4</span>
+                  </div>
+                  <div class="btn-wrap">
+                    <button type="button" class="krds-btn small text">
+                      그만보기
+                    </button>
+                    <button type="button" class="krds-btn small tertiary">
+                      다음으로
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--// 따라하기 말풍선 -->
+
+              <!-- 코치 마크 내용 -->
+              <div>
+                <h3>코치 마크 내용</h3>
+              </div>
+              <!-- //코치 마크 내용 -->
+            </div>
+            <!-- coach mark -->
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

@@ -12,7 +12,9 @@ label {
 }
 .krds-check-area {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--krds-gap-6);
+
   &.chk-column {
     flex-direction: column;
   }

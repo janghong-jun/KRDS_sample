@@ -45,7 +45,7 @@ const path = {
 
 const clean = () => del([dist]);
 /* =========================
-   DEV SCSS (최속)
+   SCSS (DEV)
 ========================= */
 gulp.task('sass', () => {
   return gulp
@@ -54,6 +54,22 @@ gulp.task('sass', () => {
     .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(path.css))
+    .pipe(browser.stream({ match: '**/*.css' }));
+});
+
+/* =========================
+   GUIDE SCSS (DEV)
+========================= */
+const guideScssEntry = `${src}/resources/scss/guide/guide.scss`;
+const guideCssOutput = `${src}/guide/resources/css`;
+
+gulp.task('guide-sass', () => {
+  return gulp
+    .src(guideScssEntry, { base: `${src}/resources/scss/guide` })
+    .pipe(sourcemap.init())
+    .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
+    .pipe(sourcemap.write('.'))
+    .pipe(gulp.dest(guideCssOutput))
     .pipe(browser.stream({ match: '**/*.css' }));
 });
 
@@ -74,6 +90,7 @@ gulp.task('serv', () => {
   });
 
   gulp.watch(path.scssWatch, gulp.series('sass'));
+  gulp.watch(guideScssEntry, gulp.series('guide-sass'));
   gulp.watch(path.js).on('change', reload);
   gulp.watch(path.images).on('change', reload);
   gulp.watch(path.html).on('change', reload);
@@ -116,6 +133,23 @@ const js = () => gulp.src(path.js).pipe(gulp.dest(`${dist}/resources/js`));
 
 const guideResources = () =>
   gulp.src(path.guideResources).pipe(gulp.dest(`${dist}/guide/resources`));
+
+// BUILD TASK
+const guideSassBuild = () => {
+  return gulp
+    .src(guideScssEntry, { base: `${src}/resources/scss/guide` })
+    .pipe(sourcemap.init())
+    .pipe(gulpSass({ outputStyle: 'expanded' }))
+    .pipe(
+      autoprefix({
+        overrideBrowserslist: ['> 0.2% in KR', 'cover 99.5% in KR', 'not dead'],
+        cascade: false,
+      })
+    )
+    .pipe(postcss([removeEmptyRulesWithComments()]))
+    .pipe(sourcemap.write('.'))
+    .pipe(gulp.dest(guideCssOutput));
+};
 /* =========================
    COMMANDS
 ========================= */
@@ -123,5 +157,14 @@ gulp.task('default', gulp.series('sass', 'serv'));
 
 gulp.task(
   'build',
-  gulp.series(clean, html, fonts, imageBuild, sassBuild, js, guideResources)
+  gulp.series(
+    clean,
+    html,
+    fonts,
+    imageBuild,
+    sassBuild,
+    js,
+    guideResources,
+    guideSassBuild
+  )
 );

@@ -11,7 +11,11 @@
       href="../../resources/css/output.css"
       type="text/css"
     />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
     <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
     <script src="../../resources/js/component/ui-script.js"></script>
   </head>
   <body>
@@ -21,8 +25,21 @@
       <!--# include virtual="../../components/_header.html" -->
 
       <div id="container">
+        <!-- breadcrumb -->
+        <nav
+          class="krds-breadcrumb-wrap"
+          aria-label="현재 경로"
+          id="breadcrumb"
+        >
+          <ol class="breadcrumb">
+            <li class="home"><a href="#" class="txt">홈</a></li>
+            <li><a href="#" class="txt">서비스 신청</a></li>
+            <li><a href="#" class="txt">서비스 신청2</a></li>
+          </ol>
+        </nav>
+        <!-- /breadcrumb -->
         <!-- visual banner -->
-        <div class="main-vban-wrap bg">
+        <div class="main-vban-wrap">
           <div class="inner">
             <div class="vb-swiper" style="position: relative">
               <div
@@ -119,7 +136,7 @@
           const vbSwiper = new Swiper(vbContainer, {
             slidesPerView: 1,
             spaceBetween: 0,
-            speed: 400,
+            speed: 500,
             loop: true,
             a11y: { enabled: true },
             navigation: {
@@ -169,75 +186,77 @@
 
         <!-- 상세 배너 -->
         <div class="main-d-ban-swiper">
-          <div
-            class="swiper detail-container"
-            role="region"
-            aria-roledescription="carousel"
-            aria-label="추천 콘텐츠, 자동 재생 중"
-            tabindex="0"
-          >
-            <ul class="swiper-wrapper">
-              <li
-                class="swiper-slide"
-                role="group"
-                aria-roledescription="slide"
-                aria-label="1 of 2"
-              >
-                <div class="text">
-                  <p class="cate">서브타이틀</p>
-                  <p class="tit">타이틀</p>
-                </div>
-              </li>
-              <li
-                class="swiper-slide"
-                role="group"
-                aria-roledescription="slide"
-                aria-label="2 of 2"
-              >
-                <div class="text">
-                  <p class="cate">서브타이틀</p>
-                  <p class="tit">타이틀</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="swiper-indicator">
+          <div class="inner">
             <div
-              class="swiper-pagination"
-              aria-live="polite"
-              aria-atomic="true"
-            ></div>
-            <div class="swiper-controller">
-              <button
-                type="button"
-                class="swiper-button-play"
-                aria-label="슬라이드 자동 재생"
-              >
-                <span class="sr-only">슬라이드 재생</span>
-              </button>
-              <button
-                type="button"
-                class="swiper-button-stop"
-                aria-label="슬라이드 자동 재생 정지, 현재 재생 중"
-              >
-                <span class="sr-only">슬라이드 멈춤</span>
-              </button>
+              class="swiper detail-container"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="추천 콘텐츠, 자동 재생 중"
+              tabindex="0"
+            >
+              <ul class="swiper-wrapper">
+                <li
+                  class="swiper-slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="1 of 2"
+                >
+                  <div class="text">
+                    <p class="cate">서브타이틀</p>
+                    <p class="tit">타이틀</p>
+                  </div>
+                </li>
+                <li
+                  class="swiper-slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="2 of 2"
+                >
+                  <div class="text">
+                    <p class="cate">서브타이틀</p>
+                    <p class="tit">타이틀</p>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="swiper-navigation">
-              <button
-                type="button"
-                class="swiper-button-prev"
-                aria-label="이전 슬라이드"
-              >
-                <span class="sr-only">이전</span>
-              </button>
-              <button
-                type="button"
-                class="swiper-button-next"
-                aria-label="다음 슬라이드"
-              >
-                <span class="sr-only">다음</span>
-              </button>
+            <div class="swiper-indicator">
+              <div
+                class="swiper-pagination"
+                aria-live="polite"
+                aria-atomic="true"
+              ></div>
+              <div class="swiper-controller">
+                <button
+                  type="button"
+                  class="swiper-button-play"
+                  aria-label="슬라이드 자동 재생"
+                >
+                  <span class="sr-only">슬라이드 재생</span>
+                </button>
+                <button
+                  type="button"
+                  class="swiper-button-stop"
+                  aria-label="슬라이드 자동 재생 정지, 현재 재생 중"
+                >
+                  <span class="sr-only">슬라이드 멈춤</span>
+                </button>
+              </div>
+              <div class="swiper-navigation">
+                <button
+                  type="button"
+                  class="swiper-button-prev"
+                  aria-label="이전 슬라이드"
+                >
+                  <span class="sr-only">이전</span>
+                </button>
+                <button
+                  type="button"
+                  class="swiper-button-next"
+                  aria-label="다음 슬라이드"
+                >
+                  <span class="sr-only">다음</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -249,10 +268,10 @@
           const eleBanSwiper = new Swiper(detailContainer, {
             slidesPerView: 1,
             spaceBetween: 16,
-            speed: 400,
+            speed: 500,
             loop: true,
             autoplay: {
-              delay: 2500,
+              delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             },
