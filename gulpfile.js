@@ -41,6 +41,7 @@ const path = {
   font: `${src}/resources/fonts/**/*.{otf,woff,woff2}`,
   html: [`${src}/**/*.html`, `!${src}/components/**/*.html`],
   guideResources: `${src}/guide/resources/**/*`,
+  adminResources: `${src}/resources/admin/**/*`,
 };
 
 const clean = () => del([dist]);
@@ -150,6 +151,8 @@ const guideSassBuild = () => {
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(guideCssOutput));
 };
+const adminResources = () =>
+  gulp.src(path.adminResources).pipe(gulp.dest(`${dist}/resources/admin`));
 /* =========================
    COMMANDS
 ========================= */
@@ -165,6 +168,7 @@ gulp.task(
     sassBuild,
     js,
     guideResources,
-    guideSassBuild
+    guideSassBuild,
+    adminResources
   )
 );

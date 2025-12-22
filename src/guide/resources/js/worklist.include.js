@@ -8,42 +8,45 @@
 // InfoSection >> LinkInfo
 // ------------------------
 function incLinkInfo() {
-  var path = "./";
+  var path = './';
   // var path_ADMIN = 	'../../../ADMIN/html/_ui_guide/';
 
   var str =
-    "" +
-    "<table>" +
-    "	<caption>Link info</caption>" +
+    '' +
+    '<table>' +
+    '	<caption>Link info</caption>' +
     '	<colgroup><col width="100px" /><col width="auto" /></colgroup>' +
-    "	<tbody>" +
-    "		<tr>" +
+    '	<tbody>' +
+    '		<tr>' +
     '			<th scope="row">Work</th>' +
     '			<td class="tobe_section">' +
     '				<a href="' +
     path +
-    'worklist.html" class="btn btn_app"><span>App</span></span></a>' +
+    'worklist.html" class="btn btn_app"><span>Front</span></span></a>' +
+    '				<a href="' +
+    path +
+    'worklist.admin.html" class="btn btn_admin"><span>Admin</span></a>' +
     '				<a href="' +
     path +
     'worklist.guide.html" class="btn btn_guide"><span>Guide</span></a>' +
+    '			</td>' +
+    '		</tr>' +
+    '		<tr>' +
+    '			<th scope="row">ETC</th>' +
+    '			<td class="etc_section">' +
+    '				<a href="' +
+    path +
+    'tools.table.html" class="btn" target="_blank"><span>Data</span></a>' +
     '				<a href="' +
     path +
     'worklist.directory.html" class="btn btn_directory"><span>Dir</span></a>' +
     '				<a href="' +
     path +
     'worklist.todo.html" class="btn btn_todo"><span>Todo</span></a>' +
-    "			</td>" +
-    "		</tr>" +
-    "		<tr>" +
-    '			<th scope="row">Util</th>' +
-    '			<td class="etc_section">' +
-    '				<a href="' +
-    path +
-    'tools.table.html" class="btn" target="_blank"><span>Data</span></a>' +
-    "			</td>" +
-    "		</tr>" +
-    "	</tbody>" +
-    "</table>";
+    '			</td>' +
+    '		</tr>' +
+    '	</tbody>' +
+    '</table>';
   document.write(str);
 }
 
@@ -51,14 +54,14 @@ function incLinkInfo() {
 // Table >> Thead
 // ------------------------
 function incThead() {
-  var pageType = document.body.getAttribute("data-page");
-  var str = "";
+  var pageType = document.body.getAttribute('data-page');
+  var str = '';
 
-  if (pageType == "worklist" || pageType == "app") {
+  if (pageType == 'worklist' || pageType == 'front' || pageType == 'admin') {
     str =
-      "" +
-      "<caption>작업 리스트: worklist</caption>" +
-      "<colgroup>" +
+      '' +
+      '<caption>작업 리스트: worklist</caption>' +
+      '<colgroup>' +
       '	<col class="num" 				style="width:35px"	 	/> 		<!-- 번호 -->' +
       '	<col class="depth2" 		style="width:10%"		 	/> 		<!-- 2Depth -->' +
       '	<col class="depth3" 		style="width:10%"		 	/> 		<!-- 3Depth -->' +
@@ -74,9 +77,9 @@ function incThead() {
       '	<col class="mdate" 			style="width:80px"		/> 		<!-- 고객검수 -->' +
       '	<col class="tag" 				style="width:100px"		 	/> 		<!-- Tag -->' +
       '	<col class="log" 				style="width:auto"		/> 		<!-- Log -->' +
-      "</colgroup>" +
-      "<thead>" +
-      "	<tr>" +
+      '</colgroup>' +
+      '<thead>' +
+      '	<tr>' +
       '		<th class="num"  			scope="col">No</th>' +
       '		<th class="depth2"  	scope="col">2Depth</th>' +
       '		<th class="depth3"  	scope="col">3Depth</th>' +
@@ -92,13 +95,13 @@ function incThead() {
       '		<th class="mdate"  		scope="col">고객검수</th>' +
       '		<th class="tag"  			scope="col">Tag</th>' +
       '		<th class="log"  			scope="col">Log</th>' +
-      "	</tr>" +
-      "</thead>";
-  } else if (pageType == "guide") {
+      '	</tr>' +
+      '</thead>';
+  } else if (pageType == 'guide') {
     str =
-      "" +
-      "<caption>작업 리스트: guide</caption>" +
-      "<colgroup>" +
+      '' +
+      '<caption>작업 리스트: guide</caption>' +
+      '<colgroup>' +
       '	<col class="num" 				style="width:3%" 			/> 		<!-- 번호 -->' +
       '	<col class="depth2" 		style="width:11%" 		/> 		<!-- 2Depth -->' +
       '	<col class="depth3" 		style="width:11%" 		/> 		<!-- 3Depth -->' +
@@ -110,9 +113,9 @@ function incThead() {
       '	<col class="info" 			style="width:12%" 		/> 		<!-- Info -->' +
       '	<col class="tag" 				style="width:12%" 		/> 		<!-- Tag -->' +
       '	<col class="log" 				style="width:auto" 		/> 		<!-- Log -->' +
-      "</colgroup>" +
-      "<thead>" +
-      "	<tr>" +
+      '</colgroup>' +
+      '<thead>' +
+      '	<tr>' +
       '		<th class="num"				scope="col">No</th>' +
       '		<th class="depth2" 		scope="col">2Depth</th>' +
       '		<th class="depth3" 		scope="col">3Depth</th>' +
@@ -124,13 +127,13 @@ function incThead() {
       '		<th class="info" 			scope="col">Info</th>' +
       '		<th class="tag" 			scope="col">Tag</th>' +
       '		<th class="log" 			scope="col">Log</th>' +
-      "	</tr>" +
-      "</thead>";
-  } else if (pageType == "todo") {
+      '	</tr>' +
+      '</thead>';
+  } else if (pageType == 'todo') {
     str =
-      "" +
-      "<caption>작업 리스트: todo</caption>" +
-      "<colgroup>" +
+      '' +
+      '<caption>작업 리스트: todo</caption>' +
+      '<colgroup>' +
       '	<col class="num" 				style="width:35px" 		/> 		<!-- 번호 -->' +
       '	<col class="id" 				style="width:80px" 		/> 		<!-- index -->' +
       '	<col class="depth2" 		style="width:auto" 			/> 		<!-- Cate -->' +
@@ -142,9 +145,9 @@ function incThead() {
       '	<col class="rdate" 			style="width:80px" 		/> 		<!-- 완료일 -->' +
       '	<col class="tag" 				style="width:10%" 		/> 		<!-- Tag -->' +
       '	<col class="log" 				style="width:10%" 		/> 		<!-- Log -->' +
-      "</colgroup>" +
-      "<thead>" +
-      "	<tr>" +
+      '</colgroup>' +
+      '<thead>' +
+      '	<tr>' +
       '		<th class="num"  			scope="col">No</th>' +
       '		<th class="id"  			scope="col">ID</th>' +
       '		<th class="depth2"  	scope="col">Cate</th>' +
@@ -156,13 +159,13 @@ function incThead() {
       '		<th class="rdate"  		scope="col">완료일</th>' +
       '		<th class="tag"  			scope="col">Tag</th>' +
       '		<th class="log"  			scope="col">Log</th>' +
-      "	</tr>" +
-      "</thead>";
-  } else if (pageType == "directory") {
+      '	</tr>' +
+      '</thead>';
+  } else if (pageType == 'directory') {
     str =
-      "" +
-      "<caption>작업 리스트: directory</caption>" +
-      "<colgroup>" +
+      '' +
+      '<caption>작업 리스트: directory</caption>' +
+      '<colgroup>' +
       '	<col class="num" 				style="width:3%" 			/> 		<!-- 번호 -->' +
       '	<col class="depth2" 		style="width:7%" 			/> 		<!-- 2Depth -->' +
       '	<col class="depth3" 		style="width:7%" 			/> 		<!-- 3Depth -->' +
@@ -177,9 +180,9 @@ function incThead() {
       '	<col class="info" 			style="width:15%" 		/> 		<!-- Tag -->' +
       '	<col class="tag" 				style="width:11%" 		/> 		<!-- Tag -->' +
       '	<col class="log" 				style="width:auto" 		/> 		<!-- Log -->' +
-      "</colgroup>" +
-      "<thead>" +
-      "	<tr>" +
+      '</colgroup>' +
+      '<thead>' +
+      '	<tr>' +
       '		<th class="num"  			scope="col">No</th>' +
       '		<th class="depth2"  	scope="col">2Depth</th>' +
       '		<th class="depth3"  	scope="col">3Depth</th>' +
@@ -194,8 +197,8 @@ function incThead() {
       '		<th class="info"  		scope="col">Info</th>' +
       '		<th class="tag"  			scope="col">Tag</th>' +
       '		<th class="log"  			scope="col">Log</th>' +
-      "	</tr>" +
-      "</thead>";
+      '	</tr>' +
+      '</thead>';
   }
 
   document.write(str);
@@ -210,21 +213,21 @@ function incThead() {
  * false or blank: Enabled Unchecked
  **/
 $(document).ready(function () {
-  var pageType = document.body.getAttribute("data-page");
+  var pageType = document.body.getAttribute('data-page');
 
   var pageOption = {
-    version: "worklist",
+    version: 'worklist',
     desktop: {
       setting: {
-        data: ["O", true, true, true],
-        option: [true, true, "X", false],
+        data: ['O', true, true, true],
+        option: [true, true, 'X', false],
         //:[No,		2D,		3D,			4D,			5D, 		6D, 		Page, 	Path, 	Type, 	기획, 		디자인,	담당자,	예정,		완료, 		검대상,		고객검,		Tag,		Log
         search: [
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
           true,
           true,
           true,
@@ -240,14 +243,14 @@ $(document).ready(function () {
           true,
         ],
         table: [
-          "O",
-          "O",
+          'O',
+          'O',
           true,
           true,
           true,
           true,
-          "O",
-          "O",
+          'O',
+          'O',
           true,
           true,
           true,
@@ -263,38 +266,38 @@ $(document).ready(function () {
     },
     mobile: {
       setting: {
-        data: ["O", "X", false, false],
-        option: [false, true, "X", false],
+        data: ['O', 'X', false, false],
+        option: [false, true, 'X', false],
         //:[No,		2D,		3D,			4D,			5D, 		6D, 		Page, 	Path, 	Type, 	기획, 		디자인,	담당자,	예정,		완료, 		검대상,		고객검,		Tag,		Log
         search: [
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
-          "X",
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
+          'X',
         ],
         table: [
-          "O",
-          "O",
+          'O',
+          'O',
           true,
           false,
           false,
           false,
           false,
-          "O",
+          'O',
           false,
           false,
           false,
@@ -313,46 +316,46 @@ $(document).ready(function () {
     },
   };
 
-  if (pageType === "worklist.asis") {
+  if (pageType === 'worklist.asis') {
     pageOption = {
-      version: "worklist.asis",
+      version: 'worklist.asis',
       desktop: {
         setting: {
-          data: ["O", false, true, true],
-          option: [true, true, "X", false],
+          data: ['O', false, true, true],
+          option: [true, true, 'X', false],
           //:[No,		2D,		3D,			4D,			5D, 		type, 	Path, 	완료, 		Tag,		Log
-          search: ["X", "X", "X", "X", "X", true, "X", true, true, true],
-          table: ["O", "O", true, true, true, true, "O", true, true, true],
+          search: ['X', 'X', 'X', 'X', 'X', true, 'X', true, true, true],
+          table: ['O', 'O', true, true, true, true, 'O', true, true, true],
         },
       },
       mobile: {
         setting: {
-          data: ["O", "X", false, false],
-          option: [false, true, "X", false],
+          data: ['O', 'X', false, false],
+          option: [false, true, 'X', false],
           //:[No,		2D,		3D,			4D,			5D, 			type, 	Path, 	완료, 			Tag,		Log
-          search: ["X", "X", "X", "X", "X", "X", "X", "X", "X", true],
-          table: ["O", "O", false, false, false, true, "O", false, false, true],
+          search: ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', true],
+          table: ['O', 'O', false, false, false, true, 'O', false, false, true],
         },
         headerFolding: {
           headerClose: true,
         },
       },
     };
-  } else if (pageType === "guide") {
+  } else if (pageType === 'guide') {
     pageOption = {
-      version: "worklist.guide",
+      version: 'worklist.guide',
       desktop: {
         setting: {
-          data: ["O", false, true, true],
-          option: [false, true, "X", false],
+          data: ['O', false, true, true],
+          option: [false, true, 'X', false],
           //:[No,		2D,			3D,			4D,			page, 	path,		담당자,	Date,		Info,		Tag, 		Log
           search: [
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
             true,
             true,
             false,
@@ -360,8 +363,8 @@ $(document).ready(function () {
             true,
           ],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             true,
             true,
             false,
@@ -376,13 +379,13 @@ $(document).ready(function () {
       },
       mobile: {
         setting: {
-          data: ["O", "X", false, false],
-          option: [false, true, "X", false],
+          data: ['O', 'X', false, false],
+          option: [false, true, 'X', false],
           //:[No,		2D,			3D,			4D,			page, 	path,		담당자,	Date,		Info,		Tag, 		Log
-          search: ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X"],
+          search: ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             false,
             false,
             true,
@@ -399,19 +402,19 @@ $(document).ready(function () {
         },
       },
     };
-  } else if (pageType === "todo") {
+  } else if (pageType === 'todo') {
     pageOption = {
-      version: "worklist.todo",
+      version: 'worklist.todo',
       desktop: {
         setting: {
-          data: ["O", false, false, true],
-          option: [true, true, "X", true],
+          data: ['O', false, false, true],
+          option: [true, true, 'X', true],
           //:[No,		ID,		Cate,		내용,		path,		요청자,	담당자,	요청일, 완료일,  	Tag, 		Log
           search: [
-            "X",
-            "X",
-            "X",
-            "X",
+            'X',
+            'X',
+            'X',
+            'X',
             false,
             true,
             true,
@@ -421,8 +424,8 @@ $(document).ready(function () {
             true,
           ],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             true,
             true,
             true,
@@ -437,13 +440,13 @@ $(document).ready(function () {
       },
       mobile: {
         setting: {
-          data: ["O", "X", false, false],
-          option: [false, true, "X", false],
+          data: ['O', 'X', false, false],
+          option: [false, true, 'X', false],
           //:[No,		ID,		Cate,		내용,		path,  	요청자,	담당자,	요청일, 완료일, 		Tag, 		Log
-          search: ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X"],
+          search: ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             false,
             false,
             false,
@@ -460,24 +463,24 @@ $(document).ready(function () {
         },
       },
     };
-  } else if (pageType === "directory") {
+  } else if (pageType === 'directory') {
     pageOption = {
-      version: "worklist.directory",
+      version: 'worklist.directory',
       desktop: {
         setting: {
-          data: ["O", false, true, false],
-          option: [false, true, "X", false],
+          data: ['O', false, true, false],
+          option: [false, true, 'X', false],
           //:[No,		2D,			3D,			4D,			5D, 		6D, 		Type, 	path,		path2,	담당,		완료,		Info, 	Tag, 		Log
           search: [
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
             true,
-            "X",
-            "X",
+            'X',
+            'X',
             true,
             true,
             true,
@@ -485,8 +488,8 @@ $(document).ready(function () {
             true,
           ],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             true,
             true,
             true,
@@ -504,28 +507,28 @@ $(document).ready(function () {
       },
       mobile: {
         setting: {
-          data: ["O", "X", false, false],
-          option: [false, true, "X", false],
+          data: ['O', 'X', false, false],
+          option: [false, true, 'X', false],
           //:[No,		2D,			3D,			4D,			5D, 		6D, 		Type, 	path,		path2,	담당,		완료,		Info,		Tag, 		Log
           search: [
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
-            "X",
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
+            'X',
             true,
             true,
             true,
           ],
           table: [
-            "O",
-            "O",
+            'O',
+            'O',
             true,
             true,
             true,
