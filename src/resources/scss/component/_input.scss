@@ -121,7 +121,7 @@ $mode-setting: light;
   &:focus,
   &.focus {
     border-color: var(--krds-input--color-border-active);
-    border-width: 2px;
+    border-width: 0.2rem;
     outline: none;
     box-shadow: none;
   }
@@ -174,7 +174,7 @@ textarea {
   .krds-input {
     background-color: var(--krds-input--color-surface-error);
     border-color: var(--krds-input--color-border-error);
-    border-width: 2px;
+    border-width: 0.2rem;
     color: var(--krds-input--color-text-error);
     &:focus {
       border-color: var(--krds-input--color-border-active);

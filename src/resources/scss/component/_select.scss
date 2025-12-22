@@ -144,7 +144,7 @@ $mode-setting: light;
   }
   &:focus {
     border-color: var(--krds-form-select--color-border-active);
-    border-width: 2px;
+    border-width: 0.2rem;
     outline: none;
     box-shadow: none;
     color: var(--krds-form-select--color-text-active);
@@ -154,7 +154,7 @@ $mode-setting: light;
   }
   &.is-error {
     border-color: var(--krds-light-color-text-point);
-    border-width: 2px;
+    border-width: 0.2rem;
   }
   &[disabled] {
     @include icon-set(ico_angle_disabled, $effect: pure);
@@ -169,7 +169,7 @@ $mode-setting: light;
 .is-error {
   .krds-form-select {
     border-color: var(--krds-light-color-text-point);
-    border-width: 2px;
+    border-width: 0.2rem;
   }
 }
 //고대비모드
