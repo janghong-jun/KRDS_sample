@@ -56,7 +56,7 @@
 .swiper-android .swiper-slide,
 .swiper-ios .swiper-slide,
 .swiper-wrapper {
-  transform: translate3d(0px, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .swiper-horizontal {
@@ -97,7 +97,7 @@
 }
 
 .swiper-3d.swiper-css-mode .swiper-wrapper {
-  perspective: 1200px;
+  perspective: 120rem;
 }
 
 .swiper-3d .swiper-wrapper {
@@ -105,7 +105,7 @@
 }
 
 .swiper-3d {
-  perspective: 1200px;
+  perspective: 120rem;
 }
 
 .swiper-3d .swiper-cube-shadow,
@@ -270,7 +270,7 @@
 }
 
 :root {
-  --swiper-navigation-size: 44px;
+  --swiper-navigation-size: 4.4rem;
 }
 
 .swiper-button-next,
@@ -322,13 +322,13 @@
 
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-  left: var(--swiper-navigation-sides-offset, 10px);
+  left: var(--swiper-navigation-sides-offset, 1rem);
   right: auto;
 }
 
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: var(--swiper-navigation-sides-offset, 10px);
+  right: var(--swiper-navigation-sides-offset, 1rem);
   left: auto;
 }
 
@@ -353,7 +353,7 @@
 
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: var(--swiper-navigation-sides-offset, 10px);
+  right: var(--swiper-navigation-sides-offset, 1rem);
   left: auto;
 }
 
@@ -383,7 +383,7 @@
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: var(--swiper-pagination-bottom, 8px);
+  bottom: var(--swiper-pagination-bottom, 0.8rmn);
   top: var(--swiper-pagination-top, auto);
   left: 0;
   width: 100%;
@@ -424,8 +424,8 @@
 }
 
 .swiper-pagination-bullet {
-  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 0.8rmn));
+  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 0.8rmn));
   display: inline-block;
   border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
   background: var(--swiper-pagination-bullet-inactive-color, #000);
@@ -456,15 +456,15 @@ button.swiper-pagination-bullet {
 
 .swiper-pagination-vertical.swiper-pagination-bullets,
 .swiper-vertical > .swiper-pagination-bullets {
-  right: var(--swiper-pagination-right, 8px);
+  right: var(--swiper-pagination-right, 0.8rmn);
   left: var(--swiper-pagination-left, auto);
   top: 50%;
-  transform: translate3d(0px, -50%, 0);
+  transform: translate3d(0, -50%, 0);
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+  margin: var(--swiper-pagination-bullet-vertical-gap, 0.6rmn) 0;
   display: block;
 }
 
@@ -472,7 +472,7 @@ button.swiper-pagination-bullet {
 .swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
   top: 50%;
   transform: translateY(-50%);
-  width: 8px;
+  width: 0.8rem;
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
@@ -483,7 +483,7 @@ button.swiper-pagination-bullet {
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 0.4rmn);
 }
 
 .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
@@ -531,7 +531,7 @@ button.swiper-pagination-bullet {
 .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
 .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
   width: 100%;
-  height: var(--swiper-pagination-progressbar-size, 4px);
+  height: var(--swiper-pagination-progressbar-size, 0.4rmn);
   left: 0;
   top: 0;
 }
@@ -540,7 +540,7 @@ button.swiper-pagination-bullet {
 .swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,
 .swiper-pagination-progressbar.swiper-pagination-vertical,
 .swiper-vertical > .swiper-pagination-progressbar {
-  width: var(--swiper-pagination-progressbar-size, 4px);
+  width: var(--swiper-pagination-progressbar-size, 0.4rmn);
   height: 100%;
   left: 0;
   top: 0;
@@ -551,7 +551,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-scrollbar {
-  border-radius: var(--swiper-scrollbar-border-radius, 10px);
+  border-radius: var(--swiper-scrollbar-border-radius, 1rem);
   position: relative;
   touch-action: none;
   background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
@@ -566,10 +566,10 @@ button.swiper-pagination-bullet {
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   position: absolute;
   left: var(--swiper-scrollbar-sides-offset, 1%);
-  bottom: var(--swiper-scrollbar-bottom, 4px);
+  bottom: var(--swiper-scrollbar-bottom, 0.4rmn);
   top: var(--swiper-scrollbar-top, auto);
   z-index: 50;
-  height: var(--swiper-scrollbar-size, 4px);
+  height: var(--swiper-scrollbar-size, 0.4rmn);
   width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
 }
 
@@ -577,10 +577,10 @@ button.swiper-pagination-bullet {
 .swiper-vertical > .swiper-scrollbar {
   position: absolute;
   left: var(--swiper-scrollbar-left, auto);
-  right: var(--swiper-scrollbar-right, 4px);
+  right: var(--swiper-scrollbar-right, 0.4rmn);
   top: var(--swiper-scrollbar-sides-offset, 1%);
   z-index: 50;
-  width: var(--swiper-scrollbar-size, 4px);
+  width: var(--swiper-scrollbar-size, 0.4rmn);
   height: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
 }
 
@@ -589,7 +589,7 @@ button.swiper-pagination-bullet {
   width: 100%;
   position: relative;
   background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, 0.5));
-  border-radius: var(--swiper-scrollbar-border-radius, 10px);
+  border-radius: var(--swiper-scrollbar-border-radius, 1rem);
   left: 0;
   top: 0;
 }
@@ -721,7 +721,7 @@ button.swiper-pagination-bullet {
   top: 0;
   bottom: 0;
   right: 0;
-  filter: blur(50px);
+  filter: blur(5rem);
 }
 
 .swiper-cube .swiper-slide-next + .swiper-slide {
