@@ -32,13 +32,13 @@
     </style>
     <script>
       $(document).ready(function () {
-        $(".tobe_section").find(".btn_directory").eq(0).addClass("active");
+        $('.tobe_section').find('.btn_directory').eq(0).addClass('active');
       });
     </script>
   </head>
   <body data-page="directory">
     <div id="wrap">
-      <h1>하이코칭</h1>
+      <h1>Hi-Coaching</h1>
       <!-- header -->
       <div class="header">
         <div class="tab_nav">
@@ -204,10 +204,10 @@
     <script>
       (function connect() {
         const origin = location.origin; // http://localhost:3000
-        const evt = new EventSource(origin + "/__reload");
+        const evt = new EventSource(origin + '/__reload');
 
         evt.onmessage = (e) => {
-          if (e.data === "reload") {
+          if (e.data === 'reload') {
             location.reload();
           }
         };

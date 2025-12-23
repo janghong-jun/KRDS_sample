@@ -9,7 +9,6 @@
 // ------------------------
 function incLinkInfo() {
   var path = './';
-  // var path_ADMIN = 	'../../../ADMIN/html/_ui_guide/';
 
   var str =
     '' +
@@ -28,12 +27,12 @@ function incLinkInfo() {
     'worklist.admin.html" class="btn btn_admin"><span>Admin</span></a>' +
     '				<a href="' +
     path +
-    'worklist.guide.html" class="btn btn_guide"><span>Guide</span></a>' +
+    'worklist.guide.html" class="btn btn_guide"><span>KRDS</span></a>' +
     '			</td>' +
     '		</tr>' +
     '		<tr>' +
     '			<th scope="row">ETC</th>' +
-    '			<td class="etc_section">' +
+    '			<td class="tobe_section">' +
     '				<a href="' +
     path +
     'tools.table.html" class="btn" target="_blank"><span>Data</span></a>' +
