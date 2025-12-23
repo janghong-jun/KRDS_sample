@@ -2499,7 +2499,7 @@ input:checked:disabled + .lb-checkbox:after {
   }
 }
 
-@media screen and (max-width: 102.4rem) {
+@media screen and (max-width: 1024px) {
   * {
     word-break: keep-all;
     word-wrap: break-word;

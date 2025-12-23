@@ -1196,7 +1196,7 @@ col[style*='width:290px'] + col[style*='width:auto'] {
   display: none;
 }
 
-@media screen and (max-width: 102.4rem) {
+@media screen and (max-width: 1024px) {
   * {
     letter-spacing: -0.1rem;
   }
@@ -1428,7 +1428,7 @@ col[style*='width:290px'] + col[style*='width:auto'] {
   }
 }
 
-@media screen and (max-width: 145rem) {
+@media screen and (max-width: 1450px) {
   .current-situation li .data {
     width: calc(100% - 22rem);
   }
@@ -1436,7 +1436,7 @@ col[style*='width:290px'] + col[style*='width:auto'] {
     margin: 2rem auto;
   }
 }
-@media screen and (max-width: 76.8rem) {
+@media screen and (max-width: 768px) {
   .frm-area > strong {
     display: block;
     margin: 1rem 0 0.5rem 0;
@@ -1477,7 +1477,7 @@ col[style*='width:290px'] + col[style*='width:auto'] {
     padding-right: 2rem;
   }
 }
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 375px) {
   table {
     font-size: 1.3rem !important;
   }
