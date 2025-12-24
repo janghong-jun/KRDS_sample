@@ -64,12 +64,12 @@ function incThead() {
       '	<col class="num" 				style="width:35px"	 	/> 		<!-- 번호 -->' +
       '	<col class="depth2" 		style="width:10%"		 	/> 		<!-- 2Depth -->' +
       '	<col class="depth3" 		style="width:10%"		 	/> 		<!-- 3Depth -->' +
-      '	<col class="depth4" 		style="width:10%"		 	/> 		<!-- 4Depth -->' +
-      '	<col class="depth5" 		style="width:10%"		 	/> 		<!-- 5Depth -->' +
-      '	<col class="type" 			style="width:80px"		/> 		<!-- Type -->' +
-      '	<col class="path" 			style="width:130px"	 	/> 		<!-- 화면 ID -->' +
+      '	<col class="depth4" 		style="width:5%"		 	/> 		<!-- 4Depth -->' +
+      '	<col class="depth5" 		style="width:5%"		 	/> 		<!-- 5Depth -->' +
+      '	<col class="type" 			style="width:50px"		/> 		<!-- Type -->' +
+      '	<col class="path" 			style="width:110px"	 	/> 		<!-- 화면 ID -->' +
       '	<col class="page" 			style="width:150px"		 	/> 		<!-- 화면명 -->' +
-      '	<col class="corder" 		style="width:80px"		/> 		<!-- 담당자 -->' +
+      '	<col class="corder" 		style="width:60px"		/> 		<!-- 담당자 -->' +
       '	<col class="ddate" 			style="width:80px"		/> 		<!-- 예정일 -->' +
       '	<col class="rdate" 			style="width:80px"		/> 		<!-- 완료일 -->' +
       '	<col class="pdate" 			style="width:80px"		/> 		<!-- 검수대상 -->' +
