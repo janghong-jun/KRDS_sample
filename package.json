@@ -4,7 +4,7 @@
   "description": "본 프로젝트는 Gulp로 구성 되어 있으며 다음 환경에서 정상적인 개발이 가능합니다.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node --no-deprecation node_modules/gulp/bin/gulp.js build"
   },
   "author": "",
   "license": "ISC",
