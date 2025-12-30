@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <!--# include virtual="../../components/_admin-head2.html" -->
+    <!--# include virtual="../../../components/_admin-head.html" -->
     <script type="text/javascript">
-      pageInfo = { mid: '3' };
+      pageInfo = { mid: '3', sid: '1' };
     </script>
   </head>
 
@@ -20,10 +20,7 @@
       <main class="main-wrap" id="content">
         <div class="sub-nav"></div>
         <section class="main-conts">
-          <h2>센터 관리</h2>
-          <ul class="page-nav">
-            <li class="current"><a href="#">센터 관리</a></li>
-          </ul>
+          <h2>관리자 계정관리</h2>
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
@@ -32,33 +29,37 @@
               </colgroup>
               <tbody>
                 <tr>
-                  <th scope="row">조건</th>
+                  <th scope="row">권한 등급</th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rp01" name="rpBtn" />
+                        <input type="radio" id="rp01" name="rpBtn" checked="" />
                         <label for="rp01" class="lb-radio"
-                          ><span>센터명</span></label
+                          ><span>마스터</span></label
                         >
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rp02" name="rpBtn" />
                         <label for="rp02" class="lb-radio"
-                          ><span>책임자명</span></label
+                          ><span>슈퍼</span></label
                         >
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rp03" name="rpBtn" />
                         <label for="rp03" class="lb-radio"
-                          ><span>센터 전화번호</span></label
+                          ><span>교사</span></label
                         >
                       </span>
-                      <span class="lb-item">
-                        <input type="radio" id="rp04" name="rpBtn" />
-                        <label for="rp04" class="lb-radio"
-                          ><span>센터 이메일</span></label
-                        >
-                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="select01">소속 센터</label></th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select01">
+                        <option value="">목동점</option>
+                      </select>
                     </div>
                   </td>
                 </tr>
@@ -158,20 +159,20 @@
             <table>
               <colgroup>
                 <col style="width: 88px" />
-                <col style="width: auto" />
                 <col style="width: 100px" />
                 <col style="width: auto" />
-                <col style="width: auto" />
+                <col style="width: 150px" />
+                <col style="width: 88px" />
                 <col style="width: 88px" />
                 <col style="width: 100px" />
               </colgroup>
               <thead>
                 <tr>
                   <th scope="col">번호</th>
-                  <th scope="col">센터명</th>
-                  <th scope="col">책임자명</th>
-                  <th scope="col">센터 전화번호</th>
-                  <th scope="col">센터 이메일</th>
+                  <th scope="col">권한 등급</th>
+                  <th scope="col">이름</th>
+                  <th scope="col">이메일</th>
+                  <th scope="col">소속 센터</th>
                   <th scope="col">사용여부</th>
                   <th scope="col">등록일</th>
                 </tr>
@@ -179,93 +180,96 @@
               <tbody>
                 <tr>
                   <td>100</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>99</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>98</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>97</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>96</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>95</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>94</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>93</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>92</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
                 </tr>
                 <tr>
                   <td>91</td>
-                  <td><a href="#">MKB 역삼점</a></td>
-                  <td>홍길동</td>
-                  <td>02-1234-1234</td>
+                  <td>마스터</td>
+                  <td class="txt-l"><a href="#">김길동</a></td>
                   <td>aaa@aaa.com</td>
+                  <td>-</td>
                   <td>사용</td>
                   <td>2022.12.22</td>
+                </tr>
+                <tr>
+                  <td colspan="7" class="nodata">조회된 내용이 없습니다.</td>
                 </tr>
               </tbody>
             </table>

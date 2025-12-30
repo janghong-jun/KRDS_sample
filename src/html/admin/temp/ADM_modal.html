@@ -27,7 +27,7 @@
   </head>
 
   <body>
-    <div class="bookclub-amin-wrap">
+    <div class="wrap">
       <header class="gnb-wrap" id="header">
         <div>
           <h1><span class="hide">Hi-Coaching</span></h1>
@@ -110,13 +110,13 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                         type : 'alert', 
                         sMessage: '<p class='+ 'alert-msg' + '><span class=' + 'info' +'>삭제 시 데이터 복구가 되지 않습니다.</span><strong class=' + 'txts' +'>정말로 삭제하시겠습니까?</strong></p>', 
                         sBtnConfirmTxt: '확인',
                         sClass: 'type-alert',
                         sConfirmCallback: function(){
-                            BOOK.modal.hideSystem();
+                            UI.modal.hideSystem();
                             //document.querySelector('#testEndFocus').focus();
                         }
                         });"
@@ -132,17 +132,17 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                             type : 'confirm',
                             sMessage: '<p class='+ 'alert-msg' + '><span class=' + 'info' +'>정렬 순서 중복입니다. </span><strong class=' + 'txts' +'>수정 후 저장하세요.</strong></p>', 
                             sBtnConfirmTxt: '확인',
                             sBtnCancelTxt: '취소',
                             sClass: 'type-confirm',
                             sConfirmCallback: function(){                           
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                             },
                             sCancelCallback: function(){                              
-                                BOOK.modal.hideSystem();                             
+                                UI.modal.hideSystem();                             
                             }
                     });"
                 >
@@ -157,7 +157,7 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                             type : 'confirm',
                             sMessage: '<p class='+ 'alert-msg' + '><strong class=' + 'txts' +'><em>필수값</em>을 입력 해 주세요.</strong></p>', 
                             sBtnConfirmTxt: '확인',
@@ -165,11 +165,11 @@
                             sClass: 'type-confirm',
                             sConfirmCallback: function(){
                                 //console.log('confirm ok');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                             },
                             sCancelCallback: function(){
                                 //console.log('confirm cancel');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                                 //document.querySelector('#testEndFocus').focus();
                             }
                     });"
@@ -197,11 +197,11 @@
                 <button
                   type="button"
                   class="btn base btn-modal"
-                  onclick="BOOK.modal.show({
+                  onclick="UI.modal.show({
                             id:'ADM08040101P', 
                             src:'ADM08040101P.html',
                             callback:() => {  
-                                BOOK.datepicker.init();
+                                UI.datepicker.init();
                             } 
                         });"
                 >
@@ -242,13 +242,13 @@
                   type="button"
                   class="btn base"
                   onclick="
-				    BOOK.modal.show({
+				    UI.modal.show({
                     type : 'alert', 
                     sMessage: '<p class='+ 'alert-msg' + '><strong class=' + 'txts' +'>펀드를 선택해 주세요.</strong></p>', 
                     sBtnConfirmTxt: '확인',
 					sClass: 'type-alert',
 					sConfirmCallback: function(){
-						BOOK.modal.hideSystem();
+						UI.modal.hideSystem();
 						//document.querySelector('#testEndFocus').focus();
 					}
 			        });"
@@ -265,7 +265,7 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                             type : 'confirm',
                             sMessage: '<p class='+ 'alert-msg' + '><strong class=' + 'txts' +'>입력한 내용을 저장할까요?</strong></p>', 
                             sBtnConfirmTxt: '확인',
@@ -273,11 +273,11 @@
                             sClass: 'type-confirm',
                             sConfirmCallback: function(){
                                 //console.log('confirm ok');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                             },
                             sCancelCallback: function(){
                                 //console.log('confirm cancel');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                                 //document.querySelector('#testEndFocus').focus();
                             }
                     });"
@@ -293,7 +293,7 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                             type : 'confirm',
                             sMessage: '<p class='+ 'alert-msg' + '><strong class=' + 'txts' +'>해당 정보를 삭제할까요?</strong></p>', 
                             sBtnConfirmTxt: '확인',
@@ -301,11 +301,11 @@
                             sClass: 'type-confirm',
                             sConfirmCallback: function(){
                                 //console.log('confirm ok');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                             },
                             sCancelCallback: function(){
                                 //console.log('confirm cancel');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                                 //document.querySelector('#testEndFocus').focus();
                             }
                     });"
@@ -321,7 +321,7 @@
                   type="button"
                   class="btn base"
                   onclick="
-                        BOOK.modal.show({
+                        UI.modal.show({
                             type : 'confirm',
                             sMessage: '<p class='+ 'alert-msg' + '><span class=' + 'info' +'>입력중인 내용이 저장되지 않습니다.</span><strong class=' + 'txts' +'>취소할까요?</strong></p>', 
                             sBtnConfirmTxt: '확인',
@@ -329,11 +329,11 @@
                             sClass: 'type-confirm',
                             sConfirmCallback: function(){
                                 //console.log('confirm ok');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                             },
                             sCancelCallback: function(){
                                 //console.log('confirm cancel');
-                                BOOK.modal.hideSystem();
+                                UI.modal.hideSystem();
                                 //document.querySelector('#testEndFocus').focus();
                             }
                     });"
@@ -362,13 +362,13 @@ _blank"
         'use strict';
 
         //모달 확인 호출
-        BOOK.modal.show({
+        UI.modal.show({
           id: 'ADM02010201P',
           src: 'ADM02010201P.html',
         });
 
         //모달 닫기
-        // BOOK.modal.hide({
+        // UI.modal.hide({
         //     id: 'ADM08040100P',
         //     remove: false,
         //     callback: function(v){ console.log(v) }

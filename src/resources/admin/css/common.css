@@ -627,12 +627,20 @@ input:checked:disabled + .lb-checkbox:after {
   line-height: 4rem;
   text-align: center;
   color: #b9bbc6;
+  border-radius: 50%;
   vertical-align: middle;
 }
 .pager a.on {
   color: #1a399e;
-  border-radius: 50%;
   background: #f1f7fe;
+  font-weight: 700;
+  pointer-events: none;
+  cursor: default;
+}
+.pager a.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
 }
 .pager a.btn {
   position: relative;
@@ -641,7 +649,6 @@ input:checked:disabled + .lb-checkbox:after {
   min-height: 4rem;
   max-height: 4rem;
   padding: 0;
-  border-radius: 0;
   margin: 0 !important;
 }
 .pager a.btn:before {
@@ -693,8 +700,6 @@ input:checked:disabled + .lb-checkbox:after {
 }
 
 .file-wrap {
-  position: relative;
-  padding-bottom: 0 !important;
 }
 .file-wrap + .file-wrap {
   margin-top: 1rem;
@@ -713,20 +718,13 @@ input:checked:disabled + .lb-checkbox:after {
   font-size: 1.6rem;
 }
 .file-wrap .input-item {
-  display: inline-block;
+  display: flex;
+  position: relative;
 }
 .file-wrap .input-item .inp-text {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  bottom: 0;
-  right: 0;
+  background: #f7f8f8;
 }
 .file-wrap .btn {
-  position: relative;
-  margin-left: 0 !important;
 }
 .file-wrap .btn input {
   z-index: 1;

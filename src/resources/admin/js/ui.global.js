@@ -22,7 +22,7 @@
 ((win, doc, undefined) => {
   'use strict';
 
-  const global = 'BOOK';
+  const global = 'UI';
 
   win[global] = {};
 

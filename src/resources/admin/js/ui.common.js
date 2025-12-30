@@ -4,15 +4,15 @@
   var $WIN = $(window);
   var $DOC = $(document);
 
-  BOOK.common = {
+  UI.common = {
     init: function () {
-      BOOK.common.subNav();
-      BOOK.table.scroll();
+      UI.common.subNav();
+      UI.table.scroll();
 
       // 모달 호출
       const btns = document.querySelectorAll('.btn-modal');
 
-      BOOK.scrollBar.init({
+      UI.scrollBar.init({
         callback: function () {
           // console.log('end');
         },
@@ -26,29 +26,29 @@
 
           // callback 함수 필요할경우
           if (id === 'sampleModal') {
-            BOOK.modal.show({
+            UI.modal.show({
               id: id,
               src: src,
               callback: () => {
                 alert(11);
                 setTimeout(() => {
-                  BOOK.datepicker.init();
+                  UI.datepicker.init();
                 }, 0);
               },
             });
           } else {
-            BOOK.modal.show({
+            UI.modal.show({
               id: id,
               src: src,
               callback: () => {
-                BOOK.datepicker.init();
+                UI.datepicker.init();
               },
             });
           }
         });
       }
 
-      BOOK.datepicker.init({
+      UI.datepicker.init({
         id: 'input id name',
         date: 'YYYY.MM.DD',
         min: 'YYYY.MM.DD',
@@ -60,7 +60,7 @@
         // }
       });
 
-      BOOK.form.fileUpload();
+      UI.form.fileUpload();
     },
     subNav: function () {
       if ($('.sub-nav').length > 0) {
@@ -98,7 +98,7 @@
 
   //기본실행
   doc.addEventListener('DOMContentLoaded', function () {
-    BOOK.common.init();
+    UI.common.init();
   });
 })(window, document);
 
@@ -108,57 +108,150 @@ $(document).on('click', '.menu', function () {
 });
 
 var $menu =
-  '' +
-  '<button type="button" class="menu"><span class="hide">메뉴</span></button>' +
-  '<ul class="nav"> ' +
-  '<li><a href="#" id="menu1">관리자 계정관리</a> ' + // 하단 메뉴 없을시 a 클래스 mMenu 삭제
-  '<li><a href="#" id="menu2" class="mMenu">권한 관리</a> ' +
-  '<ul class="sub">' +
-  '<li><a href="#"><span>권한 관리<span></a></li>' +
-  '<li><a href="#"><span>권한 설정<span></a></li>' +
-  '</ul> ' +
-  '</li>' +
-  '<li><a href="#" id="menu3">센터 관리</a></li>' +
-  '<li><a href="#" id="menu4">학생 관리</a></li>' +
-  '<li><a href="#" id="menu5">스티커 관리</a></li>' +
-  '<li><a href="#" id="menu6">LMS</a></li>' +
-  '<li><a href="#" id="menu7">포트폴리오</a></li>' +
-  '<li><a href="#" id="menu8">커뮤니티</a></li>' +
-  '</ul>';
-
-var $adminNavB2C =
-  '' +
-  '<ul class="nav"> ' +
-  '<li><a href="#" id="menu1">관리자 계정관리</a> ' + // 하단 메뉴 없을시 a 클래스 mMenu 삭제
-  '<li><a href="#" id="menu2" class="mMenu">권한 관리</a> ' +
-  '<ul class="sub">' +
-  '<li><a href="#"><span>권한 관리<span></a></li>' +
-  '<li><a href="#"><span>권한 설정<span></a></li>' +
-  '</ul> ' +
-  '</li>' +
-  '<li><a href="#" id="menu3" class="mMenu">회원 관리</a> ' +
-  '<ul class="sub">' +
-  '<li><a href="#"><span>회원 목록<span></a></li>' +
-  '<li><a href="#"><span>탈퇴 회원 목록<span></a></li>' +
-  '</ul> ' +
-  '</li>' +
-  '<li><a href="#" id="menu4">LMS</a> ' +
-  '<li><a href="#" id="menu5" class="mMenu">CMS</a> ' +
-  '<ul class="sub">' +
-  '<li><a href="#"><span>도서<span></a></li>' +
-  '<li><a href="#"><span>이북<span></a></li>' +
-  '<li><a href="#"><span>독서확인학습<span></a></li>' +
-  '<li><a href="#"><span>소리내어 읽기<span></a></li>' +
-  '<li><a href="#"><span>글쓰기<span></a></li>' +
-  '<li><a href="#"><span>문해력 게임<span></a></li>' +
-  '</ul> ' +
-  '</li>' +
-  '<li><a href="#" id="menu6" class="mMenu">고객 지원</a> ' +
-  '<ul class="sub">' +
-  '<li><a href="#"><span>공지사항<span></a></li>' +
-  '<li><a href="#"><span>FAQ<span></a></li>' +
-  '<li><a href="#"><span>문의하기<span></a></li>' +
-  '</ul> ' +
-  '</li>' +
-  '<li><a href="#" id="menu7">통계</a> ' +
-  '</ul>';
+  '<ul class="nav">' +
+  '  <li>' +
+  '    <a href="#" id="menu1" class="mMenu">회원관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>회원관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>관리자</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>관리자 권한관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu2" class="mMenu">역량관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>설문지 관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>역량관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu3" class="mMenu">콘텐츠 관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>콘텐츠</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>콘텐츠 활용현황</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>콘텐츠 평가관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="3"><span>콘텐츠신고관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu4" class="mMenu">모듈관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>모듈관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>모듈현황</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>모듈평가관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>모듈신고관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu5" class="mMenu">전문가관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>전문가관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>전문가 평가관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>전문가신고관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>전문가활동현황</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>자동등재관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>등재요청관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu6" class="mMenu">공동체관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>공동체관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>공동체현황</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>공동체개설요청관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>공동체활동관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>공동체 게시판 관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu7">코드관리</a>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu8" class="mMenu">아카이브</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>콘텐츠등록</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>연계콘텐츠관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>메타정보관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>저자권관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>라이프사이클관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>뷰어관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu9" class="mMenu">사이트관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>팝업관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>공지사항관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>FAQ 관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>Q&A 관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
+  '</ul>  ';
