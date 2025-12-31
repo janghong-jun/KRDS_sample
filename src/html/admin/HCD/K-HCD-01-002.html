@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!--# include virtual="../../../components/_admin-head.html" -->
+    <script type="text/javascript">
+      pageInfo = { mid: '2', sid: '1' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav"></div>
+        <section class="main-conts">
+          <h2>설문지 관리</h2>
+          <div class="sub-title">
+            <p class="msg">* 표시는 필수 입력 항목입니다.</p>
+            <button type="button" class="btn base square">
+              <span>설문결과</span>
+            </button>
+          </div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem" />
+                <col style="width: 10rem" />
+                <col style="width: auto" />
+                <col style="width: 10rem" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <label for="userCategory">사용자 분류</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td colspan="4">
+                    <div class="frm-area type2">
+                      <select id="userCategory">
+                        <option value="">교사</option>
+                        <option value="">수석교사</option>
+                        <option value="">교감</option>
+                        <option value="">교장</option>
+                        <option value="">교육전문직원</option>
+                      </select>
+                      <span class="note left">
+                        사용자 분류(회원 구분)를 선택해주세요.
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="searchKeyword">설문 제목</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td colspan="4">
+                    <div class="frm-area">
+                      <input type="text" id="searchKeyword" class="inp-text" />
+                    </div>
+                  </td>
+                </tr>
+                <!-- [s] 설문 문항 -->
+                <!-- 설문 1 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check01" />
+                        <label for="check01" class="lb-checkbox">설문1</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up" disabled>
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select01_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select01_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select01_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select01_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문1: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-01-01"
+                                name="rdoBtn01-1"
+                              />
+                              <label for="rdo01-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-01-02"
+                                name="rdoBtn01-1"
+                              />
+                              <label for="rdo01-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-01-03"
+                                name="rdoBtn01-1"
+                              />
+                              <label for="rdo01-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-01-04"
+                                name="rdoBtn01-1"
+                              />
+                              <label for="rdo01-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-01-05"
+                                name="rdoBtn01-1"
+                              />
+                              <label for="rdo01-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-02-01"
+                                name="rdoBtn01-2"
+                              />
+                              <label for="rdo01-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-02-02"
+                                name="rdoBtn01-2"
+                              />
+                              <label for="rdo01-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-02-03"
+                                name="rdoBtn01-2"
+                              />
+                              <label for="rdo01-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-02-04"
+                                name="rdoBtn01-2"
+                              />
+                              <label for="rdo01-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-02-05"
+                                name="rdoBtn01-2"
+                              />
+                              <label for="rdo01-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-03-01"
+                                name="rdoBtn01-3"
+                              />
+                              <label for="rdo01-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-03-02"
+                                name="rdoBtn01-3"
+                              />
+                              <label for="rdo01-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-03-03"
+                                name="rdoBtn01-3"
+                              />
+                              <label for="rdo01-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-03-04"
+                                name="rdoBtn01-3"
+                              />
+                              <label for="rdo01-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo01-03-05"
+                                name="rdoBtn01-3"
+                              />
+                              <label for="rdo01-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 2 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check02" />
+                        <label for="check02" class="lb-checkbox">설문2</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select02_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select02_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select02_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select02_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문2: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-01-01"
+                                name="rdoBtn02-1"
+                              />
+                              <label for="rdo02-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-01-02"
+                                name="rdoBtn02-1"
+                              />
+                              <label for="rdo02-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-01-03"
+                                name="rdoBtn02-1"
+                              />
+                              <label for="rdo02-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-01-04"
+                                name="rdoBtn02-1"
+                              />
+                              <label for="rdo02-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-01-05"
+                                name="rdoBtn02-1"
+                              />
+                              <label for="rdo02-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-02-01"
+                                name="rdoBtn02-2"
+                              />
+                              <label for="rdo02-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-02-02"
+                                name="rdoBtn02-2"
+                              />
+                              <label for="rdo02-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-02-03"
+                                name="rdoBtn02-2"
+                              />
+                              <label for="rdo02-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-02-04"
+                                name="rdoBtn02-2"
+                              />
+                              <label for="rdo02-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-02-05"
+                                name="rdoBtn02-2"
+                              />
+                              <label for="rdo02-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-03-01"
+                                name="rdoBtn02-3"
+                              />
+                              <label for="rdo02-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-03-02"
+                                name="rdoBtn02-3"
+                              />
+                              <label for="rdo02-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-03-03"
+                                name="rdoBtn02-3"
+                              />
+                              <label for="rdo02-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-03-04"
+                                name="rdoBtn02-3"
+                              />
+                              <label for="rdo02-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo02-03-05"
+                                name="rdoBtn02-3"
+                              />
+                              <label for="rdo02-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 3 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check03" />
+                        <label for="check03" class="lb-checkbox">설문3</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select03_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select03_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select03_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select03_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문3: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-01-01"
+                                name="rdoBtn03-1"
+                              />
+                              <label for="rdo03-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-01-02"
+                                name="rdoBtn03-1"
+                              />
+                              <label for="rdo03-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-01-03"
+                                name="rdoBtn03-1"
+                              />
+                              <label for="rdo03-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-01-04"
+                                name="rdoBtn03-1"
+                              />
+                              <label for="rdo03-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-01-05"
+                                name="rdoBtn03-1"
+                              />
+                              <label for="rdo03-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-02-01"
+                                name="rdoBtn03-2"
+                              />
+                              <label for="rdo03-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-02-02"
+                                name="rdoBtn03-2"
+                              />
+                              <label for="rdo03-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-02-03"
+                                name="rdoBtn03-2"
+                              />
+                              <label for="rdo03-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-02-04"
+                                name="rdoBtn03-2"
+                              />
+                              <label for="rdo03-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-02-05"
+                                name="rdoBtn03-2"
+                              />
+                              <label for="rdo03-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-03-01"
+                                name="rdoBtn03-3"
+                              />
+                              <label for="rdo03-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-03-02"
+                                name="rdoBtn03-3"
+                              />
+                              <label for="rdo03-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-03-03"
+                                name="rdoBtn03-3"
+                              />
+                              <label for="rdo03-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-03-04"
+                                name="rdoBtn03-3"
+                              />
+                              <label for="rdo03-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo03-03-05"
+                                name="rdoBtn03-3"
+                              />
+                              <label for="rdo03-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 4 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check04" />
+                        <label for="check04" class="lb-checkbox">설문4</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select04_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select04_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select04_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select04_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문4: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-01-01"
+                                name="rdoBtn04-1"
+                              />
+                              <label for="rdo04-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-01-02"
+                                name="rdoBtn04-1"
+                              />
+                              <label for="rdo04-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-01-03"
+                                name="rdoBtn04-1"
+                              />
+                              <label for="rdo04-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-01-04"
+                                name="rdoBtn04-1"
+                              />
+                              <label for="rdo04-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-01-05"
+                                name="rdoBtn04-1"
+                              />
+                              <label for="rdo04-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-02-01"
+                                name="rdoBtn04-2"
+                              />
+                              <label for="rdo04-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-02-02"
+                                name="rdoBtn04-2"
+                              />
+                              <label for="rdo04-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-02-03"
+                                name="rdoBtn04-2"
+                              />
+                              <label for="rdo04-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-02-04"
+                                name="rdoBtn04-2"
+                              />
+                              <label for="rdo04-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-02-05"
+                                name="rdoBtn04-2"
+                              />
+                              <label for="rdo04-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-03-01"
+                                name="rdoBtn04-3"
+                              />
+                              <label for="rdo04-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-03-02"
+                                name="rdoBtn04-3"
+                              />
+                              <label for="rdo04-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-03-03"
+                                name="rdoBtn04-3"
+                              />
+                              <label for="rdo04-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-03-04"
+                                name="rdoBtn04-3"
+                              />
+                              <label for="rdo04-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo04-03-05"
+                                name="rdoBtn04-3"
+                              />
+                              <label for="rdo04-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 5 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check05" />
+                        <label for="check05" class="lb-checkbox">설문5</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select05_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select05_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select05_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select05_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문5: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-01-01"
+                                name="rdoBtn05-1"
+                              />
+                              <label for="rdo05-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-01-02"
+                                name="rdoBtn05-1"
+                              />
+                              <label for="rdo05-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-01-03"
+                                name="rdoBtn05-1"
+                              />
+                              <label for="rdo05-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-01-04"
+                                name="rdoBtn05-1"
+                              />
+                              <label for="rdo05-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-01-05"
+                                name="rdoBtn05-1"
+                              />
+                              <label for="rdo05-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-02-01"
+                                name="rdoBtn05-2"
+                              />
+                              <label for="rdo05-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-02-02"
+                                name="rdoBtn05-2"
+                              />
+                              <label for="rdo05-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-02-03"
+                                name="rdoBtn05-2"
+                              />
+                              <label for="rdo05-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-02-04"
+                                name="rdoBtn05-2"
+                              />
+                              <label for="rdo05-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-02-05"
+                                name="rdoBtn05-2"
+                              />
+                              <label for="rdo05-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-03-01"
+                                name="rdoBtn05-3"
+                              />
+                              <label for="rdo05-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-03-02"
+                                name="rdoBtn05-3"
+                              />
+                              <label for="rdo05-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-03-03"
+                                name="rdoBtn05-3"
+                              />
+                              <label for="rdo05-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-03-04"
+                                name="rdoBtn05-3"
+                              />
+                              <label for="rdo05-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo05-03-05"
+                                name="rdoBtn05-3"
+                              />
+                              <label for="rdo05-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 6 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check06" />
+                        <label for="check06" class="lb-checkbox">설문6</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select06_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select06_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select06_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select06_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문6: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-01-01"
+                                name="rdoBtn06-1"
+                              />
+                              <label for="rdo06-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-01-02"
+                                name="rdoBtn06-1"
+                              />
+                              <label for="rdo06-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-01-03"
+                                name="rdoBtn06-1"
+                              />
+                              <label for="rdo06-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-01-04"
+                                name="rdoBtn06-1"
+                              />
+                              <label for="rdo06-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-01-05"
+                                name="rdoBtn06-1"
+                              />
+                              <label for="rdo06-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-02-01"
+                                name="rdoBtn06-2"
+                              />
+                              <label for="rdo06-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-02-02"
+                                name="rdoBtn06-2"
+                              />
+                              <label for="rdo06-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-02-03"
+                                name="rdoBtn06-2"
+                              />
+                              <label for="rdo06-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-02-04"
+                                name="rdoBtn06-2"
+                              />
+                              <label for="rdo06-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-02-05"
+                                name="rdoBtn06-2"
+                              />
+                              <label for="rdo06-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-03-01"
+                                name="rdoBtn06-3"
+                              />
+                              <label for="rdo06-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-03-02"
+                                name="rdoBtn06-3"
+                              />
+                              <label for="rdo06-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-03-03"
+                                name="rdoBtn06-3"
+                              />
+                              <label for="rdo06-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-03-04"
+                                name="rdoBtn06-3"
+                              />
+                              <label for="rdo06-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo06-03-05"
+                                name="rdoBtn06-3"
+                              />
+                              <label for="rdo06-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 7 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check07" />
+                        <label for="check07" class="lb-checkbox">설문7</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select07_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select07_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select07_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select07_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문7: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-01-01"
+                                name="rdoBtn07-1"
+                              />
+                              <label for="rdo07-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-01-02"
+                                name="rdoBtn07-1"
+                              />
+                              <label for="rdo07-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-01-03"
+                                name="rdoBtn07-1"
+                              />
+                              <label for="rdo07-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-01-04"
+                                name="rdoBtn07-1"
+                              />
+                              <label for="rdo07-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-01-05"
+                                name="rdoBtn07-1"
+                              />
+                              <label for="rdo07-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-02-01"
+                                name="rdoBtn07-2"
+                              />
+                              <label for="rdo07-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-02-02"
+                                name="rdoBtn07-2"
+                              />
+                              <label for="rdo07-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-02-03"
+                                name="rdoBtn07-2"
+                              />
+                              <label for="rdo07-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-02-04"
+                                name="rdoBtn07-2"
+                              />
+                              <label for="rdo07-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-02-05"
+                                name="rdoBtn07-2"
+                              />
+                              <label for="rdo07-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-03-01"
+                                name="rdoBtn07-3"
+                              />
+                              <label for="rdo07-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-03-02"
+                                name="rdoBtn07-3"
+                              />
+                              <label for="rdo07-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-03-03"
+                                name="rdoBtn07-3"
+                              />
+                              <label for="rdo07-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-03-04"
+                                name="rdoBtn07-3"
+                              />
+                              <label for="rdo07-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo07-03-05"
+                                name="rdoBtn07-3"
+                              />
+                              <label for="rdo07-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 8 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check08" />
+                        <label for="check08" class="lb-checkbox">설문8</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select08_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select08_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select08_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select08_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문8: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-01-01"
+                                name="rdoBtn08-1"
+                              />
+                              <label for="rdo08-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-01-02"
+                                name="rdoBtn08-1"
+                              />
+                              <label for="rdo08-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-01-03"
+                                name="rdoBtn08-1"
+                              />
+                              <label for="rdo08-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-01-04"
+                                name="rdoBtn08-1"
+                              />
+                              <label for="rdo08-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-01-05"
+                                name="rdoBtn08-1"
+                              />
+                              <label for="rdo08-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-02-01"
+                                name="rdoBtn08-2"
+                              />
+                              <label for="rdo08-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-02-02"
+                                name="rdoBtn08-2"
+                              />
+                              <label for="rdo08-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-02-03"
+                                name="rdoBtn08-2"
+                              />
+                              <label for="rdo08-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-02-04"
+                                name="rdoBtn08-2"
+                              />
+                              <label for="rdo08-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-02-05"
+                                name="rdoBtn08-2"
+                              />
+                              <label for="rdo08-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-03-01"
+                                name="rdoBtn08-3"
+                              />
+                              <label for="rdo08-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-03-02"
+                                name="rdoBtn08-3"
+                              />
+                              <label for="rdo08-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-03-03"
+                                name="rdoBtn08-3"
+                              />
+                              <label for="rdo08-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-03-04"
+                                name="rdoBtn08-3"
+                              />
+                              <label for="rdo08-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo08-03-05"
+                                name="rdoBtn08-3"
+                              />
+                              <label for="rdo08-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 9 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check09" />
+                        <label for="check09" class="lb-checkbox">설문9</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down">
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select09_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select09_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select09_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select09_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문9: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-01-01"
+                                name="rdoBtn09-1"
+                              />
+                              <label for="rdo09-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-01-02"
+                                name="rdoBtn09-1"
+                              />
+                              <label for="rdo09-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-01-03"
+                                name="rdoBtn09-1"
+                              />
+                              <label for="rdo09-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-01-04"
+                                name="rdoBtn09-1"
+                              />
+                              <label for="rdo09-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-01-05"
+                                name="rdoBtn09-1"
+                              />
+                              <label for="rdo09-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-02-01"
+                                name="rdoBtn09-2"
+                              />
+                              <label for="rdo09-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-02-02"
+                                name="rdoBtn09-2"
+                              />
+                              <label for="rdo09-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-02-03"
+                                name="rdoBtn09-2"
+                              />
+                              <label for="rdo09-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-02-04"
+                                name="rdoBtn09-2"
+                              />
+                              <label for="rdo09-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-02-05"
+                                name="rdoBtn09-2"
+                              />
+                              <label for="rdo09-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-03-01"
+                                name="rdoBtn09-3"
+                              />
+                              <label for="rdo09-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-03-02"
+                                name="rdoBtn09-3"
+                              />
+                              <label for="rdo09-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-03-03"
+                                name="rdoBtn09-3"
+                              />
+                              <label for="rdo09-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-03-04"
+                                name="rdoBtn09-3"
+                              />
+                              <label for="rdo09-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo09-03-05"
+                                name="rdoBtn09-3"
+                              />
+                              <label for="rdo09-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 설문 10 -->
+                <tr>
+                  <th scope="row" rowspan="2" class="vertical-top">
+                    <div class="questionnaire">
+                      <div class="lb-item">
+                        <input type="checkbox" id="check10" />
+                        <label for="check10" class="lb-checkbox">설문10</label>
+                      </div>
+                      <div class="btns-controll">
+                        <button type="button" class="up">
+                          <span>▲</span>
+                        </button>
+                        <button type="button" class="down" disabled>
+                          <span>▼</span>
+                        </button>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="row">
+                    <label for="select10_01">역량군</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select10_01">
+                        <option value="">교육과정 역량</option>
+                      </select>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    <label for="select10_02">역량</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select10_02">
+                        <option value="">교육과정 설계</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <div class="questionnaire-conts">
+                      <!-- 설문10: 3문항 -->
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-01-01"
+                                name="rdoBtn10-1"
+                              />
+                              <label for="rdo10-01-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-01-02"
+                                name="rdoBtn10-1"
+                              />
+                              <label for="rdo10-01-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-01-03"
+                                name="rdoBtn10-1"
+                              />
+                              <label for="rdo10-01-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-01-04"
+                                name="rdoBtn10-1"
+                              />
+                              <label for="rdo10-01-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-01-05"
+                                name="rdoBtn10-1"
+                              />
+                              <label for="rdo10-01-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-02-01"
+                                name="rdoBtn10-2"
+                              />
+                              <label for="rdo10-02-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-02-02"
+                                name="rdoBtn10-2"
+                              />
+                              <label for="rdo10-02-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-02-03"
+                                name="rdoBtn10-2"
+                              />
+                              <label for="rdo10-02-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-02-04"
+                                name="rdoBtn10-2"
+                              />
+                              <label for="rdo10-02-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-02-05"
+                                name="rdoBtn10-2"
+                              />
+                              <label for="rdo10-02-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="questionnaire-item">
+                        <div class="questionnaire-category">
+                          <select>
+                            <option value="">지식</option>
+                            <option value="">기술</option>
+                            <option value="">태도</option>
+                          </select>
+                        </div>
+                        <div class="questionnaire-question">
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                          />
+                          <div class="frm-area">
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-03-01"
+                                name="rdoBtn10-3"
+                              />
+                              <label for="rdo10-03-01" class="lb-radio"
+                                ><span>매우 낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-03-02"
+                                name="rdoBtn10-3"
+                              />
+                              <label for="rdo10-03-02" class="lb-radio"
+                                ><span>낮음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-03-03"
+                                name="rdoBtn10-3"
+                              />
+                              <label for="rdo10-03-03" class="lb-radio"
+                                ><span>보통</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-03-04"
+                                name="rdoBtn10-3"
+                              />
+                              <label for="rdo10-03-04" class="lb-radio"
+                                ><span>높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="radio"
+                                id="rdo10-03-05"
+                                name="rdoBtn10-3"
+                              />
+                              <label for="rdo10-03-05" class="lb-radio"
+                                ><span>매우 높음</span></label
+                              >
+                            </span>
+                            <span class="lb-item">
+                              <input
+                                type="text"
+                                readonly
+                                class="inp-text"
+                                value="85"
+                              />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- [e] 설문 문항 -->
+              </tbody>
+            </table>
+            <div class="tbl-btns mgt10 type-small right">
+              <button type="button" class="btn base square primary">
+                <span>추가</span>
+              </button>
+            </div>
+          </div>
+          <div class="tbl-btns">
+            <button type="button" class="btn base tertiary">
+              <span>삭제</span>
+            </button>
+            <div>
+              <button type="button" class="btn base secondary">
+                <span>목록</span>
+              </button>
+              <button type="button" class="btn base primary">
+                <span>수정</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-Coaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

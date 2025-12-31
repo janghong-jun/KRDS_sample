@@ -6385,7 +6385,7 @@
         const elModalDim = elModal.querySelector('.ui-modal-dim');
         const elModalCancel = elModal.querySelector('.ui-modal-cancel');
         const elModalConfirm = elModal.querySelector('.ui-modal-confirm');
-        const elModalClose = elModal.querySelector('.ui-modal-close');
+        const elModalCloses = elModal.querySelectorAll('.ui-modal-close');
         const elModalOpen = document.querySelectorAll('.ui-modal.open');
         const openLen = !!elModalOpen ? elModalOpen.length : 0;
 
@@ -6502,7 +6502,9 @@
           const elThis = e.currentTarget;
           const elThisModal = elThis.closest('.ui-modal');
 
-          !!elModalClose && elModalClose.removeEventListener('click', closeAct);
+          elModalCloses.forEach((btn) => {
+            btn.removeEventListener('click', closeAct);
+          });
           Global.modal.hide({
             id: elThisModal.id,
             remove: remove,
@@ -6575,12 +6577,11 @@
           }
         }
         //-- 드래그 닫기 추가
-        const lastClose = elModal.querySelector('.ui-modal-last');
-        if (!!elModalClose) {
-          elModalClose.addEventListener('click', closeAct);
-        }
-        if (!!lastClose) {
-          lastClose.addEventListener('click', closeAct);
+        const allCloseButtons = elModal.querySelectorAll(
+          '.ui-modal-close, .ui-modal-last'
+        );
+        for (let i = 0; i < allCloseButtons.length; i++) {
+          allCloseButtons[i].addEventListener('click', closeAct);
         }
 
         //systyem modal confirm & cancel callback

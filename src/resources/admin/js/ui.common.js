@@ -108,6 +108,7 @@ $(document).on('click', '.menu', function () {
 });
 
 var $menu =
+  '<button type="button" class="menu"><span class="hide">메뉴</span></button>' +
   '<ul class="nav">' +
   '  <li>' +
   '    <a href="#" id="menu1" class="mMenu">회원관리</a>' +

@@ -190,10 +190,12 @@ img {
 .btn.fill {
   color: #fff;
   background-color: #ec008c;
+  border-color: #ec008c;
 }
 .btn.fill:hover,
 .btn.fill:active {
   background-color: #c02882;
+  border-color: #c02882;
 }
 .btn.lg {
   min-width: 20rem;
@@ -1100,7 +1102,7 @@ input:checked:disabled + .lb-checkbox:after {
 .type-large .ui-modal-wrap {
   width: 96rem;
   max-width: 96rem;
-  height: 80rem;
+  max-height: 80rem;
 }
 
 /* .ui-modal-body{width:70rem} */
