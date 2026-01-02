@@ -117,78 +117,62 @@ var $menu =
   '        <a href="#"><span>회원관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>관리자</span></a>' +
+  '        <a href="#"><span>관리자관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>관리자 권한관리</span></a>' +
-  '      </li>' +
-  '    </ul>' +
-  '  </li>' +
-  '  <li>' +
-  '    <a href="#" id="menu2" class="mMenu">역량관리</a>' +
-  '    <ul class="sub">' +
-  '      <li>' +
-  '        <a href="#"><span>설문지 관리</span></a>' +
+  '        <a href="#"><span>코드관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>역량관리</span></a>' +
+  '        <a href="#"><span>알림관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>게시판관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>금칙어관리</span></a>' +
   '      </li>' +
   '    </ul>' +
   '  </li>' +
   '  <li>' +
-  '    <a href="#" id="menu3" class="mMenu">콘텐츠 관리</a>' +
+  '    <a href="#" id="menu2">전문가관리</a>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu3">역량관리</a>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu4" class="mMenu">교육자원아카이브</a>' +
   '    <ul class="sub">' +
   '      <li>' +
-  '        <a href="#"><span>콘텐츠</span></a>' +
+  '        <a href="#"><span>콘텐츠관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>콘텐츠 활용현황</span></a>' +
+  '        <a href="#"><span>카테고리관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>콘텐츠 평가관리</span></a>' +
+  '        <a href="#"><span>저작권관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="3"><span>콘텐츠신고관리</span></a>' +
+  '        <a href="#"><span>라이프사이클관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>폐기대상관리</span></a>' +
   '      </li>' +
   '    </ul>' +
   '  </li>' +
   '  <li>' +
-  '    <a href="#" id="menu4" class="mMenu">모듈관리</a>' +
+  '    <a href="#" id="menu5" class="mMenu">사이트관리</a>' +
   '    <ul class="sub">' +
   '      <li>' +
-  '        <a href="#"><span>모듈관리</span></a>' +
+  '        <a href="#"><span>팝업관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>모듈현황</span></a>' +
+  '        <a href="#"><span>공지사항</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>모듈평가관리</span></a>' +
+  '        <a href="#"><span>FAQ</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>모듈신고관리</span></a>' +
-  '      </li>' +
-  '    </ul>' +
-  '  </li>' +
-  '  <li>' +
-  '    <a href="#" id="menu5" class="mMenu">전문가관리</a>' +
-  '    <ul class="sub">' +
-  '      <li>' +
-  '        <a href="#"><span>전문가관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>전문가 평가관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>전문가신고관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>전문가활동현황</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>자동등재관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>등재요청관리</span></a>' +
+  '        <a href="#"><span>Q&A</span></a>' +
   '      </li>' +
   '    </ul>' +
   '  </li>' +
@@ -196,62 +180,19 @@ var $menu =
   '    <a href="#" id="menu6" class="mMenu">공동체관리</a>' +
   '    <ul class="sub">' +
   '      <li>' +
-  '        <a href="#"><span>공동체관리</span></a>' +
+  '        <a href="#"><span>협업공간관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>공동체현황</span></a>' +
+  '        <a href="#"><span>실행나눔관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>공동체개설요청관리</span></a>' +
+  '        <a href="#"><span>연구지원관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>공동체활동관리</span></a>' +
+  '        <a href="#"><span>학습공동체채널관리</span></a>' +
   '      </li>' +
   '      <li>' +
-  '        <a href="#"><span>공동체 게시판 관리</span></a>' +
-  '      </li>' +
-  '    </ul>' +
-  '  </li>' +
-  '  <li>' +
-  '    <a href="#" id="menu7">코드관리</a>' +
-  '  </li>' +
-  '  <li>' +
-  '    <a href="#" id="menu8" class="mMenu">아카이브</a>' +
-  '    <ul class="sub">' +
-  '      <li>' +
-  '        <a href="#"><span>콘텐츠등록</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>연계콘텐츠관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>메타정보관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>저자권관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>라이프사이클관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>뷰어관리</span></a>' +
-  '      </li>' +
-  '    </ul>' +
-  '  </li>' +
-  '  <li>' +
-  '    <a href="#" id="menu9" class="mMenu">사이트관리</a>' +
-  '    <ul class="sub">' +
-  '      <li>' +
-  '        <a href="#"><span>팝업관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>공지사항관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>FAQ 관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>Q&A 관리</span></a>' +
+  '        <a href="#"><span>커뮤니티관리</span></a>' +
   '      </li>' +
   '    </ul>' +
   '  </li>' +
