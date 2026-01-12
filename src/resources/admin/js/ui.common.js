@@ -211,4 +211,18 @@ var $menu =
   '      </li>' +
   '    </ul>' +
   '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu8" class="mMenu">데이터연계</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>유튜브채널관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>유튜브수집동영상</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>연계로그관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
   '</ul>  ';

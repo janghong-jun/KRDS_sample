@@ -420,7 +420,8 @@ select {
   border: 0.1rem solid #f7f8f8;
   padding: 0 3.4rem 0 1.6rem;
   border-radius: 0.8rem;
-  background: #f7f8f8 url(../images/ico_acco_arr.png) no-repeat calc(100% - 1rem) 0.8rem;
+  background: #f7f8f8 url(../images/ico_acco_arr.png) no-repeat
+    calc(100% - 1rem) 0.8rem;
   background-size: 2.4rem;
   opacity: 1;
 }
@@ -428,7 +429,9 @@ select:hover {
   border: 0.1rem solid #1a399e;
   background-color: #fff;
 }
-
+.cursor {
+  cursor: pointer !important;
+}
 /* font color */
 .fc-primary {
   color: #ec008c !important;

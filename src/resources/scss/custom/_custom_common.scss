@@ -47,9 +47,15 @@ $mode-setting: light;
 .g-alert {
   //기본
   --alert-padding: var(--krds-padding-6);
-  --alert-border-color: var(--krds-#{$mode-setting}-color-border-information-light);
-  --alert-border-width: var(--krds-#{$mode-setting}-border-width-static-regular);
-  --alert-bg-color: var(--krds-#{$mode-setting}-color-surface-information-subtler);
+  --alert-border-color: var(
+    --krds-#{$mode-setting}-color-border-information-light
+  );
+  --alert-border-width: var(
+    --krds-#{$mode-setting}-border-width-static-regular
+  );
+  --alert-bg-color: var(
+    --krds-#{$mode-setting}-color-surface-information-subtler
+  );
   --alert-icon-size: var(--krds-size-height-4);
   --alert-title-color: var(--krds-#{$mode-setting}-color-text-information);
 
@@ -83,8 +89,12 @@ $mode-setting: light;
         $status: danger;
       }
       & {
-        --alert-border-color: var(--krds-#{$mode-setting}-color-border-#{$status}-light);
-        --alert-bg-color: var(--krds-#{$mode-setting}-color-surface-#{$status}-subtler);
+        --alert-border-color: var(
+          --krds-#{$mode-setting}-color-border-#{$status}-light
+        );
+        --alert-bg-color: var(
+          --krds-#{$mode-setting}-color-surface-#{$status}-subtler
+        );
         --alert-title-color: var(--krds-#{$mode-setting}-color-text-#{$status});
       }
     }
@@ -122,10 +132,10 @@ $mode-setting: light;
     margin-bottom: var(--krds-mobile-gap-layout-h2-h3);
     gap: var(--krds-mobile-gap-layout-title-body-large);
   }
+
   .h-tit {
-    font-size: var(--krds-pc-font-size-heading-xlarge);
+    font-size: var(--krds-pc-font-size-heading-large);
     letter-spacing: var(--krds-typo-letter-spacing-1);
-    font-weight: var(--krds-font-weight-bold);
     .small-txt {
       display: flex;
       margin-bottom: var(--krds-pc-gap-layout-title-body-small);
@@ -134,7 +144,7 @@ $mode-setting: light;
     }
     .sub-txt {
       display: flex;
-      font-size: var(--krds-pc-font-size-body-small);
+      font-size: var(--krds-pc-font-size-body-medium);
       font-weight: var(--krds-font-weight-regular);
       color: var(--krds-#{$mode-setting}-color-text-subtle);
     }
@@ -144,7 +154,7 @@ $mode-setting: light;
     }
 
     @include size-medium {
-      font-size: var(--krds-mobile-font-size-heading-xlarge);
+      font-size: var(--krds-mobile-font-size-heading-large);
       letter-spacing: var(--krds-typo-letter-spacing-1);
 
       .small-txt {
@@ -152,7 +162,7 @@ $mode-setting: light;
         font-size: var(--krds-mobile-font-size-heading-xxsmall);
       }
       .sub-txt {
-        font-size: var(--krds-mobile-font-size-body-small);
+        font-size: var(--krds-mobile-font-size-body-medium);
       }
       .krds-badge-wrap {
         margin-top: var(--krds-mobile-gap-layout-title-body-large);
@@ -251,7 +261,9 @@ $mode-setting: light;
   font-size: var(--krds-pc-font-size-body-large);
   padding: var(--krds-pc-padding-card-small);
   border-radius: var(--krds-radius-xlarge2);
-  background-color: var(--krds-#{$mode-setting}-color-surface-secondary-subtler);
+  background-color: var(
+    --krds-#{$mode-setting}-color-surface-secondary-subtler
+  );
   @include size-medium {
     font-size: var(--krds-mobile-font-size-body-large);
     padding: var(--krds-mobile-padding-card-small);
@@ -382,8 +394,10 @@ $mode-setting: light;
       bottom: 0;
       z-index: 5;
       gap: var(--krds-gap-5);
-      padding: var(--krds-padding-8) var(--krds-padding-6) var(--krds-padding-10);
-      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid var(--krds-#{$mode-setting}-color-divider-gray);
+      padding: var(--krds-padding-8) var(--krds-padding-6)
+        var(--krds-padding-10);
+      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid
+        var(--krds-#{$mode-setting}-color-divider-gray);
       background-color: var(--krds-#{$mode-setting}-color-background-white);
       .btn {
         flex: 1;
@@ -486,7 +500,10 @@ $mode-setting: light;
     .h-tit-drop {
       .drop-btn {
         &::after {
-          @include svg-icon($size: var(--krds-size-height-5), $mode: $mode-setting);
+          @include svg-icon(
+            $size: var(--krds-size-height-5),
+            $mode: $mode-setting
+          );
         }
       }
     }
@@ -509,18 +526,30 @@ $mode-setting: light;
   //콘텐츠 알럿
   .g-alert {
     //기본
-    --alert-border-color: var(--krds-#{$mode-setting}-color-border-information-light);
-    --alert-border-width: var(--krds-#{$mode-setting}-border-width-static-regular);
-    --alert-bg-color: var(--krds-#{$mode-setting}-color-surface-information-subtler);
+    --alert-border-color: var(
+      --krds-#{$mode-setting}-color-border-information-light
+    );
+    --alert-border-width: var(
+      --krds-#{$mode-setting}-border-width-static-regular
+    );
+    --alert-bg-color: var(
+      --krds-#{$mode-setting}-color-surface-information-subtler
+    );
     --alert-title-color: var(--krds-#{$mode-setting}-color-text-information);
 
     $status-values: success, warning, error;
     @each $status in $status-values {
       &.#{$status} {
         & {
-          --alert-border-color: var(--krds-#{$mode-setting}-color-border-#{$status}-light);
-          --alert-bg-color: var(--krds-#{$mode-setting}-color-surface-#{$status}-subtler);
-          --alert-title-color: var(--krds-#{$mode-setting}-color-text-#{$status});
+          --alert-border-color: var(
+            --krds-#{$mode-setting}-color-border-#{$status}-light
+          );
+          --alert-bg-color: var(
+            --krds-#{$mode-setting}-color-surface-#{$status}-subtler
+          );
+          --alert-title-color: var(
+            --krds-#{$mode-setting}-color-text-#{$status}
+          );
         }
       }
     }
@@ -535,7 +564,9 @@ $mode-setting: light;
 
   /* ** guide txt ** */
   .guide-txt {
-    background-color: var(--krds-#{$mode-setting}-color-surface-secondary-subtler);
+    background-color: var(
+      --krds-#{$mode-setting}-color-surface-secondary-subtler
+    );
   }
 
   /* ** 페이지 하단 버튼 ** */
@@ -609,7 +640,8 @@ $mode-setting: light;
           align-items: center;
           height: auto;
           min-height: 4.8rem;
-          padding: var(--krds-padding-3) var(--krds-padding-6) var(--krds-padding-3) var(--krds-padding-8);
+          padding: var(--krds-padding-3) var(--krds-padding-6)
+            var(--krds-padding-3) var(--krds-padding-8);
           &::before {
             display: inline-flex;
             flex-shrink: 0;

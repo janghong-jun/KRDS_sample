@@ -1078,6 +1078,7 @@
   --krds-pc-gap-layout-title-body-medium: var(--krds-number-9);
   --krds-pc-gap-layout-title-body-large: var(--krds-number-10);
   --krds-pc-gap-layout-breadcrumb-h1: var(--krds-number-14);
+  --krds-pc-gap-layout-breadcrumb-h2: var(--krds-number-14);
   --krds-pc-gap-layout-contents-footer: var(--krds-number-18);
   --krds-pc-gap-layout-text-text-large: var(--krds-number-9);
   --krds-pc-gap-layout-text-text-medium: var(--krds-number-8);
@@ -1128,6 +1129,7 @@
   --krds-mobile-gap-layout-title-body-medium: var(--krds-number-7);
   --krds-mobile-gap-layout-title-body-large: var(--krds-number-9);
   --krds-mobile-gap-layout-breadcrumb-h1: var(--krds-number-12);
+  --krds-mobile-gap-layout-breadcrumb-h2: var(--krds-number-12);
   --krds-mobile-gap-layout-contents-footer: var(--krds-number-14);
   --krds-mobile-gap-layout-text-text-large: var(--krds-number-8);
   --krds-mobile-gap-layout-text-text-medium: var(--krds-number-7);
@@ -1203,9 +1205,9 @@
   --krds-transition-fade: opacity 0.4s linear;
   --krds-transition-collapse: max-height 0.4s ease;
   --krds-transition-collapse-width: width 0.4s ease;
-  --krds-contents-size: 1200px;
+  --krds-contents-size: 1600px;
   --krds-contents-padding-x: 24px;
-  --krds-contents-wrap-size: 1248px;
+  --krds-contents-wrap-size: 1648px;
   --krds-box-shadow-outline: 0 0 0 0.4rem
     var(--krds-light-color-border-primary);
   --krds-box-shadow-outline-inset: inset 0 0 0 0.2rem
@@ -3804,11 +3806,15 @@ caption {
   --krds-tab--button-size-height: var(--krds-size-height-7);
   --krds-tab--button-size-min-width: 6.4rem;
   --krds-tab--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-tab--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+  --krds-tab--button-mobile-font-size: var(
+    --krds-mobile-font-size-heading-xsmall
+  );
   --krds-tab--gap: var(--krds-gap-3);
   --krds-tab--full-button-size-height: var(--krds-size-height-8);
   --krds-tab--full-button-pc-font-size: var(--krds-pc-font-size-heading-small);
-  --krds-tab--full-button-mobile-font-size: var(--krds-mobile-font-size-heading-small);
+  --krds-tab--full-button-mobile-font-size: var(
+    --krds-mobile-font-size-heading-small
+  );
   --krds-tab--line-button-padding: var(--krds-padding-2);
   --krds-tab--fill-button-padding: var(--krds-padding-3);
   --krds-tab--fill-button-radius: var(--krds-radius-medium2);
@@ -3817,20 +3823,40 @@ caption {
   --krds-tab--mobile-button-trigger-padding-x: var(--krds-padding-6);
   --krds-tab--mobile-button-trigger-radius: var(--krds-radius-medium1);
   --krds-tab--button-color-action: var(--krds-light-color-action-secondary);
-  --krds-tab--button-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --krds-tab--button-color-action-pressed: var(--krds-light-color-action-secondary-pressed);
+  --krds-tab--button-color-action-hover: var(
+    --krds-light-color-action-secondary-hover
+  );
+  --krds-tab--button-color-action-pressed: var(
+    --krds-light-color-action-secondary-pressed
+  );
   --krds-tab--button-color-border: var(--krds-light-color-action-secondary);
   --krds-tab--button-color-text: var(--krds-light-color-text-subtle);
-  --krds-tab--button-color-text-disabled: var(--krds-light-color-text-disabled);
-  --krds-tab--fill-button-color-action-active: var(--krds-light-color-action-secondary-active);
+  --krds-tab--button-color-text-disabled: var(
+    --krds-light-color-text-disabled
+  );
+  --krds-tab--fill-button-color-action-active: var(
+    --krds-light-color-action-secondary-active
+  );
   --krds-tab--fill-button-color-border: var(--krds-light-color-border-gray);
-  --krds-tab--fill-button-color-border-active: var(--krds-light-color-action-secondary-active);
-  --krds-tab--fill-button-color-text: var(--krds-light-color-text-inverse-static);
+  --krds-tab--fill-button-color-border-active: var(
+    --krds-light-color-action-secondary-active
+  );
+  --krds-tab--fill-button-color-text: var(
+    --krds-light-color-text-inverse-static
+  );
   --krds-tab--line-button-color-border: var(--krds-light-color-border-gray);
-  --krds-tab--line-button-color-line-active: var(--krds-light-color-action-secondary-active);
-  --krds-tab--line-button-color-text-active: var(--krds-light-color-text-secondary);
-  --krds-tab--mobile-button-trigger-color-text: var(--krds-light-color-text-inverse-static);
-  --krds-tab--mobile-button-trigger-color-action: var(--krds-light-color-action-secondary-active);
+  --krds-tab--line-button-color-line-active: var(
+    --krds-light-color-action-secondary-active
+  );
+  --krds-tab--line-button-color-text-active: var(
+    --krds-light-color-text-secondary
+  );
+  --krds-tab--mobile-button-trigger-color-text: var(
+    --krds-light-color-text-inverse-static
+  );
+  --krds-tab--mobile-button-trigger-color-action: var(
+    --krds-light-color-action-secondary-active
+  );
 }
 .tab > ul {
   display: flex;
@@ -3839,6 +3865,7 @@ caption {
   flex-direction: row;
   gap: var(--krds-tab--gap);
   overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
 }
 .tab li,
@@ -4007,39 +4034,79 @@ caption {
 }
 [data-krds-mode=high-contrast] .tab {
   --krds-tab--button-color-action: var(--krds-high-contrast-color-action-secondary);
-  --krds-tab--button-color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-  --krds-tab--button-color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
+  --krds-tab--button-color-action-hover: var(
+    --krds-high-contrast-color-action-secondary-hover
+  );
+  --krds-tab--button-color-action-pressed: var(
+    --krds-high-contrast-color-action-secondary-pressed
+  );
   --krds-tab--button-color-border: var(--krds-high-contrast-color-action-secondary);
   --krds-tab--button-color-text: var(--krds-high-contrast-color-text-subtle);
-  --krds-tab--button-color-text-disabled: var(--krds-high-contrast-color-text-disabled);
-  --krds-tab--fill-button-color-action-active: var(--krds-high-contrast-color-action-secondary-active);
+  --krds-tab--button-color-text-disabled: var(
+    --krds-high-contrast-color-text-disabled
+  );
+  --krds-tab--fill-button-color-action-active: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
   --krds-tab--fill-button-color-border: var(--krds-high-contrast-color-border-gray);
-  --krds-tab--fill-button-color-border-active: var(--krds-high-contrast-color-action-secondary-active);
-  --krds-tab--fill-button-color-text: var(--krds-high-contrast-color-text-inverse-static);
+  --krds-tab--fill-button-color-border-active: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
+  --krds-tab--fill-button-color-text: var(
+    --krds-high-contrast-color-text-inverse-static
+  );
   --krds-tab--line-button-color-border: var(--krds-high-contrast-color-border-gray);
-  --krds-tab--line-button-color-line-active: var(--krds-high-contrast-color-action-secondary-active);
-  --krds-tab--line-button-color-text-active: var(--krds-high-contrast-color-text-secondary);
-  --krds-tab--mobile-button-trigger-color-text: var(--krds-high-contrast-color-text-inverse-static);
-  --krds-tab--mobile-button-trigger-color-action: var(--krds-high-contrast-color-action-secondary-active);
+  --krds-tab--line-button-color-line-active: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
+  --krds-tab--line-button-color-text-active: var(
+    --krds-high-contrast-color-text-secondary
+  );
+  --krds-tab--mobile-button-trigger-color-text: var(
+    --krds-high-contrast-color-text-inverse-static
+  );
+  --krds-tab--mobile-button-trigger-color-action: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
 }
 
 @media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .tab {
     --krds-tab--button-color-action: var(--krds-high-contrast-color-action-secondary);
-    --krds-tab--button-color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-    --krds-tab--button-color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
+    --krds-tab--button-color-action-hover: var(
+      --krds-high-contrast-color-action-secondary-hover
+    );
+    --krds-tab--button-color-action-pressed: var(
+      --krds-high-contrast-color-action-secondary-pressed
+    );
     --krds-tab--button-color-border: var(--krds-high-contrast-color-action-secondary);
     --krds-tab--button-color-text: var(--krds-high-contrast-color-text-subtle);
-    --krds-tab--button-color-text-disabled: var(--krds-high-contrast-color-text-disabled);
-    --krds-tab--fill-button-color-action-active: var(--krds-high-contrast-color-action-secondary-active);
+    --krds-tab--button-color-text-disabled: var(
+      --krds-high-contrast-color-text-disabled
+    );
+    --krds-tab--fill-button-color-action-active: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
     --krds-tab--fill-button-color-border: var(--krds-high-contrast-color-border-gray);
-    --krds-tab--fill-button-color-border-active: var(--krds-high-contrast-color-action-secondary-active);
-    --krds-tab--fill-button-color-text: var(--krds-high-contrast-color-text-inverse-static);
+    --krds-tab--fill-button-color-border-active: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
+    --krds-tab--fill-button-color-text: var(
+      --krds-high-contrast-color-text-inverse-static
+    );
     --krds-tab--line-button-color-border: var(--krds-high-contrast-color-border-gray);
-    --krds-tab--line-button-color-line-active: var(--krds-high-contrast-color-action-secondary-active);
-    --krds-tab--line-button-color-text-active: var(--krds-high-contrast-color-text-secondary);
-    --krds-tab--mobile-button-trigger-color-text: var(--krds-high-contrast-color-text-inverse-static);
-    --krds-tab--mobile-button-trigger-color-action: var(--krds-high-contrast-color-action-secondary-active);
+    --krds-tab--line-button-color-line-active: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
+    --krds-tab--line-button-color-text-active: var(
+      --krds-high-contrast-color-text-secondary
+    );
+    --krds-tab--mobile-button-trigger-color-text: var(
+      --krds-high-contrast-color-text-inverse-static
+    );
+    --krds-tab--mobile-button-trigger-color-action: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
   }
 }
 
@@ -8480,12 +8547,16 @@ caption {
   --krds-side-navigation--padding: var(--krds-padding-10);
   --krds-side-navigation--title-padding-x: var(--krds-padding-3);
   --krds-side-navigation--title-padding-bottom: var(--krds-padding-6);
-  --krds-side-navigation--title-font-size: var(--krds-pc-font-size-navigation-title-medium);
+  --krds-side-navigation--title-font-size: var(
+    --krds-pc-font-size-navigation-title-medium
+  );
   --krds-side-navigation--btn-gap: var(--krds-gap-3);
   --krds-side-navigation--btn-padding-x: var(--krds-padding-3);
   --krds-side-navigation--btn-padding-y: var(--krds-padding-6);
   --krds-side-navigation--btn-padding-y-selected: var(--krds-padding-3);
-  --krds-side-navigation--btn-font-size: var(--krds-pc-font-size-navigation-depth-medium-bold);
+  --krds-side-navigation--btn-font-size: var(
+    --krds-pc-font-size-navigation-depth-medium-bold
+  );
   --krds-side-navigation--3depth-padding-y: var(--krds-padding-3);
   --krds-side-navigation--3depth-btn-padding-x: var(--krds-padding-6);
   --krds-side-navigation--3depth-btn-padding-y: var(--krds-padding-3);
@@ -8493,25 +8564,56 @@ caption {
   --krds-side-navigation--4depth-padding: var(--krds-padding-6);
   --krds-side-navigation--4depth-title-padding: var(--krds-padding-3);
   --krds-side-navigation--4depth-title-radius: var(--krds-radius-medium3);
-  --krds-side-navigation--4depth-title-font-size: var(--krds-pc-font-size-navigation-title-medium);
-  --krds-side-navigation--title-color-border: var(--krds-light-color-divider-gray);
-  --krds-side-navigation--title-border-width: var(--krds-light-border-width-static-regular);
-  --krds-side-navigation--color-action: var(--krds-light-color-action-secondary);
-  --krds-side-navigation--color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --krds-side-navigation--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --krds-side-navigation--color-action-selected: var(--krds-light-color-action-secondary-selected);
-  --krds-side-navigation--color-border: var(--krds-light-color-divider-gray-light);
-  --krds-side-navigation--color-text-selected: var(--krds-light-color-text-secondary);
-  --krds-side-navigation--color-border-selected: var(--krds-light-color-action-secondary-active);
-  --krds-side-navigation--item-color-border: var(--krds-light-color-divider-gray-light);
-  --krds-side-navigation--item-color-border-selected: var(--krds-light-color-border-gray);
-  --krds-side-navigation--item-border-width: var(--krds-light-border-width-static-regular);
-  --krds-side-navigation--2depth-btn-color-border: var(--krds-light-color-border-secondary);
-  --krds-side-navigation--4depth-color-border: var(--krds-light-color-border-gray);
-  --krds-side-navigation--4depth-background: var(--krds-light-color-background-white);
+  --krds-side-navigation--4depth-title-font-size: var(
+    --krds-pc-font-size-navigation-title-medium
+  );
+  --krds-side-navigation--title-color-border: var(
+    --krds-light-color-divider-gray
+  );
+  --krds-side-navigation--title-border-width: var(
+    --krds-light-border-width-static-regular
+  );
+  --krds-side-navigation--color-action: var(
+    --krds-light-color-action-secondary
+  );
+  --krds-side-navigation--color-action-hover: var(
+    --krds-light-color-action-secondary-hover
+  );
+  --krds-side-navigation--color-action-pressed: var(
+    --krds-light-color-action-secondary-pressed
+  );
+  --krds-side-navigation--color-action-selected: var(
+    --krds-light-color-action-secondary-selected
+  );
+  --krds-side-navigation--color-border: var(
+    --krds-light-color-divider-gray-light
+  );
+  --krds-side-navigation--color-text-selected: var(
+    --krds-light-color-text-secondary
+  );
+  --krds-side-navigation--color-border-selected: var(
+    --krds-light-color-action-secondary-active
+  );
+  --krds-side-navigation--item-color-border: var(
+    --krds-light-color-divider-gray-light
+  );
+  --krds-side-navigation--item-color-border-selected: var(
+    --krds-light-color-border-gray
+  );
+  --krds-side-navigation--item-border-width: var(
+    --krds-light-border-width-static-regular
+  );
+  --krds-side-navigation--2depth-btn-color-border: var(
+    --krds-light-color-border-secondary
+  );
+  --krds-side-navigation--4depth-color-border: var(
+    --krds-light-color-border-gray
+  );
+  --krds-side-navigation--4depth-background: var(
+    --krds-light-color-background-white
+  );
   position: relative;
   overflow: hidden;
-  padding: var(--krds-side-navigation--padding) 0;
 }
 .krds-side-navigation .lnb-tit {
   font-size: var(--krds-side-navigation--title-font-size);
@@ -8698,21 +8800,51 @@ caption {
 }
 
 [data-krds-mode=high-contrast] .krds-side-navigation {
-  --krds-side-navigation--title-color-border: var(--krds-high-contrast-color-divider-gray);
-  --krds-side-navigation--title-border-width: var(--krds-high-contrast-border-width-static-regular);
-  --krds-side-navigation--color-action: var(--krds-high-contrast-color-action-secondary);
-  --krds-side-navigation--color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-  --krds-side-navigation--color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
-  --krds-side-navigation--color-action-selected: var(--krds-high-contrast-color-action-secondary-selected);
-  --krds-side-navigation--color-border: var(--krds-high-contrast-color-divider-gray-light);
-  --krds-side-navigation--color-text-selected: var(--krds-high-contrast-color-text-secondary);
-  --krds-side-navigation--color-border-selected: var(--krds-high-contrast-color-action-secondary-active);
-  --krds-side-navigation--item-color-border: var(--krds-high-contrast-color-divider-gray-light);
-  --krds-side-navigation--item-color-border-selected: var(--krds-high-contrast-color-border-gray);
-  --krds-side-navigation--item-border-width: var(--krds-high-contrast-border-width-static-regular);
-  --krds-side-navigation--2depth-btn-color-border: var(--krds-high-contrast-color-border-secondary);
-  --krds-side-navigation--4depth-color-border: var(--krds-high-contrast-color-border-gray);
-  --krds-side-navigation--4depth-background: var(--krds-high-contrast-color-background-white);
+  --krds-side-navigation--title-color-border: var(
+    --krds-high-contrast-color-divider-gray
+  );
+  --krds-side-navigation--title-border-width: var(
+    --krds-high-contrast-border-width-static-regular
+  );
+  --krds-side-navigation--color-action: var(
+    --krds-high-contrast-color-action-secondary
+  );
+  --krds-side-navigation--color-action-hover: var(
+    --krds-high-contrast-color-action-secondary-hover
+  );
+  --krds-side-navigation--color-action-pressed: var(
+    --krds-high-contrast-color-action-secondary-pressed
+  );
+  --krds-side-navigation--color-action-selected: var(
+    --krds-high-contrast-color-action-secondary-selected
+  );
+  --krds-side-navigation--color-border: var(
+    --krds-high-contrast-color-divider-gray-light
+  );
+  --krds-side-navigation--color-text-selected: var(
+    --krds-high-contrast-color-text-secondary
+  );
+  --krds-side-navigation--color-border-selected: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
+  --krds-side-navigation--item-color-border: var(
+    --krds-high-contrast-color-divider-gray-light
+  );
+  --krds-side-navigation--item-color-border-selected: var(
+    --krds-high-contrast-color-border-gray
+  );
+  --krds-side-navigation--item-border-width: var(
+    --krds-high-contrast-border-width-static-regular
+  );
+  --krds-side-navigation--2depth-btn-color-border: var(
+    --krds-high-contrast-color-border-secondary
+  );
+  --krds-side-navigation--4depth-color-border: var(
+    --krds-high-contrast-color-border-gray
+  );
+  --krds-side-navigation--4depth-background: var(
+    --krds-high-contrast-color-background-white
+  );
 }
 [data-krds-mode=high-contrast] .krds-side-navigation .lnb-list .lnb-item [class*=lnb-toggle]::after {
   display: inline-flex;
@@ -8731,21 +8863,51 @@ caption {
 
 @media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-side-navigation {
-    --krds-side-navigation--title-color-border: var(--krds-high-contrast-color-divider-gray);
-    --krds-side-navigation--title-border-width: var(--krds-high-contrast-border-width-static-regular);
-    --krds-side-navigation--color-action: var(--krds-high-contrast-color-action-secondary);
-    --krds-side-navigation--color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-    --krds-side-navigation--color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
-    --krds-side-navigation--color-action-selected: var(--krds-high-contrast-color-action-secondary-selected);
-    --krds-side-navigation--color-border: var(--krds-high-contrast-color-divider-gray-light);
-    --krds-side-navigation--color-text-selected: var(--krds-high-contrast-color-text-secondary);
-    --krds-side-navigation--color-border-selected: var(--krds-high-contrast-color-action-secondary-active);
-    --krds-side-navigation--item-color-border: var(--krds-high-contrast-color-divider-gray-light);
-    --krds-side-navigation--item-color-border-selected: var(--krds-high-contrast-color-border-gray);
-    --krds-side-navigation--item-border-width: var(--krds-high-contrast-border-width-static-regular);
-    --krds-side-navigation--2depth-btn-color-border: var(--krds-high-contrast-color-border-secondary);
-    --krds-side-navigation--4depth-color-border: var(--krds-high-contrast-color-border-gray);
-    --krds-side-navigation--4depth-background: var(--krds-high-contrast-color-background-white);
+    --krds-side-navigation--title-color-border: var(
+      --krds-high-contrast-color-divider-gray
+    );
+    --krds-side-navigation--title-border-width: var(
+      --krds-high-contrast-border-width-static-regular
+    );
+    --krds-side-navigation--color-action: var(
+      --krds-high-contrast-color-action-secondary
+    );
+    --krds-side-navigation--color-action-hover: var(
+      --krds-high-contrast-color-action-secondary-hover
+    );
+    --krds-side-navigation--color-action-pressed: var(
+      --krds-high-contrast-color-action-secondary-pressed
+    );
+    --krds-side-navigation--color-action-selected: var(
+      --krds-high-contrast-color-action-secondary-selected
+    );
+    --krds-side-navigation--color-border: var(
+      --krds-high-contrast-color-divider-gray-light
+    );
+    --krds-side-navigation--color-text-selected: var(
+      --krds-high-contrast-color-text-secondary
+    );
+    --krds-side-navigation--color-border-selected: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
+    --krds-side-navigation--item-color-border: var(
+      --krds-high-contrast-color-divider-gray-light
+    );
+    --krds-side-navigation--item-color-border-selected: var(
+      --krds-high-contrast-color-border-gray
+    );
+    --krds-side-navigation--item-border-width: var(
+      --krds-high-contrast-border-width-static-regular
+    );
+    --krds-side-navigation--2depth-btn-color-border: var(
+      --krds-high-contrast-color-border-secondary
+    );
+    --krds-side-navigation--4depth-color-border: var(
+      --krds-high-contrast-color-border-gray
+    );
+    --krds-side-navigation--4depth-background: var(
+      --krds-high-contrast-color-background-white
+    );
   }
   [data-krds-mode=theme] .krds-side-navigation .lnb-list .lnb-item [class*=lnb-toggle]::after {
     display: inline-flex;
@@ -8766,19 +8928,45 @@ caption {
 /* 구조화 목록 */
 .krds-structured-list {
   --krds-structured-list--tag-color-text: var(--krds-light-color-text-basic);
-  --krds-structured-list--tag-color-text-visited: var(--krds-light-color-link-visited);
-  --krds-structured-list--tag-color-border: var(--krds-light-color-border-gray-light);
-  --krds-structured-list--tag-color-action: var(--krds-light-color-action-white);
-  --krds-structured-list--list-color-surface: var(--krds-light-color-surface-white-subtle);
-  --krds-structured-list--list-color-border: var(--krds-light-color-border-gray);
-  --krds-structured-list--list-color-action-active: var(--krds-light-color-link-default);
-  --krds-structured-list--list-action-outline-width: var(--krds-light-border-width-variable-medium);
-  --krds-structured-list--card-bottom-color-border: var(--krds-light-color-divider-gray-light);
-  --krds-structured-list--card-body-color-text: var(--krds-light-color-text-subtle);
-  --krds-structured-list--card-body-divider-width: var(--krds-light-border-width-variable-regular);
-  --krds-structured-list--card-body-divider-color-divider: var(--krds-light-color-divider-gray-light);
-  --krds-structured-list--border-width: var(--krds-light-border-width-variable-regular);
-  --krds-structured-list--full-card-body-meta-color-text: var(--krds-light-color-text-subtle);
+  --krds-structured-list--tag-color-text-visited: var(
+    --krds-light-color-link-visited
+  );
+  --krds-structured-list--tag-color-border: var(
+    --krds-light-color-border-gray-light
+  );
+  --krds-structured-list--tag-color-action: var(
+    --krds-light-color-action-white
+  );
+  --krds-structured-list--list-color-surface: var(
+    --krds-light-color-surface-white-subtle
+  );
+  --krds-structured-list--list-color-border: var(
+    --krds-light-color-border-gray
+  );
+  --krds-structured-list--list-color-action-active: var(
+    --krds-light-color-link-default
+  );
+  --krds-structured-list--list-action-outline-width: var(
+    --krds-light-border-width-variable-medium
+  );
+  --krds-structured-list--card-bottom-color-border: var(
+    --krds-light-color-divider-gray-light
+  );
+  --krds-structured-list--card-body-color-text: var(
+    --krds-light-color-text-subtle
+  );
+  --krds-structured-list--card-body-divider-width: var(
+    --krds-light-border-width-variable-regular
+  );
+  --krds-structured-list--card-body-divider-color-divider: var(
+    --krds-light-color-divider-gray-light
+  );
+  --krds-structured-list--border-width: var(
+    --krds-light-border-width-variable-regular
+  );
+  --krds-structured-list--full-card-body-meta-color-text: var(
+    --krds-light-color-text-subtle
+  );
   --krds-structured-list--wrap-gap: var(--krds-gap-7);
   --krds-structured-list--list-gap: var(--krds-gap-5);
   --krds-structured-list--list-padding-small-size: var(--krds-padding-8);
@@ -8829,7 +9017,7 @@ caption {
 }
 .krds-structured-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: var(--krds-structured-list--wrap-gap);
 }
 .krds-structured-list.type-check .card-btn {
@@ -9070,7 +9258,7 @@ caption {
 .krds-structured-list.lg.type-check .card-btn {
   top: calc(var(--krds-structured-list--list-gap) + var(--krds-structured-list--card-buttons-position-top-large-size) + var(--krds-size-height-5));
 }
-.krds-structured-list.type-full, .krds-structured-list.type2 {
+.krds-structured-list.type-full {
   grid-template-columns: none;
   --krds-structured-list--full-list-column-gap: var(--krds-gap-7);
   --krds-structured-list--full-card-top-margin: var(--krds-gap-2);
@@ -9079,34 +9267,36 @@ caption {
   --krds-structured-list--full-card-btn-position-top: var(--krds-gap-2);
   --krds-structured-list--full-card-body-meta-gap-y: var(--krds-gap-3);
   --krds-structured-list--full-card-body-meta-gap-x: var(--krds-gap-4);
-  --krds-structured-list--full-card-body-divider-height: var(--krds-size-height-2);
+  --krds-structured-list--full-card-body-divider-height: var(
+    --krds-size-height-2
+  );
   --krds-structured-list--full-card-body-divider-margin-x: var(--krds-gap-3);
 }
-.krds-structured-list.type-full .structured-item, .krds-structured-list.type2 .structured-item {
+.krds-structured-list.type-full .structured-item {
   flex-direction: row;
   column-gap: var(--krds-structured-list--full-list-column-gap);
 }
-.krds-structured-list.type-full .structured-item .in, .krds-structured-list.type2 .structured-item .in {
+.krds-structured-list.type-full .structured-item .in {
   position: relative;
 }
-.krds-structured-list.type-full .structured-item .krds-check-area, .krds-structured-list.type2 .structured-item .krds-check-area {
+.krds-structured-list.type-full .structured-item .krds-check-area {
   margin: 0;
 }
-.krds-structured-list.type-full .card-top, .krds-structured-list.type2 .card-top {
+.krds-structured-list.type-full .card-top {
   margin: var(--krds-structured-list--full-card-top-margin) 0;
 }
-.krds-structured-list.type-full .card-body, .krds-structured-list.type2 .card-body {
+.krds-structured-list.type-full .card-body {
   flex-direction: row;
   justify-content: space-between;
 }
-.krds-structured-list.type-full .card-body .c-text, .krds-structured-list.type2 .card-body .c-text {
+.krds-structured-list.type-full .card-body .c-text {
   flex: 1;
   margin: 0;
 }
-.krds-structured-list.type-full .card-body .c-text .key, .krds-structured-list.type2 .card-body .c-text .key {
+.krds-structured-list.type-full .card-body .c-text .key {
   white-space: nowrap;
 }
-.krds-structured-list.type-full .card-body .c-txt, .krds-structured-list.type2 .card-body .c-txt {
+.krds-structured-list.type-full .card-body .c-txt {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -9114,13 +9304,13 @@ caption {
   -webkit-line-clamp: 1;
   line-clamp: 1;
 }
-.krds-structured-list.type-full .card-body .c-txt-p, .krds-structured-list.type2 .card-body .c-txt-p {
+.krds-structured-list.type-full .card-body .c-txt-p {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
 }
-.krds-structured-list.type-full .card-body .c-txt-ul, .krds-structured-list.type2 .card-body .c-txt-ul {
+.krds-structured-list.type-full .card-body .c-txt-ul {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -9129,12 +9319,12 @@ caption {
   gap: var(--krds-structured-list--full-card-body-meta-gap-x);
   column-gap: var(--krds-structured-list--full-card-body-meta-gap-y);
 }
-.krds-structured-list.type-full .card-body .c-txt-ul li, .krds-structured-list.type2 .card-body .c-txt-ul li {
+.krds-structured-list.type-full .card-body .c-txt-ul li {
   display: inline-flex;
   align-items: center;
   color: var(--krds-structured-list--full-card-body-meta-color-text);
 }
-.krds-structured-list.type-full .card-body .c-txt-ul li:not(:last-child)::after, .krds-structured-list.type2 .card-body .c-txt-ul li:not(:last-child)::after {
+.krds-structured-list.type-full .card-body .c-txt-ul li:not(:last-child)::after {
   display: inline-flex;
   content: "";
   width: var(--krds-structured-list--card-body-divider-width);
@@ -9142,16 +9332,20 @@ caption {
   margin-left: var(--krds-structured-list--full-card-body-divider-margin-x);
   background-color: var(--krds-structured-list--card-body-divider-color-divider);
 }
-.krds-structured-list.type-full .card-btm, .krds-structured-list.type2 .card-btm {
+.krds-structured-list.type-full .card-btm {
   margin-top: 0;
 }
-.krds-structured-list.type-full .card-btn, .krds-structured-list.type2 .card-btn {
+.krds-structured-list.type-full .card-btn {
   top: var(--krds-structured-list--full-card-btn-position-top);
   right: 0;
 }
 .krds-structured-list.type-full {
-  --krds-structured-list--card-body-title-pc-font-size: var(--krds-pc-font-size-heading-medium);
-  --krds-structured-list--card-body-title-mobile-font-size: var(--krds-mobile-font-size-heading-medium);
+  --krds-structured-list--card-body-title-pc-font-size: var(
+    --krds-pc-font-size-heading-medium
+  );
+  --krds-structured-list--card-body-title-mobile-font-size: var(
+    --krds-mobile-font-size-heading-medium
+  );
 }
 .krds-structured-list.type-full .card-body .c-tit {
   font-size: var(--krds-structured-list--card-body-title-pc-font-size);
@@ -9160,7 +9354,7 @@ caption {
 @media (min-width: 768px) and (max-width: clac(1023px)) {
   .krds-structured-list {
     --krds-structured-list--card-buttons-gap: var(--krds-number-3);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .krds-structured-list .card-btn {
     gap: var(--krds-structured-list--card-buttons-gap);
@@ -9209,26 +9403,26 @@ caption {
     order: -1;
     position: static;
   }
-  .krds-structured-list.type-full, .krds-structured-list.type2 {
+  .krds-structured-list.type-full {
     --krds-structured-list--full-card-body-gap: var(--krds-gap-7);
     --krds-structured-list--full-card-body-cont-gap: var(--krds-gap-4);
     --krds-structured-list--full-card-body-meta-gap-y: var(--krds-gap-3);
   }
-  .krds-structured-list.type-full .in, .krds-structured-list.type2 .in {
+  .krds-structured-list.type-full .in {
     gap: 1.6rem;
   }
-  .krds-structured-list.type-full .card-top, .krds-structured-list.type2 .card-top {
+  .krds-structured-list.type-full .card-top {
     margin: 0;
   }
-  .krds-structured-list.type-full .card-body, .krds-structured-list.type2 .card-body {
+  .krds-structured-list.type-full .card-body {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--krds-structured-list--full-card-body-gap);
   }
-  .krds-structured-list.type-full .card-body .c-text, .krds-structured-list.type2 .card-body .c-text {
+  .krds-structured-list.type-full .card-body .c-text {
     gap: var(--krds-structured-list--full-card-body-cont-gap);
   }
-  .krds-structured-list.type-full .card-body .c-txt-ul, .krds-structured-list.type2 .card-body .c-txt-ul {
+  .krds-structured-list.type-full .card-body .c-txt-ul {
     gap: var(--krds-structured-list--full-card-body-meta-gap-y);
   }
   .krds-structured-list.type-full .card-body .c-tit {
@@ -9237,19 +9431,45 @@ caption {
 }
 [data-krds-mode=high-contrast] .krds-structured-list {
   --krds-structured-list--tag-color-text: var(--krds-high-contrast-color-text-basic);
-  --krds-structured-list--tag-color-text-visited: var(--krds-light-color-link-visited);
-  --krds-structured-list--tag-color-border: var(--krds-high-contrast-color-border-gray-light);
-  --krds-structured-list--tag-color-action: var(--krds-high-contrast-color-action-white);
-  --krds-structured-list--list-color-surface: var(--krds-high-contrast-color-surface-white-subtle);
-  --krds-structured-list--list-color-border: var(--krds-high-contrast-color-border-gray);
-  --krds-structured-list--list-color-action-active: var(--krds-high-contrast-color-link-default);
-  --krds-structured-list--list-action-outline-width: var(--krds-high-contrast-border-width-variable-medium);
-  --krds-structured-list--card-bottom-color-border: var(--krds-high-contrast-color-divider-gray-light);
-  --krds-structured-list--card-body-color-text: var(--krds-high-contrast-color-text-subtle);
-  --krds-structured-list--card-body-divider-width: var(--krds-high-contrast-border-width-variable-regular);
-  --krds-structured-list--card-body-divider-color-divider: var(--krds-high-contrast-color-divider-gray-light);
-  --krds-structured-list--border-width: var(--krds-high-contrast-border-width-variable-regular);
-  --krds-structured-list--full-card-body-meta-color-text: var(--krds-high-contrast-color-text-subtle);
+  --krds-structured-list--tag-color-text-visited: var(
+    --krds-light-color-link-visited
+  );
+  --krds-structured-list--tag-color-border: var(
+    --krds-high-contrast-color-border-gray-light
+  );
+  --krds-structured-list--tag-color-action: var(
+    --krds-high-contrast-color-action-white
+  );
+  --krds-structured-list--list-color-surface: var(
+    --krds-high-contrast-color-surface-white-subtle
+  );
+  --krds-structured-list--list-color-border: var(
+    --krds-high-contrast-color-border-gray
+  );
+  --krds-structured-list--list-color-action-active: var(
+    --krds-high-contrast-color-link-default
+  );
+  --krds-structured-list--list-action-outline-width: var(
+    --krds-high-contrast-border-width-variable-medium
+  );
+  --krds-structured-list--card-bottom-color-border: var(
+    --krds-high-contrast-color-divider-gray-light
+  );
+  --krds-structured-list--card-body-color-text: var(
+    --krds-high-contrast-color-text-subtle
+  );
+  --krds-structured-list--card-body-divider-width: var(
+    --krds-high-contrast-border-width-variable-regular
+  );
+  --krds-structured-list--card-body-divider-color-divider: var(
+    --krds-high-contrast-color-divider-gray-light
+  );
+  --krds-structured-list--border-width: var(
+    --krds-high-contrast-border-width-variable-regular
+  );
+  --krds-structured-list--full-card-body-meta-color-text: var(
+    --krds-high-contrast-color-text-subtle
+  );
 }
 [data-krds-mode=high-contrast] .krds-structured-list .krds-check-area .krds-form-check input[type=checkbox] ~ label::before {
   margin-top: 0;
@@ -9268,19 +9488,45 @@ caption {
 @media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-structured-list {
     --krds-structured-list--tag-color-text: var(--krds-high-contrast-color-text-basic);
-    --krds-structured-list--tag-color-text-visited: var(--krds-light-color-link-visited);
-    --krds-structured-list--tag-color-border: var(--krds-high-contrast-color-border-gray-light);
-    --krds-structured-list--tag-color-action: var(--krds-high-contrast-color-action-white);
-    --krds-structured-list--list-color-surface: var(--krds-high-contrast-color-surface-white-subtle);
-    --krds-structured-list--list-color-border: var(--krds-high-contrast-color-border-gray);
-    --krds-structured-list--list-color-action-active: var(--krds-high-contrast-color-link-default);
-    --krds-structured-list--list-action-outline-width: var(--krds-high-contrast-border-width-variable-medium);
-    --krds-structured-list--card-bottom-color-border: var(--krds-high-contrast-color-divider-gray-light);
-    --krds-structured-list--card-body-color-text: var(--krds-high-contrast-color-text-subtle);
-    --krds-structured-list--card-body-divider-width: var(--krds-high-contrast-border-width-variable-regular);
-    --krds-structured-list--card-body-divider-color-divider: var(--krds-high-contrast-color-divider-gray-light);
-    --krds-structured-list--border-width: var(--krds-high-contrast-border-width-variable-regular);
-    --krds-structured-list--full-card-body-meta-color-text: var(--krds-high-contrast-color-text-subtle);
+    --krds-structured-list--tag-color-text-visited: var(
+      --krds-light-color-link-visited
+    );
+    --krds-structured-list--tag-color-border: var(
+      --krds-high-contrast-color-border-gray-light
+    );
+    --krds-structured-list--tag-color-action: var(
+      --krds-high-contrast-color-action-white
+    );
+    --krds-structured-list--list-color-surface: var(
+      --krds-high-contrast-color-surface-white-subtle
+    );
+    --krds-structured-list--list-color-border: var(
+      --krds-high-contrast-color-border-gray
+    );
+    --krds-structured-list--list-color-action-active: var(
+      --krds-high-contrast-color-link-default
+    );
+    --krds-structured-list--list-action-outline-width: var(
+      --krds-high-contrast-border-width-variable-medium
+    );
+    --krds-structured-list--card-bottom-color-border: var(
+      --krds-high-contrast-color-divider-gray-light
+    );
+    --krds-structured-list--card-body-color-text: var(
+      --krds-high-contrast-color-text-subtle
+    );
+    --krds-structured-list--card-body-divider-width: var(
+      --krds-high-contrast-border-width-variable-regular
+    );
+    --krds-structured-list--card-body-divider-color-divider: var(
+      --krds-high-contrast-color-divider-gray-light
+    );
+    --krds-structured-list--border-width: var(
+      --krds-high-contrast-border-width-variable-regular
+    );
+    --krds-structured-list--full-card-body-meta-color-text: var(
+      --krds-high-contrast-color-text-subtle
+    );
   }
   [data-krds-mode=theme] .krds-structured-list .krds-check-area .krds-form-check input[type=checkbox] ~ label::before {
     margin-top: 0;
@@ -14130,39 +14376,91 @@ label {
 /* 달력 */
 .krds-calendar-area {
   --krds-calendar--radius: var(--krds-radius-xlarge2);
-  --krds-calendar--head-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-calendar--head-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
-  --krds-calendar--head-btn-cal-switch-pc-font-size: var(--krds-pc-font-size-label-medium);
-  --krds-calendar--head-btn-cal-switch-mobile-font-size: var(--krds-mobile-font-size-label-medium);
-  --krds-calendar--head-btn-cal-switch-radius: var(--krds-radius-medium1);
+  --krds-calendar--head-pc-font-size: var(--krds-pc-font-size-heading-small);
+  --krds-calendar--head-mobile-font-size: var(
+    --krds-mobile-font-size-heading-small
+  );
+  --krds-calendar--head-btn-cal-switch-pc-font-size: var(
+    --krds-pc-font-size-label-medium
+  );
+  --krds-calendar--head-btn-cal-switch-mobile-font-size: var(
+    --krds-mobile-font-size-label-medium
+  );
+  --krds-calendar--head-btn-cal-switch-radius: var(--krds-radius-max);
   --krds-calendar--head-btn-cal-move-size: var(--krds-size-height-5);
   --krds-calendar--table-wrap-padding: var(--krds-gap-5);
-  --krds-calendar--table-head-pc-font-size: var(--krds-pc-font-size-label-small);
-  --krds-calendar--table-head-mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --krds-calendar--table-caption-pc-font-size: var(--krds-pc-font-size-heading-xxsmall);
-  --krds-calendar--table-caption-mobile-font-size: var(--krds-pc-font-size-heading-xxsmall);
+  --krds-calendar--table-head-pc-font-size: var(
+    --krds-pc-font-size-label-small
+  );
+  --krds-calendar--table-head-mobile-font-size: var(
+    --krds-mobile-font-size-label-small
+  );
+  --krds-calendar--table-caption-pc-font-size: var(
+    --krds-pc-font-size-heading-xxsmall
+  );
+  --krds-calendar--table-caption-mobile-font-size: var(
+    --krds-pc-font-size-heading-xxsmall
+  );
   --krds-calendar--set-date-radius: var(--krds-radius-max);
-  --krds-calendar--color-border: var(--krds-light-color-border-secondary-light);
-  --krds-calendar--color-surface: var(--krds-light-color-surface-secondary-subtler);
+  --krds-calendar--color-border: var(
+    --krds-light-color-border-secondary-light
+  );
+  --krds-calendar--color-surface: var(--krds-color-light-gray-0);
   --krds-calendar--color-text-sub: var(--krds-light-color-text-subtle);
-  --krds-calendar--head-btn-cal-move-color-text-active: var(--krds-light-color-text-secondary);
-  --krds-calendar--head-btn-cal-move-color-border: var(--krds-light-color-border-gray-light);
-  --krds-calendar--head-btn-cal-move-color-border-active: var(--krds-light-color-border-secondary);
-  --krds-calendar--head-btn-cal-move-color-action: var(--krds-light-color-action-white);
-  --krds-calendar--head-btn-cal-switch-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --krds-calendar--head-btn-cal-switch-color-action-active: var(--krds-light-color-action-secondary-pressed);
-  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(--krds-light-color-text-disabled-on);
-  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-light-color-alpha-shadow1), 0 0.4rem 0.8rem 0 var(--krds-light-color-alpha-shadow2);
-  --krds-calendar--date-set-color-action: var(--krds-light-color-action-secondary-active);
-  --krds-calendar--date-set-color-text: var(--krds-light-color-text-inverse-static);
-  --krds-calendar--date-set-color-text-day-off: var(--krds-light-color-text-danger);
-  --krds-calendar--date-set-color-text-day-event: var(--krds-light-color-text-information);
-  --krds-calendar--date-set-color-text-disabled: var(--krds-light-color-text-disabled);
-  --krds-calendar--date-set-color-action-pressed: var(--krds-light-color-action-secondary-on-pressed);
-  --krds-calendar--date-set-color-action-period: var(--krds-light-color-action-secondary-on-selected);
-  --krds-calendar--date-set-color-element-today: var(--krds-light-color-element-point);
-  --krds-calendar--action-btn-wrap-color-border: var(--krds-light-color-divider-gray-light);
-  --krds-calendar--action-btn-wrap-color-surface: var(--krds-light-color-surface-white);
+  --krds-calendar--head-btn-cal-move-color-text-active: var(
+    --krds-light-color-text-secondary
+  );
+  --krds-calendar--head-btn-cal-move-color-border: var(
+    --krds-light-color-border-gray-light
+  );
+  --krds-calendar--head-btn-cal-move-color-border-active: var(
+    --krds-light-color-border-secondary
+  );
+  --krds-calendar--head-btn-cal-move-color-action: var(
+    --krds-light-color-action-white
+  );
+  --krds-calendar--head-btn-cal-switch-color-action-hover: var(
+    --krds-light-color-action-secondary-hover
+  );
+  --krds-calendar--head-btn-cal-switch-color-action-active: var(
+    --krds-light-color-action-secondary-pressed
+  );
+  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(
+    --krds-light-color-text-disabled-on
+  );
+  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0
+      var(--krds-light-color-alpha-shadow1),
+    0 0.4rem 0.8rem 0 var(--krds-light-color-alpha-shadow2);
+  --krds-calendar--date-set-color-action: var(
+    --krds-light-color-action-secondary-active
+  );
+  --krds-calendar--date-set-color-text: var(
+    --krds-light-color-text-inverse-static
+  );
+  --krds-calendar--date-set-color-text-day-off: var(
+    --krds-light-color-text-danger
+  );
+  --krds-calendar--date-set-color-text-day-event: var(
+    --krds-light-color-text-information
+  );
+  --krds-calendar--date-set-color-text-disabled: var(
+    --krds-light-color-text-disabled
+  );
+  --krds-calendar--date-set-color-action-pressed: var(
+    --krds-light-color-action-secondary-on-pressed
+  );
+  --krds-calendar--date-set-color-action-period: var(
+    --krds-light-color-action-secondary-on-selected
+  );
+  --krds-calendar--date-set-color-element-today: var(
+    --krds-light-color-element-point
+  );
+  --krds-calendar--action-btn-wrap-color-border: var(
+    --krds-light-color-divider-gray-light
+  );
+  --krds-calendar--action-btn-wrap-color-surface: var(
+    --krds-light-color-surface-white
+  );
   position: relative;
   z-index: 1000;
   width: 100%;
@@ -14242,7 +14540,7 @@ label {
   padding: 0 var(--krds-padding-3);
   transition: var(--krds-transition-base);
   position: relative; /* 추가: 화살표 아이콘 위치 기준 */
-  padding-right: 2.4rem; /* 추가: 화살표 공간 확보 */
+  padding-right: 2.8rem; /* 추가: 화살표 공간 확보 */
   /* 추가: active 상태일 때 화살표 회전 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch::after {
@@ -14287,7 +14585,7 @@ label {
   background-color: var(--krds-calendar--head-btn-cal-switch-color-text-disabled);
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down {
-  --krds-calendar-drop-down-btn-height: var(--krds-size-height-6);
+  --krds-calendar-drop-down-btn-height: 4.2rem;
   position: relative;
   /* 수정: calendar-select 구조 (KRDS 공식) */
 }
@@ -14470,13 +14768,13 @@ label {
   /* 추가: between 상태 (기간 사이) */
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period.between {
-  background-color: var(--krds-calendar--date-set-color-action-period);
+  background-color: #f2f2ff;
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period .btn-set-date {
-  background-color: var(--krds-calendar--date-set-color-action-period);
+  background-color: #f2f2ff;
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period.start > .btn-set-date, .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period.end > .btn-set-date {
-  background-color: var(--krds-calendar--date-set-color-action);
+  background-color: #454097;
   color: var(--krds-calendar--date-set-color-text);
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period.start > .btn-set-date {
@@ -14519,13 +14817,13 @@ label {
   transform: translateY(-50%);
 }
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.period::after {
-  background-color: var(--krds-calendar--date-set-color-action-period);
+  background-color: #f2f2ff;
 }
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.start .btn-set-date {
   border-radius: var(--krds-calendar--set-date-radius) 0 0 var(--krds-calendar--set-date-radius);
 }
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.start::after {
-  background-color: var(--krds-calendar--date-set-color-action);
+  background-color: #454097;
   border-top-left-radius: var(--krds-calendar--set-date-radius);
   border-bottom-left-radius: var(--krds-calendar--set-date-radius);
   width: var(--krds-calendar--after-size);
@@ -14537,7 +14835,7 @@ label {
   border-radius: 0 var(--krds-calendar--set-date-radius) var(--krds-calendar--set-date-radius) 0;
 }
 .krds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.end::after {
-  background-color: var(--krds-calendar--date-set-color-action);
+  background-color: #454097;
   border-top-right-radius: var(--krds-calendar--set-date-radius);
   border-bottom-right-radius: var(--krds-calendar--set-date-radius);
   width: var(--krds-calendar--after-size);
@@ -14551,27 +14849,65 @@ label {
 }
 
 [data-krds-mode=high-contrast] .krds-calendar-area {
-  --krds-calendar--color-border: var(--krds-high-contrast-color-border-secondary-light);
-  --krds-calendar--color-surface: var(--krds-high-contrast-color-surface-secondary-subtler);
+  --krds-calendar--color-border: var(
+    --krds-high-contrast-color-border-secondary-light
+  );
+  --krds-calendar--color-surface: var(--krds-color-light-gray-0);
   --krds-calendar--color-text-sub: var(--krds-high-contrast-color-text-subtle);
-  --krds-calendar--head-btn-cal-move-color-text-active: var(--krds-high-contrast-color-text-secondary);
-  --krds-calendar--head-btn-cal-move-color-border: var(--krds-high-contrast-color-border-gray-light);
-  --krds-calendar--head-btn-cal-move-color-border-active: var(--krds-high-contrast-color-border-secondary);
-  --krds-calendar--head-btn-cal-move-color-action: var(--krds-high-contrast-color-action-white);
-  --krds-calendar--head-btn-cal-switch-color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-  --krds-calendar--head-btn-cal-switch-color-action-active: var(--krds-high-contrast-color-action-secondary-pressed);
-  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(--krds-high-contrast-color-text-disabled-on);
-  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-high-contrast-color-alpha-shadow1), 0 0.4rem 0.8rem 0 var(--krds-high-contrast-color-alpha-shadow2);
-  --krds-calendar--date-set-color-action: var(--krds-high-contrast-color-action-secondary-active);
-  --krds-calendar--date-set-color-text: var(--krds-high-contrast-color-text-inverse-static);
-  --krds-calendar--date-set-color-text-day-off: var(--krds-high-contrast-color-text-danger);
-  --krds-calendar--date-set-color-text-day-event: var(--krds-high-contrast-color-text-information);
-  --krds-calendar--date-set-color-text-disabled: var(--krds-high-contrast-color-text-disabled);
-  --krds-calendar--date-set-color-action-pressed: var(--krds-high-contrast-color-action-secondary-on-pressed);
-  --krds-calendar--date-set-color-action-period: var(--krds-high-contrast-color-action-secondary-on-selected);
-  --krds-calendar--date-set-color-element-today: var(--krds-high-contrast-color-element-point);
-  --krds-calendar--action-btn-wrap-color-border: var(--krds-high-contrast-color-divider-gray-light);
-  --krds-calendar--action-btn-wrap-color-surface: var(--krds-high-contrast-color-surface-white);
+  --krds-calendar--head-btn-cal-move-color-text-active: var(
+    --krds-high-contrast-color-text-secondary
+  );
+  --krds-calendar--head-btn-cal-move-color-border: var(
+    --krds-high-contrast-color-border-gray-light
+  );
+  --krds-calendar--head-btn-cal-move-color-border-active: var(
+    --krds-high-contrast-color-border-secondary
+  );
+  --krds-calendar--head-btn-cal-move-color-action: var(
+    --krds-high-contrast-color-action-white
+  );
+  --krds-calendar--head-btn-cal-switch-color-action-hover: var(
+    --krds-high-contrast-color-action-secondary-hover
+  );
+  --krds-calendar--head-btn-cal-switch-color-action-active: var(
+    --krds-high-contrast-color-action-secondary-pressed
+  );
+  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(
+    --krds-high-contrast-color-text-disabled-on
+  );
+  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0
+      var(--krds-high-contrast-color-alpha-shadow1),
+    0 0.4rem 0.8rem 0 var(--krds-high-contrast-color-alpha-shadow2);
+  --krds-calendar--date-set-color-action: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
+  --krds-calendar--date-set-color-text: var(
+    --krds-high-contrast-color-text-inverse-static
+  );
+  --krds-calendar--date-set-color-text-day-off: var(
+    --krds-high-contrast-color-text-danger
+  );
+  --krds-calendar--date-set-color-text-day-event: var(
+    --krds-high-contrast-color-text-information
+  );
+  --krds-calendar--date-set-color-text-disabled: var(
+    --krds-high-contrast-color-text-disabled
+  );
+  --krds-calendar--date-set-color-action-pressed: var(
+    --krds-high-contrast-color-action-secondary-on-pressed
+  );
+  --krds-calendar--date-set-color-action-period: var(
+    --krds-high-contrast-color-action-secondary-on-selected
+  );
+  --krds-calendar--date-set-color-element-today: var(
+    --krds-high-contrast-color-element-point
+  );
+  --krds-calendar--action-btn-wrap-color-border: var(
+    --krds-high-contrast-color-divider-gray-light
+  );
+  --krds-calendar--action-btn-wrap-color-surface: var(
+    --krds-high-contrast-color-surface-white
+  );
 }
 [data-krds-mode=high-contrast] .krds-calendar-area .calendar-wrap .calendar-head .btn-cal-move::before {
   display: inline-flex;
@@ -14590,27 +14926,65 @@ label {
 
 @media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-calendar-area {
-    --krds-calendar--color-border: var(--krds-high-contrast-color-border-secondary-light);
-    --krds-calendar--color-surface: var(--krds-high-contrast-color-surface-secondary-subtler);
+    --krds-calendar--color-border: var(
+      --krds-high-contrast-color-border-secondary-light
+    );
+    --krds-calendar--color-surface: var(--krds-color-light-gray-0);
     --krds-calendar--color-text-sub: var(--krds-high-contrast-color-text-subtle);
-    --krds-calendar--head-btn-cal-move-color-text-active: var(--krds-high-contrast-color-text-secondary);
-    --krds-calendar--head-btn-cal-move-color-border: var(--krds-high-contrast-color-border-gray-light);
-    --krds-calendar--head-btn-cal-move-color-border-active: var(--krds-high-contrast-color-border-secondary);
-    --krds-calendar--head-btn-cal-move-color-action: var(--krds-high-contrast-color-action-white);
-    --krds-calendar--head-btn-cal-switch-color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-    --krds-calendar--head-btn-cal-switch-color-action-active: var(--krds-high-contrast-color-action-secondary-pressed);
-    --krds-calendar--head-btn-cal-switch-color-text-disabled: var(--krds-high-contrast-color-text-disabled-on);
-    --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-high-contrast-color-alpha-shadow1), 0 0.4rem 0.8rem 0 var(--krds-high-contrast-color-alpha-shadow2);
-    --krds-calendar--date-set-color-action: var(--krds-high-contrast-color-action-secondary-active);
-    --krds-calendar--date-set-color-text: var(--krds-high-contrast-color-text-inverse-static);
-    --krds-calendar--date-set-color-text-day-off: var(--krds-high-contrast-color-text-danger);
-    --krds-calendar--date-set-color-text-day-event: var(--krds-high-contrast-color-text-information);
-    --krds-calendar--date-set-color-text-disabled: var(--krds-high-contrast-color-text-disabled);
-    --krds-calendar--date-set-color-action-pressed: var(--krds-high-contrast-color-action-secondary-on-pressed);
-    --krds-calendar--date-set-color-action-period: var(--krds-high-contrast-color-action-secondary-on-selected);
-    --krds-calendar--date-set-color-element-today: var(--krds-high-contrast-color-element-point);
-    --krds-calendar--action-btn-wrap-color-border: var(--krds-high-contrast-color-divider-gray-light);
-    --krds-calendar--action-btn-wrap-color-surface: var(--krds-high-contrast-color-surface-white);
+    --krds-calendar--head-btn-cal-move-color-text-active: var(
+      --krds-high-contrast-color-text-secondary
+    );
+    --krds-calendar--head-btn-cal-move-color-border: var(
+      --krds-high-contrast-color-border-gray-light
+    );
+    --krds-calendar--head-btn-cal-move-color-border-active: var(
+      --krds-high-contrast-color-border-secondary
+    );
+    --krds-calendar--head-btn-cal-move-color-action: var(
+      --krds-high-contrast-color-action-white
+    );
+    --krds-calendar--head-btn-cal-switch-color-action-hover: var(
+      --krds-high-contrast-color-action-secondary-hover
+    );
+    --krds-calendar--head-btn-cal-switch-color-action-active: var(
+      --krds-high-contrast-color-action-secondary-pressed
+    );
+    --krds-calendar--head-btn-cal-switch-color-text-disabled: var(
+      --krds-high-contrast-color-text-disabled-on
+    );
+    --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0
+        var(--krds-high-contrast-color-alpha-shadow1),
+      0 0.4rem 0.8rem 0 var(--krds-high-contrast-color-alpha-shadow2);
+    --krds-calendar--date-set-color-action: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
+    --krds-calendar--date-set-color-text: var(
+      --krds-high-contrast-color-text-inverse-static
+    );
+    --krds-calendar--date-set-color-text-day-off: var(
+      --krds-high-contrast-color-text-danger
+    );
+    --krds-calendar--date-set-color-text-day-event: var(
+      --krds-high-contrast-color-text-information
+    );
+    --krds-calendar--date-set-color-text-disabled: var(
+      --krds-high-contrast-color-text-disabled
+    );
+    --krds-calendar--date-set-color-action-pressed: var(
+      --krds-high-contrast-color-action-secondary-on-pressed
+    );
+    --krds-calendar--date-set-color-action-period: var(
+      --krds-high-contrast-color-action-secondary-on-selected
+    );
+    --krds-calendar--date-set-color-element-today: var(
+      --krds-high-contrast-color-element-point
+    );
+    --krds-calendar--action-btn-wrap-color-border: var(
+      --krds-high-contrast-color-divider-gray-light
+    );
+    --krds-calendar--action-btn-wrap-color-surface: var(
+      --krds-high-contrast-color-surface-white
+    );
   }
   [data-krds-mode=theme] .krds-calendar-area .calendar-wrap .calendar-head .btn-cal-move::before {
     display: inline-flex;
@@ -14817,6 +15191,13 @@ label {
 
 #container {
   flex: 1;
+  max-width: calc(var(--krds-contents-wrap-size));
+  margin: var(--krds-pc-gap-layout-h1-h2) auto 16rem;
+}
+@media (max-width: 767px) {
+  #container {
+    margin: var(--krds-mobile-gap-layout-h1-h2) auto 16rem;
+  }
 }
 #container > .inner {
   min-height: 60rem;
@@ -14855,9 +15236,7 @@ label {
   gap: var(--krds-gap-12);
 }
 #container .in-between .krds-side-navigation {
-  width: 29.6rem;
-  padding: var(--krds-padding-10) var(--krds-padding-10) var(--krds-padding-10) 0;
-  border-right: var(--krds-light-border-width-static-regular) solid var(--krds-light-color-divider-gray-light);
+  width: 24.8rem;
 }
 #container .in-between .contents {
   flex: 1;
@@ -14938,9 +15317,15 @@ label {
 
 .g-alert {
   --alert-padding: var(--krds-padding-6);
-  --alert-border-color: var(--krds-light-color-border-information-light);
-  --alert-border-width: var(--krds-light-border-width-static-regular);
-  --alert-bg-color: var(--krds-light-color-surface-information-subtler);
+  --alert-border-color: var(
+    --krds-light-color-border-information-light
+  );
+  --alert-border-width: var(
+    --krds-light-border-width-static-regular
+  );
+  --alert-bg-color: var(
+    --krds-light-color-surface-information-subtler
+  );
   --alert-icon-size: var(--krds-size-height-4);
   --alert-title-color: var(--krds-light-color-text-information);
   position: relative;
@@ -14965,24 +15350,36 @@ label {
   background-image: url(../img/component/icon/ico_success_fill.svg);
 }
 .g-alert.success {
-  --alert-border-color: var(--krds-light-color-border-success-light);
-  --alert-bg-color: var(--krds-light-color-surface-success-subtler);
+  --alert-border-color: var(
+    --krds-light-color-border-success-light
+  );
+  --alert-bg-color: var(
+    --krds-light-color-surface-success-subtler
+  );
   --alert-title-color: var(--krds-light-color-text-success);
 }
 .g-alert.warning::before {
   background-image: url(../img/component/icon/ico_warning_fill.svg);
 }
 .g-alert.warning {
-  --alert-border-color: var(--krds-light-color-border-warning-light);
-  --alert-bg-color: var(--krds-light-color-surface-warning-subtler);
+  --alert-border-color: var(
+    --krds-light-color-border-warning-light
+  );
+  --alert-bg-color: var(
+    --krds-light-color-surface-warning-subtler
+  );
   --alert-title-color: var(--krds-light-color-text-warning);
 }
 .g-alert.error::before {
   background-image: url(../img/component/icon/ico_error_fill.svg);
 }
 .g-alert.error {
-  --alert-border-color: var(--krds-light-color-border-danger-light);
-  --alert-bg-color: var(--krds-light-color-surface-danger-subtler);
+  --alert-border-color: var(
+    --krds-light-color-border-danger-light
+  );
+  --alert-bg-color: var(
+    --krds-light-color-surface-danger-subtler
+  );
   --alert-title-color: var(--krds-light-color-text-danger);
 }
 .g-alert .tit {
@@ -15023,9 +15420,8 @@ label {
   }
 }
 .page-title-wrap .h-tit {
-  font-size: var(--krds-pc-font-size-heading-xlarge);
+  font-size: var(--krds-pc-font-size-heading-large);
   letter-spacing: var(--krds-typo-letter-spacing-1);
-  font-weight: var(--krds-font-weight-bold);
 }
 .page-title-wrap .h-tit .small-txt {
   display: flex;
@@ -15035,7 +15431,7 @@ label {
 }
 .page-title-wrap .h-tit .sub-txt {
   display: flex;
-  font-size: var(--krds-pc-font-size-body-small);
+  font-size: var(--krds-pc-font-size-body-medium);
   font-weight: var(--krds-font-weight-regular);
   color: var(--krds-light-color-text-subtle);
 }
@@ -15045,7 +15441,7 @@ label {
 }
 @media (max-width: 767px) {
   .page-title-wrap .h-tit {
-    font-size: var(--krds-mobile-font-size-heading-xlarge);
+    font-size: var(--krds-mobile-font-size-heading-large);
     letter-spacing: var(--krds-typo-letter-spacing-1);
   }
   .page-title-wrap .h-tit .small-txt {
@@ -15053,7 +15449,7 @@ label {
     font-size: var(--krds-mobile-font-size-heading-xxsmall);
   }
   .page-title-wrap .h-tit .sub-txt {
-    font-size: var(--krds-mobile-font-size-body-small);
+    font-size: var(--krds-mobile-font-size-body-medium);
   }
   .page-title-wrap .h-tit .krds-badge-wrap {
     margin-top: var(--krds-mobile-gap-layout-title-body-large);
@@ -15404,25 +15800,49 @@ label {
   color: var(--krds-high-contrast-color-text-primary);
 }
 [data-krds-mode=high-contrast] .g-alert {
-  --alert-border-color: var(--krds-high-contrast-color-border-information-light);
-  --alert-border-width: var(--krds-high-contrast-border-width-static-regular);
-  --alert-bg-color: var(--krds-high-contrast-color-surface-information-subtler);
+  --alert-border-color: var(
+    --krds-high-contrast-color-border-information-light
+  );
+  --alert-border-width: var(
+    --krds-high-contrast-border-width-static-regular
+  );
+  --alert-bg-color: var(
+    --krds-high-contrast-color-surface-information-subtler
+  );
   --alert-title-color: var(--krds-high-contrast-color-text-information);
 }
 [data-krds-mode=high-contrast] .g-alert.success {
-  --alert-border-color: var(--krds-high-contrast-color-border-success-light);
-  --alert-bg-color: var(--krds-high-contrast-color-surface-success-subtler);
-  --alert-title-color: var(--krds-high-contrast-color-text-success);
+  --alert-border-color: var(
+    --krds-high-contrast-color-border-success-light
+  );
+  --alert-bg-color: var(
+    --krds-high-contrast-color-surface-success-subtler
+  );
+  --alert-title-color: var(
+    --krds-high-contrast-color-text-success
+  );
 }
 [data-krds-mode=high-contrast] .g-alert.warning {
-  --alert-border-color: var(--krds-high-contrast-color-border-warning-light);
-  --alert-bg-color: var(--krds-high-contrast-color-surface-warning-subtler);
-  --alert-title-color: var(--krds-high-contrast-color-text-warning);
+  --alert-border-color: var(
+    --krds-high-contrast-color-border-warning-light
+  );
+  --alert-bg-color: var(
+    --krds-high-contrast-color-surface-warning-subtler
+  );
+  --alert-title-color: var(
+    --krds-high-contrast-color-text-warning
+  );
 }
 [data-krds-mode=high-contrast] .g-alert.error {
-  --alert-border-color: var(--krds-high-contrast-color-border-error-light);
-  --alert-bg-color: var(--krds-high-contrast-color-surface-error-subtler);
-  --alert-title-color: var(--krds-high-contrast-color-text-error);
+  --alert-border-color: var(
+    --krds-high-contrast-color-border-error-light
+  );
+  --alert-bg-color: var(
+    --krds-high-contrast-color-surface-error-subtler
+  );
+  --alert-title-color: var(
+    --krds-high-contrast-color-text-error
+  );
 }
 [data-krds-mode=high-contrast] .adjust_display .form-group h3 {
   color: var(--krds-high-contrast-color-text-bolder);
@@ -15460,25 +15880,49 @@ label {
     color: var(--krds-high-contrast-color-text-primary);
   }
   [data-krds-mode=theme] .g-alert {
-    --alert-border-color: var(--krds-high-contrast-color-border-information-light);
-    --alert-border-width: var(--krds-high-contrast-border-width-static-regular);
-    --alert-bg-color: var(--krds-high-contrast-color-surface-information-subtler);
+    --alert-border-color: var(
+      --krds-high-contrast-color-border-information-light
+    );
+    --alert-border-width: var(
+      --krds-high-contrast-border-width-static-regular
+    );
+    --alert-bg-color: var(
+      --krds-high-contrast-color-surface-information-subtler
+    );
     --alert-title-color: var(--krds-high-contrast-color-text-information);
   }
   [data-krds-mode=theme] .g-alert.success {
-    --alert-border-color: var(--krds-high-contrast-color-border-success-light);
-    --alert-bg-color: var(--krds-high-contrast-color-surface-success-subtler);
-    --alert-title-color: var(--krds-high-contrast-color-text-success);
+    --alert-border-color: var(
+      --krds-high-contrast-color-border-success-light
+    );
+    --alert-bg-color: var(
+      --krds-high-contrast-color-surface-success-subtler
+    );
+    --alert-title-color: var(
+      --krds-high-contrast-color-text-success
+    );
   }
   [data-krds-mode=theme] .g-alert.warning {
-    --alert-border-color: var(--krds-high-contrast-color-border-warning-light);
-    --alert-bg-color: var(--krds-high-contrast-color-surface-warning-subtler);
-    --alert-title-color: var(--krds-high-contrast-color-text-warning);
+    --alert-border-color: var(
+      --krds-high-contrast-color-border-warning-light
+    );
+    --alert-bg-color: var(
+      --krds-high-contrast-color-surface-warning-subtler
+    );
+    --alert-title-color: var(
+      --krds-high-contrast-color-text-warning
+    );
   }
   [data-krds-mode=theme] .g-alert.error {
-    --alert-border-color: var(--krds-high-contrast-color-border-error-light);
-    --alert-bg-color: var(--krds-high-contrast-color-surface-error-subtler);
-    --alert-title-color: var(--krds-high-contrast-color-text-error);
+    --alert-border-color: var(
+      --krds-high-contrast-color-border-error-light
+    );
+    --alert-bg-color: var(
+      --krds-high-contrast-color-surface-error-subtler
+    );
+    --alert-title-color: var(
+      --krds-high-contrast-color-text-error
+    );
   }
   [data-krds-mode=theme] .adjust_display .form-group h3 {
     color: var(--krds-high-contrast-color-text-bolder);

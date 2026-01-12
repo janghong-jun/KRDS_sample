@@ -6,6 +6,12 @@ $mode-setting: light;
 
 #container {
   flex: 1;
+  max-width: calc(var(--krds-contents-wrap-size));
+  margin: var(--krds-pc-gap-layout-h1-h2) auto 16rem;
+
+  @include size-medium {
+    margin: var(--krds-mobile-gap-layout-h1-h2) auto 16rem;
+  }
 
   & > .inner {
     min-height: 60rem;
@@ -41,11 +47,7 @@ $mode-setting: light;
     @include flex-layout($ai: normal);
     gap: var(--krds-gap-12);
     .krds-side-navigation {
-      width: 29.6rem;
-      padding: var(--krds-padding-10) var(--krds-padding-10)
-        var(--krds-padding-10) 0;
-      border-right: var(--krds-#{$mode-setting}-border-width-static-regular)
-        solid var(--krds-#{$mode-setting}-color-divider-gray-light);
+      width: 24.8rem;
     }
     .contents {
       flex: 1;
