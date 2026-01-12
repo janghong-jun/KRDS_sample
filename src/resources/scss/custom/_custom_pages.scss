@@ -4,7 +4,6 @@
 @use '../common/mixins/breakpoints' as *;
 @use '../common/path' as *;
 
-$mode-setting: light;
 .g-search-area {
   margin-top: var(--krds-number-12);
   padding: var(--krds-number-14);

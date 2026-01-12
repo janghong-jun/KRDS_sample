@@ -3784,7 +3784,19 @@ caption {
 
 /* **** button area **** */
 .btn-wrap {
+  margin-top: var(--krds-pc-gap-layout-h1-h2);
   width: 100%;
+}
+@media (max-width: 767px) {
+  .btn-wrap {
+    margin-top: var(--krds-mobile-gap-layout-h1-h2);
+  }
+}
+.btn-wrap.center {
+  text-align: center;
+}
+.btn-wrap.center .krds-btn {
+  min-width: 20rem;
 }
 
 /* 탭 */
@@ -10311,14 +10323,24 @@ caption {
 /* 페이지네이션 */
 .krds-pagination {
   --krds-pagination--color-text: var(--krds-light-color-text-subtle);
-  --krds-pagination--color-text-active: var(--krds-light-color-text-inverse-static);
-  --krds-pagination--color-text-disabled: var(--krds-light-color-text-disabled);
+  --krds-pagination--color-text-active: var(
+    --krds-light-color-text-inverse-static
+  );
+  --krds-pagination--color-text-disabled: var(
+    --krds-light-color-text-disabled
+  );
   --krds-pagination--color-action: var(--krds-light-color-action-secondary);
-  --krds-pagination--color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --krds-pagination--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --krds-pagination--color-action-active: var(--krds-light-color-action-secondary-active);
+  --krds-pagination--color-action-hover: var(
+    --krds-light-color-action-secondary-hover
+  );
+  --krds-pagination--color-action-pressed: var(
+    --krds-light-color-action-secondary-pressed
+  );
+  --krds-pagination--color-action-active: var(
+    --krds-light-color-action-secondary-active
+  );
   --krds-pagination-gap: var(--krds-gap-3);
-  --krds-pagination-margin-top: var(--krds-pc-gap-layout-h2-h3);
+  --krds-pagination-margin-top: var(--krds-pc-gap-layout-h5-h5);
   --krds-pagination--size-height: var(--krds-size-height-6);
   --krds-pagination--radius: var(--krds-radius-medium1);
   --krds-pagination--prev-btn-padding-left: var(--krds-padding-2);
@@ -10327,7 +10349,7 @@ caption {
 @media (max-width: 767px) {
   .krds-pagination {
     --krds-pagination-gap: var(--krds-gap-7) var(--krds-gap-3);
-    --krds-pagination-margin-top: var(--krds-mobile-gap-layout-h2-h3);
+    --krds-pagination-margin-top: var(--krds-mobile-gap-layout-h5-h5);
   }
 }
 .krds-pagination {
@@ -10449,8 +10471,10 @@ caption {
 }
 .krds-pagination .page-links .page-link.active {
   background-color: var(--krds-pagination--color-action-active);
+  background-color: #454097;
   font-weight: var(--krds-font-weight-bold);
   color: var(--krds-pagination--color-text-active);
+  border-radius: var(--krds-radius-max);
 }
 .krds-pagination + .helper-box {
   margin-top: var(--krds-padding-10);
@@ -10458,12 +10482,22 @@ caption {
 
 [data-krds-mode=high-contrast] .krds-pagination {
   --krds-pagination--color-text: var(--krds-high-contrast-color-text-subtle);
-  --krds-pagination--color-text-active: var(--krds-high-contrast-color-text-inverse-static);
-  --krds-pagination--color-text-disabled: var(--krds-high-contrast-color-text-disabled);
+  --krds-pagination--color-text-active: var(
+    --krds-high-contrast-color-text-inverse-static
+  );
+  --krds-pagination--color-text-disabled: var(
+    --krds-high-contrast-color-text-disabled
+  );
   --krds-pagination--color-action: var(--krds-high-contrast-color-action-secondary);
-  --krds-pagination--color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-  --krds-pagination--color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
-  --krds-pagination--color-action-active: var(--krds-high-contrast-color-action-secondary-active);
+  --krds-pagination--color-action-hover: var(
+    --krds-high-contrast-color-action-secondary-hover
+  );
+  --krds-pagination--color-action-pressed: var(
+    --krds-high-contrast-color-action-secondary-pressed
+  );
+  --krds-pagination--color-action-active: var(
+    --krds-high-contrast-color-action-secondary-active
+  );
 }
 [data-krds-mode=high-contrast] .krds-pagination .page-navi.prev::before {
   display: inline-flex;
@@ -10490,12 +10524,22 @@ caption {
 @media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-pagination {
     --krds-pagination--color-text: var(--krds-high-contrast-color-text-subtle);
-    --krds-pagination--color-text-active: var(--krds-high-contrast-color-text-inverse-static);
-    --krds-pagination--color-text-disabled: var(--krds-high-contrast-color-text-disabled);
+    --krds-pagination--color-text-active: var(
+      --krds-high-contrast-color-text-inverse-static
+    );
+    --krds-pagination--color-text-disabled: var(
+      --krds-high-contrast-color-text-disabled
+    );
     --krds-pagination--color-action: var(--krds-high-contrast-color-action-secondary);
-    --krds-pagination--color-action-hover: var(--krds-high-contrast-color-action-secondary-hover);
-    --krds-pagination--color-action-pressed: var(--krds-high-contrast-color-action-secondary-pressed);
-    --krds-pagination--color-action-active: var(--krds-high-contrast-color-action-secondary-active);
+    --krds-pagination--color-action-hover: var(
+      --krds-high-contrast-color-action-secondary-hover
+    );
+    --krds-pagination--color-action-pressed: var(
+      --krds-high-contrast-color-action-secondary-pressed
+    );
+    --krds-pagination--color-action-active: var(
+      --krds-high-contrast-color-action-secondary-active
+    );
   }
   [data-krds-mode=theme] .krds-pagination .page-navi.prev::before {
     display: inline-flex;

@@ -687,5 +687,17 @@ $mode-setting: light;
 
 /* **** button area **** */
 .btn-wrap {
+  margin-top: var(--krds-pc-gap-layout-h1-h2);
   width: 100%;
+  @include size-medium {
+    margin-top: var(--krds-mobile-gap-layout-h1-h2);
+  }
+
+  &.center {
+    text-align: center;
+
+    .krds-btn {
+      min-width: 20rem;
+    }
+  }
 }
