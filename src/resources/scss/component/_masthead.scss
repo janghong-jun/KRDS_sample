@@ -20,9 +20,7 @@
 
 //컬러 정의
 @mixin masthead-color-variable($mode: light) {
-  --krds-masthead--color-surface: var(
-    --krds-#{$mode}-color-surface-secondary-subtler
-  );
+  --krds-masthead--color-surface: var(--krds-#{$mode}-color-surface-secondary-subtler);
 }
 
 //모드 설정

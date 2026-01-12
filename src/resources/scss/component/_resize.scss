@@ -12,15 +12,9 @@
 //컬러 정의
 @mixin resize-color-variable($mode: light) {
   --krds-resize--list-icon-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-resize--list-icon-color-border-selected: var(
-    --krds-#{$mode}-color-element-secondary
-  );
-  --krds-resize--list-icon-color-background: var(
-    --krds-#{$mode}-color-action-secondary
-  );
-  --krds-resize--list-icon-color-background-selected: var(
-    --krds-#{$mode}-color-element-secondary
-  );
+  --krds-resize--list-icon-color-border-selected: var(--krds-#{$mode}-color-element-secondary);
+  --krds-resize--list-icon-color-background: var(--krds-#{$mode}-color-action-secondary);
+  --krds-resize--list-icon-color-background-selected: var(--krds-#{$mode}-color-element-secondary);
 }
 
 //모드 설정
@@ -40,8 +34,7 @@ $mode-setting: light;
         &::before {
           @include pseudo();
           @include square(var(--krds-icon--size-large));
-          background: url(#{$url}/img/component/icon/head_ico_font_sample.svg)
-            no-repeat center / contain;
+          background: url(#{$url}/img/component/icon/head_ico_font_sample.svg) no-repeat center / contain;
           flex-shrink: 0;
           border-radius: var(--krds-resize--list-icon-radius);
           border: 0.1rem solid var(--krds-resize--list-icon-color-border);
@@ -51,9 +44,7 @@ $mode-setting: light;
           &::before {
             background-image: url(#{$url}/img/component/icon/head_ico_font_sample_white.svg);
             border-color: var(--krds-resize--list-icon-color-border-selected);
-            background-color: var(
-              --krds-resize--list-icon-color-background-selected
-            );
+            background-color: var(--krds-resize--list-icon-color-background-selected);
           }
         }
         $sizes: (
@@ -106,8 +97,7 @@ $mode-setting: light;
     &.krds-resize {
       .item-link {
         &::before {
-          background: url(#{$url}/img/component/icon/head_ico_font_sample_white.svg)
-            no-repeat center / contain;
+          background: url(#{$url}/img/component/icon/head_ico_font_sample_white.svg) no-repeat center / contain;
         }
       }
     }

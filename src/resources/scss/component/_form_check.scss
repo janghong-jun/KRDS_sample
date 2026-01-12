@@ -66,8 +66,7 @@ label {
       pc-font-size: var(--krds-pc-font-size-label-large),
       mobile-font-size: var(--krds-mobile-font-size-label-large),
       additional-text-pc-font-size: var(--krds-pc-font-size-label-medium),
-      additional-text-mobile-font-size:
-        var(--krds-mobile-font-size-label-medium),
+      additional-text-mobile-font-size: var(--krds-mobile-font-size-label-medium),
     ),
   ) !default;
 
@@ -91,7 +90,7 @@ label {
         > input[type='checkbox'] {
           ~ label {
             @include form-check(#{$size});
-            &:before {
+            &::before {
               @include form-check-button(#{$size});
             }
 
@@ -104,10 +103,10 @@ label {
         //radio button
         > input[type='radio'] {
           ~ label {
-            &:before {
+            &::before {
               @include form-check-radio-button(#{$size});
             }
-            &:after {
+            &::after {
               @include form-check-radio-check(#{$size});
             }
           }
@@ -115,14 +114,11 @@ label {
         //checkbox
         > input[type='checkbox'] {
           ~ label {
-            &:before {
+            &::before {
               @include form-check-checkbox-button(#{$size});
             }
-            &:after {
-              @include form-check-checkbox-check(
-                #{$size},
-                $mode: #{$mode-setting}
-              );
+            &::after {
+              @include form-check-checkbox-check(#{$size}, $mode: #{$mode-setting});
             }
           }
         }
@@ -152,18 +148,8 @@ label {
 //radio ::after 사이즈 정의
 @mixin form-check-radio-check($size) {
   //포지션: (전체사이즈 - 체크영역) / 2
-  top: calc(
-    (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--radio-check-size-#{$size})
-      ) / 2 + var(--krds-form-check--button-margin-top)
-  );
-  left: calc(
-    (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--radio-check-size-#{$size})
-      ) / 2
-  );
+  top: calc((var(--krds-form-check--button-size-#{$size}) - var(--krds-form-check--radio-check-size-#{$size})) / 2 + var(--krds-form-check--button-margin-top));
+  left: calc((var(--krds-form-check--button-size-#{$size}) - var(--krds-form-check--radio-check-size-#{$size})) / 2);
   @include square(var(--krds-form-check--radio-check-size-#{$size}));
   background-color: var(--krds-form-check--radio-check-color-element);
   border-radius: var(--krds-radius-max);
@@ -175,37 +161,20 @@ label {
 //radio ::after 사이즈 정의
 @mixin form-check-checkbox-check($size, $mode: light) {
   //포지션: (전체사이즈 - 체크영역) / 2
-  top: calc(
-    (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--checkbox-check-size-#{$size})
-      ) / 2 + var(--krds-form-check--button-margin-top)
-  );
-  left: calc(
-    (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--checkbox-check-size-#{$size})
-      ) / 2
-  );
-  @include svg-icon(
-    $size: var(--krds-form-check--checkbox-check-size-#{$size}),
-    $mode: #{$mode}
-  );
+  top: calc((var(--krds-form-check--button-size-#{$size}) - var(--krds-form-check--checkbox-check-size-#{$size})) / 2 + var(--krds-form-check--button-margin-top));
+  left: calc((var(--krds-form-check--button-size-#{$size}) - var(--krds-form-check--checkbox-check-size-#{$size})) / 2);
+  @include svg-icon($size: var(--krds-form-check--checkbox-check-size-#{$size}), $mode: #{$mode});
   @include icon-set(ico_checkbox_checked);
   background-color: var(--krds-form-check--checkbox-check-color-element);
 }
 
 //form 부가설명 사이즈 정의
 @mixin form-check-additional-text($size) {
-  padding-left: calc(
-    var(--krds-form-check--button-size-#{$size}) + var(--krds-form-check--gap)
-  );
+  padding-left: calc(var(--krds-form-check--button-size-#{$size}) + var(--krds-form-check--gap));
   .krds-form-check-p {
     font-size: var(--krds-form-check--additional-text-pc-font-size-#{$size});
     @include size-medium {
-      font-size: var(
-        --krds-form-check--additional-text-mobile-font-size-#{$size}
-      );
+      font-size: var(--krds-form-check--additional-text-mobile-font-size-#{$size});
     }
   }
 }
@@ -213,50 +182,22 @@ label {
 //컬러 정의
 @mixin form-check-color-variable($mode: light) {
   --krds-form-check--color-text: var(--krds-#{$mode}-color-text-bolder);
-  --krds-form-check--color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
+  --krds-form-check--color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
   --krds-form-check--color-text-sub: var(--krds-#{$mode}-color-text-subtle);
-  --krds-form-check--color-text-sub-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
-  --krds-form-check--button-color-element: var(
-    --krds-#{$mode}-color-element-inverse
-  );
-  --krds-form-check--button-color-element-disabled: var(
-    --krds-#{$mode}-color-element-disabled-light
-  );
-  --krds-form-check--button-color-border: var(
-    --krds-#{$mode}-color-element-gray-dark
-  );
-  --krds-form-check--button-color-border-checked: var(
-    --krds-#{$mode}-color-element-primary
-  );
-  --krds-form-check--button-color-border-disabled: var(
-    --krds-#{$mode}-color-element-disabled-dark
-  );
-  --krds-form-check--checkbox-button-color-element-checked: var(
-    --krds-#{$mode}-color-element-primary
-  );
+  --krds-form-check--color-text-sub-disabled: var(--krds-#{$mode}-color-text-disabled);
+  --krds-form-check--button-color-element: var(--krds-#{$mode}-color-element-inverse);
+  --krds-form-check--button-color-element-disabled: var(--krds-#{$mode}-color-element-disabled-light);
+  --krds-form-check--button-color-border: var(--krds-#{$mode}-color-element-gray-dark);
+  --krds-form-check--button-color-border-checked: var(--krds-#{$mode}-color-element-primary);
+  --krds-form-check--button-color-border-disabled: var(--krds-#{$mode}-color-element-disabled-dark);
+  --krds-form-check--checkbox-button-color-element-checked: var(--krds-#{$mode}-color-element-primary);
   --krds-form-check--radio-check-color-element: var(--krds-light-alpha-black0);
-  --krds-form-check--radio-check-color-element-checked: var(
-    --krds-#{$mode}-color-element-primary
-  );
-  --krds-form-check--radio-check-color-element-disabled: var(
-    --krds-#{$mode}-color-element-disabled-dark
-  );
-  --krds-form-check--checkbox-check-color-element: var(
-    --krds-light-alpha-black0
-  );
-  --krds-form-check--checkbox-check-color-element-checked: var(
-    --krds-#{$mode}-color-element-inverse-static
-  );
-  --krds-form-check--checkbox-check-color-element-disabled: var(
-    --krds-#{$mode}-color-element-disabled-dark
-  );
-  --krds-form-check--additional-text-color-text: var(
-    --krds-#{$mode}-color-text-subtle
-  );
+  --krds-form-check--radio-check-color-element-checked: var(--krds-#{$mode}-color-element-primary);
+  --krds-form-check--radio-check-color-element-disabled: var(--krds-#{$mode}-color-element-disabled-dark);
+  --krds-form-check--checkbox-check-color-element: var(--krds-light-alpha-black0);
+  --krds-form-check--checkbox-check-color-element-checked: var(--krds-#{$mode}-color-element-inverse-static);
+  --krds-form-check--checkbox-check-color-element-disabled: var(--krds-#{$mode}-color-element-disabled-dark);
+  --krds-form-check--additional-text-color-text: var(--krds-#{$mode}-color-text-subtle);
 }
 
 //모드 설정
@@ -274,20 +215,20 @@ $mode-setting: light;
       display: inline-flex;
       @include form-check(#{$size});
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         display: flex;
         @include pseudo();
         transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
       }
-      &:before {
+      &::before {
         flex-shrink: 0;
         @include form-check-button(#{$size});
         z-index: 3;
         background-color: var(--krds-form-check--button-color-element);
         border: 0.1rem solid var(--krds-form-check--button-color-border);
       }
-      &:after {
+      &::after {
         position: absolute;
         z-index: 4;
       }
@@ -296,13 +237,9 @@ $mode-setting: light;
       ~ label {
         color: var(--krds-form-check--color-text-sub-disabled);
         cursor: default;
-        &:before {
-          background-color: var(
-            --krds-form-check--button-color-element-disabled
-          ) !important;
-          border-color: var(
-            --krds-form-check--button-color-border-disabled
-          ) !important;
+        &::before {
+          background-color: var(--krds-form-check--button-color-element-disabled) !important;
+          border-color: var(--krds-form-check--button-color-border-disabled) !important;
         }
       }
     }
@@ -316,30 +253,26 @@ $mode-setting: light;
   //radio button
   input[type='radio'] {
     ~ label {
-      &:before {
+      &::before {
         @include form-check-radio-button(#{$size});
       }
-      &:after {
+      &::after {
         @include form-check-radio-check(#{$size});
       }
     }
     &:checked {
       ~ label {
-        &:before {
+        &::before {
           border-color: var(--krds-form-check--button-color-border-checked);
         }
-        &:after {
-          background-color: var(
-            --krds-form-check--radio-check-color-element-checked
-          );
+        &::after {
+          background-color: var(--krds-form-check--radio-check-color-element-checked);
         }
       }
       &:disabled {
         ~ label {
-          &:after {
-            background-color: var(
-              --krds-form-check--radio-check-color-element-disabled
-            );
+          &::after {
+            background-color: var(--krds-form-check--radio-check-color-element-disabled);
           }
         }
       }
@@ -349,34 +282,28 @@ $mode-setting: light;
   //checkbox
   input[type='checkbox'] {
     ~ label {
-      &:before {
+      &::before {
         @include form-check-checkbox-button(#{$size});
       }
-      &:after {
+      &::after {
         @include form-check-checkbox-check(#{$size}, $mode: #{$mode-setting});
       }
     }
     &:checked {
       ~ label {
-        &:before {
-          background-color: var(
-            --krds-form-check--checkbox-button-color-element-checked
-          );
+        &::before {
+          background-color: var(--krds-form-check--checkbox-button-color-element-checked);
           border-color: var(--krds-form-check--button-color-border-checked);
         }
-        &:after {
-          background-color: var(
-            --krds-form-check--checkbox-check-color-element-checked
-          );
+        &::after {
+          background-color: var(--krds-form-check--checkbox-check-color-element-checked);
           transition-delay: 0.1s;
         }
       }
       &:disabled {
         ~ label {
-          &:after {
-            background-color: var(
-              --krds-form-check--checkbox-check-color-element-disabled
-            );
+          &::after {
+            background-color: var(--krds-form-check--checkbox-check-color-element-disabled);
           }
         }
       }
@@ -405,25 +332,21 @@ $mode-setting: light;
     //checkbox
     input[type='checkbox'] {
       ~ label {
-        &:after {
+        &::after {
           @include form-check-checkbox-check(#{$size}, $mode: #{$mode-setting});
         }
       }
       &:checked {
         ~ label {
-          &:after {
-            background-color: var(
-              --krds-form-check--checkbox-check-color-element-checked
-            );
+          &::after {
+            background-color: var(--krds-form-check--checkbox-check-color-element-checked);
             transition-delay: 0.1s;
           }
         }
         &:disabled {
           ~ label {
-            &:after {
-              background-color: var(
-                --krds-form-check--checkbox-check-color-element-disabled
-              );
+            &::after {
+              background-color: var(--krds-form-check--checkbox-check-color-element-disabled);
             }
           }
         }
@@ -434,21 +357,17 @@ $mode-setting: light;
     input[type='radio'] {
       &:checked {
         ~ label {
-          &:before {
+          &::before {
             border-color: var(--krds-form-check--button-color-border-checked);
           }
-          &:after {
-            background-color: var(
-              --krds-form-check--radio-check-color-element-checked
-            );
+          &::after {
+            background-color: var(--krds-form-check--radio-check-color-element-checked);
           }
         }
         &:disabled {
           ~ label {
-            &:after {
-              background-color: var(
-                --krds-form-check--radio-check-color-element-disabled
-              );
+            &::after {
+              background-color: var(--krds-form-check--radio-check-color-element-disabled);
             }
           }
         }

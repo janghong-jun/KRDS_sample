@@ -7,49 +7,26 @@
 @mixin accordion-size-variable() {
   --krds-accordion--list-margin-y: var(--krds-padding-2);
   --krds-accordion--padding: var(--krds-padding-8);
-  --krds-accordion--button-padding-right: calc(
-    var(--krds-accordion--padding) + var(--krds-gap-5) +
-      var(--krds-accordion--button-icon-size)
-  );
+  --krds-accordion--button-padding-right: calc(var(--krds-accordion--padding) + var(--krds-gap-5) + var(--krds-accordion--button-icon-size));
   --krds-accordion--line-padding: var(--krds-padding-7);
-  --krds-accordion--line-button-padding-right: calc(
-    var(--krds-gap-5) + var(--krds-accordion--button-icon-size)
-  );
+  --krds-accordion--line-button-padding-right: calc(var(--krds-gap-5) + var(--krds-accordion--button-icon-size));
   --krds-accordion--button-icon-size: var(--krds-icon--size-large);
   --krds-accordion--radius: var(--krds-radius-large2);
-  --krds-accordion--button-pc-font-size: var(
-    --krds-pc-font-size-heading-xsmall
-  );
-  --krds-accordion--button-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xsmall
-  );
+  --krds-accordion--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
+  --krds-accordion--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
 }
 
 //컬러 정의
 @mixin accordion-color-variable($mode: light) {
   --krds-accordion--color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-accordion--button-color-action: var(
-    --krds-#{$mode}-color-action-secondary
-  );
-  --krds-accordion--button-color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-accordion--button-color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
-  --krds-accordion--color-action-open: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-accordion--color-divider: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-accordion--color-divider-open: var(
-    --krds-#{$mode}-color-divider-gray-dark
-  );
+  --krds-accordion--button-color-action: var(--krds-#{$mode}-color-action-secondary);
+  --krds-accordion--button-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-accordion--button-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
+  --krds-accordion--color-action-open: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-accordion--color-divider: var(--krds-#{$mode}-color-divider-gray-light);
+  --krds-accordion--color-divider-open: var(--krds-#{$mode}-color-divider-gray-dark);
   --krds-accordion--button-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-accordion--button-color-text-open: var(
-    --krds-#{$mode}-color-text-secondary
-  );
+  --krds-accordion--button-color-text-open: var(--krds-#{$mode}-color-text-secondary);
   --krds-accordion--color-icon: var(--krds-#{$mode}-color-icon-gray);
 }
 
@@ -68,9 +45,7 @@ $mode-setting: light;
     .btn-accordion {
       position: relative;
       width: 100%;
-      padding: var(--krds-accordion--padding)
-        var(--krds-accordion--button-padding-right)
-        var(--krds-accordion--padding) var(--krds-accordion--padding);
+      padding: var(--krds-accordion--padding) var(--krds-accordion--button-padding-right) var(--krds-accordion--padding) var(--krds-accordion--padding);
       background-color: var(--krds-accordion--button-color-action);
       border-radius: var(--krds-accordion--radius);
       font-size: var(--krds-accordion--button-pc-font-size);
@@ -87,15 +62,9 @@ $mode-setting: light;
         background-color: var(--krds-accordion--button-color-action-pressed);
       }
       &::after {
-        @include position(
-          $t: var(--krds-accordion--padding),
-          $r: var(--krds-accordion--padding)
-        );
+        @include position($t: var(--krds-accordion--padding), $r: var(--krds-accordion--padding));
         @include pseudo();
-        @include svg-icon(
-          var(--krds-accordion--button-icon-size),
-          $mode: #{$mode-setting}
-        );
+        @include svg-icon(var(--krds-accordion--button-icon-size), $mode: #{$mode-setting});
         @include icon-set(ico_angle);
         background-color: var(--krds-accordion--color-icon);
         transition: var(--krds-transition-base);
@@ -147,9 +116,7 @@ $mode-setting: light;
       border-top: 0.1rem solid var(--krds-accordion--color-divider);
       border-radius: 0;
       .btn-accordion {
-        padding: var(--krds-accordion--line-padding)
-          var(--krds-accordion--line-button-padding-right)
-          var(--krds-accordion--line-padding) 0;
+        padding: var(--krds-accordion--line-padding) var(--krds-accordion--line-button-padding-right) var(--krds-accordion--line-padding) 0;
         &::after {
           top: var(--krds-accordion--line-padding);
           right: 0;

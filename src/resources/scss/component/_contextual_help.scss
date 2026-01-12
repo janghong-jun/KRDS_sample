@@ -9,58 +9,28 @@ $mode-setting: light;
 //사이즈 정의
 @mixin contextual-help-size-variable() {
   --krds-contextual-help--action-btn-radius: var(--krds-radius-small2);
-  --krds-contextual-help--action-pc-font-size: var(
-    --krds-pc-font-size-body-small
-  );
-  --krds-contextual-help--action-mobile-font-size: var(
-    --krds-mobile-font-size-body-small
-  );
+  --krds-contextual-help--action-pc-font-size: var(--krds-pc-font-size-body-small);
+  --krds-contextual-help--action-mobile-font-size: var(--krds-mobile-font-size-body-small);
   --krds-contextual-help--popover-width: 36rem;
   --krds-contextual-help--popover-padding: var(--krds-padding-8);
   --krds-contextual-help--popover-radius: var(--krds-radius-xlarge2);
-  --krds-contextual-help--popover-title-pc-font-size: var(
-    --krds-pc-font-size-heading-xsmall
-  );
-  --krds-contextual-help--popover-title-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xsmall
-  );
-  --krds-contextual-help--popover-contents-pc-font-size: var(
-    --krds-pc-font-size-body-small
-  );
-  --krds-contextual-help--popover-contents-mobile-font-size: var(
-    --krds-mobile-font-size-body-small
-  );
+  --krds-contextual-help--popover-title-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
+  --krds-contextual-help--popover-title-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+  --krds-contextual-help--popover-contents-pc-font-size: var(--krds-pc-font-size-body-small);
+  --krds-contextual-help--popover-contents-mobile-font-size: var(--krds-mobile-font-size-body-small);
 }
 
 //컬러 정의
 @mixin contextual-help-color-variable($mode: light) {
-  --krds-contextual-help--action-btn-color-background: var(
-    --krds-#{$mode}-color-action-secondary
-  );
-  --krds-contextual-help--action-btn-color-background-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-contextual-help--action-btn-color-background-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
-  --krds-contextual-help--action-icon-color-information: var(
-    --krds-#{$mode}-color-icon-information
-  );
-  --krds-contextual-help--popover-color-text-basic: var(
-    --krds-#{$mode}-color-text-basic
-  );
-  --krds-contextual-help--popover-color-text-bolder: var(
-    --krds-#{$mode}-color-text-bolder
-  );
-  --krds-contextual-help--popover-color-border: var(
-    --krds-#{$mode}-color-border-gray
-  );
-  --krds-contextual-help--popover-color-background: var(
-    --krds-#{$mode}-color-surface-white-subtler
-  );
-  --krds-contextual-help--popover-shadow: 0 0 0.2rem 0
-      var(--krds-#{$mode}-color-alpha-shadow2),
-    0 0.8rem 1.6rem 0 var(--krds-#{$mode}-color-alpha-shadow3);
+  --krds-contextual-help--action-btn-color-background: var(--krds-#{$mode}-color-action-secondary);
+  --krds-contextual-help--action-btn-color-background-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-contextual-help--action-btn-color-background-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
+  --krds-contextual-help--action-icon-color-information: var(--krds-#{$mode}-color-icon-information);
+  --krds-contextual-help--popover-color-text-basic: var(--krds-#{$mode}-color-text-basic);
+  --krds-contextual-help--popover-color-text-bolder: var(--krds-#{$mode}-color-text-bolder);
+  --krds-contextual-help--popover-color-border: var(--krds-#{$mode}-color-border-gray);
+  --krds-contextual-help--popover-color-background: var(--krds-#{$mode}-color-surface-white-subtler);
+  --krds-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--krds-#{$mode}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--krds-#{$mode}-color-alpha-shadow3);
 }
 
 .krds-contextual-help {
@@ -78,31 +48,21 @@ $mode-setting: light;
     .tooltip-btn {
       @include flex-layout($ai: center);
       border-radius: var(--krds-contextual-help--action-btn-radius);
-      background-color: var(
-        --krds-contextual-help--action-btn-color-background
-      );
+      background-color: var(--krds-contextual-help--action-btn-color-background);
       &:hover {
-        background-color: var(
-          --krds-contextual-help--action-btn-color-background-hover
-        );
+        background-color: var(--krds-contextual-help--action-btn-color-background-hover);
       }
       &:active {
-        background-color: var(
-          --krds-contextual-help--action-btn-color-background-pressed
-        );
+        background-color: var(--krds-contextual-help--action-btn-color-background-pressed);
       }
       .ico-tooltip {
-        background-color: var(
-          --krds-contextual-help--action-icon-color-information
-        );
+        background-color: var(--krds-contextual-help--action-icon-color-information);
       }
     }
   }
   .tooltip-popover {
     --krds-contextual-help--bubble-arrow-size: 1.6rem;
-    --krds-contextual-help--bubble-arrow-margin: calc(
-      (var(--krds-contextual-help--bubble-arrow-size) / 2) * -1
-    );
+    --krds-contextual-help--bubble-arrow-margin: calc((var(--krds-contextual-help--bubble-arrow-size) / 2) * -1);
     --krds-contextual-help--bubble-margin-x: 2.4rem;
     --krds-contextual-help--bubble-arrow-position-x: -2rem;
 
@@ -141,10 +101,7 @@ $mode-setting: light;
       gap: var(--krds-gap-3);
     }
     .tooltip-close {
-      @include position(
-        $t: var(--krds-contextual-help--popover-padding),
-        $r: var(--krds-contextual-help--popover-padding)
-      );
+      @include position($t: var(--krds-contextual-help--popover-padding), $r: var(--krds-contextual-help--popover-padding));
     }
   }
   &.left {
@@ -222,9 +179,7 @@ $mode-setting: light;
         font-size: var(--krds-contextual-help--popover-title-mobile-font-size);
       }
       .tooltip-contents {
-        font-size: var(
-          --krds-contextual-help--popover-contents-mobile-font-size
-        );
+        font-size: var(--krds-contextual-help--popover-contents-mobile-font-size);
       }
     }
   }

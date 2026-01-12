@@ -73,33 +73,15 @@
 //컬러 정의
 @mixin form-toggle-switch-color-variable($mode: light) {
   --krds-form-toggle-switch--color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-form-toggle-switch--color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
-  --krds-form-toggle-switch--button-color-background: var(
-    --krds-#{$mode}-color-element-gray
-  );
-  --krds-form-toggle-switch--button-color-background-checked: var(
-    --krds-#{$mode}-color-element-primary
-  );
-  --krds-form-toggle-switch--check-color-background: var(
-    --krds-#{$mode}-color-element-inverse
-  );
-  --krds-form-toggle-switch--button-color-background-disabled: var(
-    --krds-#{$mode}-color-element-disabled-light
-  );
-  --krds-form-toggle-switch--check-color-background-disabled: var(
-    --krds-#{$mode}-color-element-disabled-dark
-  );
-  --krds-form-toggle-switch--check-color-border: var(
-    --krds-form-toggle-switch--button-color-background
-  );
-  --krds-form-toggle-switch--check-color-border-checked: var(
-    --krds-form-toggle-switch--button-color-background-checked
-  );
-  --krds-form-toggle-switch--check-color-border-disabled: var(
-    --krds-form-toggle-switch--button-color-background-disabled
-  );
+  --krds-form-toggle-switch--color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
+  --krds-form-toggle-switch--button-color-background: var(--krds-#{$mode}-color-element-gray);
+  --krds-form-toggle-switch--button-color-background-checked: var(--krds-#{$mode}-color-element-primary);
+  --krds-form-toggle-switch--check-color-background: var(--krds-#{$mode}-color-element-inverse);
+  --krds-form-toggle-switch--button-color-background-disabled: var(--krds-#{$mode}-color-element-disabled-light);
+  --krds-form-toggle-switch--check-color-background-disabled: var(--krds-#{$mode}-color-element-disabled-dark);
+  --krds-form-toggle-switch--check-color-border: var(--krds-form-toggle-switch--button-color-background);
+  --krds-form-toggle-switch--check-color-border-checked: var(--krds-form-toggle-switch--button-color-background-checked);
+  --krds-form-toggle-switch--check-color-border-disabled: var(--krds-form-toggle-switch--button-color-background-disabled);
 }
 
 //switch 전체영역 사이즈 정의
@@ -125,17 +107,11 @@
 //switch-toggle > i(checker) checked 시 위치 정의
 @mixin form-toggle-switch-check-checked($size) {
   //버튼 넓이 - 체크버튼 넓이
-  left: calc(
-    var(--krds-form-toggle-switch--button-size-width-#{$size}) -
-      var(--krds-form-toggle-switch--check-size-#{$size})
-  );
+  left: calc(var(--krds-form-toggle-switch--button-size-width-#{$size}) - var(--krds-form-toggle-switch--check-size-#{$size}));
 }
 //switch-toggle > i::before(icon) 사이즈 정의
 @mixin form-toggle-switch-icon($size) {
-  @include svg-icon(
-    $size: #{var(--krds-form-toggle-switch--icon-size-#{$size})},
-    $mode: #{$mode-setting}
-  );
+  @include svg-icon($size: #{var(--krds-form-toggle-switch--icon-size-#{$size})}, $mode: #{$mode-setting});
   background-color: var(--krds-form-toggle-switch--button-color-background);
 }
 
@@ -164,19 +140,14 @@ $mode-setting: light;
       @include form-toggle-switch(#{$size});
       .switch-toggle {
         @include form-toggle-switch-button(#{$size});
-        background-color: var(
-          --krds-form-toggle-switch--button-color-background
-        );
+        background-color: var(--krds-form-toggle-switch--button-color-background);
         transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
         & > i {
           @include position($t: 50%, $l: 0);
           @include flex-layout($ai: center, $jc: center);
           @include form-toggle-switch-check(#{$size});
-          background-color: var(
-            --krds-form-toggle-switch--check-color-background
-          );
-          border: 0.2rem solid
-            var(--krds-form-toggle-switch--check-color-border);
+          background-color: var(--krds-form-toggle-switch--check-color-background);
+          border: 0.2rem solid var(--krds-form-toggle-switch--check-color-border);
           box-sizing: border-box;
           transform: translateY(-50%);
           transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
@@ -193,19 +164,13 @@ $mode-setting: light;
     &:checked {
       ~ label {
         .switch-toggle {
-          background-color: var(
-            --krds-form-toggle-switch--button-color-background-checked
-          );
+          background-color: var(--krds-form-toggle-switch--button-color-background-checked);
           & > i {
             @include form-toggle-switch-check-checked(#{$size});
-            border-color: var(
-              --krds-form-toggle-switch--check-color-border-checked
-            );
+            border-color: var(--krds-form-toggle-switch--check-color-border-checked);
             &::before {
               @include icon-set(ico_switch_on);
-              background-color: var(
-                --krds-form-toggle-switch--check-color-border-checked
-              );
+              background-color: var(--krds-form-toggle-switch--check-color-border-checked);
             }
           }
         }
@@ -214,20 +179,12 @@ $mode-setting: light;
     &:disabled {
       ~ label {
         .switch-toggle {
-          background-color: var(
-            --krds-form-toggle-switch--button-color-background-disabled
-          );
+          background-color: var(--krds-form-toggle-switch--button-color-background-disabled);
           & > i {
-            background-color: var(
-              --krds-form-toggle-switch--check-color-background-disabled
-            );
-            border-color: var(
-              --krds-form-toggle-switch--check-color-border-disabled
-            );
+            background-color: var(--krds-form-toggle-switch--check-color-background-disabled);
+            border-color: var(--krds-form-toggle-switch--check-color-border-disabled);
             &::before {
-              background-color: var(
-                --krds-form-toggle-switch--button-color-background-disabled
-              );
+              background-color: var(--krds-form-toggle-switch--button-color-background-disabled);
             }
           }
         }

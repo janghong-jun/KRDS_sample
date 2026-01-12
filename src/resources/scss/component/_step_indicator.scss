@@ -21,17 +21,11 @@
 @mixin step-color-variable($mode: light) {
   --krds-step--color-step: var(--krds-#{$mode}-color-text-subtle);
   --krds-step--color-step-title: var(--krds-#{$mode}-color-text-basic);
-  --krds-step--color-fill-default: var(
-    --krds-#{$mode}-color-element-gray-light
-  );
+  --krds-step--color-fill-default: var(--krds-#{$mode}-color-element-gray-light);
   --krds-step--color-fill-done: var(--krds-#{$mode}-color-element-gray);
   --krds-step--color-fill-active: var(--krds-#{$mode}-color-element-primary);
-  --krds-step--color-fill-white: var(
-    --krds-#{$mode}-color-element-inverse-static
-  );
-  --krds-step--color-border-default: var(
-    --krds-#{$mode}-color-element-disabled-light
-  );
+  --krds-step--color-fill-white: var(--krds-#{$mode}-color-element-inverse-static);
+  --krds-step--color-border-default: var(--krds-#{$mode}-color-element-disabled-light);
   --krds-step--color-border-done: var(--krds-step--color-fill-done);
   --krds-step--color-border-active: var(--krds-step--color-fill-active);
   --krds-step--color-icon-done: var(--krds-step--color-fill-white);
@@ -49,14 +43,7 @@
     position: relative;
 
     &::after {
-      @include position(
-        $t:
-          calc(
-            (var(--krds-step--circle-size-default) / 2) -
-              (var(--krds-step--border-width-medium) / 2)
-          ),
-        $l: 0.1rem
-      );
+      @include position($t: calc((var(--krds-step--circle-size-default) / 2) - (var(--krds-step--border-width-medium) / 2)), $l: 0.1rem);
       @include pseudo();
       width: 100%;
       height: var(--krds-step--border-width-medium);
@@ -122,22 +109,7 @@
           border-color: var(--krds-step--color-border-active);
         }
         &::after {
-          @include position(
-            $t:
-              calc(
-                (
-                    var(--krds-step--circle-size-active) -
-                      var(--krds-step--circle-size-default)
-                  ) / 2 * -1
-              ),
-            $l:
-              calc(
-                (
-                    var(--krds-step--circle-size-default) -
-                      var(--krds-step--circle-size-active)
-                  ) / 2
-              )
-          );
+          @include position($t: calc((var(--krds-step--circle-size-active) - var(--krds-step--circle-size-default)) / 2 * -1), $l: calc((var(--krds-step--circle-size-default) - var(--krds-step--circle-size-active)) / 2));
           @include square(var(--krds-step--circle-size-active));
           background-color: var(--krds-step--color-icon-active);
           z-index: 3;

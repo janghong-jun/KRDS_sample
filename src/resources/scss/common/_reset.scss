@@ -91,8 +91,8 @@ li,
 span,
 em,
 label,
-:before,
-:after {
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -111,8 +111,8 @@ button,
 select,
 span,
 label,
-:before,
-:after {
+::before,
+::after {
   font: {
     size: inherit;
     weight: inherit;

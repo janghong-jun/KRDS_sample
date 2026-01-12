@@ -8,15 +8,11 @@
   --krds-tab--button-size-height: var(--krds-size-height-7);
   --krds-tab--button-size-min-width: 6.4rem;
   --krds-tab--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-tab--button-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xsmall
-  );
+  --krds-tab--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
   --krds-tab--gap: var(--krds-gap-3);
   --krds-tab--full-button-size-height: var(--krds-size-height-8);
   --krds-tab--full-button-pc-font-size: var(--krds-pc-font-size-heading-small);
-  --krds-tab--full-button-mobile-font-size: var(
-    --krds-mobile-font-size-heading-small
-  );
+  --krds-tab--full-button-mobile-font-size: var(--krds-mobile-font-size-heading-small);
   --krds-tab--line-button-padding: var(--krds-padding-2);
   --krds-tab--fill-button-padding: var(--krds-padding-3);
   --krds-tab--fill-button-radius: var(--krds-radius-medium2);
@@ -28,40 +24,20 @@
 //컬러 정의
 @mixin tab-color-variable($mode: light) {
   --krds-tab--button-color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-tab--button-color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-tab--button-color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
+  --krds-tab--button-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-tab--button-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
   --krds-tab--button-color-border: var(--krds-#{$mode}-color-action-secondary);
   --krds-tab--button-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-tab--button-color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
-  --krds-tab--fill-button-color-action-active: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
+  --krds-tab--button-color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
+  --krds-tab--fill-button-color-action-active: var(--krds-#{$mode}-color-action-secondary-active);
   --krds-tab--fill-button-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-tab--fill-button-color-border-active: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
-  --krds-tab--fill-button-color-text: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
+  --krds-tab--fill-button-color-border-active: var(--krds-#{$mode}-color-action-secondary-active);
+  --krds-tab--fill-button-color-text: var(--krds-#{$mode}-color-text-inverse-static);
   --krds-tab--line-button-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-tab--line-button-color-line-active: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
-  --krds-tab--line-button-color-text-active: var(
-    --krds-#{$mode}-color-text-secondary
-  );
-  --krds-tab--mobile-button-trigger-color-text: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
-  --krds-tab--mobile-button-trigger-color-action: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
+  --krds-tab--line-button-color-line-active: var(--krds-#{$mode}-color-action-secondary-active);
+  --krds-tab--line-button-color-text-active: var(--krds-#{$mode}-color-text-secondary);
+  --krds-tab--mobile-button-trigger-color-text: var(--krds-#{$mode}-color-text-inverse-static);
+  --krds-tab--mobile-button-trigger-color-action: var(--krds-#{$mode}-color-action-secondary-active);
 }
 
 //모드 설정
@@ -148,17 +124,14 @@ $mode-setting: light;
       padding: 0 var(--krds-tab--fill-button-padding);
       border-radius: var(--krds-tab--fill-button-radius);
       &:focus {
-        box-shadow: inset 0 0 0 0.6rem
-          var(--krds-#{$mode-setting}-color-border-primary);
+        box-shadow: inset 0 0 0 0.6rem var(--krds-#{$mode-setting}-color-border-primary);
         outline-offset: -0.4rem;
       }
     }
     .active {
       .btn-tab {
         background-color: var(--krds-tab--fill-button-color-action-active);
-        border-color: var(
-          --krds-tab--fill-button-color-border-active
-        ) !important;
+        border-color: var(--krds-tab--fill-button-color-border-active) !important;
         color: var(--krds-tab--fill-button-color-text);
       }
     }
@@ -198,7 +171,7 @@ $mode-setting: light;
     .btn-tab {
       min-width: var(--krds-tab--button-size-min-width);
       padding: 0 var(--krds-tab--line-button-padding);
-      &:before {
+      &::before {
         @include position($b: 0, $l: 50%);
         @include pseudo();
         width: 0;
@@ -210,7 +183,7 @@ $mode-setting: light;
     .active {
       .btn-tab {
         color: var(--krds-tab--line-button-color-text-active);
-        &:before {
+        &::before {
           @include position($l: 0);
           width: 100%;
         }
@@ -220,7 +193,7 @@ $mode-setting: light;
       .btn-tab {
         border: 0;
         border-bottom: 0.2rem solid var(--krds-tab--line-button-color-border);
-        &:before {
+        &::before {
           bottom: -0.2rem;
         }
       }

@@ -38,9 +38,6 @@ function incLinkInfo() {
     'tools.table.html" class="btn" target="_blank"><span>Data</span></a>' +
     '				<a href="' +
     path +
-    'worklist.directory.html" class="btn btn_directory"><span>Dir</span></a>' +
-    '				<a href="' +
-    path +
     'worklist.todo.html" class="btn btn_todo"><span>Todo</span></a>' +
     '			</td>' +
     '		</tr>' +

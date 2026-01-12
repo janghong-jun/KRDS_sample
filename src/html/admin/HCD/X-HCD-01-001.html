@@ -25,7 +25,7 @@
             <table>
               <colgroup>
                 <col style="width: 10rem" />
-                <col style="width: auto" />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
@@ -35,12 +35,12 @@
                   <td>
                     <div class="frm-area">
                       <select id="userCategory">
-                        <option value="">전체</option>
-                        <option value="">교사</option>
-                        <option value="">수석교사</option>
-                        <option value="">교감</option>
-                        <option value="">교장</option>
-                        <option value="">교육전문직원</option>
+                        <option>전체</option>
+                        <option>교사</option>
+                        <option>수석교사</option>
+                        <option>교감</option>
+                        <option>교장</option>
+                        <option>교육전문직원</option>
                       </select>
                     </div>
                   </td>
@@ -51,7 +51,7 @@
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="startDate" class="inp-base date" value="" min="2020-12-05" max="2025-05-20" aria-label="날짜입력" readonly="" />
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly />
                           <button type="button" class="ui-datepicker-btn" data-target="startDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
@@ -60,7 +60,7 @@
                       <span class="date-sep">~</span>
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="endDate" class="inp-base date" value="" min="2020-12-05" max="2025-05-20" aria-label="날짜입력" readonly="" />
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly />
                           <button type="button" class="ui-datepicker-btn" data-target="endDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
@@ -84,22 +84,23 @@
                   <th scope="row"><label for="searchKeyword">키워드</label></th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="searchKeyword" class="inp-text" />
+                      <input type="text" id="searchKeyword" placeholder="최소 2글자 이상 입력해주세요" class="inp-text" />
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="tbl-btns">
-            <div>
-              <button type="button" class="btn base secondary">
-                <span>검색</span>
-              </button>
-            </div>
+          <div class="tbl-btns center">
+            <button type="button" class="btn base secondary">
+              <span>검색</span>
+            </button>
           </div>
           <div class="sub-title">
-            <p class="count">총 <span>100</span>건</p>
+            <div>
+              <p class="count">총 <span>100</span>건</p>
+              <p class="count">페이지 <span>2</span>/50</p>
+            </div>
           </div>
           <div class="tbl-base type2 mgt10">
             <table>
@@ -107,7 +108,7 @@
                 <col style="width: 5rem" />
                 <col style="width: 8.8rem" />
                 <col style="width: 10rem" />
-                <col style="width: auto" />
+                <col />
                 <col style="width: 15rem" />
                 <col style="width: 12.8rem" />
               </colgroup>

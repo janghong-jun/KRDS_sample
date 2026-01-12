@@ -27,8 +27,7 @@
       body-title-pc-font-size: var(--krds-pc-font-size-heading-small),
       body-title-mobile-font-size: var(--krds-mobile-font-size-heading-small),
       body-title-pc-font-size-small: var(--krds-pc-font-size-heading-xsmall),
-      body-title-mobile-font-size-small:
-        var(--krds-mobile-font-size-heading-xsmall),
+      body-title-mobile-font-size-small: var(--krds-mobile-font-size-heading-xsmall),
       body-title-icon-size: var(--krds-size-height-4),
       body-txt-margin-bottom: var(--krds-gap-2),
       body-date-gap: var(--krds-gap-3),
@@ -76,13 +75,9 @@
   @if ($unit == small) {
     .card-body {
       .c-tit {
-        font-size: var(
-          --krds-structured-list--card-body-title-pc-font-size-#{$unit}
-        );
+        font-size: var(--krds-structured-list--card-body-title-pc-font-size-#{$unit});
         @include size-medium {
-          font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size-#{$unit}
-          );
+          font-size: var(--krds-structured-list--card-body-title-mobile-font-size-#{$unit});
         }
       }
     }
@@ -91,9 +86,7 @@
       .c-tit {
         font-size: var(--krds-structured-list--card-body-title-pc-font-size);
         @include size-medium {
-          font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size
-          );
+          font-size: var(--krds-structured-list--card-body-title-mobile-font-size);
         }
       }
     }
@@ -104,63 +97,30 @@
   }
 
   .card-btn {
-    @include position(
-      $t: var(--krds-structured-list--card-buttons-position-top-#{$unit}-size),
-      $r: var(--krds-structured-list--card-buttons-position-right-#{$unit}-size)
-    );
+    @include position($t: var(--krds-structured-list--card-buttons-position-top-#{$unit}-size), $r: var(--krds-structured-list--card-buttons-position-right-#{$unit}-size));
   }
 }
 
 //컬러 정의
 @mixin structured-list-color-variable($mode: light) {
   --krds-structured-list--tag-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-structured-list--tag-color-text-visited: var(
-    --krds-#{$mode-setting}-color-link-visited
-  );
-  --krds-structured-list--tag-color-border: var(
-    --krds-#{$mode}-color-border-gray-light
-  );
-  --krds-structured-list--tag-color-action: var(
-    --krds-#{$mode}-color-action-white
-  );
-  --krds-structured-list--list-color-surface: var(
-    --krds-#{$mode}-color-surface-white-subtle
-  );
-  --krds-structured-list--list-color-border: var(
-    --krds-#{$mode}-color-border-gray
-  );
-  --krds-structured-list--list-color-action-active: var(
-    --krds-#{$mode}-color-link-default
-  );
-  --krds-structured-list--list-action-outline-width: var(
-    --krds-#{$mode}-border-width-variable-medium
-  );
-  --krds-structured-list--card-bottom-color-border: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-structured-list--card-body-color-text: var(
-    --krds-#{$mode}-color-text-subtle
-  );
-  --krds-structured-list--card-body-divider-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-structured-list--card-body-divider-color-divider: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-structured-list--border-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-structured-list--full-card-body-meta-color-text: var(
-    --krds-#{$mode}-color-text-subtle
-  );
+  --krds-structured-list--tag-color-text-visited: var(--krds-#{$mode-setting}-color-link-visited);
+  --krds-structured-list--tag-color-border: var(--krds-#{$mode}-color-border-gray-light);
+  --krds-structured-list--tag-color-action: var(--krds-#{$mode}-color-action-white);
+  --krds-structured-list--list-color-surface: var(--krds-#{$mode}-color-surface-white-subtle);
+  --krds-structured-list--list-color-border: var(--krds-#{$mode}-color-border-gray);
+  --krds-structured-list--list-color-action-active: var(--krds-#{$mode}-color-link-default);
+  --krds-structured-list--list-action-outline-width: var(--krds-#{$mode}-border-width-variable-medium);
+  --krds-structured-list--card-bottom-color-border: var(--krds-#{$mode}-color-divider-gray-light);
+  --krds-structured-list--card-body-color-text: var(--krds-#{$mode}-color-text-subtle);
+  --krds-structured-list--card-body-divider-width: var(--krds-#{$mode}-border-width-variable-regular);
+  --krds-structured-list--card-body-divider-color-divider: var(--krds-#{$mode}-color-divider-gray-light);
+  --krds-structured-list--border-width: var(--krds-#{$mode}-border-width-variable-regular);
+  --krds-structured-list--full-card-body-meta-color-text: var(--krds-#{$mode}-color-text-subtle);
 }
 
 @mixin type-check-button-position($unit) {
-  $btn-pos: calc(
-    var(--krds-structured-list--list-gap) +
-      var(--krds-structured-list--card-buttons-position-top-#{$unit}-size) +
-      var(--krds-size-height-5)
-  );
+  $btn-pos: calc(var(--krds-structured-list--list-gap) + var(--krds-structured-list--card-buttons-position-top-#{$unit}-size) + var(--krds-size-height-5));
 
   .card-btn {
     top: $btn-pos;
@@ -193,12 +153,10 @@ $mode-setting: light;
     gap: var(--krds-structured-list--list-gap) 0;
     background: var(--krds-structured-list--list-color-surface);
     border-radius: var(--krds-structured-list--list-radius);
-    border: var(--krds-structured-list--border-width) solid
-      var(--krds-structured-list--list-color-border);
+    border: var(--krds-structured-list--border-width) solid var(--krds-structured-list--list-color-border);
     &.is-check {
       border-color: transparent;
-      outline: var(--krds-structured-list--list-action-outline-width) solid
-        var(--krds-structured-list--list-color-action-active);
+      outline: var(--krds-structured-list--list-action-outline-width) solid var(--krds-structured-list--list-color-action-active);
     }
 
     .in {
@@ -261,9 +219,7 @@ $mode-setting: light;
           display: inline-flex;
           flex-shrink: 0;
           @include pseudo();
-          @include square(
-            var(--krds-structured-list--card-body-title-icon-size)
-          );
+          @include square(var(--krds-structured-list--card-body-title-icon-size));
           @include svg-icon($mode: light);
           @include icon-set(ico_angle);
           transform: rotate(-90deg);
@@ -292,8 +248,7 @@ $mode-setting: light;
     gap: var(--krds-structured-list--card-bottom-gap);
     padding-top: var(--krds-structured-list--card-bottom-padding-top);
     margin-top: var(--krds-structured-list--card-bottom-margin-top);
-    border-top: var(--krds-structured-list--border-width) solid
-      var(--krds-structured-list--card-bottom-color-border);
+    border-top: var(--krds-structured-list--border-width) solid var(--krds-structured-list--card-bottom-color-border);
     .tag {
       @include flex-layout($d: inline-flex, $ai: center);
       background-color: var(--krds-structured-list--tag-color-action);
@@ -302,8 +257,7 @@ $mode-setting: light;
       font-size: var(--krds-structured-list--tag-pc-font-size);
       color: var(--krds-structured-list--tag-color-text);
       border-radius: var(--krds-structured-list--tag-radius);
-      border: var(--krds-structured-list--border-width) solid
-        var(--krds-structured-list--tag-color-border);
+      border: var(--krds-structured-list--border-width) solid var(--krds-structured-list--tag-color-border);
       @include size-medium {
         font-size: var(--krds-structured-list--tag-mobile-font-size);
       }
@@ -313,10 +267,7 @@ $mode-setting: light;
     }
   }
   .card-btn {
-    @include position(
-      $t: var(--krds-structured-list--card-buttons-position-top-medium-size),
-      $r: var(--krds-structured-list--card-buttons-position-right-medium-size)
-    );
+    @include position($t: var(--krds-structured-list--card-buttons-position-top-medium-size), $r: var(--krds-structured-list--card-buttons-position-right-medium-size));
     display: inline-flex;
     gap: var(--krds-structured-list--card-buttons-gap);
     .krds-btn {
@@ -355,9 +306,7 @@ $mode-setting: light;
     --krds-structured-list--full-card-btn-position-top: var(--krds-gap-2);
     --krds-structured-list--full-card-body-meta-gap-y: var(--krds-gap-3);
     --krds-structured-list--full-card-body-meta-gap-x: var(--krds-gap-4);
-    --krds-structured-list--full-card-body-divider-height: var(
-      --krds-size-height-2
-    );
+    --krds-structured-list--full-card-body-divider-height: var(--krds-size-height-2);
     --krds-structured-list--full-card-body-divider-margin-x: var(--krds-gap-3);
 
     .structured-item {
@@ -406,15 +355,9 @@ $mode-setting: light;
               display: inline-flex;
               @include pseudo();
               width: var(--krds-structured-list--card-body-divider-width);
-              height: var(
-                --krds-structured-list--full-card-body-divider-height
-              );
-              margin-left: var(
-                --krds-structured-list--full-card-body-divider-margin-x
-              );
-              background-color: var(
-                --krds-structured-list--card-body-divider-color-divider
-              );
+              height: var(--krds-structured-list--full-card-body-divider-height);
+              margin-left: var(--krds-structured-list--full-card-body-divider-margin-x);
+              background-color: var(--krds-structured-list--card-body-divider-color-divider);
             }
           }
         }
@@ -430,12 +373,8 @@ $mode-setting: light;
   }
 
   &.type-full {
-    --krds-structured-list--card-body-title-pc-font-size: var(
-      --krds-pc-font-size-heading-medium
-    );
-    --krds-structured-list--card-body-title-mobile-font-size: var(
-      --krds-mobile-font-size-heading-medium
-    );
+    --krds-structured-list--card-body-title-pc-font-size: var(--krds-pc-font-size-heading-medium);
+    --krds-structured-list--card-body-title-mobile-font-size: var(--krds-mobile-font-size-heading-medium);
 
     .card-body {
       .c-tit {
@@ -534,9 +473,7 @@ $mode-setting: light;
     &.type-full {
       .card-body {
         .c-tit {
-          font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size
-          );
+          font-size: var(--krds-structured-list--card-body-title-mobile-font-size);
         }
       }
     }
@@ -566,10 +503,7 @@ $mode-setting: light;
       .c-text {
         .c-tit {
           &::after {
-            @include svg-icon(
-              $size: var(--krds-icon--size-medium),
-              $mode: #{$mode-setting}
-            );
+            @include svg-icon($size: var(--krds-icon--size-medium), $mode: #{$mode-setting});
           }
         }
       }

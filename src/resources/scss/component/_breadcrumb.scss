@@ -18,16 +18,10 @@ $mode-setting: light;
 //컬러 정의
 @mixin breadcrumb-color-variable($mode: light) {
   --krds-breadcrumb--color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-breadcrumb--color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-breadcrumb--color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
+  --krds-breadcrumb--color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-breadcrumb--color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
   --krds-breadcrumb--color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-breadcrumb--color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
+  --krds-breadcrumb--color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
 }
 .krds-breadcrumb-wrap {
   @include breadcrumb-size-variable();
@@ -120,10 +114,7 @@ $mode-setting: light;
             &::after {
               @include flex-layout($d: inline-flex, $ai: center);
               @include pseudo();
-              @include svg-icon(
-                $size: var(--krds-icon--size-small),
-                $mode: light
-              );
+              @include svg-icon($size: var(--krds-icon--size-small), $mode: light);
             }
             &::before {
               @include icon-set(ico_ellipsis);
@@ -154,10 +145,7 @@ $mode-setting: light;
         &:not(:last-child) {
           //마지막 뎁스가 아니면 화살표 아이콘 표시
           &::after {
-            @include svg-icon(
-              $size: var(--krds-icon--size-small),
-              $mode: high-contrast
-            );
+            @include svg-icon($size: var(--krds-icon--size-small), $mode: high-contrast);
           }
         }
       }
@@ -165,10 +153,7 @@ $mode-setting: light;
         gap: 0;
         .txt {
           &::before {
-            @include svg-icon(
-              $size: var(--krds-icon--size-small),
-              $mode: high-contrast
-            );
+            @include svg-icon($size: var(--krds-icon--size-small), $mode: high-contrast);
           }
         }
       }
@@ -184,10 +169,7 @@ $mode-setting: light;
             &:last-child {
               &::before,
               &::after {
-                @include svg-icon(
-                  $size: var(--krds-icon--size-small),
-                  $mode: high-contrast
-                );
+                @include svg-icon($size: var(--krds-icon--size-small), $mode: high-contrast);
               }
             }
           }

@@ -12,10 +12,8 @@ $mode-setting: light;
   background-color: var(--krds-#{$mode-setting}-color-surface-gray-subtler);
   .foot-quick {
     $quick-border: var(--krds-#{$mode-setting}-color-border-gray-light);
-    border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid
-      $quick-border;
-    border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular)
-      solid $quick-border;
+    border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
+    border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
     background-color: var(--krds-#{$mode-setting}-color-background-white);
     .inner {
       display: flex;
@@ -28,17 +26,13 @@ $mode-setting: light;
         @include flex-layout($d: inline-flex, $jc: space-between, $ai: center);
         flex: 1;
         gap: var(--krds-gap-3);
-        height: calc(
-          var(--krds-size-height-8) - 0.2rem
-        ); //border 위 아래값 뺴기
+        height: calc(var(--krds-size-height-8) - 0.2rem); //border 위 아래값 뺴기
         padding: 0 var(--krds-padding-8);
         background-color: var(--krds-#{$mode-setting}-color-action-secondary);
-        border-right: var(--krds-#{$mode-setting}-border-width-static-regular)
-          solid $quick-border;
+        border-right: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
         transition: var(--krds-transition-base);
         &:first-child {
-          border-left: var(--krds-#{$mode-setting}-border-width-static-regular)
-            solid $quick-border;
+          border-left: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
         }
         &::after {
           display: inline-flex;
@@ -48,15 +42,11 @@ $mode-setting: light;
           @include icon-set(ico_plus);
         }
         &:hover {
-          background-color: var(
-            --krds-#{$mode-setting}-color-action-secondary-hover
-          );
+          background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
         }
         &:active,
         &:focus {
-          background-color: var(
-            --krds-#{$mode-setting}-color-action-secondary-pressed
-          );
+          background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
         }
         //태블릿 전용 속성
         @include size-medium-to-large {
@@ -68,17 +58,14 @@ $mode-setting: light;
         //모바일 전용
         @include size-medium {
           font-size: var(--krds-mobile-font-size-body-small);
-          min-height: calc(
-            var(--krds-size-height-7) - 0.2rem
-          ); //border 위 아래값 뺴기;
+          min-height: calc(var(--krds-size-height-7) - 0.2rem); //border 위 아래값 뺴기;
           padding: 0 var(--krds-padding-6);
           border: 0;
           &:first-child {
             border: 0;
           }
           &:not(:first-child) {
-            border-top: var(--krds-#{$mode-setting}-border-width-static-regular)
-              solid $quick-border;
+            border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
           }
         }
       }
@@ -92,8 +79,7 @@ $mode-setting: light;
       padding: var(--krds-padding-10) 0 var(--krds-padding-8);
     }
     @include size-large-to-xlarge {
-      padding: var(--krds-padding-10) var(--krds-contents-padding-x)
-        var(--krds-padding-8);
+      padding: var(--krds-padding-10) var(--krds-contents-padding-x) var(--krds-padding-8);
     }
     //태블릿 & 모바일 전용 속성
     @include size-large-less {
@@ -188,13 +174,11 @@ $mode-setting: light;
             @include flex-layout($ai: center);
             gap: var(--krds-gap-3);
             padding-left: var(--krds-padding-3);
-            &:before {
+            &::before {
               @include pseudo();
               width: var(--krds-number-1);
               height: var(--krds-number-7);
-              background-color: var(
-                --krds-#{$mode-setting}-color-divider-gray-dark
-              );
+              background-color: var(--krds-#{$mode-setting}-color-divider-gray-dark);
             }
           }
         }
@@ -273,8 +257,7 @@ $mode-setting: light;
     @include flex-layout($fd: column);
     padding-top: var(--krds-padding-6);
     gap: var(--krds-gap-9);
-    border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid
-      var(--krds-#{$mode-setting}-color-divider-gray-light);
+    border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid var(--krds-#{$mode-setting}-color-divider-gray-light);
     //모바일 전용
     @include size-medium {
       font-size: var(--krds-mobile-font-size-body-small);
@@ -345,38 +328,25 @@ $mode-setting: light;
     background-color: var(--krds-#{$mode-setting}-color-surface-gray-subtler);
     .foot-quick {
       $quick-border: var(--krds-#{$mode-setting}-color-border-gray-light);
-      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid
-        $quick-border;
-      border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular)
-        solid $quick-border;
+      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
+      border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
       background-color: var(--krds-#{$mode-setting}-color-background-white);
       .inner {
         .link {
           background-color: var(--krds-#{$mode-setting}-color-action-secondary);
-          border-right: var(--krds-#{$mode-setting}-border-width-static-regular)
-            solid $quick-border;
+          border-right: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
           &:first-child {
-            border-left: var(
-                --krds-#{$mode-setting}-border-width-static-regular
-              )
-              solid $quick-border;
+            border-left: var(--krds-#{$mode-setting}-border-width-static-regular) solid $quick-border;
           }
           &::after {
-            @include svg-icon(
-              var(--krds-icon--size-medium),
-              $mode: $mode-setting
-            );
+            @include svg-icon(var(--krds-icon--size-medium), $mode: $mode-setting);
           }
           &:hover {
-            background-color: var(
-              --krds-#{$mode-setting}-color-action-secondary-hover
-            );
+            background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
           }
           &:active,
           &:focus {
-            background-color: var(
-              --krds-#{$mode-setting}-color-action-secondary-pressed
-            );
+            background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
           }
         }
       }
@@ -387,10 +357,8 @@ $mode-setting: light;
         .info-cs {
           li {
             .more-info {
-              &:before {
-                background-color: var(
-                  --krds-#{$mode-setting}-color-divider-gray-dark
-                );
+              &::before {
+                background-color: var(--krds-#{$mode-setting}-color-divider-gray-dark);
               }
             }
           }
@@ -399,8 +367,7 @@ $mode-setting: light;
     }
 
     .f-btm {
-      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid
-        var(--krds-#{$mode-setting}-color-divider-gray-light);
+      border-top: var(--krds-#{$mode-setting}-border-width-static-regular) solid var(--krds-#{$mode-setting}-color-divider-gray-light);
       .f-btm-text {
         .f-copy {
           color: var(--krds-#{$mode-setting}-color-text-subtle);

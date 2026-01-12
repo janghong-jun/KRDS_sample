@@ -25,12 +25,13 @@
           const src = el.dataset.src;
 
           // callback 함수 필요할경우
-          if (id === 'sampleModal') {
+          if (id === 'test') {
             UI.modal.show({
               id: id,
               src: src,
               callback: () => {
                 alert(11);
+
                 setTimeout(() => {
                   UI.datepicker.init();
                 }, 0);
@@ -50,9 +51,9 @@
 
       UI.datepicker.init({
         id: 'input id name',
-        date: 'YYYY.MM.DD',
-        min: 'YYYY.MM.DD',
-        max: 'YYYY.MM.DD',
+        date: 'YYYY-MM-DD',
+        min: 'YYYY-MM-DD',
+        max: 'YYYY-MM-DD',
         title: 'title name',
         //period: 'start' or 'end',
         // callback: function(){
@@ -99,6 +100,17 @@
   //기본실행
   doc.addEventListener('DOMContentLoaded', function () {
     UI.common.init();
+    const tabs = document.querySelectorAll('.ui-tab[data-id');
+
+    tabs.forEach((tab) => {
+      const id = tab.dataset.id;
+
+      UI.tab.init({
+        id,
+        current: Number(tab.dataset.current) || 0,
+        dynamic: tab.dataset.dynamic === 'true',
+      });
+    });
   });
 })(window, document);
 
@@ -126,6 +138,9 @@ var $menu =
   '        <a href="#"><span>알림관리</span></a>' +
   '      </li>' +
   '      <li>' +
+  '        <a href="#"><span>알림발송관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
   '        <a href="#"><span>게시판관리</span></a>' +
   '      </li>' +
   '      <li>' +
@@ -140,7 +155,10 @@ var $menu =
   '    <a href="#" id="menu3">역량관리</a>' +
   '  </li>' +
   '  <li>' +
-  '    <a href="#" id="menu4" class="mMenu">교육자원아카이브</a>' +
+  '    <a href="#" id="menu4">모듈관리</a>' +
+  '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>' +
   '    <ul class="sub">' +
   '      <li>' +
   '        <a href="#"><span>콘텐츠관리</span></a>' +
@@ -160,7 +178,7 @@ var $menu =
   '    </ul>' +
   '  </li>' +
   '  <li>' +
-  '    <a href="#" id="menu5" class="mMenu">사이트관리</a>' +
+  '    <a href="#" id="menu6" class="mMenu">사이트관리</a>' +
   '    <ul class="sub">' +
   '      <li>' +
   '        <a href="#"><span>팝업관리</span></a>' +
@@ -177,7 +195,7 @@ var $menu =
   '    </ul>' +
   '  </li>' +
   '  <li>' +
-  '    <a href="#" id="menu6" class="mMenu">공동체관리</a>' +
+  '    <a href="#" id="menu7" class="mMenu">공동체관리</a>' +
   '    <ul class="sub">' +
   '      <li>' +
   '        <a href="#"><span>협업공간관리</span></a>' +
@@ -190,9 +208,6 @@ var $menu =
   '      </li>' +
   '      <li>' +
   '        <a href="#"><span>학습공동체채널관리</span></a>' +
-  '      </li>' +
-  '      <li>' +
-  '        <a href="#"><span>커뮤니티관리</span></a>' +
   '      </li>' +
   '    </ul>' +
   '  </li>' +

@@ -64,8 +64,7 @@ $mode-setting: light;
     padding: 0 var(--krds-padding-6);
     color: var(--krds-#{$mode-setting}-color-text-basic);
     font-weight: var(--krds-font-weight-bold);
-    border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid
-      var(--krds-#{$mode-setting}-color-border-gray-light);
+    border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid var(--krds-#{$mode-setting}-color-border-gray-light);
     border-radius: var(--krds-radius-max);
     background-color: var(--krds-#{$mode-setting}-color-surface-white);
     .swiper-pagination-current {
@@ -84,8 +83,7 @@ $mode-setting: light;
   @include square(var(--krds-size-height-6));
   flex-shrink: 0;
   border-radius: var(--krds-radius-max);
-  border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid
-    var(--krds-#{$mode-setting}-color-border-gray-light);
+  border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid var(--krds-#{$mode-setting}-color-border-gray-light);
   background-color: var(--krds-#{$mode-setting}-color-action-white);
   &::after {
     @include pseudo();
@@ -124,9 +122,7 @@ $mode-setting: light;
     background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
   }
   &:active {
-    background-color: var(
-      --krds-#{$mode-setting}-color-action-secondary-pressed
-    );
+    background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
   }
   &.swiper-button-disabled {
     background-color: var(--krds-#{$mode-setting}-color-action-disabled);
@@ -192,23 +188,17 @@ $mode-setting: light;
       background-color: var(--krds-#{$mode-setting}-color-text-basic);
     }
     &:hover {
-      background-color: var(
-        --krds-#{$mode-setting}-color-action-secondary-hover
-      );
+      background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
     }
   }
 
   .swiper-button-next,
   .swiper-button-prev {
     &:hover {
-      background-color: var(
-        --krds-#{$mode-setting}-color-action-secondary-hover
-      );
+      background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
     }
     &:active {
-      background-color: var(
-        --krds-#{$mode-setting}-color-action-secondary-pressed
-      );
+      background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
     }
     &.swiper-button-disabled {
       background-color: var(--krds-#{$mode-setting}-color-action-disabled);

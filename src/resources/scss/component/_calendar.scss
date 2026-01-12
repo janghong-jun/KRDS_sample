@@ -7,96 +7,42 @@
 @mixin calendar-size-variable() {
   --krds-calendar--radius: var(--krds-radius-xlarge2);
   --krds-calendar--head-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-calendar--head-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xsmall
-  );
-  --krds-calendar--head-btn-cal-switch-pc-font-size: var(
-    --krds-pc-font-size-label-medium
-  );
-  --krds-calendar--head-btn-cal-switch-mobile-font-size: var(
-    --krds-mobile-font-size-label-medium
-  );
+  --krds-calendar--head-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+  --krds-calendar--head-btn-cal-switch-pc-font-size: var(--krds-pc-font-size-label-medium);
+  --krds-calendar--head-btn-cal-switch-mobile-font-size: var(--krds-mobile-font-size-label-medium);
   --krds-calendar--head-btn-cal-switch-radius: var(--krds-radius-medium1);
   --krds-calendar--head-btn-cal-move-size: var(--krds-size-height-5);
   --krds-calendar--table-wrap-padding: var(--krds-gap-5);
-  --krds-calendar--table-head-pc-font-size: var(
-    --krds-pc-font-size-label-small
-  );
-  --krds-calendar--table-head-mobile-font-size: var(
-    --krds-mobile-font-size-label-small
-  );
-  --krds-calendar--table-caption-pc-font-size: var(
-    --krds-pc-font-size-heading-xxsmall
-  );
-  --krds-calendar--table-caption-mobile-font-size: var(
-    --krds-pc-font-size-heading-xxsmall
-  );
+  --krds-calendar--table-head-pc-font-size: var(--krds-pc-font-size-label-small);
+  --krds-calendar--table-head-mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --krds-calendar--table-caption-pc-font-size: var(--krds-pc-font-size-heading-xxsmall);
+  --krds-calendar--table-caption-mobile-font-size: var(--krds-pc-font-size-heading-xxsmall);
   --krds-calendar--set-date-radius: var(--krds-radius-max);
 }
 
 //컬러 정의
 @mixin calendar-color-variable($mode: light) {
-  --krds-calendar--color-border: var(
-    --krds-#{$mode}-color-border-secondary-light
-  );
-  --krds-calendar--color-surface: var(
-    --krds-#{$mode}-color-surface-secondary-subtler
-  );
+  --krds-calendar--color-border: var(--krds-#{$mode}-color-border-secondary-light);
+  --krds-calendar--color-surface: var(--krds-#{$mode}-color-surface-secondary-subtler);
   --krds-calendar--color-text-sub: var(--krds-#{$mode}-color-text-subtle);
-  --krds-calendar--head-btn-cal-move-color-text-active: var(
-    --krds-#{$mode}-color-text-secondary
-  );
-  --krds-calendar--head-btn-cal-move-color-border: var(
-    --krds-#{$mode}-color-border-gray-light
-  );
-  --krds-calendar--head-btn-cal-move-color-border-active: var(
-    --krds-#{$mode}-color-border-secondary
-  );
-  --krds-calendar--head-btn-cal-move-color-action: var(
-    --krds-#{$mode}-color-action-white
-  );
-  --krds-calendar--head-btn-cal-switch-color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-calendar--head-btn-cal-switch-color-action-active: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
-  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled-on
-  );
-  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0
-      var(--krds-#{$mode}-color-alpha-shadow1),
-    0 0.4rem 0.8rem 0 var(--krds-#{$mode}-color-alpha-shadow2);
-  --krds-calendar--date-set-color-action: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
-  --krds-calendar--date-set-color-text: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
-  --krds-calendar--date-set-color-text-day-off: var(
-    --krds-#{$mode}-color-text-danger
-  );
-  --krds-calendar--date-set-color-text-day-event: var(
-    --krds-#{$mode}-color-text-information
-  );
-  --krds-calendar--date-set-color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
-  --krds-calendar--date-set-color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-on-pressed
-  );
-  --krds-calendar--date-set-color-action-period: var(
-    --krds-#{$mode}-color-action-secondary-on-selected
-  );
-  --krds-calendar--date-set-color-element-today: var(
-    --krds-#{$mode}-color-element-point
-  );
-  --krds-calendar--action-btn-wrap-color-border: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-calendar--action-btn-wrap-color-surface: var(
-    --krds-#{$mode}-color-surface-white
-  );
+  --krds-calendar--head-btn-cal-move-color-text-active: var(--krds-#{$mode}-color-text-secondary);
+  --krds-calendar--head-btn-cal-move-color-border: var(--krds-#{$mode}-color-border-gray-light);
+  --krds-calendar--head-btn-cal-move-color-border-active: var(--krds-#{$mode}-color-border-secondary);
+  --krds-calendar--head-btn-cal-move-color-action: var(--krds-#{$mode}-color-action-white);
+  --krds-calendar--head-btn-cal-switch-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-calendar--head-btn-cal-switch-color-action-active: var(--krds-#{$mode}-color-action-secondary-pressed);
+  --krds-calendar--head-btn-cal-switch-color-text-disabled: var(--krds-#{$mode}-color-text-disabled-on);
+  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-#{$mode}-color-alpha-shadow1), 0 0.4rem 0.8rem 0 var(--krds-#{$mode}-color-alpha-shadow2);
+  --krds-calendar--date-set-color-action: var(--krds-#{$mode}-color-action-secondary-active);
+  --krds-calendar--date-set-color-text: var(--krds-#{$mode}-color-text-inverse-static);
+  --krds-calendar--date-set-color-text-day-off: var(--krds-#{$mode}-color-text-danger);
+  --krds-calendar--date-set-color-text-day-event: var(--krds-#{$mode}-color-text-information);
+  --krds-calendar--date-set-color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
+  --krds-calendar--date-set-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-on-pressed);
+  --krds-calendar--date-set-color-action-period: var(--krds-#{$mode}-color-action-secondary-on-selected);
+  --krds-calendar--date-set-color-element-today: var(--krds-#{$mode}-color-element-point);
+  --krds-calendar--action-btn-wrap-color-border: var(--krds-#{$mode}-color-divider-gray-light);
+  --krds-calendar--action-btn-wrap-color-surface: var(--krds-#{$mode}-color-surface-white);
 }
 
 //모드 설정
@@ -130,8 +76,7 @@ $mode-setting: light;
         @include flex-layout($ai: center, $jc: center);
         @include square(var(--krds-calendar--head-btn-cal-move-size));
         background-color: var(--krds-calendar--head-btn-cal-move-color-action);
-        border: 0.1rem solid
-          var(--krds-calendar--head-btn-cal-move-color-border);
+        border: 0.1rem solid var(--krds-calendar--head-btn-cal-move-color-border);
         border-radius: var(--krds-radius-max);
         flex-shrink: 0;
         &::before {
@@ -163,10 +108,7 @@ $mode-setting: light;
 
           &::after {
             @include pseudo();
-            @include svg-icon(
-              var(--krds-icon--size-small),
-              $mode: #{$mode-setting}
-            );
+            @include svg-icon(var(--krds-icon--size-small), $mode: #{$mode-setting});
             @include icon-set(ico_arrow_dropdown);
             position: absolute; /* 추가: 절대 위치 */
             right: 0.8rem; /* 추가: 오른쪽 정렬 */
@@ -175,22 +117,16 @@ $mode-setting: light;
             transition: transform 0.2s ease; /* 추가: 회전 애니메이션 */
           }
           &:hover {
-            background-color: var(
-              --krds-calendar--head-btn-cal-switch-color-action-hover
-            );
+            background-color: var(--krds-calendar--head-btn-cal-switch-color-action-hover);
           }
           &:focus,
           &:active {
-            background-color: var(
-              --krds-calendar--head-btn-cal-switch-color-action-active
-            );
+            background-color: var(--krds-calendar--head-btn-cal-switch-color-action-active);
           }
 
           /* 추가: active 상태일 때 화살표 회전 */
           &.active {
-            background-color: var(
-              --krds-calendar--head-btn-cal-switch-color-action-active
-            );
+            background-color: var(--krds-calendar--head-btn-cal-switch-color-action-active);
             &::after {
               transform: translateY(-50%) rotate(180deg);
             }
@@ -198,16 +134,10 @@ $mode-setting: light;
 
           &:disabled {
             cursor: default;
-            color: var(
-              --krds-calendar--head-btn-cal-switch-color-text-disabled
-            );
-            background-color: var(
-              --krds-calendar--action-btn-wrap-color-surface
-            );
+            color: var(--krds-calendar--head-btn-cal-switch-color-text-disabled);
+            background-color: var(--krds-calendar--action-btn-wrap-color-surface);
             &::after {
-              background-color: var(
-                --krds-calendar--head-btn-cal-switch-color-text-disabled
-              );
+              background-color: var(--krds-calendar--head-btn-cal-switch-color-text-disabled);
             }
           }
         }
@@ -225,15 +155,9 @@ $mode-setting: light;
             overflow-x: hidden;
             overflow-y: auto;
             min-width: 14rem;
-            max-height: calc(
-              (var(--krds-calendar-drop-down-btn-height) * 6) +
-                (var(--krds-padding-3) * 2)
-            );
-            border: 0.1rem solid
-              var(--krds-calendar--action-btn-wrap-color-border);
-            background-color: var(
-              --krds-calendar--action-btn-wrap-color-surface
-            );
+            max-height: calc((var(--krds-calendar-drop-down-btn-height) * 6) + (var(--krds-padding-3) * 2));
+            border: 0.1rem solid var(--krds-calendar--action-btn-wrap-color-border);
+            background-color: var(--krds-calendar--action-btn-wrap-color-surface);
             border-radius: var(--krds-radius-medium4);
             padding: var(--krds-padding-3);
             transition: var(--krds-transition-base);
@@ -259,14 +183,9 @@ $mode-setting: light;
 
               button {
                 @include flex-layout($jc: center, $ai: center);
-                @include square(
-                  100%,
-                  var(--krds-calendar-drop-down-btn-height)
-                );
+                @include square(100%, var(--krds-calendar-drop-down-btn-height));
                 border-radius: var(--krds-radius-medium1);
-                font-size: var(
-                  --krds-calendar--head-btn-cal-switch-pc-font-size
-                );
+                font-size: var(--krds-calendar--head-btn-cal-switch-pc-font-size);
                 font-weight: var(--krds-font-weight-regular);
                 border: none; /* 추가 */
                 background: transparent; /* 추가 */
@@ -274,34 +193,21 @@ $mode-setting: light;
                 transition: var(--krds-transition-base); /* 추가 */
 
                 &:hover {
-                  background-color: var(
-                    --krds-calendar--head-btn-cal-switch-color-action-hover
-                  );
+                  background-color: var(--krds-calendar--head-btn-cal-switch-color-action-hover);
                 }
                 &:focus,
                 &:active {
-                  background-color: var(
-                    --krds-calendar--head-btn-cal-switch-color-action-active
-                  );
+                  background-color: var(--krds-calendar--head-btn-cal-switch-color-action-active);
                 }
                 &.active {
-                  color: var(
-                    --krds-calendar--head-btn-cal-move-color-text-active
-                  );
-                  border: 0.1rem solid
-                    var(--krds-calendar--head-btn-cal-move-color-border-active);
-                  background-color: var(
-                    --krds-calendar--action-btn-wrap-color-surface
-                  );
+                  color: var(--krds-calendar--head-btn-cal-move-color-text-active);
+                  border: 0.1rem solid var(--krds-calendar--head-btn-cal-move-color-border-active);
+                  background-color: var(--krds-calendar--action-btn-wrap-color-surface);
                 }
                 &:disabled {
                   cursor: default;
-                  color: var(
-                    --krds-calendar--head-btn-cal-switch-color-text-disabled
-                  );
-                  background-color: var(
-                    --krds-calendar--action-btn-wrap-color-surface
-                  );
+                  color: var(--krds-calendar--head-btn-cal-switch-color-text-disabled);
+                  background-color: var(--krds-calendar--action-btn-wrap-color-surface);
                 }
               }
             }
@@ -361,17 +267,13 @@ $mode-setting: light;
             }
             &:not(.period, .old, .new, .disabled) .btn-set-date:hover {
               &::after {
-                background-color: var(
-                  --krds-calendar--date-set-color-action-period
-                );
+                background-color: var(--krds-calendar--date-set-color-action-period);
               }
             }
             &:not(.period, .old, .new, .disabled) .btn-set-date:focus,
             &:not(.period, .old, .new, .disabled) .btn-set-date:active {
               &::after {
-                background-color: var(
-                  --krds-calendar--date-set-color-action-pressed
-                );
+                background-color: var(--krds-calendar--date-set-color-action-pressed);
               }
             }
             &.today {
@@ -384,9 +286,7 @@ $mode-setting: light;
                     @include position($b: -10%);
                     @include position-center(x);
                     border-radius: var(--krds-radius-max);
-                    background-color: var(
-                      --krds-calendar--date-set-color-element-today
-                    );
+                    background-color: var(--krds-calendar--date-set-color-element-today);
                   }
                 }
               }
@@ -423,15 +323,11 @@ $mode-setting: light;
             &.period {
               /* 추가: between 상태 (기간 사이) */
               &.between {
-                background-color: var(
-                  --krds-calendar--date-set-color-action-period
-                );
+                background-color: var(--krds-calendar--date-set-color-action-period);
               }
 
               .btn-set-date {
-                background-color: var(
-                  --krds-calendar--date-set-color-action-period
-                );
+                background-color: var(--krds-calendar--date-set-color-action-period);
               }
               &.start,
               &.end {
@@ -443,19 +339,13 @@ $mode-setting: light;
               &.start {
                 > .btn-set-date {
                   border-top-left-radius: var(--krds-calendar--set-date-radius);
-                  border-bottom-left-radius: var(
-                    --krds-calendar--set-date-radius
-                  );
+                  border-bottom-left-radius: var(--krds-calendar--set-date-radius);
                 }
               }
               &.end {
                 > .btn-set-date {
-                  border-top-right-radius: var(
-                    --krds-calendar--set-date-radius
-                  );
-                  border-bottom-right-radius: var(
-                    --krds-calendar--set-date-radius
-                  );
+                  border-top-right-radius: var(--krds-calendar--set-date-radius);
+                  border-bottom-right-radius: var(--krds-calendar--set-date-radius);
                 }
               }
             }
@@ -469,8 +359,7 @@ $mode-setting: light;
         @include flex-layout($jc: flex-end, $ai: center);
         gap: var(--krds-gap-3);
         padding: var(--krds-padding-6) var(--krds-padding-8);
-        border-top: 0.1rem solid
-          var(--krds-calendar--action-btn-wrap-color-border);
+        border-top: 0.1rem solid var(--krds-calendar--action-btn-wrap-color-border);
         background-color: var(--krds-calendar--action-btn-wrap-color-surface);
         & .krds-btn:first-child {
           margin-right: auto;
@@ -493,45 +382,31 @@ $mode-setting: light;
             }
             td.period {
               &::after {
-                background-color: var(
-                  --krds-calendar--date-set-color-action-period
-                );
+                background-color: var(--krds-calendar--date-set-color-action-period);
               }
             }
             td.start {
               .btn-set-date {
-                border-radius: var(--krds-calendar--set-date-radius) 0 0
-                  var(--krds-calendar--set-date-radius);
+                border-radius: var(--krds-calendar--set-date-radius) 0 0 var(--krds-calendar--set-date-radius);
               }
               &::after {
                 background-color: var(--krds-calendar--date-set-color-action);
                 border-top-left-radius: var(--krds-calendar--set-date-radius);
-                border-bottom-left-radius: var(
-                  --krds-calendar--set-date-radius
-                );
-                @include square(
-                  var(--krds-calendar--after-size),
-                  var(--krds-calendar--after-size)
-                );
+                border-bottom-left-radius: var(--krds-calendar--set-date-radius);
+                @include square(var(--krds-calendar--after-size), var(--krds-calendar--after-size));
                 right: 0;
                 left: unset;
               }
             }
             td.end {
               .btn-set-date {
-                border-radius: 0 var(--krds-calendar--set-date-radius)
-                  var(--krds-calendar--set-date-radius) 0;
+                border-radius: 0 var(--krds-calendar--set-date-radius) var(--krds-calendar--set-date-radius) 0;
               }
               &::after {
                 background-color: var(--krds-calendar--date-set-color-action);
                 border-top-right-radius: var(--krds-calendar--set-date-radius);
-                border-bottom-right-radius: var(
-                  --krds-calendar--set-date-radius
-                );
-                @include square(
-                  var(--krds-calendar--after-size),
-                  var(--krds-calendar--after-size)
-                );
+                border-bottom-right-radius: var(--krds-calendar--set-date-radius);
+                @include square(var(--krds-calendar--after-size), var(--krds-calendar--after-size));
               }
             }
             td.period.start.end {
@@ -562,19 +437,13 @@ $mode-setting: light;
       .calendar-head {
         .btn-cal-move {
           &::before {
-            @include svg-icon(
-              var(--krds-size-height-3),
-              $mode: #{$mode-setting}
-            );
+            @include svg-icon(var(--krds-size-height-3), $mode: #{$mode-setting});
           }
         }
         .calendar-switch-wrap {
           .btn-cal-switch {
             &::after {
-              @include svg-icon(
-                var(--krds-icon--size-small),
-                $mode: #{$mode-setting}
-              );
+              @include svg-icon(var(--krds-icon--size-small), $mode: #{$mode-setting});
             }
           }
         }

@@ -20,22 +20,12 @@
 //컬러 정의
 @mixin pagination-color-variable($mode: light) {
   --krds-pagination--color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-pagination--color-text-active: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
-  --krds-pagination--color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
-  );
+  --krds-pagination--color-text-active: var(--krds-#{$mode}-color-text-inverse-static);
+  --krds-pagination--color-text-disabled: var(--krds-#{$mode}-color-text-disabled);
   --krds-pagination--color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-pagination--color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-pagination--color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
-  --krds-pagination--color-action-active: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
+  --krds-pagination--color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
+  --krds-pagination--color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
+  --krds-pagination--color-action-active: var(--krds-#{$mode}-color-action-secondary-active);
 }
 
 //모드 설정
@@ -67,8 +57,7 @@ $mode-setting: light;
   .page-navi {
     &.prev {
       order: 1;
-      padding: 0 var(--krds-pagination--prev-btn-padding-right) 0
-        var(--krds-pagination--prev-btn-padding-left);
+      padding: 0 var(--krds-pagination--prev-btn-padding-right) 0 var(--krds-pagination--prev-btn-padding-left);
       &::before {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo();
@@ -80,8 +69,7 @@ $mode-setting: light;
     }
     &.next {
       order: 3;
-      padding: 0 var(--krds-pagination--prev-btn-padding-left) 0
-        var(--krds-pagination--prev-btn-padding-right);
+      padding: 0 var(--krds-pagination--prev-btn-padding-left) 0 var(--krds-pagination--prev-btn-padding-right);
       &::after {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo();
@@ -136,18 +124,12 @@ $mode-setting: light;
     .page-navi {
       &.prev {
         &::before {
-          @include svg-icon(
-            $size: var(--krds-icon--size-medium),
-            $mode: #{$mode-setting}
-          );
+          @include svg-icon($size: var(--krds-icon--size-medium), $mode: #{$mode-setting});
         }
       }
       &.next {
         &::after {
-          @include svg-icon(
-            $size: var(--krds-icon--size-medium),
-            $mode: #{$mode-setting}
-          );
+          @include svg-icon($size: var(--krds-icon--size-medium), $mode: #{$mode-setting});
         }
       }
     }

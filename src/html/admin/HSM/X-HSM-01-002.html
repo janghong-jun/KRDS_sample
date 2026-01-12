@@ -20,18 +20,18 @@
       <main class="main-wrap" id="content">
         <div class="sub-nav"></div>
         <section class="main-conts">
-          <h2>회원관리</h2>
+          <h2>회원정보</h2>
           <div class="sub-title">
             <h3>회원 기본 정보</h3>
             <p class="msg">* 표시는 필수 입력 항목입니다.</p>
           </div>
-          <div class="tbl-base mgt10">
+          <div class="tbl-base mgt10 align-left">
             <table>
               <colgroup>
                 <col style="width: 15rem" />
-                <col style="width: auto" />
+                <col />
                 <col style="width: 15rem" />
-                <col style="width: auto" />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
@@ -41,7 +41,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp01" class="inp-text" placeholder="회원 이름을 입력하세요" />
+                      <input type="text" id="inp01" class="inp-text" placeholder="회원 이름을 입력하세요" />
                     </div>
                   </td>
                   <th scope="row">
@@ -51,12 +51,12 @@
                   <td>
                     <div class="frm-area">
                       <select id="select01">
-                        <option value="">선택</option>
-                        <option value="">교사</option>
-                        <option value="">수석교사</option>
-                        <option value="">교감</option>
-                        <option value="">교장</option>
-                        <option value="">교육전문</option>
+                        <option>선택</option>
+                        <option>교사</option>
+                        <option>수석교사</option>
+                        <option>교감</option>
+                        <option>교장</option>
+                        <option>교육전문</option>
                       </select>
                     </div>
                   </td>
@@ -68,7 +68,7 @@
                   </th>
                   <td colspan="3">
                     <div class="frm-area">
-                      <input type="text" name="" id="inp02" class="inp-text" placeholder="아이디를 입력하세요" />
+                      <input type="text" id="inp02" class="inp-text" placeholder="아이디를 입력하세요" />
                     </div>
                   </td>
                 </tr>
@@ -80,11 +80,11 @@
                   <td>
                     <div class="frm-area">
                       <select id="select02">
-                        <option value="">선택</option>
-                        <option value="">초등학교</option>
-                        <option value="">중학교</option>
-                        <option value="">고등학교</option>
-                        <option value="">특수학교</option>
+                        <option>선택</option>
+                        <option>초등학교</option>
+                        <option>중학교</option>
+                        <option>고등학교</option>
+                        <option>특수학교</option>
                       </select>
                     </div>
                   </td>
@@ -94,7 +94,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp03" class="inp-text" placeholder="소속 학교(기관)을 입력하세요" />
+                      <input type="text" id="inp03" class="inp-text" placeholder="소속 학교(기관)을 입력하세요" />
                     </div>
                   </td>
                 </tr>
@@ -105,7 +105,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp04" class="inp-text" placeholder="담당교과를 입력하세요" />
+                      <input type="text" id="inp04" class="inp-text" placeholder="담당교과를 입력하세요" />
                     </div>
                   </td>
                   <th scope="row">
@@ -114,7 +114,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp05" class="inp-text" />
+                      <input type="text" id="inp05" class="inp-text" />
                     </div>
                   </td>
                 </tr>
@@ -125,9 +125,9 @@
                   </th>
                   <td colspan="3">
                     <div class="frm-area phone">
-                      <div class="lb-item"><input type="text" name="" id="inp06" class="inp-text" /></div>
-                      <div class="lb-item"><input type="text" name="" class="inp-text" aria-label="연락처 중간자리" /></div>
-                      <div class="lb-item"><input type="text" name="" class="inp-text" aria-label="연락처 끝자리" /></div>
+                      <div class="lb-item"><input type="text" id="inp06" class="inp-text" /></div>
+                      <div class="lb-item"><input type="text" class="inp-text" aria-label="연락처 중간자리" /></div>
+                      <div class="lb-item"><input type="text" class="inp-text" aria-label="연락처 끝자리" /></div>
                     </div>
                   </td>
                 </tr>
@@ -138,7 +138,7 @@
                   </th>
                   <td colspan="3">
                     <div class="frm-area mail-area">
-                      <input type="text" name="" id="inp07" class="inp-text" />
+                      <input type="text" id="inp07" class="inp-text" />
                       <span>@</span>
                       <input type="text" class="inp-text" aria-label="도메인 입력" />
                     </div>
@@ -150,13 +150,13 @@
           <div class="sub-title">
             <h3>회원 부가 정보</h3>
           </div>
-          <div class="tbl-base mgt10">
+          <div class="tbl-base mgt10 align-left">
             <table>
               <colgroup>
                 <col style="width: 15rem" />
-                <col style="width: auto" />
+                <col />
                 <col style="width: 15rem" />
-                <col style="width: auto" />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
@@ -164,11 +164,11 @@
                   <td colspan="3">
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="checkbox" id="flag0101" name="" checked="" />
+                        <input type="checkbox" id="flag0101" checked="" />
                         <label for="flag0101" class="lb-checkbox"> 역량항목 1 </label>
                       </span>
                       <span class="lb-item">
-                        <input type="checkbox" id="flag0102" name="" />
+                        <input type="checkbox" id="flag0102" />
                         <label for="flag0102" class="lb-checkbox">역량항목 2</label>
                       </span>
                       <span class="lb-item">
@@ -176,11 +176,11 @@
                         <label for="flag0103" class="lb-checkbox">역량항목 3</label>
                       </span>
                       <span class="lb-item">
-                        <input type="checkbox" id="flag0104" name="" />
+                        <input type="checkbox" id="flag0104" />
                         <label for="flag0104" class="lb-checkbox">역량항목 4</label>
                       </span>
                       <span class="lb-item">
-                        <input type="checkbox" id="flag0105" name="" />
+                        <input type="checkbox" id="flag0105" />
                         <label for="flag0105" class="lb-checkbox">역량항목 5</label>
                       </span>
                     </div>
@@ -190,7 +190,7 @@
                   <th scope="row"><label for="inp08">닉네임</label></th>
                   <td colspan="3">
                     <div class="frm-area">
-                      <input type="text" name="" id="inp08" class="inp-text" />
+                      <input type="text" id="inp08" class="inp-text" />
                     </div>
                   </td>
                 </tr>
@@ -216,7 +216,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp09" class="inp-text" />
+                      <input type="text" id="inp09" class="inp-text" />
                     </div>
                   </td>
                   <th scope="row">
@@ -224,7 +224,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" name="" id="inp10" class="inp-text" />
+                      <input type="text" id="inp10" class="inp-text" />
                     </div>
                   </td>
                 </tr>
@@ -251,7 +251,7 @@
                   </th>
                   <td colspan="3">
                     <div class="frm-area">
-                      <input type="text" name="" id="inp11" class="inp-text" />
+                      <input type="text" id="inp11" class="inp-text" />
                     </div>
                   </td>
                 </tr>
@@ -261,7 +261,7 @@
                   </th>
                   <td colspan="3">
                     <div class="frm-area">
-                      <input type="text" name="" id="inp12" class="inp-text" />
+                      <input type="text" id="inp12" class="inp-text" />
                     </div>
                   </td>
                 </tr>
