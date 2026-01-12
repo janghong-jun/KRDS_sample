@@ -126,10 +126,10 @@ $mode-setting: light;
 /* ** 페이지 타이틀 ** */
 .page-title-wrap {
   @include flex-layout($d: flex, $fd: column, $ai: normal);
-  margin-bottom: var(--krds-pc-gap-layout-h2-h3);
+  // margin-bottom: var(--krds-pc-gap-layout-h2-h3);
   gap: var(--krds-pc-gap-layout-title-body-large);
   @include size-medium {
-    margin-bottom: var(--krds-mobile-gap-layout-h2-h3);
+    // margin-bottom: var(--krds-mobile-gap-layout-h2-h3);
     gap: var(--krds-mobile-gap-layout-title-body-large);
   }
 

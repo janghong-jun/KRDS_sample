@@ -1,0 +1,47 @@
+@use '../common/group_variables' as *;
+@use '../common/mixins/utils' as *;
+@use '../common/mixins/icons' as *;
+@use '../common/mixins/breakpoints' as *;
+@use '../common/path' as *;
+
+$mode-setting: light;
+.g-search-area {
+  margin-top: var(--krds-number-12);
+  padding: var(--krds-number-14);
+  border-radius: var(--krds-radius-xlarge1);
+  border: 1px solid #e4e5e7;
+  background: #f8f8f8;
+  .sch-form-wrap {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--krds-number-7);
+    .form-conts {
+      width: 20rem;
+    }
+    .sch-input {
+      width: 50rem;
+    }
+    > .krds-btn {
+      width: 10rem;
+      background-color: var(--krds-color-light-gray-80);
+    }
+    .krds-form-select,
+    .krds-input {
+      border-color: var(--krds-color-light-gray-30);
+    }
+    @media (max-width: 1281px) {
+      .form-conts {
+        width: 100%;
+      }
+      .sch-input {
+        width: 100%;
+      }
+      > .krds-btn {
+        width: 100%;
+      }
+    }
+  }
+  @include size-medium {
+    margin-top: var(--krds-number-8);
+  }
+}
