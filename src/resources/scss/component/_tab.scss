@@ -68,7 +68,7 @@
 $mode-setting: light;
 .krds-tab-area {
   @include flex-layout($fd: column);
-  gap: var(--krds-gap-8);
+  gap: var(--krds-gap-9);
   width: 100%;
 
   @include size-medium {
@@ -204,13 +204,13 @@ $mode-setting: light;
         @include pseudo();
         width: 0;
         height: 0.4rem;
-        background-color: var(--krds-tab--line-button-color-line-active);
+        background-color: var(--krds-#{$mode-setting}-color-border-primary);
         transition: var(--krds-transition-base);
       }
     }
     .active {
       .btn-tab {
-        color: var(--krds-tab--line-button-color-text-active);
+        color: var(--krds-#{$mode-setting}-color-border-primary);
         &::before {
           @include position($l: 0);
           width: 100%;
@@ -221,6 +221,7 @@ $mode-setting: light;
       .btn-tab {
         border: 0;
         border-bottom: 0.2rem solid var(--krds-tab--line-button-color-border);
+
         &::before {
           bottom: -0.2rem;
         }
@@ -267,6 +268,10 @@ $mode-setting: light;
             }
           }
         }
+      }
+    }
+    &.line {
+      &.full {
       }
     }
   }

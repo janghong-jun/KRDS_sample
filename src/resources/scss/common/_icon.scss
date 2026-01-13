@@ -292,6 +292,12 @@
   &.ico-checkbox {
     @include icon-set(ico_checkbox_checked);
   }
+  &.ico-expand-more {
+    border-radius: var(--krds-radius-max);
+    background: url(#{$url}/img/component/icon/ico_expand_more.svg) 50% 50%
+      no-repeat;
+    background-size: var(--krds-number-9);
+  }
 }
 
 //고대비모드

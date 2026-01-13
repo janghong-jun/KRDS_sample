@@ -197,11 +197,16 @@
 //사이즈별 variable
 @mixin btn-size($unit) {
   //unit value: xsmall small medium larger xlarge
-  gap: var(--krds-button--gap-#{$unit});
+  // gap: var(--krds-button--gap-#{$unit});
+  gap: if($unit == small, 0.8rem, var(--krds-button--gap-#{$unit}));
   height: var(--krds-button--size-height-#{$unit});
   padding: var(--krds-button--padding-y-#{$unit})
     var(--krds-button--padding-x-#{$unit});
-  border-radius: var(--krds-button--radius-#{$unit});
+  border-radius: if(
+    $unit == small,
+    0.8rem,
+    var(--krds-button--radius-#{$unit})
+  );
   font-size: var(--krds-button--pc-font-size-#{$unit});
   font-weight: var(--krds-button--font-weight-#{$unit});
   @include size-medium {

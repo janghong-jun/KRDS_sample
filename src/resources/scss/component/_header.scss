@@ -14,17 +14,27 @@
   --krds-header--navi-gap: var(--krds-gap-2) var(--krds-gap-3);
   --krds-header--navi-padding: var(--krds-padding-2) var(--krds-padding-5) 0;
   --krds-header--navi-border-radius: var(--krds-radius-medium1);
-  --krds-header--navi-font-size-pc: var(--krds-pc-font-size-navigation-depth-medium-bold);
-  --krds-header--navi-font-size-mobile: var(--krds-mobile-font-size-navigation-depth-small-bold);
+  --krds-header--navi-font-size-pc: var(
+    --krds-pc-font-size-navigation-depth-medium-bold
+  );
+  --krds-header--navi-font-size-mobile: var(
+    --krds-mobile-font-size-navigation-depth-small-bold
+  );
 }
 
 //컬러 정의
 @mixin header-color-variable($mode: light) {
   --krds-header--color-surface: var(--krds-#{$mode}-color-surface-white);
-  --krds-header--utility-color-divider: var(--krds-#{$mode}-color-divider-gray-light);
+  --krds-header--utility-color-divider: var(
+    --krds-#{$mode}-color-divider-gray-light
+  );
   --krds-header--navi-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-header--navi-color-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-header--navi-color-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
+  --krds-header--navi-color-hover: var(
+    --krds-#{$mode}-color-action-secondary-hover
+  );
+  --krds-header--navi-color-pressed: var(
+    --krds-#{$mode}-color-action-secondary-pressed
+  );
 }
 
 //모드 설정
@@ -97,7 +107,12 @@ $mode-setting: light;
       margin-left: auto;
     }
     .btn-navi {
-      @include flex-layout($d: inline-flex, $fd: column, $jc: space-between, $ai: center);
+      @include flex-layout(
+        $d: inline-flex,
+        $fd: column,
+        $jc: space-between,
+        $ai: center
+      );
       gap: var(--krds-header--navi-gap);
       min-height: var(--krds-header--navi-min-height);
       padding: var(--krds-header--navi-padding);
@@ -109,7 +124,10 @@ $mode-setting: light;
       &::before {
         display: inline-flex;
         @include pseudo();
-        @include svg-icon($size: var(--krds-icon--size-medium), $mode: #{$mode-setting});
+        @include svg-icon(
+          $size: var(--krds-icon--size-medium),
+          $mode: #{$mode-setting}
+        );
       }
       &:hover {
         background-color: var(--krds-header--navi-color-hover);
@@ -153,7 +171,7 @@ $mode-setting: light;
 /* 스크롤 동작 */
 #wrap {
   &[class*='scroll'] {
-    #krds-header:not(.sample) {
+    #krds-heade {
       position: relative;
       border-bottom: 0.1rem solid var(--krds-header--utility-color-divider);
       .header-in {
@@ -169,14 +187,14 @@ $mode-setting: light;
     }
   }
   &.scroll-down {
-    #krds-header:not(.sample) {
+    #krds-heade {
       .header-in {
         transform: translateY(-100%);
       }
     }
   }
   &.scroll-up {
-    #krds-header:not(.sample) {
+    #krds-heade {
       .header-in {
         transform: translateY(0);
       }
@@ -192,12 +210,17 @@ $mode-setting: light;
   #krds-header {
     @include header-color-variable(#{$mode-setting});
     .inner {
-      border-bottom-color: var(--krds-#{$mode-setting}-color-divider-gray-light);
+      border-bottom-color: var(
+        --krds-#{$mode-setting}-color-divider-gray-light
+      );
     }
     .header-container {
       .btn-navi {
         &::before {
-          @include svg-icon(var(--krds-icon--size-medium), $mode: #{$mode-setting});
+          @include svg-icon(
+            var(--krds-icon--size-medium),
+            $mode: #{$mode-setting}
+          );
         }
       }
       .logo {
@@ -255,7 +278,8 @@ $mode-setting: light;
     .inner {
       padding-top: var(--krds-gap-3);
       padding-bottom: var(--krds-gap-3);
-      border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular) solid var(--krds-#{$mode-setting}-color-divider-gray-light);
+      border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular)
+        solid var(--krds-#{$mode-setting}-color-divider-gray-light);
     }
 
     .header-container {

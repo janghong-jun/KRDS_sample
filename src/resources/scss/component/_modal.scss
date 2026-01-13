@@ -99,6 +99,24 @@ $mode-setting: light;
     display: block;
   }
 
+  &.system-modal {
+    text-align: center;
+    .modal-dialog {
+      width: 56rem;
+      .modal-conts {
+        padding: var(--krds-modal--padding) var(--krds-modal--padding)
+          var(--krds-modal--btn-padding-top) var(--krds-modal--padding);
+        font-size: var(--krds-pc-font-size-body-large);
+        color: var(--krds-color-light-gray-90);
+      }
+      .modal-btn {
+        justify-content: center;
+        .krds-btn {
+          min-width: 12rem;
+        }
+      }
+    }
+  }
   //dim-backgorund
   .modal-back {
     position: fixed;

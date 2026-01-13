@@ -4,11 +4,12 @@
 @use '../common/mixins/breakpoints' as *;
 @use '../common/path' as *;
 
+$mode-setting: light;
 .g-search-area {
   margin-top: var(--krds-number-12);
   padding: var(--krds-number-14);
   border-radius: var(--krds-radius-xlarge1);
-  border: 1px solid #e4e5e7;
+  border: 0.1rem solid #e4e5e7;
   background: #f8f8f8;
   .sch-form-wrap {
     justify-content: center;
@@ -24,10 +25,10 @@
       width: 10rem;
       background-color: var(--krds-color-light-gray-80);
     }
-    .krds-form-select,
-    .krds-input {
-      border-color: var(--krds-color-light-gray-30);
-    }
+    // .krds-form-select,
+    // .krds-input {
+    //   border-color: var(--krds-color-light-gray-30);
+    // }
     @media (max-width: 1281px) {
       .form-conts {
         width: 100%;
@@ -40,7 +41,241 @@
       }
     }
   }
-  @include size-medium {
+  @include size-large-less {
     margin-top: var(--krds-number-8);
   }
+}
+
+.card-list {
+  display: grid;
+  margin-top: var(--krds-number-9);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--krds-number-10) var(--krds-number-9);
+
+  @media (max-width: 1281px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include size-medium-to-large {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include size-medium {
+    grid-template-columns: 1fr;
+    gap: var(--krds-number-8) var(--krds-number-0);
+  }
+
+  li {
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.75rem;
+    border: 1px solid var(--krds-color-light-gray-20);
+    background: var(--krds-color-light-gray-0);
+  }
+
+  .card-box,
+  .card-thumbnail {
+    display: block;
+  }
+
+  .card-conts {
+    display: flex;
+    padding: var(--krds-number-8) var(--krds-number-9) var(--krds-number-9)
+      var(--krds-number-9);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--krds-number-7);
+    align-self: stretch;
+  }
+  .card-tit {
+    font-size: var(--krds-pc-font-size-heading-xsmall);
+    font-weight: var(--krds-font-weight-bold);
+  }
+  .card-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--krds-number-7);
+  }
+  .card-owner {
+    display: flex;
+    font-size: var(--krds-pc-font-size-body-small);
+    gap: var(--krds-number-8);
+    strong {
+      font-weight: var(--krds-font-weight-regular);
+      color: var(--krds-color-light-gray-70);
+    }
+    span {
+      position: relative;
+      color: #1e2124;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(var(--krds-number-8) / 2 * -1);
+        width: 0.1rem;
+        height: 1.2rem;
+        margin-top: -0.6rem;
+        background: rgba(180, 180, 180, 0.5);
+      }
+    }
+  }
+  .card-date {
+    font-size: var(--krds-pc-font-size-body-xsmall);
+    color: #6c7277;
+  }
+
+  .krds-badge {
+    position: absolute;
+    top: var(--krds-number-7);
+    right: var(--krds-number-7);
+    height: var(--krds-number-12);
+    padding: 0 var(--krds-number-7);
+    font-size: var(--krds-pc-font-size-heading-xxsmall);
+    font-weight: var(--krds-font-weight-bold);
+    line-height: var(--krds-number-12);
+    color: var(--krds-color-light-gray-0);
+    border-radius: var(--krds-radius-max);
+    background: var(--krds-color-light-alpha-black50);
+  }
+}
+#container {
+  .contents {
+    .in-between {
+      display: grid;
+      grid-template-columns: calc(100% - 34rem) 30rem;
+      margin-top: var(--krds-number-14);
+      gap: var(--krds-number-14);
+
+      @include size-large-less {
+        grid-template-columns: 1fr;
+
+        .todo-box {
+          width: 100%;
+        }
+      }
+      .tab.full {
+        .btn-tab {
+          @include ellipsis(1);
+        }
+      }
+    }
+  }
+}
+
+.todo-box {
+  width: 30rem;
+  padding: var(--krds-number-12);
+  border-radius: var(--krds-radius-xlarge1);
+  border: 0.1rem solid #e4e5e7;
+  background: #f8f8f8;
+  flex: none;
+
+  .todo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .todo-title {
+      font-size: var(--krds-pc-font-size-heading-medium);
+      color: var(--krds-#{$mode-setting}-color-text-bolder);
+    }
+    .ico-plus {
+      @include svg-icon(var(--krds-icon--size-medium));
+    }
+  }
+  .todo-body {
+    margin-top: var(--krds-number-14);
+    .todo-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--krds-number-12);
+      @include size-large-less {
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      li {
+        @include size-large-less {
+          width: calc(50% - var(--krds-number-8));
+        }
+        button {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          width: 100%;
+          padding-left: 6rem;
+          text-align: left;
+          color: var(--krds-color-light-gray-90);
+          gap: var(--krds-number-5);
+          .date {
+            display: flex;
+            flex-direction: column;
+            font-size: var(--krds-pc-font-size-body-small);
+
+            @include size-large-less {
+              font-size: var(--krds-mobile-font-size-body-small);
+            }
+            span {
+              width: 100%;
+            }
+          }
+          .title {
+            font-size: var(--krds-pc-font-size-heading-xsmall);
+            font-weight: var(--krds-font-weight-bold);
+            @include size-large-less {
+              font-size: var(--krds-mobile-font-size-heading-xsmall);
+            }
+          }
+
+          i {
+            position: absolute;
+            top: 0.8rem;
+            left: 0.8rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            background-color: var(--krds-color-light-gray-80);
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4rem;
+            height: 4rem;
+            border-radius: var(--krds-radius-xlarge1);
+            border: 0.1rem solid var(--krds-color-light-gray-20);
+            box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(42, 81, 125, 0.04);
+          }
+        }
+
+        &.checked {
+          button {
+            color: var(--krds-color-light-primary-60);
+
+            i {
+              background-color: var(--krds-color-light-primary-60);
+            }
+            &::before {
+              border-color: var(--krds-color-light-primary-10);
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 4.1rem;
+              width: 0.4rem;
+              height: 0.4rem;
+              border-radius: var(--krds-radius-max);
+              background-color: var(--krds-color-light-primary-60);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//고대비모드
+@include color-mode($mode: high-contrast) {
+  //모드 설정
+  $mode-setting: high-contrast;
 }

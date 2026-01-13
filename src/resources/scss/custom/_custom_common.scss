@@ -175,12 +175,59 @@ $mode-setting: light;
       font-size: var(--krds-mobile-font-size-body-large);
     }
   }
+  .page-utill {
+    display: flex;
+    gap: var(--krds-number-7);
+    flex-wrap: wrap;
+    .krds-btn {
+      &.member {
+        border-radius: var(--krds-radius-max);
+        font-weight: var(--krds-font-weight-bold);
+        border: 0.1rem solid var(--krds-color-light-gray-20);
+
+        &.active {
+          .ico-angle {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    .krds-drop-wrap {
+      .drop-menu {
+        left: auto;
+        right: 0;
+        transform: translateX(0);
+        &::before {
+          display: none;
+        }
+
+        .member-list {
+          max-height: 41.5rem;
+          overflow-y: auto;
+          li {
+            display: grid;
+            padding: var(--krds-number-5);
+            grid-template-columns: 7rem 10rem;
+            font-size: var(--krds-pc-font-size-body-medium);
+            .name {
+              font-weight: var(--krds-font-weight-bold);
+            }
+          }
+        }
+      }
+    }
+  }
   &.between {
     @include flex-layout($fd: row);
     .krds-step-wrap {
       margin-left: auto;
       margin-bottom: 0;
     }
+  }
+
+  &.justify-between {
+    flex-wrap: wrap;
+    @include flex-layout($fd: row, $jc: space-between, $ai: flex-start);
   }
 }
 
