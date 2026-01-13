@@ -229,6 +229,9 @@ $mode-setting: light;
     flex-wrap: wrap;
     @include flex-layout($fd: row, $jc: space-between, $ai: flex-start);
   }
+  & + .g-search-area {
+    margin-top: var(--krds-number-12);
+  }
 }
 
 /* ** 페이지 하단 버튼 ** */

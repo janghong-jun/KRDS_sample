@@ -94,16 +94,6 @@
       text: var(--krds-#{$mode}-color-text-inverse-static),
       text-disabled: var(--krds-#{$mode}-color-text-disabled-on),
     ),
-    primary2: (
-      fill: #454097,
-      fill-hover: var(--krds-#{$mode}-color-button-primary-fill-hover),
-      fill-pressed: var(--krds-#{$mode}-color-button-primary-fill-pressed),
-      fill-disabled: var(--krds-#{$mode}-color-button-disabled-fill),
-      border: #454097,
-      border-disabled: var(--krds-#{$mode}-color-button-disabled-border),
-      text: var(--krds-#{$mode}-color-text-inverse-static),
-      text-disabled: var(--krds-#{$mode}-color-text-disabled-on),
-    ),
     secondary: (
       fill: var(--krds-#{$mode}-color-button-secondary-fill),
       fill-hover: var(--krds-#{$mode}-color-button-secondary-fill-hover),

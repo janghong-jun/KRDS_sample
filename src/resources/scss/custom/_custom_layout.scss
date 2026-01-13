@@ -48,6 +48,7 @@ $mode-setting: light;
     gap: var(--krds-gap-12);
     .krds-side-navigation {
       width: 24.8rem;
+      flex: none;
     }
     .contents {
       flex: 1;

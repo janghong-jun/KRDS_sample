@@ -192,10 +192,10 @@
                 <!-- tab list -->
                 <div class="tab line full">
                   <ul>
-                    <li class="active">
+                    <li>
                       <a href="#" class="btn-tab">문서작성 공동편집</a>
                     </li>
-                    <li>
+                    <li class="active">
                       <a href="#" class="btn-tab">의견공유</a>
                     </li>
                     <li>
@@ -211,8 +211,45 @@
                 <!-- tab contents -->
                 <div class="tab-conts-wrap">
                   <section class="tab-conts active">
-                    <h4 class="sr-only">문서작성 공동편집</h4>
-                    <div style="height: 100rem">브리티웍스 확인 필요</div>
+                    <h4 class="sr-only">의견공유</h4>
+            <div class="g-search-area">
+              <!-- 검색 입력폼 -->
+              <fieldset>
+                <div class="search-top-box">
+                  <div class="form-group">
+                    <div class="sch-form-wrap">
+                      <div class="form-conts">
+                        <select class="krds-form-select small" title="선택">
+                          <option value="">전체</option>
+                          <option value="">협업명</option>
+                          <option value="">개설자</option>
+                        </select>
+                      </div>
+                      <div class="sch-input">
+                        <input
+                          type="text"
+                          id="keyword_search"
+                          class="krds-input small"
+                          placeholder="검색어를 입력해주세요"
+                          title="검색어 입력"
+                        />
+                        <button
+                          type="button"
+                          class="krds-btn xsmall icon ico-search btn-exec"
+                        >
+                          <span class="sr-only">검색</span>
+                          <i class="svg-icon ico-sch"></i>
+                        </button>
+                      </div>
+                      <button type="button" class="krds-btn small primary">
+                        검색
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <!-- //검색 입력폼 -->
+            </div>
                   </section>
                   </section>
                 </div>

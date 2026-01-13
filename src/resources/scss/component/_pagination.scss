@@ -110,16 +110,16 @@ $mode-setting: light;
     gap: var(--krds-gap-3);
     .page-link {
       @include square(var(--krds-pagination--size-height));
+      border-radius: var(--krds-radius-max);
       &.link-dot {
         @include svg-icon($mode: light);
         @include icon-set(ico_ellipsis);
       }
       &.active {
         background-color: var(--krds-pagination--color-action-active);
-        background-color: #454097;
+        background-color: var(--krds-color-light-primary-50);
         font-weight: var(--krds-font-weight-bold);
         color: var(--krds-pagination--color-text-active);
-        border-radius: var(--krds-radius-max);
       }
     }
   }

@@ -131,15 +131,18 @@ $mode-setting: light;
       height: var(--krds-tab--full-button-size-height);
       padding: 0;
       font-size: var(--krds-tab--full-button-pc-font-size);
+      word-break: keep-all;
       @include size-medium {
         font-size: var(--krds-tab--full-button-mobile-font-size);
       }
     }
     > ul {
       @include group-wrap;
+      // flex-wrap: nowrap;
       gap: 0;
       > li {
         @include equal-width;
+        min-width: auto;
       }
     }
   }
