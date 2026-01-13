@@ -2,4 +2,4 @@ node_modules
 dist
 *.exe
 *.map
-src/resources/css/*
+/src/resources/css/**
