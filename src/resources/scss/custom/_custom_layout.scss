@@ -69,6 +69,26 @@ $mode-setting: light;
   }
 }
 
+.krds-table-footer {
+  display: grid;
+  margin-top: var(--krds-number-10);
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+
+  .krds-btns-wrap,
+  > div {
+    margin-top: 0;
+  }
+  @include size-medium {
+    grid-template-columns: 1fr;
+    .krds-btns-wrap {
+      margin-top: var(--krds-mobile-gap-layout-h1-h2);
+      text-align: center;
+    }
+  }
+}
+
 //태블릿 & 모바일 전용 속성
 @include size-large-less {
   /* container */

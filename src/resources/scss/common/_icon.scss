@@ -292,6 +292,10 @@
   &.ico-checkbox {
     @include icon-set(ico_checkbox_checked);
   }
+  &.ico-document {
+    @include icon-set(ico_document);
+    background-color: var(--krds-color-light-gray-80);
+  }
   &.ico-expand-more {
     border-radius: var(--krds-radius-max);
     background: url(#{$url}/img/component/icon/ico_expand_more.svg) 50% 50%
@@ -299,7 +303,11 @@
     background-size: var(--krds-number-9);
   }
 }
-
+.icon-wrap {
+  display: flex;
+  gap: var(--krds-gap-2);
+  justify-content: center;
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   .svg-icon {

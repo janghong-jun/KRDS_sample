@@ -126,6 +126,13 @@ $mode-setting: light;
   + .helper-box {
     margin-top: var(--krds-padding-10);
   }
+  + .krds-btns-wrap {
+    margin-top: var(--krds-pc-gap-layout-h1-h2);
+
+    @include size-medium {
+      margin-top: var(--krds-mobile-gap-layout-h1-h2);
+    }
+  }
 }
 
 //고대비모드

@@ -89,6 +89,15 @@ $mode-setting: light;
         }
       }
     }
+
+    &.center {
+      tbody {
+        td,
+        th {
+          text-align: center;
+        }
+      }
+    }
   }
 
   &.scroll {
