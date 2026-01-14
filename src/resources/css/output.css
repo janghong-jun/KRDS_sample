@@ -4617,7 +4617,8 @@ caption {
 
 /* 모달 */
 .krds-modal {
-  --krds-modal--size-large: 76rem;
+  --krds-modal--size-xlarge: 100rem;
+  --krds-modal--size-large: 80rem;
   --krds-modal--size-medium: 56rem;
   --krds-modal--size-small: 40rem;
   --krds-modal--size-min-height: 26.4rem;
@@ -4633,7 +4634,7 @@ caption {
   --krds-modal--conts-gap: var(--krds-gap-5);
   --krds-modal--btn-gap: var(--krds-gap-3);
   --krds-modal--btn-padding-top: var(--krds-padding-6);
-  --krds-modal--btn-size-min-wdith: 7.8rem;
+  --krds-modal--btn-size-min-wdith: 12rem;
   --krds-modal--btn-close-position: var(--krds-gap-7);
   --krds-modal--mobile-gap: var(--krds-gap-7);
   --krds-modal--mobile-width: calc(100% - var(--krds-gap-7));
@@ -4739,7 +4740,8 @@ caption {
   flex-direction: row;
   position: relative;
   z-index: 1020;
-  width: var(--krds-modal--size-large);
+  width: 100%;
+  max-width: var(--krds-modal--size-medium);
   height: 100%;
   min-height: var(--krds-modal--size-min-height);
   margin: 0 auto;
@@ -4752,6 +4754,9 @@ caption {
 }
 .krds-modal .modal-dialog.modal-lg {
   max-width: var(--krds-modal--size-large);
+}
+.krds-modal .modal-dialog.modal-xlg {
+  max-width: var(--krds-modal--size-xlarge);
 }
 .krds-modal .modal-dialog .modal-content {
   display: flex;
@@ -4830,7 +4835,7 @@ caption {
 .krds-modal .modal-dialog .modal-btn {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: row;
   gap: var(--krds-modal--btn-gap);
   padding: var(--krds-modal--btn-padding-top) var(--krds-modal--padding) var(--krds-modal--padding);
@@ -10963,7 +10968,6 @@ caption {
 }
 .krds-pagination .page-links .page-link.active {
   background-color: var(--krds-pagination--color-action-active);
-  background-color: var(--krds-color-light-primary-50);
   font-weight: var(--krds-font-weight-bold);
   color: var(--krds-pagination--color-text-active);
 }

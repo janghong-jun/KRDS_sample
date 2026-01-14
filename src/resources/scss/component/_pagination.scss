@@ -117,7 +117,7 @@ $mode-setting: light;
       }
       &.active {
         background-color: var(--krds-pagination--color-action-active);
-        background-color: var(--krds-color-light-primary-50);
+        // background-color: var(--krds-color-light-primary-50);
         font-weight: var(--krds-font-weight-bold);
         color: var(--krds-pagination--color-text-active);
       }

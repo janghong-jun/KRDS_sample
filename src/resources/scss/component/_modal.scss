@@ -5,7 +5,8 @@
 /* 모달 */
 //사이즈 정의
 @mixin modal-size-variable() {
-  --krds-modal--size-large: 76rem;
+  --krds-modal--size-xlarge: 100rem;
+  --krds-modal--size-large: 80rem;
   --krds-modal--size-medium: 56rem;
   --krds-modal--size-small: 40rem;
   --krds-modal--size-min-height: 26.4rem;
@@ -21,7 +22,7 @@
   --krds-modal--conts-gap: var(--krds-gap-5);
   --krds-modal--btn-gap: var(--krds-gap-3);
   --krds-modal--btn-padding-top: var(--krds-padding-6);
-  --krds-modal--btn-size-min-wdith: 7.8rem;
+  --krds-modal--btn-size-min-wdith: 12rem;
   --krds-modal--btn-close-position: var(--krds-gap-7);
 
   //mobile
@@ -59,6 +60,7 @@ $modal-size: (
   sm: var(--krds-modal--size-small),
   md: var(--krds-modal--size-medium),
   lg: var(--krds-modal--size-large),
+  xlg: var(--krds-modal--size-xlarge),
 ) !default;
 
 //modal default css
@@ -139,9 +141,8 @@ $mode-setting: light;
     @include flex-layout($ai: center);
     position: relative;
     z-index: 1020;
-    width: var(
-      --krds-modal--size-large
-    ); // size클래스 없을 경우. 기본 large 84.6rem;
+    width: 100%;
+    max-width: var(--krds-modal--size-medium);
     height: 100%;
     min-height: var(--krds-modal--size-min-height);
     margin: 0 auto;
@@ -210,7 +211,7 @@ $mode-setting: light;
       }
     }
     .modal-btn {
-      @include flex-layout($ai: center, $jc: flex-end);
+      @include flex-layout($ai: center, $jc: center);
       gap: var(--krds-modal--btn-gap);
       padding: var(--krds-modal--btn-padding-top) var(--krds-modal--padding)
         var(--krds-modal--padding);
