@@ -31,6 +31,7 @@
     font-size: var(--krds-pc-font-size-heading-medium);
     font-weight: var(--krds-font-weight-bold);
 
+    @include ellipsis(1);
     @include size-medium {
       font-size: var(--krds-mobile-font-size-heading-medium);
     }

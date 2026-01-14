@@ -108,20 +108,22 @@ $mode-setting: light;
     strong {
       font-weight: var(--krds-font-weight-regular);
       color: var(--krds-color-light-gray-70);
+      & + span {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: calc(var(--krds-number-8) / 2 * -1);
+          width: 0.1rem;
+          height: 1.2rem;
+          margin-top: -0.6rem;
+          background: rgba(180, 180, 180, 0.5);
+        }
+      }
     }
     span {
-      position: relative;
       color: #1e2124;
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: calc(var(--krds-number-8) / 2 * -1);
-        width: 0.1rem;
-        height: 1.2rem;
-        margin-top: -0.6rem;
-        background: rgba(180, 180, 180, 0.5);
-      }
     }
   }
   .card-date {

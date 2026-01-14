@@ -15935,6 +15935,12 @@ label {
 .board-title .title {
   font-size: var(--krds-pc-font-size-heading-medium);
   font-weight: var(--krds-font-weight-bold);
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 @media (max-width: 767px) {
   .board-title .title {
@@ -16841,11 +16847,10 @@ label {
   font-weight: var(--krds-font-weight-regular);
   color: var(--krds-color-light-gray-70);
 }
-.card-list .card-owner span {
+.card-list .card-owner strong + span {
   position: relative;
-  color: #1e2124;
 }
-.card-list .card-owner span::after {
+.card-list .card-owner strong + span::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -16854,6 +16859,9 @@ label {
   height: 1.2rem;
   margin-top: -0.6rem;
   background: rgba(180, 180, 180, 0.5);
+}
+.card-list .card-owner span {
+  color: #1e2124;
 }
 .card-list .card-date {
   font-size: var(--krds-pc-font-size-body-xsmall);
