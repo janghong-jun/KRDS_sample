@@ -126,12 +126,11 @@ $mode-setting: light;
   + .helper-box {
     margin-top: var(--krds-padding-10);
   }
-  + .krds-btns-wrap {
-    margin-top: var(--krds-pc-gap-layout-h1-h2);
-
-    @include size-medium {
-      margin-top: var(--krds-mobile-gap-layout-h1-h2);
-    }
+  + .krds-btns-wrap.center {
+    margin-top: var(--krds-gap-10);
+  }
+  + .krds-btns-wrap.right {
+    margin-top: var(--krds-padding-9);
   }
 }
 

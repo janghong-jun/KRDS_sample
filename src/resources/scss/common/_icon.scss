@@ -110,6 +110,9 @@
   &.ico-delete-fill {
     @include icon-set(ico_delete_fill, pure);
   }
+  &.ico-delete-fill2 {
+    @include icon-set(ico_delete_fill2, pure);
+  }
   &.ico-plus {
     @include icon-set(ico_plus);
     & {
@@ -294,6 +297,30 @@
   }
   &.ico-document {
     @include icon-set(ico_document);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-edit {
+    @include icon-set(ico_edit);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-delete2 {
+    @include icon-set(ico_delete2);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-positive {
+    @include icon-set(ico_positive);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-empathy {
+    @include icon-set(ico_empathy);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-pdf {
+    @include icon-set(ico_pdf, pure);
+    background-color: var(--krds-color-light-gray-80);
+  }
+  &.ico-save {
+    @include icon-set(ico_save);
     background-color: var(--krds-color-light-gray-80);
   }
   &.ico-expand-more {

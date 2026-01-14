@@ -703,7 +703,7 @@ $mode-setting: light;
     text-align: center;
 
     .krds-btn {
-      min-width: 20rem;
+      min-width: 12.5rem;
     }
   }
 
@@ -711,6 +711,7 @@ $mode-setting: light;
     text-align: right;
 
     .krds-btn {
+      min-width: 12rem;
     }
   }
 }
