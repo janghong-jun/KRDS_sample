@@ -230,7 +230,12 @@ $mode-setting: light;
       z-index: 901;
     }
   }
-
+  .krds-calendar-area .calendar-wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   //full 팝업(통합검색, 관련기관링크)
   &[data-type='full'] {
     background-color: var(--krds-modal--full-popup-surface);

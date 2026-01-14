@@ -54,41 +54,45 @@ $mode-setting: light;
     td {
       vertical-align: middle;
     }
-    thead {
-      th {
-        padding: var(--krds-table--data-thead-th-padding)
-          var(--krds-table--data-thead-th-padding-sides);
-        background-color: var(--krds-table--data-thead-surface);
-        border-bottom: var(--krds-table--data-border-width) solid
-          var(--krds-table--data-thead-border);
-        font-weight: var(--krds-font-weight-bold);
-        font-size: var(--krds-table--data-thead-pc-font-size);
-        color: var(--krds-table--data-thead-color-text);
-        text-align: left;
-        @include size-medium {
-          font-size: var(--krds-table--data-thead-mobile-font-size);
+    > thead {
+      > tr {
+        > th {
+          padding: var(--krds-table--data-thead-th-padding)
+            var(--krds-table--data-thead-th-padding-sides);
+          background-color: var(--krds-table--data-thead-surface);
+          border-bottom: var(--krds-table--data-border-width) solid
+            var(--krds-table--data-thead-border);
+          font-weight: var(--krds-font-weight-bold);
+          font-size: var(--krds-table--data-thead-pc-font-size);
+          color: var(--krds-table--data-thead-color-text);
+          text-align: left;
+          @include size-medium {
+            font-size: var(--krds-table--data-thead-mobile-font-size);
+          }
         }
       }
     }
-    tbody {
-      th,
-      td {
-        padding: var(--krds-table--data-tbody-padding)
-          var(--krds-table--data-tbody-padding-sides);
-        background-color: var(--krds-table--data-tbody-color-surface);
-        border-bottom: var(--krds-table--data-border-width) solid
-          var(--krds-table--data-tbody-color-divider);
-        font-size: var(--krds-table--data-tbody-pc-font-size);
-        color: var(--krds-table--data-tbody-color-text);
-        font-weight: var(--krds-font-weight-regular);
-        text-align: left;
-        @include size-medium {
-          font-size: var(--krds-table--data-tbody-mobile-font-size);
+    > tbody {
+      > tr {
+        > th,
+        > td {
+          padding: var(--krds-table--data-tbody-padding)
+            var(--krds-table--data-tbody-padding-sides);
+          background-color: var(--krds-table--data-tbody-color-surface);
+          border-bottom: var(--krds-table--data-border-width) solid
+            var(--krds-table--data-tbody-color-divider);
+          font-size: var(--krds-table--data-tbody-pc-font-size);
+          color: var(--krds-table--data-tbody-color-text);
+          font-weight: var(--krds-font-weight-regular);
+          text-align: left;
+          @include size-medium {
+            font-size: var(--krds-table--data-tbody-mobile-font-size);
+          }
         }
       }
     }
     &.center {
-      tbody {
+      > tbody {
         td,
         th {
           text-align: center;
@@ -105,17 +109,35 @@ $mode-setting: light;
     }
   }
 
-  &.row {
+  &.write {
     padding: var(--krds-number-9) 0 var(--krds-pc-padding-card-medium);
     border-top: var(--krds-number-2) solid #000;
     border-bottom: 0.1rem solid
       var(--krds-#{$mode-setting}-color-border-gray-light);
 
     .tbl {
-      tbody {
-        th,
-        td {
-          border-bottom: none;
+      > tbody {
+        > tr {
+          > th,
+          > td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.row {
+    border-top: 0.1rem solid var(--krds-light-color-border-gray-dark);
+    .tbl {
+      > tbody {
+        > tr {
+          > th {
+            border-right: var(--krds-table--data-border-width) solid
+              var(--krds-table--data-tbody-color-divider);
+            background-color: var(--krds-light-color-surface-gray-subtler);
+            color: var(--krds-light-color-text-bolder);
+          }
         }
       }
     }
@@ -132,6 +154,9 @@ $mode-setting: light;
 
     &.mob-scroll {
       width: 100%;
+      .tbl {
+        min-width: 100%;
+      }
       th,
       td {
         white-space: nowrap;

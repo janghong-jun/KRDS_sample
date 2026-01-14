@@ -23,7 +23,7 @@ $mode-setting: light;
     }
     > .krds-btn {
       width: 10rem;
-      // background-color: var(--krds-color-light-gray-80);
+      background-color: var(--krds-color-light-gray-80);
     }
     // .krds-form-select,
     // .krds-input {
@@ -293,7 +293,50 @@ $mode-setting: light;
     }
   }
 }
-
+.date-setting {
+  display: flex;
+  flex-direction: column;
+  gap: var(--krds-gap-3);
+  .item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--krds-gap-4);
+    align-items: center;
+    > span {
+      flex: none;
+    }
+    .calendar-conts {
+      width: 17.9rem;
+    }
+    .time {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--krds-gap-4);
+      align-items: center;
+      flex: 1;
+    }
+    select {
+      max-width: 8.4rem;
+    }
+    @include size-medium {
+      gap: var(--krds-gap-3);
+      .calendar-conts {
+        // width: 100%;
+      }
+      .time {
+        gap: var(--krds-gap-3);
+        // width: 100%;
+        * {
+          max-width: 100%;
+          flex: 1;
+        }
+        span {
+          flex: none;
+        }
+      }
+    }
+  }
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정
