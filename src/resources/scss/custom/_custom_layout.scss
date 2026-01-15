@@ -14,7 +14,6 @@ $mode-setting: light;
   }
 
   & > .inner {
-    min-height: 60rem;
     &:not(.in-between) {
       padding-bottom: var(--krds-pc-gap-layout-contents-footer);
 

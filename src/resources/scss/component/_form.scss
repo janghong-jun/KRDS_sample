@@ -18,6 +18,22 @@
   align-items: center;
   gap: var(--krds-gap-7);
   flex-wrap: wrap;
+
+  .file-info {
+    p {
+      font-size: var(--krds-pc-font-size-body-large);
+      color: var(--krds-light-color-text-subtle);
+    }
+    strong {
+      font-size: var(--krds-pc-font-size-body-small);
+      font-weight: var(--krds-font-weight-regular);
+      color: var(--krds-light-color-text-subtle);
+
+      &::before {
+        content: '※';
+      }
+    }
+  }
 }
 .file-list {
   display: flex;

@@ -162,6 +162,7 @@
   $mode-setting: $mode;
   &::-webkit-scrollbar {
     width: 0.8rem;
+    height: 0.8rem;
   }
   @include scrollbar-mode(#{$mode-setting});
 }

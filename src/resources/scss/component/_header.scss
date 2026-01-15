@@ -92,6 +92,7 @@ $mode-setting: light;
       @include size-medium {
         @include square(9.4rem, 3.2rem);
       }
+      flex: none;
       a {
         display: block;
         @include square(100%);

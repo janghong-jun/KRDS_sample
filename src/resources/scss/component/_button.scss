@@ -584,6 +584,28 @@ $mode-setting: light;
       }
     }
   }
+
+  &.etc {
+    display: flex;
+    height: 3.6rem;
+    min-width: 6.4rem;
+    padding: 0 var(--krds-gap-7) 0 var(--krds-gap-5);
+    font-size: var(--krds-pc-font-size-body-small);
+    font-weight: var(--krds-font-weight-bold);
+    line-height: 3.6rem;
+    color: var(--krds-light-color-text-inverse-static);
+    justify-content: center;
+    align-items: center;
+    gap: var(--krds-gap-2);
+    border: none;
+    border-radius: var(--krds-radius-max);
+    background: linear-gradient(90deg, #2acbff 0%, #4583ff 50%, #7880f3 100%);
+
+    .svg-icon {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
 }
 
 //고대비모드

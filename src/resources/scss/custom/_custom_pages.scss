@@ -201,14 +201,15 @@ $mode-setting: light;
               gap: var(--krds-gap-3);
               .date {
                 display: flex;
-                flex-direction: column;
                 font-size: var(--krds-pc-font-size-body-small);
+                flex-wrap: wrap;
 
                 @include size-large-less {
                   font-size: var(--krds-mobile-font-size-body-small);
                 }
                 span {
-                  width: 100%;
+                  width: max-content;
+                  flex: none;
                 }
               }
               .title {
@@ -268,7 +269,6 @@ $mode-setting: light;
                 .date {
                   flex-direction: row;
                   span {
-                    width: auto;
                   }
                 }
               }
@@ -471,6 +471,155 @@ $mode-setting: light;
     }
     &.type05 span {
       background-color: var(--krds-color-high-contrast-warning-50);
+    }
+  }
+}
+
+.vote-card-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--krds-gap-4);
+  flex-wrap: wrap;
+
+  .krds-badge {
+    min-width: 7rem;
+    align-items: center;
+    strong {
+      font-weight: var(--krds-font-weight-bold);
+      &::before {
+        content: '\00a0';
+      }
+    }
+  }
+  .krds-btns-wrap {
+    width: auto;
+  }
+
+  & + .vote-card-list {
+    margin-top: var(--krds-gap-4);
+  }
+}
+
+.vote-card-list {
+  display: grid;
+  gap: var(--krds-gap-6);
+
+  li {
+    display: flex;
+    padding: var(--krds-pc-padding-card-small);
+    border-radius: var(--krds-radius-xlarge1);
+    border: 0.1rem solid #e4e5e7;
+    justify-content: space-between;
+    gap: var(--krds-gap-4);
+    flex-wrap: wrap;
+
+    @include size-medium {
+      padding: var(--krds-mobile-padding-card-small);
+
+      .left,
+      .right {
+        width: 100%;
+      }
+    }
+    .left {
+      display: grid;
+      grid-template-columns: 7rem auto;
+      gap: var(--krds-gap-4);
+      flex: 1;
+      .vote-card-info {
+        .title {
+          font-size: var(--krds-pc-font-size-heading-small);
+          color: var(--krds-light-color-text-bolder);
+
+          @include size-medium {
+            font-size: var(--krds-mobile-font-size-heading-small);
+          }
+        }
+        .info-detail {
+          display: flex;
+          margin-top: var(--krds-gap-2);
+          gap: 0 var(--krds-gap-5);
+          flex-wrap: wrap;
+
+          span {
+            position: relative;
+            padding-right: var(--krds-gap-5);
+            font-size: var(--krds-pc-font-size-body-small);
+            color: var(--krds-light-color-text-subtle);
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 0.1rem;
+              height: 1.6rem;
+              background-color: var(--krds-light-color-divider-gray);
+              transform: translateY(-50%);
+            }
+            @include size-medium {
+              font-size: var(--krds-mobile-font-size-body-small);
+            }
+
+            strong {
+              display: inline-block;
+              font-weight: var(--krds-font-weight-bold);
+            }
+
+            & + span {
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      display: flex;
+      margin-top: auto;
+      justify-content: flex-end;
+      align-items: center;
+      gap: var(--krds-gap-4);
+      flex: none;
+      flex-wrap: wrap;
+
+      .count {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--krds-gap-1);
+        flex: none;
+        span {
+          font-size: 0;
+          span {
+            font-size: var(--krds-pc-font-size-body-medium);
+            color: var(--krds-light-color-text-basic);
+          }
+          strong {
+            font-size: var(--krds-pc-font-size-body-medium);
+            font-weight: var(--krds-font-weight-bold);
+          }
+        }
+      }
+
+      .krds-btns-wrap {
+        display: flex;
+        width: auto;
+        gap: var(--krds-gap-4);
+
+        .krds-btn {
+          width: 11rem;
+        }
+      }
+    }
+
+    &.end {
+      background-color: #f8f8f8;
+      .left .vote-card-info .title {
+        color: var(--krds-light-color-text-disabled);
+      }
     }
   }
 }

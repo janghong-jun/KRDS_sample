@@ -101,6 +101,17 @@ $mode-setting: light;
     }
   }
 
+  .krds-table-title {
+    margin-bottom: var(--krds-number-7);
+    font-size: var(--krds-pc-font-size-heading-medium);
+    font-weight: var(--krds-font-weight-bold);
+    color: var(--krds-light-color-text-bolder);
+
+    @include size-medium {
+      font-size: var(--krds-mobile-font-size-heading-medium);
+    }
+  }
+
   &.scroll {
     overflow-x: auto;
     overflow-y: hidden;
@@ -149,8 +160,9 @@ $mode-setting: light;
     overflow-x: auto;
     width: calc(100vw - (var(--krds-contents-padding-x) * 2));
     @include scrollbar();
+
     .tbl {
-      min-width: 73.2rem;
+      min-width: max-content;
     }
 
     &.mob-scroll {

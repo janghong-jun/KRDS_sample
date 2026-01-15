@@ -229,6 +229,11 @@ $mode-setting: light;
       );
       z-index: 901;
     }
+    &:not(:has(.modal-btn)) {
+      .modal-conts {
+        padding-bottom: var(--krds-modal--padding);
+      }
+    }
   }
   .krds-calendar-area .calendar-wrap {
     position: fixed;
@@ -356,6 +361,11 @@ $mode-setting: light;
         .btn-close {
           top: var(--krds-modal--mobile-btn-close-position);
           right: var(--krds-modal--mobile-btn-close-position);
+        }
+        &:not(:has(.modal-btn)) {
+          .modal-conts {
+            padding-bottom: var(--krds-modal--mobile-btn-padding-bottom);
+          }
         }
       }
     }

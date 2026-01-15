@@ -122,6 +122,12 @@ $mode-setting: light;
   }
 }
 
+.flex-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--krds-gap-4);
+}
+
 /* **** PAGE LAYOUT ELEMENT **** */
 /* ** 페이지 타이틀 ** */
 .page-title-wrap {
@@ -228,9 +234,16 @@ $mode-setting: light;
   &.justify-between {
     flex-wrap: wrap;
     @include flex-layout($fd: row, $jc: space-between, $ai: flex-start);
+
+    & + .krds-tab-area {
+      margin-top: var(--krds-gap-9);
+    }
   }
   & + .g-search-area {
     margin-top: var(--krds-number-12);
+  }
+  & + .board-wrap {
+    margin-top: var(--krds-gap-7);
   }
 }
 

@@ -145,6 +145,15 @@ $mode-setting: light;
         min-width: auto;
       }
     }
+    &[data-col] {
+      > ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        > li {
+          flex: none;
+        }
+      }
+    }
   }
   &.fill {
     //bg 타입
