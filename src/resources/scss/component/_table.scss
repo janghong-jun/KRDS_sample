@@ -148,6 +148,7 @@ $mode-setting: light;
   .krds-table-wrap {
     overflow-x: auto;
     width: calc(100vw - (var(--krds-contents-padding-x) * 2));
+    @include scrollbar();
     .tbl {
       min-width: 73.2rem;
     }
@@ -159,7 +160,35 @@ $mode-setting: light;
       }
       th,
       td {
-        white-space: nowrap;
+        // white-space: nowrap;
+      }
+    }
+
+    &.mob-col.row {
+      .tbl {
+        > colgroup {
+          col {
+            width: auto !important;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 435px) {
+  .krds-table-wrap {
+    &.mob-col {
+      .tbl {
+        > tbody {
+          > tr {
+            display: flex;
+            flex-direction: column;
+            > th {
+              border-right: none;
+              text-align: center;
+            }
+          }
+        }
       }
     }
   }

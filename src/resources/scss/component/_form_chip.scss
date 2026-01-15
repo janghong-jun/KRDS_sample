@@ -53,7 +53,10 @@
             @include form-chip(#{$size});
 
             &::before {
-              @include form-chip-check($size: #{$size}, $mode: #{$mode-setting});
+              @include form-chip-check(
+                $size: #{$size},
+                $mode: #{$mode-setting}
+              );
             }
           }
         }
@@ -66,16 +69,32 @@
 @mixin form-chip-color-variable($mode: light) {
   --krds-form-chip--color-text: var(--krds-#{$mode}-color-text-basic);
   --krds-form-chip--color-text-checked: var(--krds-#{$mode}-color-text-primary);
-  --krds-form-chip--color-text-disabled: var(--krds-#{$mode}-color-text-disabled-on);
+  --krds-form-chip--color-text-disabled: var(
+    --krds-#{$mode}-color-text-disabled-on
+  );
   --krds-form-chip--color-action: var(--krds-#{$mode}-color-action-white);
-  --krds-form-chip--color-action-checked: var(--krds-#{$mode}-color-action-primary-selected);
-  --krds-form-chip--color-action-disabled: var(--krds-#{$mode}-color-action-disabled);
+  --krds-form-chip--color-action-checked: var(
+    --krds-#{$mode}-color-action-primary-selected
+  );
+  --krds-form-chip--color-action-disabled: var(
+    --krds-#{$mode}-color-action-disabled
+  );
   --krds-form-chip--color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-form-chip--color-border-checked: var(--krds-#{$mode}-color-border-primary);
-  --krds-form-chip--color-border-disabled: var(--krds-#{$mode}-color-border-disabled);
-  --krds-form-chip--color-check: var(--krds-#{$mode}-color-element-disabled-dark);
-  --krds-form-chip--color-check-checked: var(--krds-#{$mode}-color-icon-primary);
-  --krds-form-chip--color-check-disabled: var(--krds-#{$mode}-color-icon-disabled-on);
+  --krds-form-chip--color-border-checked: var(
+    --krds-#{$mode}-color-border-primary
+  );
+  --krds-form-chip--color-border-disabled: var(
+    --krds-#{$mode}-color-border-disabled
+  );
+  --krds-form-chip--color-check: var(
+    --krds-#{$mode}-color-element-disabled-dark
+  );
+  --krds-form-chip--color-check-checked: var(
+    --krds-#{$mode}-color-icon-primary
+  );
+  --krds-form-chip--color-check-disabled: var(
+    --krds-#{$mode}-color-icon-disabled-on
+  );
 }
 
 //칩 사이즈 정의
@@ -95,7 +114,10 @@
 }
 //check icon 정의
 @mixin form-chip-check($size, $mode: light) {
-  @include svg-icon($size: var(--krds-form-chip--check-size-#{$size}), $mode: #{$mode});
+  @include svg-icon(
+    $size: var(--krds-form-chip--check-size-#{$size}),
+    $mode: #{$mode}
+  );
   @include icon-set(ico_checkbox);
   background-color: var(--krds-form-chip--color-check);
   transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
@@ -129,7 +151,9 @@ $mode-setting: light;
         color: var(--krds-form-chip--color-text-disabled);
         cursor: default;
         &::before {
-          background-color: var(--krds-form-chip--color-check-disabled) !important;
+          background-color: var(
+            --krds-form-chip--color-check-disabled
+          ) !important;
         }
       }
     }
@@ -196,7 +220,9 @@ $mode-setting: light;
       &:disabled {
         ~ label {
           &::before {
-            background-color: var(--krds-form-chip--color-check-disabled) !important;
+            background-color: var(
+              --krds-form-chip--color-check-disabled
+            ) !important;
           }
         }
       }

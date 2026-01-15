@@ -572,6 +572,17 @@ $mode-setting: light;
         );
       }
     }
+    &.btn-border {
+      width: var(--krds-button--icon-size-xlarge);
+      height: var(--krds-button--icon-size-xlarge);
+      background-color: var(--krds-#{$mode-setting}-color-background-white);
+      border: 0.1rem solid var(--krds-#{$mode-setting}-color-border-gray);
+      border-radius: var(--krds-radius-medium1);
+      .svg-icon {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
   }
 }
 

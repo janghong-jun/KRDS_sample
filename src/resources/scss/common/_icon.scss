@@ -307,6 +307,10 @@
     @include icon-set(ico_delete2);
     background-color: var(--krds-color-light-gray-80);
   }
+  &.ico-delete3 {
+    @include icon-set(ico_delete3, pure);
+    background-color: var(--krds-color-light-gray-80);
+  }
   &.ico-positive {
     @include icon-set(ico_positive);
     background-color: var(--krds-color-light-gray-80);
