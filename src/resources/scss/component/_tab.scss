@@ -145,15 +145,15 @@ $mode-setting: light;
         min-width: auto;
       }
     }
-    &[data-col] {
-      > ul {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        > li {
-          flex: none;
-        }
-      }
-    }
+    // &[data-col] {
+    //   > ul {
+    //     display: grid;
+    //     grid-template-columns: repeat(4, 1fr);
+    //     > li {
+    //       flex: none;
+    //     }
+    //   }
+    // }
   }
   &.fill {
     //bg 타입
@@ -284,6 +284,22 @@ $mode-setting: light;
     }
     &.line {
       &.full {
+        &[data-col] {
+          > ul {
+            display: grid;
+            max-width: calc(
+              100vw - var(--krds-contents-padding-x) -
+                var(--krds-contents-padding-x)
+            );
+            grid-template-columns: repeat(4, 1fr);
+            > li {
+              min-width: fit-content;
+              .btn-tab {
+                padding: 0 var(--krds-padding-4);
+              }
+            }
+          }
+        }
       }
     }
   }
