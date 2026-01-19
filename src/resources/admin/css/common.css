@@ -1614,6 +1614,9 @@ input:checked:disabled + .lb-checkbox::after {
   border: 0.1rem solid #b9bbc6;
   border-radius: 0.8rem;
 }
+.ui-date-wrap.small .ui-datepicker .inp-base {
+  height: 4rem;
+}
 .ui-datepicker {
   position: relative;
 }

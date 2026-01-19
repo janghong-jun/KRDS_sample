@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!--# include virtual="../../../components/_admin-head.html" -->
+    <script type="text/javascript">
+      pageInfo = { mid: '9', sid: '1' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav"></div>
+        <section class="main-conts">
+          <h2>적립기준설정</h2>
+          <div class="sub-title">
+            <h3>콘텐츠 학습</h3>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem" />
+                <col />
+                <col style="width: 15rem" />
+                <col style="width: 19.5rem" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">항목명</th>
+                  <th scope="col">적립포인트</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="txt-l">콘텐츠 학습 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn01_01_01"
+                          name="rdoBtn01_01"
+                          checked
+                        />
+                        <label for="rdoBtn01_01_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn01_01_02"
+                          name="rdoBtn01_01"
+                        />
+                        <label for="rdoBtn01_01_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="txt-l">콘텐츠 등록</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn01_02_01"
+                          name="rdoBtn01_02"
+                          checked
+                        />
+                        <label for="rdoBtn01_02_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn01_02_02"
+                          name="rdoBtn01_02"
+                        />
+                        <label for="rdoBtn01_02_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-title">
+            <h3>모듈 학습</h3>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem" />
+                <col />
+                <col style="width: 15rem" />
+                <col style="width: 19.5rem" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">항목명</th>
+                  <th scope="col">적립포인트</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="txt-l">모듈 학습 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn02_01_01"
+                          name="rdoBtn02_01"
+                          checked
+                        />
+                        <label for="rdoBtn02_01_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn02_01_02"
+                          name="rdoBtn02_01"
+                        />
+                        <label for="rdoBtn02_01_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-title">
+            <h3>전문가 코칭</h3>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem" />
+                <col />
+                <col style="width: 15rem" />
+                <col style="width: 19.5rem" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">항목명</th>
+                  <th scope="col">적립포인트</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="txt-l">코칭 이수 완료</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn03_01_01"
+                          name="rdoBtn03_01"
+                          checked
+                        />
+                        <label for="rdoBtn03_01_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn03_01_02"
+                          name="rdoBtn03_01"
+                        />
+                        <label for="rdoBtn03_01_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="txt-l">코칭 제공 완료</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn03_02_01"
+                          name="rdoBtn03_02"
+                          checked
+                        />
+                        <label for="rdoBtn03_02_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn03_02_02"
+                          name="rdoBtn03_02"
+                        />
+                        <label for="rdoBtn03_02_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-title">
+            <h3>학습공동체 활동</h3>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem" />
+                <col />
+                <col style="width: 15rem" />
+                <col style="width: 19.5rem" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">항목명</th>
+                  <th scope="col">적립포인트</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="txt-l">협업공간 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_01_01"
+                          name="rdoBtn04_01"
+                          checked
+                        />
+                        <label for="rdoBtn04_01_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_01_02"
+                          name="rdoBtn04_01"
+                        />
+                        <label for="rdoBtn04_01_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="txt-l">실행나눔 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_02_01"
+                          name="rdoBtn04_02"
+                          checked
+                        />
+                        <label for="rdoBtn04_02_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_02_02"
+                          name="rdoBtn04_02"
+                        />
+                        <label for="rdoBtn04_02_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="txt-l">연구지원 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_03_01"
+                          name="rdoBtn04_03"
+                          checked
+                        />
+                        <label for="rdoBtn04_03_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn04_03_02"
+                          name="rdoBtn04_03"
+                        />
+                        <label for="rdoBtn04_03_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-title">
+            <h3>역량진단</h3>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem" />
+                <col />
+                <col style="width: 15rem" />
+                <col style="width: 19.5rem" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">항목명</th>
+                  <th scope="col">적립포인트</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="txt-l">역량진단 포인트 설정</td>
+                  <td>
+                    <div class="frm-area flex">
+                      <input
+                        type="text"
+                        class="inp-text txt-r"
+                        aria-label="적립포인트 입력"
+                        value="200"
+                      />
+                      <span class="note">P</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn05_01_01"
+                          name="rdoBtn05_01"
+                          checked
+                        />
+                        <label for="rdoBtn05_01_01" class="lb-radio">
+                          사용
+                        </label>
+                      </span>
+                      <span class="lb-item">
+                        <input
+                          type="radio"
+                          id="rdoBtn05_01_02"
+                          name="rdoBtn05_01"
+                        />
+                        <label for="rdoBtn05_01_02" class="lb-radio">
+                          미사용
+                        </label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-btns">
+            <div>
+              <button type="button" class="btn base primary">
+                <span>저장</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-aaCoaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

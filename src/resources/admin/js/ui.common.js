@@ -225,4 +225,21 @@ var $menu =
   '      </li>' +
   '    </ul>' +
   '  </li>' +
+  '  <li>' +
+  '    <a href="#" id="menu9" class="mMenu">포인트관리</a>' +
+  '    <ul class="sub">' +
+  '      <li>' +
+  '        <a href="#"><span>적립기준설정</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>발급분석</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>예산관리</span></a>' +
+  '      </li>' +
+  '      <li>' +
+  '        <a href="#"><span>정산관리</span></a>' +
+  '      </li>' +
+  '    </ul>' +
+  '  </li>' +
   '</ul>  ';

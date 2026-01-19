@@ -50,6 +50,9 @@ body {
 .txt-center {
   text-align: center;
 }
+.txt-r {
+  text-align: right;
+}
 .vertical-top {
   vertical-align: top;
 }
@@ -566,6 +569,11 @@ footer {
 .tbl-base table tbody ~ tbody {
   border-top: 0.1rem solid #222;
 }
+.tbl-base table tbody tr.rank th,
+.tbl-base table tbody tr.rank td {
+  font-weight: 700;
+  background-color: #f3f3f3;
+}
 .tbl-base.type2 table th {
   height: 5.6rem;
   color: #222;
@@ -886,7 +894,18 @@ footer {
 }
 .frm-area.left {
   justify-content: flex-start;
+  font-size: 1.2rem;
 }
+
+.frm-area.left * {
+  flex: 1;
+}
+
+.frm-area.left label,
+.frm-area.left .unit {
+  flex: none;
+}
+
 .frm-area.report {
   overflow: hidden;
   overflow-y: scroll;
@@ -1066,6 +1085,9 @@ footer {
   margin: 0;
   padding-left: 0;
   padding-right: 0;
+  flex: 1;
+}
+.frm-area.flex .inp-text.txt-r {
   flex: 1;
 }
 .frm-area.flex .error-info {
@@ -1889,6 +1911,43 @@ footer {
 }
 .sns.blog::before {
   background-image: url(../images/ico_blog.svg);
+}
+
+.budget-status {
+  display: flex;
+  margin: 4rem auto 0;
+  max-width: 100rem;
+  gap: 1.2rem;
+}
+.budget-status .item {
+  display: flex;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.8rem;
+}
+.budget-status .item.color-type01 {
+  background-color: rgba(37, 110, 244, 0.3);
+}
+.budget-status .item.color-type02 {
+  background-color: rgba(249, 168, 37, 0.3);
+}
+.budget-status .item.color-type03 {
+  background-color: rgba(102, 211, 47, 0.3);
+}
+.budget-status .item span {
+  font-size: 1.5rem;
+}
+.budget-status .item strong {
+  font-size: 1.8rem;
+  text-align: right;
+}
+td.color-type02 {
+  color: rgba(249, 168, 37, 1) !important;
+}
+td.color-type03 {
+  color: rgba(102, 211, 47, 1) !important;
 }
 @media screen and (max-width: 1024px) {
   .page-nav {
