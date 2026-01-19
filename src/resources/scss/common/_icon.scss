@@ -330,6 +330,9 @@
     @include icon-set(ico_save);
     background-color: var(--krds-color-light-gray-80);
   }
+  &.ico-addlist {
+    @include icon-set(ico_addlist);
+  }
   &.ico-expand-more {
     border-radius: var(--krds-radius-max);
     background: url(#{$url}/img/component/icon/ico_expand_more.svg) 50% 50%

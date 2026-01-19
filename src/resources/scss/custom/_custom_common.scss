@@ -29,6 +29,17 @@ $mode-setting: light;
 .text-point-primary {
   color: var(--krds-#{$mode-setting}-color-text-primary);
 }
+.member-text {
+  &.accept {
+    color: var(--krds-light-color-text-primary);
+  }
+  &.reject {
+    color: var(--krds-light-color-graphic-red-dark);
+  }
+  &.wait {
+    color: var(--krds-color-light-success-40);
+  }
+}
 
 /* ** align ** */
 .text-right {
@@ -43,6 +54,14 @@ $mode-setting: light;
   margin-top: 0 !important;
 }
 
+.top-btns {
+  display: flex;
+  margin-bottom: var(--krds-padding-5);
+
+  .krds-form-select {
+    width: 20rem;
+  }
+}
 //콘텐츠 알럿
 .g-alert {
   //기본
@@ -247,14 +266,10 @@ $mode-setting: light;
   }
 }
 
-/* ** 페이지 하단 버튼 ** */
-.page-btn-wrap {
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--krds-gap-5);
-  margin-top: var(--krds-gap-9);
-  // background-color: var(--krds-#{$mode-setting}-color-background-white);
+.page-contents-wrap {
+  margin-top: var(--krds-gap-7);
+  padding-top: var(--krds-number-14);
+  border-top: 0.2rem solid var(--krds-color-light-alpha-black100);
 }
 
 /* ** 페이지 상세 영역 ** */

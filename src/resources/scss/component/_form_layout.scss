@@ -6,19 +6,33 @@
 //사이즈 정의
 @mixin form-layout-size-variable() {
   --krds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
-  --krds-form-group--label-mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --krds-form-group--label-mobile-font-size: var(
+    --krds-mobile-font-size-label-small
+  );
   --krds-form-group--gap: var(--krds-gap-3);
-  --krds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
-  --krds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
-  --krds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
+  --krds-form-group--icon-padding-right: calc(
+    var(--krds-padding-7) * 2 + var(--krds-icon--size-large)
+  );
+  --krds-form-group--message-pc-font-size: var(
+    --krds-pc-font-size-label-xsmall
+  );
+  --krds-form-group--message-mobile-font-size: var(
+    --krds-mobile-font-size-label-xsmall
+  );
 }
 
 //컬러 정의
 @mixin form-layout-color-variable($mode: light) {
   --krds-form-group--message-text-color: var(--krds-#{$mode}-color-text-subtle);
-  --krds-form-group--message-success-text-color: var(--krds-#{$mode}-color-text-success);
-  --krds-form-group--message-information-text-color: var(--krds-#{$mode}-color-text-information);
-  --krds-form-group--message-error-text-color: var(--krds-#{$mode}-color-text-danger);
+  --krds-form-group--message-success-text-color: var(
+    --krds-#{$mode}-color-text-success
+  );
+  --krds-form-group--message-information-text-color: var(
+    --krds-#{$mode}-color-text-information
+  );
+  --krds-form-group--message-error-text-color: var(
+    --krds-#{$mode}-color-text-danger
+  );
 }
 
 //모드 설정
@@ -82,7 +96,10 @@ $mode-setting: light;
       .btn-group,
       .krds-btn {
         //form control 우측에 버튼 정렬
-        @include position($t: 50%, $r: var(--krds-padding-7)); //form control large 사이즈에만 버튼 들어감
+        @include position(
+          $t: 50%,
+          $r: var(--krds-padding-7)
+        ); //form control large 사이즈에만 버튼 들어감
         transform: translateY(-50%);
       }
       .btn-group {
@@ -132,13 +149,20 @@ $mode-setting: light;
     &::before {
       display: inline-flex;
       @include pseudo();
-      @include svg-icon($size: var(--krds-icon--size-small), $mode: #{$mode-setting});
+      @include svg-icon(
+        $size: var(--krds-icon--size-small),
+        $mode: #{$mode-setting}
+      );
       @include icon-set(ico_information);
     }
   }
   [class^='form-hint-'] {
     &::before {
-      @include svg-icon($size: var(--krds-icon--size-small), $mode: #{$mode-setting}, $effect: pure);
+      @include svg-icon(
+        $size: var(--krds-icon--size-small),
+        $mode: #{$mode-setting},
+        $effect: pure
+      );
     }
   }
   .form-hint-success {
@@ -160,6 +184,25 @@ $mode-setting: light;
     color: var(--krds-form-group--message-error-text-color);
     &::before {
       @include icon-set(ico_error_fill, pure);
+    }
+  }
+  .form-info {
+    display: flex;
+    margin-top: 0.4rem;
+    font-size: var(--krds-pc-font-size-body-medium);
+    color: var(--krds-light-color-text-subtle);
+    gap: var(--krds-number-5);
+
+    &::before {
+      display: inline-flex;
+      @include pseudo();
+      @include svg-icon(
+        $size: var(--krds-icon--size-medium),
+        $mode: #{$mode-setting}
+      );
+      @include icon-set(ico_information2, pure);
+      margin-top: 0.3rem;
+      flex: none;
     }
   }
 }
@@ -227,13 +270,20 @@ $mode-setting: light;
 
     [class^='form-hint'] {
       &::before {
-        @include svg-icon($size: var(--krds-icon--size-small), $mode: #{$mode-setting});
+        @include svg-icon(
+          $size: var(--krds-icon--size-small),
+          $mode: #{$mode-setting}
+        );
         @include icon-set(ico_information);
       }
     }
     [class^='form-hint-'] {
       &::before {
-        @include svg-icon($size: var(--krds-icon--size-small), $mode: #{$mode-setting}, $effect: pure);
+        @include svg-icon(
+          $size: var(--krds-icon--size-small),
+          $mode: #{$mode-setting},
+          $effect: pure
+        );
       }
     }
     .form-hint-success {

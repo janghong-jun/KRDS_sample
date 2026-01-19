@@ -62,7 +62,9 @@ $mode-setting: light;
           background-color: var(--krds-table--data-thead-surface);
           border-bottom: var(--krds-table--data-border-width) solid
             var(--krds-table--data-thead-border);
-          font-weight: var(--krds-font-weight-bold);
+          background-color: #f8f8f8;
+          border-bottom: var(--krds-table--data-border-width) solid v#B1B8BE;
+          font-weight: var(--krds-font-weight-regular);
           font-size: var(--krds-table--data-thead-pc-font-size);
           color: var(--krds-table--data-thead-color-text);
           text-align: left;
@@ -74,6 +76,12 @@ $mode-setting: light;
     }
     > tbody {
       > tr {
+        &[data-select='false'] {
+          > th,
+          > td {
+            background-color: var(--krds-light-color-surface-secondary-subtler);
+          }
+        }
         > th,
         > td {
           padding: var(--krds-table--data-tbody-padding)
@@ -87,6 +95,16 @@ $mode-setting: light;
           text-align: left;
           @include size-medium {
             font-size: var(--krds-table--data-tbody-mobile-font-size);
+          }
+          .krds-table-btns-wrap {
+            display: flex;
+            gap: var(--krds-padding-3);
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            .krds-btn {
+              min-width: 6.8rem;
+            }
           }
         }
       }
@@ -153,6 +171,27 @@ $mode-setting: light;
       }
     }
   }
+
+  &.center {
+    .tbl {
+      > thead,
+      > tbody {
+        > tr {
+          > th,
+          > td {
+            text-align: center;
+            > .krds-btn,
+            > .krds-form-select {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    + .krds-btns-wrap.center {
+      margin-top: var(--krds-gap-7);
+    }
+  }
 }
 
 @include size-medium {
@@ -183,6 +222,12 @@ $mode-setting: light;
             width: auto !important;
           }
         }
+      }
+    }
+
+    &.center {
+      + .krds-btns-wrap.center {
+        margin-top: 0;
       }
     }
   }

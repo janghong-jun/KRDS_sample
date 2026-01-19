@@ -23,14 +23,6 @@
           <h2>설문지 관리</h2>
           <div class="sub-title">
             <p class="msg">* 표시는 필수 입력 항목입니다.</p>
-            <div class="frm-area flex">
-              <label for="setting">설문 문항 설정</label>
-              <select id="setting">
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
-              </select>
-            </div>
           </div>
           <div class="tbl-base mgt10 align-left">
             <table>
@@ -58,7 +50,9 @@
                         <option>교장</option>
                         <option>교육전문직원</option>
                       </select>
-                      <span class="note left"> 사용자 분류(회원 구분)를 선택해주세요. </span>
+                      <span class="note left">
+                        사용자 분류(회원 구분)를 선택해주세요.
+                      </span>
                     </div>
                   </td>
                 </tr>
@@ -69,7 +63,12 @@
                   </th>
                   <td colspan="6">
                     <div class="frm-area">
-                      <input type="text" id="searchKeyword" class="inp-text" />
+                      <input
+                        type="text"
+                        id="searchKeyword"
+                        class="inp-text"
+                        placeholder="설문 제목을 작성해 주세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -77,19 +76,19 @@
                 <!-- 설문 1 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check01" />
-                        <label for="check01" class="lb-checkbox">설문1</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문1
+                        <div class="btns-controll">
+                          <button type="button" class="up" disabled>
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up" disabled>
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -117,7 +116,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_01" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_01"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -133,32 +137,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-01-01" name="rdoBtn01-1" />
-                              <label for="rdo01-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-01-02" name="rdoBtn01-1" />
-                              <label for="rdo01-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-01-03" name="rdoBtn01-1" />
-                              <label for="rdo01-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-01-04" name="rdoBtn01-1" />
-                              <label for="rdo01-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-01-05" name="rdoBtn01-1" />
-                              <label for="rdo01-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -170,32 +160,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-02-01" name="rdoBtn01-2" />
-                              <label for="rdo01-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-02-02" name="rdoBtn01-2" />
-                              <label for="rdo01-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-02-03" name="rdoBtn01-2" />
-                              <label for="rdo01-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-02-04" name="rdoBtn01-2" />
-                              <label for="rdo01-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-02-05" name="rdoBtn01-2" />
-                              <label for="rdo01-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -207,32 +183,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-03-01" name="rdoBtn01-3" />
-                              <label for="rdo01-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-03-02" name="rdoBtn01-3" />
-                              <label for="rdo01-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-03-03" name="rdoBtn01-3" />
-                              <label for="rdo01-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-03-04" name="rdoBtn01-3" />
-                              <label for="rdo01-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo01-03-05" name="rdoBtn01-3" />
-                              <label for="rdo01-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -242,19 +204,19 @@
                 <!-- 설문 2 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check02" />
-                        <label for="check02" class="lb-checkbox">설문2</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문2
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -282,7 +244,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_02" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_02"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -298,32 +265,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-01-01" name="rdoBtn02-1" />
-                              <label for="rdo02-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-01-02" name="rdoBtn02-1" />
-                              <label for="rdo02-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-01-03" name="rdoBtn02-1" />
-                              <label for="rdo02-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-01-04" name="rdoBtn02-1" />
-                              <label for="rdo02-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-01-05" name="rdoBtn02-1" />
-                              <label for="rdo02-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -335,32 +288,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-02-01" name="rdoBtn02-2" />
-                              <label for="rdo02-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-02-02" name="rdoBtn02-2" />
-                              <label for="rdo02-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-02-03" name="rdoBtn02-2" />
-                              <label for="rdo02-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-02-04" name="rdoBtn02-2" />
-                              <label for="rdo02-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-02-05" name="rdoBtn02-2" />
-                              <label for="rdo02-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -372,32 +311,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-03-01" name="rdoBtn02-3" />
-                              <label for="rdo02-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-03-02" name="rdoBtn02-3" />
-                              <label for="rdo02-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-03-03" name="rdoBtn02-3" />
-                              <label for="rdo02-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-03-04" name="rdoBtn02-3" />
-                              <label for="rdo02-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo02-03-05" name="rdoBtn02-3" />
-                              <label for="rdo02-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -407,19 +332,19 @@
                 <!-- 설문 3 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check03" />
-                        <label for="check03" class="lb-checkbox">설문3</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문3
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -447,7 +372,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_03" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_03"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -463,32 +393,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-01-01" name="rdoBtn03-1" />
-                              <label for="rdo03-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-01-02" name="rdoBtn03-1" />
-                              <label for="rdo03-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-01-03" name="rdoBtn03-1" />
-                              <label for="rdo03-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-01-04" name="rdoBtn03-1" />
-                              <label for="rdo03-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-01-05" name="rdoBtn03-1" />
-                              <label for="rdo03-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -500,32 +416,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-02-01" name="rdoBtn03-2" />
-                              <label for="rdo03-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-02-02" name="rdoBtn03-2" />
-                              <label for="rdo03-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-02-03" name="rdoBtn03-2" />
-                              <label for="rdo03-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-02-04" name="rdoBtn03-2" />
-                              <label for="rdo03-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-02-05" name="rdoBtn03-2" />
-                              <label for="rdo03-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -537,32 +439,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-03-01" name="rdoBtn03-3" />
-                              <label for="rdo03-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-03-02" name="rdoBtn03-3" />
-                              <label for="rdo03-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-03-03" name="rdoBtn03-3" />
-                              <label for="rdo03-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-03-04" name="rdoBtn03-3" />
-                              <label for="rdo03-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo03-03-05" name="rdoBtn03-3" />
-                              <label for="rdo03-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -572,19 +460,19 @@
                 <!-- 설문 4 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check04" />
-                        <label for="check04" class="lb-checkbox">설문4</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문4
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -612,7 +500,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_04" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_04"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -628,32 +521,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-01-01" name="rdoBtn04-1" />
-                              <label for="rdo04-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-01-02" name="rdoBtn04-1" />
-                              <label for="rdo04-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-01-03" name="rdoBtn04-1" />
-                              <label for="rdo04-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-01-04" name="rdoBtn04-1" />
-                              <label for="rdo04-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-01-05" name="rdoBtn04-1" />
-                              <label for="rdo04-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -665,32 +544,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-02-01" name="rdoBtn04-2" />
-                              <label for="rdo04-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-02-02" name="rdoBtn04-2" />
-                              <label for="rdo04-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-02-03" name="rdoBtn04-2" />
-                              <label for="rdo04-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-02-04" name="rdoBtn04-2" />
-                              <label for="rdo04-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-02-05" name="rdoBtn04-2" />
-                              <label for="rdo04-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -702,32 +567,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-03-01" name="rdoBtn04-3" />
-                              <label for="rdo04-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-03-02" name="rdoBtn04-3" />
-                              <label for="rdo04-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-03-03" name="rdoBtn04-3" />
-                              <label for="rdo04-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-03-04" name="rdoBtn04-3" />
-                              <label for="rdo04-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo04-03-05" name="rdoBtn04-3" />
-                              <label for="rdo04-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -737,19 +588,19 @@
                 <!-- 설문 5 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check05" />
-                        <label for="check05" class="lb-checkbox">설문5</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문5
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -777,7 +628,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_05" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_05"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -793,32 +649,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-01-01" name="rdoBtn05-1" />
-                              <label for="rdo05-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-01-02" name="rdoBtn05-1" />
-                              <label for="rdo05-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-01-03" name="rdoBtn05-1" />
-                              <label for="rdo05-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-01-04" name="rdoBtn05-1" />
-                              <label for="rdo05-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-01-05" name="rdoBtn05-1" />
-                              <label for="rdo05-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -830,32 +672,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-02-01" name="rdoBtn05-2" />
-                              <label for="rdo05-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-02-02" name="rdoBtn05-2" />
-                              <label for="rdo05-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-02-03" name="rdoBtn05-2" />
-                              <label for="rdo05-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-02-04" name="rdoBtn05-2" />
-                              <label for="rdo05-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-02-05" name="rdoBtn05-2" />
-                              <label for="rdo05-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -867,32 +695,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-03-01" name="rdoBtn05-3" />
-                              <label for="rdo05-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-03-02" name="rdoBtn05-3" />
-                              <label for="rdo05-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-03-03" name="rdoBtn05-3" />
-                              <label for="rdo05-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-03-04" name="rdoBtn05-3" />
-                              <label for="rdo05-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo05-03-05" name="rdoBtn05-3" />
-                              <label for="rdo05-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -902,19 +716,19 @@
                 <!-- 설문 6 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check06" />
-                        <label for="check06" class="lb-checkbox">설문6</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문6
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -942,7 +756,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_06" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_06"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -958,32 +777,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-01-01" name="rdoBtn06-1" />
-                              <label for="rdo06-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-01-02" name="rdoBtn06-1" />
-                              <label for="rdo06-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-01-03" name="rdoBtn06-1" />
-                              <label for="rdo06-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-01-04" name="rdoBtn06-1" />
-                              <label for="rdo06-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-01-05" name="rdoBtn06-1" />
-                              <label for="rdo06-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -995,32 +800,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-02-01" name="rdoBtn06-2" />
-                              <label for="rdo06-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-02-02" name="rdoBtn06-2" />
-                              <label for="rdo06-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-02-03" name="rdoBtn06-2" />
-                              <label for="rdo06-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-02-04" name="rdoBtn06-2" />
-                              <label for="rdo06-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-02-05" name="rdoBtn06-2" />
-                              <label for="rdo06-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1032,32 +823,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-03-01" name="rdoBtn06-3" />
-                              <label for="rdo06-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-03-02" name="rdoBtn06-3" />
-                              <label for="rdo06-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-03-03" name="rdoBtn06-3" />
-                              <label for="rdo06-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-03-04" name="rdoBtn06-3" />
-                              <label for="rdo06-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo06-03-05" name="rdoBtn06-3" />
-                              <label for="rdo06-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1067,19 +844,19 @@
                 <!-- 설문 7 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check07" />
-                        <label for="check07" class="lb-checkbox">설문7</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문7
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -1107,7 +884,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_07" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_07"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -1123,32 +905,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-01-01" name="rdoBtn07-1" />
-                              <label for="rdo07-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-01-02" name="rdoBtn07-1" />
-                              <label for="rdo07-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-01-03" name="rdoBtn07-1" />
-                              <label for="rdo07-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-01-04" name="rdoBtn07-1" />
-                              <label for="rdo07-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-01-05" name="rdoBtn07-1" />
-                              <label for="rdo07-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1160,32 +928,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-02-01" name="rdoBtn07-2" />
-                              <label for="rdo07-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-02-02" name="rdoBtn07-2" />
-                              <label for="rdo07-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-02-03" name="rdoBtn07-2" />
-                              <label for="rdo07-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-02-04" name="rdoBtn07-2" />
-                              <label for="rdo07-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-02-05" name="rdoBtn07-2" />
-                              <label for="rdo07-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1197,32 +951,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-03-01" name="rdoBtn07-3" />
-                              <label for="rdo07-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-03-02" name="rdoBtn07-3" />
-                              <label for="rdo07-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-03-03" name="rdoBtn07-3" />
-                              <label for="rdo07-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-03-04" name="rdoBtn07-3" />
-                              <label for="rdo07-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo07-03-05" name="rdoBtn07-3" />
-                              <label for="rdo07-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1232,19 +972,19 @@
                 <!-- 설문 8 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check08" />
-                        <label for="check08" class="lb-checkbox">설문8</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문8
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -1272,7 +1012,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_08" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_08"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -1288,32 +1033,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-01-01" name="rdoBtn08-1" />
-                              <label for="rdo08-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-01-02" name="rdoBtn08-1" />
-                              <label for="rdo08-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-01-03" name="rdoBtn08-1" />
-                              <label for="rdo08-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-01-04" name="rdoBtn08-1" />
-                              <label for="rdo08-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-01-05" name="rdoBtn08-1" />
-                              <label for="rdo08-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1325,32 +1056,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-02-01" name="rdoBtn08-2" />
-                              <label for="rdo08-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-02-02" name="rdoBtn08-2" />
-                              <label for="rdo08-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-02-03" name="rdoBtn08-2" />
-                              <label for="rdo08-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-02-04" name="rdoBtn08-2" />
-                              <label for="rdo08-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-02-05" name="rdoBtn08-2" />
-                              <label for="rdo08-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1362,32 +1079,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-03-01" name="rdoBtn08-3" />
-                              <label for="rdo08-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-03-02" name="rdoBtn08-3" />
-                              <label for="rdo08-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-03-03" name="rdoBtn08-3" />
-                              <label for="rdo08-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-03-04" name="rdoBtn08-3" />
-                              <label for="rdo08-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo08-03-05" name="rdoBtn08-3" />
-                              <label for="rdo08-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1397,19 +1100,19 @@
                 <!-- 설문 9 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check09" />
-                        <label for="check09" class="lb-checkbox">설문9</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문9
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down">
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down">
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -1437,7 +1140,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_09" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_09"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -1453,32 +1161,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-01-01" name="rdoBtn09-1" />
-                              <label for="rdo09-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-01-02" name="rdoBtn09-1" />
-                              <label for="rdo09-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-01-03" name="rdoBtn09-1" />
-                              <label for="rdo09-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-01-04" name="rdoBtn09-1" />
-                              <label for="rdo09-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-01-05" name="rdoBtn09-1" />
-                              <label for="rdo09-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1490,32 +1184,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-02-01" name="rdoBtn09-2" />
-                              <label for="rdo09-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-02-02" name="rdoBtn09-2" />
-                              <label for="rdo09-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-02-03" name="rdoBtn09-2" />
-                              <label for="rdo09-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-02-04" name="rdoBtn09-2" />
-                              <label for="rdo09-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-02-05" name="rdoBtn09-2" />
-                              <label for="rdo09-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1527,32 +1207,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-03-01" name="rdoBtn09-3" />
-                              <label for="rdo09-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-03-02" name="rdoBtn09-3" />
-                              <label for="rdo09-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-03-03" name="rdoBtn09-3" />
-                              <label for="rdo09-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-03-04" name="rdoBtn09-3" />
-                              <label for="rdo09-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo09-03-05" name="rdoBtn09-3" />
-                              <label for="rdo09-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1562,19 +1228,19 @@
                 <!-- 설문 10 -->
                 <tr>
                   <th scope="row" rowspan="2" class="vertical-top">
-                    <div class="questionnaire">
-                      <div class="lb-item">
-                        <input type="checkbox" id="check10" />
-                        <label for="check10" class="lb-checkbox">설문10</label>
+                    <div class="questionnaire-num">
+                      <div class="questionnaire">
+                        설문10
+                        <div class="btns-controll">
+                          <button type="button" class="up">
+                            <span>▲</span>
+                          </button>
+                          <button type="button" class="down" disabled>
+                            <span>▼</span>
+                          </button>
+                        </div>
                       </div>
-                      <div class="btns-controll">
-                        <button type="button" class="up">
-                          <span>▲</span>
-                        </button>
-                        <button type="button" class="down" disabled>
-                          <span>▼</span>
-                        </button>
-                      </div>
+                      <button type="button" class="apply-btn">삭제</button>
                     </div>
                   </th>
                   <th scope="row">
@@ -1602,7 +1268,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text right" id="inp_10" placeholder="가중치 값을 입력하세요" />
+                      <input
+                        type="text"
+                        class="inp-text right"
+                        id="inp_10"
+                        placeholder="가중치 값을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -1618,32 +1289,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-01-01" name="rdoBtn10-1" />
-                              <label for="rdo10-01-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-01-02" name="rdoBtn10-1" />
-                              <label for="rdo10-01-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-01-03" name="rdoBtn10-1" />
-                              <label for="rdo10-01-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-01-04" name="rdoBtn10-1" />
-                              <label for="rdo10-01-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-01-05" name="rdoBtn10-1" />
-                              <label for="rdo10-01-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1655,32 +1312,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-02-01" name="rdoBtn10-2" />
-                              <label for="rdo10-02-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-02-02" name="rdoBtn10-2" />
-                              <label for="rdo10-02-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-02-03" name="rdoBtn10-2" />
-                              <label for="rdo10-02-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-02-04" name="rdoBtn10-2" />
-                              <label for="rdo10-02-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-02-05" name="rdoBtn10-2" />
-                              <label for="rdo10-02-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                       <div class="questionnaire-item">
@@ -1692,32 +1335,18 @@
                           </select>
                         </div>
                         <div class="questionnaire-question">
-                          <input type="text" class="inp-text" aria-label="설문 내용" placeholder="100글자 내외로 질문을 작성해 주세요" />
-                          <div class="frm-area">
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-03-01" name="rdoBtn10-3" />
-                              <label for="rdo10-03-01" class="lb-radio"><span>매우 낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-03-02" name="rdoBtn10-3" />
-                              <label for="rdo10-03-02" class="lb-radio"><span>낮음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-03-03" name="rdoBtn10-3" />
-                              <label for="rdo10-03-03" class="lb-radio"><span>보통</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-03-04" name="rdoBtn10-3" />
-                              <label for="rdo10-03-04" class="lb-radio"><span>높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="radio" id="rdo10-03-05" name="rdoBtn10-3" />
-                              <label for="rdo10-03-05" class="lb-radio"><span>매우 높음</span></label>
-                            </span>
-                            <span class="lb-item">
-                              <input type="text" class="inp-text right" aria-label="연구평가 점수 입력" placeholder="연구평가 점수를 입력하세요" />
-                            </span>
-                          </div>
+                          <input
+                            type="text"
+                            class="inp-text"
+                            aria-label="설문 내용"
+                            placeholder="100글자 내외로 질문을 작성해 주세요"
+                          />
+                          <input
+                            type="text"
+                            class="inp-text right"
+                            aria-label="연구평가 점수"
+                            placeholder="연구평가 점수를 입력하세요"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1732,9 +1361,6 @@
             </div>
           </div>
           <div class="tbl-btns">
-            <button type="button" class="btn base tertiary">
-              <span>삭제</span>
-            </button>
             <div>
               <button type="button" class="btn base secondary">
                 <span>목록</span>

@@ -18,6 +18,10 @@ label {
   &.chk-column {
     flex-direction: column;
   }
+  &.center {
+    justify-content: center;
+    gap: var(--krds-gap-4) var(--krds-gap-12);
+  }
 }
 
 .chip-wrap {

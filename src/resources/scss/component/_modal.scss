@@ -231,7 +231,7 @@ $mode-setting: light;
     }
     &:not(:has(.modal-btn)) {
       .modal-conts {
-        padding-bottom: var(--krds-modal--padding);
+        margin-bottom: var(--krds-modal--padding);
       }
     }
   }
@@ -240,6 +240,12 @@ $mode-setting: light;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .krds-tab-area {
+    gap: var(--krds-padding-8);
+  }
+  .g-search-area {
+    margin-bottom: var(--krds-padding-8);
   }
   //full 팝업(통합검색, 관련기관링크)
   &[data-type='full'] {
@@ -351,6 +357,11 @@ $mode-setting: light;
             > * {
               width: 100%;
             }
+            .krds-table-wrap {
+              width: calc(
+                100vw - (var(--krds-contents-padding-x) * 2) - 4.8rem
+              );
+            }
           }
         }
         .modal-btn {
@@ -364,7 +375,7 @@ $mode-setting: light;
         }
         &:not(:has(.modal-btn)) {
           .modal-conts {
-            padding-bottom: var(--krds-modal--mobile-btn-padding-bottom);
+            margin-bottom: var(--krds-modal--mobile-btn-padding-bottom);
           }
         }
       }
