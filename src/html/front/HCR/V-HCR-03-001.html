@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- 공통 meta -->
@@ -17,7 +17,7 @@
       <!--# include virtual="../../../components/_header.html" -->
 
       <!-- Container -->
-      <div id="container">
+      <main id="container">
         <div class="inner">
           <button
             type="button"
@@ -27,7 +27,7 @@
             모달 열기
           </button>
         </div>
-      </div>
+      </main>
 
       <!-- footer -->
       <!--# include virtual="../../../components/_footer.html" -->
@@ -64,12 +64,13 @@
                     <th scope="row">
                       <label for="select01" class="krds-label">
                         신고 유형
-                        <i class="required" aria-label="필수 항목"></i>
+                        <i class="required" aria-hidden="true"></i>
+                        <span class="sr-only">필수 항목</span>
                       </label>
                     </th>
                     <td>
                       <select
-                        class="krds-form-select small"
+                        class="krds-form-select small completed"
                         title="역할선택"
                         id="select01"
                       >
@@ -85,7 +86,8 @@
                     <th scope="row">
                       <label for="textarea01" class="krds-label">
                         신고 내용
-                        <i class="required" aria-label="필수 항목"></i>
+                        <i class="required" aria-hidden="true"></i>
+                        <span class="sr-only">필수 항목</span>
                       </label>
                     </th>
                     <td>

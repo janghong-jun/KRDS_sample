@@ -177,9 +177,13 @@
       border: 0.1rem solid #d3d3d3;
       background: var(--krds-light-color-background-white);
       gap: var(--krds-gap-7);
+      flex-wrap: wrap;
 
       .user-img {
         max-width: 8.4rem;
+        flex: none;
+        @include size-medium {
+        }
       }
     }
   }
@@ -244,6 +248,10 @@
     color: var(--krds-light-color-text-subtle);
     @include size-medium {
       font-size: var(--krds-mobile-font-size-body-medium);
+      flex-wrap: wrap;
+      .krds-btn.tertiary {
+        margin-left: auto;
+      }
     }
   }
 

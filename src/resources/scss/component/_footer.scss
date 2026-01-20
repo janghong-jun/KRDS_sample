@@ -60,9 +60,11 @@ $mode-setting: light;
         }
         //태블릿 전용 속성
         @include size-medium-to-large {
-          font-size: 1.6rem; //토큰 없음
+          font-size: var(
+            --krds-pc-font-size-navigation-depth-medium
+          ); //토큰 없음
           word-break: break-all;
-          padding: 0 var(--krds-padding-1) 0 var(--krds-padding-2);
+          // padding: 0 var(--krds-padding-1) 0 var(--krds-padding-2);
           text-align: left;
         }
         //모바일 전용
@@ -100,14 +102,14 @@ $mode-setting: light;
   }
 
   .f-logo {
-    @include square(13.7rem, var(--krds-size-height-7));
-    background-image: url(#{$url}/img/component/icon/ico_logo_krds.svg);
+    @include square(20rem, var(--krds-size-height-7));
+    background-image: url(#{$url}/img/component/icon/ico_logo_hico.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     flex: none;
     @include size-medium {
-      @include square(9.9rem, 3.2rem);
+      @include square(9.9rem, 4rem);
     }
   }
 
@@ -142,57 +144,57 @@ $mode-setting: light;
         gap: var(--krds-gap-5);
         font-size: var(--krds-mobile-font-size-body-small);
       }
-      //모바일 전용
-      @include size-medium {
-        .info-addr {
-          .br {
-            display: none;
-          }
-        }
-      }
-      .info-cs {
-        @include flex-layout($fd: column, $ai: normal);
-        width: 100%;
+      .info-addr {
+        display: flex;
         gap: var(--krds-gap-3);
-        //모바일 전용
+        flex-direction: column;
         @include size-medium {
-          gap: var(--krds-gap-3);
+          gap: var(--krds-gap-4);
         }
+
         li {
-          @include flex-layout($ai: center);
-          //태블릿 전용 속성
+          display: flex;
+          font-size: var(--krds-pc-font-size-body-medium);
+          gap: var(--krds-gap-3);
+          flex-wrap: wrap;
+
+          > span {
+            & + span {
+              display: flex;
+              gap: var(--krds-gap-3);
+              align-items: center;
+              &::before {
+                content: '';
+                display: block;
+                width: 0.1rem;
+                height: 1.2rem;
+                background-color: var(--krds-light-color-divider-gray);
+              }
+            }
+          }
+
           @include size-medium-to-large {
             flex-direction: column;
-            align-items: flex-start;
+
+            > span {
+              & + span {
+                &::before {
+                  display: none;
+                }
+              }
+            }
           }
-          //모바일 전용
           @include size-medium {
-            flex-wrap: wrap;
-            word-break: break-all;
-          }
-          .key-info {
-            @include flex-layout($ai: center);
-            gap: var(--krds-gap-3);
-            span {
-              font-weight: var(--krds-font-weight-regular);
-            }
-            //360 아래
-            @media (max-width: 359px) {
-              flex-wrap: wrap;
-              row-gap: 0;
-            }
-          }
-          .more-info {
-            @include flex-layout($ai: center);
-            gap: var(--krds-gap-3);
-            padding-left: var(--krds-padding-3);
-            &::before {
-              @include pseudo();
-              width: var(--krds-number-1);
-              height: var(--krds-number-7);
-              background-color: var(
-                --krds-#{$mode-setting}-color-divider-gray-dark
-              );
+            gap: var(--krds-gap-2) var(--krds-gap-3);
+            font-size: var(--krds-mobile-font-size-body-small);
+            flex-direction: column;
+
+            > span {
+              & + span {
+                &::before {
+                  display: none;
+                }
+              }
             }
           }
         }
@@ -229,6 +231,7 @@ $mode-setting: light;
       @include size-large-more {
         flex-shrink: 0;
         width: 23.5%;
+        align-items: flex-end;
       }
       //모바일 전용
       @include size-medium {
@@ -291,9 +294,9 @@ $mode-setting: light;
         display: inline-flex;
         flex-wrap: wrap;
         gap: var(--krds-gap-3);
-        //모바일 전용
-        @include size-medium {
-          gap: var(--krds-gap-3);
+        .point {
+          font-weight: var(--krds-font-weight-bold);
+          color: var(--krds-light-color-text-secondary);
         }
       }
       .f-copy {

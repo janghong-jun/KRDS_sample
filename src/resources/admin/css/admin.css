@@ -735,16 +735,27 @@ footer {
   color: #222;
   border: 0.1rem solid #222;
 }
-.tbl-btns.type-small .radio-btn.active {
+.tbl-btns.type-small .radio-btn {
   color: #256ef4;
   font-weight: 600;
   border: 0.1rem solid #256ef4;
   background-color: #fff;
 }
-.tbl-btns.type-small .radio-btn.active:hover,
-.tbl-btns.type-small .radio-btn.active:active {
+.tbl-btns.type-small .radio-btn:hover,
+.tbl-btns.type-small .radio-btn:active {
   color: #fff;
   background-color: #256ef4;
+}
+.tbl-btns.type-small .radio-btn.active {
+  background-color: #256ef4;
+  font-weight: 600;
+  border: 0.1rem solid #256ef4;
+  color: #fff;
+}
+.tbl-btns.type-small .radio-btn.active:hover,
+.tbl-btns.type-small .radio-btn.active:active {
+  background-color: #fff;
+  color: #256ef4;
 }
 .tbl-btns.type-small .apply-btn {
   margin: 0;
@@ -1654,10 +1665,15 @@ footer {
   padding: 1.6rem 0.8rem;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1.6rem 3.2rem;
 }
 .improvement-list li + li {
   border-top: 0.1rem solid #dfe0e2;
+}
+.improvement-list li button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0 3.2rem;
 }
 .improvement-list li .title {
   max-width: calc(100% - 22rem);
@@ -1683,12 +1699,19 @@ footer {
   background-color: #ccc;
 }
 .improvement-list li .cont {
+  overflow: hidden;
+  height: 0;
   width: 100%;
   font-size: 1.4rem;
+  transition: all 0.3s;
+}
+.improvement-list li .cont.active {
+  padding-top: 1.6rem;
+  height: auto;
 }
 
 .improvement-list.scroll {
-  max-height: 32.2rem;
+  max-height: 24.1rem;
   overflow-y: auto;
 }
 .category {

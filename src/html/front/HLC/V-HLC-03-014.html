@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- 공통 meta -->
@@ -17,7 +17,7 @@
       <!--# include virtual="../../../components/_header.html" -->
 
       <!-- Container -->
-      <div id="container">
+      <main id="container">
         <div class="inner">
           <button
             type="button"
@@ -27,7 +27,7 @@
             모달 열기
           </button>
         </div>
-      </div>
+      </main>
 
       <!-- footer -->
       <!--# include virtual="../../../components/_footer.html" -->
@@ -115,7 +115,7 @@
                           <div class="sch-form-wrap">
                             <div class="form-conts">
                               <select
-                                class="krds-form-select small"
+                                class="krds-form-select small completed"
                                 title="선택"
                               >
                                 <option value="">전체</option>
@@ -128,7 +128,7 @@
                                 type="text"
                                 class="krds-input small"
                                 placeholder="검색어를 입력해주세요"
-                                title="검색어 입력"
+                                aria-label="검색어 입력"
                               />
                               <span
                                 type="button"
@@ -366,7 +366,13 @@
                     </table>
                   </div>
                   <div class="krds-pagination">
-                    <span class="page-navi prev disabled" href="#">이전</span>
+                    <a
+                      class="page-navi prev disabled"
+                      aria-disabled="true"
+                      tabindex="-1"
+                    >
+                      이전
+                    </a>
                     <div class="page-links">
                       <a class="page-link" href="#">1</a>
                       <a class="page-link" href="#">2</a>
@@ -401,7 +407,7 @@
                             <div class="sch-form-wrap">
                               <div class="form-conts">
                                 <select
-                                  class="krds-form-select small"
+                                  class="krds-form-select small completed"
                                   title="선택"
                                 >
                                   <option value="">전체</option>
@@ -414,7 +420,7 @@
                                   type="text"
                                   class="krds-input small"
                                   placeholder="검색어를 입력해주세요"
-                                  title="검색어 입력"
+                                  aria-label="검색어 입력"
                                 />
                                 <span
                                   type="button"
@@ -471,7 +477,7 @@
                             <td class="al">동수원초등학교</td>
                             <td>
                               <select
-                                class="krds-form-select small"
+                                class="krds-form-select small completed"
                                 title="역할선택"
                               >
                                 <option value="">전체</option>
@@ -494,7 +500,7 @@
                             <td class="al">동수원초등학교</td>
                             <td>
                               <select
-                                class="krds-form-select small"
+                                class="krds-form-select small completed"
                                 title="역할선택"
                               >
                                 <option value="">전체</option>
@@ -527,7 +533,7 @@
                             <div class="sch-form-wrap">
                               <div class="form-conts">
                                 <select
-                                  class="krds-form-select small"
+                                  class="krds-form-select small completed"
                                   title="선택"
                                 >
                                   <option value="">전체</option>
@@ -540,7 +546,7 @@
                                   type="text"
                                   class="krds-input small"
                                   placeholder="검색어를 입력해주세요"
-                                  title="검색어 입력"
+                                  aria-label="검색어 입력"
                                 />
                                 <span
                                   type="button"
@@ -637,7 +643,7 @@
                           <div class="sch-form-wrap">
                             <div class="form-conts">
                               <select
-                                class="krds-form-select small"
+                                class="krds-form-select small completed"
                                 title="선택"
                               >
                                 <option value="">전체</option>
@@ -651,7 +657,7 @@
                                 type="text"
                                 class="krds-input small"
                                 placeholder="검색어를 입력해주세요"
-                                title="검색어 입력"
+                                aria-label="검색어 입력"
                               />
                               <span
                                 type="button"
@@ -707,7 +713,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -726,7 +732,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -745,7 +751,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -764,7 +770,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -783,7 +789,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -802,7 +808,7 @@
                           <td>YYYY.MM.DD</td>
                           <td>
                             <select
-                              class="krds-form-select small"
+                              class="krds-form-select small completed"
                               title="역할선택"
                             >
                               <option value="">역할선택</option>
@@ -831,7 +837,10 @@
                 >
                   <h3 class="sr-only">멤버 권한 관리</h3>
                   <div class="top-btns">
-                    <select class="krds-form-select small" title="역할선택">
+                    <select
+                      class="krds-form-select small completed"
+                      title="역할선택"
+                    >
                       <option value="">운영자</option>
                       <option value="">협업참여자</option>
                       <option value="">일반참여자</option>

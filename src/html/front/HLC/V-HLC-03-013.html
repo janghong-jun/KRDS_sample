@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- 공통 meta -->
@@ -17,7 +17,7 @@
       <!--# include virtual="../../../components/_header.html" -->
 
       <!-- Container -->
-      <div id="container">
+      <main id="container">
         <div class="inner in-between">
           <!-- 학습공동체 사이드 메뉴 -->
           <nav class="krds-side-navigation">
@@ -72,7 +72,8 @@
                         <th class="ac" scope="row">
                           <label for="input_name" class="krds-label">
                             연구지원명
-                            <i class="required" aria-label="필수 항목"></i>
+                            <i class="required" aria-hidden="true"></i>
+                            <span class="sr-only">필수 항목</span>
                           </label>
                         </th>
                         <td class="al">
@@ -88,7 +89,8 @@
                         <th class="ac" scope="row">
                           <label for="input_cont" class="krds-label">
                             연구지원소개
-                            <i class="required" aria-label="필수 항목"></i>
+                            <i class="required" aria-hidden="true"></i>
+                            <span class="sr-only">필수 항목</span>
                           </label>
                         </th>
                         <td class="al">
@@ -141,6 +143,7 @@
                                 </span>
                                 <button type="button" class="krds-btn icon">
                                   <i class="svg-icon ico-delete-fill2"></i>
+                                  <span class="sr-only">삭제</span>
                                 </button>
                               </li>
                             </ul>
@@ -198,7 +201,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
       <!-- footer -->
       <!--# include virtual="../../../components/_footer.html" -->

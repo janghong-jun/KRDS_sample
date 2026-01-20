@@ -90,13 +90,13 @@ $mode-setting: light;
       display: inline-flex;
       @include square(13.7rem, var(--krds-size-height-7));
       @include size-medium {
-        @include square(9.4rem, 3.2rem);
+        @include square(9.4rem, 4rem);
       }
       flex: none;
       a {
         display: block;
         @include square(100%);
-        background-image: url(#{$url}/img/component/icon/ico_logo_krds.svg);
+        background-image: url(#{$url}/img/component/icon/ico_logo_hico.png);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;

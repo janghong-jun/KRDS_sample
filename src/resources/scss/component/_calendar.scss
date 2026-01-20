@@ -39,7 +39,7 @@
   --krds-calendar--color-border: var(
     --krds-#{$mode}-color-border-secondary-light
   );
-  --krds-calendar--color-surface: var(--krds-color-light-gray-0);
+  --krds-calendar--color-surface: var(--krds-color-light-alpha-white100);
   --krds-calendar--color-text-sub: var(--krds-#{$mode}-color-text-subtle);
   --krds-calendar--head-btn-cal-move-color-text-active: var(
     --krds-#{$mode}-color-text-secondary
@@ -62,8 +62,8 @@
   --krds-calendar--head-btn-cal-switch-color-text-disabled: var(
     --krds-#{$mode}-color-text-disabled-on
   );
-  --krds-calendar--head-drop-down-shadow: 0 0 0.2rem 0
-      var(--krds-#{$mode}-color-alpha-shadow1),
+  --krds-calendar--head-drop-down-shadow:
+    0 0 0.2rem 0 var(--krds-#{$mode}-color-alpha-shadow1),
     0 0.4rem 0.8rem 0 var(--krds-#{$mode}-color-alpha-shadow2);
   --krds-calendar--date-set-color-action: var(
     --krds-#{$mode}-color-action-secondary-active
@@ -421,17 +421,17 @@ $mode-setting: light;
             /* 수정: period 클래스 스타일 개선 */
             &.period {
               /* 추가: between 상태 (기간 사이) */
-              &.between {
-                background-color: #f2f2ff;
-              }
+              // &.between {
+              // }
 
               .btn-set-date {
-                background-color: #f2f2ff;
+                background-color: var(--krds-color-light-secondary-5);
+                border-radius: 0;
               }
               &.start,
               &.end {
                 > .btn-set-date {
-                  background-color: #454097;
+                  background-color: var(--krds-color-light-secondary-70);
                   color: var(--krds-calendar--date-set-color-text);
                 }
               }
@@ -497,7 +497,7 @@ $mode-setting: light;
                   var(--krds-calendar--set-date-radius);
               }
               &::after {
-                background-color: #454097;
+                background-color: var(--krds-color-light-secondary-70);
                 border-top-left-radius: var(--krds-calendar--set-date-radius);
                 border-bottom-left-radius: var(
                   --krds-calendar--set-date-radius
@@ -516,7 +516,7 @@ $mode-setting: light;
                   var(--krds-calendar--set-date-radius) 0;
               }
               &::after {
-                background-color: #454097;
+                background-color: var(--krds-color-light-secondary-70);
                 border-top-right-radius: var(--krds-calendar--set-date-radius);
                 border-bottom-right-radius: var(
                   --krds-calendar--set-date-radius

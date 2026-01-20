@@ -256,6 +256,12 @@ textarea {
       $r: var(--krds-padding-7)
     ); //form control large 사이즈에만 버튼 들어감
     transform: translateY(-50%);
+    &.small {
+      right: 1.8rem;
+      width: var(--krds-button--icon-size-medium) !important;
+      height: var(--krds-button--icon-size-medium) !important;
+      padding: 0.2rem !important;
+    }
   }
   .range {
     &::after {

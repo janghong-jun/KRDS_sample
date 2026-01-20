@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- 공통 meta -->
@@ -17,7 +17,7 @@
       <!--# include virtual="../../../components/_header.html" -->
 
       <!-- Container -->
-      <div id="container">
+      <main id="container">
         <div class="inner in-between">
           <!-- 학습공동체 사이드 메뉴 -->
           <nav class="krds-side-navigation">
@@ -56,7 +56,10 @@
                   <div class="form-group">
                     <div class="sch-form-wrap">
                       <div class="form-conts">
-                        <select class="krds-form-select small" title="선택">
+                        <select
+                          class="krds-form-select small completed"
+                          title="선택"
+                        >
                           <option value="">전체</option>
                           <option value="">채널명</option>
                           <option value="">운영자명</option>
@@ -68,7 +71,7 @@
                           id="keyword_search"
                           class="krds-input small"
                           placeholder="검색어를 입력해주세요"
-                          title="검색어 입력"
+                          aria-label="검색어 입력"
                         />
                         <span
                           type="button"
@@ -331,7 +334,13 @@
             </ul>
 
             <div class="krds-pagination">
-              <span class="page-navi prev disabled" href="#">이전</span>
+              <a
+                class="page-navi prev disabled"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                이전
+              </a>
               <div class="page-links">
                 <a class="page-link" href="#">1</a>
                 <a class="page-link" href="#">2</a>
@@ -350,7 +359,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
       <!-- footer -->
       <!--# include virtual="../../../components/_footer.html" -->

@@ -334,10 +334,9 @@
     @include icon-set(ico_addlist);
   }
   &.ico-expand-more {
-    border-radius: var(--krds-radius-max);
-    background: url(#{$url}/img/component/icon/ico_expand_more.svg) 50% 50%
-      no-repeat;
-    background-size: var(--krds-number-9);
+    @include icon-set(ico_expand_more, pure);
+    width: 2rem !important;
+    height: 2rem !important;
   }
 }
 .icon-wrap {

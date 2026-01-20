@@ -111,6 +111,29 @@
         dynamic: tab.dataset.dynamic === 'true',
       });
     });
+
+    const list = document.querySelector('.improvement-list');
+
+    list.addEventListener('click', (e) => {
+      const button = e.target.closest('button');
+      if (!button) return;
+
+      const li = button.closest('li');
+      const cont = li.querySelector('.cont');
+
+      const currentActive = list.querySelector('.cont.active');
+
+      if (cont.classList.contains('active')) {
+        cont.classList.remove('active');
+        return;
+      }
+
+      if (currentActive) {
+        currentActive.classList.remove('active');
+      }
+
+      cont.classList.add('active');
+    });
   });
 })(window, document);
 

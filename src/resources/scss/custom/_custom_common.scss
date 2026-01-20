@@ -114,6 +114,9 @@ $mode-setting: light;
     display: flex;
     gap: var(--krds-number-7);
     flex-wrap: wrap;
+    @include size-medium {
+      width: 100%;
+    }
     .krds-btn {
       &.member {
         border-radius: var(--krds-radius-max);
@@ -132,6 +135,11 @@ $mode-setting: light;
         left: auto;
         right: 0;
         transform: translateX(0);
+
+        @include size-medium {
+          left: 0;
+          right: auto;
+        }
         &::before {
           display: none;
         }
