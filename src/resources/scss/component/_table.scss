@@ -7,6 +7,7 @@
 @mixin table-size-variable() {
   --krds-table--data-thead-th-padding: var(--krds-padding-3);
   --krds-table--data-thead-th-padding-sides: var(--krds-padding-6);
+  // --krds-table--data-thead-th-padding-sides: var(--krds-padding-10);
   --krds-table--data-thead-pc-font-size: var(
     --krds-pc-font-size-heading-xxsmall
   );
@@ -57,6 +58,7 @@ $mode-setting: light;
     > thead {
       > tr {
         > th {
+          height: 5rem;
           padding: var(--krds-table--data-thead-th-padding)
             var(--krds-table--data-thead-th-padding-sides);
           background-color: var(--krds-table--data-thead-surface);
@@ -120,7 +122,7 @@ $mode-setting: light;
   }
 
   .krds-table-title {
-    margin-bottom: var(--krds-number-7);
+    margin-bottom: var(--krds-number-10);
     font-size: var(--krds-pc-font-size-heading-medium);
     font-weight: var(--krds-font-weight-bold);
     color: var(--krds-light-color-text-bolder);
@@ -144,6 +146,9 @@ $mode-setting: light;
     border-bottom: 0.1rem solid
       var(--krds-#{$mode-setting}-color-border-gray-light);
 
+    .krds-table-title {
+      margin-bottom: var(--krds-number-7);
+    }
     .tbl {
       > tbody {
         > tr {
@@ -183,6 +188,9 @@ $mode-setting: light;
             > .krds-btn,
             > .krds-form-select {
               width: 100%;
+            }
+            > .krds-badge {
+              min-width: 7rem;
             }
           }
         }
