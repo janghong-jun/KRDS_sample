@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
@@ -18,7 +18,127 @@
         </div>
       </header>
       <main class="main-wrap" id="content">
-        <div class="sub-nav"></div>
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+            <li>
+              <a href="#" id="menu1" class="mMenu">회원관리</a>
+              <ul class="sub">
+                <li class="current">
+                  <a href="#"><span>회원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>관리자관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>코드관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림발송관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>게시판관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>금칙어관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="menu2">전문가관리</a></li>
+            <li><a href="#" id="menu3">역량관리</a></li>
+            <li><a href="#" id="menu4">모듈관리</a></li>
+            <li>
+              <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>콘텐츠관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>카테고리관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>저작권관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>라이프사이클관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>폐기대상관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu6" class="mMenu">사이트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>팝업관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공지사항</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>Q&amp;A</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu7" class="mMenu">공동체관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>협업공간관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>실행나눔관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연구지원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>학습공동체채널관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu8" class="mMenu">데이터연계</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>유튜브채널관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>유튜브수집동영상</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연계로그관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu9" class="mMenu">포인트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>적립기준설정</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>발급분석</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>예산관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>정산관리</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <section class="main-conts">
           <h2>설문지 관리</h2>
           <div class="tbl-base mgt10">
@@ -51,8 +171,18 @@
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly />
-                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                          <input
+                            type="text"
+                            id="startDate"
+                            class="inp-base date"
+                            aria-label="날짜입력"
+                            readonly
+                          />
+                          <button
+                            type="button"
+                            class="ui-datepicker-btn"
+                            data-target="startDate"
+                          >
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
@@ -60,8 +190,18 @@
                       <span class="date-sep">~</span>
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly />
-                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                          <input
+                            type="text"
+                            id="endDate"
+                            class="inp-base date"
+                            aria-label="날짜입력"
+                            readonly
+                          />
+                          <button
+                            type="button"
+                            class="ui-datepicker-btn"
+                            data-target="endDate"
+                          >
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
@@ -84,7 +224,12 @@
                   <th scope="row"><label for="searchKeyword">키워드</label></th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="searchKeyword" placeholder="최소 2글자 이상 입력해주세요" class="inp-text" />
+                      <input
+                        type="text"
+                        id="searchKeyword"
+                        placeholder="최소 2글자 이상 입력해주세요"
+                        class="inp-text"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -117,7 +262,9 @@
                   <th scope="col">
                     <span class="lb-item">
                       <input type="checkbox" id="allCheck" />
-                      <label for="allCheck" class="lb-checkbox"><span class="sr-only">전체 선택</span></label>
+                      <label for="allCheck" class="lb-checkbox"
+                        ><span class="sr-only">전체 선택</span></label
+                      >
                     </span>
                   </th>
                   <th scope="col">No.</th>
@@ -132,12 +279,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check100" />
-                      <label for="check100" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check100" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>100</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -145,12 +296,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check99" />
-                      <label for="check99" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check99" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>99</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -158,12 +313,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check98" />
-                      <label for="check98" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check98" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>98</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -171,12 +330,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check97" />
-                      <label for="check97" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check97" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>97</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -184,12 +347,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check96" />
-                      <label for="check96" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check96" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>96</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -197,12 +364,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check95" />
-                      <label for="check95" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check95" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>95</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -210,12 +381,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check94" />
-                      <label for="check94" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check94" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>94</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -223,12 +398,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check93" />
-                      <label for="check93" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check93" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>93</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -236,12 +415,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check92" />
-                      <label for="check92" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check92" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>92</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -249,12 +432,16 @@
                   <td>
                     <span class="lb-item">
                       <input type="checkbox" id="check91" />
-                      <label for="check91" class="lb-checkbox"><span class="sr-only">선택</span></label>
+                      <label for="check91" class="lb-checkbox"
+                        ><span class="sr-only">선택</span></label
+                      >
                     </span>
                   </td>
                   <td>91</td>
                   <td>교사</td>
-                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
+                  <td class="txt-l">
+                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
+                  </td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -269,10 +456,14 @@
               <span>삭제</span>
             </button>
             <div class="pager">
-              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+              <a href="#" class="btn prev disabled"
+                ><span class="hide">이전으로</span></a
+              >
               <span class="num">
                 <a href="#">1</a>
-                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                <a href="#" class="on"
+                  ><span class="hide">현재 페이지:</span>2</a
+                >
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
@@ -282,7 +473,9 @@
                 <a href="#">9</a>
                 <a href="#">10</a>
               </span>
-              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+              <a href="#" class="btn next"
+                ><span class="hide">다음으로</span></a
+              >
             </div>
             <button type="button" class="btn base primary">
               <span>등록</span>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
@@ -18,7 +18,127 @@
         </div>
       </header>
       <main class="main-wrap" id="content">
-        <div class="sub-nav"></div>
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+            <li>
+              <a href="#" id="menu1" class="mMenu">회원관리</a>
+              <ul class="sub">
+                <li class="current">
+                  <a href="#"><span>회원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>관리자관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>코드관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림발송관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>게시판관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>금칙어관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="menu2">전문가관리</a></li>
+            <li><a href="#" id="menu3">역량관리</a></li>
+            <li><a href="#" id="menu4">모듈관리</a></li>
+            <li>
+              <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>콘텐츠관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>카테고리관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>저작권관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>라이프사이클관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>폐기대상관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu6" class="mMenu">사이트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>팝업관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공지사항</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>Q&amp;A</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu7" class="mMenu">공동체관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>협업공간관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>실행나눔관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연구지원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>학습공동체채널관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu8" class="mMenu">데이터연계</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>유튜브채널관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>유튜브수집동영상</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연계로그관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu9" class="mMenu">포인트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>적립기준설정</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>발급분석</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>예산관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>정산관리</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <section class="main-conts">
           <h2>금칙어 관리</h2>
           <div class="sub-title">
@@ -51,38 +171,60 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    적용범위 <span class="ico-req"><span class="hide">필수</span></span>
+                    적용범위
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_01" name="rdoBtn01" checked />
-                        <label for="rdo_01_01" class="lb-radio">전체 게시글(댓글 포함)</label>
+                        <input
+                          type="radio"
+                          id="rdo_01_01"
+                          name="rdoBtn01"
+                          checked
+                        />
+                        <label for="rdo_01_01" class="lb-radio"
+                          >전체 게시글(댓글 포함)</label
+                        >
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rdo_01_02" name="rdoBtn01" />
-                        <label for="rdo_01_02" class="lb-radio">학습공동체 게시용</label>
+                        <label for="rdo_01_02" class="lb-radio"
+                          >학습공동체 게시용</label
+                        >
                       </span>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    금칙어 처리 <span class="ico-req"><span class="hide">필수</span></span>
+                    금칙어 처리
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rdo_02_01" name="rdoBtn02" checked />
-                        <label for="rdo_02_01" class="lb-radio">등록 불가</label>
+                        <input
+                          type="radio"
+                          id="rdo_02_01"
+                          name="rdoBtn02"
+                          checked
+                        />
+                        <label for="rdo_02_01" class="lb-radio"
+                          >등록 불가</label
+                        >
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rdo_02_02" name="rdoBtn02" />
-                        <label for="rdo_02_02" class="lb-radio">삭제(표시 안함)</label>
+                        <label for="rdo_02_02" class="lb-radio"
+                          >삭제(표시 안함)</label
+                        >
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rdo_02_03" name="rdoBtn02" />
-                        <label for="rdo_02_03" class="lb-radio">마스킹 표시(*******)</label>
+                        <label for="rdo_02_03" class="lb-radio"
+                          >마스킹 표시(*******)</label
+                        >
                       </span>
                     </div>
                   </td>
@@ -94,7 +236,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp01" class="inp-text" value="강아지" />
+                      <input
+                        type="text"
+                        id="inp01"
+                        class="inp-text"
+                        value="강아지"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -105,18 +252,31 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <textarea type="text" id="inp02" class="inp-textrea" style="height: 10rem">강아지, 강 아지, 강아 지, 강 아 지, 강아지같은, 강아지스러운, 10강아지, 신난강아지</textarea>
+                      <textarea
+                        type="text"
+                        id="inp02"
+                        class="inp-textrea"
+                        style="height: 10rem"
+                      >
+강아지, 강 아지, 강아 지, 강 아 지, 강아지같은, 강아지스러운, 10강아지, 신난강아지</textarea
+                      >
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    적용여부 <span class="ico-req"><span class="hide">필수</span></span>
+                    적용여부
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rdo_03_01" name="rdoBtn03" checked />
+                        <input
+                          type="radio"
+                          id="rdo_03_01"
+                          name="rdoBtn03"
+                          checked
+                        />
                         <label for="rdo_03_01" class="lb-radio">적용</label>
                       </span>
                       <span class="lb-item">

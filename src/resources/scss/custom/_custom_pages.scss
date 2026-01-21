@@ -148,7 +148,7 @@ $mode-setting: light;
       var(--krds-number-9);
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--krds-number-7);
+    gap: var(--krds-gap-4);
     align-self: stretch;
   }
   .card-tit {
@@ -159,7 +159,7 @@ $mode-setting: light;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    gap: var(--krds-number-7);
+    gap: var(--krds-gap-4);
   }
   .card-owner {
     display: flex;
@@ -193,16 +193,79 @@ $mode-setting: light;
 
   .krds-badge {
     position: absolute;
-    top: var(--krds-number-7);
-    right: var(--krds-number-7);
+    top: var(--krds-gap-4);
+    right: var(--krds-gap-4);
     height: var(--krds-number-12);
-    padding: 0 var(--krds-number-7);
+    padding: 0 var(--krds-gap-4);
     font-size: var(--krds-pc-font-size-heading-xxsmall);
     font-weight: var(--krds-font-weight-bold);
     line-height: var(--krds-number-12);
     color: var(--krds-color-light-gray-0);
     border-radius: var(--krds-radius-max);
     background: var(--krds-color-light-alpha-black50);
+  }
+
+  &.type-video {
+    .card-thumbnail {
+      .timer {
+        display: flex;
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        min-width: 1.625rem;
+        height: var(--krds-size-height-5);
+        padding: 0 var(--krds-padding-3);
+        border-radius: var(--krds-radius-large1);
+        font-size: var(--krds-pc-font-size-label-small);
+        color: var(--krds-light-color-text-basic-inverse);
+        background: var(--krds-light-color-background-dim);
+        align-items: center;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+    .card-box {
+    }
+    .card-conts {
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-hash {
+      width: 100%;
+      margin-top: var(--krds-gap-4);
+      gap: var(--krds-gap-2);
+    }
+    .card-meta {
+      // position: absolute;
+      right: var(--krds-number-9);
+      bottom: var(--krds-number-9);
+      left: var(--krds-number-9);
+      display: flex;
+      font-size: var(--krds-pc-font-size-body-small);
+      color: var(--krds-light-color-text-subtle);
+      flex-wrap: wrap;
+      gap: 0 var(--krds-number-5);
+      div {
+        display: flex;
+        gap: var(--krds-gap-4);
+        align-items: center;
+        .bar {
+          width: 0.1rem;
+          height: 1.6rem;
+          background-color: var(--krds-light-color-divider-gray-light);
+        }
+      }
+    }
   }
 }
 #container {

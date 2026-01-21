@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
@@ -18,7 +18,127 @@
         </div>
       </header>
       <main class="main-wrap" id="content">
-        <div class="sub-nav"></div>
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+            <li>
+              <a href="#" id="menu1" class="mMenu">회원관리</a>
+              <ul class="sub">
+                <li class="current">
+                  <a href="#"><span>회원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>관리자관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>코드관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림발송관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>게시판관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>금칙어관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="menu2">전문가관리</a></li>
+            <li><a href="#" id="menu3">역량관리</a></li>
+            <li><a href="#" id="menu4">모듈관리</a></li>
+            <li>
+              <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>콘텐츠관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>카테고리관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>저작권관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>라이프사이클관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>폐기대상관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu6" class="mMenu">사이트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>팝업관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공지사항</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>Q&amp;A</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu7" class="mMenu">공동체관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>협업공간관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>실행나눔관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연구지원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>학습공동체채널관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu8" class="mMenu">데이터연계</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>유튜브채널관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>유튜브수집동영상</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연계로그관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu9" class="mMenu">포인트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>적립기준설정</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>발급분석</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>예산관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>정산관리</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <section class="main-conts">
           <h2>콘텐츠 관리</h2>
           <div class="sub-title">
@@ -40,7 +160,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp01" class="inp-text" placeholder="제목을 입력하세요" />
+                      <input
+                        type="text"
+                        id="inp01"
+                        class="inp-text"
+                        placeholder="제목을 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -51,32 +176,60 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp02" class="inp-text" placeholder="키워드를 입력하세요(키워드, 키워드, 키워드), 최대 NN개까지 입력 가능합니다." />
+                      <input
+                        type="text"
+                        id="inp02"
+                        class="inp-text"
+                        placeholder="키워드를 입력하세요(키워드, 키워드, 키워드), 최대 NN개까지 입력 가능합니다."
+                      />
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    콘텐츠 소스 <span class="ico-req"><span class="hide">필수</span></span>
+                    콘텐츠 소스
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-wrap">
                       <div class="frm-area">
                         <span class="lb-item">
-                          <input type="radio" id="rdoBtn01_01" name="rdoBtn01" />
-                          <label for="rdoBtn01_01" class="lb-radio">링크 등록</label>
+                          <input
+                            type="radio"
+                            id="rdoBtn01_01"
+                            name="rdoBtn01"
+                          />
+                          <label for="rdoBtn01_01" class="lb-radio"
+                            >링크 등록</label
+                          >
                         </span>
                         <span class="lb-item">
-                          <input type="radio" id="rdoBtn01_02" name="rdoBtn01" />
-                          <label for="rdoBtn01_02" class="lb-radio">파일등록</label>
+                          <input
+                            type="radio"
+                            id="rdoBtn01_02"
+                            name="rdoBtn01"
+                          />
+                          <label for="rdoBtn01_02" class="lb-radio"
+                            >파일등록</label
+                          >
                         </span>
                       </div>
                       <div class="frm-area">
-                        <input type="text" class="inp-text" placeholder="URL을 입력하세요" aria-label="URL 입력" />
+                        <input
+                          type="text"
+                          class="inp-text"
+                          placeholder="URL을 입력하세요"
+                          aria-label="URL 입력"
+                        />
                       </div>
                       <div class="file-wrap">
                         <div class="input-item">
-                          <input type="text" class="inp-text" readonly aria-label="첨부 파일" />
+                          <input
+                            type="text"
+                            class="inp-text"
+                            readonly
+                            aria-label="첨부 파일"
+                          />
                           <span class="btn base square">
                             <input type="file" aria-label="첨부파일 선택" />
                             <span>찾아보기</span>
@@ -94,35 +247,63 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <textarea id="textarea01" class="inp-text" placeholder="주제를 입력하세요(최대 100자)" style="height: 10rem"></textarea>
+                      <textarea
+                        id="textarea01"
+                        class="inp-text"
+                        placeholder="주제를 입력하세요(최대 100자)"
+                        style="height: 10rem"
+                      ></textarea>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    썸네일 <span class="ico-req"><span class="hide">필수</span></span>
+                    썸네일
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-wrap">
                       <div class="frm-area">
                         <span class="lb-item">
-                          <input type="radio" id="rdoBtn02_01" name="rdoBtn02" />
-                          <label for="rdoBtn02_01" class="lb-radio">직접등록</label>
+                          <input
+                            type="radio"
+                            id="rdoBtn02_01"
+                            name="rdoBtn02"
+                          />
+                          <label for="rdoBtn02_01" class="lb-radio"
+                            >직접등록</label
+                          >
                         </span>
                         <span class="lb-item">
-                          <input type="radio" id="rdoBtn02_02" name="rdoBtn02" />
-                          <label for="rdoBtn02_02" class="lb-radio">자동생성</label>
+                          <input
+                            type="radio"
+                            id="rdoBtn02_02"
+                            name="rdoBtn02"
+                          />
+                          <label for="rdoBtn02_02" class="lb-radio"
+                            >자동생성</label
+                          >
                         </span>
                       </div>
                       <div class="file-wrap">
                         <div class="input-item">
-                          <input type="text" class="inp-text" readonly aria-label="첨부 파일" />
+                          <input
+                            type="text"
+                            class="inp-text"
+                            readonly
+                            aria-label="첨부 파일"
+                          />
                           <span class="btn base square">
                             <input type="file" aria-label="첨부파일 선택" />
                             <span>찾아보기</span>
                           </span>
                         </div>
-                        <div class="file-list mgt8"><span class="file-info">이미지 파일만 등록가능 합니다.(권장 : 000*000)</span></div>
+                        <div class="file-list mgt8">
+                          <span class="file-info"
+                            >이미지 파일만 등록가능 합니다.(권장 :
+                            000*000)</span
+                          >
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -134,19 +315,30 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp03" class="inp-text" placeholder="출처를 입력하세요" />
+                      <input
+                        type="text"
+                        id="inp03"
+                        class="inp-text"
+                        placeholder="출처를 입력하세요"
+                      />
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    첨부파일 <span class="ico-req"><span class="hide">필수</span></span>
+                    첨부파일
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-wrap">
                       <div class="file-wrap">
                         <div class="input-item">
-                          <input type="text" class="inp-text" readonly aria-label="첨부 파일" />
+                          <input
+                            type="text"
+                            class="inp-text"
+                            readonly
+                            aria-label="첨부 파일"
+                          />
                           <span class="btn base square">
                             <input type="file" aria-label="첨부파일 선택" />
                             <span>찾아보기</span>
@@ -169,7 +361,9 @@
                       </span>
                       <span class="lb-item">
                         <input type="radio" id="rdoBtn03_02" name="rdoBtn03" />
-                        <label for="rdoBtn03_02" class="lb-radio">적용제외</label>
+                        <label for="rdoBtn03_02" class="lb-radio"
+                          >적용제외</label
+                        >
                       </span>
                     </div>
                   </td>
@@ -266,7 +460,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp04" class="inp-text" placeholder="저작권 소유자 정보를 입력하세요(Ex, 채널명 또는 채널소유자 정보)" />
+                      <input
+                        type="text"
+                        id="inp04"
+                        class="inp-text"
+                        placeholder="저작권 소유자 정보를 입력하세요(Ex, 채널명 또는 채널소유자 정보)"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -288,7 +487,9 @@
                       <span>일 까지</span>
                       <div class="lb-item" style="text-align: right">
                         <input type="checkbox" id="check01" />
-                        <label for="check01" class="lb-checkbox">해당없음</label>
+                        <label for="check01" class="lb-checkbox"
+                          >해당없음</label
+                        >
                       </div>
                     </div>
                   </td>
@@ -299,7 +500,12 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp05" class="inp-text" placeholder="추가부가정보" />
+                      <input
+                        type="text"
+                        id="inp05"
+                        class="inp-text"
+                        placeholder="추가부가정보"
+                      />
                     </div>
                   </td>
                 </tr>

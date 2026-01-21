@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
@@ -18,7 +18,127 @@
         </div>
       </header>
       <main class="main-wrap" id="content">
-        <div class="sub-nav"></div>
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+            <li>
+              <a href="#" id="menu1" class="mMenu">회원관리</a>
+              <ul class="sub">
+                <li class="current">
+                  <a href="#"><span>회원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>관리자관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>코드관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림발송관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>게시판관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>금칙어관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="menu2">전문가관리</a></li>
+            <li><a href="#" id="menu3">역량관리</a></li>
+            <li><a href="#" id="menu4">모듈관리</a></li>
+            <li>
+              <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>콘텐츠관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>카테고리관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>저작권관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>라이프사이클관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>폐기대상관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu6" class="mMenu">사이트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>팝업관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공지사항</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>Q&amp;A</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu7" class="mMenu">공동체관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>협업공간관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>실행나눔관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연구지원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>학습공동체채널관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu8" class="mMenu">데이터연계</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>유튜브채널관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>유튜브수집동영상</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연계로그관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu9" class="mMenu">포인트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>적립기준설정</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>발급분석</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>예산관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>정산관리</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <section class="main-conts">
           <h2>관리자 정보</h2>
           <div class="sub-title">
@@ -71,9 +191,23 @@
                   </th>
                   <td>
                     <div class="frm-area phone">
-                      <div class="lb-item"><input type="text" id="inp06" class="inp-text" /></div>
-                      <div class="lb-item"><input type="text" class="inp-text" aria-label="연락처 중간자리" /></div>
-                      <div class="lb-item"><input type="text" class="inp-text" aria-label="연락처 끝자리" /></div>
+                      <div class="lb-item">
+                        <input type="text" id="inp06" class="inp-text" />
+                      </div>
+                      <div class="lb-item">
+                        <input
+                          type="text"
+                          class="inp-text"
+                          aria-label="연락처 중간자리"
+                        />
+                      </div>
+                      <div class="lb-item">
+                        <input
+                          type="text"
+                          class="inp-text"
+                          aria-label="연락처 끝자리"
+                        />
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -86,13 +220,18 @@
                     <div class="frm-area mail-area">
                       <input type="text" id="inp07" class="inp-text" />
                       <span>@</span>
-                      <input type="text" class="inp-text" aria-label="도메인 입력" />
+                      <input
+                        type="text"
+                        class="inp-text"
+                        aria-label="도메인 입력"
+                      />
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row" class="vertical-top">
-                    권한관리 <span class="ico-req"><span class="hide">필수</span></span>
+                    권한관리
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
@@ -111,7 +250,12 @@
                       <li>Depth 1 > Depth 2</li>
                     </ul>
                     <div class="tbl-btns type-small">
-                      <button type="button" class="btn base square primary btn-modal" data-id="X-HSM-01-006" data-src="X-HSM-01-006.html">
+                      <button
+                        type="button"
+                        class="btn base square primary btn-modal"
+                        data-id="X-HSM-01-006"
+                        data-src="X-HSM-01-006.html"
+                      >
                         <span>권한설정</span>
                       </button>
                     </div>
@@ -119,12 +263,18 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    계정상태 <span class="ico-req"><span class="hide">필수</span></span>
+                    계정상태
+                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rp03" name="rpBtn02" checked="" />
+                        <input
+                          type="radio"
+                          id="rp03"
+                          name="rpBtn02"
+                          checked=""
+                        />
                         <label for="rp03" class="lb-radio">사용</label>
                       </span>
                       <span class="lb-item">

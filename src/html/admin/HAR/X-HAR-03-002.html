@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
@@ -18,7 +18,127 @@
         </div>
       </header>
       <main class="main-wrap" id="content">
-        <div class="sub-nav"></div>
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+            <li>
+              <a href="#" id="menu1" class="mMenu">회원관리</a>
+              <ul class="sub">
+                <li class="current">
+                  <a href="#"><span>회원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>관리자관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>코드관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>알림발송관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>게시판관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>금칙어관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="menu2">전문가관리</a></li>
+            <li><a href="#" id="menu3">역량관리</a></li>
+            <li><a href="#" id="menu4">모듈관리</a></li>
+            <li>
+              <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>콘텐츠관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>카테고리관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>저작권관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>라이프사이클관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>폐기대상관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu6" class="mMenu">사이트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>팝업관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공지사항</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>Q&amp;A</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu7" class="mMenu">공동체관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>협업공간관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>실행나눔관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연구지원관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>학습공동체채널관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu8" class="mMenu">데이터연계</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>유튜브채널관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>유튜브수집동영상</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>연계로그관리</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" id="menu9" class="mMenu">포인트관리</a>
+              <ul class="sub">
+                <li>
+                  <a href="#"><span>적립기준설정</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>발급분석</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>예산관리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>정산관리</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <section class="main-conts">
           <h2>저작권 관리</h2>
           <div class="tbl-base mgt10">
@@ -30,7 +150,12 @@
                 <tr>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력" />
+                      <input
+                        type="text"
+                        class="inp-text"
+                        placeholder="최소 2글자 이상 입력해주세요"
+                        aria-label="검색어 입력"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -44,9 +169,15 @@
           </div>
           <div class="ui-tab left mgt24" data-id="tab01" data-current="2">
             <div class="ui-tab-btns">
-              <button type="button" class="ui-tab-btn" data-tab="0">전체</button>
-              <button type="button" class="ui-tab-btn" data-tab="1">폐기 대상</button>
-              <button type="button" class="ui-tab-btn" data-tab="2">폐기 완료 목록</button>
+              <button type="button" class="ui-tab-btn" data-tab="0">
+                전체
+              </button>
+              <button type="button" class="ui-tab-btn" data-tab="1">
+                폐기 대상
+              </button>
+              <button type="button" class="ui-tab-btn" data-tab="2">
+                폐기 완료 목록
+              </button>
             </div>
             <div class="ui-tab-pnls mgt40">
               <div class="ui-tab-pnl" data-tab="0">
@@ -78,7 +209,9 @@
                       </tr>
                       <tr>
                         <td>99</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td></td>
                         <td></td>
                         <td>비게시</td>
@@ -92,7 +225,9 @@
                       </tr>
                       <tr>
                         <td>97</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td></td>
                         <td></td>
                         <td>비게시</td>
@@ -106,7 +241,9 @@
                       </tr>
                       <tr>
                         <td>95</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>저작권 미보유</td>
                         <td>YYYY.MM.DD</td>
                         <td>비게시</td>
@@ -120,7 +257,9 @@
                       </tr>
                       <tr>
                         <td>93</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠평가</td>
                         <td>YYYY.MM.DD</td>
                         <td>비게시</td>
@@ -134,7 +273,9 @@
                       </tr>
                       <tr>
                         <td>91</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td></td>
                         <td></td>
                         <td>비게시</td>
@@ -144,10 +285,14 @@
                 </div>
                 <div class="tbl-btns mgt16">
                   <div class="pager">
-                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <a href="#" class="btn prev disabled"
+                      ><span class="hide">이전으로</span></a
+                    >
                     <span class="num">
                       <a href="#">1</a>
-                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#" class="on"
+                        ><span class="hide">현재 페이지:</span>2</a
+                      >
                       <a href="#">3</a>
                       <a href="#">4</a>
                       <a href="#">5</a>
@@ -157,7 +302,9 @@
                       <a href="#">9</a>
                       <a href="#">10</a>
                     </span>
-                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                    <a href="#" class="btn next"
+                      ><span class="hide">다음으로</span></a
+                    >
                   </div>
                 </div>
               </div>
@@ -194,7 +341,10 @@
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -202,14 +352,19 @@
                       </tr>
                       <tr>
                         <td>99</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠 게시기간</td>
                         <td>YYYY.MM.DD</td>
                         <td>YYYY.MM.DD</td>
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -224,7 +379,10 @@
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -232,14 +390,19 @@
                       </tr>
                       <tr>
                         <td>97</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠신고 <br />콘텐츠 평가</td>
                         <td>YYYY.MM.DD</td>
                         <td>YYYY.MM.DD</td>
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -254,7 +417,10 @@
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -262,14 +428,19 @@
                       </tr>
                       <tr>
                         <td>95</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>저작권 미보유</td>
                         <td>YYYY.MM.DD</td>
                         <td>YYYY.MM.DD</td>
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -284,7 +455,10 @@
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -292,14 +466,19 @@
                       </tr>
                       <tr>
                         <td>93</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠평가</td>
                         <td>YYYY.MM.DD</td>
                         <td>YYYY.MM.DD</td>
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -314,7 +493,10 @@
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -322,14 +504,19 @@
                       </tr>
                       <tr>
                         <td>91</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>기타</td>
                         <td>YYYY.MM.DD</td>
                         <td>YYYY.MM.DD</td>
                         <td>N회</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>폐기</span>
                             </button>
                           </div>
@@ -340,10 +527,14 @@
                 </div>
                 <div class="tbl-btns mgt16">
                   <div class="pager">
-                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <a href="#" class="btn prev disabled"
+                      ><span class="hide">이전으로</span></a
+                    >
                     <span class="num">
                       <a href="#">1</a>
-                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#" class="on"
+                        ><span class="hide">현재 페이지:</span>2</a
+                      >
                       <a href="#">3</a>
                       <a href="#">4</a>
                       <a href="#">5</a>
@@ -353,7 +544,9 @@
                       <a href="#">9</a>
                       <a href="#">10</a>
                     </span>
-                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                    <a href="#" class="btn next"
+                      ><span class="hide">다음으로</span></a
+                    >
                   </div>
                 </div>
               </div>
@@ -384,7 +577,10 @@
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -392,12 +588,17 @@
                       </tr>
                       <tr>
                         <td>99</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠 게시기간</td>
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -410,7 +611,10 @@
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -418,12 +622,17 @@
                       </tr>
                       <tr>
                         <td>97</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠신고 <br />콘텐츠 평가</td>
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -436,7 +645,10 @@
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -444,12 +656,17 @@
                       </tr>
                       <tr>
                         <td>95</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>저작권 미보유</td>
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -462,7 +679,10 @@
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -470,12 +690,17 @@
                       </tr>
                       <tr>
                         <td>93</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>콘텐츠평가</td>
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -488,7 +713,10 @@
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -496,12 +724,17 @@
                       </tr>
                       <tr>
                         <td>91</td>
-                        <td class="txt-l">체육활동 관련 안전사고 현황 및 대처</td>
+                        <td class="txt-l">
+                          체육활동 관련 안전사고 현황 및 대처
+                        </td>
                         <td>기타</td>
                         <td>YYYY.MM.DD</td>
                         <td>
                           <div class="tbl-btns type-small">
-                            <button type="button" class="btn base square apply-btn">
+                            <button
+                              type="button"
+                              class="btn base square apply-btn"
+                            >
                               <span>복구</span>
                             </button>
                           </div>
@@ -512,10 +745,14 @@
                 </div>
                 <div class="tbl-btns mgt16">
                   <div class="pager">
-                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <a href="#" class="btn prev disabled"
+                      ><span class="hide">이전으로</span></a
+                    >
                     <span class="num">
                       <a href="#">1</a>
-                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#" class="on"
+                        ><span class="hide">현재 페이지:</span>2</a
+                      >
                       <a href="#">3</a>
                       <a href="#">4</a>
                       <a href="#">5</a>
@@ -525,7 +762,9 @@
                       <a href="#">9</a>
                       <a href="#">10</a>
                     </span>
-                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                    <a href="#" class="btn next"
+                      ><span class="hide">다음으로</span></a
+                    >
                   </div>
                 </div>
               </div>
