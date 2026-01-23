@@ -167,6 +167,7 @@ $mode-setting: light;
       > tbody {
         > tr {
           > th {
+            padding: var(--krds-padding-5);
             border-right: var(--krds-table--data-border-width) solid
               var(--krds-table--data-tbody-color-divider);
             background-color: var(--krds-light-color-surface-gray-subtler);

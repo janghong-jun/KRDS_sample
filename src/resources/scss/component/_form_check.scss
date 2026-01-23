@@ -13,10 +13,11 @@ label {
 .krds-check-area {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--krds-gap-6);
+  gap: var(--krds-padding-4) var(--krds-gap-6);
 
   &.chk-column {
     flex-direction: column;
+    gap: var(--krds-gap-6);
   }
   &.center {
     justify-content: center;
@@ -50,6 +51,17 @@ label {
 @mixin form-check-size-variable() {
   //변수 배열 설정
   $form-check-size: (
+    small: (
+      button-size: var(--krds-size-height-3),
+      radio-check-size: 1rem,
+      checkbox-check-size: 1.2rem,
+      radio-button-radius: var(--krds-radius-max),
+      checkbox-button-radius: var(--krds-radius-small1),
+      pc-font-size: var(--krds-pc-font-size-label-small),
+      mobile-font-size: var(--krds-mobile-font-size-label-small),
+      additional-text-pc-font-size: var(--krds-pc-font-size-label-small),
+      additional-text-mobile-font-size: var(--krds-mobile-font-size-label-small),
+    ),
     medium: (
       button-size: var(--krds-size-height-3),
       radio-check-size: 1rem,
@@ -70,8 +82,9 @@ label {
       pc-font-size: var(--krds-pc-font-size-label-large),
       mobile-font-size: var(--krds-mobile-font-size-label-large),
       additional-text-pc-font-size: var(--krds-pc-font-size-label-medium),
-      additional-text-mobile-font-size:
-        var(--krds-mobile-font-size-label-medium),
+      additional-text-mobile-font-size: var(
+          --krds-mobile-font-size-label-medium
+        ),
     ),
   ) !default;
 
@@ -88,12 +101,15 @@ label {
 
   //class 정의
   & {
+    display: inline-flex;
+    align-items: center;
     //사이즈 별 class
     @each $size, $types in $form-check-size {
       &.#{$size} {
         > input[type='radio'],
         > input[type='checkbox'] {
           ~ label {
+            align-items: center;
             @include form-check(#{$size});
             &::before {
               @include form-check-button(#{$size});
@@ -158,15 +174,19 @@ label {
   //포지션: (전체사이즈 - 체크영역) / 2
   top: calc(
     (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--radio-check-size-#{$size})
-      ) / 2 + var(--krds-form-check--button-margin-top)
+        var(--krds-form-check--button-size-#{$size}) - var(
+            --krds-form-check--radio-check-size-#{$size}
+          )
+      ) /
+      2 + var(--krds-form-check--button-margin-top)
   );
   left: calc(
     (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--radio-check-size-#{$size})
-      ) / 2
+        var(--krds-form-check--button-size-#{$size}) - var(
+            --krds-form-check--radio-check-size-#{$size}
+          )
+      ) /
+      2
   );
   @include square(var(--krds-form-check--radio-check-size-#{$size}));
   background-color: var(--krds-form-check--radio-check-color-element);
@@ -181,15 +201,19 @@ label {
   //포지션: (전체사이즈 - 체크영역) / 2
   top: calc(
     (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--checkbox-check-size-#{$size})
-      ) / 2 + var(--krds-form-check--button-margin-top)
+        var(--krds-form-check--button-size-#{$size}) - var(
+            --krds-form-check--checkbox-check-size-#{$size}
+          )
+      ) /
+      2 + var(--krds-form-check--button-margin-top)
   );
   left: calc(
     (
-        var(--krds-form-check--button-size-#{$size}) -
-          var(--krds-form-check--checkbox-check-size-#{$size})
-      ) / 2
+        var(--krds-form-check--button-size-#{$size}) - var(
+            --krds-form-check--checkbox-check-size-#{$size}
+          )
+      ) /
+      2
   );
   @include svg-icon(
     $size: var(--krds-form-check--checkbox-check-size-#{$size}),

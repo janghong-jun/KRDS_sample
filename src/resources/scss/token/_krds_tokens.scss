@@ -371,12 +371,15 @@
   --krds-light-color-button-secondary-border: var(
     --krds-color-light-primary-50
   );
-  --krds-light-color-button-tertiary-fill: var(--krds-color-light-alpha-white0);
+  --krds-light-color-button-tertiary-fill: var(
+    --krds-color-light-alpha-white100
+  );
   --krds-light-color-button-tertiary-fill-hover: var(--krds-color-light-gray-5);
   --krds-light-color-button-tertiary-fill-pressed: var(
     --krds-color-light-gray-10
   );
   --krds-light-color-button-tertiary-border: var(--krds-color-light-gray-60);
+  --krds-light-color-button-tertiary-border: var(--krds-color-light-gray-30);
   --krds-light-color-button-disabled-fill: var(--krds-color-light-gray-20);
   --krds-light-color-button-text-fill-hover: var(
     --krds-color-light-secondary-5

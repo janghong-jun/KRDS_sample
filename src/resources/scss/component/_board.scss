@@ -1,6 +1,7 @@
 @use '../common/mixins/utils' as *;
 @use '../common/mixins/breakpoints' as *;
 @use '../common/mixins/icons' as *;
+@use '../common/path' as *;
 
 .board-wrap {
   display: flex;
@@ -128,6 +129,7 @@
 
 .comment {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: var(--krds-gap-7);
 
@@ -135,7 +137,8 @@
     display: flex;
     align-items: center;
     gap: var(--krds-gap-3);
-
+    flex-wrap: wrap;
+    justify-content: space-between;
     .title {
       font-size: var(--krds-pc-font-size-heading-medium);
       font-weight: var(--krds-font-weight-bold);
@@ -146,8 +149,15 @@
     }
     .count {
       font-size: var(--krds-pc-font-size-body-large);
+      margin-right: auto;
       @include size-medium {
         font-size: var(--krds-mobile-font-size-body-large);
+      }
+    }
+    .krds-check-area {
+      flex: none;
+      @include size-medium {
+        margin: 0;
       }
     }
   }
@@ -181,6 +191,7 @@
 
       .user-img {
         max-width: 8.4rem;
+        height: auto;
         flex: none;
         @include size-medium {
         }
@@ -193,7 +204,7 @@
   }
   &-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--krds-gap-7);
   }
@@ -201,6 +212,7 @@
   &-info {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: var(--krds-padding-4) calc(var(--krds-padding-4) * 2);
     .name {
       font-size: var(--krds-pc-font-size-body-medium);
@@ -209,24 +221,27 @@
       }
     }
     .date {
+    }
+    > span {
+      position: relative;
       font-size: var(--krds-pc-font-size-label-xsmall);
       @include size-medium {
         font-size: var(--krds-mobile-font-size-label-xsmall);
       }
-    }
-    > span {
       color: #6c7277;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: calc(-1 * var(--krds-padding-4));
+        width: 0.1rem;
+        height: 1.2rem;
+        background-color: var(--krds-light-color-divider-gray);
+        transform: translateY(-50%);
+      }
       & + span {
-        position: relative;
         &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: calc(-1 * var(--krds-padding-4));
-          width: 0.1rem;
-          height: 1.2rem;
-          background-color: var(--krds-light-color-divider-gray);
-          transform: translateY(-50%);
+          display: none;
         }
       }
     }
@@ -259,7 +274,7 @@
     margin-top: var(--krds-gap-8);
     text-align: center;
 
-    .krds-btn.tertiary {
+    > .krds-btn.tertiary {
       width: 12rem;
       margin-top: var(--krds-gap-6);
       background-color: var(--krds-light-color-background-white);
@@ -269,6 +284,74 @@
       }
       &:hover {
         background-color: var(--krds-button--color-tertiary-fill-hover);
+      }
+    }
+
+    .comment-utill {
+      display: flex;
+      margin-top: 1.2rem;
+      gap: var(--krds-padding-4) var(--krds-padding-7);
+
+      flex-wrap: wrap;
+      &-title {
+        font-size: var(--krds-pc-font-size-body-medium);
+        font-weight: var(--krds-font-weight-regular);
+        color: var(--krds-light-color-text-basic);
+        opacity: 0.8;
+      }
+      .krds-check-area {
+        input[type='radio'] {
+          &:checked {
+            ~ label {
+              span {
+                .svg-icon {
+                  background-image: url(#{$url}/img/component/icon/ico_star_on.svg);
+                }
+              }
+            }
+          }
+        }
+        label {
+          span {
+            display: flex;
+            margin-top: 0.15rem;
+            align-items: center;
+            gap: var(--krds-gap-1);
+          }
+        }
+      }
+      .krds-btns-wrap {
+        margin-left: auto;
+        width: auto;
+        &.right {
+          width: 100%;
+        }
+        .krds-btn {
+          min-width: inherit;
+          gap: 0.4rem;
+        }
+      }
+    }
+  }
+
+  &.type02 {
+    .comment-top {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: var(--krds-gap-3) var(--krds-gap-7);
+    }
+    .comment-list {
+      .krds-btns-wrap {
+        margin-top: calc(-1 * var(--krds-gap-5));
+        .krds-btn {
+          min-width: inherit;
+        }
+      }
+    }
+    & + .krds-btns-wrap {
+      margin-top: var(--krds-gap-8);
+      .krds-btn {
+        width: 16.8rem;
       }
     }
   }

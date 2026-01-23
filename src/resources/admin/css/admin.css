@@ -70,6 +70,16 @@ body {
 p.note {
   margin-top: 1rem;
 }
+p.note.star {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  color: #757575;
+  &::before {
+    content: '*';
+    flex: none;
+  }
+}
 
 .ico-req::after {
   content: '*';
@@ -731,6 +741,9 @@ footer {
   min-height: 3rem;
   padding: 0 1.2rem;
 }
+.tbl-btns.type-small .btn + .btn {
+  margin-left: 0;
+}
 .tbl-btns.type-small .radio-btn {
   color: #222;
   border: 0.1rem solid #222;
@@ -894,6 +907,10 @@ footer {
   width: 6rem;
   color: #74757e;
   font-weight: 500;
+  flex: none;
+}
+.frm-area.type2 .type-small {
+  flex: none;
 }
 .frm-area.type2 .frm-area {
   display: inline-block;
@@ -1211,6 +1228,11 @@ footer {
   position: relative;
   display: flex;
 }
+.frm-area.gap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
 .file-btn {
   width: 9.6rem;
   height: 4rem;
@@ -1338,7 +1360,22 @@ footer {
   flex: none;
   width: 5rem;
 }
-
+.flex-box.left {
+  justify-content: flex-start;
+}
+.flex-box.right {
+  justify-content: flex-end;
+}
+.upload-grid {
+  display: grid;
+  gap: 0.8rem;
+  align-items: center;
+  grid-template-columns: auto 12.2rem;
+  text-align: left;
+}
+.upload-grid .tbl-btns {
+  justify-content: center;
+}
 .menu {
   display: none;
 }
@@ -1728,7 +1765,7 @@ footer {
   counter-increment: index;
   content: counters(index, '.') '.';
   position: absolute;
-  top: 50%;
+  top: 1.4rem;
   left: 0;
   width: 3rem;
 }
@@ -2017,11 +2054,11 @@ td.color-type03 {
     border-radius: 0;
   }
   .main-wrap .sub-nav.is-active + .main-conts {
-    padding-left: 14.5rem;
+    padding-left: 20rem;
   }
-  .main-wrap .sub-nav > ul > li > a {
+  /* .main-wrap .sub-nav > ul > li > a {
     width: 13rem;
-  }
+  } */
   .main-wrap {
     padding: 8rem 1.5rem 5rem;
   }
@@ -2044,7 +2081,7 @@ td.color-type03 {
   }
 
   .menu.open {
-    left: 13.8rem;
+    left: 20rem;
     background-color: #f7f8f8;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 6l-6 6 6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-size: 2.4rem;

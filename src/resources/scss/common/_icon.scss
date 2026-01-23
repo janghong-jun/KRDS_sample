@@ -306,6 +306,12 @@
     @include icon-set(ico_edit);
     background-color: var(--krds-color-light-gray-80);
   }
+  &.ico-edit2 {
+    @include icon-set(ico_edit2);
+    background-color: var(--krds-color-light-gray-50) !important;
+    width: 2rem !important;
+    height: 2rem !important;
+  }
   &.ico-delete2 {
     @include icon-set(ico_delete2);
     background-color: var(--krds-color-light-gray-80);
@@ -337,6 +343,33 @@
     @include icon-set(ico_expand_more, pure);
     width: 2rem !important;
     height: 2rem !important;
+  }
+  &.ico-play {
+    @include icon-set(ico_play, pure);
+    width: 8.1rem !important;
+    height: 8.1rem !important;
+  }
+  &.ico-star-on {
+    @include icon-set(ico_star_on, pure);
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+  &.ico-star-off {
+    @include icon-set(ico_star_off, pure);
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+  &.ico-emergency {
+    @include icon-set(ico_emergency);
+    background-color: var(--krds-color-light-gray-50) !important;
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+  &.ico-system-warning {
+    @include icon-set(ico_system_warning);
+    background-color: var(--krds-color-light-gray-50) !important;
+    width: 1.6rem !important;
+    height: 1.6rem !important;
   }
 }
 .icon-wrap {

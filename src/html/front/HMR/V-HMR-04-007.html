@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../../components/_skip.html" -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <main id="container">
+        <div class="inner">
+          <button
+            type="button"
+            class="krds-btn open-modal"
+            data-target="V-HMR-04-007"
+          >
+            모달 열기
+          </button>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+  </body>
+  <section id="V-HMR-04-007" class="krds-modal fade" role="dialog">
+    <div class="modal-dialog modal-lg viewer">
+      <div class="modal-content">
+        <!-- modal contents -->
+        <div class="modal-conts"></div>
+        <!-- //modal contents -->
+        <!-- close button -->
+        <button
+          type="button"
+          class="krds-btn medium icon btn-close close-modal"
+        >
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+        <!-- //close button -->
+      </div>
+    </div>
+    <div class="modal-back"></div>
+  </section>
+  <script>
+    krds_modal.openModal('V-HMR-04-007');
+  </script>
+</html>
