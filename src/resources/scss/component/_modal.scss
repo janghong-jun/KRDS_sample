@@ -5,62 +5,54 @@
 /* 모달 */
 //사이즈 정의
 @mixin modal-size-variable() {
-  --krds-modal--size-xlarge: 100rem;
-  --krds-modal--size-large: 80rem;
-  --krds-modal--size-medium: 56rem;
-  --krds-modal--size-small: 40rem;
-  --krds-modal--size-min-height: 26.4rem;
-  --krds-modal--wrap-radius: var(--krds-radius-xlarge1);
-  --krds-modal--padding: var(--krds-padding-10);
-  --krds-modal--header-padding-top: var(--krds-number-17);
-  --krds-modal--header-pc-font-size: var(--krds-pc-font-size-heading-medium);
-  --krds-modal--header-mobile-font-size: var(
-    --krds-mobile-font-size-heading-medium
-  );
-  --krds-modal--conts-padding-top: var(--krds-padding-6);
-  --krds-modal--conts-padding-bottom: var(--krds-padding-3);
-  --krds-modal--conts-gap: var(--krds-gap-5);
-  --krds-modal--btn-gap: var(--krds-gap-3);
-  --krds-modal--btn-padding-top: var(--krds-padding-6);
-  --krds-modal--btn-size-min-wdith: 12rem;
-  --krds-modal--btn-close-position: var(--krds-gap-7);
+  --modal--size-xlarge: 100rem;
+  --modal--size-large: 80rem;
+  --modal--size-medium: 56rem;
+  --modal--size-small: 40rem;
+  --modal--size-min-height: 26.4rem;
+  --modal--wrap-radius: var(--radius-xlarge1);
+  --modal--padding: var(--padding-10);
+  --modal--header-padding-top: var(--number-17);
+  --modal--header-pc-font-size: var(--pc-font-size-heading-medium);
+  --modal--header-mobile-font-size: var(--mobile-font-size-heading-medium);
+  --modal--conts-padding-top: var(--padding-6);
+  --modal--conts-padding-bottom: var(--padding-3);
+  --modal--conts-gap: var(--gap-5);
+  --modal--btn-gap: var(--gap-3);
+  --modal--btn-padding-top: var(--padding-6);
+  --modal--btn-size-min-wdith: 12rem;
+  --modal--btn-close-position: var(--gap-7);
 
   //mobile
-  --krds-modal--mobile-gap: var(--krds-gap-7);
-  --krds-modal--mobile-width: calc(100% - var(--krds-gap-7));
-  --krds-modal--mobile-height: calc(100% - var(--krds-modal--mobile-gap) * 2);
-  --krds-modal--mobile-padding: var(--krds-padding-8);
-  --krds-modal--mobile-header-padding-top: 5.2rem;
-  --krds-modal--mobile-btn-close-position: var(--krds-gap-6);
-  --krds-modal--mobile-btn-padding-top: var(--krds-padding-6);
-  --krds-modal--mobile-btn-padding-bottom: var(--krds-padding-8);
+  --modal--mobile-gap: var(--gap-7);
+  --modal--mobile-width: calc(100% - var(--gap-7));
+  --modal--mobile-height: calc(100% - var(--modal--mobile-gap) * 2);
+  --modal--mobile-padding: var(--padding-8);
+  --modal--mobile-header-padding-top: 5.2rem;
+  --modal--mobile-btn-close-position: var(--gap-6);
+  --modal--mobile-btn-padding-top: var(--padding-6);
+  --modal--mobile-btn-padding-bottom: var(--padding-8);
 }
 
 //컬러 정의
 @mixin modal-color-variable($mode: light) {
-  --krds-modal--border-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-modal--color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-modal--wrap-color-surface: var(
-    --krds-#{$mode}-color-surface-white-subtler
-  );
-  --krds-modal--wrap-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-modal--wrap-shadow:
-    0 0 0.2rem 0 var(--krds-#{$mode}-color-alpha-shadow2),
-    0 1.6rem 2.4rem 0 var(--krds-#{$mode}-color-alpha-shadow3);
-  --krds-modal--color-dim: var(--krds-#{$mode}-color-background-dim);
-  --krds-modal--full-popup-surface: var(
-    --krds-#{$mode}-color-surface-secondary-subtler
-  );
+  --modal--border-width: var(--#{$mode}-border-width-variable-regular);
+  --modal--color-text: var(--#{$mode}-color-text-basic);
+  --modal--wrap-color-surface: var(--#{$mode}-color-surface-white-subtler);
+  --modal--wrap-color-border: var(--#{$mode}-color-border-gray);
+  --modal--wrap-shadow:
+    0 0 0.2rem 0 var(--#{$mode}-color-alpha-shadow2),
+    0 1.6rem 2.4rem 0 var(--#{$mode}-color-alpha-shadow3);
+  --modal--color-dim: var(--#{$mode}-color-background-dim);
+  --modal--full-popup-surface: var(--#{$mode}-color-surface-secondary-subtler);
 }
 
 //modal size
 $modal-size: (
-  sm: var(--krds-modal--size-small),
-  md: var(--krds-modal--size-medium),
-  lg: var(--krds-modal--size-large),
-  xlg: var(--krds-modal--size-xlarge),
+  sm: var(--modal--size-small),
+  md: var(--modal--size-medium),
+  lg: var(--modal--size-large),
+  xlg: var(--modal--size-xlarge),
 ) !default;
 
 //modal default css
@@ -109,10 +101,10 @@ $mode-setting: light;
     .modal-dialog {
       width: 56rem;
       .modal-conts {
-        padding: var(--krds-modal--padding) var(--krds-modal--padding)
-          var(--krds-modal--btn-padding-top) var(--krds-modal--padding);
-        font-size: var(--krds-pc-font-size-body-large);
-        color: var(--krds-color-light-gray-90);
+        padding: var(--modal--padding) var(--modal--padding)
+          var(--modal--btn-padding-top) var(--modal--padding);
+        font-size: var(--pc-font-size-body-large);
+        color: var(--color-light-gray-90);
       }
       .modal-btn {
         justify-content: center;
@@ -131,7 +123,7 @@ $mode-setting: light;
     left: 0;
     visibility: hidden;
     z-index: -1;
-    background-color: var(--krds-modal--color-dim);
+    background-color: var(--modal--color-dim);
     &.in {
       display: block;
       z-index: 1000;
@@ -145,9 +137,9 @@ $mode-setting: light;
     position: relative;
     z-index: 1020;
     width: 100%;
-    max-width: var(--krds-modal--size-medium);
+    max-width: var(--modal--size-medium);
     height: 100%;
-    min-height: var(--krds-modal--size-min-height);
+    min-height: var(--modal--size-min-height);
     margin: 0 auto;
 
     //modal size
@@ -161,14 +153,13 @@ $mode-setting: light;
       position: relative;
       width: 100%;
       max-height: 80%;
-      background-color: var(--krds-modal--wrap-color-surface);
-      border-radius: var(--krds-modal--wrap-radius);
-      border: var(--krds-modal--border-width) solid
-        var(--krds-modal--wrap-color-border);
-      color: var(--krds-modal--color-text);
+      background-color: var(--modal--wrap-color-surface);
+      border-radius: var(--modal--wrap-radius);
+      border: var(--modal--border-width) solid var(--modal--wrap-color-border);
+      color: var(--modal--color-text);
       outline-color: transparent;
       transition: outline-color 0.1s;
-      box-shadow: var(--krds-modal--wrap-shadow);
+      box-shadow: var(--modal--wrap-shadow);
 
       > *:not(.btn-close) {
         width: 100%;
@@ -176,7 +167,7 @@ $mode-setting: light;
       &:focus {
         @include focus(
           $offset: 0.4rem,
-          $color: var(--krds-modal--wrap-color-surface),
+          $color: var(--modal--wrap-color-surface),
           $alpha: 0.9
         );
       }
@@ -186,12 +177,12 @@ $mode-setting: light;
       background-color: inherit;
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
-      padding-top: var(--krds-modal--header-padding-top);
-      padding-inline: var(--krds-modal--padding);
+      padding-top: var(--modal--header-padding-top);
+      padding-inline: var(--modal--padding);
       .modal-title {
         @include ellipsis(1);
-        font-size: var(--krds-modal--header-pc-font-size);
-        font-weight: var(--krds-font-weight-bold);
+        font-size: var(--modal--header-pc-font-size);
+        font-weight: var(--font-weight-bold);
       }
     }
     .modal-conts {
@@ -199,15 +190,15 @@ $mode-setting: light;
       position: relative;
       overflow-y: auto;
       width: 100%;
-      padding: var(--krds-modal--conts-padding-top) var(--krds-modal--padding)
-        var(--krds-modal--conts-padding-bottom);
+      padding: var(--modal--conts-padding-top) var(--modal--padding)
+        var(--modal--conts-padding-bottom);
       @include scrollbar();
       > * {
         width: 100%;
       }
       .conts-area {
         @include flex-layout($fd: column);
-        gap: var(--krds-modal--conts-gap);
+        gap: var(--modal--conts-gap);
         > * {
           width: 100%;
         }
@@ -215,11 +206,11 @@ $mode-setting: light;
     }
     .modal-btn {
       @include flex-layout($ai: center, $jc: center);
-      gap: var(--krds-modal--btn-gap);
-      padding: var(--krds-modal--btn-padding-top) var(--krds-modal--padding)
-        var(--krds-modal--padding);
+      gap: var(--modal--btn-gap);
+      padding: var(--modal--btn-padding-top) var(--modal--padding)
+        var(--modal--padding);
       .krds-btn {
-        min-width: var(--krds-modal--btn-size-min-wdith);
+        min-width: var(--modal--btn-size-min-wdith);
       }
       &.multi-conts {
         justify-content: space-between;
@@ -227,14 +218,14 @@ $mode-setting: light;
     }
     .btn-close {
       @include position(
-        $t: var(--krds-modal--btn-close-position),
-        $r: var(--krds-modal--btn-close-position)
+        $t: var(--modal--btn-close-position),
+        $r: var(--modal--btn-close-position)
       );
       z-index: 901;
     }
     &:not(:has(.modal-btn)) {
       .modal-conts {
-        margin-bottom: var(--krds-modal--padding);
+        margin-bottom: var(--modal--padding);
       }
     }
     &.viewer {
@@ -250,14 +241,14 @@ $mode-setting: light;
     transform: translate(-50%, -50%);
   }
   .krds-tab-area {
-    gap: var(--krds-padding-8);
+    gap: var(--padding-8);
   }
   .g-search-area {
-    margin-bottom: var(--krds-padding-8);
+    margin-bottom: var(--padding-8);
   }
   //full 팝업(통합검색, 관련기관링크)
   &[data-type='full'] {
-    background-color: var(--krds-modal--full-popup-surface);
+    background-color: var(--modal--full-popup-surface);
     .modal-dialog {
       width: 100%;
       height: 100%;
@@ -284,47 +275,46 @@ $mode-setting: light;
 
   //바텀시트(모바일만 사용)
   &[data-type='bottom-sheet'] {
-    --krds-modal--bottom-sheet-radius: var(--krds-radius-xlarge1);
-    --krds-modal--bottom-sheet-padding: var(--krds-padding-6);
-    --krds-modal--bottom-sheet-btn-close-position-top: var(--krds-gap-6);
-    --krds-modal--bottom-sheet-btn-close-position-right: var(--krds-gap-5);
-    --krds-modal--bottom-sheet-btn-padding-top: var(--krds-padding-10);
+    --modal--bottom-sheet-radius: var(--radius-xlarge1);
+    --modal--bottom-sheet-padding: var(--padding-6);
+    --modal--bottom-sheet-btn-close-position-top: var(--gap-6);
+    --modal--bottom-sheet-btn-close-position-right: var(--gap-5);
+    --modal--bottom-sheet-btn-padding-top: var(--padding-10);
 
     .modal-content {
       position: fixed;
       left: 0;
       bottom: -100%;
       border-radius: 0;
-      border-top-left-radius: var(--krds-modal--bottom-sheet-radius);
-      border-top-right-radius: var(--krds-modal--bottom-sheet-radius);
+      border-top-left-radius: var(--modal--bottom-sheet-radius);
+      border-top-right-radius: var(--modal--bottom-sheet-radius);
       max-height: 90%;
-      transition: var(--krds-transition-base);
+      transition: var(--transition-base);
     }
     .modal-header {
       @include flex-layout($ai: center, $jc: space-between);
-      padding: var(--krds-modal--bottom-sheet-padding);
+      padding: var(--modal--bottom-sheet-padding);
       flex-shrink: 0;
       .modal-title {
-        font-size: var(--krds-pc-font-size-heading-small);
+        font-size: var(--pc-font-size-heading-small);
       }
     }
     .modal-conts {
       display: block;
-      padding: 0 var(--krds-modal--bottom-sheet-padding);
+      padding: 0 var(--modal--bottom-sheet-padding);
       @include scrollbar;
     }
     .btn-close {
-      top: var(--krds-modal--bottom-sheet-btn-close-position-top);
-      right: var(--krds-modal--bottom-sheet-btn-close-position-right);
+      top: var(--modal--bottom-sheet-btn-close-position-top);
+      right: var(--modal--bottom-sheet-btn-close-position-right);
     }
     .pop-filter-top {
       width: auto;
     }
     .modal-btn {
       &.btn-wrap {
-        padding: var(--krds-modal--bottom-sheet-btn-padding-top)
-          var(--krds-modal--bottom-sheet-padding)
-          var(--krds-modal--bottom-sheet-padding);
+        padding: var(--modal--bottom-sheet-btn-padding-top)
+          var(--modal--bottom-sheet-padding) var(--modal--bottom-sheet-padding);
         .krds-btn {
           flex: 1;
         }
@@ -344,46 +334,43 @@ $mode-setting: light;
     &:not([data-type='bottom-sheet']) {
       //기본 스타일(bottom-sheet제외)
       .modal-dialog {
-        width: var(--krds-modal--mobile-width);
-        height: var(--krds-modal--mobile-height);
-        min-height: var(--krds-modal--mobile-height);
-        margin: var(--krds-modal--mobile-gap) auto;
+        width: var(--modal--mobile-width);
+        height: var(--modal--mobile-height);
+        min-height: var(--modal--mobile-height);
+        margin: var(--modal--mobile-gap) auto;
         .modal-header {
-          padding: var(--krds-modal--mobile-header-padding-top)
-            var(--krds-modal--mobile-padding) 0;
+          padding: var(--modal--mobile-header-padding-top)
+            var(--modal--mobile-padding) 0;
           .modal-title {
-            font-size: var(--krds-modal--header-mobile-font-size);
+            font-size: var(--modal--header-mobile-font-size);
           }
         }
         .modal-content {
           max-height: 100%;
         }
         .modal-conts {
-          padding-inline: var(--krds-modal--mobile-padding);
+          padding-inline: var(--modal--mobile-padding);
           padding-bottom: 0;
           .conts-area {
             > * {
               width: 100%;
             }
             .krds-table-wrap {
-              width: calc(
-                100vw - (var(--krds-contents-padding-x) * 2) - 4.8rem
-              );
+              width: calc(100vw - (var(--contents-padding-x) * 2) - 4.8rem);
             }
           }
         }
         .modal-btn {
-          padding: var(--krds-modal--mobile-btn-padding-top)
-            var(--krds-modal--mobile-padding)
-            var(--krds-modal--mobile-btn-padding-bottom);
+          padding: var(--modal--mobile-btn-padding-top)
+            var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
         }
         .btn-close {
-          top: var(--krds-modal--mobile-btn-close-position);
-          right: var(--krds-modal--mobile-btn-close-position);
+          top: var(--modal--mobile-btn-close-position);
+          right: var(--modal--mobile-btn-close-position);
         }
         &:not(:has(.modal-btn)) {
           .modal-conts {
-            margin-bottom: var(--krds-modal--mobile-btn-padding-bottom);
+            margin-bottom: var(--modal--mobile-btn-padding-bottom);
           }
         }
       }
@@ -391,14 +378,14 @@ $mode-setting: light;
 
     //풀팝업
     &[data-type='full'] {
-      --krds-modal--full-mobile-btn-close-size: var(--krds-size-height-4);
+      --modal--full-mobile-btn-close-size: var(--size-height-4);
 
       .modal-dialog {
         width: 100%;
         height: 100%;
         margin: 0 auto;
         .btn-close {
-          @include square(var(--krds-modal--full-mobile-btn-close-size));
+          @include square(var(--modal--full-mobile-btn-close-size));
         }
       }
     }

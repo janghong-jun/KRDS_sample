@@ -5,86 +5,80 @@
 /* 배지 */
 //사이즈 정의
 @mixin badge-size-variable() {
-  --krds-badge--size-height: var(--krds-size-height-4);
-  --krds-badge--line-height: 2.4rem;
-  --krds-badge--padding: var(--krds-padding-3);
-  --krds-badge--radius: var(--krds-radius-small2);
-  --krds-badge--radius-max: var(--krds-radius-max);
-  --krds-badge--dot-size: 0.6rem;
-  --krds-badge--dot-padding: 0;
-  --krds-badge--number-size-height: var(--krds-size-height-3);
-  --krds-badge--pc-font-size: var(--krds-pc-font-size-label-small);
-  --krds-badge--mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --krds-badge--pc-font-size-large: var(--krds-pc-font-size-label-medium);
-  --krds-badge--mobile-font-size-large: var(
-    --krds-mobile-font-size-label-medium
-  );
-  --krds-badge--size-height-large: var(--krds-size-height-5);
+  --badge--size-height: var(--size-height-4);
+  --badge--line-height: 2.4rem;
+  --badge--padding: var(--padding-3);
+  --badge--radius: var(--radius-small2);
+  --badge--radius-max: var(--radius-max);
+  --badge--dot-size: 0.6rem;
+  --badge--dot-padding: 0;
+  --badge--number-size-height: var(--size-height-3);
+  --badge--pc-font-size: var(--pc-font-size-label-small);
+  --badge--mobile-font-size: var(--mobile-font-size-label-small);
+  --badge--pc-font-size-large: var(--pc-font-size-label-medium);
+  --badge--mobile-font-size-large: var(--mobile-font-size-label-medium);
+  --badge--size-height-large: var(--size-height-5);
 }
 //컬러 정의
 @mixin badge-color-variable($mode) {
   //컬러 변수 배열 생성
   $badge-color-variable: (
     primary: (
-      element: var(--krds-#{$mode}-color-element-primary),
-      element-lighter: var(--krds-#{$mode}-color-element-primary-lighter),
-      text: var(--krds-#{$mode}-color-text-primary),
+      element: var(--#{$mode}-color-element-primary),
+      element-lighter: var(--#{$mode}-color-element-primary-lighter),
+      text: var(--#{$mode}-color-text-primary),
     ),
     secondary: (
-      element: var(--krds-#{$mode}-color-element-secondary),
-      element-lighter: var(--krds-#{$mode}-color-element-secondary-lighter),
-      text: var(--krds-#{$mode}-color-text-secondary),
+      element: var(--#{$mode}-color-element-secondary),
+      element-lighter: var(--#{$mode}-color-element-secondary-lighter),
+      text: var(--#{$mode}-color-text-secondary),
     ),
     gray: (
-      element: var(--krds-#{$mode}-color-element-gray),
-      element-lighter: var(--krds-#{$mode}-color-element-gray-light),
-      text: var(--krds-#{$mode}-color-text-subtle),
+      element: var(--#{$mode}-color-element-gray),
+      element-lighter: var(--#{$mode}-color-element-gray-light),
+      text: var(--#{$mode}-color-text-subtle),
     ),
     point: (
-      element: var(--krds-#{$mode}-color-element-point),
-      element-lighter: var(--krds-#{$mode}-color-element-point-lighter),
-      text: var(--krds-#{$mode}-color-text-point),
+      element: var(--#{$mode}-color-element-point),
+      element-lighter: var(--#{$mode}-color-element-point-lighter),
+      text: var(--#{$mode}-color-text-point),
     ),
     danger: (
-      element: var(--krds-#{$mode}-color-element-danger),
-      element-lighter: var(--krds-#{$mode}-color-element-danger-lighter),
-      text: var(--krds-#{$mode}-color-text-danger),
+      element: var(--#{$mode}-color-element-danger),
+      element-lighter: var(--#{$mode}-color-element-danger-lighter),
+      text: var(--#{$mode}-color-text-danger),
     ),
     warning: (
-      element: var(--krds-#{$mode}-color-element-warning),
-      element-lighter: var(--krds-#{$mode}-color-element-warning-lighter),
-      text: var(--krds-#{$mode}-color-text-warning),
+      element: var(--#{$mode}-color-element-warning),
+      element-lighter: var(--#{$mode}-color-element-warning-lighter),
+      text: var(--#{$mode}-color-text-warning),
     ),
     success: (
-      element: var(--krds-#{$mode}-color-element-success),
-      element-lighter: var(--krds-#{$mode}-color-element-success-lighter),
-      text: var(--krds-#{$mode}-color-text-success),
+      element: var(--#{$mode}-color-element-success),
+      element-lighter: var(--#{$mode}-color-element-success-lighter),
+      text: var(--#{$mode}-color-text-success),
     ),
     information: (
-      element: var(--krds-#{$mode}-color-element-information),
-      element-lighter: var(--krds-#{$mode}-color-element-information-lighter),
-      text: var(--krds-#{$mode}-color-text-information),
+      element: var(--#{$mode}-color-element-information),
+      element-lighter: var(--#{$mode}-color-element-information-lighter),
+      text: var(--#{$mode}-color-text-information),
     ),
     disabled: (
-      element: var(--krds-#{$mode}-color-element-disabled-dark),
-      element-lighter: var(--krds-#{$mode}-color-element-disabled-light),
-      text: var(--krds-#{$mode}-color-text-disabled-on),
+      element: var(--#{$mode}-color-element-disabled-dark),
+      element-lighter: var(--#{$mode}-color-element-disabled-light),
+      text: var(--#{$mode}-color-text-disabled-on),
     ),
   ) !default;
 
   //css variable 생성
   @each $color, $types in $badge-color-variable {
     @each $type, $value in $types {
-      --krds-badge--color-#{"#{$color}"}-#{$type}: #{$value};
+      --badge--color-#{"#{$color}"}-#{$type}: #{$value};
     }
   }
-  --krds-badge--color-background-basic: var(
-    --krds-#{$mode}-color-background-white
-  );
-  --krds-badge--color-text-basic: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
-  --krds-badge--color-text-warning: var(--krds-#{$mode}-color-text-static);
+  --badge--color-background-basic: var(--#{$mode}-color-background-white);
+  --badge--color-text-basic: var(--#{$mode}-color-text-inverse-static);
+  --badge--color-text-warning: var(--#{$mode}-color-text-static);
 
   //class 정의
   & {
@@ -96,7 +90,7 @@
 
       &.bg-#{'#{$color}'} {
         @include color-background(#{$color});
-        color: var(--krds-badge--color-text-basic);
+        color: var(--badge--color-text-basic);
       }
 
       &.bg-light-#{'#{$color}'} {
@@ -107,7 +101,7 @@
   }
   //warning text color
   &.bg-warning {
-    color: var(--krds-badge--color-text-warning);
+    color: var(--badge--color-text-warning);
   }
 }
 
@@ -117,25 +111,25 @@
   border-style: solid;
 
   @if ($color == 'primary') {
-    border-color: var(--krds-badge--color-primary-element);
+    border-color: var(--badge--color-primary-element);
   } @else {
-    border-color: var(--krds-badge--#{$mode}-color-#{$color}-element);
+    border-color: var(--badge--#{$mode}-color-#{$color}-element);
   }
 }
 
 //badge color text
 @mixin color-text($color) {
-  color: var(--krds-badge--color-#{$color}-text);
+  color: var(--badge--color-#{$color}-text);
 }
 
 //badge color background
 @mixin color-background($color) {
-  background-color: var(--krds-badge--color-#{$color}-element);
+  background-color: var(--badge--color-#{$color}-element);
 }
 
 //badge color background light
 @mixin color-background-light($color) {
-  background-color: var(--krds-badge--color-#{$color}-element-lighter);
+  background-color: var(--badge--color-#{$color}-element-lighter);
 }
 
 //모드 설정
@@ -147,40 +141,40 @@ $mode-setting: light;
   @include badge-color-variable(#{$mode-setting});
 
   & {
-    height: var(--krds-badge--size-height);
-    line-height: var(--krds-badge--line-height);
-    font-size: var(--krds-badge--pc-font-size);
-    font-weight: var(--krds-font-weight-regular);
-    padding: 0 var(--krds-badge--padding);
-    border-radius: var(--krds-badge--radius);
+    height: var(--badge--size-height);
+    line-height: var(--badge--line-height);
+    font-size: var(--badge--pc-font-size);
+    font-weight: var(--font-weight-regular);
+    padding: 0 var(--badge--padding);
+    border-radius: var(--badge--radius);
 
     @include size-medium {
-      font-size: var(--krds-badge--mobile-font-size);
+      font-size: var(--badge--mobile-font-size);
     }
   }
 
   &.large {
-    height: var(--krds-badge--size-height-large);
-    font-size: var(--krds-badge--pc-font-size-large);
+    height: var(--badge--size-height-large);
+    font-size: var(--badge--pc-font-size-large);
     @include size-medium {
-      font-size: var(--krds-badge--mobile-font-size);
+      font-size: var(--badge--mobile-font-size);
     }
   }
   &.number {
-    height: var(--krds-badge--number-size-height);
-    border-radius: var(--krds-badge--radius-max);
+    height: var(--badge--number-size-height);
+    border-radius: var(--badge--radius-max);
   }
   &.dot {
-    @include square(var(--krds-badge--dot-size));
-    padding: var(--krds-badge--dot-padding);
-    border-radius: var(--krds-badge--radius-max);
+    @include square(var(--badge--dot-size));
+    padding: var(--badge--dot-padding);
+    border-radius: var(--badge--radius-max);
   }
 }
 .krds-badge-wrap {
-  --krds-badge--wrap-gap: var(--krds-gap-3);
+  --badge--wrap-gap: var(--gap-3);
 
   display: flex;
-  gap: var(--krds-badge--wrap-gap);
+  gap: var(--badge--wrap-gap);
 }
 
 //고대비모드

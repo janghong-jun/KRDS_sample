@@ -5,22 +5,22 @@
 /* 디스클로저 */
 //사이즈 정의
 @mixin disclosure-size-variable() {
-  --krds-disclosure--gap: 1.4rem;
-  --krds-disclosure--button-icon-size: var(--krds-icon--size-medium);
-  --krds-disclosure--button-size-height: 2.6rem;
-  --krds-disclosure--button-gap: var(--krds-gap-2);
-  --krds-disclosure--button-pc-font-size: var(--krds-pc-font-size-body-medium);
-  --krds-disclosure--button-mobile-font-size: var(--krds-mobile-font-size-body-medium);
-  --krds-disclosure--pc-expand-padding: var(--krds-pc-padding-card-small);
-  --krds-disclosure--mobile-expand-padding: var(--krds-mobile-padding-card-small);
-  --krds-disclosure--expand-margin-top: var(--krds-gap-2);
-  --krds-disclosure--expand-radius: var(--krds-radius-xlarge2);
+  --disclosure--gap: 1.4rem;
+  --disclosure--button-icon-size: var(--icon--size-medium);
+  --disclosure--button-size-height: 2.6rem;
+  --disclosure--button-gap: var(--gap-2);
+  --disclosure--button-pc-font-size: var(--pc-font-size-body-medium);
+  --disclosure--button-mobile-font-size: var(--mobile-font-size-body-medium);
+  --disclosure--pc-expand-padding: var(--pc-padding-card-small);
+  --disclosure--mobile-expand-padding: var(--mobile-padding-card-small);
+  --disclosure--expand-margin-top: var(--gap-2);
+  --disclosure--expand-radius: var(--radius-xlarge2);
 }
 
 //컬러 정의
 @mixin disclosure-color-variable($mode: light) {
-  --krds-disclosure--button-color-text: var(--krds-#{$mode}-color-text-bolder);
-  --krds-disclosure--expand-color-surface: var(--krds-#{$mode}-color-surface-gray-subtle);
+  --disclosure--button-color-text: var(--#{$mode}-color-text-bolder);
+  --disclosure--expand-color-surface: var(--#{$mode}-color-surface-gray-subtle);
 }
 
 //모드 설정
@@ -32,21 +32,24 @@ $mode-setting: light;
   width: 100%;
 
   & ~ .krds-disclosure {
-    margin-top: var(--krds-disclosure--gap); //pattern 간격 적용
+    margin-top: var(--disclosure--gap); //pattern 간격 적용
   }
 
   .btn-conts-expand {
     @include flex-layout($ai: center);
-    height: var(--krds-disclosure--button-size-height);
-    font-size: var(--krds-disclosure--button-pc-font-size);
-    color: var(--krds-disclosure--button-color-text);
+    height: var(--disclosure--button-size-height);
+    font-size: var(--disclosure--button-pc-font-size);
+    color: var(--disclosure--button-color-text);
     &::before {
       display: inline-flex;
       @include pseudo();
-      @include svg-icon($size: var(--krds-disclosure--button-icon-size), $mode: #{$mode-setting});
+      @include svg-icon(
+        $size: var(--disclosure--button-icon-size),
+        $mode: #{$mode-setting}
+      );
       @include icon-set(ico_expand);
-      margin-right: var(--krds-disclosure--button-gap);
-      transition: var(--krds-transition-base);
+      margin-right: var(--disclosure--button-gap);
+      transition: var(--transition-base);
       transform: rotate(0);
       background-repeat: no-repeat;
       background-position: center;
@@ -63,10 +66,10 @@ $mode-setting: light;
       display: none;
     }
     .expand-in {
-      padding: var(--krds-disclosure--pc-expand-padding);
-      margin-top: var(--krds-disclosure--expand-margin-top);
-      background-color: var(--krds-disclosure--expand-color-surface);
-      border-radius: var(--krds-disclosure--expand-radius);
+      padding: var(--disclosure--pc-expand-padding);
+      margin-top: var(--disclosure--expand-margin-top);
+      background-color: var(--disclosure--expand-color-surface);
+      border-radius: var(--disclosure--expand-radius);
     }
   }
   &.active {
@@ -91,7 +94,10 @@ $mode-setting: light;
 
     .btn-conts-expand {
       &::before {
-        @include svg-icon($size: var(--krds-disclosure--button-icon-size), $mode: #{$mode-setting});
+        @include svg-icon(
+          $size: var(--disclosure--button-icon-size),
+          $mode: #{$mode-setting}
+        );
       }
     }
   }
@@ -100,11 +106,11 @@ $mode-setting: light;
 @include size-medium {
   .krds-disclosure {
     .btn-conts-expand {
-      font-size: var(--krds-disclosure--button-mobile-font-size);
+      font-size: var(--disclosure--button-mobile-font-size);
     }
     .expand-wrap {
       .expand-in {
-        padding: var(--krds-disclosure--mobile-expand-padding);
+        padding: var(--disclosure--mobile-expand-padding);
       }
     }
   }

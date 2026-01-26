@@ -6,64 +6,110 @@
 /* gnb pc */
 //사이즈 정의
 @mixin gnb-pc-size-variable() {
-  --krds-main-menu--main-trigger-size-height: var(--krds-size-height-8);
-  --krds-main-menu--main-trigger-padding-x: var(--krds-padding-6);
-  --krds-main-menu--main-trigger-font-size: var(--krds-pc-font-size-navigation-title-small);
-  --krds-main-menu--main-menu-width: 26.6rem;
-  --krds-main-menu--sub-trigger-padding-x: var(--krds-padding-8);
-  --krds-main-menu--sub-trigger-padding-y: var(--krds-padding-6);
-  --krds-main-menu--sub-trigger-font-size: var(--krds-pc-font-size-navigation-depth-medium);
-  --krds-main-menu--sub-trigger-font-size-active: var(--krds-pc-font-size-navigation-depth-medium-bold);
-  --krds-main-menu--sub-menu-padding-x: var(--krds-padding-10);
-  --krds-main-menu--sub-menu-padding-y: var(--krds-padding-6);
-  --krds-main-menu--sub-menu-title-size-height: var(--krds-size-height-8);
-  --krds-main-menu--sub-menu-title-padding-x: var(--krds-padding-2);
-  --krds-main-menu--sub-menu-title-radius: var(--krds-radius-medium3);
-  --krds-main-menu--sub-menu-title-font-size: var(--krds-pc-font-size-navigation-title-medium);
-  --krds-main-menu--sub-menu-trigger-color-padding-x: var(--krds-padding-3);
-  --krds-main-menu--sub-menu-trigger-color-padding-y: var(--krds-padding-4);
-  --krds-main-menu--sub-menu-trigger-color-radius: var(--krds-radius-medium2);
-  --krds-main-menu--sub-menu-trigger-color-font-size: var(--krds-pc-font-size-navigation-depth-medium);
-  --krds-main-menu--sub-menu-description-title-font-size: var(--krds-pc-font-size-navigation-title-small);
-  --krds-main-menu--sub-menu-description-title-padding: var(--krds-padding-2);
-  --krds-main-menu--sub-menu-description-title-radius: var(--krds-radius-medium1);
-  --krds-main-menu--sub-menu-description-description-color-padding-top: var(--krds-padding-6);
-  --krds-main-menu--sub-menu-description-description-color-padding-x: var(--krds-padding-2);
-  --krds-main-menu--sub-menu-description-description-color-font-size: var(--krds-pc-font-size-navigation-depth-medium);
-  --krds-main-menu--sub-menu-only-2depth-padding-y: var(--krds-padding-6);
-  --krds-main-menu--banner-padding-x: var(--krds-padding-6);
-  --krds-main-menu--banner-padding-y: var(--krds-padding-5);
-  --krds-main-menu--banner-radius: var(--krds-radius-medium3);
-  --krds-main-menu--column-banner-margin-x: var(--krds-padding-6);
-  --krds-main-menu--column-banner-padding: var(--krds-padding-8);
-  --krds-main-menu--column-banner-radius: var(--krds-radius-medium3);
+  --main-menu--main-trigger-size-height: var(--size-height-8);
+  --main-menu--main-trigger-padding-x: var(--padding-6);
+  --main-menu--main-trigger-font-size: var(
+    --pc-font-size-navigation-title-small
+  );
+  --main-menu--main-menu-width: 26.6rem;
+  --main-menu--sub-trigger-padding-x: var(--padding-8);
+  --main-menu--sub-trigger-padding-y: var(--padding-6);
+  --main-menu--sub-trigger-font-size: var(
+    --pc-font-size-navigation-depth-medium
+  );
+  --main-menu--sub-trigger-font-size-active: var(
+    --pc-font-size-navigation-depth-medium-bold
+  );
+  --main-menu--sub-menu-padding-x: var(--padding-10);
+  --main-menu--sub-menu-padding-y: var(--padding-6);
+  --main-menu--sub-menu-title-size-height: var(--size-height-8);
+  --main-menu--sub-menu-title-padding-x: var(--padding-2);
+  --main-menu--sub-menu-title-radius: var(--radius-medium3);
+  --main-menu--sub-menu-title-font-size: var(
+    --pc-font-size-navigation-title-medium
+  );
+  --main-menu--sub-menu-trigger-color-padding-x: var(--padding-3);
+  --main-menu--sub-menu-trigger-color-padding-y: var(--padding-4);
+  --main-menu--sub-menu-trigger-color-radius: var(--radius-medium2);
+  --main-menu--sub-menu-trigger-color-font-size: var(
+    --pc-font-size-navigation-depth-medium
+  );
+  --main-menu--sub-menu-description-title-font-size: var(
+    --pc-font-size-navigation-title-small
+  );
+  --main-menu--sub-menu-description-title-padding: var(--padding-2);
+  --main-menu--sub-menu-description-title-radius: var(--radius-medium1);
+  --main-menu--sub-menu-description-description-color-padding-top: var(
+    --padding-6
+  );
+  --main-menu--sub-menu-description-description-color-padding-x: var(
+    --padding-2
+  );
+  --main-menu--sub-menu-description-description-color-font-size: var(
+    --pc-font-size-navigation-depth-medium
+  );
+  --main-menu--sub-menu-only-2depth-padding-y: var(--padding-6);
+  --main-menu--banner-padding-x: var(--padding-6);
+  --main-menu--banner-padding-y: var(--padding-5);
+  --main-menu--banner-radius: var(--radius-medium3);
+  --main-menu--column-banner-margin-x: var(--padding-6);
+  --main-menu--column-banner-padding: var(--padding-8);
+  --main-menu--column-banner-radius: var(--radius-medium3);
 }
 
 //컬러 정의
 @mixin gnb-pc-color-variable($mode: light) {
-  --krds-main-menu--color-surface: var(--krds-#{$mode}-color-surface-white);
-  --krds-main-menu--color-border: var(--krds-#{$mode}-color-divider-gray-light);
-  --krds-main-menu--main-trigger-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-main-menu--main-trigger-color-text-active: var(--krds-#{$mode}-color-text-basic);
-  --krds-main-menu--main-trigger-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-main-menu--main-trigger-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
-  --krds-main-menu--main-trigger-color-border-selected: var(--krds-#{$mode}-color-action-secondary-active);
-  --krds-main-menu--toggle-color-surface: var(--krds-#{$mode}-color-surface-white-subtle);
-  --krds-main-menu--main-menu-color-surface: var(--krds-#{$mode}-color-surface-secondary-subtler);
-  --krds-main-menu--sub-trigger-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-main-menu--sub-trigger-color-text-selected: var(--krds-#{$mode}-color-text-secondary);
-  --krds-main-menu--sub-trigger-color-text-pressed: var(--krds-#{$mode}-color-text-basic);
-  --krds-main-menu--sub-trigger-color-action: var(--krds-#{$mode}-color-action-secondary-on);
-  --krds-main-menu--sub-trigger-color-action-selected: var(--krds-#{$mode}-color-action-secondary-on-selected);
-  --krds-main-menu--sub-trigger-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-on-pressed);
-  --krds-main-menu--sub-menu-color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-main-menu--sub-menu-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-main-menu--sub-menu-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
-  --krds-main-menu--sub-menu-trigger-color-action-selected: var(--krds-#{$mode}-color-action-secondary-selected);
-  --krds-main-menu--sub-menu-trigger-color-text-selected: var(--krds-#{$mode}-color-text-secondary);
-  --krds-main-menu--sub-menu-description-description-color-border: var(--krds-#{$mode}-color-border-gray-light);
-  --krds-main-menu--sub-menu-description-description-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-main-menu--banner-background: var(--krds-#{$mode}-color-surface-gray-subtle);
+  --main-menu--color-surface: var(--#{$mode}-color-surface-white);
+  --main-menu--color-border: var(--#{$mode}-color-divider-gray-light);
+  --main-menu--main-trigger-color-text: var(--#{$mode}-color-text-subtle);
+  --main-menu--main-trigger-color-text-active: var(--#{$mode}-color-text-basic);
+  --main-menu--main-trigger-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --main-menu--main-trigger-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-pressed
+  );
+  --main-menu--main-trigger-color-border-selected: var(
+    --#{$mode}-color-action-secondary-active
+  );
+  --main-menu--toggle-color-surface: var(--#{$mode}-color-surface-white-subtle);
+  --main-menu--main-menu-color-surface: var(
+    --#{$mode}-color-surface-secondary-subtler
+  );
+  --main-menu--sub-trigger-color-text: var(--#{$mode}-color-text-basic);
+  --main-menu--sub-trigger-color-text-selected: var(
+    --#{$mode}-color-text-secondary
+  );
+  --main-menu--sub-trigger-color-text-pressed: var(--#{$mode}-color-text-basic);
+  --main-menu--sub-trigger-color-action: var(
+    --#{$mode}-color-action-secondary-on
+  );
+  --main-menu--sub-trigger-color-action-selected: var(
+    --#{$mode}-color-action-secondary-on-selected
+  );
+  --main-menu--sub-trigger-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-on-pressed
+  );
+  --main-menu--sub-menu-color-action: var(--#{$mode}-color-action-secondary);
+  --main-menu--sub-menu-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --main-menu--sub-menu-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-pressed
+  );
+  --main-menu--sub-menu-trigger-color-action-selected: var(
+    --#{$mode}-color-action-secondary-selected
+  );
+  --main-menu--sub-menu-trigger-color-text-selected: var(
+    --#{$mode}-color-text-secondary
+  );
+  --main-menu--sub-menu-description-description-color-border: var(
+    --#{$mode}-color-border-gray-light
+  );
+  --main-menu--sub-menu-description-description-color-text: var(
+    --#{$mode}-color-text-subtle
+  );
+  --main-menu--banner-background: var(--#{$mode}-color-surface-gray-subtle);
 }
 //모드 설정
 $mode-setting: light;
@@ -74,27 +120,27 @@ $mode-setting: light;
   @include gnb-pc-color-variable(#{$mode-setting});
 
   position: relative;
-  background-color: var(--krds-main-menu--color-surface);
+  background-color: var(--main-menu--color-surface);
   border-top: 0.1rem solid;
   border-bottom: 0.1rem solid;
-  border-color: var(--krds-main-menu--color-border);
+  border-color: var(--main-menu--color-border);
   // gnb-menu
   .gnb-menu {
     @include flex-layout($jc: flex-start);
-    gap: var(--krds-gap-5);
+    gap: var(--gap-5);
     // gnb-main-trigger
     .gnb-main-trigger {
       @include flex-layout($jc: flex-start, $ai: center);
-      gap: var(--krds-gap-3);
+      gap: var(--gap-3);
       position: relative;
-      height: var(--krds-main-menu--main-trigger-size-height);
-      color: var(--krds-main-menu--main-trigger-color-text);
-      padding: 0 var(--krds-main-menu--main-trigger-padding-x);
-      transition: var(--krds-transition-base);
+      height: var(--main-menu--main-trigger-size-height);
+      color: var(--main-menu--main-trigger-color-text);
+      padding: 0 var(--main-menu--main-trigger-padding-x);
+      transition: var(--transition-base);
       &,
       h2 {
-        font-size: var(--krds-main-menu--main-trigger-font-size);
-        font-weight: var(--krds-font-weight-bold);
+        font-size: var(--main-menu--main-trigger-font-size);
+        font-weight: var(--font-weight-bold);
       }
       &::before,
       &::after {
@@ -104,22 +150,22 @@ $mode-setting: light;
       &::before {
         @include position($b: 0, $l: 50%);
         @include square(0, 0.4rem);
-        background-color: var(--krds-main-menu--main-trigger-color-border-selected);
-        transition: var(--krds-transition-base);
+        background-color: var(--main-menu--main-trigger-color-border-selected);
+        transition: var(--transition-base);
       }
       &::after {
-        @include svg-icon(var(--krds-icon--size-medium), $mode: light);
+        @include svg-icon(var(--icon--size-medium), $mode: light);
         @include icon-set(ico_angle);
-        background-color: var(--krds-main-menu--main-trigger-color-text);
-        transition: var(--krds-transition-base);
+        background-color: var(--main-menu--main-trigger-color-text);
+        transition: var(--transition-base);
         transform: rotate(0deg);
       }
       &:hover {
-        background-color: var(--krds-main-menu--main-trigger-color-action-hover);
+        background-color: var(--main-menu--main-trigger-color-action-hover);
       }
       &:active {
-        color: var(--krds-main-menu--main-trigger-color-text-active);
-        background-color: var(--krds-main-menu--main-trigger-color-action-pressed);
+        color: var(--main-menu--main-trigger-color-text-active);
+        background-color: var(--main-menu--main-trigger-color-action-pressed);
       }
       &:focus {
         @include focus();
@@ -140,7 +186,7 @@ $mode-setting: light;
       }
 
       @include size-large-to-xlarge {
-        --krds-main-menu--main-trigger-padding-x: var(--krds-padding-3);
+        --main-menu--main-trigger-padding-x: var(--padding-3);
       }
     }
   }
@@ -150,70 +196,71 @@ $mode-setting: light;
     margin-top: 0.1rem;
     display: none;
     width: 100%;
-    background-color: var(--krds-main-menu--toggle-color-surface);
+    background-color: var(--main-menu--toggle-color-surface);
     &.is-open {
       display: block;
     }
     .gnb-main-list {
       $main-menu-width: 26.6rem; //2뎁스 메뉴 사이즈
       position: relative;
-      max-width: var(--krds-contents-size);
+      max-width: var(--contents-size);
       margin: 0 auto;
       &[data-has-submenu='true']::before {
         @include position($t: 0, $l: 0);
         display: block;
-        @include square(var(--krds-main-menu--main-menu-width), 100%);
+        @include square(var(--main-menu--main-menu-width), 100%);
         @include pseudo();
-        background-color: var(--krds-main-menu--main-menu-color-surface);
+        background-color: var(--main-menu--main-menu-color-surface);
       }
       & > ul {
         position: relative;
-        padding: var(--krds-padding-6) 0;
+        padding: var(--padding-6) 0;
         & > li {
-          width: var(--krds-main-menu--main-menu-width);
+          width: var(--main-menu--main-menu-width);
         }
       }
       // gnb-sub-trigger
       .gnb-sub-trigger {
         @include flex-layout($ai: center, $jc: space-between);
         width: 100%;
-        gap: var(--krds-gap-7);
-        padding: var(--krds-main-menu--sub-trigger-padding-y) var(--krds-main-menu--sub-trigger-padding-x);
-        background-color: var(--krds-main-menu--sub-trigger-color-action);
-        font-size: var(--krds-main-menu--sub-trigger-font-size);
-        color: var(--krds-main-menu--sub-trigger-color-text);
+        gap: var(--gap-7);
+        padding: var(--main-menu--sub-trigger-padding-y)
+          var(--main-menu--sub-trigger-padding-x);
+        background-color: var(--main-menu--sub-trigger-color-action);
+        font-size: var(--main-menu--sub-trigger-font-size);
+        color: var(--main-menu--sub-trigger-color-text);
         text-align: left;
-        transition: var(--krds-transition-base);
+        transition: var(--transition-base);
         &::after {
-          @include svg-icon(var(--krds-icon--size-medium), $mode: light);
+          @include svg-icon(var(--icon--size-medium), $mode: light);
           @include icon-set(ico_angle);
           @include pseudo();
           flex-shrink: 0;
-          transition: var(--krds-transition-base);
+          transition: var(--transition-base);
           transform: rotate(-90deg);
         }
         .svg-icon {
-          @include svg-icon(var(--krds-icon--size-medium), $mode: light);
+          @include svg-icon(var(--icon--size-medium), $mode: light);
           flex-shrink: 0;
-          transition: var(--krds-transition-base);
+          transition: var(--transition-base);
         }
         &:hover,
         &.active {
-          font-size: var(--krds-main-menu--sub-trigger-font-size-active);
-          font-weight: var(--krds-font-weight-bold);
-          background-color: var(--krds-main-menu--sub-trigger-color-action-selected);
-          color: var(--krds-main-menu--sub-trigger-color-text-selected);
+          font-size: var(--main-menu--sub-trigger-font-size-active);
+          font-weight: var(--font-weight-bold);
+          background-color: var(--main-menu--sub-trigger-color-action-selected);
+          color: var(--main-menu--sub-trigger-color-text-selected);
           .svg-icon {
-            background-color: var(--krds-main-menu--sub-trigger-color-text-selected);
+            background-color: var(--main-menu--sub-trigger-color-text-selected);
           }
         }
         &:active {
-          font-size: var(--krds-main-menu--sub-trigger-font-size-active);
-          font-weight: var(--krds-font-weight-bold);
-          background: var(--krds-main-menu--sub-trigger-color-action-pressed);
-          color: var(--krds-main-menu--sub-trigger-color-text-pressed);
+          font-size: var(--main-menu--sub-trigger-font-size-active);
+          font-weight: var(--font-weight-bold);
+          background: var(--main-menu--sub-trigger-color-action-pressed);
+          color: var(--main-menu--sub-trigger-color-text-pressed);
           .svg-icon {
-            background-color: var(--krds-main-menu--sub-trigger-color-text-pressed);
+            background-color: var(--main-menu--sub-trigger-color-text-pressed);
           }
         }
         &:focus {
@@ -222,7 +269,7 @@ $mode-setting: light;
         //내부 link 바로이동
         &.is-link {
           justify-content: flex-start;
-          gap: var(--krds-gap-3);
+          gap: var(--gap-3);
           &::after {
             @include icon-set(ico_more);
             transform: rotate(0);
@@ -239,98 +286,129 @@ $mode-setting: light;
       //기본 : 사이드메뉴 존재, 배너영역 하단에 위치
       flex-direction: column;
       align-items: normal;
-      gap: var(--krds-gap-5);
-      @include position($t: 0, $l: var(--krds-main-menu--main-menu-width), $r: 0);
+      gap: var(--gap-5);
+      @include position($t: 0, $l: var(--main-menu--main-menu-width), $r: 0);
       display: none;
       min-height: 100%;
-      padding: var(--krds-main-menu--sub-menu-padding-y) var(--krds-main-menu--sub-menu-padding-x);
+      padding: var(--main-menu--sub-menu-padding-y)
+        var(--main-menu--sub-menu-padding-x);
       .gnb-sub-content {
         @include flex-layout($fd: column, $ai: normal);
         flex: 1;
-        gap: var(--krds-gap-5);
+        gap: var(--gap-5);
         .sub-title {
           //@include flex-layout($fd: column, $jc: center);
           @include flex-layout($ai: center);
-          gap: var(--krds-gap-5);
-          height: var(--krds-main-menu--sub-menu-title-size-height);
-          padding: 0 var(--krds-padding-2);
-          font-size: var(--krds-main-menu--sub-menu-title-font-size);
-          font-weight: var(--krds-font-weight-bold);
+          gap: var(--gap-5);
+          height: var(--main-menu--sub-menu-title-size-height);
+          padding: 0 var(--padding-2);
+          font-size: var(--main-menu--sub-menu-title-font-size);
+          font-weight: var(--font-weight-bold);
         }
         > ul {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-column-gap: var(--krds-gap-7);
+          grid-column-gap: var(--gap-7);
           a,
           button {
             @include flex-layout($jc: flex-start);
             width: 100%;
-            gap: var(--krds-gap-3);
-            padding: var(--krds-main-menu--sub-menu-trigger-color-padding-y) var(--krds-main-menu--sub-menu-trigger-color-padding-x);
-            background-color: var(--krds-main-menu--sub-menu-color-action);
-            border-radius: var(--krds-main-menu--sub-menu-trigger-color-radius);
-            font-size: var(--krds-main-menu--sub-menu-trigger-color-font-size);
+            gap: var(--gap-3);
+            padding: var(--main-menu--sub-menu-trigger-color-padding-y)
+              var(--main-menu--sub-menu-trigger-color-padding-x);
+            background-color: var(--main-menu--sub-menu-color-action);
+            border-radius: var(--main-menu--sub-menu-trigger-color-radius);
+            font-size: var(--main-menu--sub-menu-trigger-color-font-size);
             &::before {
               @include pseudo();
               @include square(0.4rem);
-              margin-top: var(--krds-padding-4);
-              background-color: var(--krds-#{$mode-setting}-color-text-basic);
-              border-radius: var(--krds-radius-max);
+              margin-top: var(--padding-4);
+              background-color: var(--#{$mode-setting}-color-text-basic);
+              border-radius: var(--radius-max);
             }
             &:hover {
-              background-color: var(--krds-main-menu--sub-menu-color-action-hover);
+              background-color: var(--main-menu--sub-menu-color-action-hover);
             }
             &:active,
             &:focus {
-              background-color: var(--krds-main-menu--sub-menu-color-action-pressed);
+              background-color: var(--main-menu--sub-menu-color-action-pressed);
             }
             &:focus {
               @include focus();
             }
             &.active {
-              background-color: var(--krds-main-menu--sub-menu-trigger-color-action-selected);
-              color: var(--krds-main-menu--sub-menu-trigger-color-text-selected);
-              font-weight: var(--krds-font-weight-bold);
+              background-color: var(
+                --main-menu--sub-menu-trigger-color-action-selected
+              );
+              color: var(--main-menu--sub-menu-trigger-color-text-selected);
+              font-weight: var(--font-weight-bold);
               &::before {
-                background-color: var(--krds-main-menu--sub-menu-trigger-color-text-selected);
+                background-color: var(
+                  --main-menu--sub-menu-trigger-color-text-selected
+                );
               }
             }
           }
           &.type-description {
             //메뉴에 대한 설명이 기재되어있는 경우
-            gap: var(--krds-gap-9);
+            gap: var(--gap-9);
             li {
               @include flex-layout($fd: column, $jc: flex-start, $ai: normal);
-              gap: var(--krds-gap-2);
+              gap: var(--gap-2);
               padding: 0;
               &::before {
                 display: none;
               }
               .tit {
-                font-size: var(--krds-main-menu--sub-menu-description-title-font-size);
-                font-weight: var(--krds-font-weight-bold);
+                font-size: var(
+                  --main-menu--sub-menu-description-title-font-size
+                );
+                font-weight: var(--font-weight-bold);
                 a {
-                  @include flex-layout($d: inline-flex, $jc: flex-start, $ai: center);
+                  @include flex-layout(
+                    $d: inline-flex,
+                    $jc: flex-start,
+                    $ai: center
+                  );
                   width: auto;
-                  padding: var(--krds-main-menu--sub-menu-description-title-padding);
-                  background-color: var(--krds-main-menu--sub-menu-color-action);
-                  border-radius: var(--krds-main-menu--sub-menu-description-title-radius);
+                  padding: var(--main-menu--sub-menu-description-title-padding);
+                  background-color: var(--main-menu--sub-menu-color-action);
+                  border-radius: var(
+                    --main-menu--sub-menu-description-title-radius
+                  );
                   &::before {
                     display: none;
                   }
                   &:hover {
-                    background-color: var(--krds-main-menu--sub-menu-color-action-hover);
+                    background-color: var(
+                      --main-menu--sub-menu-color-action-hover
+                    );
                   }
                   &:active {
-                    background-color: var(--krds-main-menu--sub-menu-color-action-pressed);
+                    background-color: var(
+                      --main-menu--sub-menu-color-action-pressed
+                    );
                   }
                 }
               }
               .txt {
-                padding: var(--krds-main-menu--sub-menu-description-description-color-padding-top) var(--krds-main-menu--sub-menu-description-description-color-padding-x) 0;
-                border-top: 0.1rem solid var(--krds-main-menu--sub-menu-description-description-color-border);
-                font-size: var(--krds-main-menu--sub-menu-description-description-color-font-size);
-                color: var(--krds-main-menu--sub-menu-description-description-color-text);
+                padding: var(
+                    --main-menu--sub-menu-description-description-color-padding-top
+                  )
+                  var(
+                    --main-menu--sub-menu-description-description-color-padding-x
+                  )
+                  0;
+                border-top: 0.1rem solid
+                  var(
+                    --main-menu--sub-menu-description-description-color-border
+                  );
+                font-size: var(
+                  --main-menu--sub-menu-description-description-color-font-size
+                );
+                color: var(
+                  --main-menu--sub-menu-description-description-color-text
+                );
               }
             }
           }
@@ -338,11 +416,12 @@ $mode-setting: light;
       }
       .gnb-sub-banner {
         @include flex-layout($ai: center);
-        gap: var(--krds-gap-5);
+        gap: var(--gap-5);
         margin: 0;
-        padding: var(--krds-main-menu--banner-padding-y) var(--krds-main-menu--banner-padding-x);
-        border-radius: var(--krds-main-menu--banner-radius);
-        background: var(--krds-main-menu--banner-background);
+        padding: var(--main-menu--banner-padding-y)
+          var(--main-menu--banner-padding-x);
+        border-radius: var(--main-menu--banner-radius);
+        background: var(--main-menu--banner-background);
       }
       &.between {
         //사이드메뉴 존재, 배너영역이 우측에 위치
@@ -355,16 +434,16 @@ $mode-setting: light;
         }
         .gnb-sub-banner {
           @include flex-layout($fd: column, $ai: flex-start);
-          width: var(--krds-main-menu--main-menu-width);
-          gap: var(--krds-gap-3);
-          padding: var(--krds-main-menu--column-banner-padding);
+          width: var(--main-menu--main-menu-width);
+          gap: var(--gap-3);
+          padding: var(--main-menu--column-banner-padding);
         }
       }
       &.single-list {
         //사이드메뉴 없음
         display: flex;
         position: static;
-        padding: var(--krds-main-menu--sub-menu-only-2depth-padding-y) 0;
+        padding: var(--main-menu--sub-menu-only-2depth-padding-y) 0;
         .gnb-sub-content {
           > ul {
             grid-template-columns: repeat(4, 1fr);
@@ -387,12 +466,12 @@ $mode-setting: light;
 
 // gnb-backdrop
 .gnb-backdrop {
-  --krds-main-menu--color-dim: var(--krds-#{$mode-setting}-color-background-dim);
+  --main-menu--color-dim: var(--#{$mode-setting}-color-background-dim);
   display: none;
   @include position($p: fixed, $t: 0, $r: 0);
   @include square(100%);
   z-index: 60;
-  background-color: var(--krds-main-menu--color-dim);
+  background-color: var(--main-menu--color-dim);
   &.active {
     display: block;
   }
@@ -411,7 +490,7 @@ $mode-setting: light;
       // gnb-main-trigger
       .gnb-main-trigger {
         &::after {
-          @include svg-icon(var(--krds-icon--size-medium), $mode: #{$mode-setting});
+          @include svg-icon(var(--icon--size-medium), $mode: #{$mode-setting});
         }
         &.is-link {
           &::after {
@@ -426,7 +505,10 @@ $mode-setting: light;
         // gnb-sub-trigger
         .gnb-sub-trigger {
           .svg-icon {
-            @include svg-icon(var(--krds-icon--size-medium), $mode: #{$mode-setting});
+            @include svg-icon(
+              var(--icon--size-medium),
+              $mode: #{$mode-setting}
+            );
           }
         }
       }
@@ -442,7 +524,7 @@ $mode-setting: light;
             a,
             button {
               &::before {
-                background-color: var(--krds-#{$mode-setting}-color-text-basic);
+                background-color: var(--#{$mode-setting}-color-text-basic);
               }
             }
           }
@@ -453,112 +535,214 @@ $mode-setting: light;
 
   // gnb-backdrop
   .gnb-backdrop {
-    --krds-main-menu--color-dim: var(--krds-#{$mode-setting}-color-background-dim);
+    --main-menu--color-dim: var(--#{$mode-setting}-color-background-dim);
   }
 }
 
 /* gnb mobile */
 //사이즈 정의
 @mixin gnb-mobile-size-variable() {
-  --krds-main-menu-mobile--dim-transition: opacity 0.5s 0.1s;
-  --krds-main-menu-mobile--header-gap: var(--krds-gap-5);
-  --krds-main-menu-mobile--header-padding-x: var(--krds-padding-6);
-  --krds-main-menu-mobile--header-padding-top: var(--krds-padding-6);
-  --krds-main-menu-mobile--header-padding-bottom: var(--krds-padding-8);
-  --krds-main-menu-mobile--utils-gap-layout-li-li: var(--krds-gap-5);
-  --krds-main-menu-mobile--utils-line-height: var(--krds-size-height-2);
-  --krds-main-menu-mobile--login-gap: var(--krds-gap-3);
-  --krds-main-menu-mobile--service-menu-gap-layout-menu: var(--krds-gap-3);
-  --krds-main-menu-mobile--service-menu-gap-layout-icon-text: var(--krds-gap-1);
-  --krds-main-menu-mobile--service-menu-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
-  --krds-main-menu-mobile--service-menu-icon-size: var(--krds-size-height-3);
-  --krds-main-menu-mobile--service-menu-border-radius: var(--krds-radius-medium1);
-  --krds-main-menu-mobile--menu-left-width: 12.4rem;
-  --krds-main-menu-mobile--main-trigger-height: var(--krds-size-height-9);
-  --krds-main-menu-mobile--main-trigger-padding-x: var(--krds-padding-8);
-  --krds-main-menu-mobile--main-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
-  --krds-main-menu-mobile--sub-menu-padding: var(--krds-main-menu-mobile--header-padding-x);
-  --krds-main-menu-mobile--sub-list-padding-y: var(--krds-padding-3);
-  --krds-main-menu-mobile--sub-title-font-size: var(--krds-mobile-font-size-navigation-title-small);
-  --krds-main-menu-mobile--sub-title-padding-x: var(--krds-padding-3);
-  --krds-main-menu-mobile--sub-title-padding-top: var(--krds-padding-3);
-  --krds-main-menu-mobile--sub-title-padding-bottom: var(--krds-padding-6);
-  --krds-main-menu-mobile--sub-menu-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium);
-  --krds-main-menu-mobile--sub-menu-trigger-font-size-active: var(--krds-mobile-font-size-navigation-depth-medium-bold);
-  --krds-main-menu-mobile--sub-menu-trigger-padding-x: var(--krds-padding-3);
-  --krds-main-menu-mobile--sub-menu-trigger-padding-y: var(--krds-padding-5);
-  --krds-main-menu-mobile--sub-menu-trigger-border-radius: var(--krds-radius-medium3);
-  --krds-main-menu-mobile--depth3-gap: var(--krds-gap-3);
-  --krds-main-menu-mobile--depth3-sub-menu-gap: var(--krds-gap-3);
-  --krds-main-menu-mobile--depth3-sub-menu-margin-top: var(--krds-gap-3);
-  --krds-main-menu-mobile--depth3-sub-menu-padding-x: var(--krds-padding-6);
-  --krds-main-menu-mobile--depth3-sub-menu-padding-y: var(--krds-padding-4);
-  --krds-main-menu-mobile--depth3-sub-menu-border-radius: var(--krds-radius-medium2);
-  --krds-main-menu-mobile--depth4-head-padding: var(--krds-padding-6);
-  --krds-main-menu-mobile--depth4-body-padding-x: var(--krds-main-menu-mobile--sub-menu-padding);
-  --krds-main-menu-mobile--depth4-sub-title: var(--krds-main-menu-mobile--sub-title-font-size);
-  --krds-main-menu-mobile--depth4-sub-title-padding-x: var(--krds-main-menu-mobile--sub-title-padding-x);
-  --krds-main-menu-mobile--depth4-sub-title-padding-top: var(--krds-main-menu-mobile--sub-title-padding-top);
-  --krds-main-menu-mobile--depth4-sub-title-padding-bottom: var(--krds-main-menu-mobile--sub-title-padding-bottom);
-  --krds-main-menu-mobile--depth4-list-gap: var(--krds-gap-3);
-  --krds-main-menu-mobile--depth4-list-gap-layout-dot-text: var(--krds-gap-2);
-  --krds-main-menu-mobile--depth4-list-li-border-radius: var(--krds-main-menu-mobile--depth3-sub-menu-border-radius);
-  --krds-main-menu-mobile--depth4-list-li-padding-x: var(--krds-main-menu-mobile--depth3-sub-menu-padding-x);
-  --krds-main-menu-mobile--depth4-list-li-padding-y: var(--krds-main-menu-mobile--depth3-sub-menu-padding-y);
-  --krds-main-menu-mobile--tab-nav-menu-padding-x: var(--krds-main-menu-mobile--header-padding-x);
-  --krds-main-menu-mobile--tab-nav-menu-padding-top: var(--krds-padding-6);
-  --krds-main-menu-mobile--tab-nav-menu-margin-top: var(--krds-padding-8);
-  --krds-main-menu-mobile--tab-nav-menu-margin-x: var(--krds-main-menu-mobile--header-padding-x);
-  --krds-main-menu-mobile--tab-nav-menu-list-gap: var(--krds-gap-3);
-  --krds-main-menu-mobile--tab-nav-menu-list-padding-bottom: var(--krds-main-menu-mobile--tab-nav-menu-padding-top);
-  --krds-main-menu-mobile--tab-nav-main-trigger-height: var(--krds-size-height-6);
-  --krds-main-menu-mobile--tab-nav-main-trigger-padding-x: var(--krds-padding-4);
-  --krds-main-menu-mobile--tab-nav-main-trigger-border-radius: var(--krds-radius-medium1);
-  --krds-main-menu-mobile--type-tab-sub-list-padding: var(--krds-main-menu-mobile--header-padding-x);
-  --krds-main-menu-mobile--type-tab-gnb-header-border-bottom-width: 0.4rem;
-  --krds-main-menu-mobile--type-tab-sub-list-border-bottom-width: var(--krds-main-menu-mobile--type-tab-gnb-header-border-bottom-width);
-  --krds-main-menu-mobile--type-tab-sub-list-border-bottom-color: var(--krds-main-menu-mobile--header-color-border);
-  --krds-main-menu-mobile--type-tab-sub-banner-gap: var(--krds-gap-5);
-  --krds-main-menu-mobile--type-tab-sub-banner-border-radius: var(--krds-radius-medium3);
-  --krds-main-menu-mobile--type-tab-sub-banner-padding-x: var(--krds-padding-6);
-  --krds-main-menu-mobile--type-tab-sub-banner-padding-y: var(--krds-padding-2);
+  --main-menu-mobile--dim-transition: opacity 0.5s 0.1s;
+  --main-menu-mobile--header-gap: var(--gap-5);
+  --main-menu-mobile--header-padding-x: var(--padding-6);
+  --main-menu-mobile--header-padding-top: var(--padding-6);
+  --main-menu-mobile--header-padding-bottom: var(--padding-8);
+  --main-menu-mobile--utils-gap-layout-li-li: var(--gap-5);
+  --main-menu-mobile--utils-line-height: var(--size-height-2);
+  --main-menu-mobile--login-gap: var(--gap-3);
+  --main-menu-mobile--service-menu-gap-layout-menu: var(--gap-3);
+  --main-menu-mobile--service-menu-gap-layout-icon-text: var(--gap-1);
+  --main-menu-mobile--service-menu-font-size: var(
+    --mobile-font-size-navigation-depth-medium-bold
+  );
+  --main-menu-mobile--service-menu-icon-size: var(--size-height-3);
+  --main-menu-mobile--service-menu-border-radius: var(--radius-medium1);
+  --main-menu-mobile--menu-left-width: 12.4rem;
+  --main-menu-mobile--main-trigger-height: var(--size-height-9);
+  --main-menu-mobile--main-trigger-padding-x: var(--padding-8);
+  --main-menu-mobile--main-trigger-font-size: var(
+    --mobile-font-size-navigation-depth-medium-bold
+  );
+  --main-menu-mobile--sub-menu-padding: var(
+    --main-menu-mobile--header-padding-x
+  );
+  --main-menu-mobile--sub-list-padding-y: var(--padding-3);
+  --main-menu-mobile--sub-title-font-size: var(
+    --mobile-font-size-navigation-title-small
+  );
+  --main-menu-mobile--sub-title-padding-x: var(--padding-3);
+  --main-menu-mobile--sub-title-padding-top: var(--padding-3);
+  --main-menu-mobile--sub-title-padding-bottom: var(--padding-6);
+  --main-menu-mobile--sub-menu-trigger-font-size: var(
+    --mobile-font-size-navigation-depth-medium
+  );
+  --main-menu-mobile--sub-menu-trigger-font-size-active: var(
+    --mobile-font-size-navigation-depth-medium-bold
+  );
+  --main-menu-mobile--sub-menu-trigger-padding-x: var(--padding-3);
+  --main-menu-mobile--sub-menu-trigger-padding-y: var(--padding-5);
+  --main-menu-mobile--sub-menu-trigger-border-radius: var(--radius-medium3);
+  --main-menu-mobile--depth3-gap: var(--gap-3);
+  --main-menu-mobile--depth3-sub-menu-gap: var(--gap-3);
+  --main-menu-mobile--depth3-sub-menu-margin-top: var(--gap-3);
+  --main-menu-mobile--depth3-sub-menu-padding-x: var(--padding-6);
+  --main-menu-mobile--depth3-sub-menu-padding-y: var(--padding-4);
+  --main-menu-mobile--depth3-sub-menu-border-radius: var(--radius-medium2);
+  --main-menu-mobile--depth4-head-padding: var(--padding-6);
+  --main-menu-mobile--depth4-body-padding-x: var(
+    --main-menu-mobile--sub-menu-padding
+  );
+  --main-menu-mobile--depth4-sub-title: var(
+    --main-menu-mobile--sub-title-font-size
+  );
+  --main-menu-mobile--depth4-sub-title-padding-x: var(
+    --main-menu-mobile--sub-title-padding-x
+  );
+  --main-menu-mobile--depth4-sub-title-padding-top: var(
+    --main-menu-mobile--sub-title-padding-top
+  );
+  --main-menu-mobile--depth4-sub-title-padding-bottom: var(
+    --main-menu-mobile--sub-title-padding-bottom
+  );
+  --main-menu-mobile--depth4-list-gap: var(--gap-3);
+  --main-menu-mobile--depth4-list-gap-layout-dot-text: var(--gap-2);
+  --main-menu-mobile--depth4-list-li-border-radius: var(
+    --main-menu-mobile--depth3-sub-menu-border-radius
+  );
+  --main-menu-mobile--depth4-list-li-padding-x: var(
+    --main-menu-mobile--depth3-sub-menu-padding-x
+  );
+  --main-menu-mobile--depth4-list-li-padding-y: var(
+    --main-menu-mobile--depth3-sub-menu-padding-y
+  );
+  --main-menu-mobile--tab-nav-menu-padding-x: var(
+    --main-menu-mobile--header-padding-x
+  );
+  --main-menu-mobile--tab-nav-menu-padding-top: var(--padding-6);
+  --main-menu-mobile--tab-nav-menu-margin-top: var(--padding-8);
+  --main-menu-mobile--tab-nav-menu-margin-x: var(
+    --main-menu-mobile--header-padding-x
+  );
+  --main-menu-mobile--tab-nav-menu-list-gap: var(--gap-3);
+  --main-menu-mobile--tab-nav-menu-list-padding-bottom: var(
+    --main-menu-mobile--tab-nav-menu-padding-top
+  );
+  --main-menu-mobile--tab-nav-main-trigger-height: var(--size-height-6);
+  --main-menu-mobile--tab-nav-main-trigger-padding-x: var(--padding-4);
+  --main-menu-mobile--tab-nav-main-trigger-border-radius: var(--radius-medium1);
+  --main-menu-mobile--type-tab-sub-list-padding: var(
+    --main-menu-mobile--header-padding-x
+  );
+  --main-menu-mobile--type-tab-gnb-header-border-bottom-width: 0.4rem;
+  --main-menu-mobile--type-tab-sub-list-border-bottom-width: var(
+    --main-menu-mobile--type-tab-gnb-header-border-bottom-width
+  );
+  --main-menu-mobile--type-tab-sub-list-border-bottom-color: var(
+    --main-menu-mobile--header-color-border
+  );
+  --main-menu-mobile--type-tab-sub-banner-gap: var(--gap-5);
+  --main-menu-mobile--type-tab-sub-banner-border-radius: var(--radius-medium3);
+  --main-menu-mobile--type-tab-sub-banner-padding-x: var(--padding-6);
+  --main-menu-mobile--type-tab-sub-banner-padding-y: var(--padding-2);
 }
 
 //컬러 정의
 @mixin gnb-mobile-color-variable($mode: light) {
-  --krds-main-menu-mobile--color-dim: var(--krds-#{$mode}-color-background-dim);
-  --krds-main-menu-mobile--color-surface: var(--krds-#{$mode}-color-surface-white);
-  --krds-main-menu-mobile--header-border-width: var(--krds-#{$mode}-border-width-static-regular);
-  --krds-main-menu-mobile--header-color-border: var(--krds-#{$mode}-color-divider-gray-light);
-  --krds-main-menu-mobile--utils-line-width: var(--krds-#{$mode}-border-width-static-regular);
-  --krds-main-menu-mobile--utils-color-border: var(--krds-#{$mode}-color-border-gray-light);
-  --krds-main-menu-mobile--service-menu-color-icon: var(--krds-#{$mode}-color-icon-gray-fill);
-  --krds-main-menu-mobile--service-menu-color-action-active: var(--krds-#{$mode}-color-action-secondary-on-pressed);
-  --krds-main-menu-mobile--menu-color-surface: var(--krds-#{$mode}-color-surface-secondary-subtler);
-  --krds-main-menu-mobile--main-trigger-color-text-active: var(--krds-#{$mode}-color-text-secondary);
-  --krds-main-menu-mobile--main-trigger-color-action-active: var(--krds-#{$mode}-color-action-secondary-on-selected);
-  --krds-main-menu-mobile--main-trigger-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-on-pressed);
-  --krds-main-menu-mobile--sub-menu-color-surface: var(--krds-#{$mode}-color-surface-white-subtle);
-  --krds-main-menu-mobile--sub-title-border-width: var(--krds-#{$mode}-border-width-static-regular);
-  --krds-main-menu-mobile--sub-title-color-border: var(--krds-#{$mode}-color-divider-gray);
-  --krds-main-menu-mobile--sub-menu-trigger-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-main-menu-mobile--sub-menu-trigger-color-action-active: var(--krds-#{$mode}-color-action-secondary-selected);
-  --krds-main-menu-mobile--sub-menu-trigger-color-text: var(--krds-#{$mode}-color-text-secondary);
-  --krds-main-menu-mobile--depth3-sub-menu-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-main-menu-mobile--depth3-sub-menu-color-action-active: var(--krds-#{$mode}-color-action-secondary-selected);
-  --krds-main-menu-mobile--depth4-color-surface: var(--krds-#{$mode}-color-surface-white-subtle);
-  --krds-main-menu-mobile--depth4-list-li-color-text-hover: var(--krds-#{$mode}-color-text-secondary);
-  --krds-main-menu-mobile--depth4-list-li-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-main-menu-mobile--depth4-list-li-color-action-active: var(--krds-#{$mode}-color-action-secondary-selected);
-  --krds-main-menu-mobile--tab-nav-menu-border-top-width: var(--krds-#{$mode}-border-width-static-regular);
-  --krds-main-menu-mobile--tab-nav-menu-color-border-top: var(--krds-#{$mode}-color-divider-gray-light);
-  --krds-main-menu-mobile--tab-nav-main-trigger-color-action: var(--krds-#{$mode}-color-action-white);
-  --krds-main-menu-mobile--tab-nav-main-trigger-color-action-active: var(--krds-#{$mode}-color-action-secondary-selected);
-  --krds-main-menu-mobile--tab-nav-main-trigger-border-width: var(--krds-#{$mode}-border-width-static-regular);
-  --krds-main-menu-mobile--tab-nav-main-trigger-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-main-menu-mobile--type-tab-menu-color-surface: var(--krds-#{$mode}-color-surface-white-subtle);
-  --krds-main-menu-mobile--type-tab-sub-banner-color-surface: var(--krds-#{$mode}-color-surface-gray-subtler);
-  --krds-main-menu-mobile--search-layer-body-background: var(--krds-#{$mode}-color-surface-gray-subtler);
+  --main-menu-mobile--color-dim: var(--#{$mode}-color-background-dim);
+  --main-menu-mobile--color-surface: var(--#{$mode}-color-surface-white);
+  --main-menu-mobile--header-border-width: var(
+    --#{$mode}-border-width-static-regular
+  );
+  --main-menu-mobile--header-color-border: var(
+    --#{$mode}-color-divider-gray-light
+  );
+  --main-menu-mobile--utils-line-width: var(
+    --#{$mode}-border-width-static-regular
+  );
+  --main-menu-mobile--utils-color-border: var(
+    --#{$mode}-color-border-gray-light
+  );
+  --main-menu-mobile--service-menu-color-icon: var(
+    --#{$mode}-color-icon-gray-fill
+  );
+  --main-menu-mobile--service-menu-color-action-active: var(
+    --#{$mode}-color-action-secondary-on-pressed
+  );
+  --main-menu-mobile--menu-color-surface: var(
+    --#{$mode}-color-surface-secondary-subtler
+  );
+  --main-menu-mobile--main-trigger-color-text-active: var(
+    --#{$mode}-color-text-secondary
+  );
+  --main-menu-mobile--main-trigger-color-action-active: var(
+    --#{$mode}-color-action-secondary-on-selected
+  );
+  --main-menu-mobile--main-trigger-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-on-pressed
+  );
+  --main-menu-mobile--sub-menu-color-surface: var(
+    --#{$mode}-color-surface-white-subtle
+  );
+  --main-menu-mobile--sub-title-border-width: var(
+    --#{$mode}-border-width-static-regular
+  );
+  --main-menu-mobile--sub-title-color-border: var(
+    --#{$mode}-color-divider-gray
+  );
+  --main-menu-mobile--sub-menu-trigger-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --main-menu-mobile--sub-menu-trigger-color-action-active: var(
+    --#{$mode}-color-action-secondary-selected
+  );
+  --main-menu-mobile--sub-menu-trigger-color-text: var(
+    --#{$mode}-color-text-secondary
+  );
+  --main-menu-mobile--depth3-sub-menu-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --main-menu-mobile--depth3-sub-menu-color-action-active: var(
+    --#{$mode}-color-action-secondary-selected
+  );
+  --main-menu-mobile--depth4-color-surface: var(
+    --#{$mode}-color-surface-white-subtle
+  );
+  --main-menu-mobile--depth4-list-li-color-text-hover: var(
+    --#{$mode}-color-text-secondary
+  );
+  --main-menu-mobile--depth4-list-li-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --main-menu-mobile--depth4-list-li-color-action-active: var(
+    --#{$mode}-color-action-secondary-selected
+  );
+  --main-menu-mobile--tab-nav-menu-border-top-width: var(
+    --#{$mode}-border-width-static-regular
+  );
+  --main-menu-mobile--tab-nav-menu-color-border-top: var(
+    --#{$mode}-color-divider-gray-light
+  );
+  --main-menu-mobile--tab-nav-main-trigger-color-action: var(
+    --#{$mode}-color-action-white
+  );
+  --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(
+    --#{$mode}-color-action-secondary-selected
+  );
+  --main-menu-mobile--tab-nav-main-trigger-border-width: var(
+    --#{$mode}-border-width-static-regular
+  );
+  --main-menu-mobile--tab-nav-main-trigger-color-border: var(
+    --#{$mode}-color-border-gray
+  );
+  --main-menu-mobile--type-tab-menu-color-surface: var(
+    --#{$mode}-color-surface-white-subtle
+  );
+  --main-menu-mobile--type-tab-sub-banner-color-surface: var(
+    --#{$mode}-color-surface-gray-subtler
+  );
+  --main-menu-mobile--search-layer-body-background: var(
+    --#{$mode}-color-surface-gray-subtler
+  );
 }
 
 // krds-main-menu-mobile(mobile)
@@ -573,7 +757,7 @@ $mode-setting: light;
   width: 100%;
   height: 100%;
   visibility: hidden;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
   // dim
   &::after {
     display: none;
@@ -584,8 +768,8 @@ $mode-setting: light;
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--krds-main-menu-mobile--color-dim);
-    transition: var(--krds-main-menu-mobile--dim-transition);
+    background-color: var(--main-menu-mobile--color-dim);
+    transition: var(--main-menu-mobile--dim-transition);
   }
   //모바일 gnb 영역 체크
   &.is-open {
@@ -606,13 +790,16 @@ $mode-setting: light;
     @include position($t: 0, $r: 0);
     z-index: 5;
     height: 100%;
-    background-color: var(--krds-main-menu-mobile--color-surface);
+    background-color: var(--main-menu-mobile--color-surface);
     // gnb-header
     .gnb-header {
       @include flex-layout($fd: column, $ai: normal);
-      gap: var(--krds-main-menu-mobile--header-gap);
-      padding: var(--krds-main-menu-mobile--header-padding-top) var(--krds-main-menu-mobile--header-padding-x) var(--krds-main-menu-mobile--header-padding-bottom);
-      border-bottom: var(--krds-main-menu-mobile--header-border-width) solid var(--krds-main-menu-mobile--header-color-border);
+      gap: var(--main-menu-mobile--header-gap);
+      padding: var(--main-menu-mobile--header-padding-top)
+        var(--main-menu-mobile--header-padding-x)
+        var(--main-menu-mobile--header-padding-bottom);
+      border-bottom: var(--main-menu-mobile--header-border-width) solid
+        var(--main-menu-mobile--header-color-border);
       // gnb-utils
       .gnb-utils {
         @include flex-layout($jc: space-between);
@@ -621,13 +808,13 @@ $mode-setting: light;
           & > li {
             @include flex-layout($ai: center);
             &:not(:first-child) {
-              margin-left: var(--krds-main-menu-mobile--utils-gap-layout-li-li);
+              margin-left: var(--main-menu-mobile--utils-gap-layout-li-li);
               &::before {
                 @include pseudo();
-                width: var(--krds-main-menu-mobile--utils-line-width);
-                height: var(--krds-main-menu-mobile--utils-line-height);
-                margin-right: var(--krds-main-menu-mobile--utils-gap-layout-li-li);
-                background-color: var(--krds-main-menu-mobile--utils-color-border);
+                width: var(--main-menu-mobile--utils-line-width);
+                height: var(--main-menu-mobile--utils-line-height);
+                margin-right: var(--main-menu-mobile--utils-gap-layout-li-li);
+                background-color: var(--main-menu-mobile--utils-color-border);
               }
             }
           }
@@ -636,34 +823,36 @@ $mode-setting: light;
       // gnb-login
       .gnb-login {
         @include flex-layout($d: inline-flex, $ai: center);
-        gap: var(--krds-main-menu-mobile--login-gap);
+        gap: var(--main-menu-mobile--login-gap);
         .user,
         button {
-          font-weight: var(--krds-font-weight-bold);
+          font-weight: var(--font-weight-bold);
         }
       }
       // gnb-service-menu
       .gnb-service-menu {
         @include flex-layout($jc: space-between);
-        gap: var(--krds-main-menu-mobile--service-menu-gap-layout-menu);
+        gap: var(--main-menu-mobile--service-menu-gap-layout-menu);
         .link {
           @include flex-layout(inline-flex, center, center, column);
-          gap: var(--krds-main-menu-mobile--service-menu-gap-layout-icon-text);
-          font-size: var(--krds-main-menu-mobile--service-menu-font-size);
-          font-weight: var(--krds-font-weight-bold);
+          gap: var(--main-menu-mobile--service-menu-gap-layout-icon-text);
+          font-size: var(--main-menu-mobile--service-menu-font-size);
+          font-weight: var(--font-weight-bold);
           width: 8rem;
           height: 5.6rem;
           &::before {
             display: inline-flex;
             content: '';
-            width: var(--krds-main-menu-mobile--service-menu-icon-size);
-            height: var(--krds-main-menu-mobile--service-menu-icon-size);
-            background-color: var(--krds-main-menu-mobile--service-menu-color-icon);
+            width: var(--main-menu-mobile--service-menu-icon-size);
+            height: var(--main-menu-mobile--service-menu-icon-size);
+            background-color: var(--main-menu-mobile--service-menu-color-icon);
           }
           &:active {
-            border-radius: var(--krds-main-menu-mobile--service-menu-border-radius);
-            background-color: var(--krds-main-menu-mobile--service-menu-color-action-active);
-            transition: var(--krds-transition-base);
+            border-radius: var(--main-menu-mobile--service-menu-border-radius);
+            background-color: var(
+              --main-menu-mobile--service-menu-color-action-active
+            );
+            transition: var(--transition-base);
           }
         }
       }
@@ -679,13 +868,13 @@ $mode-setting: light;
       .gnb-menu {
         display: flex;
         position: relative;
-        background-color: var(--krds-main-menu-mobile--menu-color-surface);
+        background-color: var(--main-menu-mobile--menu-color-surface);
         .menu-wrap {
           @include flex-layout($fd: column);
           position: relative;
           top: 0;
           left: 0;
-          width: var(--krds-main-menu-mobile--menu-left-width);
+          width: var(--main-menu-mobile--menu-left-width);
           > ul {
             position: sticky;
             top: 0;
@@ -698,69 +887,90 @@ $mode-setting: light;
             position: relative;
             z-index: 1;
             width: 100%;
-            height: var(--krds-main-menu-mobile--main-trigger-height);
-            padding: 0 var(--krds-main-menu-mobile--main-trigger-padding-x);
+            height: var(--main-menu-mobile--main-trigger-height);
+            padding: 0 var(--main-menu-mobile--main-trigger-padding-x);
             &,
             & > * {
-              font-size: var(--krds-main-menu-mobile--main-trigger-font-size);
-              font-weight: var(--krds-font-weight-bold);
+              font-size: var(--main-menu-mobile--main-trigger-font-size);
+              font-weight: var(--font-weight-bold);
             }
             &:focus {
               @include focus();
-              background-color: var(--krds-main-menu-mobile--main-trigger-color-action-pressed);
+              background-color: var(
+                --main-menu-mobile--main-trigger-color-action-pressed
+              );
             }
             &.active {
-              color: var(--krds-main-menu-mobile--main-trigger-color-text-active);
-              background-color: var(--krds-main-menu-mobile--main-trigger-color-action-active);
+              color: var(--main-menu-mobile--main-trigger-color-text-active);
+              background-color: var(
+                --main-menu-mobile--main-trigger-color-action-active
+              );
             }
           }
         }
         .submenu-wrap {
           @include flex-layout($fd: column, $ai: normal);
           flex: 1;
-          background-color: var(--krds-main-menu-mobile--sub-menu-color-surface);
+          background-color: var(--main-menu-mobile--sub-menu-color-surface);
           .gnb-sub-list {
-            padding: var(--krds-main-menu-mobile--sub-menu-padding);
+            padding: var(--main-menu-mobile--sub-menu-padding);
             > ul {
-              padding: var(--krds-main-menu-mobile--sub-list-padding-y) 0;
+              padding: var(--main-menu-mobile--sub-list-padding-y) 0;
             }
             .sub-title {
               @include flex-layout($ai: center);
               position: relative;
-              font-size: var(--krds-main-menu-mobile--sub-title-font-size);
-              font-weight: var(--krds-font-weight-bold);
-              padding: var(--krds-main-menu-mobile--sub-title-padding-top) var(--krds-main-menu-mobile--sub-title-padding-x) var(--krds-main-menu-mobile--sub-title-padding-bottom);
-              border-bottom: var(--krds-main-menu-mobile--sub-title-border-width) solid var(--krds-main-menu-mobile--sub-title-color-border);
+              font-size: var(--main-menu-mobile--sub-title-font-size);
+              font-weight: var(--font-weight-bold);
+              padding: var(--main-menu-mobile--sub-title-padding-top)
+                var(--main-menu-mobile--sub-title-padding-x)
+                var(--main-menu-mobile--sub-title-padding-bottom);
+              border-bottom: var(--main-menu-mobile--sub-title-border-width)
+                solid var(--main-menu-mobile--sub-title-color-border);
             }
             .gnb-sub-trigger {
               @include flex-layout($ai: center);
-              padding: var(--krds-main-menu-mobile--sub-menu-trigger-padding-y) var(--krds-main-menu-mobile--sub-menu-trigger-padding-x);
-              font-size: var(--krds-main-menu-mobile--sub-menu-trigger-font-size);
-              border-radius: var(--krds-main-menu-mobile--sub-menu-trigger-border-radius);
-              transition: var(--krds-transition-base);
+              padding: var(--main-menu-mobile--sub-menu-trigger-padding-y)
+                var(--main-menu-mobile--sub-menu-trigger-padding-x);
+              font-size: var(--main-menu-mobile--sub-menu-trigger-font-size);
+              border-radius: var(
+                --main-menu-mobile--sub-menu-trigger-border-radius
+              );
+              transition: var(--transition-base);
               &:hover {
-                background-color: var(--krds-main-menu-mobile--sub-menu-trigger-color-action-hover);
+                background-color: var(
+                  --main-menu-mobile--sub-menu-trigger-color-action-hover
+                );
               }
               &.selected {
-                color: var(--krds-main-menu-mobile--sub-menu-trigger-color-text);
-                font-size: var(--krds-main-menu-mobile--sub-menu-trigger-font-size-active);
-                font-weight: var(--krds-font-weight-bold);
-                background-color: var(--krds-main-menu-mobile--sub-menu-trigger-color-action-active);
+                color: var(--main-menu-mobile--sub-menu-trigger-color-text);
+                font-size: var(
+                  --main-menu-mobile--sub-menu-trigger-font-size-active
+                );
+                font-weight: var(--font-weight-bold);
+                background-color: var(
+                  --main-menu-mobile--sub-menu-trigger-color-action-active
+                );
               }
               &.has-depth3 {
                 &::after {
                   @include pseudo();
-                  @include svg-icon($size: var(--krds-icon--size-medium), $mode: light);
+                  @include svg-icon(
+                    $size: var(--icon--size-medium),
+                    $mode: light
+                  );
                   @include icon-set(ico_angle);
                   flex-shrink: 0;
                   margin-left: auto;
-                  transition: var(--krds-transition-base);
+                  transition: var(--transition-base);
                   transform: rotate(0deg);
                 }
                 &.active {
-                  background-color: var(--krds-main-menu-mobile--depth3-sub-menu-color-action-active);
-                  color: var(--krds-main-menu-mobile--sub-menu-trigger-color-text);
-                  font-weight: var(--krds-font-weight-bold);
+                  background-color: var(
+                    --main-menu-mobile--depth3-sub-menu-color-action-active
+                  );
+                  color: var(--main-menu-mobile--sub-menu-trigger-color-text);
+                  font-weight: var(--font-weight-bold);
                   &::after {
                     transform: rotate(180deg);
                   }
@@ -772,11 +982,11 @@ $mode-setting: light;
               grid-template-rows: 0fr;
               opacity: 0;
               visibility: hidden;
-              margin-top: var(--krds-main-menu-mobile--depth3-sub-menu-margin-top);
-              transition: var(--krds-transition-base);
+              margin-top: var(--main-menu-mobile--depth3-sub-menu-margin-top);
+              transition: var(--transition-base);
               & > ul {
                 @include flex-layout($fd: column, $ai: normal);
-                gap: var(--krds-main-menu-mobile--depth3-gap);
+                gap: var(--main-menu-mobile--depth3-gap);
                 overflow: hidden;
               }
               &.is-open {
@@ -786,10 +996,13 @@ $mode-setting: light;
               }
               .depth3-trigger {
                 @include flex-layout($ai: center);
-                gap: var(--krds-main-menu-mobile--depth3-sub-menu-gap);
-                padding: var(--krds-main-menu-mobile--depth3-sub-menu-padding-y) var(--krds-main-menu-mobile--depth3-sub-menu-padding-x);
-                border-radius: var(--krds-main-menu-mobile--depth3-sub-menu-border-radius);
-                transition: var(--krds-transition-base);
+                gap: var(--main-menu-mobile--depth3-sub-menu-gap);
+                padding: var(--main-menu-mobile--depth3-sub-menu-padding-y)
+                  var(--main-menu-mobile--depth3-sub-menu-padding-x);
+                border-radius: var(
+                  --main-menu-mobile--depth3-sub-menu-border-radius
+                );
+                transition: var(--transition-base);
                 &::before {
                   content: '•';
                 }
@@ -797,20 +1010,29 @@ $mode-setting: light;
                   @include focus();
                 }
                 &:hover {
-                  background-color: var(--krds-main-menu-mobile--depth3-sub-menu-color-action-hover);
+                  background-color: var(
+                    --main-menu-mobile--depth3-sub-menu-color-action-hover
+                  );
                 }
                 &:active {
-                  background-color: var(--krds-main-menu-mobile--depth3-sub-menu-color-action-active);
+                  background-color: var(
+                    --main-menu-mobile--depth3-sub-menu-color-action-active
+                  );
                 }
                 &.selected {
-                  color: var(--krds-main-menu-mobile--sub-menu-trigger-color-text);
-                  font-weight: var(--krds-font-weight-bold);
-                  background-color: var(--krds-main-menu-mobile--sub-menu-trigger-color-action-active);
+                  color: var(--main-menu-mobile--sub-menu-trigger-color-text);
+                  font-weight: var(--font-weight-bold);
+                  background-color: var(
+                    --main-menu-mobile--sub-menu-trigger-color-action-active
+                  );
                 }
                 &.has-depth4 {
                   &::after {
                     @include pseudo();
-                    @include svg-icon($size: var(--krds-icon--size-medium), $mode: light);
+                    @include svg-icon(
+                      $size: var(--icon--size-medium),
+                      $mode: light
+                    );
                     @include icon-set(ico_angle);
                     flex-shrink: 0;
                     margin-left: auto;
@@ -828,41 +1050,52 @@ $mode-setting: light;
             z-index: 10;
             width: 100%;
             height: 100%;
-            background-color: var(--krds-main-menu-mobile--depth4-color-surface);
-            transition: var(--krds-transition-base);
+            background-color: var(--main-menu-mobile--depth4-color-surface);
+            transition: var(--transition-base);
             .depth4-head {
               @include flex-layout($jc: space-between, $ai: normal);
-              font-weight: var(--krds-font-weight-bold);
+              font-weight: var(--font-weight-bold);
               width: 100%;
-              padding: var(--krds-main-menu-mobile--depth4-head-padding);
+              padding: var(--main-menu-mobile--depth4-head-padding);
             }
             .depth4-body {
-              padding: 0 var(--krds-main-menu-mobile--depth4-body-padding-x);
+              padding: 0 var(--main-menu-mobile--depth4-body-padding-x);
               .sub-title {
-                font-size: var(--krds-main-menu-mobile--depth4-sub-title);
-                padding: var(--krds-main-menu-mobile--depth4-sub-title-padding-top) var(--krds-main-menu-mobile--depth4-sub-title-padding-x) var(--krds-main-menu-mobile--depth4-sub-title-padding-bottom);
+                font-size: var(--main-menu-mobile--depth4-sub-title);
+                padding: var(--main-menu-mobile--depth4-sub-title-padding-top)
+                  var(--main-menu-mobile--depth4-sub-title-padding-x)
+                  var(--main-menu-mobile--depth4-sub-title-padding-bottom);
                 margin: 0;
               }
               .depth4-ul {
                 @include flex-layout($fd: column, $ai: normal);
-                gap: var(--krds-main-menu-mobile--depth4-list-gap);
+                gap: var(--main-menu-mobile--depth4-list-gap);
                 a {
                   @include flex-layout($ai: center);
-                  gap: var(--krds-main-menu-mobile--depth4-list-gap-layout-dot-text);
-                  padding: var(--krds-main-menu-mobile--depth4-list-li-padding-y) var(--krds-main-menu-mobile--depth4-list-li-padding-x);
-                  border-radius: var(--krds-main-menu-mobile--depth4-list-li-border-radius);
+                  gap: var(--main-menu-mobile--depth4-list-gap-layout-dot-text);
+                  padding: var(--main-menu-mobile--depth4-list-li-padding-y)
+                    var(--main-menu-mobile--depth4-list-li-padding-x);
+                  border-radius: var(
+                    --main-menu-mobile--depth4-list-li-border-radius
+                  );
                   &::before {
                     content: '•';
-                    font-weight: var(--krds-font-weight-regular);
+                    font-weight: var(--font-weight-regular);
                   }
                   &:hover {
-                    font-weight: var(--krds-font-weight-bold);
-                    color: var(--krds-main-menu-mobile--depth4-list-li-color-text-hover);
-                    background-color: var(--krds-main-menu-mobile--depth4-list-li-color-action-hover);
+                    font-weight: var(--font-weight-bold);
+                    color: var(
+                      --main-menu-mobile--depth4-list-li-color-text-hover
+                    );
+                    background-color: var(
+                      --main-menu-mobile--depth4-list-li-color-action-hover
+                    );
                   }
                   &:active {
-                    background-color: var(--krds-main-menu-mobile--depth4-list-li-color-action-active);
-                    transition: var(--krds-transition-base);
+                    background-color: var(
+                      --main-menu-mobile--depth4-list-li-color-action-active
+                    );
+                    transition: var(--transition-base);
                   }
                 }
               }
@@ -877,13 +1110,16 @@ $mode-setting: light;
       // gnb-bottom
       .gnb-bottom {
         @include flex-layout($fd: column, $ai: flex-start);
-        gap: var(--krds-gap-5);
-        padding: var(--krds-padding-6);
+        gap: var(--gap-5);
+        padding: var(--padding-6);
       }
     }
     // gnb-close
     #close-nav {
-      @include position($t: var(--krds-main-menu-mobile--header-padding-top), $r: var(--krds-main-menu-mobile--header-padding-x));
+      @include position(
+        $t: var(--main-menu-mobile--header-padding-top),
+        $r: var(--main-menu-mobile--header-padding-x)
+      );
     }
   }
 
@@ -894,30 +1130,42 @@ $mode-setting: light;
       height: 0;
       .menu-wrap {
         overflow: hidden;
-        margin: var(--krds-main-menu-mobile--tab-nav-menu-margin-top) calc(var(--krds-main-menu-mobile--tab-nav-menu-margin-x) * -1) 0;
-        padding: var(--krds-main-menu-mobile--tab-nav-menu-padding-top) var(--krds-main-menu-mobile--tab-nav-menu-padding-x) 0;
-        border-top: var(--krds-main-menu-mobile--tab-nav-menu-border-top-width) solid var(--krds-main-menu-mobile--tab-nav-menu-color-border-top);
+        margin: var(--main-menu-mobile--tab-nav-menu-margin-top)
+          calc(var(--main-menu-mobile--tab-nav-menu-margin-x) * -1) 0;
+        padding: var(--main-menu-mobile--tab-nav-menu-padding-top)
+          var(--main-menu-mobile--tab-nav-menu-padding-x) 0;
+        border-top: var(--main-menu-mobile--tab-nav-menu-border-top-width) solid
+          var(--main-menu-mobile--tab-nav-menu-color-border-top);
         & > ul {
           overflow-x: auto;
           position: relative;
           @include flex-layout($fd: row);
-          gap: var(--krds-main-menu-mobile--tab-nav-menu-list-gap);
-          padding-bottom: var(--krds-main-menu-mobile--tab-nav-menu-list-padding-bottom);
+          gap: var(--main-menu-mobile--tab-nav-menu-list-gap);
+          padding-bottom: var(
+            --main-menu-mobile--tab-nav-menu-list-padding-bottom
+          );
           scroll-behavior: smooth;
           .gnb-main-trigger {
             @include flex-layout($ai: center);
-            padding: 0 var(--krds-main-menu-mobile--tab-nav-main-trigger-padding-x);
-            height: var(--krds-main-menu-mobile--tab-nav-main-trigger-height);
-            border: var(--krds-main-menu-mobile--tab-nav-main-trigger-border-width) solid var(--krds-main-menu-mobile--tab-nav-main-trigger-color-border);
-            border-radius: var(--krds-main-menu-mobile--tab-nav-main-trigger-border-radius);
-            background-color: var(--krds-main-menu-mobile--tab-nav-main-trigger-color-action);
+            padding: 0 var(--main-menu-mobile--tab-nav-main-trigger-padding-x);
+            height: var(--main-menu-mobile--tab-nav-main-trigger-height);
+            border: var(--main-menu-mobile--tab-nav-main-trigger-border-width)
+              solid var(--main-menu-mobile--tab-nav-main-trigger-color-border);
+            border-radius: var(
+              --main-menu-mobile--tab-nav-main-trigger-border-radius
+            );
+            background-color: var(
+              --main-menu-mobile--tab-nav-main-trigger-color-action
+            );
             &,
             & > * {
-              font-size: var(--krds-pc-font-size-body-medium);
-              font-weight: var(--krds-font-weight-regular);
+              font-size: var(--pc-font-size-body-medium);
+              font-weight: var(--font-weight-regular);
             }
             &.active {
-              background-color: var(--krds-main-menu-mobile--tab-nav-main-trigger-color-action-active);
+              background-color: var(
+                --main-menu-mobile--tab-nav-main-trigger-color-action-active
+              );
             }
           }
         }
@@ -933,32 +1181,44 @@ $mode-setting: light;
     }
     // gnb-header
     .gnb-header {
-      border-bottom-width: var(--krds-main-menu-mobile--type-tab-gnb-header-border-bottom-width);
+      border-bottom-width: var(
+        --main-menu-mobile--type-tab-gnb-header-border-bottom-width
+      );
     }
     // gnb-body
     .gnb-body {
       .gnb-menu {
         @include flex-layout($fd: column, $ai: normal);
-        background-color: var(--krds-main-menu-mobile--type-tab-menu-color-surface);
+        background-color: var(--main-menu-mobile--type-tab-menu-color-surface);
         .submenu-wrap {
           .gnb-sub-list {
-            padding: var(--krds-main-menu-mobile--type-tab-sub-list-padding);
+            padding: var(--main-menu-mobile--type-tab-sub-list-padding);
             &:not(:last-child) {
-              border-bottom: var(--krds-main-menu-mobile--type-tab-sub-list-border-bottom-width) solid var(--krds-main-menu-mobile--type-tab-sub-list-border-bottom-color);
+              border-bottom: var(
+                  --main-menu-mobile--type-tab-sub-list-border-bottom-width
+                )
+                solid
+                var(--main-menu-mobile--type-tab-sub-list-border-bottom-color);
             }
             .gnb-sub-banner {
               @include flex-layout($jc: flex-start, $ai: center);
-              gap: var(--krds-main-menu-mobile--type-tab-sub-banner-gap);
-              padding: var(--krds-main-menu-mobile--type-tab-sub-banner-padding-y) var(--krds-main-menu-mobile--type-tab-sub-banner-padding-x);
-              border-radius: var(--krds-main-menu-mobile--type-tab-sub-banner-border-radius);
-              background-color: var(--krds-main-menu-mobile--type-tab-sub-banner-color-surface);
+              gap: var(--main-menu-mobile--type-tab-sub-banner-gap);
+              padding: var(--main-menu-mobile--type-tab-sub-banner-padding-y)
+                var(--main-menu-mobile--type-tab-sub-banner-padding-x);
+              border-radius: var(
+                --main-menu-mobile--type-tab-sub-banner-border-radius
+              );
+              background-color: var(
+                --main-menu-mobile--type-tab-sub-banner-color-surface
+              );
             }
           }
         }
       }
     }
     .gnb-bottom {
-      border-top: var(--krds-main-menu-mobile--type-tab-sub-list-border-bottom-width) solid var(--krds-main-menu-mobile--type-tab-sub-list-border-bottom-color);
+      border-top: var(--main-menu-mobile--type-tab-sub-list-border-bottom-width)
+        solid var(--main-menu-mobile--type-tab-sub-list-border-bottom-color);
     }
   }
 
@@ -967,51 +1227,56 @@ $mode-setting: light;
     @include position($p: absolute, $t: 0, $l: 0, $b: 0, $r: 0);
     display: none;
     z-index: 10;
-    background-color: var(--krds-main-menu-mobile--color-surface);
+    background-color: var(--main-menu-mobile--color-surface);
     &.active {
       @include flex-layout($fd: column, $ai: normal);
     }
     .search-header {
       margin-top: 0.3rem;
-      padding: 5.6rem var(--krds-main-menu-mobile--header-padding-x) var(--krds-main-menu-mobile--header-padding-bottom);
-      border-bottom: var(--krds-main-menu-mobile--header-border-width) solid var(--krds-main-menu-mobile--header-color-border);
+      padding: 5.6rem var(--main-menu-mobile--header-padding-x)
+        var(--main-menu-mobile--header-padding-bottom);
+      border-bottom: var(--main-menu-mobile--header-border-width) solid
+        var(--main-menu-mobile--header-color-border);
     }
     .search-body {
       overflow-y: auto;
-      padding: 0 var(--krds-main-menu-mobile--header-padding-x);
-      background-color: var(--krds-main-menu-mobile--search-layer-body-background);
+      padding: 0 var(--main-menu-mobile--header-padding-x);
+      background-color: var(--main-menu-mobile--search-layer-body-background);
       .no-results {
         text-align: center;
-        padding: var(--krds-padding-10) 0;
+        padding: var(--padding-10) 0;
         strong {
-          font-weight: var(--krds-font-weight-bold);
+          font-weight: var(--font-weight-bold);
         }
       }
       .result-list {
         @include flex-layout($fd: column, $ai: normal);
-        gap: var(--krds-gap-5);
-        padding: var(--krds-padding-8) 0;
+        gap: var(--gap-5);
+        padding: var(--padding-8) 0;
         .result-item {
           @include flex-layout();
-          gap: var(--krds-gap-3);
+          gap: var(--gap-3);
           a {
             @include underline();
           }
           .highlight {
-            font-weight: var(--krds-font-weight-bold);
+            font-weight: var(--font-weight-bold);
           }
         }
       }
     }
     .search-close {
-      @include position($t: 1.6rem, $r: var(--krds-main-menu-mobile--header-padding-x));
+      @include position(
+        $t: 1.6rem,
+        $r: var(--main-menu-mobile--header-padding-x)
+      );
     }
   }
   .dummy-control {
     text-align: left;
     .dummy-text {
       margin-top: 0.3rem;
-      color: var(--krds-input--color-text-placeholder);
+      color: var(--input--color-text-placeholder);
       @include ellipsis(1);
     }
     .ico-search {
@@ -1038,7 +1303,10 @@ $mode-setting: light;
               .gnb-sub-trigger {
                 &.has-depth3 {
                   &::after {
-                    @include svg-icon(var(--krds-icon--size-medium), $mode: #{$mode-setting});
+                    @include svg-icon(
+                      var(--icon--size-medium),
+                      $mode: #{$mode-setting}
+                    );
                   }
                 }
               }
@@ -1046,7 +1314,10 @@ $mode-setting: light;
                 .depth3-trigger {
                   &.has-depth4 {
                     &::after {
-                      @include svg-icon(var(--krds-icon--size-medium), $mode: #{$mode-setting});
+                      @include svg-icon(
+                        var(--icon--size-medium),
+                        $mode: #{$mode-setting}
+                      );
                     }
                   }
                 }

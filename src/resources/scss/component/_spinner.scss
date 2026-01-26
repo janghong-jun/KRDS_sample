@@ -5,19 +5,19 @@
 /* 스피너 */
 //사이즈 정의
 @mixin spinner-size-variable() {
-  --krds-spinner--layout-gap: var(--krds-number-5);
-  --krds-spinner--pc-font-size: var(--krds-pc-font-size-body-small);
-  --krds-spinner--mobile-font-size: var(--krds-mobile-font-size-body-small);
-  --krds-spinner--size: var(--krds-size-height-3);
-  --krds-spinner--animation-duration: 900ms;
+  --spinner--layout-gap: var(--number-5);
+  --spinner--pc-font-size: var(--pc-font-size-body-small);
+  --spinner--mobile-font-size: var(--mobile-font-size-body-small);
+  --spinner--size: var(--size-height-3);
+  --spinner--animation-duration: 900ms;
 }
 
 //컬러 정의
 @mixin spinner-color-variable($mode: light) {
-  --krds-spinner--color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-spinner--border-width: var(--krds-#{$mode}-border-width-variable-medium);
-  --krds-spinner--color-border: var(--krds-#{$mode}-color-element-disabled-light);
-  --krds-spinner--color-border-active: var(--krds-#{$mode}-color-element-primary);
+  --spinner--color-text: var(--#{$mode}-color-text-subtle);
+  --spinner--border-width: var(--#{$mode}-border-width-variable-medium);
+  --spinner--color-border: var(--#{$mode}-color-element-disabled-light);
+  --spinner--color-border-active: var(--#{$mode}-color-element-primary);
 }
 
 //모드 설정
@@ -27,29 +27,29 @@ $mode-setting: light;
   @include spinner-color-variable(#{$mode-setting});
 
   @include flex-layout($jc: center, $ai: center);
-  gap: var(--krds-spinner--layout-gap);
+  gap: var(--spinner--layout-gap);
   @include position($p: relative, $t: 0, $l: 0);
   z-index: 10;
-  color: var(--krds-spinner--color-text);
-  font-size: var(--krds-spinner--pc-font-size);
+  color: var(--spinner--color-text);
+  font-size: var(--spinner--pc-font-size);
   width: 100%;
   height: 100%;
   text-align: right;
 
   @include size-medium {
-    font-size: var(--krds-spinner--mobile-font-size);
+    font-size: var(--spinner--mobile-font-size);
   }
   &::before {
     display: inline-flex;
     content: '';
-    height: var(--krds-spinner--size);
-    width: var(--krds-spinner--size);
-    border: var(--krds-spinner--border-width) solid var(--krds-spinner--color-border);
+    height: var(--spinner--size);
+    width: var(--spinner--size);
+    border: var(--spinner--border-width) solid var(--spinner--color-border);
     border: {
-      top-color: var(--krds-spinner--color-border-active);
+      top-color: var(--spinner--color-border-active);
       radius: 100%;
     }
-    animation: spin var(--krds-spinner--animation-duration) infinite linear;
+    animation: spin var(--spinner--animation-duration) infinite linear;
   }
 }
 
@@ -57,12 +57,12 @@ $mode-setting: light;
   //spinner - form-spinner - padding
   position: relative;
   width: 100%;
-  --krds-spinner-form-spinner-padding-x: var(--krds-number-8);
+  --spinner-form-spinner-padding-x: var(--number-8);
 
   .krds-spinner {
     position: absolute;
     justify-content: flex-end;
-    padding: 0 var(--krds-spinner-form-spinner-padding-x);
+    padding: 0 var(--spinner-form-spinner-padding-x);
   }
 }
 

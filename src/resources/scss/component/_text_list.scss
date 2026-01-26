@@ -5,29 +5,29 @@
 /* 텍스트 목록 */
 //사이즈 정의
 @mixin text-list-size-variable() {
-  --krds-info-list--depth1-list-margin-top: 0;
-  --krds-info-list--depth2-list-margin-top: var(--krds-gap-5);
-  --krds-info-list--depth3-list-margin-top: var(--krds-gap-4);
-  --krds-info-list--depth1-padding-left: var(--krds-number-12);
-  --krds-info-list--depth2-padding-left: var(--krds-number-10);
-  --krds-info-list--depth3-padding-left: var(--krds-number-9);
-  --krds-info-list--gap-layout-depth1-li-li: var(--krds-gap-4);
-  --krds-info-list--gap-layout-depth2-li-li: var(--krds-gap-3);
-  --krds-info-list--gap-layout-depth3-li-li: var(--krds-gap-3);
-  --krds-info-list--pc-text-depth1: var(--krds-pc-font-size-body-medium);
-  --krds-info-list--mobile-text-depth1: var(--krds-mobile-font-size-body-medium);
-  --krds-info-list--pc-text-depth2: var(--krds-pc-font-size-body-medium);
-  --krds-info-list--mobile-text-depth2: var(--krds-mobile-font-size-body-medium);
-  --krds-info-list--pc-text-depth3: var(--krds-pc-font-size-body-small);
-  --krds-info-list--mobile-text-depth3: var(--krds-mobile-font-size-body-small);
-  --krds-info-list--info-txt-margin-top: var(--krds-number-7);
+  --info-list--depth1-list-margin-top: 0;
+  --info-list--depth2-list-margin-top: var(--gap-5);
+  --info-list--depth3-list-margin-top: var(--gap-4);
+  --info-list--depth1-padding-left: var(--number-12);
+  --info-list--depth2-padding-left: var(--number-10);
+  --info-list--depth3-padding-left: var(--number-9);
+  --info-list--gap-layout-depth1-li-li: var(--gap-4);
+  --info-list--gap-layout-depth2-li-li: var(--gap-3);
+  --info-list--gap-layout-depth3-li-li: var(--gap-3);
+  --info-list--pc-text-depth1: var(--pc-font-size-body-medium);
+  --info-list--mobile-text-depth1: var(--mobile-font-size-body-medium);
+  --info-list--pc-text-depth2: var(--pc-font-size-body-medium);
+  --info-list--mobile-text-depth2: var(--mobile-font-size-body-medium);
+  --info-list--pc-text-depth3: var(--pc-font-size-body-small);
+  --info-list--mobile-text-depth3: var(--mobile-font-size-body-small);
+  --info-list--info-txt-margin-top: var(--number-7);
 }
 
 //컬러 정의
 @mixin text-list-color-variable($mode: light) {
-  --krds-info-list--depth1-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-info-list--depth2-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-info-list--depth3-color-text: var(--krds-#{$mode}-color-text-subtle);
+  --info-list--depth1-color-text: var(--#{$mode}-color-text-subtle);
+  --info-list--depth2-color-text: var(--#{$mode}-color-text-subtle);
+  --info-list--depth3-color-text: var(--#{$mode}-color-text-subtle);
 }
 
 //모드 설정
@@ -38,47 +38,47 @@ $mode-setting: light;
 
   display: flex;
   flex-direction: column;
-  margin-top: var(--krds-info-list--depth1-list-margin-top);
-  gap: var(--krds-info-list--gap-layout-depth1-li-li);
+  margin-top: var(--info-list--depth1-list-margin-top);
+  gap: var(--info-list--gap-layout-depth1-li-li);
 
   > li {
     position: relative;
-    padding-left: var(--krds-info-list--depth1-padding-left);
-    color: var(--krds-info-list--depth1-color-text);
-    font-size: var(--krds-info-list--pc-text-depth1);
+    padding-left: var(--info-list--depth1-padding-left);
+    color: var(--info-list--depth1-color-text);
+    font-size: var(--info-list--pc-text-depth1);
     @include size-medium {
-      font-size: var(--krds-info-list--mobile-text-depth1);
+      font-size: var(--info-list--mobile-text-depth1);
     }
     &::before {
       @include position($t: 0, $l: 0);
     }
     > .krds-info-list {
       //2depth
-      gap: var(--krds-info-list--gap-layout-depth2-li-li);
-      margin-top: var(--krds-info-list--depth2-list-margin-top);
+      gap: var(--info-list--gap-layout-depth2-li-li);
+      margin-top: var(--info-list--depth2-list-margin-top);
       > li {
-        padding-left: var(--krds-info-list--depth2-padding-left);
-        color: var(--krds-info-list--depth2-color-text);
-        font-size: var(--krds-info-list--pc-text-depth2);
+        padding-left: var(--info-list--depth2-padding-left);
+        color: var(--info-list--depth2-color-text);
+        font-size: var(--info-list--pc-text-depth2);
         @include size-medium {
-          font-size: var(--krds-info-list--mobile-text-depth2);
+          font-size: var(--info-list--mobile-text-depth2);
         }
         > .krds-info-list {
           //3depth
-          margin-top: var(--krds-info-list--depth3-list-margin-top);
+          margin-top: var(--info-list--depth3-list-margin-top);
           > li {
-            padding-left: var(--krds-info-list--depth3-padding-left);
-            color: var(--krds-info-list--depth3-color-text);
-            font-size: var(--krds-info-list--pc-text-depth3);
+            padding-left: var(--info-list--depth3-padding-left);
+            color: var(--info-list--depth3-color-text);
+            font-size: var(--info-list--pc-text-depth3);
             @include size-medium {
-              font-size: var(--krds-info-list--mobile-text-depth3);
+              font-size: var(--info-list--mobile-text-depth3);
             }
           }
         }
       }
     }
     > .info-txt {
-      margin-top: var(--krds-info-list--info-txt-margin-top);
+      margin-top: var(--info-list--info-txt-margin-top);
     }
   }
   &.decimal {
@@ -87,8 +87,8 @@ $mode-setting: light;
         @include pseudo();
         @include square(0.6rem);
         content: '';
-        background-color: var(--krds-info-list--depth1-color-text);
-        border-radius: var(--krds-radius-max);
+        background-color: var(--info-list--depth1-color-text);
+        border-radius: var(--radius-max);
         top: 1rem;
         left: 0.8rem;
       }
@@ -102,15 +102,15 @@ $mode-setting: light;
     }
   }
   &.hollow {
-    gap: var(--krds-info-list--gap-layout-depth2-li-li);
+    gap: var(--info-list--gap-layout-depth2-li-li);
     > li {
-      padding-left: var(--krds-info-list--depth3-padding-left);
+      padding-left: var(--info-list--depth3-padding-left);
       &::before {
         @include pseudo();
         @include square(0.4rem);
         content: '';
-        border: 0.1rem solid var(--krds-info-list--depth1-color-text);
-        border-radius: var(--krds-radius-max);
+        border: 0.1rem solid var(--info-list--depth1-color-text);
+        border-radius: var(--radius-max);
         top: 0.95rem;
         left: 0.8rem;
       }

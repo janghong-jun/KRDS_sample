@@ -5,62 +5,52 @@
 /* 탭 */
 //사이즈 정의
 @mixin tab-size-variable() {
-  --krds-tab--button-size-height: var(--krds-size-height-7);
-  --krds-tab--button-size-min-width: 6.4rem;
-  --krds-tab--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-tab--button-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xsmall
-  );
-  --krds-tab--gap: var(--krds-gap-3);
-  --krds-tab--full-button-size-height: var(--krds-size-height-8);
-  --krds-tab--full-button-pc-font-size: var(--krds-pc-font-size-heading-small);
-  --krds-tab--full-button-mobile-font-size: var(
-    --krds-mobile-font-size-heading-small
-  );
-  --krds-tab--line-button-padding: var(--krds-padding-2);
-  --krds-tab--fill-button-padding: var(--krds-padding-3);
-  --krds-tab--fill-button-radius: var(--krds-radius-medium2);
-  --krds-tab--conts-padding-top: var(--krds-padding-10);
-  --krds-tab--mobile-button-trigger-size-height: var(--krds-size-height-7);
-  --krds-tab--mobile-button-trigger-padding-x: var(--krds-padding-6);
-  --krds-tab--mobile-button-trigger-radius: var(--krds-radius-medium1);
+  --tab--button-size-height: var(--size-height-7);
+  --tab--button-size-min-width: 6.4rem;
+  --tab--button-pc-font-size: var(--pc-font-size-heading-xsmall);
+  --tab--button-mobile-font-size: var(--mobile-font-size-heading-xsmall);
+  --tab--gap: var(--gap-3);
+  --tab--full-button-size-height: var(--size-height-8);
+  --tab--full-button-pc-font-size: var(--pc-font-size-heading-small);
+  --tab--full-button-mobile-font-size: var(--mobile-font-size-heading-small);
+  --tab--line-button-padding: var(--padding-2);
+  --tab--fill-button-padding: var(--padding-3);
+  --tab--fill-button-radius: var(--radius-medium2);
+  --tab--conts-padding-top: var(--padding-10);
+  --tab--mobile-button-trigger-size-height: var(--size-height-7);
+  --tab--mobile-button-trigger-padding-x: var(--padding-6);
+  --tab--mobile-button-trigger-radius: var(--radius-medium1);
 }
 //컬러 정의
 @mixin tab-color-variable($mode: light) {
-  --krds-tab--button-color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-tab--button-color-action-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
+  --tab--button-color-action: var(--#{$mode}-color-action-secondary);
+  --tab--button-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
   );
-  --krds-tab--button-color-action-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
+  --tab--button-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-pressed
   );
-  --krds-tab--button-color-border: var(--krds-#{$mode}-color-action-secondary);
-  --krds-tab--button-color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-tab--button-color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled
+  --tab--button-color-border: var(--#{$mode}-color-action-secondary);
+  --tab--button-color-text: var(--#{$mode}-color-text-subtle);
+  --tab--button-color-text-disabled: var(--#{$mode}-color-text-disabled);
+  --tab--fill-button-color-action-active: var(
+    --#{$mode}-color-action-secondary-active
   );
-  --krds-tab--fill-button-color-action-active: var(
-    --krds-#{$mode}-color-action-secondary-active
+  --tab--fill-button-color-border: var(--#{$mode}-color-border-gray);
+  --tab--fill-button-color-border-active: var(
+    --#{$mode}-color-action-secondary-active
   );
-  --krds-tab--fill-button-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-tab--fill-button-color-border-active: var(
-    --krds-#{$mode}-color-action-secondary-active
+  --tab--fill-button-color-text: var(--#{$mode}-color-text-inverse-static);
+  --tab--line-button-color-border: var(--#{$mode}-color-border-gray);
+  --tab--line-button-color-line-active: var(
+    --#{$mode}-color-action-secondary-active
   );
-  --krds-tab--fill-button-color-text: var(
-    --krds-#{$mode}-color-text-inverse-static
+  --tab--line-button-color-text-active: var(--#{$mode}-color-text-secondary);
+  --tab--mobile-button-trigger-color-text: var(
+    --#{$mode}-color-text-inverse-static
   );
-  --krds-tab--line-button-color-border: var(--krds-#{$mode}-color-border-gray);
-  --krds-tab--line-button-color-line-active: var(
-    --krds-#{$mode}-color-action-secondary-active
-  );
-  --krds-tab--line-button-color-text-active: var(
-    --krds-#{$mode}-color-text-secondary
-  );
-  --krds-tab--mobile-button-trigger-color-text: var(
-    --krds-#{$mode}-color-text-inverse-static
-  );
-  --krds-tab--mobile-button-trigger-color-action: var(
-    --krds-#{$mode}-color-action-secondary-active
+  --tab--mobile-button-trigger-color-action: var(
+    --#{$mode}-color-action-secondary-active
   );
 }
 
@@ -68,11 +58,11 @@
 $mode-setting: light;
 .krds-tab-area {
   @include flex-layout($fd: column);
-  gap: var(--krds-gap-9);
+  gap: var(--gap-9);
   width: 100%;
 
   @include size-medium {
-    gap: var(--krds-gap-8);
+    gap: var(--gap-8);
   }
 }
 .tab {
@@ -81,7 +71,7 @@ $mode-setting: light;
 
   > ul {
     @include flex-layout($ai: center);
-    gap: var(--krds-tab--gap);
+    gap: var(--tab--gap);
     overflow-x: auto;
     overflow-y: hidden;
     width: 100%;
@@ -94,29 +84,29 @@ $mode-setting: light;
   }
   .btn-tab {
     width: 100%;
-    height: var(--krds-tab--button-size-height);
-    background-color: var(--krds-tab--button-color-action);
-    border: 0.1rem solid var(--krds-tab--button-color-border);
-    font-size: var(--krds-tab--button-pc-font-size);
-    color: var(--krds-tab--button-color-text);
-    font-weight: var(--krds-font-weight-bold);
-    transition: var(--krds-transition-base);
+    height: var(--tab--button-size-height);
+    background-color: var(--tab--button-color-action);
+    border: 0.1rem solid var(--tab--button-color-border);
+    font-size: var(--tab--button-pc-font-size);
+    color: var(--tab--button-color-text);
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-base);
     @include size-medium {
-      font-size: var(--krds-tab--button-mobile-font-size);
+      font-size: var(--tab--button-mobile-font-size);
     }
     &:not(:disabled):hover {
-      background-color: var(--krds-tab--button-color-action-hover);
-      transition: var(--krds-transition-base);
+      background-color: var(--tab--button-color-action-hover);
+      transition: var(--transition-base);
     }
     &:not(:disabled):active {
-      background-color: var(--krds-tab--button-color-action-pressed);
-      transition: var(--krds-transition-base);
+      background-color: var(--tab--button-color-action-pressed);
+      transition: var(--transition-base);
     }
     &:focus {
       @include focus();
     }
     &[disabled] {
-      color: var(--krds-tab--button-color-text-disabled);
+      color: var(--tab--button-color-text-disabled);
       cursor: default;
     }
   }
@@ -128,12 +118,12 @@ $mode-setting: light;
     //풀사이즈
     width: 100%;
     .btn-tab {
-      height: var(--krds-tab--full-button-size-height);
+      height: var(--tab--full-button-size-height);
       padding: 0;
-      font-size: var(--krds-tab--full-button-pc-font-size);
+      font-size: var(--tab--full-button-pc-font-size);
       word-break: keep-all;
       @include size-medium {
-        font-size: var(--krds-tab--full-button-mobile-font-size);
+        font-size: var(--tab--full-button-mobile-font-size);
       }
     }
     > ul {
@@ -158,27 +148,25 @@ $mode-setting: light;
   &.fill {
     //bg 타입
     .btn-tab {
-      padding: 0 var(--krds-tab--fill-button-padding);
-      border-radius: var(--krds-tab--fill-button-radius);
+      padding: 0 var(--tab--fill-button-padding);
+      border-radius: var(--tab--fill-button-radius);
       &:focus {
         box-shadow: inset 0 0 0 0.6rem
-          var(--krds-#{$mode-setting}-color-border-primary);
+          var(--#{$mode-setting}-color-border-primary);
         outline-offset: -0.4rem;
       }
     }
     .active {
       .btn-tab {
-        background-color: var(--krds-tab--fill-button-color-action-active);
-        border-color: var(
-          --krds-tab--fill-button-color-border-active
-        ) !important;
-        color: var(--krds-tab--fill-button-color-text);
+        background-color: var(--tab--fill-button-color-action-active);
+        border-color: var(--tab--fill-button-color-border-active) !important;
+        color: var(--tab--fill-button-color-text);
       }
     }
 
     &.full {
       .btn-tab {
-        border-color: var(--krds-tab--fill-button-color-border);
+        border-color: var(--tab--fill-button-color-border);
       }
       > ul {
         > li {
@@ -192,14 +180,14 @@ $mode-setting: light;
           }
           &:first-of-type {
             .btn-tab {
-              border-top-left-radius: var(--krds-tab--fill-button-radius);
-              border-bottom-left-radius: var(--krds-tab--fill-button-radius);
+              border-top-left-radius: var(--tab--fill-button-radius);
+              border-bottom-left-radius: var(--tab--fill-button-radius);
             }
           }
           &:last-of-type {
             .btn-tab {
-              border-top-right-radius: var(--krds-tab--fill-button-radius);
-              border-bottom-right-radius: var(--krds-tab--fill-button-radius);
+              border-top-right-radius: var(--tab--fill-button-radius);
+              border-bottom-right-radius: var(--tab--fill-button-radius);
             }
           }
         }
@@ -209,20 +197,20 @@ $mode-setting: light;
   &.line {
     //line 타입
     .btn-tab {
-      min-width: var(--krds-tab--button-size-min-width);
-      padding: 0 var(--krds-tab--line-button-padding);
+      min-width: var(--tab--button-size-min-width);
+      padding: 0 var(--tab--line-button-padding);
       &::before {
         @include position($b: 0, $l: 50%);
         @include pseudo();
         width: 0;
         height: 0.4rem;
-        background-color: var(--krds-#{$mode-setting}-color-border-primary);
-        transition: var(--krds-transition-base);
+        background-color: var(--#{$mode-setting}-color-border-primary);
+        transition: var(--transition-base);
       }
     }
     .active {
       .btn-tab {
-        color: var(--krds-#{$mode-setting}-color-border-primary);
+        color: var(--#{$mode-setting}-color-border-primary);
         &::before {
           @include position($l: 0);
           width: 100%;
@@ -232,7 +220,7 @@ $mode-setting: light;
     &.full {
       .btn-tab {
         border: 0;
-        border-bottom: 0.2rem solid var(--krds-tab--line-button-color-border);
+        border-bottom: 0.2rem solid var(--tab--line-button-color-border);
 
         &::before {
           bottom: -0.2rem;
@@ -248,7 +236,7 @@ $mode-setting: light;
 
 .tab-conts {
   display: none;
-  margin-top: var(--krds-tab--conts-padding-top);
+  margin-top: var(--tab--conts-padding-top);
   &.active {
     @include flex-layout($fd: column, $ai: normal);
   }
@@ -258,25 +246,25 @@ $mode-setting: light;
 @include size-medium {
   .tab-conts {
     &.active {
-      gap: var(--krds-padding-8);
+      gap: var(--padding-8);
     }
   }
   .tab {
     &.fill {
       &.full {
         .btn-tab {
-          border-color: var(--krds-tab--fill-button-color-border);
-          padding: 0 var(--krds-padding-5);
+          border-color: var(--tab--fill-button-color-border);
+          padding: 0 var(--padding-5);
           border-width: 0;
         }
         > ul {
-          gap: var(--krds-gap-3);
+          gap: var(--gap-3);
           flex-wrap: nowrap;
           > li {
             width: fit-content;
             flex: none;
             .btn-tab {
-              border-radius: var(--krds-tab--fill-button-radius);
+              border-radius: var(--tab--fill-button-radius);
             }
           }
         }
@@ -288,14 +276,13 @@ $mode-setting: light;
           > ul {
             display: grid;
             max-width: calc(
-              100vw - var(--krds-contents-padding-x) -
-                var(--krds-contents-padding-x)
+              100vw - var(--contents-padding-x) - var(--contents-padding-x)
             );
             grid-template-columns: repeat(4, 1fr);
             > li {
               min-width: fit-content;
               .btn-tab {
-                padding: 0 var(--krds-padding-4);
+                padding: 0 var(--padding-4);
               }
             }
           }

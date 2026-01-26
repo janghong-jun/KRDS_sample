@@ -60,7 +60,7 @@ const scrollManager = {
 const common = {
   focusTrap(trap) {
     const focusableElements = trap.querySelectorAll(
-      `a, button, [tabindex="0"], input, textarea, select`
+      `a, button, [tabindex="0"], input, textarea, select`,
     );
 
     if (!focusableElements.length) return;
@@ -101,7 +101,7 @@ const common = {
 const krds_mainMenuPC = {
   init() {
     const gnbMenu = document.querySelector(
-      '.krds-main-menu:not(.sample) .gnb-menu'
+      '.krds-main-menu:not(.sample) .gnb-menu',
     );
 
     if (!gnbMenu) return;
@@ -116,7 +116,7 @@ const krds_mainMenuPC = {
     // 주 메뉴 및 서브 메뉴의 트리거를 설정하고, 각 트리거에 이벤트를 연결
     const mainTriggers = gnbMenu.querySelectorAll('.gnb-main-trigger');
     const subTriggers = gnbMenu.querySelectorAll(
-      '.gnb-sub-trigger:not(.is-link)'
+      '.gnb-sub-trigger:not(.is-link)',
     );
     mainTriggers.forEach((mainTrigger) => this.setupMainTrigger(mainTrigger));
     this.attachEvents(mainTriggers, subTriggers);
@@ -173,7 +173,7 @@ const krds_mainMenuPC = {
         this.toggleBackdrop(true);
         this.toggleScrollbar(true);
         this.adjustSubMenuHeight(
-          mainTrigger.nextElementSibling.querySelector('.gnb-main-list')
+          mainTrigger.nextElementSibling.querySelector('.gnb-main-list'),
         );
       }
     } else {
@@ -219,7 +219,7 @@ const krds_mainMenuPC = {
   resetMainMenu() {
     document
       .querySelectorAll(
-        '.krds-main-menu:not(.sample) .gnb-main-trigger:not(.is-link)'
+        '.krds-main-menu:not(.sample) .gnb-main-trigger:not(.is-link)',
       )
       .forEach((mainTrigger) => {
         mainTrigger.classList.remove('active');
@@ -255,14 +255,14 @@ const krds_mainMenuPC = {
     // 메인 메뉴 트리거 설정
     mainTriggers.forEach((mainTrigger) => {
       mainTrigger.addEventListener('click', () =>
-        this.toggleMainMenu(mainTrigger)
+        this.toggleMainMenu(mainTrigger),
       );
     });
 
     // 서브 메뉴 트리거 설정
     subTriggers.forEach((subTrigger) => {
       subTrigger.addEventListener('click', () =>
-        this.toggleSubMenu(subTrigger)
+        this.toggleSubMenu(subTrigger),
       );
     });
   },
@@ -315,7 +315,7 @@ const krds_mainMenuPC = {
 const krds_mainMenuMobile = {
   init() {
     const mobileGnb = document.querySelector(
-      '.krds-main-menu-mobile:not(.sample)'
+      '.krds-main-menu-mobile:not(.sample)',
     );
 
     if (!mobileGnb) return;
@@ -352,7 +352,7 @@ const krds_mainMenuMobile = {
         item.setAttribute('aria-selected', 'false');
         item.setAttribute(
           'aria-controls',
-          item.getAttribute('href').substring(1)
+          item.getAttribute('href').substring(1),
         );
         item.setAttribute('id', `tab-${idx}`);
 
@@ -371,7 +371,7 @@ const krds_mainMenuMobile = {
       });
 
       const tabPanels = document.querySelectorAll(
-        '.submenu-wrap .gnb-sub-list'
+        '.submenu-wrap .gnb-sub-list',
       );
       tabPanels.forEach((item, idx) => {
         item.setAttribute('role', 'tabpanel');
@@ -522,7 +522,7 @@ const krds_mainMenuMobile = {
   },
   setupAnchorLinks(mobileGnb) {
     const menuItems = mobileGnb.querySelectorAll(
-      '.menu-wrap .gnb-main-trigger'
+      '.menu-wrap .gnb-main-trigger',
     );
     const navItems = mobileGnb.querySelectorAll('.submenu-wrap .gnb-sub-list');
 
@@ -544,7 +544,7 @@ const krds_mainMenuMobile = {
             item.setAttribute('aria-expanded', 'false');
           }
           item.addEventListener('click', (event) =>
-            this.handleDepth3Click(event, item)
+            this.handleDepth3Click(event, item),
           );
         });
       }
@@ -556,7 +556,7 @@ const krds_mainMenuMobile = {
       if (depth4Items.length > 0) {
         depth4Items.forEach((item) => {
           item.addEventListener('click', (event) =>
-            this.handleDepth4Click(event, item)
+            this.handleDepth4Click(event, item),
           );
         });
       }
@@ -629,7 +629,7 @@ const krds_sideNavigation = {
   },
   setupSideNavLists() {
     const sideNavLists = document.querySelectorAll(
-      '.krds-side-navigation .lnb-list'
+      '.krds-side-navigation .lnb-list',
     );
     sideNavLists.forEach((navList) => {
       const navItems = navList.querySelectorAll('li');
@@ -647,7 +647,7 @@ const krds_sideNavigation = {
     navButton.setAttribute('aria-controls', uniqueIdx);
     navButton.setAttribute(
       'aria-expanded',
-      navButton.classList.contains('active')
+      navButton.classList.contains('active'),
     );
 
     // 서브메뉴 id 설정 및 popup 처리
@@ -663,7 +663,7 @@ const krds_sideNavigation = {
   },
   setupToggleEvents() {
     const toggleButtons = document.querySelectorAll(
-      '.krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle'
+      '.krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle',
     );
     toggleButtons.forEach((toggleButton) => {
       toggleButton.addEventListener('click', () => {
@@ -702,7 +702,7 @@ const krds_sideNavigation = {
             () => {
               popupSubmenu.querySelector('.lnb-btn-tit')?.focus();
             },
-            { once: true }
+            { once: true },
           );
 
           lastClickedButton = button;
@@ -724,7 +724,7 @@ const krds_sideNavigation = {
               () => {
                 lastClickedButton.focus();
               },
-              { once: true }
+              { once: true },
             );
           }
         }
@@ -746,7 +746,7 @@ const krds_sideNavigation = {
   closeSiblingMenus(toggleButton) {
     const parentListItem = toggleButton.closest('li');
     const siblingButtons = parentListItem.parentNode.querySelectorAll(
-      ':scope > li > .lnb-toggle'
+      ':scope > li > .lnb-toggle',
     );
     siblingButtons.forEach((siblingButton) => {
       if (siblingButton !== toggleButton) {
@@ -761,7 +761,7 @@ const krds_sideNavigation = {
       .slice(-1)[0]
       .replace('.html', '');
     const lnbLinks = document.querySelectorAll(
-      '.krds-side-navigation .lnb-link'
+      '.krds-side-navigation .lnb-link',
     );
     lnbLinks.forEach((link) => {
       const linkPage = link
@@ -938,7 +938,7 @@ const krds_accordion = {
           button,
           accordionItems,
           accordionType,
-          currentItem
+          currentItem,
         );
         this.accordionHandlers.set(button, toggleHandler);
       }
@@ -957,7 +957,7 @@ const krds_accordion = {
     accordionContent.setAttribute('id', `accordionCollapse-id-${uniqueIdx}`);
     accordionContent.setAttribute(
       'aria-labelledby',
-      `accordionHeader-id-${uniqueIdx}`
+      `accordionHeader-id-${uniqueIdx}`,
     );
   },
 };
@@ -1037,7 +1037,7 @@ const krds_modal = {
 
     //열린 팝업창 포커스
     const focusables = modalElement.querySelectorAll(
-      `a, button, [tabindex="0"], input, textarea, select`
+      `a, button, [tabindex="0"], input, textarea, select`,
     );
     setTimeout(() => {
       // modalTitle.focus();
@@ -1052,7 +1052,7 @@ const krds_modal = {
           this.closeModal(dialogElement.closest('.krds-modal').id);
         }
       },
-      { once: true }
+      { once: true },
     );
 
     // 모달 외부 클릭 처리 핸들러 정의 및 저장
@@ -1115,7 +1115,7 @@ const krds_modal = {
   },
   returnFocusToTrigger(id) {
     const triggerButton = document.querySelector(
-      `.modal-opened[data-modal-id="${id}"]`
+      `.modal-opened[data-modal-id="${id}"]`,
     );
     if (triggerButton) {
       triggerButton.focus();
@@ -1131,7 +1131,7 @@ const krds_contextualHelp = {
   tooltipButtons: null,
   init() {
     this.tooltipButtons = document.querySelectorAll(
-      '.krds-contextual-help .tooltip-btn'
+      '.krds-contextual-help .tooltip-btn',
     );
 
     if (!this.tooltipButtons.length) return;
@@ -1180,7 +1180,7 @@ const krds_contextualHelp = {
     if (!isVisible) {
       tooltipPopover.style.display = 'block';
       const focusables = tooltipPopover.querySelector(
-        `a, button, [tabindex="0"], input, textarea, select`
+        `a, button, [tabindex="0"], input, textarea, select`,
       );
       focusables?.focus();
       button.setAttribute('aria-expanded', 'true');
@@ -1190,7 +1190,7 @@ const krds_contextualHelp = {
   },
   closeAllTooltips() {
     const otherPopovers = document.querySelectorAll(
-      '.krds-contextual-help .tooltip-popover'
+      '.krds-contextual-help .tooltip-popover',
     );
     otherPopovers.forEach((popover) => {
       popover.style.display = 'none';
@@ -1207,7 +1207,7 @@ const krds_contextualHelp = {
     if (isMobile) {
       const rootStyles = getComputedStyle(document.querySelector(':root'));
       const contentsPaddingX = rootStyles
-        .getPropertyValue('--krds-contents-padding-x')
+        .getPropertyValue('--contents-padding-x')
         .trim()
         .split('px')[0];
       const tooltipActionRect = tooltipAction.getBoundingClientRect();
@@ -1270,7 +1270,7 @@ const krds_tooltip = {
       const tooltipPopover = this.createTooltipPopover(
         uniqueIdx,
         tooltipBtnText,
-        tooltipText
+        tooltipText,
       );
       item.parentNode.insertBefore(tooltipPopover, item.nextSibling);
 
@@ -1504,7 +1504,7 @@ const krds_calendar = {
 
       area
         .querySelector(
-          `td[data-date="${targetDate}"] .btn-set-date:not([disabled])`
+          `td[data-date="${targetDate}"] .btn-set-date:not([disabled])`,
         )
         ?.focus();
     });
@@ -1525,7 +1525,7 @@ const krds_calendar = {
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
         this.selectedDate = `${this.currentYear}.${String(
-          this.currentMonth
+          this.currentMonth,
         ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
       }
     } else {
@@ -1556,7 +1556,7 @@ const krds_calendar = {
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
         const todayStr = `${this.currentYear}.${String(
-          this.currentMonth
+          this.currentMonth,
         ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
         this.startDate = todayStr;
         this.endDate = null;
@@ -1631,7 +1631,7 @@ const krds_calendar = {
       this.currentMonth = today.getMonth() + 1;
 
       const todayStr = `${this.currentYear}.${String(
-        this.currentMonth
+        this.currentMonth,
       ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
 
       if (this.calendarType === 'single') {
@@ -1891,7 +1891,7 @@ const krds_calendar = {
 
       if (focusDate) {
         const btn = area.querySelector(
-          `td[data-date="${focusDate}"] .btn-set-date:not([disabled])`
+          `td[data-date="${focusDate}"] .btn-set-date:not([disabled])`,
         );
         if (btn) {
           btn.focus();
@@ -1900,7 +1900,7 @@ const krds_calendar = {
       }
 
       const todayBtn = area.querySelector(
-        'td.today .btn-set-date:not([disabled])'
+        'td.today .btn-set-date:not([disabled])',
       );
       if (todayBtn) {
         todayBtn.focus();
@@ -1922,7 +1922,7 @@ const krds_calendar = {
     const prevLastDate = new Date(year, month - 1, 0).getDate();
     const today = new Date();
     const todayStr = `${today.getFullYear()}.${String(
-      today.getMonth() + 1
+      today.getMonth() + 1,
     ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
 
     let day = 1;
@@ -1941,7 +1941,7 @@ const krds_calendar = {
           const prevYear = month === 1 ? year - 1 : year;
           const dateStr = `${prevYear}.${String(prevMonth).padStart(
             2,
-            '0'
+            '0',
           )}.${String(d).padStart(2, '0')}`;
 
           td = `<td class="old${
@@ -1956,7 +1956,7 @@ const krds_calendar = {
           const nextYear = month === 12 ? year + 1 : year;
           const dateStr = `${nextYear}.${String(nextMonth).padStart(
             2,
-            '0'
+            '0',
           )}.${String(nextDay).padStart(2, '0')}`;
 
           td = `<td class="new${
@@ -1968,7 +1968,7 @@ const krds_calendar = {
           </td>`;
         } else {
           const dateStr = `${year}.${String(month).padStart(2, '0')}.${String(
-            day
+            day,
           ).padStart(2, '0')}`;
           const isToday = dateStr === todayStr;
           const classes = [];
@@ -2056,8 +2056,8 @@ const krds_calendar = {
       </div>
       <div class="calendar-drop-down month">
         <button type="button" class="btn-cal-switch month" aria-label="월 선택, 현재 ${month}월" aria-expanded="false" aria-haspopup="listbox">${String(
-      month
-    ).padStart(2, '0')}월</button>
+          month,
+        ).padStart(2, '0')}월</button>
         <div class="calendar-select calendar-month-wrap">
           <ul class="sel month" role="listbox" id="${uniqueMonthId}" aria-label="월 목록">
             ${monthOptions.join('')}
@@ -2102,7 +2102,7 @@ const krds_calendar = {
 
   activateFocusTrap(area) {
     const focusables = area.querySelectorAll(
-      'button:not([disabled]), [tabindex="0"]'
+      'button:not([disabled]), [tabindex="0"]',
     );
     if (!focusables.length) return;
 
@@ -2219,7 +2219,7 @@ const krds_calendar = {
 
       // 대상 셀의 버튼으로 포커스 이동
       const targetBtn = targetTd?.querySelector(
-        '.btn-set-date:not([disabled])'
+        '.btn-set-date:not([disabled])',
       );
       if (targetBtn) {
         targetBtn.focus();
@@ -2238,7 +2238,7 @@ const krds_inPageNavigation = {
   quickIndicators: null,
   init() {
     this.quickIndicators = document.querySelectorAll(
-      '.krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list'
+      '.krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list',
     );
 
     if (!this.quickIndicators.length) return;
@@ -2250,7 +2250,7 @@ const krds_inPageNavigation = {
   observeListChanges() {
     // in-page-navigation-list 변경 시 setupAnchorScroll 호출
     const quickList = document.querySelector(
-      '.krds-in-page-navigation-type .in-page-navigation-list'
+      '.krds-in-page-navigation-type .in-page-navigation-list',
     );
     if (!quickList) return;
     const observer = new MutationObserver(() => {
@@ -2335,13 +2335,13 @@ const krds_inPageNavigation = {
         const sectionTop = current.offsetTop - topHeight;
         const sectionId = current.getAttribute('id');
         const navLink = document.querySelector(
-          `.krds-in-page-navigation-area a[href*=${sectionId}]`
+          `.krds-in-page-navigation-area a[href*=${sectionId}]`,
         );
         const firstAnchor = document.querySelector(
-          '.krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a'
+          '.krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a',
         );
         const lastAnchor = document.querySelector(
-          '.krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a'
+          '.krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a',
         );
         if (scrollBottom >= scrollHeight) {
           // 스크롤이 페이지 끝에 도달했을 때
@@ -2395,7 +2395,7 @@ const krds_helpPanel = {
     const topBannerHeight =
       document.querySelector('#krds-masthead')?.offsetHeight;
     const headerHeight = document.querySelector(
-      '#krds-header .header-in'
+      '#krds-header .header-in',
     )?.offsetHeight;
     const defaultPadding = topBannerHeight + headerHeight;
     const hiddenBannerPadding = headerHeight;
@@ -2435,7 +2435,7 @@ const krds_helpPanel = {
           body.classList.toggle('bn-hidden', !entry.isIntersecting);
         });
       },
-      { root: null, threshold: 0 }
+      { root: null, threshold: 0 },
     );
     observer.observe(topBanner);
   },
@@ -2584,7 +2584,7 @@ const krds_adjustContentScale = {
   maxScale: 2,
   init() {
     const scaleButtons = document.querySelectorAll(
-      '[data-adjust] [data-adjust-scale]'
+      '[data-adjust] [data-adjust-scale]',
     );
 
     if (!scaleButtons.length) return;
@@ -2592,13 +2592,11 @@ const krds_adjustContentScale = {
     // root 변수에서 스케일 값을 가져오기
     const root = document.querySelector(':root');
     const rootStyles = getComputedStyle(root);
-    const zoomSmall = rootStyles.getPropertyValue('--krds-zoom-small').trim();
-    const zoomMedium = rootStyles.getPropertyValue('--krds-zoom-medium').trim();
-    const zoomLarge = rootStyles.getPropertyValue('--krds-zoom-large').trim();
-    const zoomXlarge = rootStyles.getPropertyValue('--krds-zoom-xlarge').trim();
-    const zoomXxlarge = rootStyles
-      .getPropertyValue('--krds-zoom-xxlarge')
-      .trim();
+    const zoomSmall = rootStyles.getPropertyValue('--zoom-small').trim();
+    const zoomMedium = rootStyles.getPropertyValue('--zoom-medium').trim();
+    const zoomLarge = rootStyles.getPropertyValue('--zoom-large').trim();
+    const zoomXlarge = rootStyles.getPropertyValue('--zoom-xlarge').trim();
+    const zoomXxlarge = rootStyles.getPropertyValue('--zoom-xxlarge').trim();
 
     scaleButtons.forEach((button) => {
       button.addEventListener('click', () => {
@@ -2742,7 +2740,7 @@ const krds_dropEvent = {
   dropButtons: null,
   init() {
     this.dropButtons = document.querySelectorAll(
-      '.krds-drop-wrap:not(.sample) .drop-btn'
+      '.krds-drop-wrap:not(.sample) .drop-btn',
     );
 
     if (!this.dropButtons.length) return;

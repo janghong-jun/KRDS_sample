@@ -2,17 +2,17 @@
 @use '../common/mixins/breakpoints' as *;
 
 @mixin guide-size-variable() {
-  --krds-guide--title-font-size: var(--krds-pc-font-size-heading-small);
-  --krds-guide--title-margin-bottom: var(--krds-padding-5);
-  --krds-guide--margin-bottom: var(--krds-gap-10);
+  --guide--title-font-size: var(--pc-font-size-heading-small);
+  --guide--title-margin-bottom: var(--padding-5);
+  --guide--margin-bottom: var(--gap-10);
 }
 .guide {
   @include guide-size-variable();
 
   display: flex;
   flex-wrap: wrap;
-  gap: var(--krds-gap-3);
-  margin-bottom: var(--krds-guide--margin-bottom);
+  gap: var(--gap-3);
+  margin-bottom: var(--guide--margin-bottom);
 
   &:last-child {
     margin-bottom: 0;
@@ -29,11 +29,11 @@
   }
 
   > .krds-info-list {
-    width: calc(50% - (var(--krds-gap-3) / 2));
+    width: calc(50% - (var(--gap-3) / 2));
   }
   .krds-badge-wrap {
     width: 100%;
-    margin-bottom: var(--krds-badge--wrap-gap);
+    margin-bottom: var(--badge--wrap-gap);
     flex-wrap: wrap;
 
     &:last-child {
@@ -52,8 +52,8 @@
 
 @include size-medium {
   .guide {
-    --krds-guide--title-font-size: var(--krds-mobile-font-size-heading-small);
-    --krds-guide--title-margin-bottom: var(--krds-padding-3);
-    --krds-guide--margin-bottom: var(--krds-gap-8);
+    --guide--title-font-size: var(--mobile-font-size-heading-small);
+    --guide--title-margin-bottom: var(--padding-3);
+    --guide--margin-bottom: var(--gap-8);
   }
 }

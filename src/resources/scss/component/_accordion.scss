@@ -5,29 +5,38 @@
 /* 아코디언 */
 //사이즈 정의
 @mixin accordion-size-variable() {
-  --krds-accordion--list-margin-y: var(--krds-padding-2);
-  --krds-accordion--padding: var(--krds-padding-8);
-  --krds-accordion--button-padding-right: calc(var(--krds-accordion--padding) + var(--krds-gap-5) + var(--krds-accordion--button-icon-size));
-  --krds-accordion--line-padding: var(--krds-padding-7);
-  --krds-accordion--line-button-padding-right: calc(var(--krds-gap-5) + var(--krds-accordion--button-icon-size));
-  --krds-accordion--button-icon-size: var(--krds-icon--size-large);
-  --krds-accordion--radius: var(--krds-radius-large2);
-  --krds-accordion--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --krds-accordion--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+  --accordion--list-margin-y: var(--padding-2);
+  --accordion--padding: var(--padding-8);
+  --accordion--button-padding-right: calc(
+    var(--accordion--padding) + var(--gap-5) +
+      var(--accordion--button-icon-size)
+  );
+  --accordion--line-padding: var(--padding-7);
+  --accordion--line-button-padding-right: calc(
+    var(--gap-5) + var(--accordion--button-icon-size)
+  );
+  --accordion--button-icon-size: var(--icon--size-large);
+  --accordion--radius: var(--radius-large2);
+  --accordion--button-pc-font-size: var(--pc-font-size-heading-xsmall);
+  --accordion--button-mobile-font-size: var(--mobile-font-size-heading-xsmall);
 }
 
 //컬러 정의
 @mixin accordion-color-variable($mode: light) {
-  --krds-accordion--color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-accordion--button-color-action: var(--krds-#{$mode}-color-action-secondary);
-  --krds-accordion--button-color-action-hover: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-accordion--button-color-action-pressed: var(--krds-#{$mode}-color-action-secondary-pressed);
-  --krds-accordion--color-action-open: var(--krds-#{$mode}-color-action-secondary-hover);
-  --krds-accordion--color-divider: var(--krds-#{$mode}-color-divider-gray-light);
-  --krds-accordion--color-divider-open: var(--krds-#{$mode}-color-divider-gray-dark);
-  --krds-accordion--button-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-accordion--button-color-text-open: var(--krds-#{$mode}-color-text-secondary);
-  --krds-accordion--color-icon: var(--krds-#{$mode}-color-icon-gray);
+  --accordion--color-action: var(--#{$mode}-color-action-secondary);
+  --accordion--button-color-action: var(--#{$mode}-color-action-secondary);
+  --accordion--button-color-action-hover: var(
+    --#{$mode}-color-action-secondary-hover
+  );
+  --accordion--button-color-action-pressed: var(
+    --#{$mode}-color-action-secondary-pressed
+  );
+  --accordion--color-action-open: var(--#{$mode}-color-action-secondary-hover);
+  --accordion--color-divider: var(--#{$mode}-color-divider-gray-light);
+  --accordion--color-divider-open: var(--#{$mode}-color-divider-gray-dark);
+  --accordion--button-color-text: var(--#{$mode}-color-text-basic);
+  --accordion--button-color-text-open: var(--#{$mode}-color-text-secondary);
+  --accordion--color-icon: var(--#{$mode}-color-icon-gray);
 }
 
 //모드 설정
@@ -35,48 +44,55 @@ $mode-setting: light;
 .krds-accordion {
   @include accordion-size-variable();
   @include accordion-color-variable($mode: #{$mode-setting});
-  padding: var(--krds-accordion--list-margin-y) 0;
-  border-top: 0.1rem solid var(--krds-accordion--color-divider);
-  border-bottom: 0.1rem solid var(--krds-accordion--color-divider);
+  padding: var(--accordion--list-margin-y) 0;
+  border-top: 0.1rem solid var(--accordion--color-divider);
+  border-bottom: 0.1rem solid var(--accordion--color-divider);
   .accordion-item {
-    padding: var(--krds-accordion--list-margin-y) 0;
+    padding: var(--accordion--list-margin-y) 0;
 
-    transition: var(--krds-transition-base);
+    transition: var(--transition-base);
     .btn-accordion {
       position: relative;
       width: 100%;
-      padding: var(--krds-accordion--padding) var(--krds-accordion--button-padding-right) var(--krds-accordion--padding) var(--krds-accordion--padding);
-      background-color: var(--krds-accordion--button-color-action);
-      border-radius: var(--krds-accordion--radius);
-      font-size: var(--krds-accordion--button-pc-font-size);
-      color: var(--krds-accordion--button-color-text);
-      font-weight: var(--krds-font-weight-bold);
+      padding: var(--accordion--padding) var(--accordion--button-padding-right)
+        var(--accordion--padding) var(--accordion--padding);
+      background-color: var(--accordion--button-color-action);
+      border-radius: var(--accordion--radius);
+      font-size: var(--accordion--button-pc-font-size);
+      color: var(--accordion--button-color-text);
+      font-weight: var(--font-weight-bold);
       text-align: left;
       @include size-medium {
-        font-size: var(--krds-accordion--button-mobile-font-size);
+        font-size: var(--accordion--button-mobile-font-size);
       }
       &:hover {
-        background-color: var(--krds-accordion--button-color-action-hover);
+        background-color: var(--accordion--button-color-action-hover);
       }
       &:active {
-        background-color: var(--krds-accordion--button-color-action-pressed);
+        background-color: var(--accordion--button-color-action-pressed);
       }
       &::after {
-        @include position($t: var(--krds-accordion--padding), $r: var(--krds-accordion--padding));
+        @include position(
+          $t: var(--accordion--padding),
+          $r: var(--accordion--padding)
+        );
         @include pseudo();
-        @include svg-icon(var(--krds-accordion--button-icon-size), $mode: #{$mode-setting});
+        @include svg-icon(
+          var(--accordion--button-icon-size),
+          $mode: #{$mode-setting}
+        );
         @include icon-set(ico_angle);
-        background-color: var(--krds-accordion--color-icon);
-        transition: var(--krds-transition-base);
+        background-color: var(--accordion--color-icon);
+        transition: var(--transition-base);
         transform: rotate(0deg);
       }
       &.active {
-        background-color: var(--krds-accordion--color-action-open);
+        background-color: var(--accordion--color-action-open);
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        color: var(--krds-accordion--button-color-text-open);
+        color: var(--accordion--button-color-text-open);
         &:focus {
-          border-radius: var(--krds-accordion--radius);
+          border-radius: var(--accordion--radius);
         }
         &::after {
           transform: rotate(180deg);
@@ -90,10 +106,10 @@ $mode-setting: light;
       visibility: hidden;
     }
     .accordion-body {
-      padding: 0 var(--krds-accordion--padding) var(--krds-accordion--padding);
-      background-color: var(--krds-accordion--color-action);
-      border-bottom-left-radius: var(--krds-accordion--radius);
-      border-bottom-right-radius: var(--krds-accordion--radius);
+      padding: 0 var(--accordion--padding) var(--accordion--padding);
+      background-color: var(--accordion--color-action);
+      border-bottom-left-radius: var(--accordion--radius);
+      border-bottom-right-radius: var(--accordion--radius);
     }
     &.active {
       .accordion-collapse {
@@ -103,7 +119,7 @@ $mode-setting: light;
         visibility: visible;
       }
       .accordion-body {
-        background-color: var(--krds-accordion--color-action-open);
+        background-color: var(--accordion--color-action-open);
       }
     }
   }
@@ -113,12 +129,14 @@ $mode-setting: light;
     padding: 0;
     border-top: none;
     .accordion-item {
-      border-top: 0.1rem solid var(--krds-accordion--color-divider);
+      border-top: 0.1rem solid var(--accordion--color-divider);
       border-radius: 0;
       .btn-accordion {
-        padding: var(--krds-accordion--line-padding) var(--krds-accordion--line-button-padding-right) var(--krds-accordion--line-padding) 0;
+        padding: var(--accordion--line-padding)
+          var(--accordion--line-button-padding-right)
+          var(--accordion--line-padding) 0;
         &::after {
-          top: var(--krds-accordion--line-padding);
+          top: var(--accordion--line-padding);
           right: 0;
         }
         &.active {
@@ -126,11 +144,11 @@ $mode-setting: light;
         }
       }
       .accordion-body {
-        padding: 0 0 var(--krds-accordion--padding);
+        padding: 0 0 var(--accordion--padding);
       }
       &.active {
         background: none;
-        border-top-color: var(--krds-accordion--color-divider-open);
+        border-top-color: var(--accordion--color-divider-open);
         .accordion-body {
           background: none;
         }
@@ -150,8 +168,8 @@ $mode-setting: light;
 
 @include size-medium {
   .krds-accordion {
-    --krds-accordion--padding: var(--krds-padding-6);
-    --krds-accordion--line-padding: var(--krds-padding-5);
-    --krds-accordion--button-icon-size: var(--krds-icon--size-medium);
+    --accordion--padding: var(--padding-6);
+    --accordion--line-padding: var(--padding-5);
+    --accordion--button-icon-size: var(--icon--size-medium);
   }
 }

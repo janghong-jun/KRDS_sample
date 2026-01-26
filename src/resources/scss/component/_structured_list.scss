@@ -9,66 +9,65 @@
   //변수 배열 생성
   $structuredlist-settings: (
     wrap: (
-      gap: var(--krds-gap-7),
+      gap: var(--gap-7),
     ),
     list: (
-      gap: var(--krds-gap-5),
-      padding-small-size: var(--krds-padding-8),
-      padding-medium-size: var(--krds-padding-9),
-      padding-large-size: var(--krds-padding-10),
-      radius: var(--krds-radius-xlarge2),
-      inner-gap: var(--krds-gap-5),
-      column-gap: var(--krds-gap-7),
-      first-element-margin: var(--krds-gap-3),
+      gap: var(--gap-5),
+      padding-small-size: var(--padding-8),
+      padding-medium-size: var(--padding-9),
+      padding-large-size: var(--padding-10),
+      radius: var(--radius-xlarge2),
+      inner-gap: var(--gap-5),
+      column-gap: var(--gap-7),
+      first-element-margin: var(--gap-3),
     ),
     card: (
-      body-gap: var(--krds-gap-7),
-      body-cont-gap: var(--krds-gap-5),
-      body-title-gap: var(--krds-gap-1),
-      body-title-pc-font-size: var(--krds-pc-font-size-heading-small),
-      body-title-mobile-font-size: var(--krds-mobile-font-size-heading-small),
-      body-title-pc-font-size-small: var(--krds-pc-font-size-heading-xsmall),
-      body-title-mobile-font-size-small:
-        var(--krds-mobile-font-size-heading-xsmall),
-      body-title-icon-size: var(--krds-size-height-4),
-      body-txt-margin-bottom: var(--krds-gap-2),
-      body-date-gap: var(--krds-gap-3),
-      bottom-gap: var(--krds-gap-3),
-      bottom-padding-top: var(--krds-padding-6),
-      bottom-margin-top: var(--krds-padding-3),
-      buttons-position-top-small-size: var(--krds-gap-7),
-      buttons-position-right-small-size: var(--krds-gap-7),
-      buttons-position-right-medium-size: var(--krds-gap-8),
-      buttons-position-top-medium-size: var(--krds-gap-8),
-      buttons-position-right-large-size: var(--krds-gap-9),
-      buttons-position-top-large-size: var(--krds-gap-9),
-      buttons-gap: var(--krds-gap-5),
-      buttons-size-height: var(--krds-size-height-4),
+      body-gap: var(--gap-7),
+      body-cont-gap: var(--gap-5),
+      body-title-gap: var(--gap-1),
+      body-title-pc-font-size: var(--pc-font-size-heading-small),
+      body-title-mobile-font-size: var(--mobile-font-size-heading-small),
+      body-title-pc-font-size-small: var(--pc-font-size-heading-xsmall),
+      body-title-mobile-font-size-small: var(--mobile-font-size-heading-xsmall),
+      body-title-icon-size: var(--size-height-4),
+      body-txt-margin-bottom: var(--gap-2),
+      body-date-gap: var(--gap-3),
+      bottom-gap: var(--gap-3),
+      bottom-padding-top: var(--padding-6),
+      bottom-margin-top: var(--padding-3),
+      buttons-position-top-small-size: var(--gap-7),
+      buttons-position-right-small-size: var(--gap-7),
+      buttons-position-right-medium-size: var(--gap-8),
+      buttons-position-top-medium-size: var(--gap-8),
+      buttons-position-right-large-size: var(--gap-9),
+      buttons-position-top-large-size: var(--gap-9),
+      buttons-gap: var(--gap-5),
+      buttons-size-height: var(--size-height-4),
     ),
     tag: (
-      size-height: var(--krds-size-height-5),
-      pc-font-size: var(--krds-pc-font-size-label-small),
-      mobile-font-size: var(--krds-mobile-font-size-label-small),
-      padding-x: var(--krds-padding-4),
-      radius: var(--krds-radius-max),
+      size-height: var(--size-height-5),
+      pc-font-size: var(--pc-font-size-label-small),
+      mobile-font-size: var(--mobile-font-size-label-small),
+      padding-x: var(--padding-4),
+      radius: var(--radius-max),
     ),
   ) !default;
 
   //css variable 생성
   @each $target, $types in $structuredlist-settings {
     @each $type, $value in $types {
-      --krds-structured-list--#{$target}-#{$type}: #{$value};
+      --structured-list--#{$target}-#{$type}: #{$value};
     }
   }
   @include size-medium {
-    --krds-structured-list--wrap-gap: var(--krds-gap-5);
-    --krds-structured-list--list-gap: var(--krds-gap-4);
-    --krds-structured-list--list-padding-medium-size: var(--krds-padding-8);
-    --krds-structured-list--list-inner-gap: var(--krds-gap-7);
-    --krds-structured-list--list-first-element-margin: var(--krds-gap-2);
-    --krds-structured-list--card-body-gap: var(--krds-gap-5);
-    --krds-structured-list--card-body-cont-gap: var(--krds-gap-4);
-    --krds-structured-list--card-bottom-margin-top: var(--krds-gap-2);
+    --structured-list--wrap-gap: var(--gap-5);
+    --structured-list--list-gap: var(--gap-4);
+    --structured-list--list-padding-medium-size: var(--padding-8);
+    --structured-list--list-inner-gap: var(--gap-7);
+    --structured-list--list-first-element-margin: var(--gap-2);
+    --structured-list--card-body-gap: var(--gap-5);
+    --structured-list--card-body-cont-gap: var(--gap-4);
+    --structured-list--card-bottom-margin-top: var(--gap-2);
   }
 }
 
@@ -78,11 +77,11 @@
     .card-body {
       .c-tit {
         font-size: var(
-          --krds-structured-list--card-body-title-pc-font-size-#{$unit}
+          --structured-list--card-body-title-pc-font-size-#{$unit}
         );
         @include size-medium {
           font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size-#{$unit}
+            --structured-list--card-body-title-mobile-font-size-#{$unit}
           );
         }
       }
@@ -90,77 +89,67 @@
   } @else {
     .card-body {
       .c-tit {
-        font-size: var(--krds-structured-list--card-body-title-pc-font-size);
+        font-size: var(--structured-list--card-body-title-pc-font-size);
         @include size-medium {
-          font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size
-          );
+          font-size: var(--structured-list--card-body-title-mobile-font-size);
         }
       }
     }
   }
 
   > li {
-    padding: var(--krds-structured-list--list-padding-#{$unit}-size);
+    padding: var(--structured-list--list-padding-#{$unit}-size);
   }
 
   .card-btn {
     @include position(
-      $t: var(--krds-structured-list--card-buttons-position-top-#{$unit}-size),
-      $r: var(--krds-structured-list--card-buttons-position-right-#{$unit}-size)
+      $t: var(--structured-list--card-buttons-position-top-#{$unit}-size),
+      $r: var(--structured-list--card-buttons-position-right-#{$unit}-size)
     );
   }
 }
 
 //컬러 정의
 @mixin structured-list-color-variable($mode: light) {
-  --krds-structured-list--tag-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-structured-list--tag-color-text-visited: var(
-    --krds-#{$mode-setting}-color-link-visited
+  --structured-list--tag-color-text: var(--#{$mode}-color-text-basic);
+  --structured-list--tag-color-text-visited: var(
+    --#{$mode-setting}-color-link-visited
   );
-  --krds-structured-list--tag-color-border: var(
-    --krds-#{$mode}-color-border-gray-light
+  --structured-list--tag-color-border: var(--#{$mode}-color-border-gray-light);
+  --structured-list--tag-color-action: var(--#{$mode}-color-action-white);
+  --structured-list--list-color-surface: var(
+    --#{$mode}-color-surface-white-subtle
   );
-  --krds-structured-list--tag-color-action: var(
-    --krds-#{$mode}-color-action-white
+  --structured-list--list-color-border: var(--#{$mode}-color-border-gray);
+  --structured-list--list-color-action-active: var(
+    --#{$mode}-color-link-default
   );
-  --krds-structured-list--list-color-surface: var(
-    --krds-#{$mode}-color-surface-white-subtle
+  --structured-list--list-action-outline-width: var(
+    --#{$mode}-border-width-variable-medium
   );
-  --krds-structured-list--list-color-border: var(
-    --krds-#{$mode}-color-border-gray
+  --structured-list--card-bottom-color-border: var(
+    --#{$mode}-color-divider-gray-light
   );
-  --krds-structured-list--list-color-action-active: var(
-    --krds-#{$mode}-color-link-default
+  --structured-list--card-body-color-text: var(--#{$mode}-color-text-subtle);
+  --structured-list--card-body-divider-width: var(
+    --#{$mode}-border-width-variable-regular
   );
-  --krds-structured-list--list-action-outline-width: var(
-    --krds-#{$mode}-border-width-variable-medium
+  --structured-list--card-body-divider-color-divider: var(
+    --#{$mode}-color-divider-gray-light
   );
-  --krds-structured-list--card-bottom-color-border: var(
-    --krds-#{$mode}-color-divider-gray-light
+  --structured-list--border-width: var(
+    --#{$mode}-border-width-variable-regular
   );
-  --krds-structured-list--card-body-color-text: var(
-    --krds-#{$mode}-color-text-subtle
-  );
-  --krds-structured-list--card-body-divider-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-structured-list--card-body-divider-color-divider: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-structured-list--border-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-structured-list--full-card-body-meta-color-text: var(
-    --krds-#{$mode}-color-text-subtle
+  --structured-list--full-card-body-meta-color-text: var(
+    --#{$mode}-color-text-subtle
   );
 }
 
 @mixin type-check-button-position($unit) {
   $btn-pos: calc(
-    var(--krds-structured-list--list-gap) +
-      var(--krds-structured-list--card-buttons-position-top-#{$unit}-size) +
-      var(--krds-size-height-5)
+    var(--structured-list--list-gap) +
+      var(--structured-list--card-buttons-position-top-#{$unit}-size) +
+      var(--size-height-5)
   );
 
   .card-btn {
@@ -177,7 +166,7 @@ $mode-setting: light;
   & {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: var(--krds-structured-list--wrap-gap);
+    grid-gap: var(--structured-list--wrap-gap);
   }
 
   //checkbox 형태시 하단 버튼 위치
@@ -191,20 +180,20 @@ $mode-setting: light;
   > li {
     position: relative;
     @include flex-layout($fd: column, $ai: normal);
-    gap: var(--krds-structured-list--list-gap) 0;
-    background: var(--krds-structured-list--list-color-surface);
-    border-radius: var(--krds-structured-list--list-radius);
-    border: var(--krds-structured-list--border-width) solid
-      var(--krds-structured-list--list-color-border);
+    gap: var(--structured-list--list-gap) 0;
+    background: var(--structured-list--list-color-surface);
+    border-radius: var(--structured-list--list-radius);
+    border: var(--structured-list--border-width) solid
+      var(--structured-list--list-color-border);
     &.is-check {
       border-color: transparent;
-      outline: var(--krds-structured-list--list-action-outline-width) solid
-        var(--krds-structured-list--list-color-action-active);
+      outline: var(--structured-list--list-action-outline-width) solid
+        var(--structured-list--list-color-action-active);
     }
 
     .in {
       @include flex-layout($fd: column, $ai: normal);
-      gap: var(--krds-structured-list--list-inner-gap);
+      gap: var(--structured-list--list-inner-gap);
       width: 100%;
     }
   }
@@ -212,7 +201,7 @@ $mode-setting: light;
   &:not(.type-full) {
     .krds-check-area:first-child,
     .card-top:first-child {
-      margin-bottom: var(--krds-structured-list--list-first-element-margin);
+      margin-bottom: var(--structured-list--list-first-element-margin);
     }
   }
   //체크박스
@@ -235,10 +224,10 @@ $mode-setting: light;
   }
   .card-body {
     @include flex-layout($fd: column, $ai: normal);
-    gap: var(--krds-structured-list--card-body-gap);
+    gap: var(--structured-list--card-body-gap);
     .c-text {
       @include flex-layout($fd: column, $ai: normal);
-      gap: var(--krds-structured-list--card-body-cont-gap);
+      gap: var(--structured-list--card-body-cont-gap);
       word-break: break-all;
       &:hover {
         .c-tit {
@@ -247,14 +236,14 @@ $mode-setting: light;
       }
       &:visited {
         .c-tit {
-          color: var(--krds-structured-list--tag-color-text-visited);
+          color: var(--structured-list--tag-color-text-visited);
         }
       }
       .c-tit {
         @include flex-layout($ai: center);
-        gap: var(--krds-structured-list--card-body-title-gap);
+        gap: var(--structured-list--card-body-title-gap);
         position: relative;
-        font-weight: var(--krds-font-weight-bold);
+        font-weight: var(--font-weight-bold);
         .span {
           @include ellipsis(1);
         }
@@ -262,9 +251,7 @@ $mode-setting: light;
           display: inline-flex;
           flex-shrink: 0;
           @include pseudo();
-          @include square(
-            var(--krds-structured-list--card-body-title-icon-size)
-          );
+          @include square(var(--structured-list--card-body-title-icon-size));
           @include svg-icon($mode: light);
           @include icon-set(ico_angle);
           transform: rotate(-90deg);
@@ -272,14 +259,14 @@ $mode-setting: light;
       }
       .c-txt {
         @include ellipsis(3);
-        color: var(--krds-structured-list--card-body-color-text);
+        color: var(--structured-list--card-body-color-text);
       }
 
       .c-date {
         display: flex;
-        gap: var(--krds-structured-list--card-body-date-gap);
+        gap: var(--structured-list--card-body-date-gap);
         .key {
-          font-weight: var(--krds-font-weight-bold);
+          font-weight: var(--font-weight-bold);
         }
       }
     }
@@ -290,23 +277,23 @@ $mode-setting: light;
   .card-btm {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--krds-structured-list--card-bottom-gap);
-    padding-top: var(--krds-structured-list--card-bottom-padding-top);
-    margin-top: var(--krds-structured-list--card-bottom-margin-top);
-    border-top: var(--krds-structured-list--border-width) solid
-      var(--krds-structured-list--card-bottom-color-border);
+    gap: var(--structured-list--card-bottom-gap);
+    padding-top: var(--structured-list--card-bottom-padding-top);
+    margin-top: var(--structured-list--card-bottom-margin-top);
+    border-top: var(--structured-list--border-width) solid
+      var(--structured-list--card-bottom-color-border);
     .tag {
       @include flex-layout($d: inline-flex, $ai: center);
-      background-color: var(--krds-structured-list--tag-color-action);
-      height: var(--krds-structured-list--tag-size-height);
-      padding: 0 var(--krds-structured-list--tag-padding-x);
-      font-size: var(--krds-structured-list--tag-pc-font-size);
-      color: var(--krds-structured-list--tag-color-text);
-      border-radius: var(--krds-structured-list--tag-radius);
-      border: var(--krds-structured-list--border-width) solid
-        var(--krds-structured-list--tag-color-border);
+      background-color: var(--structured-list--tag-color-action);
+      height: var(--structured-list--tag-size-height);
+      padding: 0 var(--structured-list--tag-padding-x);
+      font-size: var(--structured-list--tag-pc-font-size);
+      color: var(--structured-list--tag-color-text);
+      border-radius: var(--structured-list--tag-radius);
+      border: var(--structured-list--border-width) solid
+        var(--structured-list--tag-color-border);
       @include size-medium {
-        font-size: var(--krds-structured-list--tag-mobile-font-size);
+        font-size: var(--structured-list--tag-mobile-font-size);
       }
       &::before {
         content: '#';
@@ -315,13 +302,13 @@ $mode-setting: light;
   }
   .card-btn {
     @include position(
-      $t: var(--krds-structured-list--card-buttons-position-top-medium-size),
-      $r: var(--krds-structured-list--card-buttons-position-right-medium-size)
+      $t: var(--structured-list--card-buttons-position-top-medium-size),
+      $r: var(--structured-list--card-buttons-position-right-medium-size)
     );
     display: inline-flex;
-    gap: var(--krds-structured-list--card-buttons-gap);
+    gap: var(--structured-list--card-buttons-gap);
     .krds-btn {
-      height: var(--krds-structured-list--card-buttons-size-height);
+      height: var(--structured-list--card-buttons-size-height);
     }
   }
 
@@ -349,21 +336,19 @@ $mode-setting: light;
   &.type-full,
   &.type2 {
     grid-template-columns: none;
-    --krds-structured-list--full-list-column-gap: var(--krds-gap-7);
-    --krds-structured-list--full-card-top-margin: var(--krds-gap-2);
-    --krds-structured-list--full-card-body-gap: var(--krds-gap-9);
-    --krds-structured-list--full-card-body-cont-gap: var(--krds-gap-5);
-    --krds-structured-list--full-card-btn-position-top: var(--krds-gap-2);
-    --krds-structured-list--full-card-body-meta-gap-y: var(--krds-gap-3);
-    --krds-structured-list--full-card-body-meta-gap-x: var(--krds-gap-4);
-    --krds-structured-list--full-card-body-divider-height: var(
-      --krds-size-height-2
-    );
-    --krds-structured-list--full-card-body-divider-margin-x: var(--krds-gap-3);
+    --structured-list--full-list-column-gap: var(--gap-7);
+    --structured-list--full-card-top-margin: var(--gap-2);
+    --structured-list--full-card-body-gap: var(--gap-9);
+    --structured-list--full-card-body-cont-gap: var(--gap-5);
+    --structured-list--full-card-btn-position-top: var(--gap-2);
+    --structured-list--full-card-body-meta-gap-y: var(--gap-3);
+    --structured-list--full-card-body-meta-gap-x: var(--gap-4);
+    --structured-list--full-card-body-divider-height: var(--size-height-2);
+    --structured-list--full-card-body-divider-margin-x: var(--gap-3);
 
     .structured-item {
       flex-direction: row;
-      column-gap: var(--krds-structured-list--full-list-column-gap);
+      column-gap: var(--structured-list--full-list-column-gap);
       .in {
         position: relative;
       }
@@ -372,7 +357,7 @@ $mode-setting: light;
       }
     }
     .card-top {
-      margin: var(--krds-structured-list--full-card-top-margin) 0;
+      margin: var(--structured-list--full-card-top-margin) 0;
     }
     .card-body {
       flex-direction: row;
@@ -390,31 +375,29 @@ $mode-setting: light;
       .c-txt-p {
         @include flex-layout();
         &:not(:first-child) {
-          //margin-top: var(--krds-structured-list--full-card-body-text-margin-y); 확인필요
+          //margin-top: var(--structured-list--full-card-body-text-margin-y); 확인필요
         }
       }
       .c-txt-ul {
         @include flex-layout();
         flex-wrap: wrap;
-        gap: var(--krds-structured-list--full-card-body-meta-gap-x);
-        column-gap: var(--krds-structured-list--full-card-body-meta-gap-y);
+        gap: var(--structured-list--full-card-body-meta-gap-x);
+        column-gap: var(--structured-list--full-card-body-meta-gap-y);
         li {
           display: inline-flex;
           align-items: center;
-          color: var(--krds-structured-list--full-card-body-meta-color-text);
+          color: var(--structured-list--full-card-body-meta-color-text);
           &:not(:last-child) {
             &::after {
               display: inline-flex;
               @include pseudo();
-              width: var(--krds-structured-list--card-body-divider-width);
-              height: var(
-                --krds-structured-list--full-card-body-divider-height
-              );
+              width: var(--structured-list--card-body-divider-width);
+              height: var(--structured-list--full-card-body-divider-height);
               margin-left: var(
-                --krds-structured-list--full-card-body-divider-margin-x
+                --structured-list--full-card-body-divider-margin-x
               );
               background-color: var(
-                --krds-structured-list--card-body-divider-color-divider
+                --structured-list--card-body-divider-color-divider
               );
             }
           }
@@ -425,22 +408,22 @@ $mode-setting: light;
       margin-top: 0;
     }
     .card-btn {
-      top: var(--krds-structured-list--full-card-btn-position-top);
+      top: var(--structured-list--full-card-btn-position-top);
       right: 0;
     }
   }
 
   &.type-full {
-    --krds-structured-list--card-body-title-pc-font-size: var(
-      --krds-pc-font-size-heading-medium
+    --structured-list--card-body-title-pc-font-size: var(
+      --pc-font-size-heading-medium
     );
-    --krds-structured-list--card-body-title-mobile-font-size: var(
-      --krds-mobile-font-size-heading-medium
+    --structured-list--card-body-title-mobile-font-size: var(
+      --mobile-font-size-heading-medium
     );
 
     .card-body {
       .c-tit {
-        font-size: var(--krds-structured-list--card-body-title-pc-font-size);
+        font-size: var(--structured-list--card-body-title-pc-font-size);
       }
     }
   }
@@ -449,12 +432,12 @@ $mode-setting: light;
 //태블릿 전용 속성
 @include size-medium-to-large {
   .krds-structured-list {
-    --krds-structured-list--card-buttons-gap: var(--krds-number-3);
+    --structured-list--card-buttons-gap: var(--number-3);
 
     grid-template-columns: 1fr 1fr;
 
     .card-btn {
-      gap: var(--krds-structured-list--card-buttons-gap);
+      gap: var(--structured-list--card-buttons-gap);
     }
   }
 }
@@ -466,7 +449,7 @@ $mode-setting: light;
 
     .krds-check-area:first-child,
     .card-top:first-child {
-      margin-bottom: var(--krds-structured-list--list-first-element-margin);
+      margin-bottom: var(--structured-list--list-first-element-margin);
     }
 
     .structured-item {
@@ -509,9 +492,9 @@ $mode-setting: light;
     //site 개발 적용 후 &.type2 삭제
     &.type-full,
     &.type2 {
-      --krds-structured-list--full-card-body-gap: var(--krds-gap-7);
-      --krds-structured-list--full-card-body-cont-gap: var(--krds-gap-4);
-      --krds-structured-list--full-card-body-meta-gap-y: var(--krds-gap-3);
+      --structured-list--full-card-body-gap: var(--gap-7);
+      --structured-list--full-card-body-cont-gap: var(--gap-4);
+      --structured-list--full-card-body-meta-gap-y: var(--gap-3);
 
       .in {
         gap: 1.6rem;
@@ -522,12 +505,12 @@ $mode-setting: light;
       .card-body {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--krds-structured-list--full-card-body-gap);
+        gap: var(--structured-list--full-card-body-gap);
         .c-text {
-          gap: var(--krds-structured-list--full-card-body-cont-gap);
+          gap: var(--structured-list--full-card-body-cont-gap);
         }
         .c-txt-ul {
-          gap: var(--krds-structured-list--full-card-body-meta-gap-y);
+          gap: var(--structured-list--full-card-body-meta-gap-y);
         }
       }
     }
@@ -535,9 +518,7 @@ $mode-setting: light;
     &.type-full {
       .card-body {
         .c-tit {
-          font-size: var(
-            --krds-structured-list--card-body-title-mobile-font-size
-          );
+          font-size: var(--structured-list--card-body-title-mobile-font-size);
         }
       }
     }
@@ -568,7 +549,7 @@ $mode-setting: light;
         .c-tit {
           &::after {
             @include svg-icon(
-              $size: var(--krds-icon--size-medium),
+              $size: var(--icon--size-medium),
               $mode: #{$mode-setting}
             );
           }
@@ -580,35 +561,33 @@ $mode-setting: light;
 
 /* 결과 리스트 상단 */
 .search-list-top {
-  --search-list-color-text-primary: var(
-    --krds-#{$mode-setting}-color-text-primary
-  );
+  --search-list-color-text-primary: var(--#{$mode-setting}-color-text-primary);
   --search-list-width-border: var(
-    --krds-#{$mode-setting}-border-width-variable-regular
+    --#{$mode-setting}-border-width-variable-regular
   );
-  --search-list-color-border: var(--krds-#{$mode-setting}-color-divider-gray);
+  --search-list-color-border: var(--#{$mode-setting}-color-divider-gray);
   --search-list-sort-btn-color-button-hover: var(
-    --krds-#{$mode-setting}-color-button-text-fill-hover
+    --#{$mode-setting}-color-button-text-fill-hover
   );
   --search-list-sort-btn-color-button-active: var(
-    --krds-#{$mode-setting}-color-button-text-fill-pressed
+    --#{$mode-setting}-color-button-text-fill-pressed
   );
-  --search-list-sort-btn-color: var(--krds-#{$mode-setting}-color-text-basic);
+  --search-list-sort-btn-color: var(--#{$mode-setting}-color-text-basic);
   --search-list-sort-btn-color-background: var(
-    --krds-#{$mode-setting}-color-button-text-fill
+    --#{$mode-setting}-color-button-text-fill
   );
   --search-list-sort-btn-border: var(
-      --krds-#{$mode-setting}-border-width-static-regular
+      --#{$mode-setting}-border-width-static-regular
     )
-    solid var(--krds-#{$mode-setting}-color-button-text-border);
+    solid var(--#{$mode-setting}-color-button-text-border);
 
   @include flex-layout($jc: space-between);
-  gap: var(--krds-gap-9);
-  margin: var(--krds-pc-gap-layout-h2-h3) 0 var(--krds-gap-7);
+  gap: var(--gap-9);
+  margin: var(--pc-gap-layout-h2-h3) 0 var(--gap-7);
 
   .sch-left {
     @include flex-layout($ai: center);
-    gap: var(--krds-gap-7);
+    gap: var(--gap-7);
     .krds-check-area {
       font-size: 0;
     }
@@ -622,11 +601,11 @@ $mode-setting: light;
     // @include flex-layout($ai: center);
     // flex-wrap: wrap;
     display: inline;
-    font-size: var(--krds-pc-font-size-body-large);
-    font-weight: var(--krds-font-weight-bold);
+    font-size: var(--pc-font-size-body-large);
+    font-weight: var(--font-weight-bold);
     .point {
       word-break: break-all;
-      //margin-left: var(--krds-gap-2);
+      //margin-left: var(--gap-2);
       color: var(--search-list-color-text-primary);
     }
     .br {
@@ -639,30 +618,30 @@ $mode-setting: light;
   .sch-sort {
     @include flex-layout($ai: center, $jc: flex-end, $fd: row);
     .sort-label {
-      font-weight: var(--krds-font-weight-bold);
+      font-weight: var(--font-weight-bold);
       white-space: nowrap;
-      margin-right: var(--krds-gap-4);
+      margin-right: var(--gap-4);
     }
     .krds-form-select-sort {
       border: var(--search-list-sort-btn-border);
-      border-radius: var(--krds-radius-medium2);
+      border-radius: var(--radius-medium2);
       background-color: var(--search-list-sort-btn-color-background);
-      //width: calc(5rem + var(--krds-form-select-sorting--padding-right-medium));
+      //width: calc(5rem + var(--form-select-sorting--padding-right-medium));
     }
     .w-sort-btn {
       @include flex-layout($ai: center);
-      gap: var(--krds-gap-3);
+      gap: var(--gap-3);
       button {
-        transition: var(--krds-transition-base);
+        transition: var(--transition-base);
         color: var(--search-list-sort-btn-color);
         border: var(--search-list-sort-btn-border);
-        border-radius: var(--krds-radius-medium2);
+        border-radius: var(--radius-medium2);
         background-color: var(--search-list-sort-btn-color-background);
         &.active {
           @include underline();
         }
         &:hover {
-          border-radius: var(--krds-radius-medium1);
+          border-radius: var(--radius-medium1);
           background-color: var(--search-list-sort-btn-color-button-hover);
           transition: $transition-base;
         }
@@ -686,7 +665,7 @@ $mode-setting: light;
         content: '';
         display: inline-flex;
         width: var(--search-list-width-border);
-        height: var(--krds-size-height-2);
+        height: var(--size-height-2);
         background-color: var(--search-list-color-border);
         position: absolute;
         bottom: 0.4rem;
@@ -708,7 +687,7 @@ $mode-setting: light;
   .side-line-ul {
     @include flex-layout();
     flex-wrap: wrap;
-    gap: var(--krds-gap-5) var(--krds-gap-3);
+    gap: var(--gap-5) var(--gap-3);
     li {
       display: inline-flex;
       align-items: center;
@@ -717,8 +696,8 @@ $mode-setting: light;
           display: inline-flex;
           content: '';
           width: var(--search-list-width-border);
-          height: var(--krds-size-height-2);
-          margin-left: var(--krds-padding-3);
+          height: var(--size-height-2);
+          margin-left: var(--padding-3);
           background-color: var(--search-list-color-border);
         }
       }
@@ -726,8 +705,8 @@ $mode-setting: light;
   }
   &.border {
     flex-wrap: wrap;
-    padding-bottom: var(--krds-padding-8);
-    margin: 0 0 var(--krds-padding-10);
+    padding-bottom: var(--padding-8);
+    margin: 0 0 var(--padding-10);
     border-bottom: var(--search-list-width-border) solid
       var(--search-list-color-border);
   }
@@ -736,15 +715,15 @@ $mode-setting: light;
 @include size-medium {
   .search-list-top {
     flex-direction: column;
-    gap: var(--krds-gap-7);
-    margin-top: var(--krds-mobile-gap-layout-h2-h3);
+    gap: var(--gap-7);
+    margin-top: var(--mobile-gap-layout-h2-h3);
     .sch-info,
     .sch-left {
       order: 2;
       flex-direction: column;
       align-items: flex-start;
-      gap: var(--krds-gap-4);
-      font-size: var(--krds-mobile-font-size-body-large);
+      gap: var(--gap-4);
+      font-size: var(--mobile-font-size-body-large);
     }
     .sch-info {
       flex-direction: row;
@@ -768,19 +747,19 @@ $mode-setting: light;
       .krds-btn {
         &.ico-filter {
           position: relative;
-          font-size: var(--krds-pc-font-size-heading-xxsmall);
+          font-size: var(--pc-font-size-heading-xxsmall);
           height: 2.5rem;
-          padding: var(--krds-padding-1);
-          //margin-left: var(--krds-padding-6);
+          padding: var(--padding-1);
+          //margin-left: var(--padding-6);
           .span {
             position: relative;
             z-index: 2;
-            font-weight: var(--krds-font-weight-bold);
+            font-weight: var(--font-weight-bold);
           }
           .krds-badge.number {
             @include position(
-              $t: calc(-1 * var(--krds-number-6)),
-              $r: var(--krds-number-5)
+              $t: calc(-1 * var(--number-6)),
+              $r: var(--number-5)
             );
             z-index: 1;
           }
@@ -788,8 +767,8 @@ $mode-setting: light;
       }
     }
     .side-line-ul {
-      gap: var(--krds-gap-3);
-      margin-top: var(--krds-gap-4);
+      gap: var(--gap-3);
+      margin-top: var(--gap-4);
     }
     &.border {
       margin-bottom: 0;

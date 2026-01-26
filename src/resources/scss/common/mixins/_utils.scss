@@ -4,10 +4,10 @@
 //추후삭제
 @mixin focus(
   $offset: -0.4rem,
-  $color: var(--krds-light-color-border-primary),
+  $color: var(--light-color-border-primary),
   $alpha: 0.8
 ) {
-  box-shadow: var(--krds-box-shadow-outline-inset);
+  box-shadow: var(--box-shadow-outline-inset);
   outline-offset: $offset;
 }
 
@@ -117,10 +117,10 @@
 
 //reset text : popover/tooltip
 @mixin reset-text {
-  font-size: var(--krds-pc-font-size-body-medium);
+  font-size: var(--pc-font-size-body-medium);
   font-style: normal;
-  font-weight: var(--krds-font-weight-regular);
-  line-height: var(--krds-line-height-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
   text-align: left;
   text-decoration: none;
   text-shadow: none;
@@ -131,7 +131,7 @@
   word-spacing: normal;
   line-break: auto;
   @include size-medium {
-    font-size: var(--krds-mobile-font-size-body-medium);
+    font-size: var(--mobile-font-size-body-medium);
   }
 }
 
@@ -151,11 +151,11 @@
 // **** scroll **** //
 @mixin scrollbar-mode($mode: light) {
   &::-webkit-scrollbar-thumb {
-    background-color: var(--krds-#{$mode}-color-element-secondary-light);
+    background-color: var(--#{$mode}-color-element-secondary-light);
     border-radius: 0.8rem;
   }
   &::-webkit-scrollbar-track {
-    background-color: var(--krds-#{$mode}-color-element-secondary-lighter);
+    background-color: var(--#{$mode}-color-element-secondary-lighter);
   }
 }
 @mixin scrollbar($mode: light) {
@@ -168,7 +168,7 @@
 }
 
 //text underline
-@mixin underline($offset: var(--krds-font-underline-offset)) {
+@mixin underline($offset: var(--font-underline-offset)) {
   text-decoration: underline;
   text-underline-offset: $offset;
 }
@@ -198,29 +198,24 @@
 //사이즈별 variable
 @mixin btn-size($unit) {
   //unit value: xsmall small medium larger xlarge
-  // gap: var(--krds-button--gap-#{$unit});
-  gap: if($unit == small, 0.8rem, var(--krds-button--gap-#{$unit}));
-  height: var(--krds-button--size-height-#{$unit});
-  padding: var(--krds-button--padding-y-#{$unit})
-    var(--krds-button--padding-x-#{$unit});
-  border-radius: if(
-    $unit == small,
-    0.8rem,
-    var(--krds-button--radius-#{$unit})
-  );
-  font-size: var(--krds-button--pc-font-size-#{$unit});
-  font-weight: var(--krds-button--font-weight-#{$unit});
+  // gap: var(--button--gap-#{$unit});
+  gap: if($unit == small, 0.8rem, var(--button--gap-#{$unit}));
+  height: var(--button--size-height-#{$unit});
+  padding: var(--button--padding-y-#{$unit}) var(--button--padding-x-#{$unit});
+  border-radius: if($unit == small, 0.8rem, var(--button--radius-#{$unit}));
+  font-size: var(--button--pc-font-size-#{$unit});
+  font-weight: var(--button--font-weight-#{$unit});
   @include size-medium {
-    font-size: var(--krds-button--mobile-font-size-#{$unit});
+    font-size: var(--button--mobile-font-size-#{$unit});
   }
   & {
     .svg-icon {
-      @include square(var(--krds-icon--size-#{$unit}));
+      @include square(var(--icon--size-#{$unit}));
     }
   }
 }
 
 //고대비모드인경우 border-width가 두꺼워짐
 @mixin border-size-mode($mode: light, $size: regular) {
-  border-width: var(--krds-#{$mode}-border-width-variable-#{$size});
+  border-width: var(--#{$mode}-border-width-variable-#{$size});
 }

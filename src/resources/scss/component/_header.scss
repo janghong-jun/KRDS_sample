@@ -6,35 +6,27 @@
 /* 헤더 */
 //사이즈 정의
 @mixin header-size-variable() {
-  --krds-header--utility-gap: var(--krds-gap-4);
-  --krds-header--container-gap: var(--krds-gap-2);
-  --krds-header--container-padding-top: var(--krds-padding-5);
-  --krds-header--container-padding-bottom: var(--krds-padding-6);
-  --krds-header--navi-min-height: var(--krds-size-height-6);
-  --krds-header--navi-gap: var(--krds-gap-2) var(--krds-gap-3);
-  --krds-header--navi-padding: var(--krds-padding-2) var(--krds-padding-5) 0;
-  --krds-header--navi-border-radius: var(--krds-radius-medium1);
-  --krds-header--navi-font-size-pc: var(
-    --krds-pc-font-size-navigation-depth-medium-bold
-  );
-  --krds-header--navi-font-size-mobile: var(
-    --krds-mobile-font-size-navigation-depth-small-bold
+  --header--utility-gap: var(--gap-4);
+  --header--container-gap: var(--gap-2);
+  --header--container-padding-top: var(--padding-5);
+  --header--container-padding-bottom: var(--padding-6);
+  --header--navi-min-height: var(--size-height-6);
+  --header--navi-gap: var(--gap-2) var(--gap-3);
+  --header--navi-padding: var(--padding-2) var(--padding-5) 0;
+  --header--navi-border-radius: var(--radius-medium1);
+  --header--navi-font-size-pc: var(--pc-font-size-navigation-depth-medium-bold);
+  --header--navi-font-size-mobile: var(
+    --mobile-font-size-navigation-depth-small-bold
   );
 }
 
 //컬러 정의
 @mixin header-color-variable($mode: light) {
-  --krds-header--color-surface: var(--krds-#{$mode}-color-surface-white);
-  --krds-header--utility-color-divider: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-header--navi-color-text: var(--krds-#{$mode}-color-text-basic);
-  --krds-header--navi-color-hover: var(
-    --krds-#{$mode}-color-action-secondary-hover
-  );
-  --krds-header--navi-color-pressed: var(
-    --krds-#{$mode}-color-action-secondary-pressed
-  );
+  --header--color-surface: var(--#{$mode}-color-surface-white);
+  --header--utility-color-divider: var(--#{$mode}-color-divider-gray-light);
+  --header--navi-color-text: var(--#{$mode}-color-text-basic);
+  --header--navi-color-hover: var(--#{$mode}-color-action-secondary-hover);
+  --header--navi-color-pressed: var(--#{$mode}-color-action-secondary-pressed);
 }
 
 //모드 설정
@@ -46,7 +38,7 @@ $mode-setting: light;
 
   @include position($p: sticky, $t: 0, $l: 0);
   z-index: 70;
-  background-color: var(--krds-header--color-surface);
+  background-color: var(--header--color-surface);
   .header-in {
     position: relative;
     transform: translateY(0);
@@ -59,14 +51,14 @@ $mode-setting: light;
       & > li {
         @include flex-layout($ai: center);
         &:not(:first-child) {
-          gap: var(--krds-header--utility-gap);
-          margin-left: var(--krds-header--utility-gap);
+          gap: var(--header--utility-gap);
+          margin-left: var(--header--utility-gap);
           &::before {
             display: inline-flex;
             @include pseudo();
             width: 0.1rem;
-            height: var(--krds-size-height-2);
-            background-color: var(--krds-header--utility-color-divider);
+            height: var(--size-height-2);
+            background-color: var(--header--utility-color-divider);
           }
         }
       }
@@ -78,9 +70,9 @@ $mode-setting: light;
       @include flex-layout($fd: column, $ai: normal);
       //web 전용 속성
       @include size-large-more {
-        gap: var(--krds-header--container-gap);
-        padding-top: var(--krds-header--container-padding-top);
-        padding-bottom: var(--krds-header--container-padding-bottom);
+        gap: var(--header--container-gap);
+        padding-top: var(--header--container-padding-top);
+        padding-bottom: var(--header--container-padding-bottom);
       }
     }
     .header-branding {
@@ -88,7 +80,7 @@ $mode-setting: light;
     }
     .logo {
       display: inline-flex;
-      @include square(13.7rem, var(--krds-size-height-7));
+      @include square(13.7rem, var(--size-height-7));
       @include size-medium {
         @include square(9.4rem, 4rem);
       }
@@ -104,7 +96,7 @@ $mode-setting: light;
     }
     .header-actions {
       display: inline-flex;
-      gap: var(--krds-gap-3);
+      gap: var(--gap-3);
       margin-left: auto;
     }
     .btn-navi {
@@ -114,28 +106,28 @@ $mode-setting: light;
         $jc: space-between,
         $ai: center
       );
-      gap: var(--krds-header--navi-gap);
-      min-height: var(--krds-header--navi-min-height);
-      padding: var(--krds-header--navi-padding);
-      border-radius: var(--krds-header--navi-border-radius);
-      font-size: var(--krds-header--navi-font-size-pc);
-      font-weight: var(--krds-font-weight-bold);
-      color: var(--krds-header--navi-color-text);
-      transition: var(--krds-transition-base);
+      gap: var(--header--navi-gap);
+      min-height: var(--header--navi-min-height);
+      padding: var(--header--navi-padding);
+      border-radius: var(--header--navi-border-radius);
+      font-size: var(--header--navi-font-size-pc);
+      font-weight: var(--font-weight-bold);
+      color: var(--header--navi-color-text);
+      transition: var(--transition-base);
       &::before {
         display: inline-flex;
         @include pseudo();
         @include svg-icon(
-          $size: var(--krds-icon--size-medium),
+          $size: var(--icon--size-medium),
           $mode: #{$mode-setting}
         );
       }
       &:hover {
-        background-color: var(--krds-header--navi-color-hover);
+        background-color: var(--header--navi-color-hover);
       }
       &:active,
       &:focus {
-        background-color: var(--krds-header--navi-color-pressed);
+        background-color: var(--header--navi-color-pressed);
       }
       &.navi-row {
         flex-direction: row;
@@ -174,15 +166,15 @@ $mode-setting: light;
   &[class*='scroll'] {
     #krds-heade {
       position: relative;
-      border-bottom: 0.1rem solid var(--krds-header--utility-color-divider);
+      border-bottom: 0.1rem solid var(--header--utility-color-divider);
       .header-in {
         position: fixed;
         top: 0;
         left: 0;
         z-index: 100;
         width: 100%;
-        border-bottom: 0.1rem solid var(--krds-header--utility-color-divider);
-        background-color: var(--krds-header--color-surface);
+        border-bottom: 0.1rem solid var(--header--utility-color-divider);
+        background-color: var(--header--color-surface);
         transition: transform ease 0.4s 0.01s;
       }
     }
@@ -211,17 +203,12 @@ $mode-setting: light;
   #krds-header {
     @include header-color-variable(#{$mode-setting});
     .inner {
-      border-bottom-color: var(
-        --krds-#{$mode-setting}-color-divider-gray-light
-      );
+      border-bottom-color: var(--#{$mode-setting}-color-divider-gray-light);
     }
     .header-container {
       .btn-navi {
         &::before {
-          @include svg-icon(
-            var(--krds-icon--size-medium),
-            $mode: #{$mode-setting}
-          );
+          @include svg-icon(var(--icon--size-medium), $mode: #{$mode-setting});
         }
       }
       .logo {
@@ -277,10 +264,10 @@ $mode-setting: light;
 @include size-large-less {
   #krds-header {
     .inner {
-      padding-top: var(--krds-gap-3);
-      padding-bottom: var(--krds-gap-3);
-      border-bottom: var(--krds-#{$mode-setting}-border-width-static-regular)
-        solid var(--krds-#{$mode-setting}-color-divider-gray-light);
+      padding-top: var(--gap-3);
+      padding-bottom: var(--gap-3);
+      border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid
+        var(--#{$mode-setting}-color-divider-gray-light);
     }
 
     .header-container {
@@ -311,7 +298,7 @@ $mode-setting: light;
         gap: 0;
       }
       .btn-navi {
-        font-size: var(--krds-header--navi-font-size-mobile);
+        font-size: var(--header--navi-font-size-mobile);
       }
     }
   }

@@ -4,30 +4,30 @@
 .required {
   &::before {
     content: '*';
-    color: var(--krds-light-color-divider-error);
+    color: var(--light-color-divider-error);
   }
 }
 
 .file-box {
   display: flex;
   min-height: 10rem;
-  padding: var(--krds-padding-9);
-  border-radius: var(--krds-radius-xlarge2);
-  background: var(--krds-light-color-surface-secondary-subtler);
+  padding: var(--padding-9);
+  border-radius: var(--radius-xlarge2);
+  background: var(--light-color-surface-secondary-subtler);
   justify-content: space-between;
   align-items: center;
-  gap: var(--krds-gap-7);
+  gap: var(--gap-7);
   flex-wrap: wrap;
 
   .file-info {
     p {
-      font-size: var(--krds-pc-font-size-body-large);
-      color: var(--krds-light-color-text-subtle);
+      font-size: var(--pc-font-size-body-large);
+      color: var(--light-color-text-subtle);
     }
     strong {
-      font-size: var(--krds-pc-font-size-body-small);
-      font-weight: var(--krds-font-weight-regular);
-      color: var(--krds-light-color-text-subtle);
+      font-size: var(--pc-font-size-body-small);
+      font-weight: var(--font-weight-regular);
+      color: var(--light-color-text-subtle);
 
       &::before {
         content: '※';
@@ -38,18 +38,18 @@
 .file-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--krds-gap-4);
+  gap: var(--gap-4);
 
   li {
     display: flex;
     align-items: center;
-    gap: var(--krds-gap-3);
+    gap: var(--gap-3);
     .file-name {
       display: inline-flex;
       align-items: center;
-      gap: var(--krds-gap-2);
-      font-size: var(--krds-pc-font-size-body-medium);
-      color: var(--krds-light-color-text-basic);
+      gap: var(--gap-2);
+      font-size: var(--pc-font-size-body-medium);
+      color: var(--light-color-text-basic);
       .svg-icon {
         flex: none;
       }
@@ -58,6 +58,6 @@
 }
 .file-box-btn-wrap {
   margin-left: auto;
-  border-radius: var(--krds-button--radius-medium);
-  background-color: var(--krds-color-light-alpha-white100);
+  border-radius: var(--button--radius-medium);
+  background-color: var(--color-light-alpha-white100);
 }

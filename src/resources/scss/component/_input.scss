@@ -7,37 +7,37 @@
 @mixin input-size-variable() {
   $input-size: (
     small: (
-      size-height: var(--krds-size-height-6),
-      radius: var(--krds-radius-medium1),
-      pc-font-size: var(--krds-pc-font-size-label-small),
-      mobile-font-size: var(--krds-mobile-font-size-label-small),
+      size-height: var(--size-height-6),
+      radius: var(--radius-medium1),
+      pc-font-size: var(--pc-font-size-label-small),
+      mobile-font-size: var(--mobile-font-size-label-small),
     ),
     medium: (
-      size-height: var(--krds-size-height-7),
-      radius: var(--krds-radius-medium2),
-      pc-font-size: var(--krds-pc-font-size-label-medium),
-      mobile-font-size: var(--krds-mobile-font-size-label-medium),
+      size-height: var(--size-height-7),
+      radius: var(--radius-medium2),
+      pc-font-size: var(--pc-font-size-label-medium),
+      mobile-font-size: var(--mobile-font-size-label-medium),
     ),
     large: (
-      size-height: var(--krds-size-height-8),
-      radius: var(--krds-radius-medium3),
-      pc-font-size: var(--krds-pc-font-size-label-large),
-      mobile-font-size: var(--krds-mobile-font-size-label-large),
+      size-height: var(--size-height-8),
+      radius: var(--radius-medium3),
+      pc-font-size: var(--pc-font-size-label-large),
+      mobile-font-size: var(--mobile-font-size-label-large),
     ),
     xlarge: (
-      size-height: var(--krds-size-height-11),
-      radius: var(--krds-radius-large2),
-      pc-font-size: var(--krds-pc-font-size-heading-medium),
-      mobile-font-size: var(--krds-mobile-font-size-heading-medium),
+      size-height: var(--size-height-11),
+      radius: var(--radius-large2),
+      pc-font-size: var(--pc-font-size-heading-medium),
+      mobile-font-size: var(--mobile-font-size-heading-medium),
     ),
   ) !default;
 
   //css variable 생성
-  --krds-input--padding-x: var(--krds-padding-6);
+  --input--padding-x: var(--padding-6);
   @each $size, $types in $input-size {
     @each $type, $value in $types {
       //css variable 생성
-      --krds-input--#{$type}-#{$size}: #{$value};
+      --input--#{$type}-#{$size}: #{$value};
     }
   }
 
@@ -54,50 +54,34 @@
 }
 
 @mixin input-size($unit) {
-  height: var(--krds-input--size-height-#{$unit});
-  border-radius: var(--krds-input--radius-#{$unit});
-  font-size: var(--krds-input--pc-font-size-#{$unit});
+  height: var(--input--size-height-#{$unit});
+  border-radius: var(--input--radius-#{$unit});
+  font-size: var(--input--pc-font-size-#{$unit});
   @if ($unit == 'xlarge') {
-    font-weight: var(--krds-font-weight-bold);
+    font-weight: var(--font-weight-bold);
   }
   @include size-medium {
-    font-size: var(--krds-input--mobile-font-size-#{$unit});
+    font-size: var(--input--mobile-font-size-#{$unit});
   }
 }
 
 //컬러 정의
 @mixin input-color-variable($mode: light) {
-  --krds-input--color-surface: var(--krds-#{$mode}-color-input-surface);
-  --krds-input--color-surface-readonly: var(
-    --krds-#{$mode}-color-input-surface-disabled
-  );
-  --krds-input--color-surface-disabled: var(
-    --krds-#{$mode}-color-input-surface-disabled
-  );
-  --krds-input--color-surface-error: var(--krds-#{$mode}-color-input-surface);
-  --krds-input--color-border: var(--krds-#{$mode}-color-input-border);
-  --krds-input--color-border-active: var(
-    --krds-#{$mode}-color-input-border-active
-  );
-  --krds-input--color-border-readonly: var(
-    --krds-#{$mode}-color-input-border-disabled
-  );
-  --krds-input--color-border-disabled: var(
-    --krds-#{$mode}-color-input-border-disabled
-  );
-  --krds-input--color-border-error: var(
-    --krds-#{$mode}-color-input-border-error
-  );
-  --krds-input--color-text: var(--krds-#{$mode}-color-text-subtle);
-  --krds-input--color-text-active: var(--krds-#{$mode}-color-text-basic);
-  --krds-input--color-text-readonly: var(--krds-#{$mode}-color-text-subtle);
-  --krds-input--color-text-disabled: var(
-    --krds-#{$mode}-color-text-disabled-on
-  );
-  --krds-input--color-text-placeholder: var(
-    --krds-#{$mode}-color-text-disabled
-  );
-  --krds-input--color-text-error: var(--krds-#{$mode}-color-text-subtle);
+  --input--color-surface: var(--#{$mode}-color-input-surface);
+  --input--color-surface-readonly: var(--#{$mode}-color-input-surface-disabled);
+  --input--color-surface-disabled: var(--#{$mode}-color-input-surface-disabled);
+  --input--color-surface-error: var(--#{$mode}-color-input-surface);
+  --input--color-border: var(--#{$mode}-color-input-border);
+  --input--color-border-active: var(--#{$mode}-color-input-border-active);
+  --input--color-border-readonly: var(--#{$mode}-color-input-border-disabled);
+  --input--color-border-disabled: var(--#{$mode}-color-input-border-disabled);
+  --input--color-border-error: var(--#{$mode}-color-input-border-error);
+  --input--color-text: var(--#{$mode}-color-text-subtle);
+  --input--color-text-active: var(--#{$mode}-color-text-basic);
+  --input--color-text-readonly: var(--#{$mode}-color-text-subtle);
+  --input--color-text-disabled: var(--#{$mode}-color-text-disabled-on);
+  --input--color-text-placeholder: var(--#{$mode}-color-text-disabled);
+  --input--color-text-error: var(--#{$mode}-color-text-subtle);
 }
 
 //모드 설정
@@ -110,50 +94,50 @@ $mode-setting: light;
     //default size large
     position: relative;
     width: 100%;
-    padding: 0 var(--krds-input--padding-x);
+    padding: 0 var(--input--padding-x);
     @include border-size-mode(#{$mode-setting});
-    background-color: var(--krds-input--color-surface);
-    border: 0.1rem solid var(--krds-input--color-border);
+    background-color: var(--input--color-surface);
+    border: 0.1rem solid var(--input--color-border);
     font-family: inherit;
-    color: var(--krds-input--color-text);
-    transition: var(--krds-transition-base);
+    color: var(--input--color-text);
+    transition: var(--transition-base);
   }
   &:focus,
   &.focus {
-    border-color: var(--krds-input--color-border-active);
+    border-color: var(--input--color-border-active);
     border-width: 0.2rem;
     outline: none;
     box-shadow: none;
   }
   &[readonly] {
-    background-color: var(--krds-input--color-surface-readonly);
-    border-color: var(--krds-input--color-border-readonly);
-    color: var(--krds-input--color-text-readonly);
+    background-color: var(--input--color-surface-readonly);
+    border-color: var(--input--color-border-readonly);
+    color: var(--input--color-text-readonly);
     &.datepicker {
-      background-color: var(--krds-input--color-surface);
-      border-color: var(--krds-input--color-border);
-      color: var(--krds-input--color-text);
+      background-color: var(--input--color-surface);
+      border-color: var(--input--color-border);
+      color: var(--input--color-text);
     }
     &:focus {
-      border-color: var(--krds-input--color-border-active);
+      border-color: var(--input--color-border-active);
     }
   }
   &[disabled] {
-    background-color: var(--krds-input--color-surface-disabled);
-    border-color: var(--krds-input--color-border-disabled);
-    color: var(--krds-input--color-text-disabled);
+    background-color: var(--input--color-surface-disabled);
+    border-color: var(--input--color-border-disabled);
+    color: var(--input--color-text-disabled);
   }
   &::-webkit-input-placeholder {
-    color: var(--krds-input--color-text-placeholder);
+    color: var(--input--color-text-placeholder);
   }
   &::-moz-placeholder {
-    color: var(--krds-input--color-text-placeholder);
+    color: var(--input--color-text-placeholder);
   }
   &:-ms-input-placeholder {
-    color: var(--krds-input--color-text-placeholder);
+    color: var(--input--color-text-placeholder);
   }
   &::-ms-input-placeholder {
-    color: var(--krds-input--color-text-placeholder);
+    color: var(--input--color-text-placeholder);
   }
   &:not(textarea):placeholder-shown {
     @include ellipsis(1);
@@ -161,70 +145,65 @@ $mode-setting: light;
 }
 textarea {
   &.krds-input {
-    --krds-input--textarea-size-height: 14.4rem;
-    --krds-input--textarea-padding-x: var(--krds-padding-6);
-    --krds-input--textarea-padding-y: var(--krds-padding-3);
-    height: var(--krds-input--textarea-size-height);
-    padding: var(--krds-input--textarea-padding-y)
-      var(--krds-input--textarea-padding-x);
-    line-height: var(--krds-transition-base);
+    --input--textarea-size-height: 14.4rem;
+    --input--textarea-padding-x: var(--padding-6);
+    --input--textarea-padding-y: var(--padding-3);
+    height: var(--input--textarea-size-height);
+    padding: var(--input--textarea-padding-y) var(--input--textarea-padding-x);
+    line-height: var(--transition-base);
   }
 }
 .is-error {
   .krds-input {
-    background-color: var(--krds-input--color-surface-error);
-    border-color: var(--krds-input--color-border-error);
+    background-color: var(--input--color-surface-error);
+    border-color: var(--input--color-border-error);
     border-width: 0.2rem;
-    color: var(--krds-input--color-text-error);
+    color: var(--input--color-text-error);
     &:focus {
-      border-color: var(--krds-input--color-border-active);
+      border-color: var(--input--color-border-active);
     }
   }
 }
 
 .textarea-wrap {
   @include flex-layout($fd: column, $ai: normal);
-  gap: var(--krds-gap-3);
+  gap: var(--gap-3);
   width: 100%;
 }
 .textarea-count {
-  --krds-input--count-number-pc-font-size: var(--krds-pc-font-size-body-small);
-  --krds-input--count-number-mobile-font-size: var(
-    --krds-mobile-font-size-body-small
+  --input--count-number-pc-font-size: var(--pc-font-size-body-small);
+  --input--count-number-mobile-font-size: var(--mobile-font-size-body-small);
+  --input--count-number-color-text: var(--#{$mode-setting}-color-text-subtle);
+  --input--count-number-color-text-active: var(
+    --#{$mode-setting}-color-text-primary
   );
-  --krds-input--count-number-color-text: var(
-    --krds-#{$mode-setting}-color-text-subtle
-  );
-  --krds-input--count-number-color-text-active: var(
-    --krds-#{$mode-setting}-color-text-primary
-  );
-  --krds-input--count-number-color-text-error: var(
-    --krds-#{$mode-setting}-color-text-danger
+  --input--count-number-color-text-error: var(
+    --#{$mode-setting}-color-text-danger
   );
 
   @include flex-layout($ai: center, $jc: flex-end);
-  gap: var(--krds-gap-1);
+  gap: var(--gap-1);
   width: 100%;
-  font-size: var(--krds-input--count-number-pc-font-size);
-  color: var(--krds-input--count-number-color-text);
+  font-size: var(--input--count-number-pc-font-size);
+  color: var(--input--count-number-color-text);
   @include size-medium {
-    font-size: var(--krds-input--count-number-mobile-font-size);
+    font-size: var(--input--count-number-mobile-font-size);
   }
   .count-now {
-    color: var(--krds-input--count-number-color-text-active);
+    color: var(--input--count-number-color-text-active);
   }
 }
 .is-error {
   .textarea-count {
     .count-now {
-      color: var(--krds-input--count-number-color-text-error);
+      color: var(--input--count-number-color-text-error);
     }
   }
 }
 
 .textarea-bottom {
   @include flex-layout();
-  gap: var(--krds-gap-5);
+  gap: var(--gap-5);
   .textarea-count {
     margin-left: auto;
     flex-basis: content;
@@ -241,25 +220,25 @@ textarea {
 
 /* 날짜선택 */
 .calendar-input {
-  --krds-input--color-surface: var(--krds-#{$mode-setting}-color-input-surface);
+  --input--color-surface: var(--#{$mode-setting}-color-input-surface);
 
   position: relative;
   z-index: 1;
   width: 100%;
   .krds-input {
-    padding-right: var(--krds-form-group--icon-padding-right);
+    padding-right: var(--form-group--icon-padding-right);
     background-image: none;
   }
   .krds-btn {
     @include position(
       $t: 50%,
-      $r: var(--krds-padding-7)
+      $r: var(--padding-7)
     ); //form control large 사이즈에만 버튼 들어감
     transform: translateY(-50%);
     &.small {
       right: 1.8rem;
-      width: var(--krds-button--icon-size-medium) !important;
-      height: var(--krds-button--icon-size-medium) !important;
+      width: var(--button--icon-size-medium) !important;
+      height: var(--button--icon-size-medium) !important;
       padding: 0.2rem !important;
     }
   }
@@ -280,18 +259,14 @@ textarea {
     @include border-size-mode(#{$mode-setting});
   }
   .textarea-count {
-    --krds-input--count-number-color-text: var(
-      --krds-#{$mode-setting}-color-text-subtle
-    );
-    --krds-input--count-number-color-text-active: var(
-      --krds-#{$mode-setting}-color-text-primary
+    --input--count-number-color-text: var(--#{$mode-setting}-color-text-subtle);
+    --input--count-number-color-text-active: var(
+      --#{$mode-setting}-color-text-primary
     );
   }
 
   /* 날짜선택 */
   .calendar-input {
-    --krds-input--color-surface: var(
-      --krds-#{$mode-setting}-color-input-surface
-    );
+    --input--color-surface: var(--#{$mode-setting}-color-input-surface);
   }
 }

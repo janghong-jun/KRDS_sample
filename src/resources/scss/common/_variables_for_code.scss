@@ -16,8 +16,8 @@ $font-family-base: 'Pretendard GOV', sans-serif !default;
 $font-size-base: 62.5% !default; //10px 1rem으로 설정
 
 $font-letter-spacings: (
-  none: var(--krds-typo-letter-spacing-0),
-  wide: var(--krds-typo-letter-spacing-1),
+  none: var(--typo-letter-spacing-0),
+  wide: var(--typo-letter-spacing-1),
 ) !default;
 
 //font weight
@@ -47,11 +47,11 @@ $transition-collapse-width: width 0.4s ease !default;
 
 //SVG ICON SIZE
 $icon-sizes: (
-  xsmall: var(--krds-size-height-2),
-  small: var(--krds-size-height-2),
-  medium: var(--krds-size-height-3),
-  large: var(--krds-size-height-4),
-  xlarge: var(--krds-size-height-4),
+  xsmall: var(--size-height-2),
+  small: var(--size-height-2),
+  medium: var(--size-height-3),
+  large: var(--size-height-4),
+  xlarge: var(--size-height-4),
 ) !default;
 
 //SCREEN ZOOM

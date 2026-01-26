@@ -6,30 +6,30 @@
 
 //사이즈 정의
 @mixin step-size-variable() {
-  --krds-step--layout-gap: var(--krds-number-18);
-  --krds-step--step-font-size: var(--krds-pc-font-size-body-xsmall);
-  --krds-step--step-title-font-size: var(--krds-pc-font-size-body-small);
-  --krds-step--circle-size-default: var(--krds-icon--size-medium);
-  --krds-step--circle-size-active: 1.2rem;
-  --krds-step--circle-radius: var(--krds-radius-max);
-  --krds-step--padding-txt-top: var(--krds-padding-9);
-  --krds-step--padding-txt-right: var(--krds-padding-9);
-  --krds-step--border-width-medium: 0.3rem;
+  --step--layout-gap: var(--number-18);
+  --step--step-font-size: var(--pc-font-size-body-xsmall);
+  --step--step-title-font-size: var(--pc-font-size-body-small);
+  --step--circle-size-default: var(--icon--size-medium);
+  --step--circle-size-active: 1.2rem;
+  --step--circle-radius: var(--radius-max);
+  --step--padding-txt-top: var(--padding-9);
+  --step--padding-txt-right: var(--padding-9);
+  --step--border-width-medium: 0.3rem;
 }
 
 //컬러 정의
 @mixin step-color-variable($mode: light) {
-  --krds-step--color-step: var(--krds-#{$mode}-color-text-subtle);
-  --krds-step--color-step-title: var(--krds-#{$mode}-color-text-basic);
-  --krds-step--color-fill-default: var(--krds-#{$mode}-color-element-gray-light);
-  --krds-step--color-fill-done: var(--krds-#{$mode}-color-element-gray);
-  --krds-step--color-fill-active: var(--krds-#{$mode}-color-element-primary);
-  --krds-step--color-fill-white: var(--krds-#{$mode}-color-element-inverse-static);
-  --krds-step--color-border-default: var(--krds-#{$mode}-color-element-disabled-light);
-  --krds-step--color-border-done: var(--krds-step--color-fill-done);
-  --krds-step--color-border-active: var(--krds-step--color-fill-active);
-  --krds-step--color-icon-done: var(--krds-step--color-fill-white);
-  --krds-step--color-icon-active: var(--krds-step--color-fill-active);
+  --step--color-step: var(--#{$mode}-color-text-subtle);
+  --step--color-step-title: var(--#{$mode}-color-text-basic);
+  --step--color-fill-default: var(--#{$mode}-color-element-gray-light);
+  --step--color-fill-done: var(--#{$mode}-color-element-gray);
+  --step--color-fill-active: var(--#{$mode}-color-element-primary);
+  --step--color-fill-white: var(--#{$mode}-color-element-inverse-static);
+  --step--color-border-default: var(--#{$mode}-color-element-disabled-light);
+  --step--color-border-done: var(--step--color-fill-done);
+  --step--color-border-active: var(--step--color-fill-active);
+  --step--color-icon-done: var(--step--color-fill-white);
+  --step--color-icon-active: var(--step--color-fill-active);
 }
 
 .krds-step-wrap {
@@ -37,81 +37,104 @@
   @include step-color-variable();
 
   display: flex;
-  margin-bottom: var(--krds-step--layout-gap);
+  margin-bottom: var(--step--layout-gap);
   > li {
     flex: 1;
     position: relative;
 
     &::after {
-      @include position($t: calc((var(--krds-step--circle-size-default) / 2) - (var(--krds-step--border-width-medium) / 2)), $l: 0.1rem);
+      @include position(
+        $t: calc(
+            (var(--step--circle-size-default) / 2) -
+              (var(--step--border-width-medium) / 2)
+          ),
+        $l: 0.1rem
+      );
       @include pseudo();
       width: 100%;
-      height: var(--krds-step--border-width-medium);
-      background-color: var(--krds-step--color-fill-default);
+      height: var(--step--border-width-medium);
+      background-color: var(--step--color-fill-default);
     }
     > span {
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-top: var(--krds-step--padding-txt-top);
-      padding-right: var(--krds-step--padding-txt-top);
+      padding-top: var(--step--padding-txt-top);
+      padding-right: var(--step--padding-txt-top);
 
       &::before,
       &::after {
         @include pseudo();
-        border-radius: var(--krds-step--circle-radius);
+        border-radius: var(--step--circle-radius);
       }
       &::before {
         @include position($t: 0, $l: 0);
         z-index: 2;
-        width: var(--krds-step--circle-size-default);
-        height: var(--krds-step--circle-size-default);
-        background-color: var(--krds-step--color-fill-default);
-        border: 0.1rem solid var(--krds-step--color-border-default);
+        width: var(--step--circle-size-default);
+        height: var(--step--circle-size-default);
+        background-color: var(--step--color-fill-default);
+        border: 0.1rem solid var(--step--color-border-default);
       }
     }
     .step {
-      font-size: var(--krds-step--step-font-size);
-      color: var(--krds-step--color-step);
+      font-size: var(--step--step-font-size);
+      color: var(--step--color-step);
     }
     .step-tit {
-      font-size: var(--krds-step--step-title-font-size);
-      font-weight: var(--krds-font-weight-bold);
-      color: var(--krds-step--color-step-title);
+      font-size: var(--step--step-title-font-size);
+      font-weight: var(--font-weight-bold);
+      color: var(--step--color-step-title);
       white-space: nowrap;
     }
     &.done {
       &::after {
-        background-color: var(--krds-step--color-fill-done);
+        background-color: var(--step--color-fill-done);
       }
       > span {
         &::before {
-          border-color: var(--krds-step--color-border-done);
-          background-color: var(--krds-step--color-fill-done);
+          border-color: var(--step--color-border-done);
+          background-color: var(--step--color-fill-done);
         }
         &::after {
           @include position($t: 0, $l: 0);
-          @include svg-icon(var(--krds-step--circle-size-default));
+          @include svg-icon(var(--step--circle-size-default));
           @include icon-set(ico_step_done);
-          background-color: var(--krds-step--color-icon-done);
+          background-color: var(--step--color-icon-done);
           z-index: 3;
         }
       }
     }
     &.active {
       &::after {
-        background-color: var(--krds-step--color-border-default);
+        background-color: var(--step--color-border-default);
       }
       > span {
         &::before {
-          background-color: var(--krds-step--color-fill-white);
-          border-width: var(--krds-step--border-width-medium);
-          border-color: var(--krds-step--color-border-active);
+          background-color: var(--step--color-fill-white);
+          border-width: var(--step--border-width-medium);
+          border-color: var(--step--color-border-active);
         }
         &::after {
-          @include position($t: calc((var(--krds-step--circle-size-active) - var(--krds-step--circle-size-default)) / 2 * -1), $l: calc((var(--krds-step--circle-size-default) - var(--krds-step--circle-size-active)) / 2));
-          @include square(var(--krds-step--circle-size-active));
-          background-color: var(--krds-step--color-icon-active);
+          @include position(
+            $t: calc(
+                (
+                    var(--step--circle-size-active) - var(
+                        --step--circle-size-default
+                      )
+                  ) /
+                  2 * -1
+              ),
+            $l: calc(
+                (
+                    var(--step--circle-size-default) - var(
+                        --step--circle-size-active
+                      )
+                  ) /
+                  2
+              )
+          );
+          @include square(var(--step--circle-size-active));
+          background-color: var(--step--color-icon-active);
           z-index: 3;
         }
       }
@@ -127,16 +150,16 @@
 
 @include size-large-less {
   .krds-step-wrap {
-    --krds-step--layout-gap: var(--krds-padding-10);
+    --step--layout-gap: var(--padding-10);
   }
 }
 @include size-medium {
   .krds-step-wrap {
-    --krds-step--layout-gap: var(--krds-number-18);
-    --krds-step--step-font-size: var(--krds-mobile-font-size-body-xsmall);
-    --krds-step--step-title-font-size: var(--krds-pc-font-size-body-small);
-    --krds-step--padding-txt-top: var(--krds-step--circle-size-default);
-    --krds-step--padding-txt-right: 0;
+    --step--layout-gap: var(--number-18);
+    --step--step-font-size: var(--mobile-font-size-body-xsmall);
+    --step--step-title-font-size: var(--pc-font-size-body-small);
+    --step--padding-txt-top: var(--step--circle-size-default);
+    --step--padding-txt-right: 0;
 
     @include group-wrap;
     position: static;
@@ -152,7 +175,7 @@
       }
       &:last-child {
         @include size-medium {
-          flex: 0 0 var(--krds-step--circle-size-default);
+          flex: 0 0 var(--step--circle-size-default);
         }
       }
     }

@@ -10,21 +10,21 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  font-family: var(--krds-font-family-base);
-  color: var(--krds-#{$mode-setting}-color-text-basic);
-  font-weight: var(--krds-font-weight-regular);
-  line-height: var(--krds-line-height-base);
+  font-family: var(--font-family-base);
+  color: var(--#{$mode-setting}-color-text-basic);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
   word-break: keep-all;
   word-wrap: break-word;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 }
 html {
-  font-size: var(--krds-font-size-base);
+  font-size: var(--font-size-base);
 }
 body {
-  background-color: var(--krds-#{$mode-setting}-color-background-white);
-  font-size: var(--krds-pc-font-size-body-medium);
+  background-color: var(--#{$mode-setting}-color-background-white);
+  font-size: var(--pc-font-size-body-medium);
   overflow-x: hidden;
 }
 //시스템 고대비모드 켜도 우리 style 적용되도록
@@ -38,26 +38,28 @@ body {
   $mode-setting: high-contrast;
   html,
   body {
-    color: var(--krds-#{$mode-setting}-color-text-basic);
+    color: var(--#{$mode-setting}-color-text-basic);
   }
   body {
-    background-color: var(--krds-#{$mode-setting}-color-background-white);
+    background-color: var(--#{$mode-setting}-color-background-white);
   }
 }
 *:focus {
   //@include focus();
-  outline: 0.2rem solid var(--krds-light-color-border-inverse);
+  outline: 0.2rem solid var(--light-color-border-inverse);
   outline-offset: 0;
-  box-shadow: var(--krds-box-shadow-outline);
-  transition: outline 0s, box-shadow 0s !important;
+  box-shadow: var(--box-shadow-outline);
+  transition:
+    outline 0s,
+    box-shadow 0s !important;
 }
 ::-moz-selection {
-  background: var(--krds-color-light-secondary-50);
-  color: var(--krds-color-light-gray-0);
+  background: var(--color-light-secondary-50);
+  color: var(--color-light-gray-0);
 }
 ::selection {
-  background: var(--krds-color-light-secondary-50);
-  color: var(--krds-color-light-gray-0);
+  background: var(--color-light-secondary-50);
+  color: var(--color-light-gray-0);
 }
 
 body,
@@ -98,7 +100,7 @@ label,
   box-sizing: border-box;
   -webkit-text-size-adjust: none;
   font-family: inherit;
-  line-height: var(--krds-line-height-base);
+  line-height: var(--line-height-base);
   letter-spacing: inherit;
 }
 pre {
@@ -125,7 +127,7 @@ h4,
 h5,
 h6,
 strong {
-  font-weight: var(--krds-font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 article,
 aside,
@@ -166,7 +168,7 @@ i {
 }
 a,
 button {
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 a,
 a:hover,
@@ -178,7 +180,7 @@ a:focus {
 a:visited {
   &.visited,
   .visited {
-    color: var(--krds-#{$mode-setting}-color-link-visited);
+    color: var(--#{$mode-setting}-color-link-visited);
   }
 }
 button,
@@ -308,15 +310,15 @@ caption {
 }
 
 .inner {
-  max-width: var(--krds-contents-wrap-size);
-  padding-left: var(--krds-contents-padding-x);
-  padding-right: var(--krds-contents-padding-x);
+  max-width: var(--contents-wrap-size);
+  padding-left: var(--contents-padding-x);
+  padding-right: var(--contents-padding-x);
 }
 
 //responsive mobile
 @include size-medium {
   body {
-    font-size: var(--krds-mobile-font-size-body-medium);
+    font-size: var(--mobile-font-size-body-medium);
   }
   .pc-only {
     display: none !important;
@@ -358,7 +360,7 @@ caption {
   a:visited {
     &.visited,
     .visited {
-      color: var(--krds-#{$mode-setting}-color-link-visited);
+      color: var(--#{$mode-setting}-color-link-visited);
     }
   }
 }

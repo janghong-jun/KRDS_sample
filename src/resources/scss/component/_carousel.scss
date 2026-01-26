@@ -8,7 +8,7 @@
 $mode-setting: light;
 .swiper-indicator {
   @include flex-layout($jc: flex-end, $ai: center);
-  gap: var(--krds-gap-3);
+  gap: var(--gap-3);
   flex-shrink: 0;
   position: relative;
   &.text-center {
@@ -20,17 +20,17 @@ $mode-setting: light;
     width: auto;
     &:not(.swiper-pagination-fraction) {
       @include flex-layout($jc: center, $ai: center);
-      height: var(--krds-size-height-6);
-      padding: var(--krds-padding-5);
-      border-radius: var(--krds-radius-max);
-      background-color: var(--krds-#{$mode-setting}-color-element-inverse);
+      height: var(--size-height-6);
+      padding: var(--padding-5);
+      border-radius: var(--radius-max);
+      background-color: var(--#{$mode-setting}-color-element-inverse);
     }
     &.swiper-pagination-fraction {
       &.swiper-pagination-bg {
-        font-weight: var(--krds-font-weight-bold);
-        padding: var(--krds-padding-5);
-        border-radius: var(--krds-radius-max);
-        background-color: var(--krds-#{$mode-setting}-color-surface-white);
+        font-weight: var(--font-weight-bold);
+        padding: var(--padding-5);
+        border-radius: var(--radius-max);
+        background-color: var(--#{$mode-setting}-color-surface-white);
       }
     }
   }
@@ -41,57 +41,59 @@ $mode-setting: light;
   }
   .swiper-navigation {
     display: inline-flex;
-    gap: var(--krds-gap-3);
+    gap: var(--gap-3);
   }
 }
 
 .swiper-pagination {
   @include flex-layout($jc: center, $ai: center);
   position: relative;
-  height: var(--krds-size-height-6);
+  height: var(--size-height-6);
   .swiper-pagination-bullet {
-    @include square(var(--krds-size-height-1));
-    background-color: var(--krds-#{$mode-setting}-color-element-gray);
+    @include square(var(--size-height-1));
+    background-color: var(--#{$mode-setting}-color-element-gray);
     opacity: 1;
     &.swiper-pagination-bullet-active {
       width: 2rem;
-      border-radius: var(--krds-radius-max);
-      background-color: var(--krds-#{$mode-setting}-color-element-primary);
+      border-radius: var(--radius-max);
+      background-color: var(--#{$mode-setting}-color-element-primary);
     }
   }
   &.swiper-pagination-fraction {
-    gap: var(--krds-gap-2);
-    padding: 0 var(--krds-padding-6);
-    color: var(--krds-#{$mode-setting}-color-text-basic);
-    font-weight: var(--krds-font-weight-bold);
-    border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid var(--krds-#{$mode-setting}-color-border-gray-light);
-    border-radius: var(--krds-radius-max);
-    background-color: var(--krds-#{$mode-setting}-color-surface-white);
+    gap: var(--gap-2);
+    padding: 0 var(--padding-6);
+    color: var(--#{$mode-setting}-color-text-basic);
+    font-weight: var(--font-weight-bold);
+    border: var(--#{$mode-setting}-border-width-variable-regular) solid
+      var(--#{$mode-setting}-color-border-gray-light);
+    border-radius: var(--radius-max);
+    background-color: var(--#{$mode-setting}-color-surface-white);
     .swiper-pagination-current {
-      color: var(--krds-#{$mode-setting}-color-text-secondary);
+      color: var(--#{$mode-setting}-color-text-secondary);
     }
   }
 }
 
 .swiper-controller {
   @include flex-layout($jc: center, $ai: center);
-  gap: var(--krds-gap-3);
+  gap: var(--gap-3);
 }
 
 [class^='swiper-button-'] {
   @include flex-layout($jc: center, $ai: center);
-  @include square(var(--krds-size-height-6));
+  @include square(var(--size-height-6));
   flex-shrink: 0;
-  border-radius: var(--krds-radius-max);
-  border: var(--krds-#{$mode-setting}-border-width-variable-regular) solid var(--krds-#{$mode-setting}-color-border-gray-light);
-  background-color: var(--krds-#{$mode-setting}-color-action-white);
+  border-radius: var(--radius-max);
+  border: var(--#{$mode-setting}-border-width-variable-regular) solid
+    var(--#{$mode-setting}-color-border-gray-light);
+  background-color: var(--#{$mode-setting}-color-action-white);
   &::after {
     @include pseudo();
     @include svg-icon();
     font-size: 0 !important;
   }
   &:hover {
-    background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
+    background-color: var(--#{$mode-setting}-color-action-secondary-hover);
   }
 }
 
@@ -119,16 +121,16 @@ $mode-setting: light;
     @include icon-set(ico_angle);
   }
   &:hover {
-    background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
+    background-color: var(--#{$mode-setting}-color-action-secondary-hover);
   }
   &:active {
-    background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
+    background-color: var(--#{$mode-setting}-color-action-secondary-pressed);
   }
   &.swiper-button-disabled {
-    background-color: var(--krds-#{$mode-setting}-color-action-disabled);
+    background-color: var(--#{$mode-setting}-color-action-disabled);
     opacity: 1;
     &::after {
-      background-color: var(--krds-#{$mode-setting}-color-icon-disabled-on);
+      background-color: var(--#{$mode-setting}-color-icon-disabled-on);
     }
   }
 }
@@ -152,11 +154,11 @@ $mode-setting: light;
   .swiper-indicator {
     .swiper-pagination {
       &:not(.swiper-pagination-fraction) {
-        background-color: var(--krds-#{$mode-setting}-color-element-inverse);
+        background-color: var(--#{$mode-setting}-color-element-inverse);
       }
       &.swiper-pagination-fraction {
         &.swiper-pagination-bg {
-          background-color: var(--krds-#{$mode-setting}-color-surface-white);
+          background-color: var(--#{$mode-setting}-color-surface-white);
         }
       }
     }
@@ -164,46 +166,46 @@ $mode-setting: light;
 
   .swiper-pagination {
     .swiper-pagination-bullet {
-      background-color: var(--krds-#{$mode-setting}-color-element-gray);
+      background-color: var(--#{$mode-setting}-color-element-gray);
       &.swiper-pagination-bullet-active {
-        background-color: var(--krds-#{$mode-setting}-color-element-primary);
+        background-color: var(--#{$mode-setting}-color-element-primary);
       }
     }
     &.swiper-pagination-fraction {
-      color: var(--krds-#{$mode-setting}-color-text-basic);
-      border-width: var(--krds-#{$mode-setting}-border-width-variable-regular);
-      border-color: var(--krds-#{$mode-setting}-color-border-gray-light);
-      background-color: var(--krds-#{$mode-setting}-color-surface-white);
+      color: var(--#{$mode-setting}-color-text-basic);
+      border-width: var(--#{$mode-setting}-border-width-variable-regular);
+      border-color: var(--#{$mode-setting}-color-border-gray-light);
+      background-color: var(--#{$mode-setting}-color-surface-white);
       .swiper-pagination-current {
-        color: var(--krds-#{$mode-setting}-color-text-secondary);
+        color: var(--#{$mode-setting}-color-text-secondary);
       }
     }
   }
 
   [class^='swiper-button-'] {
-    border-width: var(--krds-#{$mode-setting}-border-width-variable-regular);
-    border-color: var(--krds-#{$mode-setting}-color-border-gray-light);
-    background-color: var(--krds-#{$mode-setting}-color-action-white);
+    border-width: var(--#{$mode-setting}-border-width-variable-regular);
+    border-color: var(--#{$mode-setting}-color-border-gray-light);
+    background-color: var(--#{$mode-setting}-color-action-white);
     &::after {
-      background-color: var(--krds-#{$mode-setting}-color-text-basic);
+      background-color: var(--#{$mode-setting}-color-text-basic);
     }
     &:hover {
-      background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
+      background-color: var(--#{$mode-setting}-color-action-secondary-hover);
     }
   }
 
   .swiper-button-next,
   .swiper-button-prev {
     &:hover {
-      background-color: var(--krds-#{$mode-setting}-color-action-secondary-hover);
+      background-color: var(--#{$mode-setting}-color-action-secondary-hover);
     }
     &:active {
-      background-color: var(--krds-#{$mode-setting}-color-action-secondary-pressed);
+      background-color: var(--#{$mode-setting}-color-action-secondary-pressed);
     }
     &.swiper-button-disabled {
-      background-color: var(--krds-#{$mode-setting}-color-action-disabled);
+      background-color: var(--#{$mode-setting}-color-action-disabled);
       &::after {
-        background-color: var(--krds-#{$mode-setting}-color-icon-disabled-on);
+        background-color: var(--#{$mode-setting}-color-icon-disabled-on);
       }
     }
   }

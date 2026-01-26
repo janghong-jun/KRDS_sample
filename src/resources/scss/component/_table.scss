@@ -5,42 +5,26 @@
 /* 표 */
 //사이즈 정의
 @mixin table-size-variable() {
-  --krds-table--data-thead-th-padding: var(--krds-padding-3);
-  --krds-table--data-thead-th-padding-sides: var(--krds-padding-6);
-  // --krds-table--data-thead-th-padding-sides: var(--krds-padding-10);
-  --krds-table--data-thead-pc-font-size: var(
-    --krds-pc-font-size-heading-xxsmall
-  );
-  --krds-table--data-thead-mobile-font-size: var(
-    --krds-mobile-font-size-heading-xxsmall
-  );
-  --krds-table--data-tbody-pc-font-size: var(--krds-pc-font-size-label-medium);
-  --krds-table--data-tbody-mobile-font-size: var(
-    --krds-mobile-font-size-label-medium
-  );
-  --krds-table--data-tbody-padding: var(--krds-padding-5);
-  --krds-table--data-tbody-padding-sides: var(--krds-padding-6);
+  --table--data-thead-th-padding: var(--padding-3);
+  --table--data-thead-th-padding-sides: var(--padding-6);
+  // --table--data-thead-th-padding-sides: var(--padding-10);
+  --table--data-thead-pc-font-size: var(--pc-font-size-heading-xxsmall);
+  --table--data-thead-mobile-font-size: var(--mobile-font-size-heading-xxsmall);
+  --table--data-tbody-pc-font-size: var(--pc-font-size-label-medium);
+  --table--data-tbody-mobile-font-size: var(--mobile-font-size-label-medium);
+  --table--data-tbody-padding: var(--padding-5);
+  --table--data-tbody-padding-sides: var(--padding-6);
 }
 
 //컬러 설정
 @mixin table-color-variable($mode: light) {
-  --krds-table--data-border-width: var(
-    --krds-#{$mode}-border-width-variable-regular
-  );
-  --krds-table--data-thead-border: var(
-    --krds-#{$mode}-color-border-secondary-light
-  );
-  --krds-table--data-thead-surface: var(
-    --krds-#{$mode}-color-surface-secondary-subtler
-  );
-  --krds-table--data-thead-color-text: var(--krds-#{$mode}-color-text-bolder);
-  --krds-table--data-tbody-color-surface: var(
-    --krds-#{$mode}-color-surface-white-subtle
-  );
-  --krds-table--data-tbody-color-divider: var(
-    --krds-#{$mode}-color-divider-gray-light
-  );
-  --krds-table--data-tbody-color-text: var(--krds-#{$mode}-color-text-subtle);
+  --table--data-border-width: var(--#{$mode}-border-width-variable-regular);
+  --table--data-thead-border: var(--#{$mode}-color-border-secondary-light);
+  --table--data-thead-surface: var(--#{$mode}-color-surface-secondary-subtler);
+  --table--data-thead-color-text: var(--#{$mode}-color-text-bolder);
+  --table--data-tbody-color-surface: var(--#{$mode}-color-surface-white-subtle);
+  --table--data-tbody-color-divider: var(--#{$mode}-color-divider-gray-light);
+  --table--data-tbody-color-text: var(--#{$mode}-color-text-subtle);
 }
 
 //모드 설정
@@ -59,19 +43,19 @@ $mode-setting: light;
       > tr {
         > th {
           height: 5rem;
-          padding: var(--krds-table--data-thead-th-padding)
-            var(--krds-table--data-thead-th-padding-sides);
-          background-color: var(--krds-table--data-thead-surface);
-          border-bottom: var(--krds-table--data-border-width) solid
-            var(--krds-table--data-thead-border);
+          padding: var(--table--data-thead-th-padding)
+            var(--table--data-thead-th-padding-sides);
+          background-color: var(--table--data-thead-surface);
+          border-bottom: var(--table--data-border-width) solid
+            var(--table--data-thead-border);
           background-color: #f8f8f8;
-          border-bottom: var(--krds-table--data-border-width) solid v#B1B8BE;
-          font-weight: var(--krds-font-weight-regular);
-          font-size: var(--krds-table--data-thead-pc-font-size);
-          color: var(--krds-table--data-thead-color-text);
+          border-bottom: var(--table--data-border-width) solid v#B1B8BE;
+          font-weight: var(--font-weight-regular);
+          font-size: var(--table--data-thead-pc-font-size);
+          color: var(--table--data-thead-color-text);
           text-align: left;
           @include size-medium {
-            font-size: var(--krds-table--data-thead-mobile-font-size);
+            font-size: var(--table--data-thead-mobile-font-size);
           }
         }
       }
@@ -81,26 +65,26 @@ $mode-setting: light;
         &[data-select='false'] {
           > th,
           > td {
-            background-color: var(--krds-light-color-surface-secondary-subtler);
+            background-color: var(--light-color-surface-secondary-subtler);
           }
         }
         > th,
         > td {
-          padding: var(--krds-table--data-tbody-padding)
-            var(--krds-table--data-tbody-padding-sides);
-          background-color: var(--krds-table--data-tbody-color-surface);
-          border-bottom: var(--krds-table--data-border-width) solid
-            var(--krds-table--data-tbody-color-divider);
-          font-size: var(--krds-table--data-tbody-pc-font-size);
-          color: var(--krds-table--data-tbody-color-text);
-          font-weight: var(--krds-font-weight-regular);
+          padding: var(--table--data-tbody-padding)
+            var(--table--data-tbody-padding-sides);
+          background-color: var(--table--data-tbody-color-surface);
+          border-bottom: var(--table--data-border-width) solid
+            var(--table--data-tbody-color-divider);
+          font-size: var(--table--data-tbody-pc-font-size);
+          color: var(--table--data-tbody-color-text);
+          font-weight: var(--font-weight-regular);
           text-align: left;
           @include size-medium {
-            font-size: var(--krds-table--data-tbody-mobile-font-size);
+            font-size: var(--table--data-tbody-mobile-font-size);
           }
           .krds-table-btns-wrap {
             display: flex;
-            gap: var(--krds-padding-3);
+            gap: var(--padding-3);
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
@@ -122,13 +106,13 @@ $mode-setting: light;
   }
 
   .krds-table-title {
-    margin-bottom: var(--krds-number-10);
-    font-size: var(--krds-pc-font-size-heading-medium);
-    font-weight: var(--krds-font-weight-bold);
-    color: var(--krds-light-color-text-bolder);
+    margin-bottom: var(--number-10);
+    font-size: var(--pc-font-size-heading-medium);
+    font-weight: var(--font-weight-bold);
+    color: var(--light-color-text-bolder);
 
     @include size-medium {
-      font-size: var(--krds-mobile-font-size-heading-medium);
+      font-size: var(--mobile-font-size-heading-medium);
     }
   }
 
@@ -141,13 +125,12 @@ $mode-setting: light;
   }
 
   &.write {
-    padding: var(--krds-number-9) 0 var(--krds-pc-padding-card-medium);
-    border-top: var(--krds-number-2) solid #000;
-    border-bottom: 0.1rem solid
-      var(--krds-#{$mode-setting}-color-border-gray-light);
+    padding: var(--number-9) 0 var(--pc-padding-card-medium);
+    border-top: var(--number-2) solid #000;
+    border-bottom: 0.1rem solid var(--#{$mode-setting}-color-border-gray-light);
 
     .krds-table-title {
-      margin-bottom: var(--krds-number-7);
+      margin-bottom: var(--number-7);
     }
     .tbl {
       > tbody {
@@ -162,16 +145,16 @@ $mode-setting: light;
   }
 
   &.row {
-    border-top: 0.1rem solid var(--krds-light-color-border-gray-dark);
+    border-top: 0.1rem solid var(--light-color-border-gray-dark);
     .tbl {
       > tbody {
         > tr {
           > th {
-            padding: var(--krds-padding-5);
-            border-right: var(--krds-table--data-border-width) solid
-              var(--krds-table--data-tbody-color-divider);
-            background-color: var(--krds-light-color-surface-gray-subtler);
-            color: var(--krds-light-color-text-bolder);
+            padding: var(--padding-5);
+            border-right: var(--table--data-border-width) solid
+              var(--table--data-tbody-color-divider);
+            background-color: var(--light-color-surface-gray-subtler);
+            color: var(--light-color-text-bolder);
           }
         }
       }
@@ -198,7 +181,7 @@ $mode-setting: light;
       }
     }
     + .krds-btns-wrap.center {
-      margin-top: var(--krds-gap-7);
+      margin-top: var(--gap-7);
     }
   }
 }
@@ -206,7 +189,7 @@ $mode-setting: light;
 @include size-medium {
   .krds-table-wrap {
     overflow-x: auto;
-    width: calc(100vw - (var(--krds-contents-padding-x) * 2));
+    width: calc(100vw - (var(--contents-padding-x) * 2));
     @include scrollbar();
 
     .tbl {
