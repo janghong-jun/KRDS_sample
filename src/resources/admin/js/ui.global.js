@@ -28,8 +28,30 @@
 
   const Global = win[global];
   const UA = navigator.userAgent.toLowerCase();
-  const deviceSize = [1920, 1600, 1440, 1280, 1024, 960, 840, 720, 600, 480, 400, 360];
-  const deviceInfo = ['android', 'iphone', 'ipod', 'ipad', 'blackberry', 'windows ce', 'windows', 'samsung', 'lg', 'mot', 'sonyericsson', 'nokia', 'opeara mini', 'opera mobi', 'webos', 'iemobile', 'kfapwi', 'rim', 'bb10'];
+  const deviceSize = [
+    1920, 1600, 1440, 1280, 1024, 960, 840, 720, 600, 480, 400, 360,
+  ];
+  const deviceInfo = [
+    'android',
+    'iphone',
+    'ipod',
+    'ipad',
+    'blackberry',
+    'windows ce',
+    'windows',
+    'samsung',
+    'lg',
+    'mot',
+    'sonyericsson',
+    'nokia',
+    'opeara mini',
+    'opera mobi',
+    'webos',
+    'iemobile',
+    'kfapwi',
+    'rim',
+    'bb10',
+  ];
   //const filter = "win16|win32|win64|mac|macintel";
 
   //requestAnimationFrame
@@ -157,7 +179,12 @@
       let ticking = false;
 
       const doSomething = (scroll_pos) => {
-        Global.state.scroll.direction = Global.state.scroll.y > scroll_pos ? 'up' : Global.state.scroll.y < scroll_pos ? 'down' : '';
+        Global.state.scroll.direction =
+          Global.state.scroll.y > scroll_pos
+            ? 'up'
+            : Global.state.scroll.y < scroll_pos
+              ? 'down'
+              : '';
         Global.state.scroll.y = scroll_pos;
       };
       win.addEventListener('scroll', (e) => {
@@ -184,13 +211,21 @@
         device.width = win.innerWidth;
         device.height = win.innerHeight;
 
-        device.touch = device.ios || device.android || (doc.ontouchstart !== undefined && doc.ontouchstart !== null);
+        device.touch =
+          device.ios ||
+          device.android ||
+          (doc.ontouchstart !== undefined && doc.ontouchstart !== null);
         device.mobile = device.touch && (device.ios || device.android);
         device.os = device.os ? device.os[0] : '';
         device.os = device.os.toLowerCase();
 
         device.breakpoint = device.width >= deviceSize[5] ? true : false;
-        device.colClass = device.width >= deviceSize[5] ? 'col-12' : device.width > deviceSize[8] ? 'col-8' : 'col-4';
+        device.colClass =
+          device.width >= deviceSize[5]
+            ? 'col-12'
+            : device.width > deviceSize[8]
+              ? 'col-8'
+              : 'col-4';
 
         if (browser.ie) {
           browser.ie = browser.ie = parseInt(browser.ie[1] || browser.ie[2]);
@@ -200,9 +235,27 @@
           browser.ie = false;
         }
 
-        const clsBrowser = browser.chrome ? 'chrome' : browser.firefox ? 'firefox' : browser.opera ? 'opera' : browser.safari ? 'safari' : browser.ie ? 'ie' + browser.ie : 'other';
-        const clsMobileSystem = device.ios ? 'ios' : device.android ? 'android' : 'etc';
-        const clsMobile = device.mobile ? (device.app ? 'ui-a ui-m' : 'ui-m') : 'ui-d';
+        const clsBrowser = browser.chrome
+          ? 'chrome'
+          : browser.firefox
+            ? 'firefox'
+            : browser.opera
+              ? 'opera'
+              : browser.safari
+                ? 'safari'
+                : browser.ie
+                  ? 'ie' + browser.ie
+                  : 'other';
+        const clsMobileSystem = device.ios
+          ? 'ios'
+          : device.android
+            ? 'android'
+            : 'etc';
+        const clsMobile = device.mobile
+          ? device.app
+            ? 'ui-a ui-m'
+            : 'ui-m'
+          : 'ui-d';
         const el_html = doc.querySelector('html');
 
         el_html.classList.remove('col-12', 'col-8', 'col-4');
@@ -284,7 +337,10 @@
     comma(n) {
       var parts = n.toString().split('.');
 
-      return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (parts[1] ? '.' + parts[1] : '');
+      return (
+        parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
+        (parts[1] ? '.' + parts[1] : '')
+      );
     },
 
     //숫자 한자리수 일때 0 앞에 붙이기
@@ -390,7 +446,10 @@
 
       let htmlLoading = '';
 
-      selector === null ? (htmlLoading += '<div class="ui-loading ' + styleClass + '">') : (htmlLoading += '<div class="ui-loading type-area ' + styleClass + '">');
+      selector === null
+        ? (htmlLoading += '<div class="ui-loading ' + styleClass + '">')
+        : (htmlLoading +=
+            '<div class="ui-loading type-area ' + styleClass + '">');
 
       htmlLoading += '<div class="ui-loading-wrap">';
       htmlLoading += '<div class="ui-loading-item"> ';
@@ -398,7 +457,12 @@
       htmlLoading += '<div class="progress-bar progress"></div>';
       htmlLoading += '<div class="progress-bar shrinker timelapse"></div>    ';
 
-      message !== null ? (htmlLoading += '<strong class="ui-loading-message"><span>' + message + '</span></strong>') : (htmlLoading += '');
+      message !== null
+        ? (htmlLoading +=
+            '<strong class="ui-loading-message"><span>' +
+            message +
+            '</span></strong>')
+        : (htmlLoading += '');
 
       htmlLoading += '</div>';
       htmlLoading += '</div>';
@@ -408,7 +472,10 @@
         let is_loading = false;
 
         for (let i = 0; i < el_child.length; i++) {
-          if (el_child[i].nodeName === 'DIV' && el_child[i].classList.contains('ui-loading')) {
+          if (
+            el_child[i].nodeName === 'DIV' &&
+            el_child[i].classList.contains('ui-loading')
+          ) {
             is_loading = true;
           }
         }
@@ -485,7 +552,8 @@
       const mimeType = opt.mimeType;
       const contType = opt.contType;
       const callback = opt.callback || false;
-      const errorCallback = opt.errorCallback === undefined ? false : opt.errorCallback;
+      const errorCallback =
+        opt.errorCallback === undefined ? false : opt.errorCallback;
 
       loading && Global.loading.show();
 
@@ -494,7 +562,14 @@
         area.classList.add(effect);
       }
 
-      xhr.open(type, url);
+      const finalUrl =
+        url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + new Date().getTime();
+
+      //xhr.open(type, url);
+      xhr.open(type, finalUrl);
+
+      console.log(finalUrl);
+
       xhr.setRequestHeader(mimeType, contType);
       xhr.send();
       xhr.onreadystatechange = () => {
@@ -507,7 +582,9 @@
 
           if (page) {
             if (add) {
-              prepend ? area.insertAdjacentHTML('afterbegin', xhr.responseText) : area.insertAdjacentHTML('beforeend', xhr.responseText);
+              prepend
+                ? area.insertAdjacentHTML('afterbegin', xhr.responseText)
+                : area.insertAdjacentHTML('beforeend', xhr.responseText);
             } else {
               area.innerHTML = xhr.responseText;
             }
@@ -572,19 +649,31 @@
       const area = el.dataset.area;
       const name = el.dataset.name;
       const add = el.dataset.add === undefined ? 0 : el.dataset.add;
-      const align = el.dataset.align === undefined ? 'default' : el.dataset.align;
-      const callback = el.dataset.callback === undefined ? false : el.dataset.callback;
-      let el_area = doc.querySelector('.ui-scrollmove[data-area="' + area + '"]');
+      const align =
+        el.dataset.align === undefined ? 'default' : el.dataset.align;
+      const callback =
+        el.dataset.callback === undefined ? false : el.dataset.callback;
+      let el_area = doc.querySelector(
+        '.ui-scrollmove[data-area="' + area + '"]',
+      );
       const item = el_area.querySelector('.ui-scrollbar-item');
 
       if (!!item) {
         el_area = el_area.querySelector('.ui-scrollbar-item');
       }
 
-      const el_item = el_area.querySelector('.ui-scrollmove-item[data-name="' + name + '"]');
+      const el_item = el_area.querySelector(
+        '.ui-scrollmove-item[data-name="' + name + '"]',
+      );
 
-      let top = el_area.getBoundingClientRect().top - el_item.getBoundingClientRect().top - el_area.scrollTop;
-      let left = el_area.getBoundingClientRect().left - el_item.getBoundingClientRect().left - el_area.scrollLeft;
+      let top =
+        el_area.getBoundingClientRect().top -
+        el_item.getBoundingClientRect().top -
+        el_area.scrollTop;
+      let left =
+        el_area.getBoundingClientRect().left -
+        el_item.getBoundingClientRect().left -
+        el_area.scrollLeft;
 
       if (align === 'center') {
         top = top - el_item.offsetHeight / 2;
@@ -657,7 +746,10 @@
 
       Global.scroll.checkEndTimer = setTimeout(() => {
         //스크롤 현재 진행 여부 판단
-        if (nowTop === el_selector.scrollTop && nowLeft === el_selector.scrollLeft) {
+        if (
+          nowTop === el_selector.scrollTop &&
+          nowLeft === el_selector.scrollLeft
+        ) {
           clearTimeout(Global.scroll.checkEndTimer);
           //포커스가 위치할 엘리먼트를 지정하였다면 실행
           if (!!focus) {
@@ -726,21 +818,39 @@
       for (let i = 0; i < tagLen; i++) {
         const _tag = tags[i];
         const tag_name = _tag.tagName;
-        if (tag_name === 'BUTTON' || tag_name === 'A' || tag_name === 'INPUT' || tag_name === 'TEXTAREA') {
+        if (
+          tag_name === 'BUTTON' ||
+          tag_name === 'A' ||
+          tag_name === 'INPUT' ||
+          tag_name === 'TEXTAREA'
+        ) {
           _tag.classList.add('ui-focusloop-start');
           break;
         }
       }
 
-      if (!!el.querySelector('.ui-modal-wrap') && !el.querySelector('.ui-modal-wrap .ui-modal-last') && !el.getAttribute('aria-live')) {
+      if (
+        !!el.querySelector('.ui-modal-wrap') &&
+        !el.querySelector('.ui-modal-wrap .ui-modal-last') &&
+        !el.getAttribute('aria-live')
+      ) {
         const modal_wrap = el.querySelector('.ui-modal-wrap');
-        const last = '<button type="button" class="ui-modal-last ui-focusloop-end ui-modal-close" aria-label="' + (el.querySelector('.ui-modal-tit') && el.querySelector('.ui-modal-tit').textContent) + ' 레이어 문서 마지막 지점입니다. 모달 창 닫기"></button>';
+        const last =
+          '<button type="button" class="ui-modal-last ui-focusloop-end ui-modal-close" aria-label="' +
+          (el.querySelector('.ui-modal-tit') &&
+            el.querySelector('.ui-modal-tit').textContent) +
+          ' 레이어 문서 마지막 지점입니다. 모달 창 닫기"></button>';
         modal_wrap.insertAdjacentHTML('beforeend', last);
       } else {
         for (let i = tagLen - 1; i >= 0; i--) {
           const _tag = tags[i];
           const tag_name = _tag.tagName;
-          if (tag_name === 'BUTTON' || tag_name === 'A' || tag_name === 'INPUT' || tag_name === 'TEXTAREA') {
+          if (
+            tag_name === 'BUTTON' ||
+            tag_name === 'A' ||
+            tag_name === 'INPUT' ||
+            tag_name === 'TEXTAREA'
+          ) {
             _tag.classList.add('ui-focusloop-end');
             break;
           }
@@ -780,7 +890,9 @@
       let dim;
 
       if (show) {
-        const sheet = doc.querySelector('.sheet-bottom[data-id="' + opt.id + '"]');
+        const sheet = doc.querySelector(
+          '.sheet-bottom[data-id="' + opt.id + '"]',
+        );
         sheet.insertAdjacentHTML('beforeend', '<div class="sheet-dim"></div>');
 
         dim = doc.querySelector('.sheet-dim');
@@ -841,8 +953,14 @@
         });
 
         el_sheet.classList.add('on');
-        el_sheet.style.left = wrap_w + off_l > win_w ? off_l - (wrap_w - base_w) + 'px' : off_l + 'px';
-        el_sheet.style.top = win_h - (off_t - scr_t + base_h) > wrap_h ? off_t + base_h + scr_t + 'px' : off_t - wrap_h + scr_t + 'px';
+        el_sheet.style.left =
+          wrap_w + off_l > win_w
+            ? off_l - (wrap_w - base_w) + 'px'
+            : off_l + 'px';
+        el_sheet.style.top =
+          win_h - (off_t - scr_t + base_h) > wrap_h
+            ? off_t + base_h + scr_t + 'px'
+            : off_t - wrap_h + scr_t + 'px';
 
         Global.focus.loop({
           selector: el_sheet,
@@ -888,12 +1006,15 @@
         Global.scrollBar[option.selector] = option.infiniteCallback;
       }
 
-      sessionStorage.getItem('scrollbarID') === null && sessionStorage.setItem('scrollbarID', 0);
+      sessionStorage.getItem('scrollbarID') === null &&
+        sessionStorage.setItem('scrollbarID', 0);
 
       const create = (scrollId) => {
         const callback = opt.callback;
         const infiniteCallback = opt.infiniteCallback;
-        const el_scrollbar = document.querySelector('[data-scroll-id="' + scrollId + '"]');
+        const el_scrollbar = document.querySelector(
+          '[data-scroll-id="' + scrollId + '"]',
+        );
 
         let timer;
         let prevHeightPercent = 0;
@@ -911,7 +1032,11 @@
         const wrapW = el_scrollbar.offsetWidth;
         const wrapH = el_scrollbar.offsetHeight;
 
-        Global.parts.wrapTag('<div class="ui-scrollbar-item"><div class="ui-scrollbar-wrap">', el_scrollbar, '</div></div>');
+        Global.parts.wrapTag(
+          '<div class="ui-scrollbar-item"><div class="ui-scrollbar-wrap">',
+          el_scrollbar,
+          '</div></div>',
+        );
 
         //++make
         const el_item = el_scrollbar.querySelector('.ui-scrollbar-item');
@@ -949,8 +1074,12 @@
           if (changeH || changeW) {
             let barH = Math.floor(nWrapH / (nItemH / 100));
             let barW = Math.floor(nWrapW / (nItemW / 100));
-            const el_barY = _el_scrollbar.querySelector('.ui-scrollbar-barwrap.type-y .ui-scrollbar-bar');
-            const el_barX = _el_scrollbar.querySelector('.ui-scrollbar-barwrap.type-x .ui-scrollbar-bar');
+            const el_barY = _el_scrollbar.querySelector(
+              '.ui-scrollbar-barwrap.type-y .ui-scrollbar-bar',
+            );
+            const el_barX = _el_scrollbar.querySelector(
+              '.ui-scrollbar-barwrap.type-x .ui-scrollbar-bar',
+            );
 
             if (changeH) {
               el_barY.style.height = barH + '%';
@@ -961,8 +1090,12 @@
               el_barX.dataset.width = barW;
             }
 
-            nWrapH < nItemH ? _el_scrollbar.classList.add('view-y') : _el_scrollbar.classList.remove('view-y');
-            nWrapW < nItemW ? _el_scrollbar.classList.add('view-x') : _el_scrollbar.classList.remove('view-x');
+            nWrapH < nItemH
+              ? _el_scrollbar.classList.add('view-y')
+              : _el_scrollbar.classList.remove('view-y');
+            nWrapW < nItemW
+              ? _el_scrollbar.classList.add('view-x')
+              : _el_scrollbar.classList.remove('view-x');
 
             el_scrollbar.dataset.itemH = nItemH;
             el_scrollbar.dataset.itemW = nItemW;
@@ -1002,8 +1135,12 @@
             return false;
           }
 
-          const el_barY = el_scrollbar.querySelector('.type-y .ui-scrollbar-bar');
-          const el_barX = el_scrollbar.querySelector('.type-x .ui-scrollbar-bar');
+          const el_barY = el_scrollbar.querySelector(
+            '.type-y .ui-scrollbar-bar',
+          );
+          const el_barX = el_scrollbar.querySelector(
+            '.type-x .ui-scrollbar-bar',
+          );
           const scrT = _el_item.scrollTop;
           const scrL = _el_item.scrollLeft;
           const barH = Number(el_barY.dataset.height);
@@ -1017,7 +1154,11 @@
           el_barX.style.left = wPer - _wPer + '%';
 
           if (el_barY.offsetHeight > (wrapH / 100) * barH) {
-            el_barY.style.marginTop = '-' + ((el_barY.offsetHeight - (wrapH / 100) * barH) / 100) * (hPer - _hPer) + 'px';
+            el_barY.style.marginTop =
+              '-' +
+              ((el_barY.offsetHeight - (wrapH / 100) * barH) / 100) *
+                (hPer - _hPer) +
+              'px';
           }
 
           if (prevHeightPercent < scrT) {
@@ -1053,7 +1194,8 @@
           const itemW = Number(el_scrollbar.dataset.itemW);
           const el_barWrapRect = el_barWrap.getBoundingClientRect();
           const off_t = el_barWrapRect.top + document.documentElement.scrollTop;
-          const off_l = el_barWrapRect.left + document.documentElement.scrollLeft;
+          const off_l =
+            el_barWrapRect.left + document.documentElement.scrollLeft;
           const w_h = el_barWrapRect.height;
           const w_w = el_barWrapRect.width;
           const barH = el_bar.getAttribute('data-height');
@@ -1145,14 +1287,22 @@
           el_scrollbar.prepend(html_barwrap);
           el_scrollbar.prepend(html_barwrapX);
 
-          wrapH < itemH ? el_scrollbar.classList.add('view-y') : el_scrollbar.classList.remove('view-y');
+          wrapH < itemH
+            ? el_scrollbar.classList.add('view-y')
+            : el_scrollbar.classList.remove('view-y');
 
-          wrapW < itemW ? el_scrollbar.classList.add('view-x') : el_scrollbar.classList.remove('view-x');
+          wrapW < itemW
+            ? el_scrollbar.classList.add('view-x')
+            : el_scrollbar.classList.remove('view-x');
 
           let barH = Math.floor(wrapH / (itemH / 100));
           let barW = Math.floor(wrapW / (itemW / 100));
-          const el_barY = el_scrollbar.querySelector('.ui-scrollbar-barwrap.type-y .ui-scrollbar-bar');
-          const el_barX = el_scrollbar.querySelector('.ui-scrollbar-barwrap.type-x .ui-scrollbar-bar');
+          const el_barY = el_scrollbar.querySelector(
+            '.ui-scrollbar-barwrap.type-y .ui-scrollbar-bar',
+          );
+          const el_barX = el_scrollbar.querySelector(
+            '.ui-scrollbar-barwrap.type-x .ui-scrollbar-bar',
+          );
 
           !!el_barY ? (el_barY.style.height = barH + '%') : '';
           !!el_barX ? (el_barX.style.width = barW + '%') : '';
@@ -1169,7 +1319,9 @@
       };
 
       if (!!option && !!opt.selector) {
-        scrollBars = document.querySelector('[data-scroll-id="' + opt.selector + '"]');
+        scrollBars = document.querySelector(
+          '[data-scroll-id="' + opt.selector + '"]',
+        );
 
         const that = scrollBars;
         let scrollId = opt.selector;
@@ -1177,7 +1329,8 @@
         if (that.dataset.ready !== 'yes') {
           //selector로 개별 실행
           if (!scrollId) {
-            const idN = Number(JSON.parse(sessionStorage.getItem('scrollbarID'))) + 1;
+            const idN =
+              Number(JSON.parse(sessionStorage.getItem('scrollbarID'))) + 1;
 
             sessionStorage.setItem('scrollbarID', idN);
             scrollId = 'item' + idN;
@@ -1199,7 +1352,8 @@
           if (that.dataset.ready !== 'yes') {
             //data-scroll-id가 없다면 섹션스토리지에서 생성한 아이디를 가져와 +1 하여 넣어준다.
             if (!scrollId) {
-              const idN = Number(JSON.parse(sessionStorage.getItem('scrollbarID'))) + 1;
+              const idN =
+                Number(JSON.parse(sessionStorage.getItem('scrollbarID'))) + 1;
 
               sessionStorage.setItem('scrollbarID', idN);
               scrollId = 'item' + idN;
@@ -1216,8 +1370,11 @@
       }
     },
     destroy(v) {
-      const el_scrollbar = document.querySelector('[data-scroll-id="' + v + '"]');
-      const inner_scrollbars = el_scrollbar.querySelectorAll('[data-scroll-id]');
+      const el_scrollbar = document.querySelector(
+        '[data-scroll-id="' + v + '"]',
+      );
+      const inner_scrollbars =
+        el_scrollbar.querySelectorAll('[data-scroll-id]');
       const act = (el) => {
         const that = el;
         const el_barwrap = that.querySelectorAll('.ui-scrollbar-barwrap');
@@ -1295,8 +1452,16 @@
         let _milliseconds = 999 - expdate.getSeconds();
 
         const _1d = 1000 * 60 * 60 * 24;
-        const _1d_f = 1000 * 60 * 60 * _hours + 1000 * 60 * _minutes + 1000 * _secondes + _milliseconds;
-        const _1d_b = 1000 * 60 * 60 * expdate.getHours() + 1000 * 60 * expdate.getMinutes() + 1000 * expdate.getSeconds() + expdate.getSeconds();
+        const _1d_f =
+          1000 * 60 * 60 * _hours +
+          1000 * 60 * _minutes +
+          1000 * _secondes +
+          _milliseconds;
+        const _1d_b =
+          1000 * 60 * 60 * expdate.getHours() +
+          1000 * 60 * expdate.getMinutes() +
+          1000 * expdate.getSeconds() +
+          expdate.getSeconds();
         let _add = 0;
 
         if (term > 1) {
@@ -1313,7 +1478,9 @@
       document.cookie = cookieset;
     },
     get(name) {
-      const match = (document.cookie || ' ').match(new RegExp(name + ' *= *([^;]+)'));
+      const match = (document.cookie || ' ').match(
+        new RegExp(name + ' *= *([^;]+)'),
+      );
 
       return match ? match[1] : null;
     },
@@ -1362,7 +1529,27 @@
         top = win.innerHeight / 2 - height / 2;
       }
 
-      const specs = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', toolbar=' + toolbar + ', location=' + location + ', resizable=' + resizable + ', status=' + status + ', menubar=' + menubar + ', scrollbars=' + scrollbars;
+      const specs =
+        'width=' +
+        width +
+        ', height=' +
+        height +
+        ', left=' +
+        left +
+        ', top=' +
+        top +
+        ', toolbar=' +
+        toolbar +
+        ', location=' +
+        location +
+        ', resizable=' +
+        resizable +
+        ', status=' +
+        status +
+        ', menubar=' +
+        menubar +
+        ', scrollbars=' +
+        scrollbars;
 
       win.open(link, name, specs);
     },
@@ -1484,7 +1671,9 @@
       const unit = Number(this.miuntUnit);
       const now = new Date();
       const now_hour = Global.parts.add0(now.getHours());
-      const now_minute = Global.parts.add0(unit * Math.floor(now.getMinutes() / unit));
+      const now_minute = Global.parts.add0(
+        unit * Math.floor(now.getMinutes() / unit),
+      );
 
       let time;
       let _time;
@@ -1494,7 +1683,8 @@
       let hour12;
 
       //time modal 실행 버튼 생성
-      let html = '<button type="button" class="ui-time-view" data-id="' + id + '">';
+      let html =
+        '<button type="button" class="ui-time-view" data-id="' + id + '">';
       html += '<span class="ui-time-view-midday"></span>';
       html += '<span class="ui-time-view-hour"></span>';
       html += '<span class="ui-time-view-minute"></span>';
@@ -1521,7 +1711,9 @@
 
         inp.value = time;
         el_view_midday.textContent = Global.inputTime.middayUnit[isPM];
-        el_view_hour.textContent = Global.parts.add0(hour12 === 0 ? 12 : hour12 > 12 ? hour12 - 12 : hour12);
+        el_view_hour.textContent = Global.parts.add0(
+          hour12 === 0 ? 12 : hour12 > 12 ? hour12 - 12 : hour12,
+        );
         el_view_minute.textContent = Global.parts.add0(minute);
       };
       timeSet();
@@ -1545,7 +1737,8 @@
       let _time_max = max_time.split(':');
       let hour = Number(_time[0]);
       let minute = Number(_time[1]);
-      let hour_min = Number(_time_min[0]) - 1 < 0 ? 0 : Number(_time_min[0]) - 1;
+      let hour_min =
+        Number(_time_min[0]) - 1 < 0 ? 0 : Number(_time_min[0]) - 1;
       let hour_max = Number(_time_max[0]);
       let minute_min = Number(_time_min[1]);
       let minute_max = Number(_time_max[1]);
@@ -1560,14 +1753,22 @@
       let html = '<div class="ui-time-modal">';
       html += '<div class="ui-time-wrap" data-id="' + id + '">';
       html += '<h2 class="ui-time-tit">' + title + '</h2>';
-      html += '<div class="ui-time-line"><div></div><div></div><div></div></div>';
-      html += '<div class="ui-time-midday" data-type="midday"><div class="ui-time-group"></div></div>';
-      html += '<div class="ui-time-hour" data-type="hour"><div class="ui-time-group"></div></div>';
-      html += '<div class="ui-time-minute" data-type="minute"><div class="ui-time-group"></div></div>';
+      html +=
+        '<div class="ui-time-line"><div></div><div></div><div></div></div>';
+      html +=
+        '<div class="ui-time-midday" data-type="midday"><div class="ui-time-group"></div></div>';
+      html +=
+        '<div class="ui-time-hour" data-type="hour"><div class="ui-time-group"></div></div>';
+      html +=
+        '<div class="ui-time-minute" data-type="minute"><div class="ui-time-group"></div></div>';
       html += '<div class="ui-time-btns">';
-      html += '<button type="button" class="btn-base ui-time-ok">선택완료</button>';
+      html +=
+        '<button type="button" class="btn-base ui-time-ok">선택완료</button>';
       html += '</div>';
-      html += '<button type="button" class="btn-close ui-time-close" aria-label="' + title + ' 닫기"></button>';
+      html +=
+        '<button type="button" class="btn-close ui-time-close" aria-label="' +
+        title +
+        ' 닫기"></button>';
       html += '</div>';
       html += '<div class="dim"></div>';
       html += '</div>';
@@ -1600,7 +1801,9 @@
       el_wrap.dataset.minuteMin = Number(_time_min[1]);
       el_wrap.dataset.minuteMax = Number(_time_max[1]);
       el_view_midday.textContent = txt_midday[isPM];
-      el_view_hour.textContent = Global.parts.add0(hour12 === 0 ? 12 : hour12 > 12 ? hour12 - 12 : hour12);
+      el_view_hour.textContent = Global.parts.add0(
+        hour12 === 0 ? 12 : hour12 > 12 ? hour12 - 12 : hour12,
+      );
       el_view_minute.textContent = Global.parts.add0(minute);
 
       //오전,오후
@@ -1628,7 +1831,10 @@
         btn.value = i;
         btn.textContent = i > 12 ? i - 12 : i;
 
-        if ((hour_min + 1 > i && hour_min !== null) || (hour_max < i && hour_max !== null)) {
+        if (
+          (hour_min + 1 > i && hour_min !== null) ||
+          (hour_max < i && hour_max !== null)
+        ) {
           btn.disabled = true;
         }
         if (hour === i) {
@@ -1649,7 +1855,12 @@
           btn.value = Global.parts.add0(i);
           btn.textContent = Global.parts.add0(i);
 
-          if ((minute_min > i && minute_min !== null && minute_min !== minute_max) || (minute_max < i && minute_max !== null && minute_min !== minute_max)) {
+          if (
+            (minute_min > i &&
+              minute_min !== null &&
+              minute_min !== minute_max) ||
+            (minute_max < i && minute_max !== null && minute_min !== minute_max)
+          ) {
             btn.disabled = true;
           }
           if (minute === i) {
@@ -1660,7 +1871,8 @@
         }
       }
 
-      Global.inputTime.hUnit = el_hour.querySelectorAll('button')[0].offsetHeight;
+      Global.inputTime.hUnit =
+        el_hour.querySelectorAll('button')[0].offsetHeight;
       Global.scroll.move({
         top: Number(Global.inputTime.hUnit * (isPM ? 1 : 0)),
         selector: el_midday,
@@ -1674,7 +1886,9 @@
         align: 'default',
       });
       Global.scroll.move({
-        top: Number(Global.inputTime.hUnit * Number(minute / Global.inputTime.miuntUnit)),
+        top: Number(
+          Global.inputTime.hUnit * Number(minute / Global.inputTime.miuntUnit),
+        ),
         selector: el_minute,
         effect: 'auto',
         align: 'default',
@@ -1739,9 +1953,12 @@
       const val_hour_24 = val_hour === 24 ? 0 : val_hour;
 
       view_midday.textContent = Global.inputTime.middayUnit[val_midday];
-      view_hour.textContent = Global.parts.add0(val_hour_24 > 12 ? val_hour - 12 : val_hour);
+      view_hour.textContent = Global.parts.add0(
+        val_hour_24 > 12 ? val_hour - 12 : val_hour,
+      );
       view_minute.textContent = Global.parts.add0(val_minute);
-      el_inp.value = Global.parts.add0(val_hour_24) + ':' + Global.parts.add0(val_minute);
+      el_inp.value =
+        Global.parts.add0(val_hour_24) + ':' + Global.parts.add0(val_minute);
 
       Global.inputTime.hide(e);
     },
@@ -1800,7 +2017,10 @@
       };
       const actValue = (v, w) => {
         let n_hour = Number(v.dataset.hour);
-        currentN = Math.floor((Math.floor(getScrollTop) + Global.inputTime.hUnit / 2) / Global.inputTime.hUnit);
+        currentN = Math.floor(
+          (Math.floor(getScrollTop) + Global.inputTime.hUnit / 2) /
+            Global.inputTime.hUnit,
+        );
 
         switch (eType) {
           case 'touchstart':
@@ -1887,8 +2107,13 @@
       actEnd = () => {
         const scrollCompare = () => {
           timerScroll = setTimeout(() => {
-            if (getScrollTop !== Math.abs(that_wrap.getBoundingClientRect().top - wrapT)) {
-              getScrollTop = Math.abs(that_wrap.getBoundingClientRect().top - wrapT);
+            if (
+              getScrollTop !==
+              Math.abs(that_wrap.getBoundingClientRect().top - wrapT)
+            ) {
+              getScrollTop = Math.abs(
+                that_wrap.getBoundingClientRect().top - wrapT,
+              );
               scrollCompare();
             } else {
               actValue(that_wrap.closest('.ui-time-wrap'));
@@ -1959,7 +2184,9 @@
           doc.onmouseup = (e) => {
             doc.removeEventListener('mousemove', onMouseMove);
             doc.onmouseup = null;
-            getScrollTop = Math.abs(that_wrap.getBoundingClientRect().top - wrapT);
+            getScrollTop = Math.abs(
+              that_wrap.getBoundingClientRect().top - wrapT,
+            );
 
             actValue(that_wrap.closest('.ui-time-wrap'));
 
@@ -1975,7 +2202,9 @@
           type_time = that.dataset.type;
           wrapT = that.getBoundingClientRect().top;
           currentN = 0;
-          getScrollTop = Math.abs(that_wrap.getBoundingClientRect().top - wrapT);
+          getScrollTop = Math.abs(
+            that_wrap.getBoundingClientRect().top - wrapT,
+          );
 
           clearTimeout(timerScroll);
           that.addEventListener('touchmove', actMove);
@@ -2036,13 +2265,25 @@
         //prefix, suffix text
         !!inp.dataset.prefix && prefix(inp);
         !!inp.dataset.suffix && suffix(inp);
-        !!inp.value && (!!inp.dataset.clear || inp.type === 'search') && this.actClear(inp);
+        !!inp.value &&
+          (!!inp.dataset.clear || inp.type === 'search') &&
+          this.actClear(inp);
       }
     },
     clearTimer: {},
     actClear(event) {
       let inp;
-      const isInput = event.type === 'text' || event.type === 'search' || event.type === 'number' || event.type === 'tel' || event.type === 'email' || event.type === 'file' || event.type === 'password' || event.type === 'url' || event.type === 'tel' || event.type === 'date';
+      const isInput =
+        event.type === 'text' ||
+        event.type === 'search' ||
+        event.type === 'number' ||
+        event.type === 'tel' ||
+        event.type === 'email' ||
+        event.type === 'file' ||
+        event.type === 'password' ||
+        event.type === 'url' ||
+        event.type === 'tel' ||
+        event.type === 'date';
       if (isInput) {
         inp = event;
       } else {
@@ -2110,7 +2351,9 @@
               inp.style.paddingRight = w + 'px';
               btn.style.marginRight = w_suffix + 'px';
 
-              btn.addEventListener('focus', () => clearTimeout(this.clearTimer));
+              btn.addEventListener('focus', () =>
+                clearTimeout(this.clearTimer),
+              );
               btn.addEventListener('blur', beforeClear);
               btn.removeEventListener('click', clear);
               btn.addEventListener('click', clear);
@@ -2132,7 +2375,13 @@
 
     fileUpload() {
       const el_files = doc.querySelectorAll('.ui-file-inp');
-      const fileTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/mp3', 'image/pdf'];
+      const fileTypes = [
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/mp3',
+        'image/pdf',
+      ];
 
       const fileDelete = (e) => {
         const id = e.currentTarget.dataset.id;
@@ -2171,7 +2420,9 @@
       const updateImageDisplay = (e) => {
         const el_file = e.currentTarget;
         const id = el_file.id;
-        const preview = doc.querySelector('.ui-file-list[data-id="' + id + '"]');
+        const preview = doc.querySelector(
+          '.ui-file-list[data-id="' + id + '"]',
+        );
         const curFiles = el_file.files;
 
         while (preview.firstChild) {
@@ -2204,7 +2455,8 @@
             delbutton.dataset.id = id;
             delbutton.dataset.n = i;
 
-            para.textContent = that.name + ', ' + returnFileSize(that.size) + '.';
+            para.textContent =
+              that.name + ', ' + returnFileSize(that.size) + '.';
 
             if (validFileType(that)) {
               const image = doc.createElement('img');
@@ -2252,8 +2504,12 @@
       const isAllChecked = (opt) => {
         const isType = opt.type;
         const isName = opt.name;
-        const parent = doc.querySelector('[data-allcheck-parent="' + isName + '"]');
-        const childs = doc.querySelectorAll('[data-allcheck-child="' + isName + '"]');
+        const parent = doc.querySelector(
+          '[data-allcheck-parent="' + isName + '"]',
+        );
+        const childs = doc.querySelectorAll(
+          '[data-allcheck-child="' + isName + '"]',
+        );
         const allChecked = parent.checked;
         const len = childs.length;
         let n_checked = 0;
@@ -2266,7 +2522,8 @@
             child.checked = allChecked;
           }
 
-          n_checked = child.checked && !child.disabled ? ++n_checked : n_checked;
+          n_checked =
+            child.checked && !child.disabled ? ++n_checked : n_checked;
           n_disabled = child.disabled ? ++n_disabled : n_disabled;
         }
 
@@ -2319,8 +2576,12 @@
       const callback = opt.callback;
       let current = opt.current;
       let autoclose = opt.autoclose;
-      const el_acco = document.querySelector('.ui-acco[data-id="' + accoId + '"]');
-      const el_wrap = document.querySelectorAll('.ui-acco[data-id="' + accoId + '"] > .ui-acco-wrap');
+      const el_acco = document.querySelector(
+        '.ui-acco[data-id="' + accoId + '"]',
+      );
+      const el_wrap = document.querySelectorAll(
+        '.ui-acco[data-id="' + accoId + '"] > .ui-acco-wrap',
+      );
       const len = el_wrap.length;
       const para = Global.para.get('acco');
 
@@ -2410,11 +2671,14 @@
 
       //열려있는 panel 설정
       //current값은 array형식으로 하나이상의 구성
-      const currentLen = current === null ? 0 : current === 'all' ? len : current.length;
+      const currentLen =
+        current === null ? 0 : current === 'all' ? len : current.length;
 
       for (let i = 0; i < currentLen; i++) {
         const n = current === 'all' ? i : current[i];
-        const this_wrap = el_acco.querySelector('.ui-acco-wrap[data-n="' + n + '"]');
+        const this_wrap = el_acco.querySelector(
+          '.ui-acco-wrap[data-n="' + n + '"]',
+        );
         const _tit = this_wrap.querySelector('.ui-acco-tit');
         const _btn = _tit.querySelector('.ui-acco-btn');
         const _pnl = this_wrap.querySelector('.ui-acco-pnl');
@@ -2477,11 +2741,15 @@
 
       const upLeftKey = (event) => {
         event.preventDefault();
-        that.dataset.order !== 'first' ? acco.querySelector('#' + accoId + 'Btn' + (n - 1)).focus() : acco.querySelector('#' + accoId + 'Btn' + (len - 1)).focus();
+        that.dataset.order !== 'first'
+          ? acco.querySelector('#' + accoId + 'Btn' + (n - 1)).focus()
+          : acco.querySelector('#' + accoId + 'Btn' + (len - 1)).focus();
       };
       const downRightKey = (event) => {
         event.preventDefault();
-        that.dataset.order !== 'last' ? acco.querySelector('#' + accoId + 'Btn' + (n + 1)).focus() : acco.querySelector('#' + accoId + 'Btn0').focus();
+        that.dataset.order !== 'last'
+          ? acco.querySelector('#' + accoId + 'Btn' + (n + 1)).focus()
+          : acco.querySelector('#' + accoId + 'Btn0').focus();
       };
       const endKey = (event) => {
         event.preventDefault();
@@ -2515,11 +2783,19 @@
     timer: null,
     toggle(opt) {
       const accoId = opt.id;
-      const el_acco = document.querySelector('.ui-acco[data-id="' + accoId + '"]');
+      const el_acco = document.querySelector(
+        '.ui-acco[data-id="' + accoId + '"]',
+      );
       const current = opt.current === undefined ? null : opt.current;
-      const callback = opt.callback === undefined ? opt.callback : Global.accordion[accoId].callback;
+      const callback =
+        opt.callback === undefined
+          ? opt.callback
+          : Global.accordion[accoId].callback;
       const state = opt.state === undefined ? 'toggle' : opt.state;
-      const autoclose = opt.autoclose === undefined ? Global.accordion[accoId].autoclose : opt.autoclose;
+      const autoclose =
+        opt.autoclose === undefined
+          ? Global.accordion[accoId].autoclose
+          : opt.autoclose;
       let el_wraps = el_acco.querySelectorAll('.ui-acco-wrap');
       let el_pnl;
       let el_tit;
@@ -2544,7 +2820,9 @@
           el_btn.dataset.selected = isHide;
           el_btn.setAttribute('aria-expanded', isHide);
           if (el_hide) {
-            isHide ? (el_hide.textContent = '닫기') : (el_hide.textContent = '열기');
+            isHide
+              ? (el_hide.textContent = '닫기')
+              : (el_hide.textContent = '열기');
           }
 
           //show 동작
@@ -2578,7 +2856,9 @@
             }
 
             if (!!acco_parent) {
-              acco_parent.style.height = acco_parent.querySelector('.ui-acco-pnl-wrap').offsetHeight + 'px';
+              acco_parent.style.height =
+                acco_parent.querySelector('.ui-acco-pnl-wrap').offsetHeight +
+                'px';
             }
 
             el.removeEventListener('transitionend', end);
@@ -2586,7 +2866,13 @@
 
           el.addEventListener('transitionend', end);
 
-          state === 'toggle' ? (el_btn.dataset.selected === 'true' ? show() : hide()) : state === 'show' ? show() : hide();
+          state === 'toggle'
+            ? el_btn.dataset.selected === 'true'
+              ? show()
+              : hide()
+            : state === 'show'
+              ? show()
+              : hide();
         };
 
         //set up close
@@ -2620,7 +2906,9 @@
                   _btn.setAttribute('aria-expanded', isHide);
                   _pnl.setAttribute('aria-hidden', !isHide);
                   if (_el_hide) {
-                    isHide ? (_el_hide.textContent = '닫기') : (_el_hide.textContent = '열기');
+                    isHide
+                      ? (_el_hide.textContent = '닫기')
+                      : (_el_hide.textContent = '열기');
                   }
                   toggleSlide({
                     el: _pnl,
@@ -2650,7 +2938,9 @@
         //전체선택이 아닌 일반적인 경우
 
         for (let i = 0; i < currentLen; i++) {
-          const this_wrap = el_acco.querySelector('.ui-acco-wrap[data-n="' + current[i] + '"]');
+          const this_wrap = el_acco.querySelector(
+            '.ui-acco-wrap[data-n="' + current[i] + '"]',
+          );
           el_tit = this_wrap.querySelector('.ui-acco-tit');
           el_pnl = this_wrap.querySelector('.ui-acco-pnl');
           el_btn = el_tit.querySelector('.ui-acco-btn');
@@ -2707,8 +2997,12 @@
       const id = opt.id;
       const values = opt.value;
       const title = opt.title ? opt.title : '';
-      const el_range = document.querySelector('.ui-range[data-id="' + id + '"]');
-      const el_from = el_range.querySelector('.ui-range-inp[data-range="from"]');
+      const el_range = document.querySelector(
+        '.ui-range[data-id="' + id + '"]',
+      );
+      const el_from = el_range.querySelector(
+        '.ui-range-inp[data-range="from"]',
+      );
       const el_to = el_range.querySelector('.ui-range-inp[data-range="to"]');
       const el_inp = el_range.querySelectorAll('.ui-range-inp');
       const isText = !!opt.text ? opt.text : false;
@@ -2732,12 +3026,18 @@
       el_from.step = step;
 
       if (!!el_to) {
-        el_from.setAttribute('aria-label', title + ' 최소 ' + isText[el_from.value]);
+        el_from.setAttribute(
+          'aria-label',
+          title + ' 최소 ' + isText[el_from.value],
+        );
         el_to.value = values[1];
         el_to.min = min;
         el_to.max = max;
         el_to.step = step;
-        el_to.setAttribute('aria-label', title + ' 최대 ' + isText[el_to.value]);
+        el_to.setAttribute(
+          'aria-label',
+          title + ' 최대 ' + isText[el_to.value],
+        );
       } else {
         el_from.setAttribute('aria-label', title + ' ' + isText[el_from.value]);
       }
@@ -2751,15 +3051,24 @@
 
       let html = '<div class="ui-range-track">';
       html += '<div class="ui-range-bar"></div>';
-      html += '<span class="left ui-range-point" data-range="from" aria-hidden="true"><em class="ui-range-txt" data-from="' + id + '"></em></span>';
+      html +=
+        '<span class="left ui-range-point" data-range="from" aria-hidden="true"><em class="ui-range-txt" data-from="' +
+        id +
+        '"></em></span>';
 
       if (!!el_to) {
-        html += '<span class="right ui-range-point" data-range="to"  aria-hidden="true"><em class="ui-range-txt" data-to="' + id + '"></em></span>';
+        html +=
+          '<span class="right ui-range-point" data-range="to"  aria-hidden="true"><em class="ui-range-txt" data-to="' +
+          id +
+          '"></em></span>';
       }
 
       html += '</div>';
       if (!!tickmark) {
-        html += '<div class="ui-range-marks" id="' + id + '_tickmarks_from" data-from="true">';
+        html +=
+          '<div class="ui-range-marks" id="' +
+          id +
+          '_tickmarks_from" data-from="true">';
         const len = tickmark.length;
 
         for (let i = 0; i < len; i++) {
@@ -2771,14 +3080,39 @@
           }
 
           !!el_to
-            ? (html += '<button class="ui-range-btn" data-id="' + id + '" type="button" data-value="' + (n * i + min) + '"><span class="a11y-hidden">' + title + ' 최소 </span><span>' + tickmark[i] + '</span><span class="a11y-hidden state">' + isSame + '</span></button>')
-            : (html += '<button class="ui-range-btn" data-id="' + id + '" type="button" data-value="' + (n * i + min) + '"><span class="a11y-hidden">' + title + ' </span><span>' + tickmark[i] + '</span><span class="a11y-hidden state">' + isSame + '</span></button>');
+            ? (html +=
+                '<button class="ui-range-btn" data-id="' +
+                id +
+                '" type="button" data-value="' +
+                (n * i + min) +
+                '"><span class="a11y-hidden">' +
+                title +
+                ' 최소 </span><span>' +
+                tickmark[i] +
+                '</span><span class="a11y-hidden state">' +
+                isSame +
+                '</span></button>')
+            : (html +=
+                '<button class="ui-range-btn" data-id="' +
+                id +
+                '" type="button" data-value="' +
+                (n * i + min) +
+                '"><span class="a11y-hidden">' +
+                title +
+                ' </span><span>' +
+                tickmark[i] +
+                '</span><span class="a11y-hidden state">' +
+                isSame +
+                '</span></button>');
         }
 
         html += '</div>';
 
         if (!!el_to) {
-          html += '<div class="ui-range-marks" id="' + id + '_tickmarks_to" data-to="true">';
+          html +=
+            '<div class="ui-range-marks" id="' +
+            id +
+            '_tickmarks_to" data-to="true">';
 
           for (let i = 0; i < len; i++) {
             const n = (max - min) / (len - 1);
@@ -2788,7 +3122,18 @@
               isSame = Number(el_to.value) === n * i + min ? '선택됨' : '';
             }
 
-            html += '<button class="ui-range-btn" data-id="' + id + '" type="button" data-value="' + (n * i + min) + '"><span class="a11y-hidden">' + title + ' 최대 </span><span>' + tickmark[i] + '</span><span class="a11y-hidden state">' + isSame + '</span></button>';
+            html +=
+              '<button class="ui-range-btn" data-id="' +
+              id +
+              '" type="button" data-value="' +
+              (n * i + min) +
+              '"><span class="a11y-hidden">' +
+              title +
+              ' 최대 </span><span>' +
+              tickmark[i] +
+              '</span><span class="a11y-hidden state">' +
+              isSame +
+              '</span></button>';
           }
         }
 
@@ -2850,12 +3195,24 @@
 
         //point - mouseover event
         if (!Global.state.device.mobile) {
-          el_to_btn.addEventListener('mouseover', Global.rangeSlider.inputFocus);
-          el_from_btn.addEventListener('mouseover', Global.rangeSlider.inputFocus);
+          el_to_btn.addEventListener(
+            'mouseover',
+            Global.rangeSlider.inputFocus,
+          );
+          el_from_btn.addEventListener(
+            'mouseover',
+            Global.rangeSlider.inputFocus,
+          );
         } else {
           //point - touchstart event
-          el_to_btn.addEventListener('touchstart', Global.rangeSlider.touchFocus);
-          el_from_btn.addEventListener('touchstart', Global.rangeSlider.touchFocus);
+          el_to_btn.addEventListener(
+            'touchstart',
+            Global.rangeSlider.touchFocus,
+          );
+          el_from_btn.addEventListener(
+            'touchstart',
+            Global.rangeSlider.touchFocus,
+          );
         }
 
         el_inp[0].step = step;
@@ -2965,8 +3322,12 @@
       const uirange = point.closest('.ui-range');
       const el_to = uirange.querySelector('.ui-range-inp[data-range="to"]');
       const el_from = uirange.querySelector('.ui-range-inp[data-range="from"]');
-      const el_point_to = point_parent.querySelector('.ui-range-point[data-range="to"]');
-      const el_point_from = point_parent.querySelector('.ui-range-point[data-range="from"]');
+      const el_point_to = point_parent.querySelector(
+        '.ui-range-point[data-range="to"]',
+      );
+      const el_point_from = point_parent.querySelector(
+        '.ui-range-point[data-range="from"]',
+      );
 
       if (toFrom === 'to') {
         el_point_to.classList.add('on');
@@ -2990,8 +3351,12 @@
       const uirange = point.closest('.ui-range');
       const el_to = uirange.querySelector('.ui-range-inp[data-range="to"]');
       const el_from = uirange.querySelector('.ui-range-inp[data-range="from"]');
-      const el_point_to = point_parent.querySelector('.ui-range-point[data-range="to"]');
-      const el_point_from = point_parent.querySelector('.ui-range-point[data-range="from"]');
+      const el_point_to = point_parent.querySelector(
+        '.ui-range-point[data-range="to"]',
+      );
+      const el_point_from = point_parent.querySelector(
+        '.ui-range-point[data-range="from"]',
+      );
       point.removeEventListener('mouseover', Global.rangeSlider.inputFocus);
 
       if (toFrom === 'to') {
@@ -2999,13 +3364,19 @@
         el_from.classList.remove('on');
         el_to.focus();
         el_to.addEventListener('change', Global.rangeSlider.valuecheck);
-        el_point_from.addEventListener('mouseover', Global.rangeSlider.inputFocus);
+        el_point_from.addEventListener(
+          'mouseover',
+          Global.rangeSlider.inputFocus,
+        );
       } else {
         el_to.classList.remove('on');
         el_from.classList.add('on');
         el_from.focus();
         el_from.addEventListener('change', Global.rangeSlider.valuecheck);
-        el_point_to.addEventListener('mouseover', Global.rangeSlider.inputFocus);
+        el_point_to.addEventListener(
+          'mouseover',
+          Global.rangeSlider.inputFocus,
+        );
       }
     },
     valuecheck(e) {
@@ -3024,9 +3395,17 @@
     rangeFrom(opt) {
       const id = opt.id;
       const v = opt.value;
-      const el_range = document.querySelector('.ui-range[data-id="' + id + '"]');
-      const type = !!opt.type ? opt.type : !!el_range.dataset.type ? el_range.dataset.type : null;
-      const el_from = el_range.querySelector('.ui-range-inp[data-range="from"]');
+      const el_range = document.querySelector(
+        '.ui-range[data-id="' + id + '"]',
+      );
+      const type = !!opt.type
+        ? opt.type
+        : !!el_range.dataset.type
+          ? el_range.dataset.type
+          : null;
+      const el_from = el_range.querySelector(
+        '.ui-range-inp[data-range="from"]',
+      );
       const el_to = el_range.querySelector('.ui-range-inp[data-range="to"]');
       const el_left = el_range.querySelector('.ui-range-point.left');
       const el_right = el_range.querySelector('.ui-range-point.right');
@@ -3151,20 +3530,34 @@
           }
         }
       }
-      !!el_to ? el_from.setAttribute('aria-label', Global.rangeSlider[id].title + ' 최소 ' + txtArray[el_from.value]) : el_from.setAttribute('aria-label', Global.rangeSlider[id].title + ' ' + txtArray[el_from.value]);
+      !!el_to
+        ? el_from.setAttribute(
+            'aria-label',
+            Global.rangeSlider[id].title + ' 최소 ' + txtArray[el_from.value],
+          )
+        : el_from.setAttribute(
+            'aria-label',
+            Global.rangeSlider[id].title + ' ' + txtArray[el_from.value],
+          );
     },
     rangeTo(opt) {
       const id = opt.id;
       const v = opt.value;
-      const el_range = document.querySelector('.ui-range[data-id="' + id + '"]');
-      const el_from = el_range.querySelector('.ui-range-inp[data-range="from"]');
+      const el_range = document.querySelector(
+        '.ui-range[data-id="' + id + '"]',
+      );
+      const el_from = el_range.querySelector(
+        '.ui-range-inp[data-range="from"]',
+      );
       const el_to = el_range.querySelector('.ui-range-inp[data-range="to"]');
       const el_left = el_range.querySelector('.ui-range-point.left');
       const el_right = el_range.querySelector('.ui-range-point.right');
       const el_bar = el_range.querySelector('.ui-range-bar');
       const inp_tos = document.querySelectorAll('[data-to="' + id + '"]');
       const el_marks = el_range.querySelector('#' + id + '_tickmarks_to');
-      const el_marks_from = el_range.querySelector('#' + id + '_tickmarks_from');
+      const el_marks_from = el_range.querySelector(
+        '#' + id + '_tickmarks_from',
+      );
       let value = el_to.value;
       let min = Number(el_from.min);
       let max = Number(el_from.max);
@@ -3250,7 +3643,8 @@
           }
         }
         if (!!el_from) {
-          const el_marks_items = el_marks_from.querySelectorAll('.ui-range-btn');
+          const el_marks_items =
+            el_marks_from.querySelectorAll('.ui-range-btn');
 
           for (let item of el_marks_items) {
             const _v = Number(item.dataset.value);
@@ -3275,7 +3669,10 @@
           }
         }
       }
-      el_to.setAttribute('aria-label', Global.rangeSlider[id].title + ' 최대 ' + txtArray[el_to.value]);
+      el_to.setAttribute(
+        'aria-label',
+        Global.rangeSlider[id].title + ' 최대 ' + txtArray[el_to.value],
+      );
     },
   };
 
@@ -3294,7 +3691,9 @@
       ],
       2: [],
       3: [{ solar: true, day: 1, holiday: true, name: '삼일절', sub: true }],
-      4: [{ solar: false, day: 8, holiday: true, name: '석가탄신일', sub: false }],
+      4: [
+        { solar: false, day: 8, holiday: true, name: '석가탄신일', sub: false },
+      ],
       5: [{ solar: true, day: 5, holiday: true, name: '어린이날', sub: true }],
       6: [{ solar: true, day: 6, holiday: true, name: '현충일', sub: false }],
       7: [],
@@ -3332,8 +3731,14 @@
     init(v) {
       const btns = document.querySelectorAll('.ui-datepicker-btn');
       const datepickers = document.querySelectorAll('.ui-datepicker');
-      Global.datepicker.week = v === undefined || v.week === undefined ? Global.datepicker.week : v.week;
-      Global.datepicker.isFooter = v === undefined || v.isFooter === undefined ? Global.datepicker.isFooter : v.isFooter;
+      Global.datepicker.week =
+        v === undefined || v.week === undefined
+          ? Global.datepicker.week
+          : v.week;
+      Global.datepicker.isFooter =
+        v === undefined || v.isFooter === undefined
+          ? Global.datepicker.isFooter
+          : v.isFooter;
 
       const act = (e) => {
         Global.datepicker.open(e.currentTarget.dataset.target);
@@ -3354,7 +3759,10 @@
 
           !Global.callback[id] ? (Global.callback[id] = () => {}) : '';
 
-          let html = '<button type="button" class="ui-datepicker-btn" data-target="' + id + '" aria-label="달력 보기" tabindex="-1"></button>';
+          let html =
+            '<button type="button" class="ui-datepicker-btn" data-target="' +
+            id +
+            '" aria-label="달력 보기" tabindex="-1"></button>';
           // html += '<span class="datepicker-date">';
           // html += '<span class="datepicker-date-yyyy">'+ v0[0] +'</span>';
           // html += '<span class="datepicker-date-mm">'+ v0[1] +'</span>';
@@ -3410,7 +3818,8 @@
     },
     destroy(opt) {
       const is_dim = !!document.querySelector('.sheet-dim');
-      const callback = opt === undefined || opt.callback === undefined ? false : opt.callback;
+      const callback =
+        opt === undefined || opt.callback === undefined ? false : opt.callback;
       let el_dp;
 
       if (is_dim) {
@@ -3461,15 +3870,23 @@
       const el_uidp = el_inp.closest('.ui-datepicker');
       const el_start = el_uidp.querySelector('[data-period="start"]');
       const el_end = el_uidp.querySelector('[data-period="end"]');
-      const setDate = opt.date === '' || opt.date === undefined ? new Date() : opt.date;
-      let period = opt.period === '' || opt.period === undefined ? false : opt.period;
-      const area = opt.area === '' || opt.area === undefined ? document.querySelector('body') : opt.area;
+      const setDate =
+        opt.date === '' || opt.date === undefined ? new Date() : opt.date;
+      let period =
+        opt.period === '' || opt.period === undefined ? false : opt.period;
+      const area =
+        opt.area === '' || opt.area === undefined
+          ? document.querySelector('body')
+          : opt.area;
       const date = new Date(setDate);
       const _viewYear = date.getFullYear();
       const _viewMonth = date.getMonth();
-      let el_dp = document.querySelector('.datepicker[data-id="' + setId + '"]');
+      let el_dp = document.querySelector(
+        '.datepicker[data-id="' + setId + '"]',
+      );
       const yyyymm = _viewYear + '-' + Global.parts.add0(_viewMonth + 1);
-      const callback = opt === undefined || opt.callback === undefined ? false : opt.callback;
+      const callback =
+        opt === undefined || opt.callback === undefined ? false : opt.callback;
       let _dpHtml = '';
       const isFooter = Global.datepicker.isFooter;
 
@@ -3482,21 +3899,67 @@
 
       if (!el_dp) {
         if (period) {
-          _dpHtml += '<section class="datepicker" data-id="' + setId + '" data-date="' + yyyymm + '" data-start="' + currentDate + '" data-end="' + wdate + '" data-period="start" data-visible="' + opt.visible + '" aria-labelledby="' + setId + '_label" aria-describedby="' + setId + '_desc" aria-modal="true">';
+          _dpHtml +=
+            '<section class="datepicker" data-id="' +
+            setId +
+            '" data-date="' +
+            yyyymm +
+            '" data-start="' +
+            currentDate +
+            '" data-end="' +
+            wdate +
+            '" data-period="start" data-visible="' +
+            opt.visible +
+            '" aria-labelledby="' +
+            setId +
+            '_label" aria-describedby="' +
+            setId +
+            '_desc" aria-modal="true">';
         } else {
-          _dpHtml += '<section class="datepicker" data-id="' + setId + '" data-date="' + yyyymm + '" data-start="' + currentDate + '" data-visible="' + opt.visible + '" aria-labelledby="' + setId + '_label" aria-modal="true">';
+          _dpHtml +=
+            '<section class="datepicker" data-id="' +
+            setId +
+            '" data-date="' +
+            yyyymm +
+            '" data-start="' +
+            currentDate +
+            '" data-visible="' +
+            opt.visible +
+            '" aria-labelledby="' +
+            setId +
+            '_label" aria-modal="true">';
         }
 
         _dpHtml += '<div class="datepicker-wrap">';
         _dpHtml += '<div class="datepicker-header">';
-        _dpHtml += '<h3 class="datepicker-title" id="' + setId + '_label">' + title + '</h3>';
-        _dpHtml += '<button type="button" class="ui-prev-y" data-dpid="' + setId + '"><span class="a11y-hidden">이전 년도</span></button>';
+        _dpHtml +=
+          '<h3 class="datepicker-title" id="' +
+          setId +
+          '_label">' +
+          title +
+          '</h3>';
+        _dpHtml +=
+          '<button type="button" class="ui-prev-y" data-dpid="' +
+          setId +
+          '"><span class="a11y-hidden">이전 년도</span></button>';
         _dpHtml += '<div class="datepicker-yy"></div>';
-        _dpHtml += '<button type="button" class="ui-next-y" data-dpid="' + setId + '"><span class="a11y-hidden">다음 년도</span></button>';
-        _dpHtml += '<button type="button" class="ui-prev-m" data-dpid="' + setId + '"><span class="a11y-hidden">이전 월</span></button>';
+        _dpHtml +=
+          '<button type="button" class="ui-next-y" data-dpid="' +
+          setId +
+          '"><span class="a11y-hidden">다음 년도</span></button>';
+        _dpHtml +=
+          '<button type="button" class="ui-prev-m" data-dpid="' +
+          setId +
+          '"><span class="a11y-hidden">이전 월</span></button>';
         _dpHtml += '<div class="datepicker-mm"></div>';
-        _dpHtml += '<button type="button" class="ui-next-m" data-dpid="' + setId + '"><span class="a11y-hidden">다음 월</span></button>';
-        _dpHtml += '<button type="button" class="ui-today" data-dpid="' + setId + '"><span class="a11y-hidden">오늘</span></button>';
+        _dpHtml +=
+          '<button type="button" class="ui-next-m" data-dpid="' +
+          setId +
+          '"><span class="a11y-hidden">다음 월</span></button>';
+        _dpHtml +=
+          '<button type="button" class="ui-today" data-dpid="' +
+          setId +
+          '"><span class="a11y-hidden">오늘</span></button>';
         _dpHtml += '</div>';
 
         _dpHtml += '<div class="datepicker-body" id="' + setId + '_desc">';
@@ -3519,9 +3982,15 @@
         _dpHtml += '<tbody class="datepicker-date"></tbody>';
         _dpHtml += '</table>';
         _dpHtml += '</div>';
-        _dpHtml += '<div class="datepicker-footer ' + (!isFooter ? 'a11y-hidden' : '') + ' ">';
+        _dpHtml +=
+          '<div class="datepicker-footer ' +
+          (!isFooter ? 'a11y-hidden' : '') +
+          ' ">';
         _dpHtml += '<div class="wrap-group">';
-        _dpHtml += '<button type="button" class="btn-mix-outlined ui-confirm" data-confirm="' + setId + '"><span>확인</span></button>';
+        _dpHtml +=
+          '<button type="button" class="btn-mix-outlined ui-confirm" data-confirm="' +
+          setId +
+          '"><span>확인</span></button>';
         _dpHtml += '</div>';
         _dpHtml += '</div>';
         _dpHtml += '</div>';
@@ -3574,7 +4043,9 @@
       const el_uidp = el_inp.closest('.ui-datepicker');
       const el_start = el_uidp.querySelector('[data-period="start"]');
       const el_end = el_uidp.querySelector('[data-period="end"]');
-      const el_btn = document.querySelector('.ui-datepicker-btn[data-target="' + id + '"]');
+      const el_btn = document.querySelector(
+        '.ui-datepicker-btn[data-target="' + id + '"]',
+      );
       const isView = el_inp.dataset.view === 'true' ? true : false;
       const isBtn = !!el_btn;
 
@@ -3582,7 +4053,8 @@
       const s_mm = el_btn.querySelectorAll('.datepicker-date-mm');
       const s_dd = el_btn.querySelectorAll('.datepicker-date-dd');
 
-      const callback = opt === undefined || opt.callback === undefined ? false : opt.callback;
+      const callback =
+        opt === undefined || opt.callback === undefined ? false : opt.callback;
       let value_callback = [];
 
       el_inp.value = startDay;
@@ -3631,7 +4103,9 @@
     solarToLunar(solYear, solMonth, solDay) {
       const LUNAR_LAST_YEAR = 1939;
       var lunarMonthTable = [
-        [2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 2] /* 양력 1940년 1월은 음력 1939년에 있음 그래서 시작년도는 1939년*/,
+        [
+          2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 2,
+        ] /* 양력 1940년 1월은 음력 1939년에 있음 그래서 시작년도는 1939년*/,
         [2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1],
         [2, 2, 1, 2, 2, 4, 1, 1, 2, 1, 2, 1] /* 1941 */,
         [2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 1, 2],
@@ -3810,9 +4284,20 @@
         // 반복문이 돌면서 양력 값들과 음력 값들을 1일 씩 증가시키고
         // 입력받은 날짜값과 양력 값이 일치할 때 음력값을 반환함
         while (true) {
-          if (type == 1 && year == solYear && month == solMonth && day == solDay) {
+          if (
+            type == 1 &&
+            year == solYear &&
+            month == solMonth &&
+            day == solDay
+          ) {
             return new myDate(lunYear, lunMonth, lunDay, lunLeapMonth);
-          } else if (type == 2 && year == lunYear && month == lunMonth && day == lunDay && leapmonth == lunLeapMonth) {
+          } else if (
+            type == 2 &&
+            year == lunYear &&
+            month == lunMonth &&
+            day == lunDay &&
+            leapmonth == lunLeapMonth
+          ) {
             return new myDate(solYear, solMonth, solDay, 0);
           }
 
@@ -3835,7 +4320,11 @@
           } else solDay++;
 
           // 음력의 마지막 날인 경우 년도를 증가시키고 달과 일수를 초기화
-          if (lunMonth == 12 && ((lunarMonthTable[lunIndex][lunMonth - 1] == 1 && lunDay == 29) || (lunarMonthTable[lunIndex][lunMonth - 1] == 2 && lunDay == 30))) {
+          if (
+            lunMonth == 12 &&
+            ((lunarMonthTable[lunIndex][lunMonth - 1] == 1 && lunDay == 29) ||
+              (lunarMonthTable[lunIndex][lunMonth - 1] == 2 && lunDay == 30))
+          ) {
             lunYear++;
             lunMonth = 1;
             lunDay = 1;
@@ -3850,12 +4339,16 @@
 
             // 음력의 1월에는 1 or 2만 있으므로 1과 2만 비교하면됨
             if (lunarMonthTable[lunIndex][lunMonth - 1] == 1) lunMonthDay = 29;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 2) lunMonthDay = 30;
+            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 2)
+              lunMonthDay = 30;
           }
           // 현재날짜가 이번달의 마지막날짜와 일치할 경우
           else if (lunDay == lunMonthDay) {
             // 윤달인데 윤달계산을 안했을 경우 달의 숫자는 증가시키면 안됨
-            if (lunarMonthTable[lunIndex][lunMonth - 1] >= 3 && lunLeapMonth == 0) {
+            if (
+              lunarMonthTable[lunIndex][lunMonth - 1] >= 3 &&
+              lunLeapMonth == 0
+            ) {
               lunDay = 1;
               lunLeapMonth = 1;
             }
@@ -3868,18 +4361,44 @@
 
             // 음력의 달에 맞는 마지막날짜 초기화
             if (lunarMonthTable[lunIndex][lunMonth - 1] == 1) lunMonthDay = 29;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 2) lunMonthDay = 30;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 3) lunMonthDay = 29;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 4 && lunLeapMonth == 0) lunMonthDay = 29;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 4 && lunLeapMonth == 1) lunMonthDay = 30;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 5 && lunLeapMonth == 0) lunMonthDay = 30;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 5 && lunLeapMonth == 1) lunMonthDay = 29;
-            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 6) lunMonthDay = 30;
+            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 2)
+              lunMonthDay = 30;
+            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 3)
+              lunMonthDay = 29;
+            else if (
+              lunarMonthTable[lunIndex][lunMonth - 1] == 4 &&
+              lunLeapMonth == 0
+            )
+              lunMonthDay = 29;
+            else if (
+              lunarMonthTable[lunIndex][lunMonth - 1] == 4 &&
+              lunLeapMonth == 1
+            )
+              lunMonthDay = 30;
+            else if (
+              lunarMonthTable[lunIndex][lunMonth - 1] == 5 &&
+              lunLeapMonth == 0
+            )
+              lunMonthDay = 30;
+            else if (
+              lunarMonthTable[lunIndex][lunMonth - 1] == 5 &&
+              lunLeapMonth == 1
+            )
+              lunMonthDay = 29;
+            else if (lunarMonthTable[lunIndex][lunMonth - 1] == 6)
+              lunMonthDay = 30;
           } else lunDay++;
         }
       }
       // 날짜 형식이 안맞을 경우 공백 반환
-      if (!solYear || solYear == 0 || !solMonth || solMonth == 0 || !solDay || solDay == 0) {
+      if (
+        !solYear ||
+        solYear == 0 ||
+        !solMonth ||
+        solMonth == 0 ||
+        !solDay ||
+        solDay == 0
+      ) {
         return '';
       }
 
@@ -3887,9 +4406,15 @@
       var solMonthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
       // 윤년일 시 2월에 1일 추가
-      if (solYear % 400 == 0 || (solYear % 4 == 0 && solYear % 100 != 0)) solMonthDays[1] += 1;
+      if (solYear % 400 == 0 || (solYear % 4 == 0 && solYear % 100 != 0))
+        solMonthDays[1] += 1;
 
-      if (solMonth < 1 || solMonth > 12 || solDay < 1 || solDay > solMonthDays[solMonth - 1]) {
+      if (
+        solMonth < 1 ||
+        solMonth > 12 ||
+        solDay < 1 ||
+        solDay > solMonthDays[solMonth - 1]
+      ) {
         return '';
       }
 
@@ -3901,7 +4426,9 @@
     dateMake(opt) {
       const setDate = opt.setDate;
       const setId = opt.setId;
-      const el_dp = document.querySelector('.datepicker[data-id="' + setId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + setId + '"]',
+      );
       const el_inp = document.querySelector('#' + setId);
       const el_uidp = el_inp.closest('.ui-datepicker');
       const el_start = el_uidp.querySelector('[data-period="start"]');
@@ -3909,7 +4436,10 @@
       const isHoliyday = el_inp.dataset.holiday === 'true' ? true : false;
 
       if (!!el_dp.dataset.period) {
-        if (el_dp.dataset.end !== '' && el_dp.dataset.end !== el_dp.dataset.start) {
+        if (
+          el_dp.dataset.end !== '' &&
+          el_dp.dataset.end !== el_dp.dataset.start
+        ) {
           el_dp.dataset.period = 'end';
         }
       }
@@ -4026,7 +4556,12 @@
         // _class = (i % 7 === 0) ? 'hday' : _class;
 
         //오늘날짜 설정
-        _class = date === _viewDay && viewYear === _viewYear && viewMonth === _viewMonth ? _class + 'today' : _class;
+        _class =
+          date === _viewDay &&
+          viewYear === _viewYear &&
+          viewMonth === _viewMonth
+            ? _class + 'today'
+            : _class;
 
         //max date
         if (viewYear === max_viewYear) {
@@ -4055,7 +4590,16 @@
         }
 
         //selected date
-        const _day = date === start_viewDay && viewYear === start_viewYear && viewMonth === start_viewMonth ? _class + ' selected-start' : date === end_viewDay && viewYear === end_viewYear && viewMonth === end_viewMonth ? _class + ' selected-end' : _class;
+        const _day =
+          date === start_viewDay &&
+          viewYear === start_viewYear &&
+          viewMonth === start_viewMonth
+            ? _class + ' selected-start'
+            : date === end_viewDay &&
+                viewYear === end_viewYear &&
+                viewMonth === end_viewMonth
+              ? _class + ' selected-end'
+              : _class;
 
         if (!!endDay) {
           _class = _class + ' during';
@@ -4068,7 +4612,11 @@
             _class = _class.replace(' during', '');
           }
 
-          if (viewYear === start_viewYear && viewMonth === start_viewMonth && date <= start_viewDay) {
+          if (
+            viewYear === start_viewYear &&
+            viewMonth === start_viewMonth &&
+            date <= start_viewDay
+          ) {
             _class = _class.replace(' during', '');
           }
 
@@ -4076,7 +4624,11 @@
             _class = _class.replace(' during', '');
           }
 
-          if (viewYear === end_viewYear && viewMonth === end_viewMonth && date >= end_viewDay) {
+          if (
+            viewYear === end_viewYear &&
+            viewMonth === end_viewMonth &&
+            date >= end_viewDay
+          ) {
             _class = _class.replace(' during', '');
           }
         }
@@ -4088,10 +4640,15 @@
           _dpHtml += '';
         }
 
-        const lunarDate = Global.datepicker.solarToLunar(viewYear, viewMonth + 1, date);
+        const lunarDate = Global.datepicker.solarToLunar(
+          viewYear,
+          viewMonth + 1,
+          date,
+        );
         const lunarDate_m = Number(lunarDate.split('-')[0]);
         const lunarDate_d = Number(lunarDate.split('-')[1]);
-        const specialdayMonth_solar = Global.datepicker.specialday[viewMonth + 1];
+        const specialdayMonth_solar =
+          Global.datepicker.specialday[viewMonth + 1];
         const specialdayMonth_lunar = Global.datepicker.specialday[lunarDate_m];
         let specialdayName = '';
         let isPublicHoliday = false;
@@ -4142,13 +4699,24 @@
                   specialdayName = item.name;
                 } else if (!!item.holiday && item.day === 'last') {
                   //설 전날 마지막일 찾기
-                  let lunarDateNext = Global.datepicker.solarToLunar(viewYear, viewMonth + 1, date + 1);
+                  let lunarDateNext = Global.datepicker.solarToLunar(
+                    viewYear,
+                    viewMonth + 1,
+                    date + 1,
+                  );
                   if (!lunarDateNext) {
-                    lunarDateNext = Global.datepicker.solarToLunar(viewYear, viewMonth + 2, 1);
+                    lunarDateNext = Global.datepicker.solarToLunar(
+                      viewYear,
+                      viewMonth + 2,
+                      1,
+                    );
                   }
                   const lunarDateNext_m = Number(lunarDateNext.split('-')[0]);
                   // console.log(date, lunarDateNext, lunarDateNext_m, lunarDate_m);
-                  if (lunarDateNext_m !== undefined && lunarDate_m !== lunarDateNext_m) {
+                  if (
+                    lunarDateNext_m !== undefined &&
+                    lunarDate_m !== lunarDateNext_m
+                  ) {
                     if ((isHolidaySunday || holidayOverlap) && item.sub) {
                       Global.callback[setId].subDay = true;
                     }
@@ -4182,9 +4750,17 @@
             '-' +
             Global.parts.add0(date) +
             '" data-holiday=' +
-            (isPublicHoliday || _disabled || (!isHoliday && Global.callback[setId].subDay) ? 'true' : 'false') +
+            (isPublicHoliday ||
+            _disabled ||
+            (!isHoliday && Global.callback[setId].subDay)
+              ? 'true'
+              : 'false') +
             ' aria-label="' +
-            (_day === 'today' ? '오늘날짜 ' : _day === ' selected-start' ? '선택된 날짜 ' : '') +
+            (_day === 'today'
+              ? '오늘날짜 '
+              : _day === ' selected-start'
+                ? '선택된 날짜 '
+                : '') +
             viewYear +
             '년 ' +
             (viewMonth + 1) +
@@ -4193,16 +4769,26 @@
             '일 ' +
             week[(i + 7) % 7] +
             '요일 ' +
-            (!!specialdayName ? specialdayName : Global.callback[setId].subDay ? '대체휴일' : '') +
+            (!!specialdayName
+              ? specialdayName
+              : Global.callback[setId].subDay
+                ? '대체휴일'
+                : '') +
             '" ' +
-            (isHoliyday && (isPublicHoliday || isHoliday || Global.callback[setId].subDay) ? 'disabled' : '') +
+            (isHoliyday &&
+            (isPublicHoliday || isHoliday || Global.callback[setId].subDay)
+              ? 'disabled'
+              : '') +
             '>';
         }
 
-        !isHoliday && Global.callback[setId].subDay ? (Global.callback[setId].subDay = false) : '';
+        !isHoliday && Global.callback[setId].subDay
+          ? (Global.callback[setId].subDay = false)
+          : '';
 
         _dpHtml += '<span>' + date + '</span>';
-        _dpHtml += '<span class="week-word">' + (date && week[(i + 7) % 7]) + '</span>';
+        _dpHtml +=
+          '<span class="week-word">' + (date && week[(i + 7) % 7]) + '</span>';
         _dpHtml += '</button>';
         _dpHtml += '</td>';
       });
@@ -4221,11 +4807,16 @@
       dp_m.innerHTML = getData[1];
       dp_tbody.innerHTML = _dpHtml;
 
-      el_dp.querySelector('caption').textContent = getData[0] + week[8] + ' ' + getData[1] + week[8];
-      dp_m_prev.querySelector('span').textContent = (Number(getData[1]) - 1 < 1 ? 12 : Number(getData[1]) - 1) + week[8];
-      dp_m_next.querySelector('span').textContent = (Number(getData[1]) + 1 > 12 ? 1 : Number(getData[1]) + 1) + week[8];
-      dp_y_prev.querySelector('span').textContent = Number(getData[0]) - 1 + week[7];
-      dp_y_next.querySelector('span').textContent = Number(getData[0]) + 1 + week[7];
+      el_dp.querySelector('caption').textContent =
+        getData[0] + week[8] + ' ' + getData[1] + week[8];
+      dp_m_prev.querySelector('span').textContent =
+        (Number(getData[1]) - 1 < 1 ? 12 : Number(getData[1]) - 1) + week[8];
+      dp_m_next.querySelector('span').textContent =
+        (Number(getData[1]) + 1 > 12 ? 1 : Number(getData[1]) + 1) + week[8];
+      dp_y_prev.querySelector('span').textContent =
+        Number(getData[0]) - 1 + week[7];
+      dp_y_next.querySelector('span').textContent =
+        Number(getData[0]) + 1 + week[7];
 
       const dayBtns = dp_tbody.querySelectorAll('.datepicker-day');
       const len = dayBtns.length;
@@ -4251,25 +4842,33 @@
             e.preventDefault();
 
             current = n - 7 < 0 ? 0 : n - 7;
-            dp_tbody.querySelector('.datepicker-day[data-n="' + current + '"]').focus();
+            dp_tbody
+              .querySelector('.datepicker-day[data-n="' + current + '"]')
+              .focus();
             break;
           case keys.left:
             e.preventDefault();
 
             current = n - 1 < 0 ? 0 : n - 1;
-            dp_tbody.querySelector('.datepicker-day[data-n="' + current + '"]').focus();
+            dp_tbody
+              .querySelector('.datepicker-day[data-n="' + current + '"]')
+              .focus();
             break;
           case keys.down:
             e.preventDefault();
 
             current = n + 7 > len - 1 ? len - 1 : n + 7;
-            dp_tbody.querySelector('.datepicker-day[data-n="' + current + '"]').focus();
+            dp_tbody
+              .querySelector('.datepicker-day[data-n="' + current + '"]')
+              .focus();
             break;
           case keys.right:
             e.preventDefault();
 
             current = n + 1 > len - 1 ? len - 1 : n + 1;
-            dp_tbody.querySelector('.datepicker-day[data-n="' + current + '"]').focus();
+            dp_tbody
+              .querySelector('.datepicker-day[data-n="' + current + '"]')
+              .focus();
             break;
           // case keys.tab:
           // 	isShift ?
@@ -4349,8 +4948,14 @@
             el_dp.dataset.start = selectDay;
             el_dp.dataset.end = '';
             el_btn.classList.add('selected-start');
-            el_dp.querySelector('.selected-start') && el_dp.querySelector('.selected-start').classList.remove('selected-start');
-            el_dp.querySelector('.selected-end') && el_dp.querySelector('.selected-end').classList.remove('selected-end');
+            el_dp.querySelector('.selected-start') &&
+              el_dp
+                .querySelector('.selected-start')
+                .classList.remove('selected-start');
+            el_dp.querySelector('.selected-end') &&
+              el_dp
+                .querySelector('.selected-end')
+                .classList.remove('selected-end');
           } else {
             if (!el_dp.dataset.end) {
               //end
@@ -4358,7 +4963,10 @@
                 el_dp.dataset.start = '';
                 el_dp.dataset.end = '';
                 el_dp.dataset.period = 'start';
-                el_dp.querySelector('.selected-start') && el_dp.querySelector('.selected-start').classList.remove('selected-start');
+                el_dp.querySelector('.selected-start') &&
+                  el_dp
+                    .querySelector('.selected-start')
+                    .classList.remove('selected-start');
               } else {
                 el_dp.dataset.end = selectDay;
                 el_btn.classList.add('selected-end');
@@ -4374,15 +4982,26 @@
                 el_dp.dataset.start = '';
                 el_dp.dataset.end = '';
                 el_dp.dataset.period = 'start';
-                el_dp.querySelector('.selected-start') && el_dp.querySelector('.selected-start').classList.remove('selected-start');
-                el_dp.querySelector('.selected-end') && el_dp.querySelector('.selected-end').classList.remove('selected-end');
+                el_dp.querySelector('.selected-start') &&
+                  el_dp
+                    .querySelector('.selected-start')
+                    .classList.remove('selected-start');
+                el_dp.querySelector('.selected-end') &&
+                  el_dp
+                    .querySelector('.selected-end')
+                    .classList.remove('selected-end');
               } else {
                 if (el_dp.dataset.end === selectDay) {
                   el_dp.dataset.end = '';
-                  el_dp.querySelector('.selected-end') && el_dp.querySelector('.selected-end').classList.remove('selected-end');
+                  el_dp.querySelector('.selected-end') &&
+                    el_dp
+                      .querySelector('.selected-end')
+                      .classList.remove('selected-end');
                 } else {
                   if (!!el_dp.querySelector('.selected-end')) {
-                    el_dp.querySelector('.selected-end').classList.remove('selected-end');
+                    el_dp
+                      .querySelector('.selected-end')
+                      .classList.remove('selected-end');
                   }
 
                   el_dp.dataset.end = selectDay;
@@ -4404,13 +5023,20 @@
           setId: id,
         });
 
-        !!now_focus.dataset.date && el_dp.querySelector('.datepicker-day[data-date="' + now_focus.dataset.date + '"]').focus();
+        !!now_focus.dataset.date &&
+          el_dp
+            .querySelector(
+              '.datepicker-day[data-date="' + now_focus.dataset.date + '"]',
+            )
+            .focus();
       }
     },
     nextYear(event) {
       const dpId = event.target.dataset.dpid;
       const el_inp = document.querySelector('#' + dpId);
-      const el_dp = document.querySelector('.datepicker[data-id="' + dpId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + dpId + '"]',
+      );
       const el_next = el_dp.querySelector('.ui-next-y');
       const el_prev = el_dp.querySelector('.ui-prev-y');
       const el_next_m = el_dp.querySelector('.ui-next-m');
@@ -4462,7 +5088,9 @@
     prevYear(event) {
       const dpId = event.target.dataset.dpid;
       const el_inp = document.querySelector('#' + dpId);
-      const el_dp = document.querySelector('.datepicker[data-id="' + dpId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + dpId + '"]',
+      );
       const el_next = el_dp.querySelector('.ui-next-y');
       const el_prev = el_dp.querySelector('.ui-prev-y');
       const el_next_m = el_dp.querySelector('.ui-next-m');
@@ -4512,7 +5140,9 @@
     },
     nextMonth(event) {
       const dpId = event.target.dataset.dpid;
-      const el_dp = document.querySelector('.datepicker[data-id="' + dpId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + dpId + '"]',
+      );
       let date = new Date(el_dp.dataset.date);
       let year = date.getFullYear();
       let month = date.getMonth() + 1;
@@ -4534,7 +5164,9 @@
     },
     prevMonth(event) {
       const dpId = event.target.dataset.dpid;
-      const el_dp = document.querySelector('.datepicker[data-id="' + dpId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + dpId + '"]',
+      );
       let date = new Date(el_dp.dataset.date);
       let year = date.getFullYear();
       let month = date.getMonth();
@@ -4556,7 +5188,9 @@
     },
     goToday(event) {
       const dpId = event.target.dataset.dpid;
-      const el_dp = document.querySelector('.datepicker[data-id="' + dpId + '"]');
+      const el_dp = document.querySelector(
+        '.datepicker[data-id="' + dpId + '"]',
+      );
       const date = new Date();
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
@@ -4577,7 +5211,12 @@
       if (!!day) {
         datepicker_today = day;
       } else {
-        datepicker_today = datepicker_date.getFullYear() + '-' + ('0' + (1 + datepicker_date.getMonth())).slice(-2) + '-' + ('0' + datepicker_date.getDate()).slice(-2);
+        datepicker_today =
+          datepicker_date.getFullYear() +
+          '-' +
+          ('0' + (1 + datepicker_date.getMonth())).slice(-2) +
+          '-' +
+          ('0' + datepicker_date.getDate()).slice(-2);
       }
 
       document.querySelector('#' + id).value = datepicker_today;
@@ -4673,7 +5312,9 @@
         const id = btn.id;
         const el_body = doc.querySelector('body');
         const el_uiselect = btn.closest('.ui-select');
-        const el_wrap = doc.querySelector('.ui-select-wrap[data-id="' + id + '"]');
+        const el_wrap = doc.querySelector(
+          '.ui-select-wrap[data-id="' + id + '"]',
+        );
         let el_optwrap = el_wrap.querySelector('.ui-select-opts');
         let el_opts = el_optwrap.querySelectorAll('.ui-select-opt');
         const el_select = el_uiselect.querySelector('select');
@@ -4686,7 +5327,9 @@
         const btn_h = btn.offsetHeight;
         const win_h = win.innerHeight;
         const n = el_select.selectedIndex;
-        const state = !!el_uiselect.dataset.state ? el_uiselect.dataset.state : '';
+        const state = !!el_uiselect.dataset.state
+          ? el_uiselect.dataset.state
+          : '';
 
         el_body.classList.add('dim-select');
         btn.dataset.expanded = true;
@@ -4697,7 +5340,8 @@
         el_opts[n].classList.add('selected');
 
         if (customscroll) {
-          el_wrap.dataset.scrollId && Global.scrollBar.destroy(el_wrap.dataset.scrollId);
+          el_wrap.dataset.scrollId &&
+            Global.scrollBar.destroy(el_wrap.dataset.scrollId);
           Global.scrollBar.init();
         }
 
@@ -4709,7 +5353,9 @@
           const opt_w = el_opts[0].offsetWidth;
           Global.scroll.move({
             top: Number(opt_h * n),
-            selector: customscroll ? el_wrap.querySelector('.ui-scrollbar-item') : el_wrap,
+            selector: customscroll
+              ? el_wrap.querySelector('.ui-scrollbar-item')
+              : el_wrap,
             effect: 'auto',
             align: 'default',
           });
@@ -4862,7 +5508,8 @@
       };
       //option set
       setOption = (uiSelect, v) => {
-        let _select = uiSelect !== undefined ? uiSelect.closest('.ui-select') : uiSelect;
+        let _select =
+          uiSelect !== undefined ? uiSelect.closest('.ui-select') : uiSelect;
 
         if (uiSelect !== undefined) {
           _select = _select.querySelector('select');
@@ -4915,22 +5562,79 @@
           if (Global.state.device.mobile) {
             _disabled
               ? _selected
-                ? (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt disabled selected ' + _hiddenCls + '" value="' + that.value + '" disabled tabindex="-1">')
-                : (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt disabled ' + _hiddenCls + '" value="' + that.value + '" disabled tabindex="-1">')
+                ? (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt disabled selected ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" disabled tabindex="-1">')
+                : (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt disabled ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" disabled tabindex="-1">')
               : _selected
-              ? (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt selected ' + _hiddenCls + '" value="' + that.value + '" tabindex="-1">')
-              : (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt ' + _hiddenCls + '" value="' + that.value + '" tabindex="-1">');
+                ? (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt selected ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" tabindex="-1">')
+                : (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" tabindex="-1">');
           } else {
             _disabled
               ? _selected
-                ? (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt disabled selected ' + _hiddenCls + '" value="' + that.value + '" disabled tabindex="-1">')
-                : (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt disabled ' + _hiddenCls + '" value="' + that.value + '" disabled tabindex="-1">')
+                ? (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt disabled selected ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" disabled tabindex="-1">')
+                : (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt disabled ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" disabled tabindex="-1">')
               : _selected
-              ? (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt selected ' + _hiddenCls + '" value="' + that.value + '" tabindex="-1">')
-              : (htmlOption += '<button type="button" role="option" id="' + _optionIdName + '" class="ui-select-opt ' + _hiddenCls + '" value="' + that.value + '" tabindex="-1">');
+                ? (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt selected ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" tabindex="-1">')
+                : (htmlOption +=
+                    '<button type="button" role="option" id="' +
+                    _optionIdName +
+                    '" class="ui-select-opt ' +
+                    _hiddenCls +
+                    '" value="' +
+                    that.value +
+                    '" tabindex="-1">');
           }
 
-          htmlOption += '<span class="ui-select-txt">' + that.textContent + '</span>';
+          htmlOption +=
+            '<span class="ui-select-txt">' + that.textContent + '</span>';
           htmlOption += '</button>';
         }
 
@@ -4945,37 +5649,74 @@
         selectTitle = el_select.title;
         hiddenClass = '';
 
-        const isStyle = !!el_uiSelect.dataset.style ? el_uiSelect.dataset.style : '';
+        const isStyle = !!el_uiSelect.dataset.style
+          ? el_uiSelect.dataset.style
+          : '';
 
         //callback 나중에 작업필요
         //(!el_select.data('callback') || !!callback) && el_select.data('callback', callback);
 
         if (customscroll) {
-          htmlOption += '<div class="ui-select-wrap ui-scrollbar" scroll-id="uiSelectScrollBar_' + idN + '" data-id="' + selectID + '_inp" data-style="' + isStyle + '">';
+          htmlOption +=
+            '<div class="ui-select-wrap ui-scrollbar" scroll-id="uiSelectScrollBar_' +
+            idN +
+            '" data-id="' +
+            selectID +
+            '_inp" data-style="' +
+            isStyle +
+            '">';
           idN = idN + 1;
           sessionStorage.setItem('scrollbarID', idN);
         } else {
-          htmlOption += '<div class="ui-select-wrap" style="min-width:' + el_uiSelect.offsetWidth + 'px" data-id="' + selectID + '_inp">';
+          htmlOption +=
+            '<div class="ui-select-wrap" style="min-width:' +
+            el_uiSelect.offsetWidth +
+            'px" data-id="' +
+            selectID +
+            '_inp">';
         }
 
-        htmlOption += '<strong class="ui-select-title">' + selectTitle + '</strong>';
-        htmlOption += '<div class="ui-select-opts" role="listbox" id="' + listID + '" aria-hidden="false">';
+        htmlOption +=
+          '<strong class="ui-select-title">' + selectTitle + '</strong>';
+        htmlOption +=
+          '<div class="ui-select-opts" role="listbox" id="' +
+          listID +
+          '" aria-hidden="false">';
 
         setOption(el_uiSelect, el_select.selectedIndex);
 
         htmlOption += '</div>';
-        htmlOption += '<button type="button" class="ui-select-cancel"><span>취소</span></strong>';
-        htmlOption += '<button type="button" class="ui-select-confirm"><span>확인</span></strong>';
+        htmlOption +=
+          '<button type="button" class="ui-select-cancel"><span>취소</span></strong>';
+        htmlOption +=
+          '<button type="button" class="ui-select-confirm"><span>확인</span></strong>';
         htmlOption += '</div>';
 
-        htmlButton = '<button type="button" class="ui-select-btn ' + hiddenClass + '" id="' + selectID + '_inp" role="combobox" aria-autocomplete="list" aria-owns="' + listID + '" aria-haspopup="true" aria-expanded="false" aria-activedescendant="' + optionSelectedID + '" data-n="' + selectN + '" data-id="' + selectID + '" tabindex="-1"><span>' + btnTxt + '</span></button>';
+        htmlButton =
+          '<button type="button" class="ui-select-btn ' +
+          hiddenClass +
+          '" id="' +
+          selectID +
+          '_inp" role="combobox" aria-autocomplete="list" aria-owns="' +
+          listID +
+          '" aria-haspopup="true" aria-expanded="false" aria-activedescendant="' +
+          optionSelectedID +
+          '" data-n="' +
+          selectN +
+          '" data-id="' +
+          selectID +
+          '" tabindex="-1"><span>' +
+          btnTxt +
+          '</span></button>';
 
         el_uiSelect.insertAdjacentHTML('beforeend', htmlButton);
         el_select.classList.add('off');
         el_select.setAttribute('aria-hidden', true);
         // el_uiSelect.insertAdjacentHTML('beforeend', htmlOption);
         const body = doc.querySelector('body');
-        isInner ? el_uiSelect.insertAdjacentHTML('beforeend', htmlOption) : body.insertAdjacentHTML('beforeend', htmlOption);
+        isInner
+          ? el_uiSelect.insertAdjacentHTML('beforeend', htmlOption)
+          : body.insertAdjacentHTML('beforeend', htmlOption);
 
         if (selectDisabled) {
           const _btn = el_uiSelect.querySelector('.ui-select-btn');
@@ -4997,14 +5738,18 @@
         el_dim = that.querySelector('.dim');
         el_select = that.querySelector('select');
         selectID = el_select.id;
-        el_wrap = doc.querySelector('.ui-select-wrap[data-id="' + selectID + '_inp"]');
+        el_wrap = doc.querySelector(
+          '.ui-select-wrap[data-id="' + selectID + '_inp"]',
+        );
 
         !!el_btn && el_btn.remove();
         !!el_wrap && el_wrap.remove();
         !!el_dim && el_dim.remove();
 
         Global.select.data[selectID] = {
-          callback: !!el_select.dataset.callback ? el_select.dataset.callback : false,
+          callback: !!el_select.dataset.callback
+            ? el_select.dataset.callback
+            : false,
         };
 
         set(that, el_select, selectID);
@@ -5078,11 +5823,16 @@
         const that = this;
         const scrollCompare = () => {
           timerScroll = setTimeout(() => {
-            if (getScrollTop !== Math.abs(wrap.getBoundingClientRect().top - wrapT)) {
+            if (
+              getScrollTop !==
+              Math.abs(wrap.getBoundingClientRect().top - wrapT)
+            ) {
               getScrollTop = Math.abs(wrap.getBoundingClientRect().top - wrapT);
               scrollCompare();
             } else {
-              currentN = Math.floor((Math.floor(getScrollTop) + opt_h / 2) / opt_h);
+              currentN = Math.floor(
+                (Math.floor(getScrollTop) + opt_h / 2) / opt_h,
+              );
               Global.select.scrollSelect(currentN, that);
             }
           }, 100);
@@ -5151,8 +5901,12 @@
     hide() {
       const el_body = doc.querySelector('body');
       const el_selects = doc.querySelectorAll('.ui-select');
-      const el_selectWraps = doc.querySelectorAll('.ui-select-wrap[aria-hidden="false"]');
-      const el_btns = doc.querySelectorAll('.ui-select-btn[aria-expanded="true"]');
+      const el_selectWraps = doc.querySelectorAll(
+        '.ui-select-wrap[aria-hidden="false"]',
+      );
+      const el_btns = doc.querySelectorAll(
+        '.ui-select-btn[aria-expanded="true"]',
+      );
       let el_select;
       let el_wrap;
       let orgTop;
@@ -5191,7 +5945,9 @@
       const el_uiSelect = el_select.closest('.ui-select');
       const el_btn = el_uiSelect.querySelector('.ui-select-btn');
       const el_text = el_btn.querySelector('span');
-      const el_selectWrap = doc.querySelector('.ui-select-wrap[data-id="' + id + '_inp"]');
+      const el_selectWrap = doc.querySelector(
+        '.ui-select-wrap[data-id="' + id + '_inp"]',
+      );
       const el_btnopts = el_selectWrap.querySelectorAll('.ui-select-opt');
       const org = opt.original === undefined ? false : opt.original;
 
@@ -5208,7 +5964,9 @@
 
       const optCurrent = el_opts[current];
 
-      optCurrent.hidden === true ? el_btn.classList.remove('opt-hidden') : el_btn.classList.add('opt-hidden');
+      optCurrent.hidden === true
+        ? el_btn.classList.remove('opt-hidden')
+        : el_btn.classList.add('opt-hidden');
 
       el_text.textContent = optCurrent.textContent;
 
@@ -5255,8 +6013,12 @@
           src: !!btn.dataset.src ? btn.dataset.src : opt.src,
           area: !!btn.dataset.area ? btn.dataset.area : opt.area,
           offset: !!btn.dataset.offset ? btn.dataset.offset : opt.offset,
-          callback: !!btn.dataset.callback ? btn.dataset.callback : opt.callback,
-          closeback: !!btn.dataset.closeback ? btn.dataset.closeback : opt.closeback,
+          callback: !!btn.dataset.callback
+            ? btn.dataset.callback
+            : opt.callback,
+          closeback: !!btn.dataset.closeback
+            ? btn.dataset.closeback
+            : opt.closeback,
           ps: !!btn.dataset.ps ? btn.dataset.ps : opt.ps,
         };
 
@@ -5508,7 +6270,9 @@
     hide() {
       const elBody = doc.querySelector('body');
       const elDrops = doc.querySelectorAll('.ui-drop');
-      const elDropPnls = doc.querySelectorAll('.ui-drop-pnl[aria-hidden="false"]');
+      const elDropPnls = doc.querySelectorAll(
+        '.ui-drop-pnl[aria-hidden="false"]',
+      );
 
       elBody.classList.remove('dropdownOpened');
 
@@ -5581,7 +6345,8 @@
       let gap = opt.gap;
       let id = opt.id;
       let remove = opt.remove;
-      let endfocus = opt.endfocus === false ? document.activeElement : opt.endfocus;
+      let endfocus =
+        opt.endfocus === false ? document.activeElement : opt.endfocus;
       const scr_t = document.documentElement.scrollTop;
       let timer;
 
@@ -5608,7 +6373,11 @@
           }
         }
 
-        !elModal.querySelector('.ui-modal-dim') && elModal.insertAdjacentHTML('beforeend', '<div class="ui-modal-dim"></div>');
+        !elModal.querySelector('.ui-modal-dim') &&
+          elModal.insertAdjacentHTML(
+            'beforeend',
+            '<div class="ui-modal-dim"></div>',
+          );
 
         const elModalWrap = elModal.querySelector('.ui-modal-wrap');
         const elModalBody = elModalWrap.querySelector('.ui-modal-body');
@@ -5697,11 +6466,15 @@
         if (_scroll === 'inner') {
           elModal.setAttribute('data-scroll', 'inner');
 
-          elModalBody.style.height = !height ? '100%' : height - (headerH + footerH) + 'px';
-          elModalBody.style.maxHeight = window.innerHeight - (headerH + footerH + gap * 2) + 'px';
+          elModalBody.style.height = !height
+            ? '100%'
+            : height - (headerH + footerH) + 'px';
+          elModalBody.style.maxHeight =
+            window.innerHeight - (headerH + footerH + gap * 2) + 'px';
 
           if (full === 'true' || full === 'mobile') {
-            elModalBody.style.height = Global.state.device.height - (headerH + footerH) + 'px';
+            elModalBody.style.height =
+              Global.state.device.height - (headerH + footerH) + 'px';
           }
 
           !!sid && Global.scrollBar.destroy(sid);
@@ -5719,7 +6492,9 @@
         Global.focus.loop({ selector: elModal });
         elModal.classList.add('open');
         !!sZindex ? (elModal.style.zIndex = sZindex) : '';
-        window.innerHeight < elModalWrap.offsetHeight ? elModal.classList.add('is-over') : elModal.classList.remove('is-over');
+        window.innerHeight < elModalWrap.offsetHeight
+          ? elModal.classList.add('is-over')
+          : elModal.classList.remove('is-over');
 
         //dim event
         elModalDim.addEventListener('click', Global.modal.dimAct);
@@ -5765,7 +6540,9 @@
                 elDrag.removeEventListener('touchstart', eventStart);
               } else {
                 if (m_wrap) {
-                  elDragPs === 'bottom' || elDragPs === 'top' ? (m_wrap.style.transform = 'translateY(0px)') : (m_wrap.style.marginTop = '0');
+                  elDragPs === 'bottom' || elDragPs === 'top'
+                    ? (m_wrap.style.transform = 'translateY(0px)')
+                    : (m_wrap.style.marginTop = '0');
                 }
               }
 
@@ -5784,7 +6561,9 @@
                 m_n = m_n * -1;
                 m_wrap.style.transform = 'translateY(' + m_n + 'px)';
               } else {
-                elDragPs === 'bottom' ? (m_wrap.style.transform = 'translateY(' + m_n + 'px)') : (m_wrap.style.marginTop = m_n + 'px');
+                elDragPs === 'bottom'
+                  ? (m_wrap.style.transform = 'translateY(' + m_n + 'px)')
+                  : (m_wrap.style.marginTop = m_n + 'px');
               }
             };
             const eventStart = (e) => {
@@ -5800,14 +6579,18 @@
           }
         }
         //-- 드래그 닫기 추가
-        const allCloseButtons = elModal.querySelectorAll('.ui-modal-close, .ui-modal-last');
+        const allCloseButtons = elModal.querySelectorAll(
+          '.ui-modal-close, .ui-modal-last',
+        );
         for (let i = 0; i < allCloseButtons.length; i++) {
           allCloseButtons[i].addEventListener('click', closeAct);
         }
 
         //systyem modal confirm & cancel callback
-        elModalConfirm && elModalConfirm.addEventListener('click', sConfirmCallback);
-        elModalCancel && elModalCancel.addEventListener('click', sCancelCallback);
+        elModalConfirm &&
+          elModalConfirm.addEventListener('click', sConfirmCallback);
+        elModalCancel &&
+          elModalCancel.addEventListener('click', sCancelCallback);
 
         //transition end event
         // const modalTrEnd = () => {
@@ -5837,7 +6620,10 @@
       const makeSystemModal = () => {
         let htmlSystem = '';
 
-        htmlSystem += '<div class="ui-modal type-system ' + sClass + '" id="uiSystemModal" role="alertdialog" aria-modal="true" aria-live="polite">';
+        htmlSystem +=
+          '<div class="ui-modal type-system ' +
+          sClass +
+          '" id="uiSystemModal" role="alertdialog" aria-modal="true" aria-live="polite">';
         htmlSystem += '<div class="ui-modal-wrap">';
         htmlSystem += '<div class="ui-modal-body">';
         htmlSystem += sMessage;
@@ -5846,10 +6632,16 @@
         htmlSystem += '<div class="wrap-group">';
 
         if (type === 'confirm') {
-          htmlSystem += '<button type="button" class="btn base ui-modal-cancel"><span>' + sBtnCancelTxt + '</span></button>';
+          htmlSystem +=
+            '<button type="button" class="btn base ui-modal-cancel"><span>' +
+            sBtnCancelTxt +
+            '</span></button>';
         }
 
-        htmlSystem += '<button type="button" class="btn base primary ui-modal-confirm"><span>' + sBtnConfirmTxt + '</span></button>';
+        htmlSystem +=
+          '<button type="button" class="btn base primary ui-modal-confirm"><span>' +
+          sBtnConfirmTxt +
+          '</span></button>';
         htmlSystem += '</div>';
         htmlSystem += '</div>';
         htmlSystem += '</div>';
@@ -5864,7 +6656,12 @@
       //setting
       if (type === 'normal') {
         //modal
-        if (!!src && !document.querySelector('#' + opt.id)) {
+        //      if (!!src && !document.querySelector('#' + opt.id)) {
+        if (!!src) {
+          const existingModal = document.querySelector('#' + opt.id);
+          if (existingModal) {
+            existingModal.remove(); //이전 데이터가 담긴 모달 제거
+          }
           Global.ajax.init({
             area: elBody,
             url: src,
@@ -5896,7 +6693,9 @@
         that.dataset.n && openN.push(that.dataset.n);
       }
 
-      const elCurrent = document.querySelector('.ui-modal.open[data-n="' + Math.max.apply(null, openN) + '"]');
+      const elCurrent = document.querySelector(
+        '.ui-modal.open[data-n="' + Math.max.apply(null, openN) + '"]',
+      );
       const currentID = elCurrent.id;
 
       //system modal 제외
@@ -5966,7 +6765,10 @@
 
       //시스템팝업이 아닌 경우
       if (type !== 'system') {
-        endfocus = endfocus === false ? document.querySelector('[data-focus="' + focusID + '"]') : opt.endfocus;
+        endfocus =
+          endfocus === false
+            ? document.querySelector('[data-focus="' + focusID + '"]')
+            : opt.endfocus;
 
         //단일
         if (!len) {
@@ -5992,7 +6794,9 @@
           elBody.classList.remove('scroll-no');
         }
 
-        remove === 'true' ? elModal.remove() : elModal.classList.remove('ready');
+        remove === 'true'
+          ? elModal.remove()
+          : elModal.classList.remove('ready');
         !!callback && callback(id);
         !!endfocus && endfocus.focus();
 
@@ -6005,7 +6809,7 @@
       elModal.addEventListener('animationend', closeEnd);
 
       !!callbackClose && callbackClose();
-
+      elModal.remove();
       // clearTimeout(timer);
       // timer = setTimeout(function(){
       // 	const elWrap = elModal.querySelector('.ui-modal-wrap');
@@ -6061,7 +6865,14 @@
       const conts = opt.conts;
       const status = opt.status;
       const el_body = doc.querySelector('body');
-      let toast = '<div class="ui-toast toast ' + classname + '" aria-live="' + status + '">' + conts + '</div>';
+      let toast =
+        '<div class="ui-toast toast ' +
+        classname +
+        '" aria-live="' +
+        status +
+        '">' +
+        conts +
+        '</div>';
       let time = delay === 'short' ? 2000 : 3500;
 
       if (delay === 'short') {
@@ -6084,7 +6895,9 @@
         clearTimeout(Global.toast.timer);
         el_body.classList.remove('ui-toast-show');
         el_body.classList.remove('ui-toast-ready');
-        doc.querySelector('.ui-toast').removeEventListener('transitionend', act);
+        doc
+          .querySelector('.ui-toast')
+          .removeEventListener('transitionend', act);
         doc.querySelector('.ui-toast').remove();
       }
 
@@ -6135,7 +6948,9 @@
       const elId = el.getAttribute('aria-describedby');
       const elSrc = el.dataset.src;
       const view = el.dataset.view;
-      const elTit = !!el.getAttribute('aria-label') ? el.getAttribute('aria-label') : el.textContent;
+      const elTit = !!el.getAttribute('aria-label')
+        ? el.getAttribute('aria-label')
+        : el.textContent;
       const evType = e.type;
       let elTooltip = doc.querySelector('#' + elId);
 
@@ -6157,7 +6972,9 @@
           for (let that of tooltips) {
             if (that.id !== elId) {
               // that.removeAttribute('style');
-              document.querySelector('.ui-tooltip-btn[aria-describedby="' + that.id + '"]').dataset.view = 'unfix';
+              document.querySelector(
+                '.ui-tooltip-btn[aria-describedby="' + that.id + '"]',
+              ).dataset.view = 'unfix';
               that.classList.remove('fix');
               that.setAttribute('aria-hidden', true);
             } else {
@@ -6203,18 +7020,28 @@
           if (evType === 'click') {
             Global.focus.loop({ selector: elTooltip });
             elTooltip.focus();
-            elTooltip.querySelector('.ui-tooltip-close').addEventListener('click', Global.tooltip.hide);
+            elTooltip
+              .querySelector('.ui-tooltip-close')
+              .addEventListener('click', Global.tooltip.hide);
           }
           Global.tooltip.current = null;
         }, 100);
 
         el.addEventListener('mouseleave', Global.tooltip.hide);
-        Global.state.device.mobile && el.removeEventListener('mouseleave', Global.tooltip.hide);
+        Global.state.device.mobile &&
+          el.removeEventListener('mouseleave', Global.tooltip.hide);
       };
 
       //툴팁이 없다면 생성하기
       if (!!elSrc && !elTooltip) {
-        elBody.insertAdjacentHTML('beforeend', '<div class="ui-tooltip" id="' + elId + '" role="tooltip" aria-hidden="true"><h3 class="ui-tooltip-tit">' + elTit + '</h3><div class="ui-tooltip-arrow"></div></div>');
+        elBody.insertAdjacentHTML(
+          'beforeend',
+          '<div class="ui-tooltip" id="' +
+            elId +
+            '" role="tooltip" aria-hidden="true"><h3 class="ui-tooltip-tit">' +
+            elTit +
+            '</h3><div class="ui-tooltip-arrow"></div></div>',
+        );
 
         Global.ajax.init({
           area: doc.querySelector('#' + elId),
@@ -6222,7 +7049,14 @@
           add: true,
           callback: () => {
             const _tooltip = document.querySelector('#' + elId);
-            _tooltip.insertAdjacentHTML('beforeend', '<button type="button" class="ui-tooltip-close" data-id="' + elId + '" aria-label="' + elTit + ' 닫기"></button>');
+            _tooltip.insertAdjacentHTML(
+              'beforeend',
+              '<button type="button" class="ui-tooltip-close" data-id="' +
+                elId +
+                '" aria-label="' +
+                elTit +
+                ' 닫기"></button>',
+            );
 
             act();
           },
@@ -6234,10 +7068,20 @@
           const isClose = elTooltip.querySelector('.ui-tooltip-close');
 
           if (!isTit) {
-            elTooltip.insertAdjacentHTML('beforeend', '<h3 class="ui-tooltip-tit">' + elTit + '</h3>');
+            elTooltip.insertAdjacentHTML(
+              'beforeend',
+              '<h3 class="ui-tooltip-tit">' + elTit + '</h3>',
+            );
           }
           if (!isClose) {
-            elTooltip.insertAdjacentHTML('beforeend', '<button type="button" class="ui-tooltip-close" data-id="' + elId + '" aria-label="' + elTit + ' 닫기"></button>');
+            elTooltip.insertAdjacentHTML(
+              'beforeend',
+              '<button type="button" class="ui-tooltip-close" data-id="' +
+                elId +
+                '" aria-label="' +
+                elTit +
+                ' 닫기"></button>',
+            );
           }
           act();
         }
@@ -6279,7 +7123,9 @@
       }
 
       const elTooltip = doc.querySelector('#' + elId);
-      const elBtn = doc.querySelector('.ui-tooltip-btn[aria-describedby="' + elId + '"]');
+      const elBtn = doc.querySelector(
+        '.ui-tooltip-btn[aria-describedby="' + elId + '"]',
+      );
 
       if (el.dataset.view !== 'fix') {
         elTooltip.classList.remove('hover');
@@ -6303,7 +7149,8 @@
 
         that.addEventListener('mouseover', Global.tooltip.show);
         that.addEventListener('click', Global.tooltip.show);
-        Global.state.device.mobile && that.removeEventListener('mouseover', Global.tooltip.show);
+        Global.state.device.mobile &&
+          that.removeEventListener('mouseover', Global.tooltip.show);
       }
     },
   };
@@ -6323,7 +7170,11 @@
         const fix = that.dataset.fix;
         const ps = that.dataset.ps;
         const el_wrap = that.querySelector('.ui-floating-wrap');
-        const mg = Number(that.dataset.mg === undefined || that.dataset.mg === null ? 0 : that.dataset.mg);
+        const mg = Number(
+          that.dataset.mg === undefined || that.dataset.mg === null
+            ? 0
+            : that.dataset.mg,
+        );
         const elH = el_wrap.offsetHeight;
         const elT = that.getBoundingClientRect().top;
         const wH = win.innerHeight;
@@ -6364,7 +7215,11 @@
         const ps = that.dataset.ps;
         const state = that.dataset.state;
         const el_wrap = that.querySelector('.ui-floating-wrap');
-        const mg = Number(that.dataset.mg === undefined || that.dataset.mg === null ? 0 : that.dataset.mg);
+        const mg = Number(
+          that.dataset.mg === undefined || that.dataset.mg === null
+            ? 0
+            : that.dataset.mg,
+        );
         const elH = el_wrap.offsetHeight;
         const elT = that.getBoundingClientRect().top;
         const wH = win.innerHeight;
@@ -6422,7 +7277,11 @@
         for (let i = 0, len = el_ranges.length; i < len; i++) {
           const that = el_ranges[i];
           const el_item = that.querySelector('.ui-floating-range-item');
-          const mg = Number(that.dataset.mg === undefined || that.dataset.mg === null ? 0 : that.dataset.mg);
+          const mg = Number(
+            that.dataset.mg === undefined || that.dataset.mg === null
+              ? 0
+              : that.dataset.mg,
+          );
           const itemH = el_item.offsetHeight;
           const wrapT = that.getBoundingClientRect().top;
           const wrapH = that.offsetHeight;
@@ -6431,7 +7290,10 @@
 
           if (wT > wrapT + wT - mg) {
             if (wrapH - itemH >= wT - (wrapT + wT - mg)) {
-              top = mg > (wT - (wrapT + wT - mg)).toFixed(0) ? mg : (wT - (wrapT + wT - mg)).toFixed(0);
+              top =
+                mg > (wT - (wrapT + wT - mg)).toFixed(0)
+                  ? mg
+                  : (wT - (wrapT + wT - mg)).toFixed(0);
               el_item.style.transform = 'translate(0, ' + top + 'px)';
             }
           } else {
@@ -6530,7 +7392,9 @@
           el_btn.id = id + '_btn_' + n;
         }
 
-        const el_pnl = el_pnlwrap.querySelector('.ui-tab-pnl[data-tab="' + n + '"]');
+        const el_pnl = el_pnlwrap.querySelector(
+          '.ui-tab-pnl[data-tab="' + n + '"]',
+        );
 
         if (!dynamic) {
           el_pnl.setAttribute('role', 'tabpanel');
@@ -6679,8 +7543,12 @@
       const current = isNaN(opt.current) ? 0 : opt.current;
       const dynamic = opt.dynamic;
       const align = opt.align;
-      const el_current = el_btnwrap.querySelector('.ui-tab-btn[data-tab="' + current + '"]');
-      const el_pnlcurrent = el_pnlwrap.querySelector('.ui-tab-pnl[data-tab="' + current + '"]');
+      const el_current = el_btnwrap.querySelector(
+        '.ui-tab-btn[data-tab="' + current + '"]',
+      );
+      const el_pnlcurrent = el_pnlwrap.querySelector(
+        '.ui-tab-pnl[data-tab="' + current + '"]',
+      );
       const btnId = el_current.id;
       const pnlId = !!el_pnlcurrent ? el_pnlcurrent.id : id + '_pnl';
       let el_scroll = el_btnwrap.querySelector('.ui-scrollbar-item');
@@ -6745,10 +7613,14 @@
     init(option) {
       const opt = Object.assign({}, this.optionsParllax, option);
       //const opt = {...this.optionsParllax, ...option};
-      const el_area = opt.area === undefined || opt.area === null ? window : opt.area;
+      const el_area =
+        opt.area === undefined || opt.area === null ? window : opt.area;
       //Nullish coalescing operator
       //const el_area = opt.area ?? window;
-      const el_parallax = opt.selector === undefined || opt.selector === null ? doc.querySelector('.ui-parallax') : opt.selector;
+      const el_parallax =
+        opt.selector === undefined || opt.selector === null
+          ? doc.querySelector('.ui-parallax')
+          : opt.selector;
       //const el_parallax = opt.selector ?? doc.querySelector('.ui-parallax');
 
       //:scope >
