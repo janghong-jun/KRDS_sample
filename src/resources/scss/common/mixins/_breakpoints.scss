@@ -1,7 +1,7 @@
 @use '../group_variables' as *;
 
 @mixin size-small {
-  @media (min-width: $breakpoint-small) {
+  @media (max-width: $breakpoint-small) {
     @content;
   }
 }

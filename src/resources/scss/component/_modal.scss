@@ -206,6 +206,7 @@ $mode-setting: light;
     }
     .modal-btn {
       @include flex-layout($ai: center, $jc: center);
+      flex-wrap: wrap;
       gap: var(--modal--btn-gap);
       padding: var(--modal--btn-padding-top) var(--modal--padding)
         var(--modal--padding);
@@ -331,65 +332,63 @@ $mode-setting: light;
 /* mobile */
 @include size-medium {
   .krds-modal {
-    &:not([data-type='bottom-sheet']) {
-      //기본 스타일(bottom-sheet제외)
-      .modal-dialog {
-        width: var(--modal--mobile-width);
-        height: var(--modal--mobile-height);
-        min-height: var(--modal--mobile-height);
-        margin: var(--modal--mobile-gap) auto;
-        .modal-header {
-          padding: var(--modal--mobile-header-padding-top)
-            var(--modal--mobile-padding) 0;
-          .modal-title {
-            font-size: var(--modal--header-mobile-font-size);
+    //기본 스타일(bottom-sheet제외)
+    .modal-dialog {
+      width: var(--modal--mobile-width);
+      height: var(--modal--mobile-height);
+      min-height: var(--modal--mobile-height);
+      margin: var(--modal--mobile-gap) auto;
+      .modal-header {
+        padding: var(--modal--mobile-header-padding-top)
+          var(--modal--mobile-padding) 0;
+        .modal-title {
+          font-size: var(--modal--header-mobile-font-size);
+        }
+      }
+      .modal-content {
+        max-height: 100%;
+      }
+      .modal-conts {
+        padding-inline: var(--modal--mobile-padding);
+        padding-bottom: 0;
+        .conts-area {
+          > * {
+            width: 100%;
           }
-        }
-        .modal-content {
-          max-height: 100%;
-        }
-        .modal-conts {
-          padding-inline: var(--modal--mobile-padding);
-          padding-bottom: 0;
-          .conts-area {
-            > * {
-              width: 100%;
-            }
-            .krds-table-wrap {
-              width: calc(100vw - (var(--contents-padding-x) * 2) - 4.8rem);
-            }
-          }
-        }
-        .modal-btn {
-          padding: var(--modal--mobile-btn-padding-top)
-            var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
-        }
-        .btn-close {
-          top: var(--modal--mobile-btn-close-position);
-          right: var(--modal--mobile-btn-close-position);
-        }
-        &:not(:has(.modal-btn)) {
-          .modal-conts {
-            margin-bottom: var(--modal--mobile-btn-padding-bottom);
+          .krds-table-wrap {
+            min-width: calc(100% - (var(--contents-padding-x) * 2) - 4.8rem);
           }
         }
       }
-    }
-
-    //풀팝업
-    &[data-type='full'] {
-      --modal--full-mobile-btn-close-size: var(--size-height-4);
-
-      .modal-dialog {
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-        .btn-close {
-          @include square(var(--modal--full-mobile-btn-close-size));
+      .modal-btn {
+        padding: var(--modal--mobile-btn-padding-top)
+          var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
+      }
+      .btn-close {
+        top: var(--modal--mobile-btn-close-position);
+        right: var(--modal--mobile-btn-close-position);
+      }
+      &:not(:has(.modal-btn)) {
+        .modal-conts {
+          margin-bottom: var(--modal--mobile-btn-padding-bottom);
         }
       }
     }
   }
+
+  // //풀팝업
+  // &[data-type='full'] {
+  //   --modal--full-mobile-btn-close-size: var(--size-height-4);
+
+  //   .modal-dialog {
+  //     width: 100%;
+  //     height: 100%;
+  //     margin: 0 auto;
+  //     .btn-close {
+  //       @include square(var(--modal--full-mobile-btn-close-size));
+  //     }
+  //   }
+  // }
 }
 
 //고대비모드

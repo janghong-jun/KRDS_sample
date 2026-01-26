@@ -1,10 +1,18 @@
+@use '../common/mixins/utils' as *;
+
 .krds-label {
-  gap: 0 0.6rem;
+  gap: 0 0.2rem;
 }
 .required {
+  position: relative;
   &::before {
     content: '*';
-    color: var(--light-color-divider-error);
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+    font-size: var(--pc-font-size-body-xsmall);
+    font-weight: var(--font-weight-regular);
+    color: var(--light-color-border-point);
   }
 }
 
@@ -50,6 +58,9 @@
       gap: var(--gap-2);
       font-size: var(--pc-font-size-body-medium);
       color: var(--light-color-text-basic);
+      span {
+        @include ellipsis(1);
+      }
       .svg-icon {
         flex: none;
       }

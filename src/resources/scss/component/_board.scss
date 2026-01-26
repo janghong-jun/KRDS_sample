@@ -101,6 +101,12 @@
     border-radius: var(--radius-medium4);
     border: 0.1rem solid var(--light-color-divider-gray-light);
     background: var(--light-color-surface-white-subtle);
+    .file-name {
+      span {
+        @include ellipsis(1);
+        text-align: left;
+      }
+    }
     span {
       font-size: var(--pc-font-size-body-medium);
       color: var(--light-color-text-basic);
@@ -195,6 +201,10 @@
         flex: none;
         @include size-medium {
         }
+      }
+
+      @include size-medium {
+        flex-direction: column;
       }
     }
   }
@@ -324,7 +334,9 @@
         margin-left: auto;
         width: auto;
         &.right {
+          display: flex;
           width: 100%;
+          flex-wrap: wrap;
         }
         .krds-btn {
           min-width: inherit;

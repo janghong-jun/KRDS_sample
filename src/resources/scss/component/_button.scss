@@ -19,7 +19,7 @@
     ),
     small: (
       size-height: var(--size-height-6),
-      padding-x: var(--padding-5),
+      padding-x: var(--padding-6),
       padding-y: 0,
       gap: var(--gap-1),
       radius: var(--radius-medium2),
@@ -126,6 +126,16 @@
       border-disabled: var(--#{$mode}-color-button-disabled-border),
       text: var(--#{$mode}-color-text-basic),
       text-disabled: var(--#{$mode}-color-text-disabled-on),
+    ),
+    neutral: (
+      fill: var(--light-color-button-neutral-fill),
+      fill-hover: var(--light-color-button-neutral-fill-hover),
+      fill-pressed: var(--light-color-button-neutral-fill-pressed),
+      fill-disabled: var(--light-color-button-disabled-fill),
+      border: var(--light-color-button-neutral-border),
+      border-disabled: var(--light-color-button-disabled-border),
+      text: var(--light-color-text-inverse-static),
+      text-disabled: var(--light-color-text-disabled-on),
     ),
     text: (
       fill: var(--#{$mode}-color-button-text-fill),

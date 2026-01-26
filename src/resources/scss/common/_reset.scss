@@ -307,6 +307,10 @@ caption {
   &.pure {
     @include svg-icon($effect: pure);
   }
+  &.small {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
 }
 
 .inner {

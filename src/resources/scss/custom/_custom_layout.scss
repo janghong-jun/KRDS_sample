@@ -223,6 +223,11 @@ $mode-setting: light;
         gap: var(--gap-6);
         align-items: center;
         flex: none;
+        flex-wrap: wrap;
+
+        @include size-medium {
+          flex-direction: column;
+        }
       }
     }
     .krds-check-area {
@@ -239,6 +244,7 @@ $mode-setting: light;
       color: var(--light-color-text-basic);
       gap: var(--gap-3);
       align-items: center;
+      flex-wrap: wrap;
 
       span {
         font-size: var(--pc-font-size-body-large);
@@ -249,6 +255,50 @@ $mode-setting: light;
       }
       @include size-medium {
         font-size: var(--mobile-font-size-heading-medium);
+      }
+    }
+  }
+}
+
+.modal-dialog {
+  .modal-conts {
+    .modal-sub-title {
+      display: flex;
+      margin-top: var(--padding-7);
+      margin-bottom: var(--padding-5);
+      font-size: var(--pc-font-size-heading-small);
+      font-weight: var(--font-weight-bold);
+      color: var(--light-color-text-subtle);
+      align-items: center;
+      justify-content: space-between;
+      .required {
+        margin-right: auto;
+        height: 2.3rem;
+        &::before {
+          top: -0.8rem;
+          font-size: var(--pc-font-size-heading-xsmall);
+          font-weight: var(--font-weight-bold);
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  &.modal-md {
+    .modal-conts {
+      .modal-sub-title {
+        margin-top: var(--padding-8);
+      }
+      .expert-register .expert-info dl div {
+        grid-template-columns: 8rem auto;
+      }
+
+      .krds-table-wrap.row {
+        .krds-check-area {
+          gap: var(--padding-6);
+        }
       }
     }
   }

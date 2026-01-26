@@ -31,6 +31,9 @@
   &.ico-call {
     @include icon-set(ico_call);
   }
+  &.ico-call2 {
+    @include icon-set(ico_call2, pure);
+  }
   &.ico-faq {
     @include icon-set(ico_faq);
   }
@@ -55,6 +58,12 @@
   }
   &.ico-filter {
     @include icon-set(ico_filter);
+  }
+  &.ico-school {
+    @include icon-set(ico_school, pure);
+  }
+  &.ico-subject {
+    @include icon-set(ico_subject, pure);
   }
 
   &.ico-reset {
@@ -85,6 +94,9 @@
     & {
       gap: var(--gap-3);
     }
+  }
+  &.ico-email2 {
+    @include icon-set(ico_email2, pure);
   }
   &.ico-print {
     @include icon-set(ico_print);
@@ -227,9 +239,15 @@
   &.ico-instagram {
     @include icon-set(ico_instagram);
   }
+  &.ico-instagram2 {
+    @include icon-set(ico_instagram2, pure);
+  }
 
   &.ico-sns-x {
     @include icon-set(ico_sns_x);
+  }
+  &.ico-sns-x2 {
+    @include icon-set(ico_sns_x2, pure);
   }
 
   &.ico-youtube {
