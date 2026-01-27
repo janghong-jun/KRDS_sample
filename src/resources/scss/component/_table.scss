@@ -191,7 +191,6 @@ $mode-setting: light;
     overflow-x: auto;
     width: calc(100vw - (var(--contents-padding-x) * 2));
     @include scrollbar();
-
     .tbl {
       min-width: max-content;
     }
@@ -220,6 +219,12 @@ $mode-setting: light;
     &.center {
       + .krds-btns-wrap.center {
         margin-top: 0;
+      }
+    }
+
+    @include size-small {
+      &.write {
+        border-bottom: none;
       }
     }
   }

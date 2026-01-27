@@ -130,6 +130,10 @@
   gap: var(--gap-4);
   .krds-btn {
     min-width: 12rem;
+    @include size-medium {
+      min-width: calc(50% - var(--gap-4));
+      padding: 0;
+    }
   }
 }
 
@@ -204,7 +208,7 @@
       }
 
       @include size-medium {
-        flex-direction: column;
+        // flex-direction: column;
       }
     }
   }
@@ -217,6 +221,10 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--gap-7);
+    @include size-small {
+      flex-direction: column;
+      gap: var(--gap-4);
+    }
   }
 
   &-info {

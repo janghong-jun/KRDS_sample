@@ -194,7 +194,6 @@ $mode-setting: light;
 @media (max-width: 375px) {
   .krds-pagination {
     .page-links {
-      display: none;
       .page-link {
         &:nth-child(4),
         &:nth-child(5),

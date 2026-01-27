@@ -308,6 +308,9 @@ $mode-setting: light;
               text-align: left;
               color: var(--color-light-gray-90);
               gap: var(--gap-3);
+              @include size-small {
+                padding: 6rem 0 0 0;
+              }
               .date {
                 display: flex;
                 font-size: var(--pc-font-size-body-small);
@@ -317,6 +320,11 @@ $mode-setting: light;
                 }
                 span {
                   width: max-content;
+                  @include size-small {
+                    width: auto;
+                    max-width: 100%;
+                    @include ellipsis(1);
+                  }
                 }
               }
               .title {
@@ -757,7 +765,10 @@ $mode-setting: light;
 .question-select {
   margin-top: var(--gap-6);
   .krds-check-area {
-    gap: var(--gap-9);
+    gap: var(--padding-4) var(--gap-9);
+    @include size-small {
+      flex-direction: column;
+    }
   }
 }
 .none-question {
@@ -1125,6 +1136,10 @@ $mode-setting: light;
         grid-template-columns: 6.8rem auto;
         gap: var(--padding-2) var(--padding-7);
 
+        @include size-small {
+          grid-template-columns: 1fr;
+        }
+
         dt {
           font-size: var(--pc-font-size-body-small);
           color: var(--light-color-text-subtle);
@@ -1157,6 +1172,18 @@ $mode-setting: light;
               display: flex;
               gap: var(--padding-2);
               align-items: center;
+              @include size-small {
+                align-items: flex-start;
+              }
+              a,
+              span {
+                word-break: break-word;
+              }
+
+              i.svg-icon {
+                flex: none;
+              }
+
               &:first-child {
                 width: 100%;
                 flex: none;
@@ -1187,6 +1214,10 @@ $mode-setting: light;
 
         & + div {
           margin-top: var(--padding-3);
+
+          @include size-small {
+            margin-top: var(--padding-5);
+          }
         }
       }
     }
@@ -1236,6 +1267,9 @@ $mode-setting: light;
           width: 100%;
           max-width: 100%;
         }
+        @include size-small {
+          flex-direction: column;
+        }
 
         & + div {
           width: calc(50% - 2.2rem);
@@ -1260,6 +1294,9 @@ $mode-setting: light;
               display: none;
             }
           }
+          @include size-small {
+            flex: none;
+          }
         }
 
         &:nth-of-type(3) {
@@ -1273,6 +1310,14 @@ $mode-setting: light;
           }
           &::after {
             display: none;
+          }
+          @include size-small {
+            width: auto;
+            margin-left: 0;
+            flex: 1;
+            button {
+              width: 100%;
+            }
           }
         }
       }

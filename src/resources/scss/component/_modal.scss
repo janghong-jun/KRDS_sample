@@ -212,6 +212,9 @@ $mode-setting: light;
         var(--modal--padding);
       .krds-btn {
         min-width: var(--modal--btn-size-min-wdith);
+        @include size-small {
+          min-width: calc(50% - (var(--modal--btn-gap) / 2));
+        }
       }
       &.multi-conts {
         justify-content: space-between;
@@ -240,6 +243,24 @@ $mode-setting: light;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  //dim-backgorund
+  .calendar-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: -1;
+    background-color: var(--modal--color-dim);
+    opacity: 0.5;
+  }
+  [data-keyboard-bound='true'] {
+    .calendar-backdrop {
+      display: block;
+      visibility: visible;
+    }
   }
   .krds-tab-area {
     gap: var(--padding-8);

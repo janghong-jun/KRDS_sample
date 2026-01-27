@@ -77,6 +77,7 @@ $mode-setting: light;
     }
     .header-branding {
       @include flex-layout($ai: center);
+      flex-wrap: wrap;
     }
     .logo {
       display: inline-flex;
@@ -107,7 +108,7 @@ $mode-setting: light;
         $ai: center
       );
       gap: var(--header--navi-gap);
-      min-height: var(--header--navi-min-height);
+      // min-height: var(--header--navi-min-height);
       padding: var(--header--navi-padding);
       border-radius: var(--header--navi-border-radius);
       font-size: var(--header--navi-font-size-pc);

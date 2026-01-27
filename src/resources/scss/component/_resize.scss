@@ -111,3 +111,9 @@ $mode-setting: light;
     }
   }
 }
+
+@include size-small {
+  html {
+    font-size: 8px;
+  }
+}

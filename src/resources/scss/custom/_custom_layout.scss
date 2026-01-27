@@ -55,7 +55,7 @@ $mode-setting: light;
     }
     .contents {
       flex: 1;
-      padding-bottom: var(--gap-12);
+      // padding-bottom: var(--gap-12);
       .breadcrumb-wrap {
         padding-top: var(--pc-gap-layout-header-breadcrumb);
         padding-bottom: var(--pc-gap-layout-breadcrumb-h2);
@@ -215,18 +215,19 @@ $mode-setting: light;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--padding-3) var(--padding-6);
+    gap: var(--padding-6);
 
     > div {
       &:first-child {
         display: flex;
-        gap: var(--gap-6);
+        gap: var(--gap-3) var(--gap-6);
         align-items: center;
         flex: none;
         flex-wrap: wrap;
 
-        @include size-medium {
+        @include size-small {
           flex-direction: column;
+          align-items: flex-start;
         }
       }
     }
@@ -293,6 +294,9 @@ $mode-setting: light;
       }
       .expert-register .expert-info dl div {
         grid-template-columns: 8rem auto;
+        @include size-small {
+          grid-template-columns: 1fr;
+        }
       }
 
       .krds-table-wrap.row {
@@ -324,7 +328,7 @@ $mode-setting: light;
   /* container */
   #container {
     > .inner {
-      min-height: 50rem;
+      // min-height: 50rem;
     }
     .in-between {
       .contents {

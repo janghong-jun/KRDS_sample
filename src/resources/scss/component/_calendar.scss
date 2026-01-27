@@ -85,7 +85,6 @@ $mode-setting: light;
 .krds-calendar-area {
   @include calendar-size-variable();
   @include calendar-color-variable(#{$mode-setting});
-
   position: relative;
   z-index: 1000;
   width: 100%;
@@ -487,9 +486,6 @@ $mode-setting: light;
         }
       }
     }
-  }
-  &.active {
-    display: block;
   }
 }
 

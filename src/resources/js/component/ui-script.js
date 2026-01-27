@@ -2041,6 +2041,7 @@ const krds_calendar = {
 <div class="calendar-wrap ${
       this.calendarType
     }" role="application" aria-label="날짜 선택 캘린더" tabindex="0">
+    
   <div class="calendar-head">
     <button type="button" class="btn-cal-move prev" aria-label="이전 달로 이동">
       <span class="sr-only">이전 달</span>
@@ -2097,7 +2098,8 @@ const krds_calendar = {
       <button type="button" class="krds-btn small primary" aria-label="선택한 날짜 확인">확인</button>
     </div>
   </div>
-</div>`;
+</div>
+<div class="calendar-backdrop"></div>`;
   },
 
   activateFocusTrap(area) {
