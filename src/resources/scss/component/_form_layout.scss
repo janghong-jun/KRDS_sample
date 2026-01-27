@@ -232,6 +232,9 @@ $mode-setting: light;
         }
       }
     }
+    &.small {
+      gap: var(--gap-2);
+    }
   }
 }
 .row {

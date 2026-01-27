@@ -81,9 +81,9 @@ $mode-setting: light;
     }
     .logo {
       display: inline-flex;
-      @include square(13.7rem, var(--size-height-7));
+      @include square(18.2rem, 4.2rem);
       @include size-medium {
-        @include square(9.4rem, 4rem);
+        @include square(11rem, 4.2rem);
       }
       flex: none;
       a {
@@ -109,7 +109,7 @@ $mode-setting: light;
       );
       gap: var(--header--navi-gap);
       // min-height: var(--header--navi-min-height);
-      padding: var(--header--navi-padding);
+      // padding: var(--header--navi-padding);
       border-radius: var(--header--navi-border-radius);
       font-size: var(--header--navi-font-size-pc);
       font-weight: var(--font-weight-bold);
@@ -227,7 +227,7 @@ $mode-setting: light;
     .header-container {
       .btn-navi {
         &.all {
-          display: none;
+          // display: none;
         }
       }
     }
@@ -251,11 +251,8 @@ $mode-setting: light;
       #krds-header .gnb-toggle-wrap,
       #container,
       #krds-footer {
-        padding-right: 1.7rem;
       }
       #krds-footer .foot-quick {
-        padding-right: 1.7rem;
-        margin-right: -1.7rem;
       }
     }
   }
@@ -265,8 +262,8 @@ $mode-setting: light;
 @include size-large-less {
   #krds-header {
     .inner {
-      padding-top: var(--gap-3);
-      padding-bottom: var(--gap-3);
+      padding-top: var(--gap-5);
+      padding-bottom: var(--gap-5);
       border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid
         var(--#{$mode-setting}-color-divider-gray-light);
     }
@@ -296,7 +293,6 @@ $mode-setting: light;
   #krds-header {
     .header-container {
       .header-actions {
-        gap: 0;
       }
       .btn-navi {
         font-size: var(--header--navi-font-size-mobile);

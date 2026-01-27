@@ -97,14 +97,14 @@ $mode-setting: light;
   }
 
   .f-logo {
-    @include square(20rem, var(--size-height-7));
+    @include square(19.7rem, 5rem);
     background-image: url(#{$url}/img/component/icon/ico_logo_hico.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     flex: none;
     @include size-medium {
-      @include square(9.9rem, 4rem);
+      @include square(11rem, 2.6rem);
     }
   }
 
