@@ -226,6 +226,13 @@ $mode-setting: light;
       margin-top: var(--gap-7);
     }
   }
+
+  &.full {
+    width: 100%;
+    & + .krds-pagination {
+      margin-top: var(--number-10);
+    }
+  }
 }
 
 @include size-medium {

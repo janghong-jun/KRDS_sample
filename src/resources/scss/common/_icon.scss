@@ -232,8 +232,19 @@
     @include icon-set(ico_blog);
   }
 
+  &.ico-thread {
+    @include icon-set(ico_thread, pure);
+  }
+
+  &.ico-kakao {
+    @include icon-set(ico_kakao, pure);
+  }
+
   &.ico-facebook {
     @include icon-set(ico_facebook);
+  }
+  &.ico-facebook2 {
+    @include icon-set(ico_facebook2, pure);
   }
 
   &.ico-instagram {

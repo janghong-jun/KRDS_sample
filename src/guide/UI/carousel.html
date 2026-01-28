@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>Hi-Coaching</title>
@@ -131,7 +131,7 @@
 
         <script>
           const vbContainer = document.querySelector(
-            '.vb-swiper .vb-container'
+            '.vb-swiper .vb-container',
           );
           const vbSwiper = new Swiper(vbContainer, {
             slidesPerView: 1,
@@ -263,7 +263,7 @@
 
         <script>
           const detailContainer = document.querySelector(
-            '.main-d-ban-swiper .detail-container'
+            '.main-d-ban-swiper .detail-container',
           );
           const eleBanSwiper = new Swiper(detailContainer, {
             slidesPerView: 1,
@@ -326,10 +326,10 @@
 
           // 재생/정지 버튼
           const $play = document.querySelector(
-            '.main-d-ban-swiper .swiper-button-play'
+            '.main-d-ban-swiper .swiper-button-play',
           );
           const $stop = document.querySelector(
-            '.main-d-ban-swiper .swiper-button-stop'
+            '.main-d-ban-swiper .swiper-button-stop',
           );
           $play.style.display = 'none';
           $play.addEventListener('click', () => {

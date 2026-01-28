@@ -204,13 +204,13 @@ $mode-setting: light;
         @include pseudo();
         width: 0;
         height: 0.4rem;
-        background-color: var(--#{$mode-setting}-color-border-primary);
+        background-color: var(--#{$mode-setting}-color-border-secondary);
         transition: var(--transition-base);
       }
     }
     .active {
       .btn-tab {
-        color: var(--#{$mode-setting}-color-border-primary);
+        color: var(--#{$mode-setting}-color-border-secondary);
         &::before {
           @include position($l: 0);
           width: 100%;
@@ -285,6 +285,11 @@ $mode-setting: light;
                 padding: 0 var(--padding-4);
               }
             }
+          }
+        }
+        &[data-col='5'] {
+          > ul {
+            grid-template-columns: repeat(5, 1fr);
           }
         }
       }
