@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../../components/_skip.html" -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <main id="container">
+        <div class="inner in-between">
+          <!-- 하이코칭 메뉴 -->
+          <nav class="krds-side-navigation" id="lnb">
+            <h2 class="lnb-tit">하이코칭</h2>
+            <!-- lnb-list -->
+            <ul class="lnb-list">
+              <li class="lnb-item">
+                <a href="#" class="lnb-btn">하이코칭안내</a>
+              </li>
+              <li class="lnb-item">
+                <a href="#" class="lnb-btn">공지사항</a>
+              </li>
+              <li class="lnb-item">
+                <a href="#" class="lnb-btn">FAQ</a>
+              </li>
+              <li class="lnb-item">
+                <a href="#" class="lnb-btn selected">Q&amp;A</a>
+              </li>
+            </ul>
+            <!-- //lnb-list -->
+          </nav>
+          <!-- //하이코칭 메뉴 -->
+
+          <div class="contents" id="contents">
+            <!-- Page Title -->
+            <div class="page-title-wrap">
+              <h3 class="h-tit">Q&amp;A</h3>
+            </div>
+            <div class="g-search-area">
+              <!-- 검색 입력폼 -->
+              <div class="search-top-box">
+                <div class="form-group">
+                  <div class="sch-form-wrap">
+                    <div class="form-conts">
+                      <select
+                        class="krds-form-select small completed"
+                        title="선택"
+                      >
+                        <option value="">전체</option>
+                        <option value="">제목</option>
+                        <option value="">작성자</option>
+                      </select>
+                    </div>
+                    <div class="sch-input">
+                      <input
+                        type="text"
+                        id="keyword_search"
+                        class="krds-input small"
+                        placeholder="검색어를 입력해주세요"
+                        aria-label="검색어 입력"
+                      />
+                      <span
+                        type="button"
+                        class="krds-btn xsmall icon ico-search btn-exec"
+                      >
+                        <i class="svg-icon ico-sch"></i>
+                      </span>
+                    </div>
+                    <button type="button" class="krds-btn small neutral">
+                      검색
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- //검색 입력폼 -->
+            </div>
+            <div class="krds-table-wrap center">
+              <div class="krds-table-info">
+                <p class="count">총<span>183</span>건</p>
+                <p class="count">페이지<span>1/19</span></p>
+              </div>
+              <table class="tbl">
+                <caption>
+                  Q&amp;A에 대한 표로 글번호, 구분, 제목, 작성자, 작성일,
+                  답변상태로 구성되어있다.
+                </caption>
+                <colgroup>
+                  <col style="width: 8rem" />
+                  <col style="width: 10rem" />
+                  <col />
+                  <col style="width: 13rem" />
+                  <col style="width: 13rem" />
+                  <col style="width: 11rem" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">구분</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">작성일</th>
+                    <th scope="col">답변상태</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>183</td>
+                    <td>역량진단</td>
+                    <td class="al">
+                      <a href="#">역량 진단 재응답 관련 문의</a>
+                    </td>
+                    <td>홍길동</td>
+                    <td>2025-12-08</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>182</td>
+                    <td>학습모듈</td>
+                    <td class="al">
+                      <a href="#">추천 모듈이 표시되지 않아요</a>
+                    </td>
+                    <td>김철수</td>
+                    <td>2025-12-07</td>
+                    <td>
+                      <span class="krds-badge bg-light-gray">답변대기</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>181</td>
+                    <td>콘텐츠</td>
+                    <td class="al"><a href="#">콘텐츠 업로드 오류</a></td>
+                    <td>이영희</td>
+                    <td>2025-12-06</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>180</td>
+                    <td>시스템</td>
+                    <td class="al"><a href="#">로그인이 안 됩니다</a></td>
+                    <td>박민수</td>
+                    <td>2025-12-05</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>전문가</td>
+                    <td class="al"><a href="#">전문가 매칭 취소 방법</a></td>
+                    <td>최지은</td>
+                    <td>2025-12-04</td>
+                    <td><span krds-badge bg-light-gray>답변대기</span></td>
+                  </tr>
+                  <tr>
+                    <td>178</td>
+                    <td>학습모듈</td>
+                    <td class="al">
+                      <a href="#">학습모듈 이수 확인서 발급</a>
+                    </td>
+                    <td>정수민</td>
+                    <td>2025-12-03</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>177</td>
+                    <td>역량진단</td>
+                    <td class="al"><a href="#">진단 결과 해석 문의</a></td>
+                    <td>강동훈</td>
+                    <td>2025-12-02</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>176</td>
+                    <td>콘텐츠</td>
+                    <td class="al"><a href="#">콘텐츠 승인 소요 기간 </a></td>
+                    <td>윤서연</td>
+                    <td>2025-12-01</td>
+                    <td><span krds-badge bg-light-gray>답변대기</span></td>
+                  </tr>
+                  <tr>
+                    <td>175</td>
+                    <td>시스템</td>
+                    <td class="al"><a href="#">비밀번호 변경 방법 </a></td>
+                    <td>조현우</td>
+                    <td>2025-12-29</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>174</td>
+                    <td>기타</td>
+                    <td class="al">
+                      <a href="#">사용 매뉴얼 다운로드 문의</a>
+                    </td>
+                    <td>신예린</td>
+                    <td>2025-11-28</td>
+                    <td>
+                      <span class="krds-badge bg-light-success">답변완료</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="krds-pagination">
+              <a
+                class="page-navi prev disabled"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                이전
+              </a>
+              <div class="page-links">
+                <a class="page-link active" href="#"
+                  ><span class="sr-only">현재페이지 </span>1</a
+                >
+                <a class="page-link" href="#">2</a>
+                <a class="page-link" href="#">3</a>
+                <a class="page-link" href="#">4</a>
+                <a class="page-link" href="#">5</a>
+                <a class="page-link" href="#">6</a>
+                <a class="page-link" href="#">7</a>
+                <a class="page-link" href="#">8</a>
+                <span class="page-link link-dot"></span>
+                <a class="page-link" href="#">99</a>
+              </div>
+              <a class="page-navi next" href="#">다음</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

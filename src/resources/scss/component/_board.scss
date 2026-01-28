@@ -11,6 +11,10 @@
   .krds-btns-wrap {
     margin-top: calc(-1 * var(--gap-9));
     padding-top: var(--gap-8);
+
+    .krds-btn {
+      min-width: 20rem;
+    }
   }
 }
 
@@ -21,6 +25,13 @@
   border-top: 0.2rem solid var(--color-light-gray-100);
   color: var(--light-color-text-bolder);
 }
+
+.board-title-wrap {
+  display: flex;
+  gap: var(--gap-4);
+  align-items: center;
+}
+
 .board-title {
   display: flex;
   gap: var(--gap-4);
@@ -41,6 +52,9 @@
   .board-utill {
     display: flex;
     gap: var(--gap-4);
+  }
+  .board-info {
+    margin-top: 0;
   }
 }
 
@@ -71,11 +85,15 @@
       background-color: var(--light-color-divider-gray);
       transform: translateY(-50%);
     }
-
+    &.no-bar,
     &:last-child {
       &::before {
         display: none;
       }
+    }
+    &.krds-badge {
+      width: 7rem;
+      margin-left: calc(-1 * (var(--gap-5) * 2) + var(--gap-4));
     }
   }
 }
@@ -349,6 +367,7 @@
         .krds-btn {
           min-width: inherit;
           gap: 0.4rem;
+          width: auto !important;
         }
       }
     }
@@ -365,17 +384,19 @@
         margin-top: calc(-1 * var(--gap-5));
         .krds-btn {
           min-width: inherit;
+          width: auto !important;
         }
       }
     }
     & + .krds-btns-wrap {
       margin-top: var(--gap-8);
       .krds-btn {
-        width: 16.8rem;
+        width: 20rem;
       }
     }
   }
 }
+
 .post-navigation {
   &-list {
     margin: 0;
@@ -411,5 +432,35 @@
   }
 }
 
+.board-answer {
+  margin-top: calc(-1 * var(--gap-5));
+  padding: var(--padding-9);
+  background: var(--light-color-background-gray-subtler);
+  .board-answer-top {
+    display: flex;
+    gap: var(--gap-4);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .title {
+      font-size: var(--pc-font-size-heading-medium);
+      font-weight: var(--font-weight-bold);
+
+      @include ellipsis(1);
+      @include size-medium {
+        font-size: var(--mobile-font-size-heading-medium);
+      }
+    }
+    .board-info {
+      margin-top: 0;
+    }
+  }
+  .board-answer-body {
+    margin-top: var(--gap-7);
+    font-size: var(--pc-font-size-body-medium);
+    color: var(--light-color-text-bolder);
+  }
+}
 @include size-medium {
 }

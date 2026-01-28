@@ -6740,7 +6740,8 @@
       const elHtml = document.querySelector('html');
       const elModals = document.querySelectorAll('.ui-modal');
 
-      document.querySelector('html').classList.remove('is-modal');
+      elHtml.classList.remove('is-modal');
+      elBody.classList.remove('scroll-no');
       elModal.classList.add('close');
       elModal.classList.remove('open');
       elModal.classList.remove('fix-header');
@@ -6773,6 +6774,7 @@
         //단일
         if (!len) {
           elHtml.classList.remove('is-modal');
+          elBody.classList.remove('scroll-no');
         }
       }
 

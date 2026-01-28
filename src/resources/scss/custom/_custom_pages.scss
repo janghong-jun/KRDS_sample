@@ -6,7 +6,7 @@
 
 $mode-setting: light;
 .g-search-area {
-  margin-bottom: var(--gap-9);
+  margin-bottom: var(--number-18);
   padding: 2.4rem;
   border-radius: var(--radius-xlarge1);
   border: 0.1rem solid #e4e5e7;
@@ -157,12 +157,6 @@ $mode-setting: light;
             width: 100%;
           }
         }
-      }
-    }
-    & + .krds-table-wrap {
-      margin-top: var(--number-18);
-      @include size-medium {
-        margin-top: var(--number-10);
       }
     }
   }
@@ -555,7 +549,8 @@ $mode-setting: light;
       }
       &:last-child {
         .krds-btn {
-          display: block;
+          display: inline-flex;
+          align-items: center;
         }
       }
     }
@@ -701,7 +696,7 @@ $mode-setting: light;
         .info-detail {
           display: flex;
           margin-top: var(--gap-2);
-          gap: 0 var(--gap-5);
+          gap: var(--gap-2) var(--gap-5);
           flex-wrap: wrap;
           span {
             position: relative;
@@ -742,6 +737,10 @@ $mode-setting: light;
       gap: var(--gap-4);
       flex: none;
       flex-wrap: wrap;
+      @include size-small {
+        width: 100%;
+        justify-content: flex-start;
+      }
       .count {
         display: inline-flex;
         align-items: center;
@@ -765,6 +764,12 @@ $mode-setting: light;
         gap: var(--gap-4);
         .krds-btn {
           width: 11rem;
+        }
+        @include size-small {
+          width: 100%;
+          .krds-btn {
+            flex: 1;
+          }
         }
       }
     }

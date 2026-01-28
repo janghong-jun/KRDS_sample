@@ -350,6 +350,10 @@
     @include icon-set(ico_pdf, pure);
     background-color: var(--color-light-gray-80);
   }
+  &.ico-img {
+    @include icon-set(ico_img, pure);
+    background-color: var(--color-light-gray-80);
+  }
   &.ico-save {
     @include icon-set(ico_save);
     background-color: var(--color-light-gray-80);

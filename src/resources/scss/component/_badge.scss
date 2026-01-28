@@ -159,6 +159,15 @@ $mode-setting: light;
     @include size-medium {
       font-size: var(--badge--mobile-font-size);
     }
+    &.bold {
+      min-width: 3.2rem;
+      padding: 0 var(--padding-2);
+      font-size: var(--pc-font-size-body-large);
+      font-weight: var(--font-weight-bold);
+      @include size-medium {
+        font-size: var(--mobile-font-size-body-large);
+      }
+    }
   }
   &.number {
     height: var(--badge--number-size-height);

@@ -593,8 +593,8 @@ $mode-setting: light;
   &.etc {
     display: flex;
     height: 3.6rem;
-    min-width: 6.4rem;
-    padding: 0 var(--gap-7) 0 var(--gap-5);
+    min-width: 6.4rem !important;
+    padding: 0 var(--gap-5) 0 var(--gap-7);
     font-size: var(--pc-font-size-body-small);
     font-weight: var(--font-weight-bold);
     line-height: 3.6rem;
@@ -609,6 +609,10 @@ $mode-setting: light;
     .svg-icon {
       width: 1.6rem;
       height: 1.6rem;
+    }
+
+    &.icon-front {
+      padding: 0 var(--gap-7) 0 var(--gap-5);
     }
   }
 
@@ -749,7 +753,10 @@ label.krds-btn {
     justify-content: center;
 
     .krds-btn {
-      min-width: 12.5rem;
+      min-width: 20rem;
+      @include size-medium {
+        width: 100% !important;
+      }
     }
   }
 
@@ -757,7 +764,16 @@ label.krds-btn {
     justify-content: flex-end;
 
     .krds-btn {
-      min-width: 12rem;
+      min-width: 20rem;
+      @include size-medium {
+        width: 100% !important;
+      }
+
+      &.etc {
+        @include size-medium {
+          width: auto !important;
+        }
+      }
     }
   }
 

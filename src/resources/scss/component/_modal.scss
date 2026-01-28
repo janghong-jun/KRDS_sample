@@ -190,8 +190,8 @@ $mode-setting: light;
       position: relative;
       overflow-y: auto;
       width: 100%;
-      padding: var(--modal--conts-padding-top) var(--modal--padding)
-        var(--modal--conts-padding-bottom);
+      margin-top: var(--modal--conts-padding-top);
+      padding: 0 var(--modal--padding) var(--modal--conts-padding-bottom);
       @include scrollbar();
       > * {
         width: 100%;
@@ -201,6 +201,13 @@ $mode-setting: light;
         gap: var(--modal--conts-gap);
         > * {
           width: 100%;
+        }
+        .tab.full {
+          position: sticky;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background-color: var(--modal--wrap-color-surface);
         }
       }
     }

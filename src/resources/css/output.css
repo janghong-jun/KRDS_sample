@@ -2052,6 +2052,25 @@
   mask: none;
   background-color: var(--color-light-gray-80);
 }
+.svg-icon.ico-img {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(../img/component/icon/ico_img.svg);
+  mask-image: url(../img/component/icon/ico_img.svg);
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-image: url(../img/component/icon/ico_img.svg);
+  background-color: transparent !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-mask: none;
+  mask: none;
+  background-color: var(--color-light-gray-80);
+}
 .svg-icon.ico-save {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -3571,8 +3590,8 @@ caption {
 .krds-btn.etc {
   display: flex;
   height: 3.6rem;
-  min-width: 6.4rem;
-  padding: 0 var(--gap-7) 0 var(--gap-5);
+  min-width: 6.4rem !important;
+  padding: 0 var(--gap-5) 0 var(--gap-7);
   font-size: var(--pc-font-size-body-small);
   font-weight: var(--font-weight-bold);
   line-height: 3.6rem;
@@ -3587,6 +3606,9 @@ caption {
 .krds-btn.etc .svg-icon {
   width: 1.6rem;
   height: 1.6rem;
+}
+.krds-btn.etc.icon-front {
+  padding: 0 var(--gap-7) 0 var(--gap-5);
 }
 .krds-btn.more {
   width: 100%;
@@ -4240,13 +4262,28 @@ label.krds-btn {
   justify-content: center;
 }
 .krds-btns-wrap.center .krds-btn {
-  min-width: 12.5rem;
+  min-width: 20rem;
+}
+@media (max-width: 767px) {
+  .krds-btns-wrap.center .krds-btn {
+    width: 100% !important;
+  }
 }
 .krds-btns-wrap.right {
   justify-content: flex-end;
 }
 .krds-btns-wrap.right .krds-btn {
-  min-width: 12rem;
+  min-width: 20rem;
+}
+@media (max-width: 767px) {
+  .krds-btns-wrap.right .krds-btn {
+    width: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  .krds-btns-wrap.right .krds-btn.etc {
+    width: auto !important;
+  }
 }
 .krds-btns-wrap.between {
   justify-content: space-between;
@@ -5163,7 +5200,8 @@ label.krds-btn {
   position: relative;
   overflow-y: auto;
   width: 100%;
-  padding: var(--modal--conts-padding-top) var(--modal--padding) var(--modal--conts-padding-bottom);
+  margin-top: var(--modal--conts-padding-top);
+  padding: 0 var(--modal--padding) var(--modal--conts-padding-bottom);
 }
 .krds-modal .modal-dialog .modal-conts::-webkit-scrollbar {
   width: 0.8rem;
@@ -5188,6 +5226,13 @@ label.krds-btn {
 }
 .krds-modal .modal-dialog .modal-conts .conts-area > * {
   width: 100%;
+}
+.krds-modal .modal-dialog .modal-conts .conts-area .tab.full {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--modal--wrap-color-surface);
 }
 .krds-modal .modal-dialog .modal-btn {
   display: flex;
@@ -12473,6 +12518,17 @@ label.krds-btn {
     font-size: var(--badge--mobile-font-size);
   }
 }
+.krds-badge.large.bold {
+  min-width: 3.2rem;
+  padding: 0 var(--padding-2);
+  font-size: var(--pc-font-size-body-large);
+  font-weight: var(--font-weight-bold);
+}
+@media (max-width: 767px) {
+  .krds-badge.large.bold {
+    font-size: var(--mobile-font-size-body-large);
+  }
+}
 .krds-badge.number {
   height: var(--badge--number-size-height);
   border-radius: var(--badge--radius-max);
@@ -16825,6 +16881,9 @@ label {
   margin-top: calc(-1 * var(--gap-9));
   padding-top: var(--gap-8);
 }
+.board-wrap .krds-btns-wrap .krds-btn {
+  min-width: 20rem;
+}
 
 .board-detail {
   display: flex;
@@ -16832,6 +16891,12 @@ label {
   flex-direction: column;
   border-top: 0.2rem solid var(--color-light-gray-100);
   color: var(--light-color-text-bolder);
+}
+
+.board-title-wrap {
+  display: flex;
+  gap: var(--gap-4);
+  align-items: center;
 }
 
 .board-title {
@@ -16859,6 +16924,9 @@ label {
 .board-title .board-utill {
   display: flex;
   gap: var(--gap-4);
+}
+.board-title .board-info {
+  margin-top: 0;
 }
 
 .board-info {
@@ -16892,8 +16960,12 @@ label {
   background-color: var(--light-color-divider-gray);
   transform: translateY(-50%);
 }
-.board-info span:last-child::before {
+.board-info span.no-bar::before, .board-info span:last-child::before {
   display: none;
+}
+.board-info span.krds-badge {
+  width: 7rem;
+  margin-left: calc(-1 * var(--gap-5) * 2 + var(--gap-4));
 }
 
 .board-detail-body {
@@ -17151,6 +17223,7 @@ label {
 .comment-write .comment-utill .krds-btns-wrap .krds-btn {
   min-width: inherit;
   gap: 0.4rem;
+  width: auto !important;
 }
 .comment.type02 .comment-top {
   justify-content: flex-start;
@@ -17162,12 +17235,13 @@ label {
 }
 .comment.type02 .comment-list .krds-btns-wrap .krds-btn {
   min-width: inherit;
+  width: auto !important;
 }
 .comment.type02 + .krds-btns-wrap {
   margin-top: var(--gap-8);
 }
 .comment.type02 + .krds-btns-wrap .krds-btn {
-  width: 16.8rem;
+  width: 20rem;
 }
 
 .post-navigation-list {
@@ -17203,6 +17277,42 @@ label {
 }
 .post-navigation-link:hover {
   text-decoration: underline;
+}
+
+.board-answer {
+  margin-top: calc(-1 * var(--gap-5));
+  padding: var(--padding-9);
+  background: var(--light-color-background-gray-subtler);
+}
+.board-answer .board-answer-top {
+  display: flex;
+  gap: var(--gap-4);
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.board-answer .board-answer-top .title {
+  font-size: var(--pc-font-size-heading-medium);
+  font-weight: var(--font-weight-bold);
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+@media (max-width: 767px) {
+  .board-answer .board-answer-top .title {
+    font-size: var(--mobile-font-size-heading-medium);
+  }
+}
+.board-answer .board-answer-top .board-info {
+  margin-top: 0;
+}
+.board-answer .board-answer-body {
+  margin-top: var(--gap-7);
+  font-size: var(--pc-font-size-body-medium);
+  color: var(--light-color-text-bolder);
 }
 
 .krds-label {
@@ -17464,9 +17574,6 @@ label {
 }
 #container .page-title-wrap.justify-between + .krds-tab-area {
   margin-top: var(--gap-9);
-}
-#container .page-title-wrap + .g-search-area {
-  margin-top: var(--number-12);
 }
 #container .page-title-wrap + .board-wrap {
   margin-top: var(--gap-7);
@@ -17755,6 +17862,10 @@ label {
   color: var(--color-light-success-40);
 }
 
+.krds-font-red {
+  color: var(--light-color-border-point);
+}
+
 /* ** align ** */
 .text-left {
   text-align: left !important;
@@ -17929,7 +18040,7 @@ td .info-wrap {
   }
 }
 .g-search-area {
-  margin-bottom: var(--gap-9);
+  margin-bottom: var(--number-18);
   padding: 2.4rem;
   border-radius: var(--radius-xlarge1);
   border: 0.1rem solid #e4e5e7;
@@ -18087,14 +18198,6 @@ td .info-wrap {
   .g-search-area.type03 .form-date-wrap .input-group.range.small .krds-btn,
   .g-search-area.type03 .form-date-wrap .krds-btns-wrap .krds-btn {
     width: 100%;
-  }
-}
-.g-search-area.type03 + .krds-table-wrap {
-  margin-top: var(--number-18);
-}
-@media (max-width: 767px) {
-  .g-search-area.type03 + .krds-table-wrap {
-    margin-top: var(--number-10);
   }
 }
 .g-search-area .bar {
@@ -18514,7 +18617,8 @@ td .info-wrap {
   display: none;
 }
 .vote-list ul li:last-child .krds-btn {
-  display: block;
+  display: inline-flex;
+  align-items: center;
 }
 .vote-list > .krds-btn {
   margin-left: calc(1.6rem + var(--padding-3));
@@ -18676,7 +18780,7 @@ td .info-wrap {
 .vote-card-list li .left .vote-card-info .info-detail {
   display: flex;
   margin-top: var(--gap-2);
-  gap: 0 var(--gap-5);
+  gap: var(--gap-2) var(--gap-5);
   flex-wrap: wrap;
 }
 .vote-card-list li .left .vote-card-info .info-detail span {
@@ -18716,6 +18820,12 @@ td .info-wrap {
   flex: none;
   flex-wrap: wrap;
 }
+@media (max-width: 375px) {
+  .vote-card-list li .right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
 .vote-card-list li .right .count {
   display: inline-flex;
   align-items: center;
@@ -18740,6 +18850,14 @@ td .info-wrap {
 }
 .vote-card-list li .right .krds-btns-wrap .krds-btn {
   width: 11rem;
+}
+@media (max-width: 375px) {
+  .vote-card-list li .right .krds-btns-wrap {
+    width: 100%;
+  }
+  .vote-card-list li .right .krds-btns-wrap .krds-btn {
+    flex: 1;
+  }
 }
 .vote-card-list li.end {
   background-color: #f8f8f8;
