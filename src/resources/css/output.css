@@ -16945,6 +16945,11 @@ label {
     font-size: 8px;
   }
 }
+@media (max-width: 320px) {
+  html {
+    font-size: 7px;
+  }
+}
 /* 언어 변경 */
 .krds-drop-wrap {
   --language--top-title-color: var(--light-color-text-secondary);
@@ -17591,6 +17596,7 @@ label {
 }
 @media (max-width: 767px) {
   #container .page-title-wrap {
+    margin-bottom: var(--gap-7);
     gap: var(--mobile-gap-layout-title-body-large);
   }
 }
@@ -17708,8 +17714,14 @@ label {
 }
 #container .page-contents-wrap {
   margin-top: var(--gap-7);
-  padding-top: var(--number-14);
+  padding-top: var(--gap-9);
   border-top: 0.2rem solid var(--color-light-alpha-black100);
+}
+@media (max-width: 767px) {
+  #container .page-contents-wrap {
+    margin-top: var(--gap-4);
+    padding-top: var(--gap-7);
+  }
 }
 #container .content-section + .content-section {
   margin-top: var(--number-20);
@@ -17720,6 +17732,9 @@ label {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--padding-6);
+}
+#container .section-title-wrap > div {
+  width: auto;
 }
 #container .section-title-wrap > div:first-child {
   display: flex;
@@ -19688,10 +19703,53 @@ td .info-wrap {
   border-top: 0.1rem solid var(--light-color-border-gray-light);
 }
 
-#radarChart svg g text:not([x])[text-anchor=start] {
-  zoom: 12;
+.skill-report {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-7);
 }
-#radarChart svg g text:not([x])[text-anchor=end] {
-  zoom: 12;
+.skill-report > div {
+  padding: var(--pc-padding-card-medium);
+  border-radius: var(--radius-xlarge1);
+  border: 0.1rem solid #e4e5e7;
+}
+@media (max-width: 767px) {
+  .skill-report > div {
+    padding: var(--mobile-padding-card-medium);
+  }
+}
+.skill-report > div .section-title-wrap {
+  padding-bottom: var(--gap-6);
+  border-bottom: 0.1rem solid var(--color-light-alpha-black100);
+}
+.skill-report .report-chart {
+  flex: 400 1 0;
+}
+@media (max-width: 1023px) {
+  .skill-report .report-chart {
+    flex: none;
+    width: 100%;
+  }
+}
+.skill-report .report-contents {
+  flex: 850 1 0;
+}
+@media (max-width: 1023px) {
+  .skill-report .report-contents {
+    flex: none;
+    width: 100%;
+  }
+}
+.skill-report .report-graph {
+  width: 100%;
+  flex: none;
+}
+
+.krds-chart {
+  padding: 7.1rem 0 1.3rem;
+}
+.krds-chart .chart.type01 {
+  width: 100%;
+  height: 34.2rem;
 }
 /*# sourceMappingURL=output.css.map */

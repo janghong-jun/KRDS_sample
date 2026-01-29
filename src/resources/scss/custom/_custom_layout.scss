@@ -78,7 +78,7 @@ $mode-setting: light;
     margin-bottom: var(--gap-8);
     gap: var(--pc-gap-layout-title-body-large);
     @include size-medium {
-      // margin-bottom: var(--mobile-gap-layout-h2-h3);
+      margin-bottom: var(--gap-7);
       gap: var(--mobile-gap-layout-title-body-large);
     }
 
@@ -197,8 +197,13 @@ $mode-setting: light;
 
   .page-contents-wrap {
     margin-top: var(--gap-7);
-    padding-top: var(--number-14);
+    padding-top: var(--gap-9);
     border-top: 0.2rem solid var(--color-light-alpha-black100);
+
+    @include size-medium {
+      margin-top: var(--gap-4);
+      padding-top: var(--gap-7);
+    }
   }
 
   .content-section {
@@ -215,6 +220,7 @@ $mode-setting: light;
     gap: var(--padding-6);
 
     > div {
+      width: auto;
       &:first-child {
         display: flex;
         gap: var(--gap-3) var(--gap-6);

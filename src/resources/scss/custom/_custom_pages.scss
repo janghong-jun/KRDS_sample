@@ -1405,25 +1405,53 @@ $mode-setting: light;
     }
   }
 }
+
+.skill-report {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-7);
+  > div {
+    padding: var(--pc-padding-card-medium);
+    border-radius: var(--radius-xlarge1);
+    border: 0.1rem solid #e4e5e7;
+    @include size-medium {
+      padding: var(--mobile-padding-card-medium);
+    }
+    .section-title-wrap {
+      padding-bottom: var(--gap-6);
+      border-bottom: 0.1rem solid var(--color-light-alpha-black100);
+    }
+  }
+  .report-chart {
+    flex: 400 1 0;
+    @include size-large-less {
+      flex: none;
+      width: 100%;
+    }
+  }
+  .report-contents {
+    flex: 850 1 0;
+    @include size-large-less {
+      flex: none;
+      width: 100%;
+    }
+  }
+  .report-graph {
+    width: 100%;
+    flex: none;
+  }
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정
   $mode-setting: high-contrast;
 }
-
-#radarChart {
-  svg {
-    g {
-      text {
-        &:not([x]) {
-          &[text-anchor='start'] {
-            zoom: 12;
-          }
-          &[text-anchor='end'] {
-            zoom: 12;
-          }
-        }
-      }
+.krds-chart {
+  padding: 7.1rem 0 1.3rem;
+  .chart {
+    &.type01 {
+      width: 100%;
+      height: 34.2rem;
     }
   }
 }

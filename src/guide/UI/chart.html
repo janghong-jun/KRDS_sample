@@ -31,35 +31,38 @@
       <!-- Container -->
       <div id="container">
         <div class="inner">
-          <div class="guide">
-            <!-- chart -->
-            <div class="krds-chart" style="width: 100%">
-              <div id="radarChart" style="width: 100%; height: 50rem"></div>
-            </div>
+          <!-- chart -->
+          <div class="krds-chart">
+            <div class="chart type01"></div>
+          </div>
+          <script>
+            function remToPx(rem) {
+              return (
+                rem *
+                parseFloat(getComputedStyle(document.documentElement).fontSize)
+              );
+            }
 
-            <script>
-              const chartDom = document.getElementById('radarChart');
-              const myChart = echarts.init(chartDom, null, {
-                renderer: 'svg', // ⭐ 핵심
-              });
-
-              const option = {
+            function getChartOption() {
+              return {
                 legend: {
                   data: ['나의 진단 결과', '연구평가 기준'],
                   textStyle: {
-                    fontSize: 15,
+                    fontSize: remToPx(1.5),
                     fontFamily: 'inherit',
                     color: '#1E2124',
                   },
-                  bottom: 0,
+                  bottom: remToPx(5.8),
                   left: 'center',
-                  itemGap: 46,
-                  itemWidth: 16,
-                  itemHeight: 16,
+                  itemGap: remToPx(4.6),
+                  itemWidth: remToPx(1.6),
+                  itemHeight: remToPx(1.6),
                   icon: 'roundRect',
                 },
 
                 radar: {
+                  center: ['50%', remToPx(12)],
+                  radius: '50%',
                   shape: 'polygon',
                   indicator: [
                     { name: '교수 역량', max: 100 },
@@ -69,28 +72,17 @@
                   ],
                   axisName: {
                     color: '#1E2124',
-                    fontSize: 15,
+                    fontSize: remToPx(1.5),
                     fontFamily: 'inherit',
-                    color: '#1E2124',
-                    lineHeight: 23,
+                    lineHeight: remToPx(2.3),
                   },
                   axisLine: {
-                    lineStyle: {
-                      color: '#CDDAFE',
-                      width: 0.8,
-                      type: 'solid',
-                    },
+                    lineStyle: { color: '#CDDAFE', width: 0.8 },
                   },
                   splitLine: {
-                    lineStyle: {
-                      color: '#CDDAFE',
-                      width: 0.8,
-                      type: 'solid',
-                    },
+                    lineStyle: { color: '#CDDAFE', width: 0.8 },
                   },
-                  splitArea: {
-                    show: false,
-                  },
+                  splitArea: { show: false },
                   splitNumber: 3,
                 },
 
@@ -101,47 +93,52 @@
                     data: [
                       {
                         name: '나의 진단 결과',
-                        value: ['68.1', '71.9', '66.5', '73.8'],
+                        value: [68.1, 71.9, 66.5, 73.8],
                         lineStyle: { color: '#2563eb', width: 1.5 },
                         areaStyle: { color: '#2563eb', opacity: 0.15 },
-
                         label: {
                           show: true,
-                          color: '#1563eb',
-                          fontSize: 10,
+                          color: '#2563eb',
+                          fontSize: remToPx(1),
                           fontFamily: 'inherit',
                           formatter: '{c}',
                           position: 'outside',
-                          padding: 5,
+                          padding: remToPx(0.5),
                         },
-                        itemStyle: {
-                          color: '#2563eb',
-                        },
+                        itemStyle: { color: '#2563eb' },
                       },
                       {
                         name: '연구평가 기준',
                         value: [72.1, 70.8, 71.6, 70.4],
                         lineStyle: { color: '#ffb114', width: 1.5 },
                         areaStyle: { color: '#ffb114', opacity: 0.15 },
-
                         label: { show: false },
-                        itemStyle: {
-                          color: '#ffb114',
-                        },
+                        itemStyle: { color: '#ffb114' },
                       },
                     ],
                   },
                 ],
               };
+            }
 
-              myChart.setOption(option);
+            const chartDom = document.querySelector('.chart.type01');
+            const myChart = echarts.init(chartDom, null, { renderer: 'svg' });
 
-              // 반응형
-              window.addEventListener('resize', () => {
-                myChart.resize();
-              });
-            </script>
-          </div>
+            function renderChart() {
+              myChart.setOption(getChartOption(), true);
+              myChart.resize();
+            }
+
+            renderChart();
+
+            const ro = new ResizeObserver(() => {
+              renderChart();
+            });
+
+            ro.observe(chartDom);
+
+            window.addEventListener('resize', renderChart);
+          </script>
         </div>
       </div>
 
