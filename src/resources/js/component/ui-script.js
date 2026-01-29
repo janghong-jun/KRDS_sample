@@ -1418,6 +1418,25 @@ const krds_calendar = {
   currentConts: null,
   calendarType: 'single',
 
+  // 날짜 객체를 yyyy-mm-dd 형식의 문자열로 반환
+  formatDate(y, m, d) {
+    return `${y}${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+  },
+
+  // yyyy.mm.dd, yyyy-mm-dd 모두 Date로 파싱 지원
+  parseDate(dateStr) {
+    let arr;
+    if (dateStr.includes('.')) {
+      arr = dateStr.split('.').map(Number);
+    } else if (dateStr.includes('-')) {
+      arr = dateStr.split('-').map(Number);
+    } else {
+      return null;
+    }
+    if (arr.length !== 3) return null;
+    return new Date(arr[0], arr[1] - 1, arr[2]);
+  },
+
   init() {
     this.bindOpen();
     this.bindClose();
@@ -1455,8 +1474,8 @@ const krds_calendar = {
       } else {
         const inputs = conts.querySelectorAll('.datepicker');
         if (inputs.length >= 2) {
-          this.startDate = inputs[0].value || null;
-          this.endDate = inputs[1].value || null;
+          this.startDate = this.toDashDate(inputs[0].value) || null;
+          this.endDate = this.toDashDate(inputs[1].value) || null;
         } else {
           this.startDate = null;
           this.endDate = null;
@@ -1465,6 +1484,14 @@ const krds_calendar = {
 
       this.openDatePicker(area);
     });
+  },
+
+  // yyyy.mm.dd 혹은 yyyy-mm-dd 를 yyyy-mm-dd로 변환
+  toDashDate(val) {
+    if (!val) return null;
+    if (val.includes('-')) return val;
+    if (val.includes('.')) return val.replace(/\./g, '-');
+    return val;
   },
 
   bindClose() {
@@ -1513,51 +1540,63 @@ const krds_calendar = {
   openDatePicker(area) {
     const input = this.currentConts.querySelector('.datepicker');
     const hasValue = input && input.value;
-
+    // parse input value and convert to yyyy-mm-dd if needed
     if (this.calendarType === 'single') {
       if (hasValue) {
-        const [y, m] = input.value.split('.').map(Number);
+        const [y, m, d] = input.value.includes('.')
+          ? input.value.split('.').map(Number)
+          : input.value.split('-').map(Number);
         this.currentYear = y;
         this.currentMonth = m;
-        this.selectedDate = input.value;
+        this.selectedDate = this.formatDate(y, m, d);
       } else {
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
-        this.selectedDate = `${this.currentYear}.${String(
+        this.selectedDate = this.formatDate(
+          this.currentYear,
           this.currentMonth,
-        ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+          today.getDate(),
+        );
       }
     } else {
       const inputs = this.currentConts.querySelectorAll('.datepicker');
       if (inputs.length >= 2 && (inputs[0].value || inputs[1].value)) {
         if (inputs[0].value) {
-          const [y, m] = inputs[0].value.split('.').map(Number);
+          const [y, m, d] = inputs[0].value.includes('.')
+            ? inputs[0].value.split('.').map(Number)
+            : inputs[0].value.split('-').map(Number);
           this.currentYear = y;
           this.currentMonth = m;
-          this.startDate = inputs[0].value;
+          this.startDate = this.formatDate(y, m, d);
         }
         if (inputs[1].value) {
-          const [y2, m2] = inputs[1].value.split('.').map(Number);
+          const [y2, m2, d2] = inputs[1].value.includes('.')
+            ? inputs[1].value.split('.').map(Number)
+            : inputs[1].value.split('-').map(Number);
           if (!inputs[0].value) {
             this.currentYear = y2;
             this.currentMonth = m2;
           }
-          this.endDate = inputs[1].value;
+          this.endDate = this.formatDate(y2, m2, d2);
         }
       } else if (hasValue) {
-        const [y, m] = input.value.split('.').map(Number);
+        const [y, m, d] = input.value.includes('.')
+          ? input.value.split('.').map(Number)
+          : input.value.split('-').map(Number);
         this.currentYear = y;
         this.currentMonth = m;
-        this.startDate = input.value;
+        this.startDate = this.formatDate(y, m, d);
         this.endDate = null;
       } else {
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
-        const todayStr = `${this.currentYear}.${String(
+        const todayStr = this.formatDate(
+          this.currentYear,
           this.currentMonth,
-        ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+          today.getDate(),
+        );
         this.startDate = todayStr;
         this.endDate = null;
       }
@@ -1630,9 +1669,11 @@ const krds_calendar = {
       this.currentYear = today.getFullYear();
       this.currentMonth = today.getMonth() + 1;
 
-      const todayStr = `${this.currentYear}.${String(
+      const todayStr = this.formatDate(
+        this.currentYear,
         this.currentMonth,
-      ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+        today.getDate(),
+      );
 
       if (this.calendarType === 'single') {
         this.selectedDate = todayStr;
@@ -1725,24 +1766,25 @@ const krds_calendar = {
   },
 
   handleSingleDateSelect(dateStr, area) {
-    this.selectedDate = dateStr;
+    this.selectedDate = this.toDashDate(dateStr);
 
     area.querySelectorAll('.btn-set-date').forEach((btn) => {
       btn.closest('td').classList.remove('period', 'start', 'end');
     });
 
-    const selectedTd = area.querySelector(`td[data-date="${dateStr}"]`);
+    const selectedTd = area.querySelector(`td[data-date="${this.selectedDate}"]`);
     if (selectedTd) {
       selectedTd.classList.add('period', 'start', 'end');
     }
   },
 
   handleRangeDateSelect(dateStr, area, isRestore = false) {
-    const clickedDate = this.parseDate(dateStr);
+    const curDateStr = this.toDashDate(dateStr);
+    const clickedDate = this.parseDate(curDateStr);
 
     if (!this.startDate || (this.startDate && this.endDate)) {
       if (!isRestore) {
-        this.startDate = dateStr;
+        this.startDate = curDateStr;
         this.endDate = null;
       }
 
@@ -1750,14 +1792,14 @@ const krds_calendar = {
         td.classList.remove('period', 'start', 'end', 'between');
       });
 
-      const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
+      const startTd = area.querySelector(`td[data-date="${curDateStr}"]`);
       if (startTd) startTd.classList.add('period', 'start');
     } else {
       const startDateObj = this.parseDate(this.startDate);
 
       if (clickedDate < startDateObj) {
         if (!isRestore) {
-          this.startDate = dateStr;
+          this.startDate = curDateStr;
           this.endDate = null;
         }
 
@@ -1765,7 +1807,7 @@ const krds_calendar = {
           td.classList.remove('period', 'start', 'end', 'between');
         });
 
-        const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
+        const startTd = area.querySelector(`td[data-date="${curDateStr}"]`);
         if (startTd) startTd.classList.add('period', 'start');
       } else if (clickedDate.getTime() === startDateObj.getTime()) {
         if (!isRestore) {
@@ -1776,11 +1818,11 @@ const krds_calendar = {
           td.classList.remove('period', 'start', 'end', 'between');
         });
 
-        const startTd = area.querySelector(`td[data-date="${dateStr}"]`);
+        const startTd = area.querySelector(`td[data-date="${curDateStr}"]`);
         if (startTd) startTd.classList.add('period', 'start');
       } else {
         if (!isRestore) {
-          this.endDate = dateStr;
+          this.endDate = curDateStr;
         }
 
         area.querySelectorAll('td').forEach((td) => {
@@ -1799,7 +1841,7 @@ const krds_calendar = {
     const end = this.parseDate(this.endDate);
 
     area.querySelectorAll('td[data-date]').forEach((td) => {
-      const dateStr = td.getAttribute('data-date');
+      const dateStr = this.toDashDate(td.getAttribute('data-date'));
       const date = this.parseDate(dateStr);
 
       td.classList.remove('period', 'start', 'end', 'between');
@@ -1911,19 +1953,16 @@ const krds_calendar = {
     });
   },
 
-  parseDate(dateStr) {
-    const [year, month, day] = dateStr.split('.').map(Number);
-    return new Date(year, month - 1, day);
-  },
-
   renderCalendar(year, month) {
     const firstDay = new Date(year, month - 1, 1).getDay();
     const lastDate = new Date(year, month, 0).getDate();
     const prevLastDate = new Date(year, month - 1, 0).getDate();
     const today = new Date();
-    const todayStr = `${today.getFullYear()}.${String(
+    const todayStr = this.formatDate(
+      today.getFullYear(),
       today.getMonth() + 1,
-    ).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+      today.getDate(),
+    );
 
     let day = 1;
     let nextDay = 1;
@@ -1939,10 +1978,7 @@ const krds_calendar = {
           const d = prevLastDate - firstDay + c + 1;
           const prevMonth = month === 1 ? 12 : month - 1;
           const prevYear = month === 1 ? year - 1 : year;
-          const dateStr = `${prevYear}.${String(prevMonth).padStart(
-            2,
-            '0',
-          )}.${String(d).padStart(2, '0')}`;
+          const dateStr = this.formatDate(prevYear, prevMonth, d);
 
           td = `<td class="old${
             c === 0 ? ' day-off' : ''
@@ -1954,10 +1990,7 @@ const krds_calendar = {
         } else if (day > lastDate) {
           const nextMonth = month === 12 ? 1 : month + 1;
           const nextYear = month === 12 ? year + 1 : year;
-          const dateStr = `${nextYear}.${String(nextMonth).padStart(
-            2,
-            '0',
-          )}.${String(nextDay).padStart(2, '0')}`;
+          const dateStr = this.formatDate(nextYear, nextMonth, nextDay);
 
           td = `<td class="new${
             c === 0 ? ' day-off' : ''
@@ -1967,9 +2000,7 @@ const krds_calendar = {
             </button>
           </td>`;
         } else {
-          const dateStr = `${year}.${String(month).padStart(2, '0')}.${String(
-            day,
-          ).padStart(2, '0')}`;
+          const dateStr = this.formatDate(year, month, day);
           const isToday = dateStr === todayStr;
           const classes = [];
 

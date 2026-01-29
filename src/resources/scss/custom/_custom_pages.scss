@@ -1410,3 +1410,20 @@ $mode-setting: light;
   //모드 설정
   $mode-setting: high-contrast;
 }
+
+#radarChart {
+  svg {
+    g {
+      text {
+        &:not([x]) {
+          &[text-anchor='start'] {
+            zoom: 12;
+          }
+          &[text-anchor='end'] {
+            zoom: 12;
+          }
+        }
+      }
+    }
+  }
+}

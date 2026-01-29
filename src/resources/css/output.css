@@ -19687,4 +19687,11 @@ td .info-wrap {
   padding-top: var(--padding-5);
   border-top: 0.1rem solid var(--light-color-border-gray-light);
 }
+
+#radarChart svg g text:not([x])[text-anchor=start] {
+  zoom: 12;
+}
+#radarChart svg g text:not([x])[text-anchor=end] {
+  zoom: 12;
+}
 /*# sourceMappingURL=output.css.map */

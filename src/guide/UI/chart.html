@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <link
+      rel="stylesheet"
+      href="../../resources/css/plugin/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../resources/css/output.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
+    <!-- 공통 script -->
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/swiper-bundle.min.js"></script>
+    <script src="../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../resources/js/component/ui-script.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../components/_skip.html" -->
+
+      <!--# include virtual="../../components/_masthead.html" -->
+      <!--# include virtual="../../components/_header.html" -->
+
+      <!-- Container -->
+      <div id="container">
+        <div class="inner">
+          <div class="guide">
+            <!-- chart -->
+            <div class="krds-chart" style="width: 100%">
+              <div id="radarChart" style="width: 100%; height: 50rem"></div>
+            </div>
+
+            <script>
+              const chartDom = document.getElementById('radarChart');
+              const myChart = echarts.init(chartDom, null, {
+                renderer: 'svg', // ⭐ 핵심
+              });
+
+              const option = {
+                legend: {
+                  data: ['나의 진단 결과', '연구평가 기준'],
+                  textStyle: {
+                    fontSize: 15,
+                    fontFamily: 'inherit',
+                    color: '#1E2124',
+                  },
+                  bottom: 0,
+                  left: 'center',
+                  itemGap: 46,
+                  itemWidth: 16,
+                  itemHeight: 16,
+                  icon: 'roundRect',
+                },
+
+                radar: {
+                  shape: 'polygon',
+                  indicator: [
+                    { name: '교수 역량', max: 100 },
+                    { name: '자기개발\n역량', max: 100 },
+                    { name: '공동체 역량', max: 100 },
+                    { name: '생활교육\n역량', max: 100 },
+                  ],
+                  axisName: {
+                    color: '#1E2124',
+                    fontSize: 15,
+                    fontFamily: 'inherit',
+                    color: '#1E2124',
+                    lineHeight: 23,
+                  },
+                  axisLine: {
+                    lineStyle: {
+                      color: '#CDDAFE',
+                      width: 0.8,
+                      type: 'solid',
+                    },
+                  },
+                  splitLine: {
+                    lineStyle: {
+                      color: '#CDDAFE',
+                      width: 0.8,
+                      type: 'solid',
+                    },
+                  },
+                  splitArea: {
+                    show: false,
+                  },
+                  splitNumber: 3,
+                },
+
+                series: [
+                  {
+                    type: 'radar',
+                    symbolSize: 0,
+                    data: [
+                      {
+                        name: '나의 진단 결과',
+                        value: ['68.1', '71.9', '66.5', '73.8'],
+                        lineStyle: { color: '#2563eb', width: 1.5 },
+                        areaStyle: { color: '#2563eb', opacity: 0.15 },
+
+                        label: {
+                          show: true,
+                          color: '#1563eb',
+                          fontSize: 10,
+                          fontFamily: 'inherit',
+                          formatter: '{c}',
+                          position: 'outside',
+                          padding: 5,
+                        },
+                        itemStyle: {
+                          color: '#2563eb',
+                        },
+                      },
+                      {
+                        name: '연구평가 기준',
+                        value: [72.1, 70.8, 71.6, 70.4],
+                        lineStyle: { color: '#ffb114', width: 1.5 },
+                        areaStyle: { color: '#ffb114', opacity: 0.15 },
+
+                        label: { show: false },
+                        itemStyle: {
+                          color: '#ffb114',
+                        },
+                      },
+                    ],
+                  },
+                ],
+              };
+
+              myChart.setOption(option);
+
+              // 반응형
+              window.addEventListener('resize', () => {
+                myChart.resize();
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <!--# include virtual="../../components/_footer.html" -->
+    </div>
+  </body>
+</html>
