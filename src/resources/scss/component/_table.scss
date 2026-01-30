@@ -105,6 +105,10 @@ $mode-setting: light;
     }
   }
 
+  .krds-table-info {
+    margin-bottom: 2rem;
+  }
+
   .krds-table-title {
     margin-bottom: var(--number-10);
     font-size: var(--pc-font-size-heading-medium);
@@ -116,45 +120,6 @@ $mode-setting: light;
       top: 0;
       left: 0;
       font-size: var(--mobile-font-size-heading-medium);
-    }
-  }
-
-  .krds-table-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    font-size: var(--pc-font-size-label-small);
-    color: var(--light-color-text-subtle);
-
-    @include size-medium {
-      position: sticky;
-      top: 0;
-      left: 0;
-      font-size: var(--mobile-font-size-label-small);
-    }
-    .count {
-      display: flex;
-      gap: var(--gap-2);
-      span {
-        font-weight: var(--font-weight-bold);
-        color: var(--light-color-text-basic);
-      }
-
-      & + .count {
-        position: relative;
-        margin-left: var(--gap-5);
-        padding-left: var(--gap-5);
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 0.1rem;
-          height: var(--size-height-2);
-          background-color: var(--light-color-divider-gray);
-          transform: translateY(-50%);
-        }
-      }
     }
   }
 
@@ -229,12 +194,66 @@ $mode-setting: light;
 
   &.full {
     width: 100%;
+    .tbl {
+      min-width: 100%;
+    }
     & + .krds-pagination {
       margin-top: var(--number-10);
     }
   }
 }
 
+.krds-table-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--gap-4);
+  font-size: var(--pc-font-size-label-small);
+  color: var(--light-color-text-subtle);
+  flex-wrap: wrap;
+
+  &.between {
+    justify-content: space-between;
+  }
+
+  @include size-medium {
+    position: sticky;
+    top: 0;
+    left: 0;
+    font-size: var(--mobile-font-size-label-small);
+  }
+  .count {
+    display: flex;
+    gap: var(--gap-2);
+    span {
+      font-weight: var(--font-weight-bold);
+      color: var(--light-color-text-basic);
+    }
+
+    & + .count {
+      position: relative;
+      margin-left: var(--gap-5);
+      padding-left: var(--gap-5);
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0.1rem;
+        height: var(--size-height-2);
+        background-color: var(--light-color-divider-gray);
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .unit {
+    font-size: var(--pc-font-size-body-small);
+    color: var(--light-color-text-subtle);
+    @include size-medium {
+      font-size: var(--mobile-font-size-body-small);
+    }
+  }
+}
 @include size-medium {
   .krds-table-wrap {
     overflow-x: auto;

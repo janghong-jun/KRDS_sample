@@ -180,9 +180,12 @@ $mode-setting: light;
       padding-top: var(--modal--header-padding-top);
       padding-inline: var(--modal--padding);
       .modal-title {
-        @include ellipsis(1);
+        // @include ellipsis(1);
         font-size: var(--modal--header-pc-font-size);
         font-weight: var(--font-weight-bold);
+      }
+      &.center {
+        text-align: center;
       }
     }
     .modal-conts {
@@ -242,6 +245,42 @@ $mode-setting: light;
     &.viewer {
       .modal-conts {
         min-height: 50vh;
+      }
+    }
+    &.print {
+      .modal-conts {
+        * {
+          pointer-events: none;
+        }
+
+        .skill-report {
+          .krds-table-wrap.row {
+            colgroup {
+              col {
+                &:nth-child(1) {
+                  width: 20rem !important;
+                }
+                &:nth-child(2) {
+                  width: 18rem !important;
+                }
+                &:nth-child(3) {
+                  width: auto !important;
+                }
+                @include size-medium {
+                  &:nth-child(1) {
+                    width: 16.53% !important;
+                  }
+                  &:nth-child(2) {
+                    width: 14.88% !important;
+                  }
+                  &:nth-child(3) {
+                    width: 68.6% !important;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -386,6 +425,9 @@ $mode-setting: light;
           .krds-table-wrap {
             min-width: calc(100% - (var(--contents-padding-x) * 2) - 4.8rem);
           }
+        }
+        .skill-report .report-result .krds-table-wrap {
+          width: calc(100vw - 13.2rem);
         }
       }
       .modal-btn {

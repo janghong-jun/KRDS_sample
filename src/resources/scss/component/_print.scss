@@ -1,0 +1,118 @@
+@media print {
+  /* =========================
+     1. 기본 문서 환경 초기화
+  ========================== */
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body.scroll-no {
+    overflow: visible !important;
+  }
+
+  #wrap {
+    display: none !important;
+  }
+
+  /* =========================
+     2. 모달 → 문서 레이아웃 전환
+  ========================== */
+  .krds-modal {
+    position: static !important;
+    inset: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: none !important;
+  }
+
+  .modal-dialog {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .modal-header,
+  .modal-content,
+  .modal-conts {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .modal-back {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* =========================
+     3. Print 영역만 출력
+  ========================== */
+  body * {
+    visibility: hidden;
+  }
+
+  .print,
+  .print * {
+    visibility: visible;
+  }
+
+  .print {
+    position: static !important;
+  }
+
+  /* =========================
+     4. 테이블 레이아웃 보정
+  ========================== */
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report {
+    .krds-table-wrap.row {
+      width: 100%;
+      min-width: 0;
+
+      .tbl {
+        min-width: 0;
+
+        colgroup {
+          col {
+            &:nth-child(1) {
+              width: 16.53% !important;
+            }
+            &:nth-child(2) {
+              width: 14.88% !important;
+            }
+            &:nth-child(3) {
+              width: 68.6% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .scroll-no .krds-modal .krds-table-wrap.full {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    .tbl {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+
+  /* =========================
+     5. Fixed / z-index 잔존 제거
+  ========================== */
+  [style*='z-index'],
+  svg {
+    position: static !important;
+  }
+}

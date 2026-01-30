@@ -201,8 +201,8 @@ $mode-setting: light;
     border-top: 0.2rem solid var(--color-light-alpha-black100);
 
     @include size-medium {
-      margin-top: var(--gap-4);
-      padding-top: var(--gap-7);
+      // margin-top: var(--gap-4);
+      // padding-top: var(--gap-7);
     }
   }
 
@@ -211,59 +211,58 @@ $mode-setting: light;
       margin-top: var(--number-20);
     }
   }
+}
 
-  .section-title-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--padding-6);
+.section-title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--padding-6);
 
-    > div {
-      width: auto;
-      &:first-child {
-        display: flex;
-        gap: var(--gap-3) var(--gap-6);
-        align-items: center;
-        flex: none;
-        flex-wrap: wrap;
-
-        @include size-small {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-    }
-    .krds-check-area {
-      flex: none;
-      .krds-form-check {
-        display: inline-flex;
-        align-items: center;
-      }
-    }
-    .s-tit {
+  > div {
+    width: auto;
+    &:first-child {
       display: flex;
-      font-size: var(--pc-font-size-heading-medium);
-      font-weight: var(--font-weight-bold);
-      color: var(--light-color-text-basic);
-      gap: var(--gap-3);
+      gap: var(--gap-3) var(--gap-6);
       align-items: center;
+      flex: none;
       flex-wrap: wrap;
 
-      span {
-        font-size: var(--pc-font-size-body-large);
-        font-weight: var(--font-weight-regular);
-        @include size-medium {
-          font-size: var(--mobile-font-size-body-large);
-        }
-      }
-      @include size-medium {
-        font-size: var(--mobile-font-size-heading-medium);
+      @include size-small {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   }
-}
+  .krds-check-area {
+    flex: none;
+    .krds-form-check {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+  .s-tit {
+    display: flex;
+    font-size: var(--pc-font-size-heading-medium);
+    font-weight: var(--font-weight-bold);
+    color: var(--light-color-text-basic);
+    gap: var(--gap-3);
+    align-items: center;
+    flex-wrap: wrap;
 
+    span {
+      font-size: var(--pc-font-size-body-large);
+      font-weight: var(--font-weight-regular);
+      @include size-medium {
+        font-size: var(--mobile-font-size-body-large);
+      }
+    }
+    @include size-medium {
+      font-size: var(--mobile-font-size-heading-medium);
+    }
+  }
+}
 .modal-dialog {
   .modal-conts {
     .modal-sub-title {

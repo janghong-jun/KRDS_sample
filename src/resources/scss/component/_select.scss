@@ -124,6 +124,7 @@ $mode-setting: light;
     font-family: inherit;
     color: var(--form-select--color-text);
     transition: var(--transition-base);
+    @include ellipsis(1);
   }
   &:focus {
     border-color: var(--form-select--color-border-active);

@@ -191,7 +191,7 @@ $mode-setting: light;
     }
   }
 }
-@media (max-width: 375px) {
+@include size-small {
   .krds-pagination {
     .page-links {
       .page-link {
