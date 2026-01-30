@@ -1106,6 +1106,8 @@ input:checked:disabled + .lb-checkbox::after {
   overflow: hidden;
 }
 .ui-modal-wrap {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: 1rem;
   padding: 4rem;
