@@ -19582,6 +19582,7 @@ td .info-wrap {
   display: block;
   overflow: visible;
   max-height: max-content;
+  line-clamp: unset;
   -webkit-line-clamp: unset;
   -webkit-box-orient: unset;
 }
