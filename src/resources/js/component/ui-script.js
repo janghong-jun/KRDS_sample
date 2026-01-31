@@ -1127,116 +1127,116 @@ const krds_modal = {
 };
 
 /*** * krds_contextualHelp * ***/
-const krds_contextualHelp = {
-  tooltipButtons: null,
-  init() {
-    this.tooltipButtons = document.querySelectorAll(
-      '.krds-contextual-help .tooltip-btn',
-    );
+// const krds_contextualHelp = {
+//   tooltipButtons: null,
+//   init() {
+//     this.tooltipButtons = document.querySelectorAll(
+//       '.krds-contextual-help .tooltip-btn',
+//     );
 
-    if (!this.tooltipButtons.length) return;
+//     if (!this.tooltipButtons.length) return;
 
-    this.setupTooltips();
-    this.setupFocusOutEvent();
-  },
-  setupTooltips() {
-    this.tooltipButtons.forEach((button) => {
-      const tooltipContainer = button.closest('.krds-contextual-help');
-      const tooltipPopover = tooltipContainer.querySelector('.tooltip-popover');
-      const closeButton = tooltipPopover.querySelector('.tooltip-close');
+//     this.setupTooltips();
+//     this.setupFocusOutEvent();
+//   },
+//   setupTooltips() {
+//     this.tooltipButtons.forEach((button) => {
+//       const tooltipContainer = button.closest('.krds-contextual-help');
+//       const tooltipPopover = tooltipContainer.querySelector('.tooltip-popover');
+//       const closeButton = tooltipPopover.querySelector('.tooltip-close');
 
-      button.setAttribute('aria-expanded', 'false');
-      tooltipPopover.setAttribute('role', 'tooltip');
+//       button.setAttribute('aria-expanded', 'false');
+//       tooltipPopover.setAttribute('role', 'tooltip');
 
-      // tooltipWrap에 포지션이 없을때 기본값 설정
-      if (tooltipContainer && tooltipContainer.classList.length === 1) {
-        tooltipContainer.classList.add('top', 'left');
-      }
+//       // tooltipWrap에 포지션이 없을때 기본값 설정
+//       if (tooltipContainer && tooltipContainer.classList.length === 1) {
+//         tooltipContainer.classList.add('top', 'left');
+//       }
 
-      button.addEventListener('click', () => {
-        this.toggleTooltip(button, tooltipPopover, tooltipContainer);
-      });
-      closeButton.addEventListener('click', () => {
-        this.closeAllTooltips();
-      });
+//       button.addEventListener('click', () => {
+//         this.toggleTooltip(button, tooltipPopover, tooltipContainer);
+//       });
+//       closeButton.addEventListener('click', () => {
+//         this.closeAllTooltips();
+//       });
 
-      window.addEventListener('resize', () => {
-        this.adjustTooltipPosition(tooltipContainer, tooltipPopover);
-      });
+//       window.addEventListener('resize', () => {
+//         this.adjustTooltipPosition(tooltipContainer, tooltipPopover);
+//       });
 
-      // ESC 닫기
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' || event.key === 'Esc') {
-          this.closeAllTooltips();
-        }
-      });
-    });
-  },
-  toggleTooltip(button, tooltipPopover, tooltipContainer) {
-    const isVisible = tooltipPopover.style.display === 'block';
+//       // ESC 닫기
+//       document.addEventListener('keydown', (event) => {
+//         if (event.key === 'Escape' || event.key === 'Esc') {
+//           this.closeAllTooltips();
+//         }
+//       });
+//     });
+//   },
+//   toggleTooltip(button, tooltipPopover, tooltipContainer) {
+//     const isVisible = tooltipPopover.style.display === 'block';
 
-    this.closeAllTooltips();
+//     this.closeAllTooltips();
 
-    if (!isVisible) {
-      tooltipPopover.style.display = 'block';
-      const focusables = tooltipPopover.querySelector(
-        `a, button, [tabindex="0"], input, textarea, select`,
-      );
-      focusables?.focus();
-      button.setAttribute('aria-expanded', 'true');
+//     if (!isVisible) {
+//       tooltipPopover.style.display = 'block';
+//       const focusables = tooltipPopover.querySelector(
+//         `a, button, [tabindex="0"], input, textarea, select`,
+//       );
+//       focusables?.focus();
+//       button.setAttribute('aria-expanded', 'true');
 
-      this.adjustTooltipPosition(tooltipContainer, tooltipPopover);
-    }
-  },
-  closeAllTooltips() {
-    const otherPopovers = document.querySelectorAll(
-      '.krds-contextual-help .tooltip-popover',
-    );
-    otherPopovers.forEach((popover) => {
-      popover.style.display = 'none';
-    });
-    this.tooltipButtons.forEach((button) => {
-      button.setAttribute('aria-expanded', 'false');
-    });
-  },
-  adjustTooltipPosition(tooltipContainer, tooltipPopover) {
-    // const isMobile = windowSize.getWinSize() === "mob";
-    const isMobile = window.innerWidth <= 768;
-    const tooltipAction = tooltipContainer.querySelector('.tooltip-action');
+//       this.adjustTooltipPosition(tooltipContainer, tooltipPopover);
+//     }
+//   },
+//   closeAllTooltips() {
+//     const otherPopovers = document.querySelectorAll(
+//       '.krds-contextual-help .tooltip-popover',
+//     );
+//     otherPopovers.forEach((popover) => {
+//       popover.style.display = 'none';
+//     });
+//     this.tooltipButtons.forEach((button) => {
+//       button.setAttribute('aria-expanded', 'false');
+//     });
+//   },
+//   adjustTooltipPosition(tooltipContainer, tooltipPopover) {
+//     // const isMobile = windowSize.getWinSize() === "mob";
+//     const isMobile = window.innerWidth <= 768;
+//     const tooltipAction = tooltipContainer.querySelector('.tooltip-action');
 
-    if (isMobile) {
-      const rootStyles = getComputedStyle(document.querySelector(':root'));
-      const contentsPaddingX = rootStyles
-        .getPropertyValue('--contents-padding-x')
-        .trim()
-        .split('px')[0];
-      const tooltipActionRect = tooltipAction.getBoundingClientRect();
-      const offsetLeft = tooltipActionRect.left - contentsPaddingX;
-      const width = document.body.clientWidth - contentsPaddingX * 2;
-      tooltipPopover.style.left = `-${offsetLeft}px`;
-      tooltipPopover.style.width = `${width}px`;
-    } else {
-      tooltipPopover.style.left = '';
-      tooltipPopover.style.right = '';
-      tooltipPopover.style.width = '360px';
-    }
-  },
-  setupFocusOutEvent() {
-    document.addEventListener('click', (event) => {
-      const clickedInsideTooltip = event.target.closest('.tooltip-action');
-      if (!clickedInsideTooltip) {
-        this.closeAllTooltips();
-      } else {
-        const FocusPopover =
-          clickedInsideTooltip.querySelector('.tooltip-close');
-        FocusPopover.addEventListener('focusout', () => {
-          this.closeAllTooltips();
-          clickedInsideTooltip.querySelector('.tooltip-btn')?.focus();
-        });
-      }
-    });
-  },
-};
+//     if (isMobile) {
+//       const rootStyles = getComputedStyle(document.querySelector(':root'));
+//       const contentsPaddingX = rootStyles
+//         .getPropertyValue('--contents-padding-x')
+//         .trim()
+//         .split('px')[0];
+//       const tooltipActionRect = tooltipAction.getBoundingClientRect();
+//       const offsetLeft = tooltipActionRect.left - contentsPaddingX;
+//       const width = document.body.clientWidth - contentsPaddingX * 2;
+//       tooltipPopover.style.left = `-${offsetLeft}px`;
+//       tooltipPopover.style.width = `${width}px`;
+//     } else {
+//       tooltipPopover.style.left = '';
+//       tooltipPopover.style.right = '';
+//       tooltipPopover.style.width = '360px';
+//     }
+//   },
+//   setupFocusOutEvent() {
+//     document.addEventListener('click', (event) => {
+//       const clickedInsideTooltip = event.target.closest('.tooltip-action');
+//       if (!clickedInsideTooltip) {
+//         this.closeAllTooltips();
+//       } else {
+//         const FocusPopover =
+//           clickedInsideTooltip.querySelector('.tooltip-close');
+//         FocusPopover.addEventListener('focusout', () => {
+//           this.closeAllTooltips();
+//           clickedInsideTooltip.querySelector('.tooltip-btn')?.focus();
+//         });
+//       }
+//     });
+//   },
+// };
 
 /*** * krds_tooltip * ***/
 const krds_tooltip = {
@@ -1772,7 +1772,9 @@ const krds_calendar = {
       btn.closest('td').classList.remove('period', 'start', 'end');
     });
 
-    const selectedTd = area.querySelector(`td[data-date="${this.selectedDate}"]`);
+    const selectedTd = area.querySelector(
+      `td[data-date="${this.selectedDate}"]`,
+    );
     if (selectedTd) {
       selectedTd.classList.add('period', 'start', 'end');
     }
@@ -2267,469 +2269,469 @@ const krds_calendar = {
 };
 
 /*** * krds_inPageNavigation * ***/
-const krds_inPageNavigation = {
-  quickIndicators: null,
-  init() {
-    this.quickIndicators = document.querySelectorAll(
-      '.krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list',
-    );
+// const krds_inPageNavigation = {
+//   quickIndicators: null,
+//   init() {
+//     this.quickIndicators = document.querySelectorAll(
+//       '.krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list',
+//     );
 
-    if (!this.quickIndicators.length) return;
+//     if (!this.quickIndicators.length) return;
 
-    this.observeListChanges();
-    this.setupAnchorScroll();
-    this.updateActiveSection();
-  },
-  observeListChanges() {
-    // in-page-navigation-list 변경 시 setupAnchorScroll 호출
-    const quickList = document.querySelector(
-      '.krds-in-page-navigation-type .in-page-navigation-list',
-    );
-    if (!quickList) return;
-    const observer = new MutationObserver(() => {
-      this.setupAnchorScroll();
-    });
-    observer.observe(quickList, {
-      childList: true,
-      subtree: true,
-    });
-  },
-  setupAnchorScroll() {
-    this.quickIndicators.forEach((indicator) => {
-      const locationList = indicator.querySelectorAll('a');
-      locationList.forEach((anchor) => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          anchor.removeEventListener('click', this.applyScroll);
-          anchor.removeEventListener('keydown', this.applyScroll);
-          anchor.addEventListener('click', this.applyScroll.bind(this, target));
-          anchor.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              this.applyScroll(target, event);
-            }
-          });
-        }
-      });
-    });
-  },
-  applyScroll(target, event) {
-    event.preventDefault();
-    const headerHeight = this.calculateHeaderHeight();
+//     this.observeListChanges();
+//     this.setupAnchorScroll();
+//     this.updateActiveSection();
+//   },
+//   observeListChanges() {
+//     // in-page-navigation-list 변경 시 setupAnchorScroll 호출
+//     const quickList = document.querySelector(
+//       '.krds-in-page-navigation-type .in-page-navigation-list',
+//     );
+//     if (!quickList) return;
+//     const observer = new MutationObserver(() => {
+//       this.setupAnchorScroll();
+//     });
+//     observer.observe(quickList, {
+//       childList: true,
+//       subtree: true,
+//     });
+//   },
+//   setupAnchorScroll() {
+//     this.quickIndicators.forEach((indicator) => {
+//       const locationList = indicator.querySelectorAll('a');
+//       locationList.forEach((anchor) => {
+//         const target = document.querySelector(anchor.getAttribute('href'));
+//         if (target) {
+//           anchor.removeEventListener('click', this.applyScroll);
+//           anchor.removeEventListener('keydown', this.applyScroll);
+//           anchor.addEventListener('click', this.applyScroll.bind(this, target));
+//           anchor.addEventListener('keydown', (event) => {
+//             if (event.key === 'Enter' || event.key === ' ') {
+//               this.applyScroll(target, event);
+//             }
+//           });
+//         }
+//       });
+//     });
+//   },
+//   applyScroll(target, event) {
+//     event.preventDefault();
+//     const headerHeight = this.calculateHeaderHeight();
 
-    window.scrollTo({
-      left: 0,
-      top: target.getBoundingClientRect().top + window.scrollY - headerHeight,
-      behavior: 'smooth',
-    });
+//     window.scrollTo({
+//       left: 0,
+//       top: target.getBoundingClientRect().top + window.scrollY - headerHeight,
+//       behavior: 'smooth',
+//     });
 
-    // enter 초점 이동
-    if (event.type === 'keydown') {
-      const focusable = target.querySelector('.sec-tit');
+//     // enter 초점 이동
+//     if (event.type === 'keydown') {
+//       const focusable = target.querySelector('.sec-tit');
 
-      if (focusable) {
-        focusable.setAttribute('tabindex', '-1');
-        focusable.focus({ preventScroll: true });
-      }
-    }
-  },
-  calculateHeaderHeight() {
-    const headerTop =
-      document.querySelector('#krds-masthead')?.clientHeight || 0;
-    const headerInner =
-      document.querySelector('#krds-header .header-in')?.clientHeight || 0;
-    return headerTop + headerInner;
-  },
-  updateActiveSection() {
-    if (!this.quickIndicators) return;
+//       if (focusable) {
+//         focusable.setAttribute('tabindex', '-1');
+//         focusable.focus({ preventScroll: true });
+//       }
+//     }
+//   },
+//   calculateHeaderHeight() {
+//     const headerTop =
+//       document.querySelector('#krds-masthead')?.clientHeight || 0;
+//     const headerInner =
+//       document.querySelector('#krds-header .header-in')?.clientHeight || 0;
+//     return headerTop + headerInner;
+//   },
+//   updateActiveSection() {
+//     if (!this.quickIndicators) return;
 
-    const winHeight = window.innerHeight;
-    let sectionArea = [];
-    const activeTab = document.querySelector('.tab-conts:not(.sample).active');
+//     const winHeight = window.innerHeight;
+//     let sectionArea = [];
+//     const activeTab = document.querySelector('.tab-conts:not(.sample).active');
 
-    // 탭이 아닐때와 탭일때 sectionArea 설정
-    if (activeTab) {
-      const id = activeTab.getAttribute('id');
-      const dataTrue = activeTab.getAttribute('data-quick-nav');
-      if (dataTrue === 'true') {
-        sectionArea = document.querySelectorAll(`#${id} .section-link`);
-      }
-    } else {
-      sectionArea = document.querySelectorAll('.scroll-check .section-link');
-    }
+//     // 탭이 아닐때와 탭일때 sectionArea 설정
+//     if (activeTab) {
+//       const id = activeTab.getAttribute('id');
+//       const dataTrue = activeTab.getAttribute('data-quick-nav');
+//       if (dataTrue === 'true') {
+//         sectionArea = document.querySelectorAll(`#${id} .section-link`);
+//       }
+//     } else {
+//       sectionArea = document.querySelectorAll('.scroll-check .section-link');
+//     }
 
-    //페이지 스크롤 시 퀵 네비게이션 해당메뉴 active
-    if (sectionArea.length > 0) {
-      const topHeight = Math.ceil(winHeight / 5); // 윈도우의 20%
-      const firstSecTop = sectionArea[0].offsetTop;
-      const scrollBottom = window.scrollY + winHeight;
-      const scrollHeight = document.body.scrollHeight;
-      sectionArea.forEach((current) => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - topHeight;
-        const sectionId = current.getAttribute('id');
-        const navLink = document.querySelector(
-          `.krds-in-page-navigation-area a[href*=${sectionId}]`,
-        );
-        const firstAnchor = document.querySelector(
-          '.krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a',
-        );
-        const lastAnchor = document.querySelector(
-          '.krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a',
-        );
-        if (scrollBottom >= scrollHeight) {
-          // 스크롤이 페이지 끝에 도달했을 때
-          this.setActiveIndicator(lastAnchor);
-        } else if (window.scrollY <= firstSecTop) {
-          // 스크롤이 첫번째 섹션보다 위에 있을때
-          this.setActiveIndicator(firstAnchor);
-        } else if (
-          window.scrollY > sectionTop &&
-          window.scrollY <= sectionTop + sectionHeight
-        ) {
-          // 현재 섹션에 있을 때
-          this.setActiveIndicator(navLink);
-        }
-      });
-    }
-  },
-  setActiveIndicator(anchor) {
-    if (anchor) {
-      this.quickIndicators.forEach((indicator) => {
-        const locationList = indicator.querySelectorAll('a');
-        locationList.forEach((anchor) => {
-          anchor.classList.remove('active');
-        });
-      });
-      anchor.classList.add('active');
-    }
-  },
-};
+//     //페이지 스크롤 시 퀵 네비게이션 해당메뉴 active
+//     if (sectionArea.length > 0) {
+//       const topHeight = Math.ceil(winHeight / 5); // 윈도우의 20%
+//       const firstSecTop = sectionArea[0].offsetTop;
+//       const scrollBottom = window.scrollY + winHeight;
+//       const scrollHeight = document.body.scrollHeight;
+//       sectionArea.forEach((current) => {
+//         const sectionHeight = current.offsetHeight;
+//         const sectionTop = current.offsetTop - topHeight;
+//         const sectionId = current.getAttribute('id');
+//         const navLink = document.querySelector(
+//           `.krds-in-page-navigation-area a[href*=${sectionId}]`,
+//         );
+//         const firstAnchor = document.querySelector(
+//           '.krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a',
+//         );
+//         const lastAnchor = document.querySelector(
+//           '.krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a',
+//         );
+//         if (scrollBottom >= scrollHeight) {
+//           // 스크롤이 페이지 끝에 도달했을 때
+//           this.setActiveIndicator(lastAnchor);
+//         } else if (window.scrollY <= firstSecTop) {
+//           // 스크롤이 첫번째 섹션보다 위에 있을때
+//           this.setActiveIndicator(firstAnchor);
+//         } else if (
+//           window.scrollY > sectionTop &&
+//           window.scrollY <= sectionTop + sectionHeight
+//         ) {
+//           // 현재 섹션에 있을 때
+//           this.setActiveIndicator(navLink);
+//         }
+//       });
+//     }
+//   },
+//   setActiveIndicator(anchor) {
+//     if (anchor) {
+//       this.quickIndicators.forEach((indicator) => {
+//         const locationList = indicator.querySelectorAll('a');
+//         locationList.forEach((anchor) => {
+//           anchor.classList.remove('active');
+//         });
+//       });
+//       anchor.classList.add('active');
+//     }
+//   },
+// };
 
 /*** * krds_helpPanel * ***/
-const krds_helpPanel = {
-  helpPanel: null,
-  lastFocusedButton: null,
-  executeButton: null,
-  collapseButton: null,
-  init() {
-    this.helpPanel = document.querySelector('.krds-help-panel');
+// const krds_helpPanel = {
+//   helpPanel: null,
+//   lastFocusedButton: null,
+//   executeButton: null,
+//   collapseButton: null,
+//   init() {
+//     this.helpPanel = document.querySelector('.krds-help-panel');
 
-    if (!this.helpPanel) return;
+//     if (!this.helpPanel) return;
 
-    this.executeButton = document.querySelectorAll('.btn-help-exec');
-    this.collapseButton = this.helpPanel.querySelector('.btn-help-panel.fold');
+//     this.executeButton = document.querySelectorAll('.btn-help-exec');
+//     this.collapseButton = this.helpPanel.querySelector('.btn-help-panel.fold');
 
-    this.setupPadding();
-    this.observeMastHead();
-    this.setupHelpButtons();
-    this.toggleScrollLock();
-  },
-  setupPadding() {
-    const topBannerHeight =
-      document.querySelector('#krds-masthead')?.offsetHeight;
-    const headerHeight = document.querySelector(
-      '#krds-header .header-in',
-    )?.offsetHeight;
-    const defaultPadding = topBannerHeight + headerHeight;
-    const hiddenBannerPadding = headerHeight;
+//     this.setupPadding();
+//     this.observeMastHead();
+//     this.setupHelpButtons();
+//     this.toggleScrollLock();
+//   },
+//   setupPadding() {
+//     const topBannerHeight =
+//       document.querySelector('#krds-masthead')?.offsetHeight;
+//     const headerHeight = document.querySelector(
+//       '#krds-header .header-in',
+//     )?.offsetHeight;
+//     const defaultPadding = topBannerHeight + headerHeight;
+//     const hiddenBannerPadding = headerHeight;
 
-    const expandBox = document.querySelector('.help-panel-wrap');
-    const expandButton = document.querySelector('.btn-help-panel.expand');
+//     const expandBox = document.querySelector('.help-panel-wrap');
+//     const expandButton = document.querySelector('.btn-help-panel.expand');
 
-    const applyPadding = (padding) => {
-      expandButton.style.marginTop = padding;
-      if (windowSize.getWinSize() === 'pc') {
-        expandBox.style.paddingTop = padding;
-        this.collapseButton.style.marginTop = padding;
-      } else {
-        expandBox.removeAttribute('style');
-        this.collapseButton.removeAttribute('style');
-      }
-    };
+//     const applyPadding = (padding) => {
+//       expandButton.style.marginTop = padding;
+//       if (windowSize.getWinSize() === 'pc') {
+//         expandBox.style.paddingTop = padding;
+//         this.collapseButton.style.marginTop = padding;
+//       } else {
+//         expandBox.removeAttribute('style');
+//         this.collapseButton.removeAttribute('style');
+//       }
+//     };
 
-    // bn-hidden: 헤더 배너 숨김, scroll-down: 헤더 숨김
-    if (document.body.classList.contains('bn-hidden')) {
-      if (document.querySelector('#wrap').classList.contains('scroll-down')) {
-        applyPadding('0');
-      } else {
-        applyPadding(`${hiddenBannerPadding}px`);
-      }
-    } else {
-      applyPadding(`${defaultPadding}px`);
-    }
-  },
-  observeMastHead() {
-    const topBanner = document.querySelector('#krds-masthead');
-    if (!topBanner) return;
-    const body = document.body;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          body.classList.toggle('bn-hidden', !entry.isIntersecting);
-        });
-      },
-      { root: null, threshold: 0 },
-    );
-    observer.observe(topBanner);
-  },
-  setupHelpButtons() {
-    this.executeButton.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        this.lastFocusedButton = btn;
-        this.toggleHelpPanel('open', btn);
-      });
-      btn.setAttribute('aria-expanded', 'false');
-    });
-    if (this.collapseButton) {
-      this.collapseButton.addEventListener('click', () => {
-        this.toggleHelpPanel('close');
-      });
-    }
-  },
-  toggleHelpPanel(action, triggerBtn) {
-    const helpWrap = document.querySelector('.help-panel-wrap');
-    const innerContainer = document.querySelector('#container > .inner');
+//     // bn-hidden: 헤더 배너 숨김, scroll-down: 헤더 숨김
+//     if (document.body.classList.contains('bn-hidden')) {
+//       if (document.querySelector('#wrap').classList.contains('scroll-down')) {
+//         applyPadding('0');
+//       } else {
+//         applyPadding(`${hiddenBannerPadding}px`);
+//       }
+//     } else {
+//       applyPadding(`${defaultPadding}px`);
+//     }
+//   },
+//   observeMastHead() {
+//     const topBanner = document.querySelector('#krds-masthead');
+//     if (!topBanner) return;
+//     const body = document.body;
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         entries.forEach((entry) => {
+//           body.classList.toggle('bn-hidden', !entry.isIntersecting);
+//         });
+//       },
+//       { root: null, threshold: 0 },
+//     );
+//     observer.observe(topBanner);
+//   },
+//   setupHelpButtons() {
+//     this.executeButton.forEach((btn) => {
+//       btn.addEventListener('click', () => {
+//         this.lastFocusedButton = btn;
+//         this.toggleHelpPanel('open', btn);
+//       });
+//       btn.setAttribute('aria-expanded', 'false');
+//     });
+//     if (this.collapseButton) {
+//       this.collapseButton.addEventListener('click', () => {
+//         this.toggleHelpPanel('close');
+//       });
+//     }
+//   },
+//   toggleHelpPanel(action, triggerBtn) {
+//     const helpWrap = document.querySelector('.help-panel-wrap');
+//     const innerContainer = document.querySelector('#container > .inner');
 
-    if (!helpWrap || !innerContainer || !this.helpPanel) return;
+//     if (!helpWrap || !innerContainer || !this.helpPanel) return;
 
-    if (action === 'open') {
-      if (windowSize.getWinSize() === 'mob') {
-        document.body.classList.add('scroll-no');
-      }
+//     if (action === 'open') {
+//       if (windowSize.getWinSize() === 'mob') {
+//         document.body.classList.add('scroll-no');
+//       }
 
-      this.helpPanel.classList.add('expand');
-      helpWrap.setAttribute('tabindex', '0');
+//       this.helpPanel.classList.add('expand');
+//       helpWrap.setAttribute('tabindex', '0');
 
-      if (triggerBtn) {
-        setTimeout(() => {
-          helpWrap.focus();
-        }, 50);
-      }
+//       if (triggerBtn) {
+//         setTimeout(() => {
+//           helpWrap.focus();
+//         }, 50);
+//       }
 
-      // 도움패널은 페이지에 한개만 있고 컨트롤하는 버튼은 여러개일때
-      this.executeButton.forEach((btn) => {
-        btn.setAttribute('aria-expanded', 'true');
-      });
+//       // 도움패널은 페이지에 한개만 있고 컨트롤하는 버튼은 여러개일때
+//       this.executeButton.forEach((btn) => {
+//         btn.setAttribute('aria-expanded', 'true');
+//       });
 
-      // inner가 flexible인 경우
-      if (innerContainer.classList.contains('help-panel-flexible')) {
-        innerContainer.classList.add('help-panel-expanded');
-      }
-    } else if (action === 'close') {
-      if (windowSize.getWinSize() === 'mob') {
-        document.body.classList.remove('scroll-no');
-      }
+//       // inner가 flexible인 경우
+//       if (innerContainer.classList.contains('help-panel-flexible')) {
+//         innerContainer.classList.add('help-panel-expanded');
+//       }
+//     } else if (action === 'close') {
+//       if (windowSize.getWinSize() === 'mob') {
+//         document.body.classList.remove('scroll-no');
+//       }
 
-      this.helpPanel.classList.remove('expand');
-      helpWrap.removeAttribute('tabindex');
+//       this.helpPanel.classList.remove('expand');
+//       helpWrap.removeAttribute('tabindex');
 
-      if (this.lastFocusedButton) {
-        this.lastFocusedButton.focus();
-      } else {
-        // 처음 부터 오픈일때 지정 버튼으로 포커스 이동
-        document.querySelector('.btn-help-panel.expand').focus();
-      }
+//       if (this.lastFocusedButton) {
+//         this.lastFocusedButton.focus();
+//       } else {
+//         // 처음 부터 오픈일때 지정 버튼으로 포커스 이동
+//         document.querySelector('.btn-help-panel.expand').focus();
+//       }
 
-      // 도움패널은 페이지에 한개만 있고 컨트롤하는 버튼은 여러개일때
-      this.executeButton.forEach((btn) => {
-        btn.setAttribute('aria-expanded', 'false');
-      });
+//       // 도움패널은 페이지에 한개만 있고 컨트롤하는 버튼은 여러개일때
+//       this.executeButton.forEach((btn) => {
+//         btn.setAttribute('aria-expanded', 'false');
+//       });
 
-      // inner가 flexible인 경우
-      if (innerContainer.classList.contains('help-panel-flexible')) {
-        innerContainer.classList.remove('help-panel-expanded');
-      }
-    }
-  },
-  toggleScrollLock() {
-    setTimeout(() => {
-      if (
-        windowSize.getWinSize() === 'mob' &&
-        this.helpPanel.classList.contains('expand')
-      ) {
-        document.body.classList.add('scroll-no');
-      } else {
-        document.body.classList.remove('scroll-no');
-      }
-    }, 0);
-  },
-};
+//       // inner가 flexible인 경우
+//       if (innerContainer.classList.contains('help-panel-flexible')) {
+//         innerContainer.classList.remove('help-panel-expanded');
+//       }
+//     }
+//   },
+//   toggleScrollLock() {
+//     setTimeout(() => {
+//       if (
+//         windowSize.getWinSize() === 'mob' &&
+//         this.helpPanel.classList.contains('expand')
+//       ) {
+//         document.body.classList.add('scroll-no');
+//       } else {
+//         document.body.classList.remove('scroll-no');
+//       }
+//     }, 0);
+//   },
+// };
 
 /*** * krds_disclosure * ***/
-const krds_disclosure = {
-  disclosures: null,
-  init() {
-    this.disclosures = document.querySelectorAll('.krds-disclosure');
+// const krds_disclosure = {
+//   disclosures: null,
+//   init() {
+//     this.disclosures = document.querySelectorAll('.krds-disclosure');
 
-    if (!this.disclosures.length) return;
+//     if (!this.disclosures.length) return;
 
-    this.setupDisclosure();
-  },
-  setupDisclosure() {
-    this.disclosures.forEach((disclosure) => {
-      const disclosureButton = disclosure.querySelector('.btn-conts-expand');
-      const disclosureContent = disclosure.querySelector('.expand-wrap');
-      const uniqueIdx = `disclosure-${Math.random()
-        .toString(36)
-        .substring(2, 9)}`;
+//     this.setupDisclosure();
+//   },
+//   setupDisclosure() {
+//     this.disclosures.forEach((disclosure) => {
+//       const disclosureButton = disclosure.querySelector('.btn-conts-expand');
+//       const disclosureContent = disclosure.querySelector('.expand-wrap');
+//       const uniqueIdx = `disclosure-${Math.random()
+//         .toString(36)
+//         .substring(2, 9)}`;
 
-      // 예외 처리: disclosureButton 없이 active 상태를 직접 설정하여 확장 상태를 제어하는 경우
-      if (!disclosureButton) return;
+//       // 예외 처리: disclosureButton 없이 active 상태를 직접 설정하여 확장 상태를 제어하는 경우
+//       if (!disclosureButton) return;
 
-      // aria 속성 설정
-      disclosureButton.setAttribute('aria-expanded', 'false');
-      disclosureButton.setAttribute('aria-controls', uniqueIdx);
-      disclosureContent.setAttribute('id', uniqueIdx);
-      // disclosureContent.setAttribute("aria-hidden", "true"); // 임시: disclosure 내용이 일부만 노출되는 경우
-      disclosureContent.setAttribute('inert', '');
-      if (disclosure.classList.contains('active')) {
-        disclosureButton.setAttribute('aria-expanded', 'true');
-        // disclosureContent.setAttribute("aria-hidden", "false"); // 임시: disclosure 내용이 일부만 노출되는 경우
-        disclosureContent.removeAttribute('inert');
-      }
+//       // aria 속성 설정
+//       disclosureButton.setAttribute('aria-expanded', 'false');
+//       disclosureButton.setAttribute('aria-controls', uniqueIdx);
+//       disclosureContent.setAttribute('id', uniqueIdx);
+//       // disclosureContent.setAttribute("aria-hidden", "true"); // 임시: disclosure 내용이 일부만 노출되는 경우
+//       disclosureContent.setAttribute('inert', '');
+//       if (disclosure.classList.contains('active')) {
+//         disclosureButton.setAttribute('aria-expanded', 'true');
+//         // disclosureContent.setAttribute("aria-hidden", "false"); // 임시: disclosure 내용이 일부만 노출되는 경우
+//         disclosureContent.removeAttribute('inert');
+//       }
 
-      disclosureButton.addEventListener('click', () => {
-        this.toggleDisclosure(disclosure, disclosureButton, disclosureContent);
-      });
-    });
-  },
-  toggleDisclosure(disclosure, disclosureButton, disclosureContent) {
-    const isExpanded =
-      disclosureButton.getAttribute('aria-expanded') === 'true';
+//       disclosureButton.addEventListener('click', () => {
+//         this.toggleDisclosure(disclosure, disclosureButton, disclosureContent);
+//       });
+//     });
+//   },
+//   toggleDisclosure(disclosure, disclosureButton, disclosureContent) {
+//     const isExpanded =
+//       disclosureButton.getAttribute('aria-expanded') === 'true';
 
-    disclosure.classList.toggle('active', !isExpanded);
-    disclosureButton.setAttribute('aria-expanded', !isExpanded);
+//     disclosure.classList.toggle('active', !isExpanded);
+//     disclosureButton.setAttribute('aria-expanded', !isExpanded);
 
-    // disclosureContent.setAttribute("aria-hidden", isExpanded); // 임시: disclosure 내용이 일부만 노출되는 경우
-    if (isExpanded) {
-      disclosureContent.setAttribute('inert', '');
-    } else {
-      disclosureContent.removeAttribute('inert');
-    }
-  },
-};
+//     // disclosureContent.setAttribute("aria-hidden", isExpanded); // 임시: disclosure 내용이 일부만 노출되는 경우
+//     if (isExpanded) {
+//       disclosureContent.setAttribute('inert', '');
+//     } else {
+//       disclosureContent.removeAttribute('inert');
+//     }
+//   },
+// };
 
 /*** * krds_adjustContentScale * ***/
-const krds_adjustContentScale = {
-  body: document.body,
-  scaleLevel: 1,
-  minScale: 0.5,
-  maxScale: 2,
-  init() {
-    const scaleButtons = document.querySelectorAll(
-      '[data-adjust] [data-adjust-scale]',
-    );
+// const krds_adjustContentScale = {
+//   body: document.body,
+//   scaleLevel: 1,
+//   minScale: 0.5,
+//   maxScale: 2,
+//   init() {
+//     const scaleButtons = document.querySelectorAll(
+//       '[data-adjust] [data-adjust-scale]',
+//     );
 
-    if (!scaleButtons.length) return;
+//     if (!scaleButtons.length) return;
 
-    // root 변수에서 스케일 값을 가져오기
-    const root = document.querySelector(':root');
-    const rootStyles = getComputedStyle(root);
-    const zoomSmall = rootStyles.getPropertyValue('--zoom-small').trim();
-    const zoomMedium = rootStyles.getPropertyValue('--zoom-medium').trim();
-    const zoomLarge = rootStyles.getPropertyValue('--zoom-large').trim();
-    const zoomXlarge = rootStyles.getPropertyValue('--zoom-xlarge').trim();
-    const zoomXxlarge = rootStyles.getPropertyValue('--zoom-xxlarge').trim();
+//     // root 변수에서 스케일 값을 가져오기
+//     const root = document.querySelector(':root');
+//     const rootStyles = getComputedStyle(root);
+//     const zoomSmall = rootStyles.getPropertyValue('--zoom-small').trim();
+//     const zoomMedium = rootStyles.getPropertyValue('--zoom-medium').trim();
+//     const zoomLarge = rootStyles.getPropertyValue('--zoom-large').trim();
+//     const zoomXlarge = rootStyles.getPropertyValue('--zoom-xlarge').trim();
+//     const zoomXxlarge = rootStyles.getPropertyValue('--zoom-xxlarge').trim();
 
-    scaleButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const scale = button.getAttribute('data-adjust-scale');
-        switch (scale) {
-          case 'sm':
-            this.scaleValue(zoomSmall);
-            break;
-          case 'md':
-            const others = button
-              .closest('.drop-menu')
-              .querySelectorAll('.item-link');
-            const defaultSize = button
-              .closest('.drop-menu')
-              .querySelector('.item-link.md');
-            others.forEach((item) => {
-              item.classList.remove('active');
-              item.setAttribute('aria-selected', 'false');
-              item.querySelector('.sr-only').innerHTML = '';
-            });
-            defaultSize.classList.add('active');
-            defaultSize.querySelector('.sr-only').innerHTML = '선택됨';
-            this.scaleValue(zoomMedium);
-            break;
-          case 'lg':
-            this.scaleValue(zoomLarge);
-            break;
-          case 'xlg':
-            this.scaleValue(zoomXlarge);
-            break;
-          case 'xxlg':
-            this.scaleValue(zoomXxlarge);
-            break;
-          default:
-            break;
-        }
-      });
-    });
-  },
-  scaleValue(value) {
-    this.scaleLevel = value;
-    if (!this.body) {
-      this.body = document.body;
-    }
-    if (this.body) {
-      this.body.style.zoom = this.scaleLevel;
-    }
-  },
-  scaleDefault() {
-    this.scaleLevel = 1;
-    if (!this.body) {
-      this.body = document.body;
-    }
-    if (this.body) {
-      this.body.style.zoom = this.scaleLevel;
-    }
-  },
-  scaleMin() {
-    this.scaleLevel = this.minScale;
-    if (!this.body) {
-      this.body = document.body;
-    }
-    if (this.body) {
-      this.body.style.zoom = this.scaleLevel;
-    }
-  },
-  scaleMax() {
-    this.scaleLevel = this.maxScale;
-    if (!this.body) {
-      this.body = document.body;
-    }
-    if (this.body) {
-      this.body.style.zoom = this.scaleLevel;
-    }
-  },
-  scaleUp() {
-    if (this.scaleLevel < this.maxScale) {
-      this.scaleLevel += 0.1;
-      if (this.scaleLevel > this.maxScale) this.scaleLevel = this.maxScale;
-      if (!this.body) {
-        this.body = document.body;
-      }
-      if (this.body) {
-        this.body.style.zoom = this.scaleLevel;
-      }
-    }
-  },
-  scaleDown() {
-    if (this.scaleLevel > this.minScale) {
-      this.scaleLevel -= 0.1;
-      if (this.scaleLevel < this.minScale) this.scaleLevel = this.minScale;
-      if (!this.body) {
-        this.body = document.body;
-      }
-      if (this.body) {
-        this.body.style.zoom = this.scaleLevel;
-      }
-    }
-  },
-};
+//     scaleButtons.forEach((button) => {
+//       button.addEventListener('click', () => {
+//         const scale = button.getAttribute('data-adjust-scale');
+//         switch (scale) {
+//           case 'sm':
+//             this.scaleValue(zoomSmall);
+//             break;
+//           case 'md':
+//             const others = button
+//               .closest('.drop-menu')
+//               .querySelectorAll('.item-link');
+//             const defaultSize = button
+//               .closest('.drop-menu')
+//               .querySelector('.item-link.md');
+//             others.forEach((item) => {
+//               item.classList.remove('active');
+//               item.setAttribute('aria-selected', 'false');
+//               item.querySelector('.sr-only').innerHTML = '';
+//             });
+//             defaultSize.classList.add('active');
+//             defaultSize.querySelector('.sr-only').innerHTML = '선택됨';
+//             this.scaleValue(zoomMedium);
+//             break;
+//           case 'lg':
+//             this.scaleValue(zoomLarge);
+//             break;
+//           case 'xlg':
+//             this.scaleValue(zoomXlarge);
+//             break;
+//           case 'xxlg':
+//             this.scaleValue(zoomXxlarge);
+//             break;
+//           default:
+//             break;
+//         }
+//       });
+//     });
+//   },
+//   scaleValue(value) {
+//     this.scaleLevel = value;
+//     if (!this.body) {
+//       this.body = document.body;
+//     }
+//     if (this.body) {
+//       this.body.style.zoom = this.scaleLevel;
+//     }
+//   },
+//   scaleDefault() {
+//     this.scaleLevel = 1;
+//     if (!this.body) {
+//       this.body = document.body;
+//     }
+//     if (this.body) {
+//       this.body.style.zoom = this.scaleLevel;
+//     }
+//   },
+//   scaleMin() {
+//     this.scaleLevel = this.minScale;
+//     if (!this.body) {
+//       this.body = document.body;
+//     }
+//     if (this.body) {
+//       this.body.style.zoom = this.scaleLevel;
+//     }
+//   },
+//   scaleMax() {
+//     this.scaleLevel = this.maxScale;
+//     if (!this.body) {
+//       this.body = document.body;
+//     }
+//     if (this.body) {
+//       this.body.style.zoom = this.scaleLevel;
+//     }
+//   },
+//   scaleUp() {
+//     if (this.scaleLevel < this.maxScale) {
+//       this.scaleLevel += 0.1;
+//       if (this.scaleLevel > this.maxScale) this.scaleLevel = this.maxScale;
+//       if (!this.body) {
+//         this.body = document.body;
+//       }
+//       if (this.body) {
+//         this.body.style.zoom = this.scaleLevel;
+//       }
+//     }
+//   },
+//   scaleDown() {
+//     if (this.scaleLevel > this.minScale) {
+//       this.scaleLevel -= 0.1;
+//       if (this.scaleLevel < this.minScale) this.scaleLevel = this.minScale;
+//       if (!this.body) {
+//         this.body = document.body;
+//       }
+//       if (this.body) {
+//         this.body.style.zoom = this.scaleLevel;
+//       }
+//     }
+//   },
+// };
 
 /*** * krds_toggleSwitch * ***/
 const krds_toggleSwitch = {
@@ -2750,9 +2752,8 @@ const krds_toggleSwitch = {
     });
   },
 };
-
-/*** * krds_infoList * ***/
 const krds_infoList = {
+  /*** * krds_infoList * ***/
   init() {
     const infoLists = document.querySelectorAll('.krds-info-list');
 
@@ -2767,9 +2768,8 @@ const krds_infoList = {
     });
   },
 };
-
-/*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
 const krds_dropEvent = {
+  /*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
   dropButtons: null,
   init() {
     this.dropButtons = document.querySelectorAll(
@@ -2912,184 +2912,189 @@ const krds_dropEvent = {
 };
 
 /*** * krds_chkBox 박스형 체크박스 상태에 따른 디자인 변경 * ***/
-const krds_chkBox = {
-  init() {
-    const box = document.querySelectorAll('.chk-group-wrap');
-    box.forEach((e) => {
-      const boxList = e.querySelectorAll('li');
-      boxList.forEach((ele) => {
-        ele.removeAttribute('class');
-        const thisList = ele.closest('li');
-        const checkbox = ele.querySelector('input[type=checkbox]');
-        if (checkbox != null) {
-          const is_disabled = checkbox.disabled;
-          let is_checked = checkbox.checked;
+// const krds_chkBox = {
+//   init() {
+//     const box = document.querySelectorAll('.chk-group-wrap');
+//     box.forEach((e) => {
+//       const boxList = e.querySelectorAll('li');
+//       boxList.forEach((ele) => {
+//         ele.removeAttribute('class');
+//         const thisList = ele.closest('li');
+//         const checkbox = ele.querySelector('input[type=checkbox]');
+//         if (checkbox != null) {
+//           const is_disabled = checkbox.disabled;
+//           let is_checked = checkbox.checked;
 
-          if (is_disabled == true) {
-            thisList.classList.add('disabled');
-          } else {
-            if (is_checked == true) {
-              thisList.classList.add('checked');
-            }
-          }
+//           if (is_disabled == true) {
+//             thisList.classList.add('disabled');
+//           } else {
+//             if (is_checked == true) {
+//               thisList.classList.add('checked');
+//             }
+//           }
 
-          checkbox.addEventListener('click', () => {
-            if (is_checked == true) {
-              thisList.classList.remove('checked');
-              is_checked = false;
-            } else {
-              thisList.classList.add('checked');
-              is_checked = true;
-            }
-          });
-        }
+//           checkbox.addEventListener('click', () => {
+//             if (is_checked == true) {
+//               thisList.classList.remove('checked');
+//               is_checked = false;
+//             } else {
+//               thisList.classList.add('checked');
+//               is_checked = true;
+//             }
+//           });
+//         }
 
-        const rdo = ele.querySelector('input[type=radio]');
-        if (rdo != null) {
-          const is_disabled = rdo.disabled;
-          let is_checked = rdo.checked;
+//         const rdo = ele.querySelector('input[type=radio]');
+//         if (rdo != null) {
+//           const is_disabled = rdo.disabled;
+//           let is_checked = rdo.checked;
 
-          if (is_disabled == true) {
-            thisList.classList.add('disabled');
-          } else {
-            if (is_checked == true) {
-              thisList.classList.add('checked');
-            }
-          }
+//           if (is_disabled == true) {
+//             thisList.classList.add('disabled');
+//           } else {
+//             if (is_checked == true) {
+//               thisList.classList.add('checked');
+//             }
+//           }
 
-          rdo.addEventListener('click', (e) => {
-            const rdoGroup = rdo.closest('.chk-group-wrap');
-            const rdoLi = rdoGroup.querySelectorAll('li');
-            let is_checked2 = e.checked;
-            rdoLi.forEach((ele) => {
-              ele.classList.remove('checked');
-              is_checked2 = false;
-            });
-            if (is_checked2 == true) {
-              thisList.classList.remove('checked');
-              is_checked2 = false;
-            } else {
-              thisList.classList.add('checked');
-              is_checked2 = true;
-            }
-          });
-        }
-      });
-    });
+//           rdo.addEventListener('click', (e) => {
+//             const rdoGroup = rdo.closest('.chk-group-wrap');
+//             const rdoLi = rdoGroup.querySelectorAll('li');
+//             let is_checked2 = e.checked;
+//             rdoLi.forEach((ele) => {
+//               ele.classList.remove('checked');
+//               is_checked2 = false;
+//             });
+//             if (is_checked2 == true) {
+//               thisList.classList.remove('checked');
+//               is_checked2 = false;
+//             } else {
+//               thisList.classList.add('checked');
+//               is_checked2 = true;
+//             }
+//           });
+//         }
+//       });
+//     });
 
-    this.formChipFocus();
-  },
-  formChipFocus() {
-    // form_chip 일때 포커스 처리
-    const formChip = document.querySelectorAll('.krds-form-chip');
+//     this.formChipFocus();
+//   },
+//   formChipFocus() {
+//     // form_chip 일때 포커스 처리
+//     const formChip = document.querySelectorAll('.krds-form-chip');
 
-    if (!formChip.length) return;
+//     if (!formChip.length) return;
 
-    formChip.forEach((chip) => {
-      const input = chip.querySelector('input');
-      if (!input) return;
-      input.addEventListener('focus', () => {
-        chip.classList.add('focus');
-      });
-      input.addEventListener('focusout', () => {
-        chip.classList.remove('focus');
-      });
-    });
-  },
-};
+//     formChip.forEach((chip) => {
+//       const input = chip.querySelector('input');
+//       if (!input) return;
+//       input.addEventListener('focus', () => {
+//         chip.classList.add('focus');
+//       });
+//       input.addEventListener('focusout', () => {
+//         chip.classList.remove('focus');
+//       });
+//     });
+//   },
+// };
 
 /*** * krds_fileUpload 파일 업로드 : drag 임시 * ***/
-const krds_fileUpload = {
-  init() {
-    const fileUploads = document.querySelectorAll('.file-upload');
-    fileUploads.forEach((fileUpload) => {
-      const inputFile = fileUpload.querySelector('input[type="file"]');
-      const inputButton = fileUpload.querySelector('button');
+// const krds_fileUpload = {
+//   init() {
+//     const fileUploads = document.querySelectorAll('.file-upload');
+//     fileUploads.forEach((fileUpload) => {
+//       const inputFile = fileUpload.querySelector('input[type="file"]');
+//       const inputButton = fileUpload.querySelector('button');
 
-      inputButton.addEventListener('click', () => {
-        inputFile.click();
-      });
+//       inputButton.addEventListener('click', () => {
+//         inputFile.click();
+//       });
 
-      fileUpload.addEventListener('dragover', (e) => {
-        fileUpload.classList.add('active');
-        e.preventDefault();
-      });
+//       fileUpload.addEventListener('dragover', (e) => {
+//         fileUpload.classList.add('active');
+//         e.preventDefault();
+//       });
 
-      fileUpload.addEventListener('dragleave', (e) => {
-        fileUpload.classList.remove('active');
-        e.preventDefault();
-      });
+//       fileUpload.addEventListener('dragleave', (e) => {
+//         fileUpload.classList.remove('active');
+//         e.preventDefault();
+//       });
 
-      fileUpload.addEventListener('drop', (e) => {
-        fileUpload.classList.remove('active');
-        e.preventDefault();
-        // const files = e.dataTransfer.files;
-      });
-    });
-  },
-};
+//       fileUpload.addEventListener('drop', (e) => {
+//         fileUpload.classList.remove('active');
+//         e.preventDefault();
+//         // const files = e.dataTransfer.files;
+//       });
+//     });
+//   },
+// };
 
 /*** * nuriToggleEvent 누리집 토글 이벤트 현재는 사용 안 함 * ***/
-const nuriToggleEvent = {
-  init() {
-    const _toggleBtns = document.querySelectorAll('#krds-masthead .toggle-btn');
-    _toggleBtns.forEach(($toggleBtn) => {
-      $toggleBtn.addEventListener('click', ($btnAct) => {
-        const $target = $btnAct.target.closest('.toggle-head');
-        const $targetBody = $target.nextElementSibling;
-        const _targetBodyH = $targetBody.querySelector('.inner').scrollHeight;
-        const $srEl = $btnAct.target.querySelector('.sr-only');
+// const nuriToggleEvent = {
+//   init() {
+//     const _toggleBtns = document.querySelectorAll('#krds-masthead .toggle-btn');
+//     _toggleBtns.forEach(($toggleBtn) => {
+//       $toggleBtn.addEventListener('click', ($btnAct) => {
+//         const $target = $btnAct.target.closest('.toggle-head');
+//         const $targetBody = $target.nextElementSibling;
+//         const _targetBodyH = $targetBody.querySelector('.inner').scrollHeight;
+//         const $srEl = $btnAct.target.querySelector('.sr-only');
 
-        if (!$target.classList.contains('active')) {
-          $srEl.innerText = '닫힘';
-          $target.classList.add('active');
-          $targetBody.classList.add('active');
-          $targetBody.style.height = `${_targetBodyH}px`;
-          window.addEventListener('resize', () => {
-            if ($targetBody.classList.contains('active')) {
-              const _targetBodyH =
-                $targetBody.querySelector('.inner').scrollHeight;
-              $targetBody.style.height = `${_targetBodyH}px`;
-            }
-          });
-        } else {
-          $srEl.innerText = '열림';
-          $target.classList.remove('active');
-          $targetBody.classList.remove('active');
-          $targetBody.style.height = '';
-        }
-      });
-    });
-  },
-};
+//         if (!$target.classList.contains('active')) {
+//           $srEl.innerText = '닫힘';
+//           $target.classList.add('active');
+//           $targetBody.classList.add('active');
+//           $targetBody.style.height = `${_targetBodyH}px`;
+//           window.addEventListener('resize', () => {
+//             if ($targetBody.classList.contains('active')) {
+//               const _targetBodyH =
+//                 $targetBody.querySelector('.inner').scrollHeight;
+//               $targetBody.style.height = `${_targetBodyH}px`;
+//             }
+//           });
+//         } else {
+//           $srEl.innerText = '열림';
+//           $target.classList.remove('active');
+//           $targetBody.classList.remove('active');
+//           $targetBody.style.height = '';
+//         }
+//       });
+//     });
+//   },
+// };
 
 // 초기 이벤트
 window.addEventListener('DOMContentLoaded', () => {
   // 윈도우 사이즈 체크
   windowSize.setWinSize();
 
+  // 사용중
   krds_mainMenuPC.init();
   krds_mainMenuMobile.init();
   krds_sideNavigation.init();
   krds_tab.init();
   krds_accordion.init();
   krds_modal.init();
-  krds_contextualHelp.init();
-  krds_tooltip.init();
-  krds_disclosure.init();
-  krds_dropEvent.init();
   krds_calendar.init();
-  krds_inPageNavigation.init();
-  krds_adjustContentScale.init();
-  krds_toggleSwitch.init();
-  krds_infoList.init();
-  krds_chkBox.init();
-  krds_fileUpload.init();
+  krds_dropEvent.init();
 
-  krds_helpPanel.init();
-  if (windowSize.getWinSize() === 'pc') {
-    krds_helpPanel.toggleHelpPanel('open');
-  }
+  // 사용 가능성 있음
+  krds_tooltip.init();
+  krds_infoList.init();
+  krds_toggleSwitch.init();
+
+  // 사용안함
+  // krds_inPageNavigation.init();
+  // krds_disclosure.init();
+  // krds_contextualHelp.init();
+  // krds_adjustContentScale.init();
+  // krds_chkBox.init();
+  // krds_fileUpload.init();
+
+  // krds_helpPanel.init();
+  // if (windowSize.getWinSize() === 'pc') {
+  //   krds_helpPanel.toggleHelpPanel('open');
+  // }
 });
 
 // 스크롤 이벤트
@@ -3098,12 +3103,12 @@ window.addEventListener('scroll', () => {
   scrollManager.handleScrollDirection();
 
   krds_mainMenuPC.closeMainMenu();
-  krds_inPageNavigation.updateActiveSection();
-  krds_helpPanel.init();
+  // krds_inPageNavigation.updateActiveSection();
+  // krds_helpPanel.init();
 });
 
 // 리사이즈 이벤트
 window.addEventListener('resize', () => {
   windowSize.setWinSize();
-  krds_helpPanel.init();
+  // krds_helpPanel.init();
 });
