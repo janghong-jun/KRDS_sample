@@ -1,5 +1,34 @@
 'use strict';
 
+// ========================================
+// 초기화 상태 추적을 위한 WeakSet 관리
+// ========================================
+const initializationTracker = {
+  sets: {
+    mainMenuPC: new WeakSet(),
+    mainMenuMobile: new WeakSet(),
+    sideNavigation: new WeakSet(),
+    tab: new WeakSet(),
+    accordion: new WeakSet(),
+    modal: new WeakSet(),
+    calendar: new WeakSet(),
+    tooltip: new WeakSet(),
+    infoList: new WeakSet(),
+    toggleSwitch: new WeakSet(),
+    dropEvent: new WeakSet(),
+  },
+
+  isInitialized(component, element) {
+    return this.sets[component]?.has(element) || false;
+  },
+
+  markInitialized(component, element) {
+    if (this.sets[component]) {
+      this.sets[component].add(element);
+    }
+  },
+};
+
 // 윈도우 사이즈 체크
 const windowSize = {
   winSize: null,
@@ -105,6 +134,10 @@ const krds_mainMenuPC = {
     );
 
     if (!gnbMenu) return;
+
+    // 이미 초기화된 경우 중복 실행 방지
+    if (initializationTracker.isInitialized('mainMenuPC', gnbMenu)) return;
+    initializationTracker.markInitialized('mainMenuPC', gnbMenu);
 
     // gnb 속성설정
     gnbMenu.setAttribute('aria-label', '메인 메뉴');
@@ -319,6 +352,11 @@ const krds_mainMenuMobile = {
     );
 
     if (!mobileGnb) return;
+
+    // 이미 초기화된 경우 중복 실행 방지
+    if (initializationTracker.isInitialized('mainMenuMobile', mobileGnb))
+      return;
+    initializationTracker.markInitialized('mainMenuMobile', mobileGnb);
 
     if (mobileGnb.classList.contains('is-open')) {
       this.openMainMenu(mobileGnb);
@@ -632,6 +670,17 @@ const krds_sideNavigation = {
       '.krds-side-navigation .lnb-list',
     );
     sideNavLists.forEach((navList) => {
+      const sideNav = navList.closest('.krds-side-navigation');
+
+      // 이미 초기화된 경우 중복 실행 방지
+      if (
+        sideNav &&
+        initializationTracker.isInitialized('sideNavigation', sideNav)
+      )
+        return;
+      if (sideNav)
+        initializationTracker.markInitialized('sideNavigation', sideNav);
+
       const navItems = navList.querySelectorAll('li');
       navItems.forEach((navItem) => this.setupNavItem(navItem));
     });
@@ -799,6 +848,10 @@ const krds_tab = {
   },
   setupTabs() {
     this.layerTabArea.forEach((tabArea) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('tab', tabArea)) return;
+      initializationTracker.markInitialized('tab', tabArea);
+
       const layerTabs = tabArea.querySelectorAll('.tab > ul > li');
 
       // 탭 설정
@@ -885,40 +938,29 @@ const krds_accordion = {
   accordionButtons: null,
   accordionHandlers: new Map(),
   init() {
-    this.accordionButtons = document.querySelectorAll('.btn-accordion');
+    const accordionContainers = document.querySelectorAll('.krds-accordion');
 
-    if (!this.accordionButtons.length) return;
+    if (!accordionContainers.length) return;
 
-    this.setupAccordions();
+    accordionContainers.forEach((container) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('accordion', container)) return;
+      initializationTracker.markInitialized('accordion', container);
+
+      this.setupAccordion(container);
+    });
   },
-  accordionToggle(button, accordionItems, accordionType, currentItem) {
-    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-    // singleOpen 타입일 경우, 다른 항목 닫기
-    if (
-      accordionType !== 'multiOpen' &&
-      !currentItem.classList.contains('active')
-    ) {
-      accordionItems.forEach((otherItem) => {
-        const otherButton = otherItem.querySelector('.btn-accordion');
-        otherButton.setAttribute('aria-expanded', 'false');
-        otherButton.classList.remove('active');
-        otherItem.classList.remove('active');
-      });
-    }
-    // 현재 항목 상태 토글
-    button.setAttribute('aria-expanded', !isExpanded);
-    button.classList.toggle('active', !isExpanded);
-    currentItem.classList.toggle('active', !isExpanded);
-  },
-  setupAccordions() {
-    this.accordionButtons.forEach((button, idx) => {
-      const accordionContainer = button.closest('.krds-accordion');
-      const accordionItems =
-        accordionContainer.querySelectorAll('.accordion-item');
+  setupAccordion(accordionContainer) {
+    const accordionButtons =
+      accordionContainer.querySelectorAll('.btn-accordion');
+    const accordionItems =
+      accordionContainer.querySelectorAll('.accordion-item');
+    const accordionType = accordionContainer.dataset.type || 'singleOpen';
+    const isOpen = accordionContainer.classList.contains('is-open');
+
+    accordionButtons.forEach((button, idx) => {
       const currentItem = button.closest('.accordion-item');
       const accordionContent = currentItem.querySelector('.accordion-collapse');
-      const accordionType = accordionContainer.dataset.type || 'singleOpen';
-      const isOpen = accordionContainer.classList.contains('is-open');
 
       // 접근성 속성 초기값 설정
       this.setupAriaAttributes(button, accordionContent, idx);
@@ -948,6 +990,26 @@ const krds_accordion = {
       button.addEventListener('click', toggleHandler);
     });
   },
+  accordionToggle(button, accordionItems, accordionType, currentItem) {
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    // singleOpen 타입일 경우, 다른 항목 닫기
+    if (
+      accordionType !== 'multiOpen' &&
+      !currentItem.classList.contains('active')
+    ) {
+      accordionItems.forEach((otherItem) => {
+        const otherButton = otherItem.querySelector('.btn-accordion');
+        otherButton.setAttribute('aria-expanded', 'false');
+        otherButton.classList.remove('active');
+        otherItem.classList.remove('active');
+      });
+    }
+    // 현재 항목 상태 토글
+    button.setAttribute('aria-expanded', !isExpanded);
+    button.classList.toggle('active', !isExpanded);
+    currentItem.classList.toggle('active', !isExpanded);
+  },
+
   setupAriaAttributes(button, accordionContent, idx) {
     const uniqueIdx = `${idx}${Math.random().toString(36).substring(2, 9)}`;
     button.setAttribute('aria-expanded', 'false');
@@ -968,6 +1030,14 @@ const krds_modal = {
   modalCloseTriggers: null,
   outsideClickHandlers: {},
   init() {
+    const modals = document.querySelectorAll('.krds-modal');
+
+    modals.forEach((modal) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('modal', modal)) return;
+      initializationTracker.markInitialized('modal', modal);
+    });
+
     this.modalOpenTriggers = document.querySelectorAll('.open-modal');
     this.modalCloseTriggers = document.querySelectorAll('.close-modal');
 
@@ -1248,6 +1318,12 @@ const krds_tooltip = {
 
     if (!this.tooltip.length) return;
 
+    this.tooltip.forEach((tooltip) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('tooltip', tooltip)) return;
+      initializationTracker.markInitialized('tooltip', tooltip);
+    });
+
     this.setupTooltips();
     this.setupGlobalEvents();
   },
@@ -1438,6 +1514,10 @@ const krds_calendar = {
   },
 
   init() {
+    // 이미 초기화된 경우 중복 실행 방지
+    if (this._initialized) return;
+    this._initialized = true;
+
     this.bindOpen();
     this.bindClose();
   },
@@ -2741,6 +2821,10 @@ const krds_toggleSwitch = {
     if (!toggleSwitch.length) return;
 
     toggleSwitch.forEach((toggle) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('toggleSwitch', toggle)) return;
+      initializationTracker.markInitialized('toggleSwitch', toggle);
+
       const input = toggle.querySelector('input');
       if (!input) return;
       input.addEventListener('focus', () => {
@@ -2760,6 +2844,10 @@ const krds_infoList = {
     if (!infoLists.length) return;
 
     infoLists.forEach((list) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('infoList', list)) return;
+      initializationTracker.markInitialized('infoList', list);
+
       list.setAttribute('role', 'list');
       const listItems = list.querySelectorAll('li');
       listItems.forEach((item) => {
@@ -2772,6 +2860,14 @@ const krds_dropEvent = {
   /*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
   dropButtons: null,
   init() {
+    const dropWraps = document.querySelectorAll('.krds-drop-wrap:not(.sample)');
+
+    dropWraps.forEach((dropWrap) => {
+      // 이미 초기화된 경우 중복 실행 방지
+      if (initializationTracker.isInitialized('dropEvent', dropWrap)) return;
+      initializationTracker.markInitialized('dropEvent', dropWrap);
+    });
+
     this.dropButtons = document.querySelectorAll(
       '.krds-drop-wrap:not(.sample) .drop-btn',
     );
@@ -3064,40 +3160,55 @@ const krds_dropEvent = {
 // };
 
 // ========================================
-// 초기화 함수 통합
+// 초기화 함수들을 모아서 관리
 // ========================================
-function initAllComponents() {
-  windowSize.setWinSize();
+const componentInitializers = {
+  initAll() {
+    windowSize.setWinSize();
 
-  krds_mainMenuPC.init();
-  krds_mainMenuMobile.init();
-  krds_sideNavigation.init();
-  krds_tab.init();
-  krds_accordion.init();
-  krds_modal.init();
-  krds_calendar.init();
-  krds_dropEvent.init();
-  krds_tooltip.init();
-  krds_infoList.init();
-  krds_toggleSwitch.init();
-}
+    // 사용중
+    krds_mainMenuPC.init();
+    krds_mainMenuMobile.init();
+    krds_sideNavigation.init();
+    krds_tab.init();
+    krds_accordion.init();
+    krds_modal.init();
+    krds_calendar.init();
+    krds_dropEvent.init();
+
+    // 사용 가능성 있음
+    krds_tooltip.init();
+    krds_infoList.init();
+    krds_toggleSwitch.init();
+  },
+};
 
 // ========================================
-// MutationObserver - 타임리프 동적 감지
+// MutationObserver 설정 - 타임리프 동적 콘텐츠 감지
 // ========================================
+const observerConfig = {
+  childList: true, // 자식 노드의 추가/제거 감지
+  subtree: true, // 모든 하위 노드까지 감지
+  attributes: false, // 속성 변경은 감지하지 않음 (성능 최적화)
+};
+
 let observerTimeout = null;
 
 const contentObserver = new MutationObserver((mutations) => {
+  // 디바운싱: 여러 변경사항이 한번에 발생할 경우 한 번만 실행
   clearTimeout(observerTimeout);
 
   observerTimeout = setTimeout(() => {
-    let hasKrdsComponent = false;
+    let shouldReinitialize = false;
 
+    // 의미있는 변경사항이 있는지 확인
     for (const mutation of mutations) {
       if (mutation.addedNodes.length > 0) {
         mutation.addedNodes.forEach((node) => {
+          // 엘리먼트 노드이고, KRDS 컴포넌트 클래스를 포함하는 경우
           if (node.nodeType === 1) {
-            if (
+            // ELEMENT_NODE
+            const hasKrdsComponent =
               node.classList?.contains('krds-main-menu') ||
               node.classList?.contains('krds-main-menu-mobile') ||
               node.classList?.contains('krds-side-navigation') ||
@@ -3110,34 +3221,46 @@ const contentObserver = new MutationObserver((mutations) => {
               node.classList?.contains('krds-form-toggle-switch') ||
               node.querySelector?.('[class*="krds-"]') ||
               node.querySelector?.('.calendar-conts') ||
-              node.querySelector?.('[data-tooltip]')
-            ) {
-              hasKrdsComponent = true;
+              node.querySelector?.('[data-tooltip]');
+
+            if (hasKrdsComponent) {
+              shouldReinitialize = true;
             }
           }
         });
       }
     }
 
-    if (hasKrdsComponent) {
-      console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
-      initAllComponents();
+    // 새로운 KRDS 컴포넌트가 추가된 경우에만 재초기화
+    if (shouldReinitialize) {
+      console.log('콘텐츠 변경 감지 - 컴포넌트 재초기화');
+      componentInitializers.initAll();
     }
-  }, 100);
+  }, 100); // 100ms 디바운싱
 });
 
 // 초기 이벤트
 window.addEventListener('DOMContentLoaded', () => {
-  initAllComponents();
+  // 초기 컴포넌트 초기화
+  componentInitializers.initAll();
 
-  // Observer 시작
-  contentObserver.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: false,
-  });
+  // 사용안함
+  // krds_inPageNavigation.init();
+  // krds_disclosure.init();
+  // krds_contextualHelp.init();
+  // krds_adjustContentScale.init();
+  // krds_chkBox.init();
+  // krds_fileUpload.init();
 
-  console.log('✅ UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
+  // krds_helpPanel.init();
+  // if (windowSize.getWinSize() === 'pc') {
+  //   krds_helpPanel.toggleHelpPanel('open');
+  // }
+
+  // MutationObserver 시작 - body 전체를 관찰
+  contentObserver.observe(document.body, observerConfig);
+
+  console.log('✅ UI 스크립트 초기화 완료 (동적 감지 활성화)');
 });
 
 // 스크롤 이벤트
@@ -3156,5 +3279,10 @@ window.addEventListener('resize', () => {
   // krds_helpPanel.init();
 });
 
-// 수동 재초기화
-window.krdsReinitialize = initAllComponents;
+// ========================================
+// 수동 초기화 함수 (필요시 외부에서 호출 가능)
+// ========================================
+window.krdsReinitialize = function () {
+  console.log('수동 재초기화 실행');
+  componentInitializers.initAll();
+};
