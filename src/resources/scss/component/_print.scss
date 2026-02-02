@@ -72,23 +72,37 @@
      4. 테이블 레이아웃 보정
   ========================== */
   .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report {
-    .krds-table-wrap.row {
+    .krds-table-wrap {
       width: 100%;
       min-width: 0;
 
-      .tbl {
-        min-width: 0;
+      &.full {
+        .tbl {
+          width: 100%;
+          min-width: 0;
 
-        colgroup {
-          col {
-            &:nth-child(1) {
-              width: 16.53% !important;
+          colgroup {
+            col {
+              &:nth-child(1) {
+                width: 16.53% !important;
+              }
+              &:nth-child(2) {
+                width: 14.88% !important;
+              }
+              &:nth-child(3) {
+                width: 68.6% !important;
+              }
             }
-            &:nth-child(2) {
-              width: 14.88% !important;
-            }
-            &:nth-child(3) {
-              width: 68.6% !important;
+          }
+        }
+      }
+      &.row {
+        .tbl {
+          width: 100%;
+          min-width: 0;
+
+          colgroup {
+            col {
             }
           }
         }
@@ -114,5 +128,8 @@
   [style*='z-index'],
   svg {
     position: static !important;
+  }
+  .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
+    width: 100% !important;
   }
 }

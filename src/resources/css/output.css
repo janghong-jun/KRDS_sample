@@ -4788,7 +4788,9 @@ label.krds-btn {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 1;
     font-size: var(--mobile-font-size-heading-medium);
+    background-color: var(--color-light-alpha-white100);
   }
 }
 .krds-table-wrap.scroll {
@@ -4870,7 +4872,9 @@ label.krds-btn {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 1;
     font-size: var(--mobile-font-size-label-small);
+    background-color: var(--color-light-alpha-white100);
   }
 }
 .krds-table-info .count {
@@ -5130,9 +5134,7 @@ label.krds-btn {
   --modal--color-text: var(--light-color-text-basic);
   --modal--wrap-color-surface: var(--light-color-surface-white-subtler);
   --modal--wrap-color-border: var(--light-color-border-gray);
-  --modal--wrap-shadow:
-    0 0 0.2rem 0 var(--light-color-alpha-shadow2),
-    0 1.6rem 2.4rem 0 var(--light-color-alpha-shadow3);
+  --modal--wrap-shadow: 0 0 0.2rem 0 var(--light-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--light-color-alpha-shadow3);
   --modal--color-dim: var(--light-color-background-dim);
   --modal--full-popup-surface: var(--light-color-surface-secondary-subtler);
   display: none;
@@ -5349,6 +5351,10 @@ label.krds-btn {
 .krds-modal .modal-dialog.print .modal-conts * {
   pointer-events: none;
 }
+.krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap {
+  width: 100% !important;
+  pointer-events: auto;
+}
 .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row colgroup col:nth-child(1) {
   width: 20rem !important;
 }
@@ -5508,8 +5514,8 @@ label.krds-btn {
   .krds-modal .modal-dialog .modal-conts .conts-area .krds-table-wrap {
     min-width: calc(100% - var(--contents-padding-x) * 2 - 4.8rem);
   }
-  .krds-modal .modal-dialog .modal-conts .skill-report .report-result .krds-table-wrap {
-    width: calc(100vw - 13.2rem);
+  .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
+    width: calc(100vw - 13.2rem) !important;
   }
   .krds-modal .modal-dialog .modal-btn {
     padding: var(--modal--mobile-btn-padding-top) var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
@@ -5527,9 +5533,7 @@ label.krds-btn {
   --modal--color-text: var(--high-contrast-color-text-basic);
   --modal--wrap-color-surface: var(--high-contrast-color-surface-white-subtler);
   --modal--wrap-color-border: var(--high-contrast-color-border-gray);
-  --modal--wrap-shadow:
-    0 0 0.2rem 0 var(--high-contrast-color-alpha-shadow2),
-    0 1.6rem 2.4rem 0 var(--high-contrast-color-alpha-shadow3);
+  --modal--wrap-shadow: 0 0 0.2rem 0 var(--high-contrast-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--high-contrast-color-alpha-shadow3);
   --modal--color-dim: var(--high-contrast-color-background-dim);
   --modal--full-popup-surface: var(--high-contrast-color-surface-secondary-subtler);
 }
@@ -5551,9 +5555,7 @@ label.krds-btn {
     --modal--color-text: var(--high-contrast-color-text-basic);
     --modal--wrap-color-surface: var(--high-contrast-color-surface-white-subtler);
     --modal--wrap-color-border: var(--high-contrast-color-border-gray);
-    --modal--wrap-shadow:
-      0 0 0.2rem 0 var(--high-contrast-color-alpha-shadow2),
-      0 1.6rem 2.4rem 0 var(--high-contrast-color-alpha-shadow3);
+    --modal--wrap-shadow: 0 0 0.2rem 0 var(--high-contrast-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--high-contrast-color-alpha-shadow3);
     --modal--color-dim: var(--high-contrast-color-background-dim);
     --modal--full-popup-surface: var(--high-contrast-color-surface-secondary-subtler);
   }
@@ -7326,9 +7328,7 @@ label.krds-btn {
   --header--navi-padding: var(--padding-2) var(--padding-5) 0;
   --header--navi-border-radius: var(--radius-medium1);
   --header--navi-font-size-pc: var(--pc-font-size-navigation-depth-medium-bold);
-  --header--navi-font-size-mobile: var(
-    --mobile-font-size-navigation-depth-small-bold
-  );
+  --header--navi-font-size-mobile: var(--mobile-font-size-navigation-depth-small-bold);
   --header--color-surface: var(--light-color-surface-white);
   --header--utility-color-divider: var(--light-color-divider-gray-light);
   --header--navi-color-text: var(--light-color-text-basic);
@@ -7357,10 +7357,20 @@ label.krds-btn {
   flex-direction: row;
 }
 #krds-header .header-utility .utility-list > li {
+  font-size: var(--pc-font-size-body-small);
+  color: var(--light-color-text-subtle);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
+}
+#krds-header .header-utility .utility-list > li .krds-btn.text {
+  font-size: var(--pc-font-size-body-small);
+  color: var(--light-color-text-subtle);
+}
+#krds-header .header-utility .utility-list > li span {
+  font-weight: var(--font-weight-bold);
+  color: var(--light-color-text-basic);
 }
 #krds-header .header-utility .utility-list > li:not(:first-child) {
   gap: var(--header--utility-gap);
@@ -7391,6 +7401,7 @@ label.krds-btn {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
+  gap: 0 4rem;
   flex-wrap: wrap;
 }
 #krds-header .header-container .logo {
@@ -7414,6 +7425,43 @@ label.krds-btn {
   background-size: contain;
   background-repeat: no-repeat;
 }
+#krds-header .header-container .main-switcher {
+  display: flex;
+  border-radius: 5rem;
+  background-color: #f1f2f5;
+}
+#krds-header .header-container .main-switcher a {
+  display: inline-flex;
+  border-radius: 5rem;
+  height: 4.8rem;
+  padding: 0 0.6rem;
+  font-size: var(--pc-font-size-body-medium);
+  color: var(--light-color-text-disabled);
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f2f5;
+}
+#krds-header .header-container .main-switcher a span {
+  width: 5.4rem;
+  text-align: center;
+}
+#krds-header .header-container .main-switcher a:nth-child(1) {
+  padding-left: 1.6rem;
+}
+#krds-header .header-container .main-switcher a:nth-child(2) {
+  padding-right: 1.6rem;
+}
+#krds-header .header-container .main-switcher a.active {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-light-alpha-white100);
+  background: linear-gradient(90deg, #5b7ff3 0%, #3f65e0 100%);
+}
+#krds-header .header-container .main-switcher a:nth-child(1).active {
+  padding-right: 1.6rem;
+}
+#krds-header .header-container .main-switcher a:nth-child(2).active {
+  padding-left: 1.6rem;
+}
 #krds-header .header-container .header-actions {
   display: inline-flex;
   gap: var(--gap-3);
@@ -7423,10 +7471,10 @@ label.krds-btn {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--header--navi-gap);
   border-radius: var(--header--navi-border-radius);
-  font-size: var(--header--navi-font-size-pc);
+  font-size: var(--pc-font-size-navigation-depth-medium);
   font-weight: var(--font-weight-bold);
   color: var(--header--navi-color-text);
   transition: var(--transition-base);
@@ -7448,6 +7496,9 @@ label.krds-btn {
 }
 #krds-header .header-container .btn-navi.navi-row {
   flex-direction: row;
+}
+#krds-header .header-container .btn-navi.sch {
+  padding: 0 var(--padding-5);
 }
 #krds-header .header-container .btn-navi.sch::before {
   -webkit-mask-repeat: no-repeat;
@@ -7567,6 +7618,9 @@ label.krds-btn {
 }
 
 @media (min-width: 1024px) {
+  #krds-header .header-container .btn-navi.all {
+    display: none;
+  }
   .is-gnb-web {
     overflow: hidden;
   }
@@ -7604,46 +7658,28 @@ label.krds-btn {
 .krds-main-menu {
   --main-menu--main-trigger-size-height: var(--size-height-8);
   --main-menu--main-trigger-padding-x: var(--padding-6);
-  --main-menu--main-trigger-font-size: var(
-    --pc-font-size-navigation-title-small
-  );
+  --main-menu--main-trigger-font-size: var(--pc-font-size-navigation-title-small);
   --main-menu--main-menu-width: 26.6rem;
   --main-menu--sub-trigger-padding-x: var(--padding-8);
   --main-menu--sub-trigger-padding-y: var(--padding-6);
-  --main-menu--sub-trigger-font-size: var(
-    --pc-font-size-navigation-depth-medium
-  );
-  --main-menu--sub-trigger-font-size-active: var(
-    --pc-font-size-navigation-depth-medium-bold
-  );
+  --main-menu--sub-trigger-font-size: var(--pc-font-size-navigation-depth-medium);
+  --main-menu--sub-trigger-font-size-active: var(--pc-font-size-navigation-depth-medium-bold);
   --main-menu--sub-menu-padding-x: var(--padding-10);
   --main-menu--sub-menu-padding-y: var(--padding-6);
   --main-menu--sub-menu-title-size-height: var(--size-height-8);
   --main-menu--sub-menu-title-padding-x: var(--padding-2);
   --main-menu--sub-menu-title-radius: var(--radius-medium3);
-  --main-menu--sub-menu-title-font-size: var(
-    --pc-font-size-navigation-title-medium
-  );
+  --main-menu--sub-menu-title-font-size: var(--pc-font-size-navigation-title-medium);
   --main-menu--sub-menu-trigger-color-padding-x: var(--padding-3);
   --main-menu--sub-menu-trigger-color-padding-y: var(--padding-4);
   --main-menu--sub-menu-trigger-color-radius: var(--radius-medium2);
-  --main-menu--sub-menu-trigger-color-font-size: var(
-    --pc-font-size-navigation-depth-medium
-  );
-  --main-menu--sub-menu-description-title-font-size: var(
-    --pc-font-size-navigation-title-small
-  );
+  --main-menu--sub-menu-trigger-color-font-size: var(--pc-font-size-navigation-depth-medium);
+  --main-menu--sub-menu-description-title-font-size: var(--pc-font-size-navigation-title-small);
   --main-menu--sub-menu-description-title-padding: var(--padding-2);
   --main-menu--sub-menu-description-title-radius: var(--radius-medium1);
-  --main-menu--sub-menu-description-description-color-padding-top: var(
-    --padding-6
-  );
-  --main-menu--sub-menu-description-description-color-padding-x: var(
-    --padding-2
-  );
-  --main-menu--sub-menu-description-description-color-font-size: var(
-    --pc-font-size-navigation-depth-medium
-  );
+  --main-menu--sub-menu-description-description-color-padding-top: var(--padding-6);
+  --main-menu--sub-menu-description-description-color-padding-x: var(--padding-2);
+  --main-menu--sub-menu-description-description-color-font-size: var(--pc-font-size-navigation-depth-medium);
   --main-menu--sub-menu-only-2depth-padding-y: var(--padding-6);
   --main-menu--banner-padding-x: var(--padding-6);
   --main-menu--banner-padding-y: var(--padding-5);
@@ -7655,52 +7691,24 @@ label.krds-btn {
   --main-menu--color-border: var(--light-color-divider-gray-light);
   --main-menu--main-trigger-color-text: var(--light-color-text-subtle);
   --main-menu--main-trigger-color-text-active: var(--light-color-text-basic);
-  --main-menu--main-trigger-color-action-hover: var(
-    --light-color-action-secondary-hover
-  );
-  --main-menu--main-trigger-color-action-pressed: var(
-    --light-color-action-secondary-pressed
-  );
-  --main-menu--main-trigger-color-border-selected: var(
-    --light-color-action-secondary-active
-  );
+  --main-menu--main-trigger-color-action-hover: var(--light-color-action-secondary-hover);
+  --main-menu--main-trigger-color-action-pressed: var(--light-color-action-secondary-pressed);
+  --main-menu--main-trigger-color-border-selected: var(--light-color-action-secondary-active);
   --main-menu--toggle-color-surface: var(--light-color-surface-white-subtle);
-  --main-menu--main-menu-color-surface: var(
-    --light-color-surface-secondary-subtler
-  );
+  --main-menu--main-menu-color-surface: var(--light-color-surface-secondary-subtler);
   --main-menu--sub-trigger-color-text: var(--light-color-text-basic);
-  --main-menu--sub-trigger-color-text-selected: var(
-    --light-color-text-secondary
-  );
+  --main-menu--sub-trigger-color-text-selected: var(--light-color-text-secondary);
   --main-menu--sub-trigger-color-text-pressed: var(--light-color-text-basic);
-  --main-menu--sub-trigger-color-action: var(
-    --light-color-action-secondary-on
-  );
-  --main-menu--sub-trigger-color-action-selected: var(
-    --light-color-action-secondary-on-selected
-  );
-  --main-menu--sub-trigger-color-action-pressed: var(
-    --light-color-action-secondary-on-pressed
-  );
+  --main-menu--sub-trigger-color-action: var(--light-color-action-secondary-on);
+  --main-menu--sub-trigger-color-action-selected: var(--light-color-action-secondary-on-selected);
+  --main-menu--sub-trigger-color-action-pressed: var(--light-color-action-secondary-on-pressed);
   --main-menu--sub-menu-color-action: var(--light-color-action-secondary);
-  --main-menu--sub-menu-color-action-hover: var(
-    --light-color-action-secondary-hover
-  );
-  --main-menu--sub-menu-color-action-pressed: var(
-    --light-color-action-secondary-pressed
-  );
-  --main-menu--sub-menu-trigger-color-action-selected: var(
-    --light-color-action-secondary-selected
-  );
-  --main-menu--sub-menu-trigger-color-text-selected: var(
-    --light-color-text-secondary
-  );
-  --main-menu--sub-menu-description-description-color-border: var(
-    --light-color-border-gray-light
-  );
-  --main-menu--sub-menu-description-description-color-text: var(
-    --light-color-text-subtle
-  );
+  --main-menu--sub-menu-color-action-hover: var(--light-color-action-secondary-hover);
+  --main-menu--sub-menu-color-action-pressed: var(--light-color-action-secondary-pressed);
+  --main-menu--sub-menu-trigger-color-action-selected: var(--light-color-action-secondary-selected);
+  --main-menu--sub-menu-trigger-color-text-selected: var(--light-color-text-secondary);
+  --main-menu--sub-menu-description-description-color-border: var(--light-color-border-gray-light);
+  --main-menu--sub-menu-description-description-color-text: var(--light-color-text-subtle);
   --main-menu--banner-background: var(--light-color-surface-gray-subtle);
   position: relative;
   background-color: var(--main-menu--color-surface);
@@ -7724,7 +7732,7 @@ label.krds-btn {
   position: relative;
   height: var(--main-menu--main-trigger-size-height);
   color: var(--main-menu--main-trigger-color-text);
-  padding: 0 var(--main-menu--main-trigger-padding-x);
+  padding: 0 calc(var(--main-menu--main-trigger-padding-x) * 2);
   transition: var(--transition-base);
 }
 .krds-main-menu .gnb-menu .gnb-main-trigger,
@@ -7803,7 +7811,9 @@ label.krds-btn {
 }
 .krds-main-menu .gnb-toggle-wrap .gnb-main-list {
   position: relative;
-  max-width: var(--contents-size);
+  max-width: var(--contents-wrap-size);
+  padding-left: var(--contents-padding-x);
+  padding-right: var(--contents-padding-x);
   margin: 0 auto;
 }
 .krds-main-menu .gnb-toggle-wrap .gnb-main-list[data-has-submenu=true]::before {
@@ -7821,7 +7831,7 @@ label.krds-btn {
   padding: var(--padding-6) 0;
 }
 .krds-main-menu .gnb-toggle-wrap .gnb-main-list > ul > li {
-  width: var(--main-menu--main-menu-width);
+  width: calc(var(--main-menu--main-menu-width) - var(--contents-padding-x));
 }
 .krds-main-menu .gnb-toggle-wrap .gnb-main-list .gnb-sub-trigger {
   display: flex;
@@ -8099,52 +8109,24 @@ label.krds-btn {
   --main-menu--color-border: var(--high-contrast-color-divider-gray-light);
   --main-menu--main-trigger-color-text: var(--high-contrast-color-text-subtle);
   --main-menu--main-trigger-color-text-active: var(--high-contrast-color-text-basic);
-  --main-menu--main-trigger-color-action-hover: var(
-    --high-contrast-color-action-secondary-hover
-  );
-  --main-menu--main-trigger-color-action-pressed: var(
-    --high-contrast-color-action-secondary-pressed
-  );
-  --main-menu--main-trigger-color-border-selected: var(
-    --high-contrast-color-action-secondary-active
-  );
+  --main-menu--main-trigger-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+  --main-menu--main-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-pressed);
+  --main-menu--main-trigger-color-border-selected: var(--high-contrast-color-action-secondary-active);
   --main-menu--toggle-color-surface: var(--high-contrast-color-surface-white-subtle);
-  --main-menu--main-menu-color-surface: var(
-    --high-contrast-color-surface-secondary-subtler
-  );
+  --main-menu--main-menu-color-surface: var(--high-contrast-color-surface-secondary-subtler);
   --main-menu--sub-trigger-color-text: var(--high-contrast-color-text-basic);
-  --main-menu--sub-trigger-color-text-selected: var(
-    --high-contrast-color-text-secondary
-  );
+  --main-menu--sub-trigger-color-text-selected: var(--high-contrast-color-text-secondary);
   --main-menu--sub-trigger-color-text-pressed: var(--high-contrast-color-text-basic);
-  --main-menu--sub-trigger-color-action: var(
-    --high-contrast-color-action-secondary-on
-  );
-  --main-menu--sub-trigger-color-action-selected: var(
-    --high-contrast-color-action-secondary-on-selected
-  );
-  --main-menu--sub-trigger-color-action-pressed: var(
-    --high-contrast-color-action-secondary-on-pressed
-  );
+  --main-menu--sub-trigger-color-action: var(--high-contrast-color-action-secondary-on);
+  --main-menu--sub-trigger-color-action-selected: var(--high-contrast-color-action-secondary-on-selected);
+  --main-menu--sub-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-on-pressed);
   --main-menu--sub-menu-color-action: var(--high-contrast-color-action-secondary);
-  --main-menu--sub-menu-color-action-hover: var(
-    --high-contrast-color-action-secondary-hover
-  );
-  --main-menu--sub-menu-color-action-pressed: var(
-    --high-contrast-color-action-secondary-pressed
-  );
-  --main-menu--sub-menu-trigger-color-action-selected: var(
-    --high-contrast-color-action-secondary-selected
-  );
-  --main-menu--sub-menu-trigger-color-text-selected: var(
-    --high-contrast-color-text-secondary
-  );
-  --main-menu--sub-menu-description-description-color-border: var(
-    --high-contrast-color-border-gray-light
-  );
-  --main-menu--sub-menu-description-description-color-text: var(
-    --high-contrast-color-text-subtle
-  );
+  --main-menu--sub-menu-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+  --main-menu--sub-menu-color-action-pressed: var(--high-contrast-color-action-secondary-pressed);
+  --main-menu--sub-menu-trigger-color-action-selected: var(--high-contrast-color-action-secondary-selected);
+  --main-menu--sub-menu-trigger-color-text-selected: var(--high-contrast-color-text-secondary);
+  --main-menu--sub-menu-description-description-color-border: var(--high-contrast-color-border-gray-light);
+  --main-menu--sub-menu-description-description-color-text: var(--high-contrast-color-text-subtle);
   --main-menu--banner-background: var(--high-contrast-color-surface-gray-subtle);
 }
 [data-krds-mode=high-contrast] .krds-main-menu .gnb-menu .gnb-main-trigger::after {
@@ -8185,52 +8167,24 @@ label.krds-btn {
     --main-menu--color-border: var(--high-contrast-color-divider-gray-light);
     --main-menu--main-trigger-color-text: var(--high-contrast-color-text-subtle);
     --main-menu--main-trigger-color-text-active: var(--high-contrast-color-text-basic);
-    --main-menu--main-trigger-color-action-hover: var(
-      --high-contrast-color-action-secondary-hover
-    );
-    --main-menu--main-trigger-color-action-pressed: var(
-      --high-contrast-color-action-secondary-pressed
-    );
-    --main-menu--main-trigger-color-border-selected: var(
-      --high-contrast-color-action-secondary-active
-    );
+    --main-menu--main-trigger-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+    --main-menu--main-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-pressed);
+    --main-menu--main-trigger-color-border-selected: var(--high-contrast-color-action-secondary-active);
     --main-menu--toggle-color-surface: var(--high-contrast-color-surface-white-subtle);
-    --main-menu--main-menu-color-surface: var(
-      --high-contrast-color-surface-secondary-subtler
-    );
+    --main-menu--main-menu-color-surface: var(--high-contrast-color-surface-secondary-subtler);
     --main-menu--sub-trigger-color-text: var(--high-contrast-color-text-basic);
-    --main-menu--sub-trigger-color-text-selected: var(
-      --high-contrast-color-text-secondary
-    );
+    --main-menu--sub-trigger-color-text-selected: var(--high-contrast-color-text-secondary);
     --main-menu--sub-trigger-color-text-pressed: var(--high-contrast-color-text-basic);
-    --main-menu--sub-trigger-color-action: var(
-      --high-contrast-color-action-secondary-on
-    );
-    --main-menu--sub-trigger-color-action-selected: var(
-      --high-contrast-color-action-secondary-on-selected
-    );
-    --main-menu--sub-trigger-color-action-pressed: var(
-      --high-contrast-color-action-secondary-on-pressed
-    );
+    --main-menu--sub-trigger-color-action: var(--high-contrast-color-action-secondary-on);
+    --main-menu--sub-trigger-color-action-selected: var(--high-contrast-color-action-secondary-on-selected);
+    --main-menu--sub-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-on-pressed);
     --main-menu--sub-menu-color-action: var(--high-contrast-color-action-secondary);
-    --main-menu--sub-menu-color-action-hover: var(
-      --high-contrast-color-action-secondary-hover
-    );
-    --main-menu--sub-menu-color-action-pressed: var(
-      --high-contrast-color-action-secondary-pressed
-    );
-    --main-menu--sub-menu-trigger-color-action-selected: var(
-      --high-contrast-color-action-secondary-selected
-    );
-    --main-menu--sub-menu-trigger-color-text-selected: var(
-      --high-contrast-color-text-secondary
-    );
-    --main-menu--sub-menu-description-description-color-border: var(
-      --high-contrast-color-border-gray-light
-    );
-    --main-menu--sub-menu-description-description-color-text: var(
-      --high-contrast-color-text-subtle
-    );
+    --main-menu--sub-menu-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+    --main-menu--sub-menu-color-action-pressed: var(--high-contrast-color-action-secondary-pressed);
+    --main-menu--sub-menu-trigger-color-action-selected: var(--high-contrast-color-action-secondary-selected);
+    --main-menu--sub-menu-trigger-color-text-selected: var(--high-contrast-color-text-secondary);
+    --main-menu--sub-menu-description-description-color-border: var(--high-contrast-color-border-gray-light);
+    --main-menu--sub-menu-description-description-color-text: var(--high-contrast-color-text-subtle);
     --main-menu--banner-background: var(--high-contrast-color-surface-gray-subtle);
   }
   [data-krds-mode=theme] .krds-main-menu .gnb-menu .gnb-main-trigger::after {
@@ -8278,33 +8232,21 @@ label.krds-btn {
   --main-menu-mobile--login-gap: var(--gap-3);
   --main-menu-mobile--service-menu-gap-layout-menu: var(--gap-3);
   --main-menu-mobile--service-menu-gap-layout-icon-text: var(--gap-1);
-  --main-menu-mobile--service-menu-font-size: var(
-    --mobile-font-size-navigation-depth-medium-bold
-  );
+  --main-menu-mobile--service-menu-font-size: var(--mobile-font-size-navigation-depth-medium-bold);
   --main-menu-mobile--service-menu-icon-size: var(--size-height-3);
   --main-menu-mobile--service-menu-border-radius: var(--radius-medium1);
   --main-menu-mobile--menu-left-width: 12.4rem;
   --main-menu-mobile--main-trigger-height: var(--size-height-9);
   --main-menu-mobile--main-trigger-padding-x: var(--padding-8);
-  --main-menu-mobile--main-trigger-font-size: var(
-    --mobile-font-size-navigation-depth-medium-bold
-  );
-  --main-menu-mobile--sub-menu-padding: var(
-    --main-menu-mobile--header-padding-x
-  );
+  --main-menu-mobile--main-trigger-font-size: var(--mobile-font-size-navigation-depth-medium-bold);
+  --main-menu-mobile--sub-menu-padding: var(--main-menu-mobile--header-padding-x);
   --main-menu-mobile--sub-list-padding-y: var(--padding-3);
-  --main-menu-mobile--sub-title-font-size: var(
-    --mobile-font-size-navigation-title-small
-  );
+  --main-menu-mobile--sub-title-font-size: var(--mobile-font-size-navigation-title-small);
   --main-menu-mobile--sub-title-padding-x: var(--padding-3);
   --main-menu-mobile--sub-title-padding-top: var(--padding-3);
   --main-menu-mobile--sub-title-padding-bottom: var(--padding-6);
-  --main-menu-mobile--sub-menu-trigger-font-size: var(
-    --mobile-font-size-navigation-depth-medium
-  );
-  --main-menu-mobile--sub-menu-trigger-font-size-active: var(
-    --mobile-font-size-navigation-depth-medium-bold
-  );
+  --main-menu-mobile--sub-menu-trigger-font-size: var(--mobile-font-size-navigation-depth-medium);
+  --main-menu-mobile--sub-menu-trigger-font-size-active: var(--mobile-font-size-navigation-depth-medium-bold);
   --main-menu-mobile--sub-menu-trigger-padding-x: var(--padding-3);
   --main-menu-mobile--sub-menu-trigger-padding-y: var(--padding-5);
   --main-menu-mobile--sub-menu-trigger-border-radius: var(--radius-medium3);
@@ -8315,156 +8257,66 @@ label.krds-btn {
   --main-menu-mobile--depth3-sub-menu-padding-y: var(--padding-4);
   --main-menu-mobile--depth3-sub-menu-border-radius: var(--radius-medium2);
   --main-menu-mobile--depth4-head-padding: var(--padding-6);
-  --main-menu-mobile--depth4-body-padding-x: var(
-    --main-menu-mobile--sub-menu-padding
-  );
-  --main-menu-mobile--depth4-sub-title: var(
-    --main-menu-mobile--sub-title-font-size
-  );
-  --main-menu-mobile--depth4-sub-title-padding-x: var(
-    --main-menu-mobile--sub-title-padding-x
-  );
-  --main-menu-mobile--depth4-sub-title-padding-top: var(
-    --main-menu-mobile--sub-title-padding-top
-  );
-  --main-menu-mobile--depth4-sub-title-padding-bottom: var(
-    --main-menu-mobile--sub-title-padding-bottom
-  );
+  --main-menu-mobile--depth4-body-padding-x: var(--main-menu-mobile--sub-menu-padding);
+  --main-menu-mobile--depth4-sub-title: var(--main-menu-mobile--sub-title-font-size);
+  --main-menu-mobile--depth4-sub-title-padding-x: var(--main-menu-mobile--sub-title-padding-x);
+  --main-menu-mobile--depth4-sub-title-padding-top: var(--main-menu-mobile--sub-title-padding-top);
+  --main-menu-mobile--depth4-sub-title-padding-bottom: var(--main-menu-mobile--sub-title-padding-bottom);
   --main-menu-mobile--depth4-list-gap: var(--gap-3);
   --main-menu-mobile--depth4-list-gap-layout-dot-text: var(--gap-2);
-  --main-menu-mobile--depth4-list-li-border-radius: var(
-    --main-menu-mobile--depth3-sub-menu-border-radius
-  );
-  --main-menu-mobile--depth4-list-li-padding-x: var(
-    --main-menu-mobile--depth3-sub-menu-padding-x
-  );
-  --main-menu-mobile--depth4-list-li-padding-y: var(
-    --main-menu-mobile--depth3-sub-menu-padding-y
-  );
-  --main-menu-mobile--tab-nav-menu-padding-x: var(
-    --main-menu-mobile--header-padding-x
-  );
+  --main-menu-mobile--depth4-list-li-border-radius: var(--main-menu-mobile--depth3-sub-menu-border-radius);
+  --main-menu-mobile--depth4-list-li-padding-x: var(--main-menu-mobile--depth3-sub-menu-padding-x);
+  --main-menu-mobile--depth4-list-li-padding-y: var(--main-menu-mobile--depth3-sub-menu-padding-y);
+  --main-menu-mobile--tab-nav-menu-padding-x: var(--main-menu-mobile--header-padding-x);
   --main-menu-mobile--tab-nav-menu-padding-top: var(--padding-6);
   --main-menu-mobile--tab-nav-menu-margin-top: var(--padding-8);
-  --main-menu-mobile--tab-nav-menu-margin-x: var(
-    --main-menu-mobile--header-padding-x
-  );
+  --main-menu-mobile--tab-nav-menu-margin-x: var(--main-menu-mobile--header-padding-x);
   --main-menu-mobile--tab-nav-menu-list-gap: var(--gap-3);
-  --main-menu-mobile--tab-nav-menu-list-padding-bottom: var(
-    --main-menu-mobile--tab-nav-menu-padding-top
-  );
+  --main-menu-mobile--tab-nav-menu-list-padding-bottom: var(--main-menu-mobile--tab-nav-menu-padding-top);
   --main-menu-mobile--tab-nav-main-trigger-height: var(--size-height-6);
   --main-menu-mobile--tab-nav-main-trigger-padding-x: var(--padding-4);
   --main-menu-mobile--tab-nav-main-trigger-border-radius: var(--radius-medium1);
-  --main-menu-mobile--type-tab-sub-list-padding: var(
-    --main-menu-mobile--header-padding-x
-  );
+  --main-menu-mobile--type-tab-sub-list-padding: var(--main-menu-mobile--header-padding-x);
   --main-menu-mobile--type-tab-gnb-header-border-bottom-width: 0.4rem;
-  --main-menu-mobile--type-tab-sub-list-border-bottom-width: var(
-    --main-menu-mobile--type-tab-gnb-header-border-bottom-width
-  );
-  --main-menu-mobile--type-tab-sub-list-border-bottom-color: var(
-    --main-menu-mobile--header-color-border
-  );
+  --main-menu-mobile--type-tab-sub-list-border-bottom-width: var(--main-menu-mobile--type-tab-gnb-header-border-bottom-width);
+  --main-menu-mobile--type-tab-sub-list-border-bottom-color: var(--main-menu-mobile--header-color-border);
   --main-menu-mobile--type-tab-sub-banner-gap: var(--gap-5);
   --main-menu-mobile--type-tab-sub-banner-border-radius: var(--radius-medium3);
   --main-menu-mobile--type-tab-sub-banner-padding-x: var(--padding-6);
   --main-menu-mobile--type-tab-sub-banner-padding-y: var(--padding-2);
   --main-menu-mobile--color-dim: var(--light-color-background-dim);
   --main-menu-mobile--color-surface: var(--light-color-surface-white);
-  --main-menu-mobile--header-border-width: var(
-    --light-border-width-static-regular
-  );
-  --main-menu-mobile--header-color-border: var(
-    --light-color-divider-gray-light
-  );
-  --main-menu-mobile--utils-line-width: var(
-    --light-border-width-static-regular
-  );
-  --main-menu-mobile--utils-color-border: var(
-    --light-color-border-gray-light
-  );
-  --main-menu-mobile--service-menu-color-icon: var(
-    --light-color-icon-gray-fill
-  );
-  --main-menu-mobile--service-menu-color-action-active: var(
-    --light-color-action-secondary-on-pressed
-  );
-  --main-menu-mobile--menu-color-surface: var(
-    --light-color-surface-secondary-subtler
-  );
-  --main-menu-mobile--main-trigger-color-text-active: var(
-    --light-color-text-secondary
-  );
-  --main-menu-mobile--main-trigger-color-action-active: var(
-    --light-color-action-secondary-on-selected
-  );
-  --main-menu-mobile--main-trigger-color-action-pressed: var(
-    --light-color-action-secondary-on-pressed
-  );
-  --main-menu-mobile--sub-menu-color-surface: var(
-    --light-color-surface-white-subtle
-  );
-  --main-menu-mobile--sub-title-border-width: var(
-    --light-border-width-static-regular
-  );
-  --main-menu-mobile--sub-title-color-border: var(
-    --light-color-divider-gray
-  );
-  --main-menu-mobile--sub-menu-trigger-color-action-hover: var(
-    --light-color-action-secondary-hover
-  );
-  --main-menu-mobile--sub-menu-trigger-color-action-active: var(
-    --light-color-action-secondary-selected
-  );
-  --main-menu-mobile--sub-menu-trigger-color-text: var(
-    --light-color-text-secondary
-  );
-  --main-menu-mobile--depth3-sub-menu-color-action-hover: var(
-    --light-color-action-secondary-hover
-  );
-  --main-menu-mobile--depth3-sub-menu-color-action-active: var(
-    --light-color-action-secondary-selected
-  );
-  --main-menu-mobile--depth4-color-surface: var(
-    --light-color-surface-white-subtle
-  );
-  --main-menu-mobile--depth4-list-li-color-text-hover: var(
-    --light-color-text-secondary
-  );
-  --main-menu-mobile--depth4-list-li-color-action-hover: var(
-    --light-color-action-secondary-hover
-  );
-  --main-menu-mobile--depth4-list-li-color-action-active: var(
-    --light-color-action-secondary-selected
-  );
-  --main-menu-mobile--tab-nav-menu-border-top-width: var(
-    --light-border-width-static-regular
-  );
-  --main-menu-mobile--tab-nav-menu-color-border-top: var(
-    --light-color-divider-gray-light
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-action: var(
-    --light-color-action-white
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(
-    --light-color-action-secondary-selected
-  );
-  --main-menu-mobile--tab-nav-main-trigger-border-width: var(
-    --light-border-width-static-regular
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-border: var(
-    --light-color-border-gray
-  );
-  --main-menu-mobile--type-tab-menu-color-surface: var(
-    --light-color-surface-white-subtle
-  );
-  --main-menu-mobile--type-tab-sub-banner-color-surface: var(
-    --light-color-surface-gray-subtler
-  );
-  --main-menu-mobile--search-layer-body-background: var(
-    --light-color-surface-gray-subtler
-  );
+  --main-menu-mobile--header-border-width: var(--light-border-width-static-regular);
+  --main-menu-mobile--header-color-border: var(--light-color-divider-gray-light);
+  --main-menu-mobile--utils-line-width: var(--light-border-width-static-regular);
+  --main-menu-mobile--utils-color-border: var(--light-color-border-gray-light);
+  --main-menu-mobile--service-menu-color-icon: var(--light-color-icon-gray-fill);
+  --main-menu-mobile--service-menu-color-action-active: var(--light-color-action-secondary-on-pressed);
+  --main-menu-mobile--menu-color-surface: var(--light-color-surface-secondary-subtler);
+  --main-menu-mobile--main-trigger-color-text-active: var(--light-color-text-secondary);
+  --main-menu-mobile--main-trigger-color-action-active: var(--light-color-action-secondary-on-selected);
+  --main-menu-mobile--main-trigger-color-action-pressed: var(--light-color-action-secondary-on-pressed);
+  --main-menu-mobile--sub-menu-color-surface: var(--light-color-surface-white-subtle);
+  --main-menu-mobile--sub-title-border-width: var(--light-border-width-static-regular);
+  --main-menu-mobile--sub-title-color-border: var(--light-color-divider-gray);
+  --main-menu-mobile--sub-menu-trigger-color-action-hover: var(--light-color-action-secondary-hover);
+  --main-menu-mobile--sub-menu-trigger-color-action-active: var(--light-color-action-secondary-selected);
+  --main-menu-mobile--sub-menu-trigger-color-text: var(--light-color-text-secondary);
+  --main-menu-mobile--depth3-sub-menu-color-action-hover: var(--light-color-action-secondary-hover);
+  --main-menu-mobile--depth3-sub-menu-color-action-active: var(--light-color-action-secondary-selected);
+  --main-menu-mobile--depth4-color-surface: var(--light-color-surface-white-subtle);
+  --main-menu-mobile--depth4-list-li-color-text-hover: var(--light-color-text-secondary);
+  --main-menu-mobile--depth4-list-li-color-action-hover: var(--light-color-action-secondary-hover);
+  --main-menu-mobile--depth4-list-li-color-action-active: var(--light-color-action-secondary-selected);
+  --main-menu-mobile--tab-nav-menu-border-top-width: var(--light-border-width-static-regular);
+  --main-menu-mobile--tab-nav-menu-color-border-top: var(--light-color-divider-gray-light);
+  --main-menu-mobile--tab-nav-main-trigger-color-action: var(--light-color-action-white);
+  --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(--light-color-action-secondary-selected);
+  --main-menu-mobile--tab-nav-main-trigger-border-width: var(--light-border-width-static-regular);
+  --main-menu-mobile--tab-nav-main-trigger-color-border: var(--light-color-border-gray);
+  --main-menu-mobile--type-tab-menu-color-surface: var(--light-color-surface-white-subtle);
+  --main-menu-mobile--type-tab-sub-banner-color-surface: var(--light-color-surface-gray-subtler);
+  --main-menu-mobile--search-layer-body-background: var(--light-color-surface-gray-subtler);
   position: fixed;
   top: 0;
   right: -100%;
@@ -9009,99 +8861,37 @@ label.krds-btn {
 [data-krds-mode=high-contrast] .krds-main-menu-mobile {
   --main-menu-mobile--color-dim: var(--high-contrast-color-background-dim);
   --main-menu-mobile--color-surface: var(--high-contrast-color-surface-white);
-  --main-menu-mobile--header-border-width: var(
-    --high-contrast-border-width-static-regular
-  );
-  --main-menu-mobile--header-color-border: var(
-    --high-contrast-color-divider-gray-light
-  );
-  --main-menu-mobile--utils-line-width: var(
-    --high-contrast-border-width-static-regular
-  );
-  --main-menu-mobile--utils-color-border: var(
-    --high-contrast-color-border-gray-light
-  );
-  --main-menu-mobile--service-menu-color-icon: var(
-    --high-contrast-color-icon-gray-fill
-  );
-  --main-menu-mobile--service-menu-color-action-active: var(
-    --high-contrast-color-action-secondary-on-pressed
-  );
-  --main-menu-mobile--menu-color-surface: var(
-    --high-contrast-color-surface-secondary-subtler
-  );
-  --main-menu-mobile--main-trigger-color-text-active: var(
-    --high-contrast-color-text-secondary
-  );
-  --main-menu-mobile--main-trigger-color-action-active: var(
-    --high-contrast-color-action-secondary-on-selected
-  );
-  --main-menu-mobile--main-trigger-color-action-pressed: var(
-    --high-contrast-color-action-secondary-on-pressed
-  );
-  --main-menu-mobile--sub-menu-color-surface: var(
-    --high-contrast-color-surface-white-subtle
-  );
-  --main-menu-mobile--sub-title-border-width: var(
-    --high-contrast-border-width-static-regular
-  );
-  --main-menu-mobile--sub-title-color-border: var(
-    --high-contrast-color-divider-gray
-  );
-  --main-menu-mobile--sub-menu-trigger-color-action-hover: var(
-    --high-contrast-color-action-secondary-hover
-  );
-  --main-menu-mobile--sub-menu-trigger-color-action-active: var(
-    --high-contrast-color-action-secondary-selected
-  );
-  --main-menu-mobile--sub-menu-trigger-color-text: var(
-    --high-contrast-color-text-secondary
-  );
-  --main-menu-mobile--depth3-sub-menu-color-action-hover: var(
-    --high-contrast-color-action-secondary-hover
-  );
-  --main-menu-mobile--depth3-sub-menu-color-action-active: var(
-    --high-contrast-color-action-secondary-selected
-  );
-  --main-menu-mobile--depth4-color-surface: var(
-    --high-contrast-color-surface-white-subtle
-  );
-  --main-menu-mobile--depth4-list-li-color-text-hover: var(
-    --high-contrast-color-text-secondary
-  );
-  --main-menu-mobile--depth4-list-li-color-action-hover: var(
-    --high-contrast-color-action-secondary-hover
-  );
-  --main-menu-mobile--depth4-list-li-color-action-active: var(
-    --high-contrast-color-action-secondary-selected
-  );
-  --main-menu-mobile--tab-nav-menu-border-top-width: var(
-    --high-contrast-border-width-static-regular
-  );
-  --main-menu-mobile--tab-nav-menu-color-border-top: var(
-    --high-contrast-color-divider-gray-light
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-action: var(
-    --high-contrast-color-action-white
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(
-    --high-contrast-color-action-secondary-selected
-  );
-  --main-menu-mobile--tab-nav-main-trigger-border-width: var(
-    --high-contrast-border-width-static-regular
-  );
-  --main-menu-mobile--tab-nav-main-trigger-color-border: var(
-    --high-contrast-color-border-gray
-  );
-  --main-menu-mobile--type-tab-menu-color-surface: var(
-    --high-contrast-color-surface-white-subtle
-  );
-  --main-menu-mobile--type-tab-sub-banner-color-surface: var(
-    --high-contrast-color-surface-gray-subtler
-  );
-  --main-menu-mobile--search-layer-body-background: var(
-    --high-contrast-color-surface-gray-subtler
-  );
+  --main-menu-mobile--header-border-width: var(--high-contrast-border-width-static-regular);
+  --main-menu-mobile--header-color-border: var(--high-contrast-color-divider-gray-light);
+  --main-menu-mobile--utils-line-width: var(--high-contrast-border-width-static-regular);
+  --main-menu-mobile--utils-color-border: var(--high-contrast-color-border-gray-light);
+  --main-menu-mobile--service-menu-color-icon: var(--high-contrast-color-icon-gray-fill);
+  --main-menu-mobile--service-menu-color-action-active: var(--high-contrast-color-action-secondary-on-pressed);
+  --main-menu-mobile--menu-color-surface: var(--high-contrast-color-surface-secondary-subtler);
+  --main-menu-mobile--main-trigger-color-text-active: var(--high-contrast-color-text-secondary);
+  --main-menu-mobile--main-trigger-color-action-active: var(--high-contrast-color-action-secondary-on-selected);
+  --main-menu-mobile--main-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-on-pressed);
+  --main-menu-mobile--sub-menu-color-surface: var(--high-contrast-color-surface-white-subtle);
+  --main-menu-mobile--sub-title-border-width: var(--high-contrast-border-width-static-regular);
+  --main-menu-mobile--sub-title-color-border: var(--high-contrast-color-divider-gray);
+  --main-menu-mobile--sub-menu-trigger-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+  --main-menu-mobile--sub-menu-trigger-color-action-active: var(--high-contrast-color-action-secondary-selected);
+  --main-menu-mobile--sub-menu-trigger-color-text: var(--high-contrast-color-text-secondary);
+  --main-menu-mobile--depth3-sub-menu-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+  --main-menu-mobile--depth3-sub-menu-color-action-active: var(--high-contrast-color-action-secondary-selected);
+  --main-menu-mobile--depth4-color-surface: var(--high-contrast-color-surface-white-subtle);
+  --main-menu-mobile--depth4-list-li-color-text-hover: var(--high-contrast-color-text-secondary);
+  --main-menu-mobile--depth4-list-li-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+  --main-menu-mobile--depth4-list-li-color-action-active: var(--high-contrast-color-action-secondary-selected);
+  --main-menu-mobile--tab-nav-menu-border-top-width: var(--high-contrast-border-width-static-regular);
+  --main-menu-mobile--tab-nav-menu-color-border-top: var(--high-contrast-color-divider-gray-light);
+  --main-menu-mobile--tab-nav-main-trigger-color-action: var(--high-contrast-color-action-white);
+  --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(--high-contrast-color-action-secondary-selected);
+  --main-menu-mobile--tab-nav-main-trigger-border-width: var(--high-contrast-border-width-static-regular);
+  --main-menu-mobile--tab-nav-main-trigger-color-border: var(--high-contrast-color-border-gray);
+  --main-menu-mobile--type-tab-menu-color-surface: var(--high-contrast-color-surface-white-subtle);
+  --main-menu-mobile--type-tab-sub-banner-color-surface: var(--high-contrast-color-surface-gray-subtler);
+  --main-menu-mobile--search-layer-body-background: var(--high-contrast-color-surface-gray-subtler);
 }
 [data-krds-mode=high-contrast] .krds-main-menu-mobile .gnb-wrap .gnb-body .gnb-menu .submenu-wrap .gnb-sub-list .gnb-sub-trigger.has-depth3::after {
   display: inline-flex;
@@ -9122,99 +8912,37 @@ label.krds-btn {
   [data-krds-mode=theme] .krds-main-menu-mobile {
     --main-menu-mobile--color-dim: var(--high-contrast-color-background-dim);
     --main-menu-mobile--color-surface: var(--high-contrast-color-surface-white);
-    --main-menu-mobile--header-border-width: var(
-      --high-contrast-border-width-static-regular
-    );
-    --main-menu-mobile--header-color-border: var(
-      --high-contrast-color-divider-gray-light
-    );
-    --main-menu-mobile--utils-line-width: var(
-      --high-contrast-border-width-static-regular
-    );
-    --main-menu-mobile--utils-color-border: var(
-      --high-contrast-color-border-gray-light
-    );
-    --main-menu-mobile--service-menu-color-icon: var(
-      --high-contrast-color-icon-gray-fill
-    );
-    --main-menu-mobile--service-menu-color-action-active: var(
-      --high-contrast-color-action-secondary-on-pressed
-    );
-    --main-menu-mobile--menu-color-surface: var(
-      --high-contrast-color-surface-secondary-subtler
-    );
-    --main-menu-mobile--main-trigger-color-text-active: var(
-      --high-contrast-color-text-secondary
-    );
-    --main-menu-mobile--main-trigger-color-action-active: var(
-      --high-contrast-color-action-secondary-on-selected
-    );
-    --main-menu-mobile--main-trigger-color-action-pressed: var(
-      --high-contrast-color-action-secondary-on-pressed
-    );
-    --main-menu-mobile--sub-menu-color-surface: var(
-      --high-contrast-color-surface-white-subtle
-    );
-    --main-menu-mobile--sub-title-border-width: var(
-      --high-contrast-border-width-static-regular
-    );
-    --main-menu-mobile--sub-title-color-border: var(
-      --high-contrast-color-divider-gray
-    );
-    --main-menu-mobile--sub-menu-trigger-color-action-hover: var(
-      --high-contrast-color-action-secondary-hover
-    );
-    --main-menu-mobile--sub-menu-trigger-color-action-active: var(
-      --high-contrast-color-action-secondary-selected
-    );
-    --main-menu-mobile--sub-menu-trigger-color-text: var(
-      --high-contrast-color-text-secondary
-    );
-    --main-menu-mobile--depth3-sub-menu-color-action-hover: var(
-      --high-contrast-color-action-secondary-hover
-    );
-    --main-menu-mobile--depth3-sub-menu-color-action-active: var(
-      --high-contrast-color-action-secondary-selected
-    );
-    --main-menu-mobile--depth4-color-surface: var(
-      --high-contrast-color-surface-white-subtle
-    );
-    --main-menu-mobile--depth4-list-li-color-text-hover: var(
-      --high-contrast-color-text-secondary
-    );
-    --main-menu-mobile--depth4-list-li-color-action-hover: var(
-      --high-contrast-color-action-secondary-hover
-    );
-    --main-menu-mobile--depth4-list-li-color-action-active: var(
-      --high-contrast-color-action-secondary-selected
-    );
-    --main-menu-mobile--tab-nav-menu-border-top-width: var(
-      --high-contrast-border-width-static-regular
-    );
-    --main-menu-mobile--tab-nav-menu-color-border-top: var(
-      --high-contrast-color-divider-gray-light
-    );
-    --main-menu-mobile--tab-nav-main-trigger-color-action: var(
-      --high-contrast-color-action-white
-    );
-    --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(
-      --high-contrast-color-action-secondary-selected
-    );
-    --main-menu-mobile--tab-nav-main-trigger-border-width: var(
-      --high-contrast-border-width-static-regular
-    );
-    --main-menu-mobile--tab-nav-main-trigger-color-border: var(
-      --high-contrast-color-border-gray
-    );
-    --main-menu-mobile--type-tab-menu-color-surface: var(
-      --high-contrast-color-surface-white-subtle
-    );
-    --main-menu-mobile--type-tab-sub-banner-color-surface: var(
-      --high-contrast-color-surface-gray-subtler
-    );
-    --main-menu-mobile--search-layer-body-background: var(
-      --high-contrast-color-surface-gray-subtler
-    );
+    --main-menu-mobile--header-border-width: var(--high-contrast-border-width-static-regular);
+    --main-menu-mobile--header-color-border: var(--high-contrast-color-divider-gray-light);
+    --main-menu-mobile--utils-line-width: var(--high-contrast-border-width-static-regular);
+    --main-menu-mobile--utils-color-border: var(--high-contrast-color-border-gray-light);
+    --main-menu-mobile--service-menu-color-icon: var(--high-contrast-color-icon-gray-fill);
+    --main-menu-mobile--service-menu-color-action-active: var(--high-contrast-color-action-secondary-on-pressed);
+    --main-menu-mobile--menu-color-surface: var(--high-contrast-color-surface-secondary-subtler);
+    --main-menu-mobile--main-trigger-color-text-active: var(--high-contrast-color-text-secondary);
+    --main-menu-mobile--main-trigger-color-action-active: var(--high-contrast-color-action-secondary-on-selected);
+    --main-menu-mobile--main-trigger-color-action-pressed: var(--high-contrast-color-action-secondary-on-pressed);
+    --main-menu-mobile--sub-menu-color-surface: var(--high-contrast-color-surface-white-subtle);
+    --main-menu-mobile--sub-title-border-width: var(--high-contrast-border-width-static-regular);
+    --main-menu-mobile--sub-title-color-border: var(--high-contrast-color-divider-gray);
+    --main-menu-mobile--sub-menu-trigger-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+    --main-menu-mobile--sub-menu-trigger-color-action-active: var(--high-contrast-color-action-secondary-selected);
+    --main-menu-mobile--sub-menu-trigger-color-text: var(--high-contrast-color-text-secondary);
+    --main-menu-mobile--depth3-sub-menu-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+    --main-menu-mobile--depth3-sub-menu-color-action-active: var(--high-contrast-color-action-secondary-selected);
+    --main-menu-mobile--depth4-color-surface: var(--high-contrast-color-surface-white-subtle);
+    --main-menu-mobile--depth4-list-li-color-text-hover: var(--high-contrast-color-text-secondary);
+    --main-menu-mobile--depth4-list-li-color-action-hover: var(--high-contrast-color-action-secondary-hover);
+    --main-menu-mobile--depth4-list-li-color-action-active: var(--high-contrast-color-action-secondary-selected);
+    --main-menu-mobile--tab-nav-menu-border-top-width: var(--high-contrast-border-width-static-regular);
+    --main-menu-mobile--tab-nav-menu-color-border-top: var(--high-contrast-color-divider-gray-light);
+    --main-menu-mobile--tab-nav-main-trigger-color-action: var(--high-contrast-color-action-white);
+    --main-menu-mobile--tab-nav-main-trigger-color-action-active: var(--high-contrast-color-action-secondary-selected);
+    --main-menu-mobile--tab-nav-main-trigger-border-width: var(--high-contrast-border-width-static-regular);
+    --main-menu-mobile--tab-nav-main-trigger-color-border: var(--high-contrast-color-border-gray);
+    --main-menu-mobile--type-tab-menu-color-surface: var(--high-contrast-color-surface-white-subtle);
+    --main-menu-mobile--type-tab-sub-banner-color-surface: var(--high-contrast-color-surface-gray-subtler);
+    --main-menu-mobile--search-layer-body-background: var(--high-contrast-color-surface-gray-subtler);
   }
   [data-krds-mode=theme] .krds-main-menu-mobile .gnb-wrap .gnb-body .gnb-menu .submenu-wrap .gnb-sub-list .gnb-sub-trigger.has-depth3::after {
     display: inline-flex;
@@ -17684,21 +17412,26 @@ label {
   /* =========================
      4. 테이블 레이아웃 보정
   ========================== */
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row {
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap {
     width: 100%;
     min-width: 0;
   }
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row .tbl {
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.full .tbl {
+    width: 100%;
     min-width: 0;
   }
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row .tbl colgroup col:nth-child(1) {
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.full .tbl colgroup col:nth-child(1) {
     width: 16.53% !important;
   }
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row .tbl colgroup col:nth-child(2) {
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.full .tbl colgroup col:nth-child(2) {
     width: 14.88% !important;
   }
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row .tbl colgroup col:nth-child(3) {
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.full .tbl colgroup col:nth-child(3) {
     width: 68.6% !important;
+  }
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report .krds-table-wrap.row .tbl {
+    width: 100%;
+    min-width: 0;
   }
   .scroll-no .krds-modal .krds-table-wrap.full {
     width: 100% !important;
@@ -17716,6 +17449,9 @@ label {
   [style*=z-index],
   svg {
     position: static !important;
+  }
+  .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
+    width: 100% !important;
   }
 }
 #container {
@@ -18507,37 +18243,88 @@ td .info-wrap {
 }
 .g-search-area.type03 .form-date-wrap {
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--gap-4);
+  flex-wrap: wrap;
+  flex: none;
 }
 .g-search-area.type03 .form-date-wrap .form-label {
-  width: auto;
+  width: 3.8rem;
   padding-right: var(--padding-2);
   font-size: var(--pc-font-size-body-small);
 }
+.g-search-area.type03 .form-date-wrap .form-date {
+  flex: 1;
+}
+@media (min-width: 1280px) {
+  .g-search-area.type03 .form-date-wrap .form-date {
+    flex: none;
+  }
+}
 .g-search-area.type03 .form-date-wrap .input-group.range.small {
-  width: 30.7rem;
+  width: 100%;
+}
+@media (min-width: 1280px) {
+  .g-search-area.type03 .form-date-wrap .input-group.range.small {
+    width: 32.1rem;
+  }
 }
 .g-search-area.type03 .form-date-wrap .krds-btns-wrap {
-  width: auto;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: start;
+}
+@media (min-width: 1280px) {
+  .g-search-area.type03 .form-date-wrap .krds-btns-wrap {
+    max-width: 34.4rem;
+  }
 }
 .g-search-area.type03 .form-date-wrap .krds-btns-wrap .krds-btn {
-  min-width: 7rem;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.g-search-area.type03 .form-search-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: var(--gap-3) var(--gap-9);
+  padding-left: 5rem;
 }
 .g-search-area.type03 .form-search {
   display: flex;
   align-items: center;
-  max-width: 58.7rem;
+  justify-content: flex-start;
   gap: var(--gap-4);
   flex: 1;
 }
-@media (max-width: 1023px) {
-  .g-search-area.type03 .form-date-wrap {
-    width: 100%;
-    justify-content: center;
+.g-search-area.type03 .form-search .sch-input {
+  max-width: 100%;
+}
+.g-search-area.type03 .krds-check-area {
+  width: auto;
+  flex: none;
+  gap: var(--gap-9);
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .g-search-area.type03 .form-date-wrap .form-date {
+    flex: 1;
   }
-  .g-search-area.type03 .bar {
-    display: none;
+  .g-search-area.type03 .form-date-wrap .input-group.range.small {
+    width: auto;
+  }
+  .g-search-area.type03 .form-date-wrap .krds-btns-wrap {
+    width: 100%;
+  }
+  .g-search-area.type03 .form-date-wrap .krds-btns-wrap .krds-btn {
+    flex: 1;
+  }
+  .g-search-area.type03 .krds-check-area {
+    gap: var(--gap-8);
   }
 }
 @media (max-width: 767px) {
@@ -18554,9 +18341,17 @@ td .info-wrap {
   .g-search-area.type03 .form-date-wrap .input-group.range.small,
   .g-search-area.type03 .form-date-wrap .krds-btns-wrap {
     width: 100%;
+    padding-left: 0;
   }
   .g-search-area.type03 .form-date-wrap .input-group.range.small .krds-btn,
   .g-search-area.type03 .form-date-wrap .krds-btns-wrap .krds-btn {
+    width: 100%;
+  }
+  .g-search-area.type03 .form-search-wrap {
+    padding-left: 0;
+    flex-direction: column;
+  }
+  .g-search-area.type03 .form-search-wrap .krds-check-area {
     width: 100%;
   }
 }
@@ -19927,6 +19722,16 @@ td .info-wrap {
   flex-wrap: wrap;
   gap: var(--gap-7);
 }
+@media (max-width: 1023px) {
+  .skill-report .krds-table-wrap {
+    width: calc(100vw - var(--contents-padding-x) * 2 - var(--pc-padding-card-medium) * 2) !important;
+  }
+}
+@media (max-width: 1023px) and (max-width: 767px) {
+  .skill-report .krds-table-wrap {
+    width: calc(100vw - var(--contents-padding-x) * 2 - var(--mobile-padding-card-medium) * 2) !important;
+  }
+}
 .skill-report > div {
   padding: var(--pc-padding-card-medium);
   border-radius: var(--radius-xlarge1);
@@ -19992,7 +19797,7 @@ td .info-wrap {
 }
 @media (max-width: 767px) {
   .skill-report .report-result .krds-table-wrap {
-    width: calc(100vw - 9.7rem);
+    width: calc(100vw - var(--contents-padding-x) * 2);
   }
 }
 .skill-report .report-result .krds-table-wrap .tbl th,
@@ -20031,6 +19836,7 @@ td .info-wrap {
 }
 .skill-report .report-graph .compare-box {
   display: flex;
+  position: relative;
   padding: var(--pc-padding-card-small) var(--pc-padding-card-medium);
   border-radius: var(--radius-medium3);
   background-color: var(--light-color-surface-primary-subtler);
@@ -20043,11 +19849,16 @@ td .info-wrap {
   }
 }
 .skill-report .report-graph .compare-box .form-group {
-  flex: 1;
+  width: 100%;
+  padding-right: calc(10rem + var(--gap-6));
+  gap: var(--gap-6);
+  flex-direction: row;
+  align-items: center;
 }
 .skill-report .report-graph .compare-box .form-group .form-tit {
+  min-width: 5.6rem;
+  width: auto;
   font-size: var(--pc-font-size-body-large);
-  font-weight: var(--font-weight-bold);
   color: var(--light-color-text-basic);
 }
 @media (max-width: 767px) {
@@ -20055,15 +19866,41 @@ td .info-wrap {
     font-size: var(--mobile-font-size-body-large);
   }
 }
+.skill-report .report-graph .compare-box .form-group .form-conts p {
+  font-size: var(--pc-font-size-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--light-color-text-basic);
+}
+@media (max-width: 767px) {
+  .skill-report .report-graph .compare-box .form-group .form-conts p {
+    font-size: var(--mobile-font-size-body-large);
+  }
+}
+.skill-report .report-graph .compare-box .form-group.compare {
+  padding-right: 0;
+}
 @media (max-width: 767px) {
   .skill-report .report-graph .compare-box .form-group {
     flex: none;
     width: 100%;
+    padding-right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-4);
   }
 }
 .skill-report .report-graph .compare-box .krds-btn {
-  width: 100%;
   flex: none;
+  position: absolute;
+  right: var(--pc-padding-card-medium);
+  bottom: var(--pc-padding-card-small);
+  width: 10rem;
+}
+@media (max-width: 767px) {
+  .skill-report .report-graph .compare-box .krds-btn {
+    position: static;
+    width: 100%;
+  }
 }
 .skill-report .report-graph .krds-table-info {
   margin-top: var(--gap-9);

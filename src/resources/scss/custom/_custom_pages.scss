@@ -107,37 +107,84 @@ $mode-setting: light;
   &.type03 {
     .form-date-wrap {
       display: flex;
+      width: 100%;
       align-items: center;
+      justify-content: flex-start;
       gap: var(--gap-4);
+      flex-wrap: wrap;
+      flex: none;
       .form-label {
-        width: auto;
+        width: 3.8rem;
         padding-right: var(--padding-2);
         font-size: var(--pc-font-size-body-small);
       }
-      .input-group.range.small {
-        width: 30.7rem;
-      }
-      .krds-btns-wrap {
-        width: auto;
-        .krds-btn {
-          min-width: 7rem;
+      .form-date {
+        flex: 1;
+        @include size-xlarge {
+          flex: none;
         }
       }
+      .input-group.range.small {
+        width: 100%;
+        @include size-xlarge {
+          width: 32.1rem;
+        }
+      }
+      .krds-btns-wrap {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: start;
+        @include size-xlarge {
+          max-width: 34.4rem;
+        }
+        .krds-btn {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+    .form-search-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      gap: var(--gap-3) var(--gap-9);
+      padding-left: 5rem;
     }
     .form-search {
       display: flex;
       align-items: center;
-      max-width: 58.7rem;
+      justify-content: flex-start;
       gap: var(--gap-4);
       flex: 1;
-    }
-    @include size-large-less {
-      .form-date-wrap {
-        width: 100%;
-        justify-content: center;
+      .sch-input {
+        max-width: 100%;
       }
-      .bar {
-        display: none;
+    }
+    .krds-check-area {
+      width: auto;
+      flex: none;
+      gap: var(--gap-9);
+    }
+    @include size-large-to-xlarge {
+      .form-date-wrap {
+        .form-date {
+          flex: 1;
+        }
+        .input-group.range.small {
+          width: auto;
+        }
+        .krds-btns-wrap {
+          width: 100%;
+          .krds-btn {
+            flex: 1;
+          }
+        }
+      }
+      .krds-check-area {
+        gap: var(--gap-8);
       }
     }
     @include size-medium {
@@ -153,9 +200,17 @@ $mode-setting: light;
         .input-group.range.small,
         .krds-btns-wrap {
           width: 100%;
+          padding-left: 0;
           .krds-btn {
             width: 100%;
           }
+        }
+      }
+      .form-search-wrap {
+        padding-left: 0;
+        flex-direction: column;
+        .krds-check-area {
+          width: 100%;
         }
       }
     }
@@ -282,11 +337,7 @@ $mode-setting: light;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.3) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        );
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
       }
     }
     .card-conts {
@@ -970,11 +1021,7 @@ $mode-setting: light;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.3) 0%,
-            rgba(0, 0, 0, 0.3) 100%
-          );
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
         }
       }
       .video-side-contents {
@@ -1159,8 +1206,7 @@ $mode-setting: light;
     span {
       width: 1.6rem;
       height: 1.6rem;
-      background: url(#{$url}/img/component/icon/ico_star_off.svg) no-repeat 50%
-        50% / 1.6rem 1.6rem;
+      background: url(#{$url}/img/component/icon/ico_star_off.svg) no-repeat 50% 50% / 1.6rem 1.6rem;
     }
     @for $score from 1 through 5 {
       &[data-score='#{$score}'] {
@@ -1412,6 +1458,14 @@ $mode-setting: light;
   margin-top: var(--gap-9);
   flex-wrap: wrap;
   gap: var(--gap-7);
+  @include size-large-less {
+    .krds-table-wrap {
+      width: calc(100vw - (var(--contents-padding-x) * 2) - (var(--pc-padding-card-medium) * 2)) !important;
+      @include size-medium {
+        width: calc(100vw - (var(--contents-padding-x) * 2) - (var(--mobile-padding-card-medium) * 2)) !important;
+      }
+    }
+  }
   > div {
     padding: var(--pc-padding-card-medium);
     border-radius: var(--radius-xlarge1);
@@ -1470,7 +1524,7 @@ $mode-setting: light;
     }
     .krds-table-wrap {
       @include size-medium {
-        width: calc(100vw - 9.7rem);
+        width: calc(100vw - var(--contents-padding-x) * 2);
       }
       .tbl {
         th,
@@ -1510,35 +1564,64 @@ $mode-setting: light;
 
     .compare-box {
       display: flex;
+      position: relative;
       padding: var(--pc-padding-card-small) var(--pc-padding-card-medium);
       border-radius: var(--radius-medium3);
       background-color: var(--light-color-surface-primary-subtler);
       @include size-medium {
-        padding: var(--mobile-padding-card-small)
-          var(--mobile-padding-card-medium);
+        padding: var(--mobile-padding-card-small) var(--mobile-padding-card-medium);
       }
       flex-wrap: wrap;
       gap: var(--gap-6);
 
       .form-group {
-        flex: 1;
+        width: 100%;
+        padding-right: calc(10rem + var(--gap-6));
+        gap: var(--gap-6);
+        flex-direction: row;
+        align-items: center;
         .form-tit {
+          min-width: 5.6rem;
+          width: auto;
           font-size: var(--pc-font-size-body-large);
-          font-weight: var(--font-weight-bold);
           color: var(--light-color-text-basic);
           @include size-medium {
             font-size: var(--mobile-font-size-body-large);
           }
         }
+        .form-conts {
+          p {
+            font-size: var(--pc-font-size-body-large);
+            font-weight: var(--font-weight-bold);
+            color: var(--light-color-text-basic);
+            @include size-medium {
+              font-size: var(--mobile-font-size-body-large);
+            }
+          }
+        }
+        &.compare {
+          padding-right: 0;
+        }
         @include size-medium {
           flex: none;
           width: 100%;
+          padding-right: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--gap-4);
         }
       }
 
       .krds-btn {
-        width: 100%;
         flex: none;
+        position: absolute;
+        right: var(--pc-padding-card-medium);
+        bottom: var(--pc-padding-card-small);
+        width: 10rem;
+        @include size-medium {
+          position: static;
+          width: 100%;
+        }
       }
     }
     .krds-table-info {

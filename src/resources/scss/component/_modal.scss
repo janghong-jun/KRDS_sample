@@ -40,9 +40,7 @@
   --modal--color-text: var(--#{$mode}-color-text-basic);
   --modal--wrap-color-surface: var(--#{$mode}-color-surface-white-subtler);
   --modal--wrap-color-border: var(--#{$mode}-color-border-gray);
-  --modal--wrap-shadow:
-    0 0 0.2rem 0 var(--#{$mode}-color-alpha-shadow2),
-    0 1.6rem 2.4rem 0 var(--#{$mode}-color-alpha-shadow3);
+  --modal--wrap-shadow: 0 0 0.2rem 0 var(--#{$mode}-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--#{$mode}-color-alpha-shadow3);
   --modal--color-dim: var(--#{$mode}-color-background-dim);
   --modal--full-popup-surface: var(--#{$mode}-color-surface-secondary-subtler);
 }
@@ -101,8 +99,7 @@ $mode-setting: light;
     .modal-dialog {
       width: 56rem;
       .modal-conts {
-        padding: var(--modal--padding) var(--modal--padding)
-          var(--modal--btn-padding-top) var(--modal--padding);
+        padding: var(--modal--padding) var(--modal--padding) var(--modal--btn-padding-top) var(--modal--padding);
         font-size: var(--pc-font-size-body-large);
         color: var(--color-light-gray-90);
       }
@@ -165,11 +162,7 @@ $mode-setting: light;
         width: 100%;
       }
       &:focus {
-        @include focus(
-          $offset: 0.4rem,
-          $color: var(--modal--wrap-color-surface),
-          $alpha: 0.9
-        );
+        @include focus($offset: 0.4rem, $color: var(--modal--wrap-color-surface), $alpha: 0.9);
       }
     }
     .modal-header {
@@ -218,8 +211,7 @@ $mode-setting: light;
       @include flex-layout($ai: center, $jc: center);
       flex-wrap: wrap;
       gap: var(--modal--btn-gap);
-      padding: var(--modal--btn-padding-top) var(--modal--padding)
-        var(--modal--padding);
+      padding: var(--modal--btn-padding-top) var(--modal--padding) var(--modal--padding);
       .krds-btn {
         min-width: var(--modal--btn-size-min-wdith);
         @include size-small {
@@ -231,10 +223,7 @@ $mode-setting: light;
       }
     }
     .btn-close {
-      @include position(
-        $t: var(--modal--btn-close-position),
-        $r: var(--modal--btn-close-position)
-      );
+      @include position($t: var(--modal--btn-close-position), $r: var(--modal--btn-close-position));
       z-index: 901;
     }
     &:not(:has(.modal-btn)) {
@@ -254,27 +243,31 @@ $mode-setting: light;
         }
 
         .skill-report {
-          .krds-table-wrap.row {
-            colgroup {
-              col {
-                &:nth-child(1) {
-                  width: 20rem !important;
-                }
-                &:nth-child(2) {
-                  width: 18rem !important;
-                }
-                &:nth-child(3) {
-                  width: auto !important;
-                }
-                @include size-medium {
+          .krds-table-wrap {
+            width: 100% !important;
+            pointer-events: auto;
+            &.row {
+              colgroup {
+                col {
                   &:nth-child(1) {
-                    width: 16.53% !important;
+                    width: 20rem !important;
                   }
                   &:nth-child(2) {
-                    width: 14.88% !important;
+                    width: 18rem !important;
                   }
                   &:nth-child(3) {
-                    width: 68.6% !important;
+                    width: auto !important;
+                  }
+                  @include size-medium {
+                    &:nth-child(1) {
+                      width: 16.53% !important;
+                    }
+                    &:nth-child(2) {
+                      width: 14.88% !important;
+                    }
+                    &:nth-child(3) {
+                      width: 68.6% !important;
+                    }
                   }
                 }
               }
@@ -381,8 +374,7 @@ $mode-setting: light;
     }
     .modal-btn {
       &.btn-wrap {
-        padding: var(--modal--bottom-sheet-btn-padding-top)
-          var(--modal--bottom-sheet-padding) var(--modal--bottom-sheet-padding);
+        padding: var(--modal--bottom-sheet-btn-padding-top) var(--modal--bottom-sheet-padding) var(--modal--bottom-sheet-padding);
         .krds-btn {
           flex: 1;
         }
@@ -406,8 +398,7 @@ $mode-setting: light;
       min-height: var(--modal--mobile-height);
       margin: var(--modal--mobile-gap) auto;
       .modal-header {
-        padding: var(--modal--mobile-header-padding-top)
-          var(--modal--mobile-padding) 0;
+        padding: var(--modal--mobile-header-padding-top) var(--modal--mobile-padding) 0;
         .modal-title {
           font-size: var(--modal--header-mobile-font-size);
         }
@@ -426,13 +417,12 @@ $mode-setting: light;
             min-width: calc(100% - (var(--contents-padding-x) * 2) - 4.8rem);
           }
         }
-        .skill-report .report-result .krds-table-wrap {
-          width: calc(100vw - 13.2rem);
+        .skill-report .krds-table-wrap {
+          width: calc(100vw - 13.2rem) !important;
         }
       }
       .modal-btn {
-        padding: var(--modal--mobile-btn-padding-top)
-          var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
+        padding: var(--modal--mobile-btn-padding-top) var(--modal--mobile-padding) var(--modal--mobile-btn-padding-bottom);
       }
       .btn-close {
         top: var(--modal--mobile-btn-close-position);

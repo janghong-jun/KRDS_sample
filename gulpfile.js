@@ -31,10 +31,7 @@ const dist = './dist';
 
 const path = {
   main: src,
-  scssEntry: [
-    `${src}/resources/scss/output.scss`,
-    `${src}/resources/scss/plugin/swiper-bundle.min.scss`,
-  ],
+  scssEntry: [`${src}/resources/scss/output.scss`, `${src}/resources/scss/plugin/swiper-bundle.min.scss`],
   scssWatch: `${src}/resources/scss/**/*.scss`,
   css: `${src}/resources/css`,
   js: `${src}/resources/js/**/*.js`,
@@ -80,6 +77,9 @@ gulp.task('guide-sass', () => {
 ========================= */
 gulp.task('serv', () => {
   browser.init({
+    port: 3000,
+    open: false,
+    online: true,
     server: {
       baseDir: path.main,
       middleware: [
@@ -119,13 +119,11 @@ const imageBuild = () =>
     .pipe(imagemin())
     .pipe(gulp.dest(`${dist}/resources/img`));
 
-const fonts = () =>
-  gulp.src(path.font).pipe(gulp.dest(`${dist}/resources/fonts`));
+const fonts = () => gulp.src(path.font).pipe(gulp.dest(`${dist}/resources/fonts`));
 
 const sassBuild = () =>
   gulp
     .src(path.scssEntry, { base: `${src}/resources/scss` })
-    .pipe(sourcemap.init())
     .pipe(gulpSass({ outputStyle: 'expanded' }))
     .pipe(
       autoprefix({
@@ -139,8 +137,7 @@ const sassBuild = () =>
 
 const js = () => gulp.src(path.js).pipe(gulp.dest(`${dist}/resources/js`));
 
-const guideResources = () =>
-  gulp.src(path.guideResources).pipe(gulp.dest(`${dist}/guide/resources`));
+const guideResources = () => gulp.src(path.guideResources).pipe(gulp.dest(`${dist}/guide/resources`));
 
 // BUILD TASK
 const guideSassBuild = () => {
@@ -158,24 +155,10 @@ const guideSassBuild = () => {
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(guideCssOutput));
 };
-const adminResources = () =>
-  gulp.src(path.adminResources).pipe(gulp.dest(`${dist}/resources/admin`));
+const adminResources = () => gulp.src(path.adminResources).pipe(gulp.dest(`${dist}/resources/admin`));
 /* =========================
    COMMANDS
 ========================= */
 gulp.task('default', gulp.series('sass', 'serv'));
 
-gulp.task(
-  'build',
-  gulp.series(
-    clean,
-    html,
-    fonts,
-    imageBuild,
-    sassBuild,
-    js,
-    guideResources,
-    guideSassBuild,
-    adminResources,
-  ),
-);
+gulp.task('build', gulp.series(clean, html, fonts, imageBuild, sassBuild, js, guideResources, guideSassBuild, adminResources));

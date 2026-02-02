@@ -43,11 +43,9 @@ $mode-setting: light;
       > tr {
         > th {
           height: 5rem;
-          padding: var(--table--data-thead-th-padding)
-            var(--table--data-thead-th-padding-sides);
+          padding: var(--table--data-thead-th-padding) var(--table--data-thead-th-padding-sides);
           background-color: var(--table--data-thead-surface);
-          border-bottom: var(--table--data-border-width) solid
-            var(--table--data-thead-border);
+          border-bottom: var(--table--data-border-width) solid var(--table--data-thead-border);
           background-color: #f8f8f8;
           border-bottom: var(--table--data-border-width) solid v#B1B8BE;
           font-weight: var(--font-weight-regular);
@@ -70,11 +68,9 @@ $mode-setting: light;
         }
         > th,
         > td {
-          padding: var(--table--data-tbody-padding)
-            var(--table--data-tbody-padding-sides);
+          padding: var(--table--data-tbody-padding) var(--table--data-tbody-padding-sides);
           background-color: var(--table--data-tbody-color-surface);
-          border-bottom: var(--table--data-border-width) solid
-            var(--table--data-tbody-color-divider);
+          border-bottom: var(--table--data-border-width) solid var(--table--data-tbody-color-divider);
           font-size: var(--table--data-tbody-pc-font-size);
           color: var(--table--data-tbody-color-text);
           font-weight: var(--font-weight-regular);
@@ -119,7 +115,9 @@ $mode-setting: light;
       position: sticky;
       top: 0;
       left: 0;
+      z-index: 1;
       font-size: var(--mobile-font-size-heading-medium);
+      background-color: var(--color-light-alpha-white100);
     }
   }
 
@@ -158,8 +156,7 @@ $mode-setting: light;
         > tr {
           > th {
             padding: var(--padding-5);
-            border-right: var(--table--data-border-width) solid
-              var(--table--data-tbody-color-divider);
+            border-right: var(--table--data-border-width) solid var(--table--data-tbody-color-divider);
             background-color: var(--light-color-surface-gray-subtler);
             color: var(--light-color-text-bolder);
           }
@@ -219,7 +216,9 @@ $mode-setting: light;
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 1;
     font-size: var(--mobile-font-size-label-small);
+    background-color: var(--color-light-alpha-white100);
   }
   .count {
     display: flex;
