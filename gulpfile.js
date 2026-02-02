@@ -10,6 +10,7 @@ const del = require('del');
 const ssi = require('gulp-ssi');
 const autoprefix = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
+const htmlmin = require('gulp-htmlmin');
 
 const removeEmptyRulesWithComments = () => {
   return {
@@ -104,6 +105,12 @@ const html = () =>
   gulp
     .src(path.html)
     .pipe(ssi({ root: path.main }))
+    .pipe(
+      htmlmin({
+        collapseWhitespace: false,
+        removeComments: false,
+      }),
+    )
     .pipe(gulp.dest(dist));
 
 const imageBuild = () =>
@@ -124,7 +131,7 @@ const sassBuild = () =>
       autoprefix({
         overrideBrowserslist: ['> 0.2% in KR', 'cover 99.5% in KR', 'not dead'],
         cascade: false,
-      })
+      }),
     )
     .pipe(postcss([removeEmptyRulesWithComments()]))
     .pipe(sourcemap.write('.'))
@@ -145,7 +152,7 @@ const guideSassBuild = () => {
       autoprefix({
         overrideBrowserslist: ['> 0.2% in KR', 'cover 99.5% in KR', 'not dead'],
         cascade: false,
-      })
+      }),
     )
     .pipe(postcss([removeEmptyRulesWithComments()]))
     .pipe(sourcemap.write('.'))
@@ -169,6 +176,6 @@ gulp.task(
     js,
     guideResources,
     guideSassBuild,
-    adminResources
-  )
+    adminResources,
+  ),
 );

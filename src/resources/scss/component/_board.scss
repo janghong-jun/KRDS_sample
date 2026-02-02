@@ -395,6 +395,20 @@
       }
     }
   }
+  .krds-pagination {
+    // flex-wrap: wrap;
+
+    .page-links {
+      // width: 100%;
+      .page-link {
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .post-navigation {

@@ -145,6 +145,15 @@ label {
             }
           }
         }
+        &.small {
+          > input[type='radio'] {
+            ~ label {
+              &::after {
+                margin-top: 0.1rem;
+              }
+            }
+          }
+        }
       }
     }
   }

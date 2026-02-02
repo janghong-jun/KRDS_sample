@@ -14818,6 +14818,9 @@ label {
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
 }
+.krds-form-check.small.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
+}
 .krds-form-check.medium > input[type=radio] ~ label,
 .krds-form-check.medium > input[type=checkbox] ~ label {
   align-items: center;
@@ -14882,6 +14885,9 @@ label {
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
 }
+.krds-form-check.medium.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
+}
 .krds-form-check.large > input[type=radio] ~ label,
 .krds-form-check.large > input[type=checkbox] ~ label {
   align-items: center;
@@ -14945,6 +14951,9 @@ label {
   -webkit-mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
+}
+.krds-form-check.large.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
 }
 .krds-form-check input[type=radio] ~ label,
 .krds-form-check input[type=checkbox] ~ label {
@@ -15187,6 +15196,9 @@ label {
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
 }
+[data-krds-mode=high-contrast] .krds-form-check.small.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
+}
 [data-krds-mode=high-contrast] .krds-form-check.medium > input[type=radio] ~ label,
 [data-krds-mode=high-contrast] .krds-form-check.medium > input[type=checkbox] ~ label {
   align-items: center;
@@ -15251,6 +15263,9 @@ label {
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
 }
+[data-krds-mode=high-contrast] .krds-form-check.medium.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
+}
 [data-krds-mode=high-contrast] .krds-form-check.large > input[type=radio] ~ label,
 [data-krds-mode=high-contrast] .krds-form-check.large > input[type=checkbox] ~ label {
   align-items: center;
@@ -15314,6 +15329,9 @@ label {
   -webkit-mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--form-check--checkbox-check-color-element);
+}
+[data-krds-mode=high-contrast] .krds-form-check.large.small > input[type=radio] ~ label::after {
+  margin-top: 0.1rem;
 }
 [data-krds-mode=high-contrast] .krds-form-check input[type=checkbox] ~ label::after {
   top: calc((var(--form-check--button-size-medium) - var(--form-check--checkbox-check-size-medium)) / 2 + var(--form-check--button-margin-top));
@@ -15493,6 +15511,11 @@ label {
   }
 }
 @media (prefers-color-scheme: dark) {
+  [data-krds-mode=theme] .krds-form-check.small.small > input[type=radio] ~ label::after {
+    margin-top: 0.1rem;
+  }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.medium > input[type=radio] ~ label,
   [data-krds-mode=theme] .krds-form-check.medium > input[type=checkbox] ~ label {
     align-items: center;
@@ -15567,6 +15590,11 @@ label {
   }
 }
 @media (prefers-color-scheme: dark) {
+  [data-krds-mode=theme] .krds-form-check.medium.small > input[type=radio] ~ label::after {
+    margin-top: 0.1rem;
+  }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.large > input[type=radio] ~ label,
   [data-krds-mode=theme] .krds-form-check.large > input[type=checkbox] ~ label {
     align-items: center;
@@ -15638,6 +15666,11 @@ label {
     -webkit-mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
     mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
     background-color: var(--form-check--checkbox-check-color-element);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  [data-krds-mode=theme] .krds-form-check.large.small > input[type=radio] ~ label::after {
+    margin-top: 0.1rem;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -17424,6 +17457,9 @@ label {
 }
 .comment.type02 + .krds-btns-wrap .krds-btn {
   width: 20rem;
+}
+.comment .krds-pagination .page-links .page-link:nth-child(6), .comment .krds-pagination .page-links .page-link:nth-child(7), .comment .krds-pagination .page-links .page-link:nth-child(8) {
+  display: none;
 }
 
 .post-navigation-list {

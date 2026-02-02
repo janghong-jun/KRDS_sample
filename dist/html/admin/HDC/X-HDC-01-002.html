@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1">
+<title>Hi-Coaching Admin</title>
+<link rel="stylesheet" href="../../../resources/admin/css/admin.css" type="text/css">
+<script type="text/javascript" src="../../../resources/admin/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.global.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.common.js"></script>
+<!-- <script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.common.js"
+></script
+<script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.observer.js"
+></script> -->
+    <script type="text/javascript">
+      pageInfo = { mid: '8', sid: '1' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+  <li>
+    <a href="#" id="menu1" class="mMenu">회원관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>관리자관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>코드관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림발송관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시판관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>금칙어관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#" id="menu2">전문가관리</a></li>
+  <li><a href="#" id="menu3">역량관리</a></li>
+  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>콘텐츠관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 업로드 현황</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>카테고리관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 이력관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>저작권관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>라이프사이클관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>폐기대상관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu6" class="mMenu">사이트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>팝업관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>공지사항</span></a>
+      </li>
+      <li>
+        <a href="#"><span>FAQ</span></a>
+      </li>
+      <li>
+        <a href="#"><span>Q&amp;A</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu7" class="mMenu">공동체관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>협업공간관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>실행나눔관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연구지원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>학습공동체채널관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu8" class="mMenu">데이터연계</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>유튜브채널관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>유튜브수집동영상</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연계로그관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu9" class="mMenu">포인트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>적립기준설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>발급분석</span></a>
+      </li>
+      <li>
+        <a href="#"><span>예산관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>정산관리</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+        </div>
+        <section class="main-conts">
+          <h2>유튜브채널 관리</h2>
+          <div class="sub-title">
+            <p class="msg">*표시는 필수 입력 항목입니다.</p>
+          </div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <label for="inp01">채널명</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <input type="text" id="inp01" class="inp-text" placeholder="채널명을 입력해주세요" value="교육과정평가원">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="select01">학교급</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select01">
+                        <option>선택</option>
+                        <option selected="selected">초등</option>
+                        <option>중등</option>
+                        <option>고등</option>
+                        <option>통합</option>
+                        <option>특수</option>
+                        <option>기타</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="select02">유형</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select02">
+                        <option>개인</option>
+                        <option selected="selected">공공기관</option>
+                        <option>중등</option>
+                        <option>사기업</option>
+                        <option>기업</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="inp02">핵심검색어</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <input type="text" id="inp02" class="inp-text" placeholder="검색어, 검색어, 검색어" value="진로, 수능, 학습, 교육정책, 미래교육">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    역량군
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="check01" checked="checked">
+                        <label for="check01" class="lb-checkbox">역량군1</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="check02" checked="checked">
+                        <label for="check02" class="lb-checkbox">역량군2</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="check03">
+                        <label for="check03" class="lb-checkbox">역량군3</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="check04">
+                        <label for="check04" class="lb-checkbox">역량군4</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="check05">
+                        <label for="check05" class="lb-checkbox">역량군5</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="inp03">URL</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="flex-wrap">
+                      <input type="text" class="inp-text" id="inp03" style="width: 100%" value="https://www.youtube.com/@kice8471/videos">
+                      <div class="tbl-btns type-small">
+                        <button type="button" class="btn base square apply-btn">
+                          <span>중복확인</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="textarea01">채널설명</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <textarea id="textarea01" class="inp-textarea" placeholder="채널 설명을 입력해주세요" style="height: 10rem">
+"학교교육의 혁신을 견인하는 교육과정·교수학습·교육평가 연구 기관" 한국교육과정평가원은 「교육과정 연구·개발, 교과용도서 연구·검정, 교수학습 연구·개발, 교육평가 연구·시행, 대학수학능력시험 연구·시행, 국가고사 연구·시행, 국제교육협력」을 수행하는 국무총리(국무조정실) 산하 정부출연연구기관입니다.
+</textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    사용여부
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_01" name="rdoBtn01">
+                        <label for="rdo_01_01" class="lb-radio">사용</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_02" name="rdoBtn01">
+                        <label for="rdo_01_02" class="lb-radio">미사용</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-btns">
+            <div>
+              <button type="button" class="btn base secondary">
+                <span>목록</span>
+              </button>
+              <button type="button" class="btn base primary">
+                <span>수정</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-aaCoaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

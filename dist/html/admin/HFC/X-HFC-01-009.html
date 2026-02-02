@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1">
+<title>Hi-Coaching Admin</title>
+<link rel="stylesheet" href="../../../resources/admin/css/admin.css" type="text/css">
+<script type="text/javascript" src="../../../resources/admin/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.global.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.common.js"></script>
+<!-- <script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.common.js"
+></script
+<script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.observer.js"
+></script> -->
+    <script type="text/javascript">
+      pageInfo = { mid: '6', sid: '4' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+  <li>
+    <a href="#" id="menu1" class="mMenu">회원관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>관리자관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>코드관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림발송관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시판관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>금칙어관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#" id="menu2">전문가관리</a></li>
+  <li><a href="#" id="menu3">역량관리</a></li>
+  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>콘텐츠관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 업로드 현황</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>카테고리관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 이력관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>저작권관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>라이프사이클관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>폐기대상관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu6" class="mMenu">사이트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>팝업관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>공지사항</span></a>
+      </li>
+      <li>
+        <a href="#"><span>FAQ</span></a>
+      </li>
+      <li>
+        <a href="#"><span>Q&amp;A</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu7" class="mMenu">공동체관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>협업공간관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>실행나눔관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연구지원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>학습공동체채널관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu8" class="mMenu">데이터연계</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>유튜브채널관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>유튜브수집동영상</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연계로그관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu9" class="mMenu">포인트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>적립기준설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>발급분석</span></a>
+      </li>
+      <li>
+        <a href="#"><span>예산관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>정산관리</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+        </div>
+        <section class="main-conts">
+          <h2>Q&A</h2>
+          <div class="sub-title"><h3>문의 내용</h3></div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">문의 구분</th>
+                  <td>역량 진단</td>
+                </tr>
+                <tr>
+                  <th scope="row">문의자</th>
+                  <td>홍길동(교사)</td>
+                </tr>
+                <tr>
+                  <th scope="row">문의일</th>
+                  <td>2025-12-08</td>
+                </tr>
+                <tr>
+                  <th scope="row">제목</th>
+                  <td class="lock">역량 진단 재응답 관련 문의</td>
+                </tr>
+                <tr>
+                  <th scope="row">내용</th>
+                  <td>
+                    역량진단을 완료했는데 결과 화면에서 아무것도 안 나옵니다.
+                    <br>확인 부탁드립니다.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">첨부파일</th>
+                  <td>첨부파일명.png</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sub-title"><h3>답변 내용</h3></div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">답변자</th>
+                  <td>관리자(김관리)</td>
+                </tr>
+                <tr>
+                  <th scope="row">답변일</th>
+                  <td>2025-12-19</td>
+                </tr>
+                <tr>
+                  <th scope="row">답변내용</th>
+                  <td><div class="edit-area">에디터영역</div></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="inpUpload">첨부파일</label>
+                  </th>
+                  <td>
+                    <div class="file-wrap">
+                      <div class="input-item">
+                        <input type="text" name="inpUpload" class="inp-text" readonly="readonly" aria-label="첨부 파일">
+                        <span class="btn base square">
+                          <input type="file" title="첨부파일 선택" id="inpUpload">
+                          <span>찾아보기</span>
+                        </span>
+                      </div>
+                      <div class="file-list mgt8">
+                        <div class="file">
+                          <p class="file-name">오류화면.png</p>
+                          <button type="button" class="btn-del">
+                            <span>삭제</span>
+                          </button>
+                        </div>
+                        <div class="file">
+                          <p class="file-name">오류화면.png</p>
+                          <button type="button" class="btn-del">
+                            <span>삭제</span>
+                          </button>
+                        </div>
+                        <span class="file-info">jpg, png, pdf, hwp, docx만 등록 가능 (최대
+                          10MB)</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-btns">
+            <button type="button" class="btn base tertiary">
+              <span>숨김</span>
+            </button>
+            <div>
+              <button type="button" class="btn base secondary">
+                <span>취소</span>
+              </button>
+              <button type="button" class="btn base primary">
+                <span>수정</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-Coaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

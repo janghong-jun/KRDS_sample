@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1">
+<title>Hi-Coaching Admin</title>
+<link rel="stylesheet" href="../../../resources/admin/css/admin.css" type="text/css">
+<script type="text/javascript" src="../../../resources/admin/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.global.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.common.js"></script>
+<!-- <script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.common.js"
+></script
+<script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.observer.js"
+></script> -->
+    <script type="text/javascript">
+      pageInfo = { mid: '2' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+  <li>
+    <a href="#" id="menu1" class="mMenu">회원관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>관리자관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>코드관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림발송관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시판관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>금칙어관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#" id="menu2">전문가관리</a></li>
+  <li><a href="#" id="menu3">역량관리</a></li>
+  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>콘텐츠관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 업로드 현황</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>카테고리관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 이력관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>저작권관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>라이프사이클관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>폐기대상관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu6" class="mMenu">사이트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>팝업관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>공지사항</span></a>
+      </li>
+      <li>
+        <a href="#"><span>FAQ</span></a>
+      </li>
+      <li>
+        <a href="#"><span>Q&amp;A</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu7" class="mMenu">공동체관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>협업공간관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>실행나눔관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연구지원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>학습공동체채널관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu8" class="mMenu">데이터연계</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>유튜브채널관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>유튜브수집동영상</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연계로그관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu9" class="mMenu">포인트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>적립기준설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>발급분석</span></a>
+      </li>
+      <li>
+        <a href="#"><span>예산관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>정산관리</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+        </div>
+        <section class="main-conts">
+          <h2>전문가관리</h2>
+          <h3 class="mgt24">
+            <span class="fc-primary">김전문(id12345)</span>님의 정보 입니다.
+          </h3>
+          <div class="sub-title">
+            <h4 class="fc-black">기본정보</h4>
+          </div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">회원이름</th>
+                  <td>김전문</td>
+                  <th scope="row">회원구분</th>
+                  <td>교사</td>
+                </tr>
+                <tr>
+                  <th scope="row">아이디</th>
+                  <td>Id12345</td>
+                  <th scope="row">닉네임</th>
+                  <td>아메리카노좋아</td>
+                </tr>
+                <tr>
+                  <th scope="row">생년월일</th>
+                  <td>YYYY-MM-DD</td>
+                  <th scope="row">지역</th>
+                  <td>수원시 영통구, 화성시 동탄구</td>
+                </tr>
+                <tr>
+                  <th scope="row">학교(소속)</th>
+                  <td>수원고등학교</td>
+                  <th scope="row">과목(담당)</th>
+                  <td>고등수학</td>
+                </tr>
+                <tr>
+                  <th scope="row">핸드폰</th>
+                  <td>010-96-876-5432</td>
+                  <th scope="row">이메일</th>
+                  <td>Id12345@gmail.com</td>
+                </tr>
+                <tr>
+                  <th scope="row">SNS 1</th>
+                  <td>
+                    <div class="sns instagram">coaching_kim</div>
+                    <div class="sns facebook">coaching_kim</div>
+                  </td>
+                  <th scope="row">SNS 2</th>
+                  <td>
+                    <div class="sns x">coaching_kim</div>
+                    <div class="sns blog">coaching_kim</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sub-title">
+            <h4 class="fc-black">이용정보</h4>
+          </div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">회원등급</th>
+                  <td>새싹</td>
+                  <th scope="row">접속횟수</th>
+                  <td>6,534 회</td>
+                </tr>
+                <tr>
+                  <th scope="row">가입일</th>
+                  <td>YYYY-MM-DD</td>
+                  <th scope="row">최종접속일</th>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sub-title">
+            <h4 class="fc-black">전문가정보</h4>
+          </div>
+          <div class="tbl-base mgt10 align-left">
+            <table>
+              <colgroup>
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+                <col style="width: 15rem">
+                <col style="width: calc(50% - 15rem)">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col" colspan="4" class="txt-c">
+                    주요활동 및 학습이력
+                  </th>
+                </tr>
+                <tr>
+                  <td class="txt-l" colspan="4">
+                    <ul class="list-dot">
+                      <li>교사 교육과정 설계 개념과 방향성 실습 코칭</li>
+                      <li>학습공동체 모임을 통한 학습 역량 획득 사례 연구</li>
+                      <li>
+                        교사들의 올바른 학생 생활지도 노하우 공유 모임 활동
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="col" colspan="4" class="txt-c">자기소개</th>
+                </tr>
+                <tr>
+                  <td class="txt-l" colspan="4">
+                    항상 진심을 다한다는 마음으로 목표를 위해 달려왔습니다. 열린
+                    마음으로 소통할 수 있는 준비된 자세로 학교가 원하는 방향에
+                    우리의 가치를 더 발전 시킬 수 있도록 함께 하겠습니다.
+                    감사합니다.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">매칭 회원수</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>36 명</span>
+                    </div>
+                  </td>
+                  <th scope="row">평점</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>4.7 점</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">등록 학습모듈 건수</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>27 건</span>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-004" data-src="X-HER-06-004.html">
+                        학습모듈보기
+                      </button>
+                    </div>
+                  </td>
+                  <th scope="row">등록 학습콘텐츠 건수</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>36 건</span>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-005" data-src="X-HER-06-005.html">
+                        등록 학습콘텐츠 건수
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">학습공동체 활동 건수</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>7 건</span>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-006" data-src="X-HER-06-006.html">
+                        학습공동체보기
+                      </button>
+                    </div>
+                  </td>
+                  <th scope="row">신고 건수</th>
+                  <td>
+                    <div class="flex-box mgt0">
+                      <span>36 건</span>
+                      <button class="btn-modal btn-text btn-modal" onclick="UI.modal.show({
+                            id: 'X-HER-06-007',
+                            src: 'X-HER-06-007.html',
+                            callback: () => { 
+                              const $modal = $('#X-HER-06-007');
+                              const $tr = $modal.find(`tr:not([class]),tr[class='']`)
+                              $tr.next().hide();
+
+                              $tr.off('click').on('click', function () { 
+                                $(this).next().toggle();
+                              });
+                            }
+                          });">
+                        신고내용보기
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-title">
+            <h4 class="fc-black">전문가 평가 (23건)</h4>
+            <select>
+              <option>평점 높은순</option>
+              <option>평점 낮은순</option>
+              <option>최신순</option>
+            </select>
+          </div>
+
+          <ul class="score-list">
+            <li>
+              <div>
+                <span>평가점수 <strong>5</strong></span>
+                <span>작성자 <strong>윤*습(amer*****)</strong></span>
+                <span>작성일 <strong>2026-03-16</strong></span>
+              </div>
+              <p>
+                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
+                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
+                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
+                제안해 주시고... 최고의 멘토가 되어 주셨어요..
+              </p>
+            </li>
+            <li>
+              <div>
+                <span>평가점수 <strong>5</strong></span>
+                <span>작성자 <strong>윤*습(amer*****)</strong></span>
+                <span>작성일 <strong>2026-03-16</strong></span>
+              </div>
+              <p>
+                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
+                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
+                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
+                제안해 주시고... 최고의 멘토가 되어 주셨어요..
+              </p>
+            </li>
+            <li>
+              <div>
+                <span>평가점수 <strong>5</strong></span>
+                <span>작성자 <strong>윤*습(amer*****)</strong></span>
+                <span>작성일 <strong>2026-03-16</strong></span>
+              </div>
+              <p>
+                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
+                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
+                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
+                제안해 주시고... 최고의 멘토가 되어 주셨어요..
+              </p>
+            </li>
+            <li>
+              <div>
+                <span>평가점수 <strong>5</strong></span>
+                <span>작성자 <strong>윤*습(amer*****)</strong></span>
+                <span>작성일 <strong>2026-03-16</strong></span>
+              </div>
+              <p>
+                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
+                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
+                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
+                제안해 주시고... 최고의 멘토가 되어 주셨어요..
+              </p>
+            </li>
+            <li>
+              <div>
+                <span>평가점수 <strong>5</strong></span>
+                <span>작성자 <strong>윤*습(amer*****)</strong></span>
+                <span>작성일 <strong>2026-03-16</strong></span>
+              </div>
+              <p>
+                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
+                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
+                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
+                제안해 주시고... 최고의 멘토가 되어 주셨어요..
+              </p>
+            </li>
+          </ul>
+
+          <div class="tbl-btns flex-box mgt16">
+            <button type="button" class="btn base secondary btn-modal" data-id="X-HER-06-003" data-src="X-HER-06-003.html">
+              <span>전문가 철회 </span>
+            </button>
+            <div class="pager">
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+              <span class="num">
+                <a href="#">1</a>
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+              </span>
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+            </div>
+            <button type="button" class="btn base primary">
+              <span>목록</span>
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-Coaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

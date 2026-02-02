@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1">
+<title>Hi-Coaching Admin</title>
+<link rel="stylesheet" href="../../../resources/admin/css/admin.css" type="text/css">
+<script type="text/javascript" src="../../../resources/admin/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.global.js"></script>
+<script type="text/javascript" src="../../../resources/admin/js/ui.common.js"></script>
+<!-- <script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.common.js"
+></script
+<script
+  type="text/javascript"
+  src="../../../resources/admin/js/ui.observer.js"
+></script> -->
+    <script type="text/javascript">
+      pageInfo = { mid: '5', sid: '2' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <ul class="nav">
+  <li>
+    <a href="#" id="menu1" class="mMenu">회원관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>관리자관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>코드관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>알림발송관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시판관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>금칙어관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#" id="menu2">전문가관리</a></li>
+  <li><a href="#" id="menu3">역량관리</a></li>
+  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>콘텐츠관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 업로드 현황</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>카테고리관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 이력관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>저작권관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>라이프사이클관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>폐기대상관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu6" class="mMenu">사이트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>팝업관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>공지사항</span></a>
+      </li>
+      <li>
+        <a href="#"><span>FAQ</span></a>
+      </li>
+      <li>
+        <a href="#"><span>Q&amp;A</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu7" class="mMenu">공동체관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>협업공간관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>실행나눔관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연구지원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>학습공동체채널관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu8" class="mMenu">데이터연계</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>유튜브채널관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>유튜브수집동영상</span></a>
+      </li>
+      <li>
+        <a href="#"><span>연계로그관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu9" class="mMenu">포인트관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>적립기준설정</span></a>
+      </li>
+      <li>
+        <a href="#"><span>발급분석</span></a>
+      </li>
+      <li>
+        <a href="#"><span>예산관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>정산관리</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+        </div>
+        <section class="main-conts">
+          <h2>콘텐츠 업로드 진행현황 조회</h2>
+          <div class="tbl-base mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 13rem">
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="frm-area">
+                      <select>
+                        <option>전체</option>
+                        <option>유형</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-btns center">
+            <button type="button" class="btn base secondary">
+              <span>검색</span>
+            </button>
+          </div>
+          <div class="sub-title">
+            <div>
+              <p class="count">총 <span>100</span>건</p>
+              <p class="count">페이지 <span>2</span>/50</p>
+            </div>
+          </div>
+          <div class="tbl-base type2 mgt10">
+            <table>
+              <colgroup>
+                <col style="width: 8.8rem">
+                <col>
+                <col style="width: 7rem">
+                <col style="width: 23rem">
+                <col style="width: 12rem">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">콘텐츠 명</th>
+                  <th scope="col">유형</th>
+                  <th scope="col">업로드 진행상태</th>
+                  <th scope="col">등록일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>업로드 중</span>
+                      <span class="tbl-btns type-small">
+                        <button type="button" class="btn base square apply-btn">
+                          <span>중지</span>
+                        </button>
+                      </span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>99</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>98</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>중지됨</span>
+                      <span class="tbl-btns type-small">
+                        <button type="button" class="btn base square apply-btn">
+                          <span>재시작</span>
+                        </button>
+                        <button type="button" class="btn base square apply-btn">
+                          <span>취소</span>
+                        </button>
+                      </span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>97</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>실패</span>
+                      <span class="tbl-btns type-small">
+                        <button type="button" class="btn base square apply-btn">
+                          <span>재시작</span>
+                        </button>
+                        <button type="button" class="btn base square apply-btn">
+                          <span>취소</span>
+                        </button>
+                      </span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>96</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>취소</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>95</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>94</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>93</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>92</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td>91</td>
+                  <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
+                  <td>동영상</td>
+                  <td>
+                    <div class="upload-grid">
+                      <span>완료</span>
+                    </div>
+                  </td>
+                  <td>YYYY-MM-DD</td>
+                </tr>
+                <tr>
+                  <td colspan="5" class="nodata">검색된 내용이 없습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-btns mgt16">
+            <div class="pager">
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+              <span class="num">
+                <a href="#">1</a>
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+              </span>
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-Coaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>
