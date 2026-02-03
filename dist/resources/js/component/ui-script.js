@@ -59,36 +59,23 @@ const scrollManager = {
 // common
 const common = {
   focusTrap(trap) {
-    const focusableElements = trap.querySelectorAll(
-      `a, button, [tabindex="0"], input, textarea, select`,
-    );
+    const focusableElements = trap.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
 
     if (!focusableElements.length) return;
 
     const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement =
-      focusableElements[focusableElements.length - 1];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
     trap.addEventListener('keydown', (event) => {
       if (event.key === 'Tab') {
-        if (
-          event.shiftKey &&
-          document.activeElement === firstFocusableElement
-        ) {
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
           event.preventDefault();
           lastFocusableElement.focus();
-        } else if (
-          !event.shiftKey &&
-          document.activeElement === lastFocusableElement
-        ) {
+        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
           event.preventDefault();
           firstFocusableElement.focus();
           // 모달 오픈 후 첫 초점 역방향 제어(modal-content가 첫초점이 아니면 사용 안해도 됨)
-        } else if (
-          event.key === 'Tab' &&
-          event.shiftKey &&
-          document.activeElement === trap
-        ) {
+        } else if (event.key === 'Tab' && event.shiftKey && document.activeElement === trap) {
           event.preventDefault();
           lastFocusableElement.focus();
         }
@@ -100,9 +87,7 @@ const common = {
 /*** * krds_mainMenuPC * ***/
 const krds_mainMenuPC = {
   init() {
-    const gnbMenu = document.querySelector(
-      '.krds-main-menu:not(.sample) .gnb-menu',
-    );
+    const gnbMenu = document.querySelector('.krds-main-menu .gnb-menu');
 
     if (!gnbMenu) return;
 
@@ -110,14 +95,11 @@ const krds_mainMenuPC = {
     gnbMenu.setAttribute('aria-label', '메인 메뉴');
 
     // dimed 요소를 설정, 기존 dimed가 없을 경우 생성
-    this.backdrop =
-      document.querySelector('.gnb-backdrop') || this.createBackdrop();
+    this.backdrop = document.querySelector('.gnb-backdrop') || this.createBackdrop();
 
     // 주 메뉴 및 서브 메뉴의 트리거를 설정하고, 각 트리거에 이벤트를 연결
     const mainTriggers = gnbMenu.querySelectorAll('.gnb-main-trigger');
-    const subTriggers = gnbMenu.querySelectorAll(
-      '.gnb-sub-trigger:not(.is-link)',
-    );
+    const subTriggers = gnbMenu.querySelectorAll('.gnb-sub-trigger:not(.is-link)');
     mainTriggers.forEach((mainTrigger) => this.setupMainTrigger(mainTrigger));
     this.attachEvents(mainTriggers, subTriggers);
     this.setupKeyboardNavigation(mainTriggers);
@@ -125,9 +107,7 @@ const krds_mainMenuPC = {
   setupMainTrigger(mainTrigger) {
     const toggleWrap = mainTrigger.nextElementSibling;
     if (toggleWrap) {
-      const uniqueIdx = `gnb-main-menu-${Math.random()
-        .toString(36)
-        .substring(2, 9)}`;
+      const uniqueIdx = `gnb-main-menu-${Math.random().toString(36).substring(2, 9)}`;
       mainTrigger.setAttribute('aria-controls', uniqueIdx);
       mainTrigger.setAttribute('aria-expanded', 'false');
       mainTrigger.setAttribute('aria-haspopup', 'true');
@@ -138,10 +118,7 @@ const krds_mainMenuPC = {
       if (mainList?.getAttribute('data-has-submenu') === 'true') {
         const subTriggers = mainList.querySelectorAll('.gnb-sub-trigger');
         subTriggers.forEach((subTrigger) => this.setupSubTrigger(subTrigger));
-        if (
-          subTriggers.length > 0 &&
-          !subTriggers[0].classList.contains('is-link')
-        ) {
+        if (subTriggers.length > 0 && !subTriggers[0].classList.contains('is-link')) {
           subTriggers[0].classList.add('active');
           subTriggers[0].setAttribute('aria-expanded', 'true');
           subTriggers[0].nextElementSibling?.classList.add('active');
@@ -152,9 +129,7 @@ const krds_mainMenuPC = {
   setupSubTrigger(subTrigger) {
     const hasMenu = subTrigger.nextElementSibling;
     if (hasMenu) {
-      const uniqueIdx = `gnb-sub-menu-${Math.random()
-        .toString(36)
-        .substring(2, 9)}`;
+      const uniqueIdx = `gnb-sub-menu-${Math.random().toString(36).substring(2, 9)}`;
       subTrigger.setAttribute('aria-controls', uniqueIdx);
       subTrigger.setAttribute('aria-expanded', 'false');
       subTrigger.setAttribute('aria-haspopup', 'true');
@@ -172,18 +147,14 @@ const krds_mainMenuPC = {
       if (!isDropDown) {
         this.toggleBackdrop(true);
         this.toggleScrollbar(true);
-        this.adjustSubMenuHeight(
-          mainTrigger.nextElementSibling.querySelector('.gnb-main-list'),
-        );
+        this.adjustSubMenuHeight(mainTrigger.nextElementSibling.querySelector('.gnb-main-list'));
       }
     } else {
       this.closeMainMenu();
     }
   },
   toggleSubMenu(subTrigger) {
-    const otherSubTriggers = subTrigger
-      .closest('ul')
-      .querySelectorAll('.gnb-sub-trigger:not(.is-link)');
+    const otherSubTriggers = subTrigger.closest('ul').querySelectorAll('.gnb-sub-trigger:not(.is-link)');
     otherSubTriggers.forEach((trigger) => {
       trigger.classList.remove('active');
       trigger.setAttribute('aria-expanded', 'false');
@@ -217,19 +188,13 @@ const krds_mainMenuPC = {
     document.body.classList.toggle('hasScrollY', isEnabled && isScrollNeeded);
   },
   resetMainMenu() {
-    document
-      .querySelectorAll(
-        '.krds-main-menu:not(.sample) .gnb-main-trigger:not(.is-link)',
-      )
-      .forEach((mainTrigger) => {
-        mainTrigger.classList.remove('active');
-        mainTrigger.setAttribute('aria-expanded', 'false');
-      });
-    document
-      .querySelectorAll('.krds-main-menu:not(.sample) .gnb-toggle-wrap')
-      .forEach((toggleWrap) => {
-        toggleWrap.classList.remove('is-open');
-      });
+    document.querySelectorAll('.krds-main-menu .gnb-main-trigger:not(.is-link)').forEach((mainTrigger) => {
+      mainTrigger.classList.remove('active');
+      mainTrigger.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('.krds-main-menu .gnb-toggle-wrap').forEach((toggleWrap) => {
+      toggleWrap.classList.remove('is-open');
+    });
   },
   closeMainMenu() {
     this.resetMainMenu();
@@ -254,16 +219,12 @@ const krds_mainMenuPC = {
 
     // 메인 메뉴 트리거 설정
     mainTriggers.forEach((mainTrigger) => {
-      mainTrigger.addEventListener('click', () =>
-        this.toggleMainMenu(mainTrigger),
-      );
+      mainTrigger.addEventListener('click', () => this.toggleMainMenu(mainTrigger));
     });
 
     // 서브 메뉴 트리거 설정
     subTriggers.forEach((subTrigger) => {
-      subTrigger.addEventListener('click', () =>
-        this.toggleSubMenu(subTrigger),
-      );
+      subTrigger.addEventListener('click', () => this.toggleSubMenu(subTrigger));
     });
   },
   setupKeyboardNavigation(mainTriggers) {
@@ -273,8 +234,7 @@ const krds_mainMenuPC = {
       }
     };
     const findFocusableElement = (element, direction) => {
-      const sibling =
-        direction === 'next' ? 'nextElementSibling' : 'previousElementSibling';
+      const sibling = direction === 'next' ? 'nextElementSibling' : 'previousElementSibling';
       const parent = element.closest('li')?.[sibling];
       return parent ? parent.querySelector('[data-trigger]') : null;
     };
@@ -314,9 +274,7 @@ const krds_mainMenuPC = {
 /*** * krds_mainMenuMobile * ***/
 const krds_mainMenuMobile = {
   init() {
-    const mobileGnb = document.querySelector(
-      '.krds-main-menu-mobile:not(.sample)',
-    );
+    const mobileGnb = document.querySelector('.krds-main-menu-mobile');
 
     if (!mobileGnb) return;
 
@@ -342,18 +300,13 @@ const krds_mainMenuMobile = {
     const tabList = mobileGnb.querySelector('.menu-wrap');
     if (tabList) {
       tabList.querySelector('.menu-wrap ul').setAttribute('role', 'tablist');
-      tabList
-        .querySelectorAll('.menu-wrap li')
-        .forEach((li) => li.setAttribute('role', 'none'));
+      tabList.querySelectorAll('.menu-wrap li').forEach((li) => li.setAttribute('role', 'none'));
 
       const tabs = document.querySelectorAll('.menu-wrap .gnb-main-trigger');
       tabs.forEach((item, idx) => {
         item.setAttribute('role', 'tab');
         item.setAttribute('aria-selected', 'false');
-        item.setAttribute(
-          'aria-controls',
-          item.getAttribute('href').substring(1),
-        );
+        item.setAttribute('aria-controls', item.getAttribute('href').substring(1));
         item.setAttribute('id', `tab-${idx}`);
 
         // gnb-main-trigger 클릭시 해당 위치로 스크롤
@@ -370,9 +323,7 @@ const krds_mainMenuMobile = {
         });
       });
 
-      const tabPanels = document.querySelectorAll(
-        '.submenu-wrap .gnb-sub-list',
-      );
+      const tabPanels = document.querySelectorAll('.submenu-wrap .gnb-sub-list');
       tabPanels.forEach((item, idx) => {
         item.setAttribute('role', 'tabpanel');
         item.setAttribute('aria-labelledby', `tab-${idx}`);
@@ -428,9 +379,7 @@ const krds_mainMenuMobile = {
       mobileGnb.removeEventListener('transitionend', onTransitionEnd);
 
       // inert 설정
-      document
-        .querySelector('#krds-header .header-in')
-        .setAttribute('inert', '');
+      document.querySelector('#krds-header .header-in').setAttribute('inert', '');
       document.getElementById('container')?.setAttribute('inert', '');
       document.getElementById('footer')?.setAttribute('inert', '');
 
@@ -521,9 +470,7 @@ const krds_mainMenuMobile = {
     });
   },
   setupAnchorLinks(mobileGnb) {
-    const menuItems = mobileGnb.querySelectorAll(
-      '.menu-wrap .gnb-main-trigger',
-    );
+    const menuItems = mobileGnb.querySelectorAll('.menu-wrap .gnb-main-trigger');
     const navItems = mobileGnb.querySelectorAll('.submenu-wrap .gnb-sub-list');
 
     if (!document.querySelector('.menu-wrap .gnb-main-trigger.active')) {
@@ -543,9 +490,7 @@ const krds_mainMenuMobile = {
           } else {
             item.setAttribute('aria-expanded', 'false');
           }
-          item.addEventListener('click', (event) =>
-            this.handleDepth3Click(event, item),
-          );
+          item.addEventListener('click', (event) => this.handleDepth3Click(event, item));
         });
       }
     });
@@ -555,9 +500,7 @@ const krds_mainMenuMobile = {
       const depth4Items = item.querySelectorAll('.has-depth4');
       if (depth4Items.length > 0) {
         depth4Items.forEach((item) => {
-          item.addEventListener('click', (event) =>
-            this.handleDepth4Click(event, item),
-          );
+          item.addEventListener('click', (event) => this.handleDepth4Click(event, item));
         });
       }
     });
@@ -611,12 +554,10 @@ const krds_mainMenuMobile = {
     common.focusTrap(target);
   },
   resetAnchorMenu() {
-    document
-      .querySelectorAll('.krds-main-menu-mobile .menu-wrap .gnb-main-trigger')
-      .forEach((menu) => {
-        menu.classList.remove('active');
-        menu.setAttribute('aria-selected', 'false');
-      });
+    document.querySelectorAll('.krds-main-menu-mobile .menu-wrap .gnb-main-trigger').forEach((menu) => {
+      menu.classList.remove('active');
+      menu.setAttribute('aria-selected', 'false');
+    });
   },
 };
 
@@ -628,9 +569,7 @@ const krds_sideNavigation = {
     this.setupPopupEvents();
   },
   setupSideNavLists() {
-    const sideNavLists = document.querySelectorAll(
-      '.krds-side-navigation .lnb-list',
-    );
+    const sideNavLists = document.querySelectorAll('.krds-side-navigation .lnb-list');
     sideNavLists.forEach((navList) => {
       const navItems = navList.querySelectorAll('li');
       navItems.forEach((navItem) => this.setupNavItem(navItem));
@@ -645,26 +584,19 @@ const krds_sideNavigation = {
 
     // aria 설정
     navButton.setAttribute('aria-controls', uniqueIdx);
-    navButton.setAttribute(
-      'aria-expanded',
-      navButton.classList.contains('active'),
-    );
+    navButton.setAttribute('aria-expanded', navButton.classList.contains('active'));
 
     // 서브메뉴 id 설정 및 popup 처리
     if (navButton.classList.contains('lnb-toggle-popup')) {
       navButton.setAttribute('aria-haspopup', 'true');
     }
     if (navSubmenu && navSubmenu.className.includes('lnb-submenu')) {
-      const navSubmenuList = navSubmenu.classList.contains('lnb-submenu-lv2')
-        ? navSubmenu
-        : navSubmenu.querySelector(':scope > ul');
+      const navSubmenuList = navSubmenu.classList.contains('lnb-submenu-lv2') ? navSubmenu : navSubmenu.querySelector(':scope > ul');
       navSubmenuList?.setAttribute('id', uniqueIdx);
     }
   },
   setupToggleEvents() {
-    const toggleButtons = document.querySelectorAll(
-      '.krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle',
-    );
+    const toggleButtons = document.querySelectorAll('.krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle');
     toggleButtons.forEach((toggleButton) => {
       toggleButton.addEventListener('click', () => {
         const expand = toggleButton.getAttribute('aria-expanded') !== 'true';
@@ -690,10 +622,7 @@ const krds_sideNavigation = {
     popupToggleButtons.forEach((button) => {
       button.addEventListener('click', () => {
         const popupSubmenu = button.nextElementSibling;
-        if (
-          popupSubmenu &&
-          popupSubmenu.classList.contains('lnb-submenu-lv2')
-        ) {
+        if (popupSubmenu && popupSubmenu.classList.contains('lnb-submenu-lv2')) {
           popupSubmenu.classList.add('active');
           button.setAttribute('aria-expanded', 'true');
 
@@ -745,9 +674,7 @@ const krds_sideNavigation = {
   },
   closeSiblingMenus(toggleButton) {
     const parentListItem = toggleButton.closest('li');
-    const siblingButtons = parentListItem.parentNode.querySelectorAll(
-      ':scope > li > .lnb-toggle',
-    );
+    const siblingButtons = parentListItem.parentNode.querySelectorAll(':scope > li > .lnb-toggle');
     siblingButtons.forEach((siblingButton) => {
       if (siblingButton !== toggleButton) {
         this.toggleMenu(siblingButton, false);
@@ -756,29 +683,14 @@ const krds_sideNavigation = {
   },
   setActiveCurrentPage() {
     // 활성화된 페이지를 찾는 예(개발 환경에 맞게 수정)
-    const currentPage = window.location.pathname
-      .split('/')
-      .slice(-1)[0]
-      .replace('.html', '');
-    const lnbLinks = document.querySelectorAll(
-      '.krds-side-navigation .lnb-link',
-    );
+    const currentPage = window.location.pathname.split('/').slice(-1)[0].replace('.html', '');
+    const lnbLinks = document.querySelectorAll('.krds-side-navigation .lnb-link');
     lnbLinks.forEach((link) => {
-      const linkPage = link
-        .getAttribute('href')
-        .split('/')
-        .pop()
-        .replace('.html', '');
+      const linkPage = link.getAttribute('href').split('/').pop().replace('.html', '');
       if (linkPage === currentPage) {
         link.closest('.lnb-item').classList.add('active');
-        link
-          .closest('.lnb-item')
-          .querySelector('.lnb-toggle')
-          ?.classList.add('active');
-        link
-          .closest('.lnb-item')
-          .querySelector('.lnb-toggle')
-          ?.setAttribute('aria-expanded', 'true');
+        link.closest('.lnb-item').querySelector('.lnb-toggle')?.classList.add('active');
+        link.closest('.lnb-item').querySelector('.lnb-toggle')?.setAttribute('aria-expanded', 'true');
         link.closest('li').classList.add('active');
         // 접근성 현재 페이지 표시 aria-current
         link.setAttribute('aria-current', 'page');
@@ -824,12 +736,8 @@ const krds_tab = {
 
           // 클릭 이벤트
           tab.addEventListener('click', () => {
-            const closestTabs = tab
-              .closest('.krds-tab-area.layer > .tab')
-              .querySelectorAll('li');
-            const closestTabPanels = tab
-              .closest('.krds-tab-area.layer')
-              .querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
+            const closestTabs = tab.closest('.krds-tab-area.layer > .tab').querySelectorAll('li');
+            const closestTabPanels = tab.closest('.krds-tab-area.layer').querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
 
             this.resetTabs(closestTabs, closestTabPanels);
 
@@ -894,10 +802,7 @@ const krds_accordion = {
   accordionToggle(button, accordionItems, accordionType, currentItem) {
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
     // singleOpen 타입일 경우, 다른 항목 닫기
-    if (
-      accordionType !== 'multiOpen' &&
-      !currentItem.classList.contains('active')
-    ) {
+    if (accordionType !== 'multiOpen' && !currentItem.classList.contains('active')) {
       accordionItems.forEach((otherItem) => {
         const otherButton = otherItem.querySelector('.btn-accordion');
         otherButton.setAttribute('aria-expanded', 'false');
@@ -913,8 +818,7 @@ const krds_accordion = {
   setupAccordions() {
     this.accordionButtons.forEach((button, idx) => {
       const accordionContainer = button.closest('.krds-accordion');
-      const accordionItems =
-        accordionContainer.querySelectorAll('.accordion-item');
+      const accordionItems = accordionContainer.querySelectorAll('.accordion-item');
       const currentItem = button.closest('.accordion-item');
       const accordionContent = currentItem.querySelector('.accordion-collapse');
       const accordionType = accordionContainer.dataset.type || 'singleOpen';
@@ -933,13 +837,7 @@ const krds_accordion = {
       // 핸들러 고정 및 저장
       let toggleHandler = this.accordionHandlers.get(button);
       if (!toggleHandler) {
-        toggleHandler = this.accordionToggle.bind(
-          this,
-          button,
-          accordionItems,
-          accordionType,
-          currentItem,
-        );
+        toggleHandler = this.accordionToggle.bind(this, button, accordionItems, accordionType, currentItem);
         this.accordionHandlers.set(button, toggleHandler);
       }
 
@@ -955,10 +853,7 @@ const krds_accordion = {
     button.setAttribute('aria-controls', `accordionCollapse-id-${uniqueIdx}`);
     accordionContent.setAttribute('role', 'region');
     accordionContent.setAttribute('id', `accordionCollapse-id-${uniqueIdx}`);
-    accordionContent.setAttribute(
-      'aria-labelledby',
-      `accordionHeader-id-${uniqueIdx}`,
-    );
+    accordionContent.setAttribute('aria-labelledby', `accordionHeader-id-${uniqueIdx}`);
   },
 };
 
@@ -971,8 +866,7 @@ const krds_modal = {
     this.modalOpenTriggers = document.querySelectorAll('.open-modal');
     this.modalCloseTriggers = document.querySelectorAll('.close-modal');
 
-    if (!this.modalOpenTriggers.length || !this.modalCloseTriggers.length)
-      return;
+    if (!this.modalOpenTriggers.length || !this.modalCloseTriggers.length) return;
 
     this.setupTriggers();
   },
@@ -1036,9 +930,7 @@ const krds_modal = {
     }, 0);
 
     //열린 팝업창 포커스
-    const focusables = modalElement.querySelectorAll(
-      `a, button, [tabindex="0"], input, textarea, select`,
-    );
+    const focusables = modalElement.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
     setTimeout(() => {
       // modalTitle.focus();
       focusables[0].focus();
@@ -1082,7 +974,7 @@ const krds_modal = {
   },
   closeModal(id) {
     const modalElement = document.getElementById(id);
-    const openModals = document.querySelectorAll('.modal.in:not(.sample)');
+    const openModals = document.querySelectorAll('.modal.in');
     const modalBack = modalElement.querySelector('.modal-back');
 
     modalElement.classList.remove('in');
@@ -1105,7 +997,7 @@ const krds_modal = {
     this.returnFocusToTrigger(id);
   },
   updateZIndex(modalElement) {
-    const openModals = document.querySelectorAll('.modal.in:not(.sample)');
+    const openModals = document.querySelectorAll('.modal.in');
     const openModalsLengtn = openModals.length + 1;
     const newZIndex = 1010 + openModalsLengtn;
     if (openModalsLengtn > 1) {
@@ -1114,9 +1006,7 @@ const krds_modal = {
     }
   },
   returnFocusToTrigger(id) {
-    const triggerButton = document.querySelector(
-      `.modal-opened[data-modal-id="${id}"]`,
-    );
+    const triggerButton = document.querySelector(`.modal-opened[data-modal-id="${id}"]`);
     if (triggerButton) {
       triggerButton.focus();
       triggerButton.setAttribute('tabindex', '0');
@@ -1260,18 +1150,12 @@ const krds_tooltip = {
       if (!tooltipText || disabled) return;
 
       // ID 부여
-      const uniqueIdx = `tooltip-popover-${index}${Math.random()
-        .toString(36)
-        .substring(2, 9)}`;
+      const uniqueIdx = `tooltip-popover-${index}${Math.random().toString(36).substring(2, 9)}`;
       item.setAttribute('aria-labelledby', uniqueIdx);
 
       // TooltipPopover 생성
       const tooltipBtnText = item.innerText;
-      const tooltipPopover = this.createTooltipPopover(
-        uniqueIdx,
-        tooltipBtnText,
-        tooltipText,
-      );
+      const tooltipPopover = this.createTooltipPopover(uniqueIdx, tooltipBtnText, tooltipText);
       item.parentNode.insertBefore(tooltipPopover, item.nextSibling);
 
       // Show/Hide 함수 정의
@@ -1335,25 +1219,15 @@ const krds_tooltip = {
   calculateTooltipPosition(item, tooltipPopover) {
     // 툴팁과 기준 요소 간격
     const tooltipGap = 12;
-    const { clientHeight: tooltipHeight, clientWidth: tooltipWidth } =
-      tooltipPopover;
-    const {
-      top: itemTop,
-      left: itemLeft,
-      right: itemRight,
-      height: itemHeight,
-      width: itemWidth,
-    } = item.getBoundingClientRect();
+    const { clientHeight: tooltipHeight, clientWidth: tooltipWidth } = tooltipPopover;
+    const { top: itemTop, left: itemLeft, right: itemRight, height: itemHeight, width: itemWidth } = item.getBoundingClientRect();
     const halfWindowWidth = window.innerWidth / 2;
     const halfWindowHeight = window.innerHeight / 2;
 
     let tooltipTop;
     let tooltipLeft;
 
-    const isVertical =
-      this.isMobile ||
-      item.classList.contains('tooltip-box') ||
-      item.classList.contains('tooltip-vertical');
+    const isVertical = this.isMobile || item.classList.contains('tooltip-box') || item.classList.contains('tooltip-vertical');
 
     if (isVertical) {
       if (itemTop + itemHeight > halfWindowHeight) {
@@ -1515,25 +1389,13 @@ const krds_calendar = {
     requestAnimationFrame(() => {
       if (this.calendarType === 'single' && this.selectedDate) {
         this.handleSingleDateSelect(this.selectedDate, area);
-      } else if (
-        this.calendarType === 'range' &&
-        this.startDate &&
-        !this.endDate
-      ) {
+      } else if (this.calendarType === 'range' && this.startDate && !this.endDate) {
         this.handleRangeDateSelect(this.startDate, area, true);
-      } else if (
-        this.calendarType === 'range' &&
-        this.startDate &&
-        this.endDate
-      ) {
+      } else if (this.calendarType === 'range' && this.startDate && this.endDate) {
         this.highlightRange(area);
       }
 
-      area
-        .querySelector(
-          `td[data-date="${targetDate}"] .btn-set-date:not([disabled])`,
-        )
-        ?.focus();
+      area.querySelector(`td[data-date="${targetDate}"] .btn-set-date:not([disabled])`)?.focus();
     });
   },
 
@@ -1543,9 +1405,7 @@ const krds_calendar = {
     // parse input value and convert to yyyy-mm-dd if needed
     if (this.calendarType === 'single') {
       if (hasValue) {
-        const [y, m, d] = input.value.includes('.')
-          ? input.value.split('.').map(Number)
-          : input.value.split('-').map(Number);
+        const [y, m, d] = input.value.includes('.') ? input.value.split('.').map(Number) : input.value.split('-').map(Number);
         this.currentYear = y;
         this.currentMonth = m;
         this.selectedDate = this.formatDate(y, m, d);
@@ -1553,27 +1413,19 @@ const krds_calendar = {
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
-        this.selectedDate = this.formatDate(
-          this.currentYear,
-          this.currentMonth,
-          today.getDate(),
-        );
+        this.selectedDate = this.formatDate(this.currentYear, this.currentMonth, today.getDate());
       }
     } else {
       const inputs = this.currentConts.querySelectorAll('.datepicker');
       if (inputs.length >= 2 && (inputs[0].value || inputs[1].value)) {
         if (inputs[0].value) {
-          const [y, m, d] = inputs[0].value.includes('.')
-            ? inputs[0].value.split('.').map(Number)
-            : inputs[0].value.split('-').map(Number);
+          const [y, m, d] = inputs[0].value.includes('.') ? inputs[0].value.split('.').map(Number) : inputs[0].value.split('-').map(Number);
           this.currentYear = y;
           this.currentMonth = m;
           this.startDate = this.formatDate(y, m, d);
         }
         if (inputs[1].value) {
-          const [y2, m2, d2] = inputs[1].value.includes('.')
-            ? inputs[1].value.split('.').map(Number)
-            : inputs[1].value.split('-').map(Number);
+          const [y2, m2, d2] = inputs[1].value.includes('.') ? inputs[1].value.split('.').map(Number) : inputs[1].value.split('-').map(Number);
           if (!inputs[0].value) {
             this.currentYear = y2;
             this.currentMonth = m2;
@@ -1581,9 +1433,7 @@ const krds_calendar = {
           this.endDate = this.formatDate(y2, m2, d2);
         }
       } else if (hasValue) {
-        const [y, m, d] = input.value.includes('.')
-          ? input.value.split('.').map(Number)
-          : input.value.split('-').map(Number);
+        const [y, m, d] = input.value.includes('.') ? input.value.split('.').map(Number) : input.value.split('-').map(Number);
         this.currentYear = y;
         this.currentMonth = m;
         this.startDate = this.formatDate(y, m, d);
@@ -1592,11 +1442,7 @@ const krds_calendar = {
         const today = new Date();
         this.currentYear = today.getFullYear();
         this.currentMonth = today.getMonth() + 1;
-        const todayStr = this.formatDate(
-          this.currentYear,
-          this.currentMonth,
-          today.getDate(),
-        );
+        const todayStr = this.formatDate(this.currentYear, this.currentMonth, today.getDate());
         this.startDate = todayStr;
         this.endDate = null;
       }
@@ -1669,11 +1515,7 @@ const krds_calendar = {
       this.currentYear = today.getFullYear();
       this.currentMonth = today.getMonth() + 1;
 
-      const todayStr = this.formatDate(
-        this.currentYear,
-        this.currentMonth,
-        today.getDate(),
-      );
+      const todayStr = this.formatDate(this.currentYear, this.currentMonth, today.getDate());
 
       if (this.calendarType === 'single') {
         this.selectedDate = todayStr;
@@ -1723,9 +1565,7 @@ const krds_calendar = {
       e.stopPropagation();
       const isOpen = selectBox.classList.contains('active');
 
-      area
-        .querySelectorAll('.calendar-select')
-        .forEach((el) => el.classList.remove('active'));
+      area.querySelectorAll('.calendar-select').forEach((el) => el.classList.remove('active'));
       area.querySelectorAll('.btn-cal-switch').forEach((el) => {
         el.classList.remove('active');
         el.setAttribute('aria-expanded', 'false');
@@ -1752,9 +1592,7 @@ const krds_calendar = {
         item.setAttribute('aria-selected', 'true');
 
         const value = Number(item.dataset.value);
-        type === 'year'
-          ? (this.currentYear = value)
-          : (this.currentMonth = value);
+        type === 'year' ? (this.currentYear = value) : (this.currentMonth = value);
 
         selectBox.classList.remove('active');
         btn.classList.remove('active');
@@ -1772,9 +1610,7 @@ const krds_calendar = {
       btn.closest('td').classList.remove('period', 'start', 'end');
     });
 
-    const selectedTd = area.querySelector(
-      `td[data-date="${this.selectedDate}"]`,
-    );
+    const selectedTd = area.querySelector(`td[data-date="${this.selectedDate}"]`);
     if (selectedTd) {
       selectedTd.classList.add('period', 'start', 'end');
     }
@@ -1887,27 +1723,19 @@ const krds_calendar = {
       if (this.endDate) {
         this.highlightRange(area);
       } else {
-        area
-          .querySelector(`td[data-date="${this.startDate}"]`)
-          ?.classList.add('period', 'start');
+        area.querySelector(`td[data-date="${this.startDate}"]`)?.classList.add('period', 'start');
       }
     } else if (this.calendarType === 'single' && this.selectedDate) {
-      area
-        .querySelector(`td[data-date="${this.selectedDate}"]`)
-        ?.classList.add('period', 'start', 'end');
+      area.querySelector(`td[data-date="${this.selectedDate}"]`)?.classList.add('period', 'start', 'end');
     }
 
     requestAnimationFrame(() => {
       if (focusTarget) {
         let selector = '';
-        if (focusTarget.classList.contains('prev'))
-          selector = '.btn-cal-move.prev';
-        else if (focusTarget.classList.contains('next'))
-          selector = '.btn-cal-move.next';
-        else if (focusTarget.classList.contains('year'))
-          selector = '.btn-cal-switch.year';
-        else if (focusTarget.classList.contains('month'))
-          selector = '.btn-cal-switch.month';
+        if (focusTarget.classList.contains('prev')) selector = '.btn-cal-move.prev';
+        else if (focusTarget.classList.contains('next')) selector = '.btn-cal-move.next';
+        else if (focusTarget.classList.contains('year')) selector = '.btn-cal-switch.year';
+        else if (focusTarget.classList.contains('month')) selector = '.btn-cal-switch.month';
 
         const el = area.querySelector(selector);
         if (el) {
@@ -1934,18 +1762,14 @@ const krds_calendar = {
       }
 
       if (focusDate) {
-        const btn = area.querySelector(
-          `td[data-date="${focusDate}"] .btn-set-date:not([disabled])`,
-        );
+        const btn = area.querySelector(`td[data-date="${focusDate}"] .btn-set-date:not([disabled])`);
         if (btn) {
           btn.focus();
           return;
         }
       }
 
-      const todayBtn = area.querySelector(
-        'td.today .btn-set-date:not([disabled])',
-      );
+      const todayBtn = area.querySelector('td.today .btn-set-date:not([disabled])');
       if (todayBtn) {
         todayBtn.focus();
         return;
@@ -1960,11 +1784,7 @@ const krds_calendar = {
     const lastDate = new Date(year, month, 0).getDate();
     const prevLastDate = new Date(year, month - 1, 0).getDate();
     const today = new Date();
-    const todayStr = this.formatDate(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      today.getDate(),
-    );
+    const todayStr = this.formatDate(today.getFullYear(), today.getMonth() + 1, today.getDate());
 
     let day = 1;
     let nextDay = 1;
@@ -1982,9 +1802,7 @@ const krds_calendar = {
           const prevYear = month === 1 ? year - 1 : year;
           const dateStr = this.formatDate(prevYear, prevMonth, d);
 
-          td = `<td class="old${
-            c === 0 ? ' day-off' : ''
-          }" data-date="${dateStr}">
+          td = `<td class="old${c === 0 ? ' day-off' : ''}" data-date="${dateStr}">
             <button type="button" class="btn-set-date" disabled aria-label="${prevYear}년 ${prevMonth}월 ${d}일, 이전 달">
               <span aria-hidden="true">${d}</span>
             </button>
@@ -1994,9 +1812,7 @@ const krds_calendar = {
           const nextYear = month === 12 ? year + 1 : year;
           const dateStr = this.formatDate(nextYear, nextMonth, nextDay);
 
-          td = `<td class="new${
-            c === 0 ? ' day-off' : ''
-          }" data-date="${dateStr}">
+          td = `<td class="new${c === 0 ? ' day-off' : ''}" data-date="${dateStr}">
             <button type="button" class="btn-set-date" disabled aria-label="${nextYear}년 ${nextMonth}월 ${nextDay}일, 다음 달">
               <span aria-hidden="true">${nextDay++}</span>
             </button>
@@ -2015,9 +1831,7 @@ const krds_calendar = {
 
           const ariaCurrent = isToday ? ' aria-current="date"' : '';
 
-          td = `<td${
-            classes.length ? ` class="${classes.join(' ')}"` : ''
-          } data-date="${dateStr}">
+          td = `<td${classes.length ? ` class="${classes.join(' ')}"` : ''} data-date="${dateStr}">
             <button type="button" class="btn-set-date" aria-label="${ariaLabel}"${ariaCurrent}>
               <span aria-hidden="true">${day}</span>
             </button>
@@ -2033,9 +1847,7 @@ const krds_calendar = {
     }
 
     const yearOptions = [];
-    const uniqueYearId = `combo-list-year-${Math.random()
-      .toString(36)
-      .substring(2, 9)}`;
+    const uniqueYearId = `combo-list-year-${Math.random().toString(36).substring(2, 9)}`;
 
     for (let y = year - 10; y <= year + 10; y++) {
       const isCurrentYear = y === year;
@@ -2052,9 +1864,7 @@ const krds_calendar = {
     }
 
     const monthOptions = [];
-    const uniqueMonthId = `combo-list-month-${Math.random()
-      .toString(36)
-      .substring(2, 9)}`;
+    const uniqueMonthId = `combo-list-month-${Math.random().toString(36).substring(2, 9)}`;
 
     for (let m = 1; m <= 12; m++) {
       const isCurrentMonth = m === month;
@@ -2071,9 +1881,7 @@ const krds_calendar = {
     }
 
     return `
-<div class="calendar-wrap ${
-      this.calendarType
-    }" role="application" aria-label="날짜 선택 캘린더" tabindex="0">
+<div class="calendar-wrap ${this.calendarType}" role="application" aria-label="날짜 선택 캘린더" tabindex="0">
     
   <div class="calendar-head">
     <button type="button" class="btn-cal-move prev" aria-label="이전 달로 이동">
@@ -2089,9 +1897,7 @@ const krds_calendar = {
         </div>
       </div>
       <div class="calendar-drop-down month">
-        <button type="button" class="btn-cal-switch month" aria-label="월 선택, 현재 ${month}월" aria-expanded="false" aria-haspopup="listbox">${String(
-          month,
-        ).padStart(2, '0')}월</button>
+        <button type="button" class="btn-cal-switch month" aria-label="월 선택, 현재 ${month}월" aria-expanded="false" aria-haspopup="listbox">${String(month).padStart(2, '0')}월</button>
         <div class="calendar-select calendar-month-wrap">
           <ul class="sel month" role="listbox" id="${uniqueMonthId}" aria-label="월 목록">
             ${monthOptions.join('')}
@@ -2136,9 +1942,7 @@ const krds_calendar = {
   },
 
   activateFocusTrap(area) {
-    const focusables = area.querySelectorAll(
-      'button:not([disabled]), [tabindex="0"]',
-    );
+    const focusables = area.querySelectorAll('button:not([disabled]), [tabindex="0"]');
     if (!focusables.length) return;
 
     const first = focusables[0];
@@ -2182,14 +1986,12 @@ const krds_calendar = {
 
         case 'ArrowUp':
           e.preventDefault();
-          targetTd =
-            td.parentElement.previousElementSibling?.children[td.cellIndex];
+          targetTd = td.parentElement.previousElementSibling?.children[td.cellIndex];
           break;
 
         case 'ArrowDown':
           e.preventDefault();
-          targetTd =
-            td.parentElement.nextElementSibling?.children[td.cellIndex];
+          targetTd = td.parentElement.nextElementSibling?.children[td.cellIndex];
           break;
 
         case 'PageUp':
@@ -2253,9 +2055,7 @@ const krds_calendar = {
       }
 
       // 대상 셀의 버튼으로 포커스 이동
-      const targetBtn = targetTd?.querySelector(
-        '.btn-set-date:not([disabled])',
-      );
+      const targetBtn = targetTd?.querySelector('.btn-set-date:not([disabled])');
       if (targetBtn) {
         targetBtn.focus();
       }
@@ -2273,7 +2073,7 @@ const krds_calendar = {
 //   quickIndicators: null,
 //   init() {
 //     this.quickIndicators = document.querySelectorAll(
-//       '.krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list',
+//       '.krds-in-page-navigation-type .krds-in-page-navigation-area .in-page-navigation-list',
 //     );
 
 //     if (!this.quickIndicators.length) return;
@@ -2346,7 +2146,7 @@ const krds_calendar = {
 
 //     const winHeight = window.innerHeight;
 //     let sectionArea = [];
-//     const activeTab = document.querySelector('.tab-conts:not(.sample).active');
+//     const activeTab = document.querySelector('.tab-conts.active');
 
 //     // 탭이 아닐때와 탭일때 sectionArea 설정
 //     if (activeTab) {
@@ -2772,9 +2572,7 @@ const krds_dropEvent = {
   /*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
   dropButtons: null,
   init() {
-    this.dropButtons = document.querySelectorAll(
-      '.krds-drop-wrap:not(.sample) .drop-btn',
-    );
+    this.dropButtons = document.querySelectorAll('.krds-drop-wrap .drop-btn');
 
     if (!this.dropButtons.length) return;
 
@@ -2809,19 +2607,15 @@ const krds_dropEvent = {
       item.addEventListener('click', () => {
         this.activateMenuItem(item);
         this.closeAllDropdowns();
-        const button = item
-          .closest('.krds-drop-wrap')
-          .querySelector('.drop-btn');
+        const button = item.closest('.krds-drop-wrap').querySelector('.drop-btn');
         button?.focus();
       });
 
       item.addEventListener('focus', () => {
-        document
-          .querySelectorAll('.krds-drop-wrap .drop-list .item-link')
-          .forEach((item) => {
-            item.style.position = 'relative';
-            item.style.zIndex = '0';
-          });
+        document.querySelectorAll('.krds-drop-wrap .drop-list .item-link').forEach((item) => {
+          item.style.position = 'relative';
+          item.style.zIndex = '0';
+        });
         item.style.zIndex = '1';
       });
     });
@@ -2868,10 +2662,7 @@ const krds_dropEvent = {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' || event.key === 'Esc') {
         this.closeAllDropdowns();
-        event.target
-          .closest('.krds-drop-wrap')
-          ?.querySelector('.drop-btn')
-          ?.focus();
+        event.target.closest('.krds-drop-wrap')?.querySelector('.drop-btn')?.focus();
       }
     });
 
@@ -2890,9 +2681,7 @@ const krds_dropEvent = {
 
       // 드롭다운 메뉴의 포커스 아웃 처리
       menu.addEventListener('focusout', (event) => {
-        const isFocusInside =
-          menu.contains(event.relatedTarget) ||
-          button.contains(event.relatedTarget);
+        const isFocusInside = menu.contains(event.relatedTarget) || button.contains(event.relatedTarget);
         if (!isFocusInside) {
           this.closeAllDropdowns();
         }
@@ -2900,9 +2689,7 @@ const krds_dropEvent = {
 
       // 버튼의 포커스 아웃 처리
       button.addEventListener('focusout', (event) => {
-        const isFocusInside =
-          menu.contains(event.relatedTarget) ||
-          button.contains(event.relatedTarget);
+        const isFocusInside = menu.contains(event.relatedTarget) || button.contains(event.relatedTarget);
         if (!isFocusInside) {
           this.closeAllDropdowns();
         }
