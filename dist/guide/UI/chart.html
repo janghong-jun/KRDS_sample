@@ -511,14 +511,11 @@
         <div class="inner">
           <!-- chart -->
           <div class="krds-chart">
-            <div class="chart type01"></div>
+            <div class="chart type01" role="img" aria-label="차트 설명"></div>
           </div>
           <script>
             function remToPx(rem) {
-              return (
-                rem *
-                parseFloat(getComputedStyle(document.documentElement).fontSize)
-              );
+              return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
             }
 
             function getChartOption() {

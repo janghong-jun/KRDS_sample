@@ -3030,3 +3030,60 @@ window.addEventListener('resize', () => {
 
 // 수동 재초기화
 window.krdsReinitialize = initAllComponents;
+
+/**
+ * GNB selected 클래스 동적 처리
+ *
+ * 사용법:
+ *   GNB.setSelected({ depth1: 1, depth2: 0 });
+ *
+ * 옵션:
+ *   depth1 : 1Depth 인덱스 (0부터)  → PC + 모바일 공용
+ *   depth2 : 2Depth 인덱스 (0부터)  → 모바일만 적용
+ *            값을 주지 않으면 2Depth selected는 안 넣음
+ */
+const GNB = (() => {
+  const setSelected = ({ depth1, depth2 }) => {
+    setPcSelected(depth1);
+    setMobileSelected(depth1, depth2);
+  };
+
+  // ── PC : 1Depth only ─────────────────────────────
+  const setPcSelected = (depth1) => {
+    const triggers = document.querySelectorAll('#gnb .gnb-menu > li > .gnb-main-trigger');
+
+    triggers.forEach((el, i) => {
+      el.classList.toggle('selected', i === depth1);
+    });
+  };
+
+  // ── Mobile : 1Depth + 2Depth ─────────────────────
+  const setMobileSelected = (depth1, depth2) => {
+    const mobileNav = document.querySelector('.krds-main-menu-mobile');
+    if (!mobileNav) return;
+
+    // ── 1Depth ──
+    const mobile1Triggers = mobileNav.querySelectorAll('.menu-wrap ul > li > .gnb-main-trigger');
+
+    mobile1Triggers.forEach((el, i) => {
+      el.classList.toggle('active', i === depth1);
+    });
+
+    // ── 2Depth ──
+    if (depth2 === undefined || depth2 === null) return;
+
+    // submenu-wrap 안의 .gnb-sub-list들은 1Depth와 동일한 순서
+    const subMenuLists = mobileNav.querySelectorAll('.submenu-wrap > .gnb-sub-list');
+    const targetList = subMenuLists[depth1];
+    if (!targetList) return;
+
+    // 해당 submenu 안의 직속 .gnb-sub-trigger만 대상 (depth3 아래 것은 제외)
+    const depth2Triggers = targetList.querySelectorAll(':scope > ul > li > .gnb-sub-trigger');
+
+    depth2Triggers.forEach((el, i) => {
+      el.classList.toggle('selected', i === depth2);
+    });
+  };
+
+  return { setSelected };
+})();

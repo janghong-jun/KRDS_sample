@@ -98,7 +98,7 @@ $mode-setting: light;
       a {
         display: block;
         @include square(100%);
-        background-image: url(#{$url}/img/component/icon/ico_logo_hico.png);
+        background-image: url(#{$url}/img/component/icon/ico_logo_hico.svg);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -173,7 +173,7 @@ $mode-setting: light;
         flex-direction: row;
       }
       &.sch {
-        padding: 0 var(--padding-5);
+        padding: var(--padding-4) var(--padding-5);
         &::before {
           @include icon-set(ico_sch);
         }
@@ -311,6 +311,18 @@ $mode-setting: light;
       .header-utility {
         display: none;
       }
+      .header-branding {
+        gap: 0 2rem;
+      }
+      .main-switcher {
+        a {
+          height: 3.2rem;
+          font-size: var(--mobile-font-size-body-medium);
+          span {
+            width: 4.5rem;
+          }
+        }
+      }
       .btn-navi {
         &.navi-row {
           flex-direction: column;
@@ -336,6 +348,7 @@ $mode-setting: light;
       .btn-navi {
         font-size: var(--header--navi-font-size-mobile);
         justify-content: center;
+        flex-direction: column;
       }
     }
   }

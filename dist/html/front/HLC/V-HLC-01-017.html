@@ -7,14 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hi-Coaching</title>
     <!-- 공통 css -->
-    <link rel="stylesheet" href="../../resources/css/plugin/swiper-bundle.min.css">
-    <link rel="stylesheet" href="../../resources/css/output.css" type="text/css">
-    <link rel="stylesheet" href="../resources/css/guide.css" type="text/css">
+    <link rel="stylesheet" href="../../../resources/css/plugin/swiper-bundle.min.css">
+<link rel="stylesheet" href="../../../resources/css/output.css" type="text/css">
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
-    <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
-    <script src="../../../resources/js/plugin/echarts.min.js"></script>
-    <script src="../../../resources/js/component/ui-script.js"></script>
+<script src="../../../resources/js/plugin/echarts.min.js"></script>
+<script src="../../../resources/js/component/ui-script.js"></script>
   </head>
   <body>
     <div id="wrap">
@@ -507,45 +505,11 @@
 <!-- //header -->
 
       <!-- Container -->
-      <div id="container">
+      <main id="container">
         <div class="inner">
-          <div class="guide">
-            <!-- krds-in-page-navigation-type -->
-            <div class="krds-in-page-navigation-type">
-              <!-- In page navigation -->
-              <div class="krds-in-page-navigation-area">
-                <div class="in-page-navigation-header">
-                  <p class="quick-caption">이 페이지의 구성</p>
-                  <p class="quick-title">장애아동수당</p>
-                </div>
-                <nav class="in-page-navigation-list">
-                  <ul>
-                    <li>
-                      <a href="#section_01" class="active">서비스 개요</a>
-                    </li>
-                    <li><a href="#section_02">서비스 상세</a></li>
-                    <li><a href="#section_03">신청 방법 및 절차</a></li>
-                    <li><a href="#section_04">제출 서류</a></li>
-                    <li>
-                      <a href="#section_05">함께 신청할 수 있는 서비스</a>
-                    </li>
-                    <li><a href="#section_06">부가정보</a></li>
-                    <li><a href="#section_07">정보 변경 내역</a></li>
-                  </ul>
-                </nav>
-                <div class="in-page-navigation-action">
-                  <button type="button" class="krds-btn medium">
-                    온라인 신청하기
-                  </button>
-                  <p class="quick-info">장애아동수당 외 <strong>1건</strong></p>
-                </div>
-              </div>
-              <!-- //In page navigation -->
-            </div>
-            <!-- //krds-in-page-navigation-type -->
-          </div>
+          <button type="button" class="krds-btn open-modal" data-target="V-HLC-01-017">모달 열기</button>
         </div>
-      </div>
+      </main>
 
       <!-- footer -->
       <!-- footer -->
@@ -671,4 +635,35 @@
 <!-- //footer -->
     </div>
   </body>
+  <section id="V-HLC-01-017" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HLC-01-017">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- modal title -->
+        <div class="modal-header">
+          <h2 id="tit_V-HLC-01-017" class="modal-title">학습공동체 참여 안내</h2>
+        </div>
+        <!-- //modal title -->
+        <!-- modal contents -->
+        <div class="modal-conts">
+          <div class="conts-area"><p class="krds-text">본 콘텐츠 내용을 확인 하시려면 해당 학습공동체에 참여 하신 후 이용하실 수 있습니다.</p></div>
+        </div>
+        <!-- //modal contents -->
+        <!-- modal btn -->
+        <div class="modal-btn btn-wrap">
+          <button type="button" class="krds-btn medium primary close-modal">확인</button>
+        </div>
+        <!-- //modal btn -->
+        <!-- close button -->
+        <button type="button" class="krds-btn medium icon btn-close close-modal">
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+        <!-- //close button -->
+      </div>
+    </div>
+    <div class="modal-back"></div>
+  </section>
+  <script>
+    krds_modal.openModal('V-HLC-01-017');
+  </script>
 </html>

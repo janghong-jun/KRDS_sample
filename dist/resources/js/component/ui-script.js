@@ -1291,14 +1291,18 @@ const krds_calendar = {
   currentArea: null,
   currentConts: null,
   calendarType: 'single',
+  activeTarget: null, // range 버튼2개 모드: 'start' | 'end' | null
+  openTrigger: null, // 현재 열린 버튼 참조
+  _bound: false, // document 리스너 중복 등록 방지 플래그
 
   // 날짜 객체를 yyyy-mm-dd 형식의 문자열로 반환
   formatDate(y, m, d) {
-    return `${y}${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
   },
 
   // yyyy.mm.dd, yyyy-mm-dd 모두 Date로 파싱 지원
   parseDate(dateStr) {
+    if (!dateStr) return null;
     let arr;
     if (dateStr.includes('.')) {
       arr = dateStr.split('.').map(Number);
@@ -1312,6 +1316,9 @@ const krds_calendar = {
   },
 
   init() {
+    // document 리스너는 한 번만 등록
+    if (this._bound) return;
+    this._bound = true;
     this.bindOpen();
     this.bindClose();
   },
@@ -1322,25 +1329,30 @@ const krds_calendar = {
       if (!btn) return;
 
       const conts = btn.closest('.calendar-conts');
+      if (!conts) return;
       const area = conts.querySelector('.krds-calendar-area');
+      if (!area) return;
       const type = conts.getAttribute('data-calendar-type') || 'single';
 
-      if (!area) return;
-
-      if (area.dataset.keyboardBound === 'true') {
+      // ── 토글 판단 ──
+      // 현재 열린 버튼과 같은 버튼 → 닫기만
+      if (this.openTrigger === btn) {
         this.closeAllDatePickers();
         return;
       }
-
+      // 다른 버튼(또는 아직 열린 것이 없음) → 기존 것은 닫고, 아래로 내려가 열기
       this.closeAllDatePickers();
 
+      // ── 상태 세팅 ──
       this.calendarType = type;
       this.currentConts = conts;
       this.currentArea = area;
       this.openTrigger = btn;
       this.selectedDate = null;
 
-      area.dataset.keyboardBound = 'true';
+      // range 버튼2개 모드: data-date-target="start" | "end"
+      const dateTarget = btn.getAttribute('data-date-target');
+      this.activeTarget = type === 'range' && dateTarget ? dateTarget : null;
 
       if (type === 'single') {
         this.startDate = null;
@@ -1356,6 +1368,13 @@ const krds_calendar = {
         }
       }
 
+      // end 버튼 클릭 시 startDate가 아직 비어있으면 열지 않음
+      if (this.activeTarget === 'end' && !this.startDate) {
+        this.closeAllDatePickers();
+        return;
+      }
+
+      area.dataset.keyboardBound = 'true';
       this.openDatePicker(area);
     });
   },
@@ -1402,7 +1421,7 @@ const krds_calendar = {
   openDatePicker(area) {
     const input = this.currentConts.querySelector('.datepicker');
     const hasValue = input && input.value;
-    // parse input value and convert to yyyy-mm-dd if needed
+
     if (this.calendarType === 'single') {
       if (hasValue) {
         const [y, m, d] = input.value.includes('.') ? input.value.split('.').map(Number) : input.value.split('-').map(Number);
@@ -1458,10 +1477,13 @@ const krds_calendar = {
 
   closeAllDatePickers() {
     document.querySelectorAll('.krds-calendar-area').forEach((area) => {
-      // 이벤트 리스너 정리
       if (area._keydownHandler) {
         area.removeEventListener('keydown', area._keydownHandler);
         area._keydownHandler = null;
+      }
+      if (area._focusTrapHandler) {
+        area.removeEventListener('keydown', area._focusTrapHandler);
+        area._focusTrapHandler = null;
       }
       area.dataset.keyboardBound = 'false';
       area.innerHTML = '';
@@ -1475,9 +1497,10 @@ const krds_calendar = {
     });
 
     if (this.openTrigger) {
+      const trigger = this.openTrigger;
+      this.openTrigger = null;
       requestAnimationFrame(() => {
-        this.openTrigger.focus();
-        this.openTrigger = null;
+        trigger.focus();
       });
     }
   },
@@ -1620,6 +1643,53 @@ const krds_calendar = {
     const curDateStr = this.toDashDate(dateStr);
     const clickedDate = this.parseDate(curDateStr);
 
+    // ── 버튼2개 모드: activeTarget = 'start' ──
+    if (this.activeTarget === 'start') {
+      if (!isRestore) {
+        if (this.endDate) {
+          const endDateObj = this.parseDate(this.endDate);
+          if (clickedDate > endDateObj) this.endDate = null;
+        }
+        this.startDate = curDateStr;
+      }
+      area.querySelectorAll('td').forEach((td) => td.classList.remove('period', 'start', 'end', 'between'));
+      if (this.startDate && this.endDate) {
+        this.highlightRange(area);
+      } else {
+        const startTd = area.querySelector(`td[data-date="${this.startDate}"]`);
+        if (startTd) startTd.classList.add('period', 'start');
+      }
+      return;
+    }
+
+    // ── 버튼2개 모드: activeTarget = 'end' ──
+    if (this.activeTarget === 'end') {
+      if (!isRestore) {
+        if (this.startDate) {
+          const startDateObj = this.parseDate(this.startDate);
+          if (clickedDate < startDateObj) {
+            this.endDate = this.startDate;
+            this.startDate = curDateStr;
+          } else if (clickedDate.getTime() === startDateObj.getTime()) {
+            this.endDate = null;
+          } else {
+            this.endDate = curDateStr;
+          }
+        } else {
+          this.endDate = curDateStr;
+        }
+      }
+      area.querySelectorAll('td').forEach((td) => td.classList.remove('period', 'start', 'end', 'between'));
+      if (this.startDate && this.endDate) {
+        this.highlightRange(area);
+      } else if (this.startDate) {
+        const startTd = area.querySelector(`td[data-date="${this.startDate}"]`);
+        if (startTd) startTd.classList.add('period', 'start');
+      }
+      return;
+    }
+
+    // ── 기존 버튼1개 모드 (activeTarget === null) ──
     if (!this.startDate || (this.startDate && this.endDate)) {
       if (!isRestore) {
         this.startDate = curDateStr;
@@ -1703,11 +1773,20 @@ const krds_calendar = {
         if (input) input.value = this.selectedDate;
       }
     } else {
-      if (this.startDate && this.endDate) {
-        const inputs = this.currentConts.querySelectorAll('.datepicker');
-        if (inputs.length >= 2) {
-          inputs[0].value = this.startDate;
-          inputs[1].value = this.endDate;
+      const inputs = this.currentConts.querySelectorAll('.datepicker');
+      if (inputs.length >= 2) {
+        if (this.activeTarget === 'start') {
+          if (this.startDate) inputs[0].value = this.startDate;
+          if (!this.endDate) inputs[1].value = '';
+        } else if (this.activeTarget === 'end') {
+          if (this.startDate) inputs[0].value = this.startDate;
+          if (this.endDate) inputs[1].value = this.endDate;
+        } else {
+          // 버튼1개 모드
+          if (this.startDate && this.endDate) {
+            inputs[0].value = this.startDate;
+            inputs[1].value = this.endDate;
+          }
         }
       }
     }
@@ -1942,13 +2021,19 @@ const krds_calendar = {
   },
 
   activateFocusTrap(area) {
+    // 기존 핸들러 있으면 먼저 제거
+    if (area._focusTrapHandler) {
+      area.removeEventListener('keydown', area._focusTrapHandler);
+      area._focusTrapHandler = null;
+    }
+
     const focusables = area.querySelectorAll('button:not([disabled]), [tabindex="0"]');
     if (!focusables.length) return;
 
     const first = focusables[0];
     const last = focusables[focusables.length - 1];
 
-    area.addEventListener('keydown', (e) => {
+    const handler = (e) => {
       if (e.key !== 'Tab') return;
 
       if (e.shiftKey && document.activeElement === first) {
@@ -1958,11 +2043,19 @@ const krds_calendar = {
         e.preventDefault();
         first.focus();
       }
-    });
+    };
+
+    area._focusTrapHandler = handler;
+    area.addEventListener('keydown', handler);
   },
 
   bindKeyboardNavigation(area) {
     // 기존 이벤트 리스너 제거 후 새로 등록
+    if (area._keydownHandler) {
+      area.removeEventListener('keydown', area._keydownHandler);
+      area._keydownHandler = null;
+    }
+
     const handler = (e) => {
       const key = e.key;
       const active = document.activeElement;
@@ -1997,10 +2090,8 @@ const krds_calendar = {
         case 'PageUp':
           e.preventDefault();
           if (e.shiftKey) {
-            // Shift + PageUp: 1년 전
             this.currentYear--;
           } else {
-            // PageUp: 1개월 전
             this.currentMonth--;
             if (this.currentMonth < 1) {
               this.currentMonth = 12;
@@ -2013,10 +2104,8 @@ const krds_calendar = {
         case 'PageDown':
           e.preventDefault();
           if (e.shiftKey) {
-            // Shift + PageDown: 1년 후
             this.currentYear++;
           } else {
-            // PageDown: 1개월 후
             this.currentMonth++;
             if (this.currentMonth > 12) {
               this.currentMonth = 1;
@@ -2028,13 +2117,11 @@ const krds_calendar = {
 
         case 'Home':
           e.preventDefault();
-          // 현재 주의 첫 번째 날 (일요일)
           targetTd = td.parentElement.children[0];
           break;
 
         case 'End':
           e.preventDefault();
-          // 현재 주의 마지막 날 (토요일)
           const tr = td.parentElement;
           targetTd = tr.children[tr.children.length - 1];
           break;
@@ -2061,8 +2148,6 @@ const krds_calendar = {
       }
     };
 
-    // 기존 핸들러 제거 및 새 핸들러 등록
-    area.removeEventListener('keydown', area._keydownHandler);
     area._keydownHandler = handler;
     area.addEventListener('keydown', handler);
   },
@@ -2945,3 +3030,60 @@ window.addEventListener('resize', () => {
 
 // 수동 재초기화
 window.krdsReinitialize = initAllComponents;
+
+/**
+ * GNB selected 클래스 동적 처리
+ *
+ * 사용법:
+ *   GNB.setSelected({ depth1: 1, depth2: 0 });
+ *
+ * 옵션:
+ *   depth1 : 1Depth 인덱스 (0부터)  → PC + 모바일 공용
+ *   depth2 : 2Depth 인덱스 (0부터)  → 모바일만 적용
+ *            값을 주지 않으면 2Depth selected는 안 넣음
+ */
+const GNB = (() => {
+  const setSelected = ({ depth1, depth2 }) => {
+    setPcSelected(depth1);
+    setMobileSelected(depth1, depth2);
+  };
+
+  // ── PC : 1Depth only ─────────────────────────────
+  const setPcSelected = (depth1) => {
+    const triggers = document.querySelectorAll('#gnb .gnb-menu > li > .gnb-main-trigger');
+
+    triggers.forEach((el, i) => {
+      el.classList.toggle('selected', i === depth1);
+    });
+  };
+
+  // ── Mobile : 1Depth + 2Depth ─────────────────────
+  const setMobileSelected = (depth1, depth2) => {
+    const mobileNav = document.querySelector('.krds-main-menu-mobile');
+    if (!mobileNav) return;
+
+    // ── 1Depth ──
+    const mobile1Triggers = mobileNav.querySelectorAll('.menu-wrap ul > li > .gnb-main-trigger');
+
+    mobile1Triggers.forEach((el, i) => {
+      el.classList.toggle('active', i === depth1);
+    });
+
+    // ── 2Depth ──
+    if (depth2 === undefined || depth2 === null) return;
+
+    // submenu-wrap 안의 .gnb-sub-list들은 1Depth와 동일한 순서
+    const subMenuLists = mobileNav.querySelectorAll('.submenu-wrap > .gnb-sub-list');
+    const targetList = subMenuLists[depth1];
+    if (!targetList) return;
+
+    // 해당 submenu 안의 직속 .gnb-sub-trigger만 대상 (depth3 아래 것은 제외)
+    const depth2Triggers = targetList.querySelectorAll(':scope > ul > li > .gnb-sub-trigger');
+
+    depth2Triggers.forEach((el, i) => {
+      el.classList.toggle('selected', i === depth2);
+    });
+  };
+
+  return { setSelected };
+})();

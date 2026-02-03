@@ -12,10 +12,8 @@ $mode-setting: light;
   background-color: var(--#{$mode-setting}-color-surface-gray-subtler);
   .foot-quick {
     $quick-border: var(--#{$mode-setting}-color-border-gray-light);
-    border-top: var(--#{$mode-setting}-border-width-static-regular) solid
-      $quick-border;
-    border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid
-      $quick-border;
+    border-top: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
+    border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
     background-color: var(--#{$mode-setting}-color-background-white);
     .inner {
       display: flex;
@@ -31,12 +29,10 @@ $mode-setting: light;
         height: calc(var(--size-height-8) - 0.2rem); //border 위 아래값 뺴기
         padding: 0 var(--padding-8);
         background-color: var(--#{$mode-setting}-color-action-secondary);
-        border-right: var(--#{$mode-setting}-border-width-static-regular) solid
-          $quick-border;
+        border-right: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
         transition: var(--transition-base);
         &:first-child {
-          border-left: var(--#{$mode-setting}-border-width-static-regular) solid
-            $quick-border;
+          border-left: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
         }
         &::after {
           display: inline-flex;
@@ -46,15 +42,11 @@ $mode-setting: light;
           @include icon-set(ico_plus);
         }
         &:hover {
-          background-color: var(
-            --#{$mode-setting}-color-action-secondary-hover
-          );
+          background-color: var(--#{$mode-setting}-color-action-secondary-hover);
         }
         &:active,
         &:focus {
-          background-color: var(
-            --#{$mode-setting}-color-action-secondary-pressed
-          );
+          background-color: var(--#{$mode-setting}-color-action-secondary-pressed);
         }
         //태블릿 전용 속성
         @include size-medium-to-large {
@@ -66,17 +58,14 @@ $mode-setting: light;
         //모바일 전용
         @include size-medium {
           font-size: var(--mobile-font-size-body-small);
-          min-height: calc(
-            var(--size-height-7) - 0.2rem
-          ); //border 위 아래값 뺴기;
+          min-height: calc(var(--size-height-7) - 0.2rem); //border 위 아래값 뺴기;
           padding: 0 var(--padding-6);
           border: 0;
           &:first-child {
             border: 0;
           }
           &:not(:first-child) {
-            border-top: var(--#{$mode-setting}-border-width-static-regular)
-              solid $quick-border;
+            border-top: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
           }
         }
       }
@@ -98,7 +87,7 @@ $mode-setting: light;
 
   .f-logo {
     @include square(19.7rem, 5rem);
-    background-image: url(#{$url}/img/component/icon/ico_logo_hico.png);
+    background-image: url(#{$url}/img/component/icon/ico_logo_hico.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -269,8 +258,7 @@ $mode-setting: light;
     @include flex-layout($fd: column);
     padding-top: var(--padding-6);
     gap: var(--gap-9);
-    border-top: var(--#{$mode-setting}-border-width-static-regular) solid
-      var(--#{$mode-setting}-color-divider-gray-light);
+    border-top: var(--#{$mode-setting}-border-width-static-regular) solid var(--#{$mode-setting}-color-divider-gray-light);
     //모바일 전용
     @include size-medium {
       font-size: var(--mobile-font-size-body-small);
@@ -341,33 +329,25 @@ $mode-setting: light;
     background-color: var(--#{$mode-setting}-color-surface-gray-subtler);
     .foot-quick {
       $quick-border: var(--#{$mode-setting}-color-border-gray-light);
-      border-top: var(--#{$mode-setting}-border-width-static-regular) solid
-        $quick-border;
-      border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid
-        $quick-border;
+      border-top: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
+      border-bottom: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
       background-color: var(--#{$mode-setting}-color-background-white);
       .inner {
         .link {
           background-color: var(--#{$mode-setting}-color-action-secondary);
-          border-right: var(--#{$mode-setting}-border-width-static-regular)
-            solid $quick-border;
+          border-right: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
           &:first-child {
-            border-left: var(--#{$mode-setting}-border-width-static-regular)
-              solid $quick-border;
+            border-left: var(--#{$mode-setting}-border-width-static-regular) solid $quick-border;
           }
           &::after {
             @include svg-icon(var(--icon--size-medium), $mode: $mode-setting);
           }
           &:hover {
-            background-color: var(
-              --#{$mode-setting}-color-action-secondary-hover
-            );
+            background-color: var(--#{$mode-setting}-color-action-secondary-hover);
           }
           &:active,
           &:focus {
-            background-color: var(
-              --#{$mode-setting}-color-action-secondary-pressed
-            );
+            background-color: var(--#{$mode-setting}-color-action-secondary-pressed);
           }
         }
       }
@@ -379,9 +359,7 @@ $mode-setting: light;
           li {
             .more-info {
               &::before {
-                background-color: var(
-                  --#{$mode-setting}-color-divider-gray-dark
-                );
+                background-color: var(--#{$mode-setting}-color-divider-gray-dark);
               }
             }
           }
@@ -390,8 +368,7 @@ $mode-setting: light;
     }
 
     .f-btm {
-      border-top: var(--#{$mode-setting}-border-width-static-regular) solid
-        var(--#{$mode-setting}-color-divider-gray-light);
+      border-top: var(--#{$mode-setting}-border-width-static-regular) solid var(--#{$mode-setting}-color-divider-gray-light);
       .f-btm-text {
         .f-copy {
           color: var(--#{$mode-setting}-color-text-subtle);

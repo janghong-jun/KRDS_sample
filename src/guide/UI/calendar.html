@@ -5,15 +5,8 @@
     <!--# include virtual="../../components/_meta.html" -->
     <title>Hi-Coaching</title>
     <!-- 공통 css -->
-    <link
-      rel="stylesheet"
-      href="../../resources/css/plugin/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../resources/css/output.css"
-      type="text/css"
-    />
+    <link rel="stylesheet" href="../../resources/css/plugin/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../resources/css/output.css" type="text/css" />
     <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
@@ -36,29 +29,12 @@
               <div class="form-tit">
                 <label>날짜 선택</label>
               </div>
-              <div
-                class="form-conts calendar-conts"
-                data-calendar-type="single"
-              >
+              <div class="form-conts calendar-conts" data-calendar-type="single">
                 <div class="calendar-input">
-                  <input
-                    type="text"
-                    class="krds-input datepicker"
-                    placeholder="YYYY.MM.DD"
-                    readonly
-                  />
-                  <button
-                    type="button"
-                    class="krds-btn medium icon form-btn-datepicker"
-                  >
-                    <span class="sr-only">달력 열기</span
-                    ><i class="svg-icon ico-calendar"></i>
-                  </button>
+                  <input type="text" class="krds-input datepicker" placeholder="YYYY-MM-DD" aria-label="날짜 선택" readonly />
+                  <button type="button" class="krds-btn medium icon form-btn-datepicker"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
                 </div>
-                <div
-                  class="krds-calendar-area"
-                  data-keyboard-bound="false"
-                ></div>
+                <div class="krds-calendar-area" data-keyboard-bound="false"></div>
               </div>
             </div>
           </div>
@@ -72,33 +48,37 @@
                 <div class="calendar-input">
                   <ul class="input-group range">
                     <li>
-                      <input
-                        class="krds-input datepicker"
-                        placeholder="시작일"
-                        readonly
-                      />
+                      <input class="krds-input datepicker" placeholder="시작일" aria-label="시작일" readonly />
                     </li>
                     <li class="mark">-</li>
                     <li>
-                      <input
-                        class="krds-input datepicker"
-                        placeholder="종료일"
-                        readonly
-                      />
+                      <input class="krds-input datepicker" placeholder="종료일" aria-label="종료일" readonly />
                     </li>
                   </ul>
-                  <button
-                    type="button"
-                    class="krds-btn medium icon form-btn-datepicker"
-                  >
-                    <span class="sr-only">달력 열기</span
-                    ><i class="svg-icon ico-calendar"></i>
-                  </button>
+                  <button type="button" class="krds-btn medium icon form-btn-datepicker"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
                 </div>
-                <div
-                  class="krds-calendar-area"
-                  data-keyboard-bound="false"
-                ></div>
+                <div class="krds-calendar-area" data-keyboard-bound="false"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-tit">
+                <label>기간 선택</label>
+              </div>
+              <div class="form-conts calendar-conts" data-calendar-type="range">
+                <div class="calendar-input">
+                  <ul class="input-group range">
+                    <li>
+                      <input class="krds-input datepicker" placeholder="시작일" aria-label="시작일" readonly />
+                      <button type="button" class="krds-btn medium icon form-btn-datepicker"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                    </li>
+                    <li class="mark">-</li>
+                    <li>
+                      <input class="krds-input datepicker" placeholder="종료일" aria-label="종료일" readonly />
+                      <button type="button" class="krds-btn medium icon form-btn-datepicker"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="krds-calendar-area" data-keyboard-bound="false"></div>
               </div>
             </div>
           </div>

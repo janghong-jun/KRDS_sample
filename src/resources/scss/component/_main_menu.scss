@@ -134,6 +134,13 @@ $mode-setting: light;
           transform: rotate(-180deg);
         }
       }
+      &.selected {
+        &::before {
+          left: 0;
+          width: 100%;
+          transition: none;
+        }
+      }
       &.is-link {
         &::after {
           display: none;

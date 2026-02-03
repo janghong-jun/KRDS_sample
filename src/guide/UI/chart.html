@@ -5,15 +5,8 @@
     <!--# include virtual="../../components/_meta.html" -->
     <title>Hi-Coaching</title>
     <!-- 공통 css -->
-    <link
-      rel="stylesheet"
-      href="../../resources/css/plugin/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../resources/css/output.css"
-      type="text/css"
-    />
+    <link rel="stylesheet" href="../../resources/css/plugin/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../resources/css/output.css" type="text/css" />
     <link rel="stylesheet" href="../resources/css/guide.css" type="text/css" />
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
@@ -33,14 +26,11 @@
         <div class="inner">
           <!-- chart -->
           <div class="krds-chart">
-            <div class="chart type01"></div>
+            <div class="chart type01" role="img" aria-label="차트 설명"></div>
           </div>
           <script>
             function remToPx(rem) {
-              return (
-                rem *
-                parseFloat(getComputedStyle(document.documentElement).fontSize)
-              );
+              return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
             }
 
             function getChartOption() {

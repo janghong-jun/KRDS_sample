@@ -17,7 +17,7 @@ $mode-setting: light;
   .sch-form-wrap {
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--gap-5) var(--gap-4);
+    gap: var(--gap-4);
     .form-conts {
       max-width: 20rem;
       flex-direction: row;
@@ -27,6 +27,9 @@ $mode-setting: light;
     .sch-input {
       width: 100%;
       max-width: 50rem;
+      .krds-input {
+        width: 100%;
+      }
     }
     .krds-btn.neutral {
       width: 10rem;
@@ -65,12 +68,7 @@ $mode-setting: light;
     }
     .form-search {
       display: flex;
-      justify-content: center;
       gap: var(--gap-4);
-      flex: 1;
-      @include size-large-to-xlarge {
-        width: 100%;
-      }
       @include size-large-less {
         width: 100%;
       }
@@ -82,18 +80,18 @@ $mode-setting: light;
       gap: 1.2rem;
     }
     @media (max-width: 1279px) {
-      .form-conts {
-        max-width: calc(50% - 1.3rem) !important;
-        width: calc(50% - 1.3rem);
-      }
+    }
+    @include size-large-less {
       .krds-form-select {
         width: 100% !important;
       }
-    }
-    @include size-medium {
       .form-conts {
         max-width: 100% !important;
         width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-4);
         label {
           width: 5rem;
           flex: none;
@@ -187,7 +185,7 @@ $mode-setting: light;
         gap: var(--gap-8);
       }
     }
-    @include size-medium {
+    @include size-large-less {
       .form-date,
       .form-search {
         width: 100%;
@@ -211,6 +209,82 @@ $mode-setting: light;
         flex-direction: column;
         .krds-check-area {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  &.colum {
+    padding: var(--pc-padding-card-small) 4rem;
+    @include size-large-less {
+      padding: var(--mobile-padding-card-small) 4rem;
+    }
+    .sch-form-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      .col {
+        display: flex;
+        width: 100%;
+        max-width: 81.3rem;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--gap-4);
+        &-title {
+          width: 6rem;
+          margin-right: calc(-1 * var(--gap-4));
+          font-size: var(--pc-font-size-body-small);
+          color: var(--light-color-text-basic);
+          flex: none;
+        }
+        &.input {
+          margin-top: var(--gap-4);
+          padding-left: 6rem;
+        }
+        .krds-btns-wrap {
+          display: grid;
+          width: auto;
+          grid-template-columns: repeat(4, 1fr);
+          .krds-btn {
+            min-width: 9rem;
+          }
+        }
+        > .krds-btn.neutral {
+          flex: none;
+        }
+        .sch-input {
+          flex: 1;
+          max-width: 100%;
+        }
+        .input-group.range.small {
+          width: 35.7rem;
+        }
+        .krds-check-area {
+          width: calc(100% - 6rem);
+          gap: var(--gap-4) var(--gap-7);
+        }
+        @include size-large-less {
+          max-width: 100%;
+          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: flex-start;
+          &.input {
+            padding: 0;
+          }
+          .form-date {
+            width: 100%;
+            .input-group.range.small {
+              width: 100%;
+            }
+          }
+          .krds-btns-wrap {
+            width: 100%;
+          }
+          .krds-form-select {
+            width: 100%;
+          }
+          > .krds-btn.neutral {
+            width: 100%;
+          }
         }
       }
     }
