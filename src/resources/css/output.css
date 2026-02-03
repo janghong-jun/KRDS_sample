@@ -18000,6 +18000,11 @@ label {
   margin-top: 4.8rem !important;
 }
 
+.krds-text {
+  font-size: var(--pc-font-size-body-large);
+  color: var(--light-color-text-basic);
+}
+
 .conts-area {
   display: flex;
   align-items: flex-start;
@@ -19946,8 +19951,8 @@ td .info-wrap {
   content: attr(data-point);
   position: absolute;
   top: 50%;
-  right: calc(-1 * var(--gap-4) - 3rem);
-  width: 3rem;
+  right: calc(-1 * var(--gap-4) - 5rem);
+  width: 5rem;
   font-size: var(--pc-font-size-label-small);
   text-align: left;
   transform: translateY(-50%);

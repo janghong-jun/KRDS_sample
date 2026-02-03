@@ -59,7 +59,10 @@ $mode-setting: light;
     }
   }
 }
-
+.krds-text {
+  font-size: var(--pc-font-size-body-large);
+  color: var(--light-color-text-basic);
+}
 .conts-area {
   @include flex-layout($ai: flex-start, $jc: flex-start, $fd: column);
   gap: var(--gap-9);
@@ -146,12 +149,7 @@ td {
       &:checked {
         & ~ label {
           color: var(--light-color-text-inverse-static);
-          background: linear-gradient(
-            90deg,
-            #2acbff 0%,
-            #4583ff 50%,
-            #7880f3 100%
-          );
+          background: linear-gradient(90deg, #2acbff 0%, #4583ff 50%, #7880f3 100%);
         }
       }
     }

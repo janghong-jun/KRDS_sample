@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../../components/_skip.html" -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <main id="container">
+        <div class="inner">
+          <button type="button" class="krds-btn open-modal" data-target="V-HLC-01-017">모달 열기</button>
+        </div>
+      </main>
+
+      <!-- footer -->
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+  </body>
+  <section id="V-HLC-01-017" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HLC-01-017">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- modal title -->
+        <div class="modal-header">
+          <h2 id="tit_V-HLC-01-017" class="modal-title">학습공동체 참여 안내</h2>
+        </div>
+        <!-- //modal title -->
+        <!-- modal contents -->
+        <div class="modal-conts">
+          <div class="conts-area"><p class="krds-text">본 콘텐츠 내용을 확인 하시려면 해당 학습공동체에 참여 하신 후 이용하실 수 있습니다.</p></div>
+        </div>
+        <!-- //modal contents -->
+        <!-- modal btn -->
+        <div class="modal-btn btn-wrap">
+          <button type="button" class="krds-btn medium primary close-modal">확인</button>
+        </div>
+        <!-- //modal btn -->
+        <!-- close button -->
+        <button type="button" class="krds-btn medium icon btn-close close-modal">
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+        <!-- //close button -->
+      </div>
+    </div>
+    <div class="modal-back"></div>
+  </section>
+  <script>
+    krds_modal.openModal('V-HLC-01-017');
+  </script>
+</html>
