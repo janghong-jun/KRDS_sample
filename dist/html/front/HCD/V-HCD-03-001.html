@@ -1045,7 +1045,7 @@
               fontFamily: 'inherit',
               color: '#1E2124',
             },
-            bottom: remToPx(5.8),
+            bottom: remToPx(3),
             left: 'center',
             itemGap: remToPx(4.6),
             itemWidth: remToPx(1.6),
@@ -1054,21 +1054,31 @@
           },
 
           radar: {
-            center: ['50%', remToPx(12)],
+            center: ['50%', remToPx(13.5)],
             radius: '50%',
             shape: 'polygon',
             indicator: [
               { name: '교수 역량', max: 100 },
-              { name: '자기개발\n역량', max: 100 },
+              { name: '자기개발 역량', max: 100 },
               { name: '공동체 역량', max: 100 },
-              { name: '생활교육\n역량', max: 100 },
+              { name: '생활교육 역량', max: 100 },
             ],
             axisName: {
               color: '#1E2124',
               fontSize: remToPx(1.5),
               fontFamily: 'inherit',
               lineHeight: remToPx(2.3),
+              formatter: function (value) {
+                // 공백 기준으로 줄바꿈
+                // return value.replace(/\s+/g, '\n');
+
+                // 또는 단어 단위로 줄바꿈 (한글의 경우)
+                const words = value.split(' ');
+                return words.join('\n');
+              },
+              lineHeight: 16,
             },
+            axisNameGap: remToPx(1),
             axisLine: {
               lineStyle: { color: '#CDDAFE', width: 0.8 },
             },
