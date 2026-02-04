@@ -1571,7 +1571,7 @@ $mode-setting: light;
 
     dl {
       display: grid;
-      grid-template-columns: 6.6rem auto;
+      grid-template-columns: max-content auto;
       gap: var(--gap-3) var(--gap-6);
 
       dt {

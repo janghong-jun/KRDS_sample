@@ -23910,7 +23910,8 @@ td .info-wrap {
 }
 .skill-report .report-result dl {
   display: grid;
-  grid-template-columns: 6.6rem auto;
+  grid-template-columns: -webkit-max-content auto;
+  grid-template-columns: max-content auto;
   gap: var(--gap-3) var(--gap-6);
 }
 .skill-report .report-result dl dt {

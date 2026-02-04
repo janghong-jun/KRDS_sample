@@ -16029,7 +16029,7 @@ label {
 }
 
 .krds-chart {
-  padding: 7.1rem 0 1.3rem;
+  padding: 8.5rem 0 4.3rem;
 }
 .krds-chart .chart.type01 {
   width: 100%;
@@ -18538,7 +18538,7 @@ td .info-wrap {
 }
 .skill-report .report-result dl {
   display: grid;
-  grid-template-columns: 6.6rem auto;
+  grid-template-columns: max-content auto;
   gap: var(--gap-3) var(--gap-6);
 }
 .skill-report .report-result dl dt {
