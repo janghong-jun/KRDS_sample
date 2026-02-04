@@ -404,6 +404,21 @@
     width: 1.6rem !important;
     height: 1.6rem !important;
   }
+  &.ico-start-on {
+    @include icon-set(ico_star_on, pure);
+  }
+  &.ico-start-off {
+    @include icon-set(ico_star_off, pure);
+  }
+  &.ico-level01 {
+    @include icon-set(ico_level01, pure);
+  }
+  &.ico-level02 {
+    @include icon-set(ico_level02, pure);
+  }
+  &.ico-level03 {
+    @include icon-set(ico_level03, pure);
+  }
 }
 .icon-wrap {
   display: flex;

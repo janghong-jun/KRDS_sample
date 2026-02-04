@@ -226,15 +226,20 @@ $mode-setting: light;
         display: flex;
         width: 100%;
         max-width: 81.3rem;
-        align-items: center;
         flex-wrap: wrap;
         gap: var(--gap-4);
         &-title {
           width: 6rem;
           margin-right: calc(-1 * var(--gap-4));
           font-size: var(--pc-font-size-body-small);
+          line-height: 3rem;
           color: var(--light-color-text-basic);
           flex: none;
+        }
+        &.date {
+          .col-title {
+            line-height: 4rem;
+          }
         }
         &.input {
           margin-top: var(--gap-4);
@@ -242,10 +247,11 @@ $mode-setting: light;
         }
         .krds-btns-wrap {
           display: grid;
-          width: auto;
+          max-width: 38.4rem;
           grid-template-columns: repeat(4, 1fr);
           .krds-btn {
-            min-width: 9rem;
+            width: 100%;
+            max-width: 9rem;
           }
         }
         > .krds-btn.neutral {
@@ -261,6 +267,21 @@ $mode-setting: light;
         .krds-check-area {
           width: calc(100% - 6rem);
           gap: var(--gap-4) var(--gap-7);
+          .krds-form-check.large > input[type='radio'] ~ label::before,
+          .krds-form-check.large > input[type='checkbox'] ~ label::before {
+            margin-top: 0;
+          }
+        }
+        @media (min-width: 1024px) and (max-width: 1270px) {
+          &.date {
+            .krds-btns-wrap {
+              max-width: 41.7rem;
+              padding-left: 6rem;
+              .krds-btn {
+                max-width: 100%;
+              }
+            }
+          }
         }
         @include size-large-less {
           max-width: 100%;
@@ -277,7 +298,10 @@ $mode-setting: light;
             }
           }
           .krds-btns-wrap {
-            width: 100%;
+            max-width: 100%;
+            .krds-btn {
+              max-width: 100%;
+            }
           }
           .krds-form-select {
             width: 100%;
@@ -312,15 +336,16 @@ $mode-setting: light;
   }
   li {
     position: relative;
-    overflow: hidden;
     height: 100%;
-    border-radius: var(--radius-xlarge1);
     border: 1px solid var(--color-light-gray-20);
+    border-radius: var(--radius-xlarge1);
     background: var(--color-light-gray-0);
   }
   .card-thumbnail {
     display: block;
     position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
   }
   .card-box {
     display: flex;
@@ -329,7 +354,7 @@ $mode-setting: light;
   }
   .card-conts {
     display: flex;
-    padding: var(--number-8) var(--number-9) var(--number-9) var(--number-9);
+    padding: var(--gap-5) var(--padding-8);
     flex-direction: column;
     align-items: flex-start;
     gap: var(--gap-4);
@@ -420,19 +445,56 @@ $mode-setting: light;
       flex-direction: column;
       flex: 1;
     }
-    .card-hash {
+    .card-ability,
+    .card-keyword,
+    .card-level {
       width: 100%;
-      margin-top: var(--gap-4);
-      gap: var(--gap-2);
-      margin-bottom: var(--number-9);
+      margin-top: var(--gap-1);
+      font-size: var(--pc-font-size-body-small);
+      color: var(--light-color-text-basic);
+    }
+    .card-level {
+      display: flex;
+      flex: none;
+      gap: var(--gap-1) var(--gap-4);
+      align-items: center;
+      flex-wrap: wrap;
+      .bar {
+        width: 0.1rem;
+        height: 1.6rem;
+        background-color: var(--light-color-divider-gray-light);
+      }
+      > span {
+        display: flex;
+        gap: var(--gap-2);
+        align-items: center;
+        strong {
+          font-weight: var(--font-weight-regular);
+          color: var(--light-color-text-subtle);
+        }
+        span {
+          display: flex;
+          font-weight: var(--font-weight-bold);
+          gap: var(--gap-2);
+          align-items: center;
+        }
+      }
+    }
+    .card-bottom-cont {
+      display: flex;
+      margin-top: auto;
+      width: 100%;
+      justify-content: space-between;
     }
     .card-meta {
-      margin-top: auto;
       display: flex;
+      margin-top: var(--gap-4);
       font-size: var(--pc-font-size-body-small);
       color: var(--light-color-text-subtle);
       flex-wrap: wrap;
+      flex-direction: column;
       gap: 0 var(--number-5);
+      flex: 1;
       div {
         display: flex;
         gap: var(--gap-4);

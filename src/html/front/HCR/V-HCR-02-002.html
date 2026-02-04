@@ -113,7 +113,7 @@
                       </div>
                       <div>
                         <dt>역량 구분</dt>
-                        <dd>교수학습 > 교과전문성 > 교과과정 설계</dd>
+                        <dd>교수학습 &gt; 교과전문성 &gt; 교과과정 설계</dd>
                       </div>
                       <div>
                         <dt>추가 부가정보</dt>
@@ -154,23 +154,25 @@
                         </div>
                         <div class="comment-wrap">
                           <div class="comment-top">
-                            <div class="rating">
-                              <span class="rating-score">
-                                <span class="sr-only">평점</span>
-                                <span>5</span>
-                              </span>
-                              <!-- 평점에 따라 data-score 값 변경 -->
-                              <span class="rating-stars" aria-hidden="true" data-score="5">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                              </span>
-                            </div>
-                            <div class="comment-info">
-                              <span>윤*습(amer*****)</span>
-                              <span class="date">2025-12-15</span>
+                            <div>
+                              <div class="rating">
+                                <span class="rating-score">
+                                  <span class="sr-only">평점</span>
+                                  <span>5</span>
+                                </span>
+                                <!-- 평점에 따라 data-score 값 변경 -->
+                                <span class="rating-stars" aria-hidden="true" data-score="5">
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </span>
+                              </div>
+                              <div class="comment-info">
+                                <span>윤*습(amer*****)</span>
+                                <span class="date">2025-12-15</span>
+                              </div>
                             </div>
                           </div>
 
@@ -193,24 +195,27 @@
                         </div>
                         <div class="comment-wrap">
                           <div class="comment-top">
-                            <div class="rating">
-                              <span class="rating-score">
-                                <span class="sr-only">평점</span>
-                                <span>5</span>
-                              </span>
-                              <!-- 평점에 따라 data-score 값 변경 -->
-                              <span class="rating-stars" aria-hidden="true" data-score="5">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                              </span>
+                            <div>
+                              <div class="rating">
+                                <span class="rating-score">
+                                  <span class="sr-only">평점</span>
+                                  <span>5</span>
+                                </span>
+                                <!-- 평점에 따라 data-score 값 변경 -->
+                                <span class="rating-stars" aria-hidden="true" data-score="5">
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </span>
+                              </div>
+                              <div class="comment-info">
+                                <span>윤*습(amer*****)</span>
+                                <span class="date">2025-12-15</span>
+                              </div>
                             </div>
-                            <div class="comment-info">
-                              <span>윤*습(amer*****)</span>
-                              <span class="date">2025-12-15</span>
-                            </div>
+                            <button class="krds-btn xsmall tertiary">수정</button>
                           </div>
 
                           <div class="comment-cont">
@@ -221,13 +226,6 @@
                               즐거운 하루되세요
                             </div>
                           </div>
-                        </div>
-
-                        <div class="krds-btns-wrap right">
-                          <button class="krds-btn small tertiary">
-                            <i class="svg-icon ico-edit2"></i>
-                            수정
-                          </button>
                         </div>
                       </li>
                       <!-- //내가 쓴 댓글 -->
@@ -256,54 +254,58 @@
                         <textarea class="krds-input" placeholder="최소 10자 이상 입력해주세요." aria-label="콘텐츠 평가 입력"></textarea>
                       </div>
                       <div class="comment-utill">
-                        <strong class="rating-select-title">평점주기</strong>
-                        <div class="krds-check-area">
-                          <div class="krds-form-check small">
-                            <input type="radio" name="rating" id="rating1" />
-                            <label for="rating1">
-                              <span>
-                                1점
-                                <i class="svg-icon ico-star-off"></i>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="krds-form-check small">
-                            <input type="radio" name="rating" id="rating2" />
-                            <label for="rating2">
-                              <span>
-                                2점
-                                <i class="svg-icon ico-star-off"></i>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="krds-form-check small">
-                            <input type="radio" name="rating" id="rating3" />
-                            <label for="rating3">
-                              <span>
-                                3점
-                                <i class="svg-icon ico-star-off"></i>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="krds-form-check small">
-                            <input type="radio" name="rating" id="rating4" />
-                            <label for="rating4">
-                              <span>
-                                4점
-                                <i class="svg-icon ico-star-off"></i>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="krds-form-check small">
-                            <input type="radio" name="rating" id="rating5" />
-                            <label for="rating5">
-                              <span>
-                                5점
-                                <i class="svg-icon ico-star-off"></i>
-                              </span>
-                            </label>
-                          </div>
-                        </div>
+                        <ul class="level-list">
+                          <li>
+                            <strong class="comment-utill-title">평점주기</strong>
+                            <div class="krds-check-area">
+                              <div class="krds-form-check small">
+                                <input type="radio" name="rating" id="rating1" />
+                                <label for="rating1">
+                                  <span>
+                                    1점
+                                    <i class="svg-icon ico-star-off"></i>
+                                  </span>
+                                </label>
+                              </div>
+                              <div class="krds-form-check small">
+                                <input type="radio" name="rating" id="rating2" />
+                                <label for="rating2">
+                                  <span>
+                                    2점
+                                    <i class="svg-icon ico-star-off"></i>
+                                  </span>
+                                </label>
+                              </div>
+                              <div class="krds-form-check small">
+                                <input type="radio" name="rating" id="rating3" />
+                                <label for="rating3">
+                                  <span>
+                                    3점
+                                    <i class="svg-icon ico-star-off"></i>
+                                  </span>
+                                </label>
+                              </div>
+                              <div class="krds-form-check small">
+                                <input type="radio" name="rating" id="rating4" />
+                                <label for="rating4">
+                                  <span>
+                                    4점
+                                    <i class="svg-icon ico-star-off"></i>
+                                  </span>
+                                </label>
+                              </div>
+                              <div class="krds-form-check small">
+                                <input type="radio" name="rating" id="rating5" />
+                                <label for="rating5">
+                                  <span>
+                                    5점
+                                    <i class="svg-icon ico-star-off"></i>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
                         <div class="krds-btns-wrap right">
                           <!-- 개선요청 완료 전 -->
                           <button type="button" class="krds-btn small tertiary">

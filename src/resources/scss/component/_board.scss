@@ -325,17 +325,29 @@
 
     .comment-utill {
       display: flex;
-      margin-top: 1.2rem;
-      gap: var(--padding-4) var(--padding-7);
-
+      margin-top: var(--padding-7);
+      gap: var(--padding-4);
       flex-wrap: wrap;
+
       &-title {
+        width: 8rem;
         font-size: var(--pc-font-size-body-medium);
         font-weight: var(--font-weight-regular);
         color: var(--light-color-text-basic);
         opacity: 0.8;
+        flex: none;
+      }
+      .level-list {
+        li {
+          display: flex;
+          align-items: center;
+          gap: var(--padding-4) var(--gap-6);
+        }
       }
       .krds-check-area {
+        display: grid;
+        margin-top: -0.3rem;
+        grid-template-columns: repeat(5, 1fr);
         input[type='radio'] {
           &:checked {
             ~ label {
@@ -362,6 +374,7 @@
         &.right {
           display: flex;
           width: 100%;
+          margin-top: var(--padding-7);
           flex-wrap: wrap;
         }
         .krds-btn {
@@ -375,9 +388,18 @@
 
   &.type02 {
     .comment-top {
-      justify-content: flex-start;
       flex-wrap: wrap;
+      align-items: center;
       gap: var(--gap-3) var(--gap-7);
+      > div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--gap-3) var(--gap-7);
+      }
+      .krds-btn.xsmall {
+        flex: none;
+      }
     }
     .comment-list {
       .krds-btns-wrap {

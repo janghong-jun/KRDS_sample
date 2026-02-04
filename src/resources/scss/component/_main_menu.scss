@@ -166,16 +166,15 @@ $mode-setting: light;
       $main-menu-width: 26.6rem; //2뎁스 메뉴 사이즈
       position: relative;
       max-width: var(--contents-wrap-size);
-      padding-left: var(--contents-padding-x);
-      padding-right: var(--contents-padding-x);
+      padding: var(--padding-6) var(--contents-padding-x) var(--pc-padding-card-small) var(--contents-padding-x);
       margin: 0 auto;
-      &[data-has-submenu='true']::before {
-        @include position($t: 0, $l: 0);
-        display: block;
-        @include square(var(--main-menu--main-menu-width), 100%);
-        @include pseudo();
-        background-color: var(--main-menu--main-menu-color-surface);
-      }
+      // &[data-has-submenu='true']::before {
+      //   @include position($t: 0, $l: 0);
+      //   display: block;
+      //   @include square(var(--main-menu--main-menu-width), 100%);
+      //   @include pseudo();
+      //   background-color: var(--main-menu--main-menu-color-surface);
+      // }
       & > ul {
         position: relative;
         padding: var(--padding-6) 0;
@@ -374,7 +373,7 @@ $mode-setting: light;
         //사이드메뉴 없음
         display: flex;
         position: static;
-        padding: var(--main-menu--sub-menu-only-2depth-padding-y) 0;
+        padding: var(--main-menu--sub-menu-padding-y) var(--main-menu--sub-menu-padding-x);
         .gnb-sub-content {
           > ul {
             grid-template-columns: repeat(4, 1fr);
@@ -383,7 +382,14 @@ $mode-setting: light;
         &.between {
           .gnb-sub-content {
             > ul {
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(4, 21rem);
+              gap: var(--gap-2) var(--gap-7);
+              // display: flex;
+              // flex-wrap: wrap;
+              li {
+                // width: 21rem;
+                // flex: none;
+              }
             }
           }
         }
