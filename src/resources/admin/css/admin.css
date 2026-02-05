@@ -740,9 +740,9 @@ footer {
 }
 .tbl-btns.type-small .btn {
   width: max-content;
-  min-width: 5rem;
+  min-width: 7rem;
   min-height: 3rem;
-  padding: 0 1.2rem;
+  padding: 0 0.2rem;
 }
 .tbl-btns.type-small .btn + .btn {
   margin-left: 0;
