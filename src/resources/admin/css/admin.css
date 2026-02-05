@@ -28,6 +28,9 @@ body {
 .mgt40 {
   margin-top: 4rem !important;
 }
+.pr0 {
+  padding-right: 0 !important;
+}
 .bgW {
   background: #fff !important;
 }
@@ -930,8 +933,13 @@ footer {
 }
 
 .frm-area.left label,
-.frm-area.left .unit {
+.frm-area.left .unit,
+.frm-area.left .info {
   flex: none;
+}
+.frm-area.left.small .inp-text {
+  flex: none;
+  width: 10rem;
 }
 
 .frm-area.report {
@@ -1367,11 +1375,6 @@ footer {
   justify-content: flex-end;
 }
 .upload-grid {
-  display: grid;
-  gap: 0.8rem;
-  align-items: center;
-  grid-template-columns: auto 12.2rem;
-  text-align: left;
 }
 .upload-grid .tbl-btns {
   justify-content: center;

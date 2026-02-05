@@ -268,6 +268,13 @@ img {
   background: url(../images/ico_comm.png) no-repeat -36rem 0;
   margin: 0 auto;
 }
+.date-select {
+  display: flex;
+  gap: 0 0.8rem;
+}
+.date-select .btn {
+  height: 4.8rem;
+}
 
 .iod-wrap {
   display: inline-block;
@@ -538,6 +545,24 @@ a.link {
 }
 .lb-radio::after {
   background-position-x: -15rem;
+}
+.none-label {
+  display: inline-block;
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.none-label input {
+  width: 2.4rem;
+  height: 2.4rem;
+  z-index: 1;
+  cursor: pointer;
+}
+.none-label label {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  z-index: 0;
 }
 /* .lb-radio:hover::after {
   background-position-x: -18rem;

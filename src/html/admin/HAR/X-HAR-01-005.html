@@ -29,27 +29,102 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 13rem" />
+                <col style="width: 15rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
                   <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>유형</option>
-                      </select>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>2주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row">유형</th>
                   <td>
                     <div class="frm-area">
-                      <input
-                        type="text"
-                        class="inp-text"
-                        placeholder="최소 2글자 이상 입력해주세요"
-                        aria-label="검색어 입력"
-                      />
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01" />
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02" />
+                        <label for="checkbox_01_02" class="lb-checkbox">동영상</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03" />
+                        <label for="checkbox_01_03" class="lb-checkbox">문서</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04" />
+                        <label for="checkbox_01_04" class="lb-checkbox">이미지</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">진행상태</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_01" />
+                        <label for="checkbox_02_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_02" />
+                        <label for="checkbox_02_02" class="lb-checkbox">완료</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_03" />
+                        <label for="checkbox_02_03" class="lb-checkbox">중지됨</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_04" />
+                        <label for="checkbox_02_04" class="lb-checkbox">실패</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_05" />
+                        <label for="checkbox_02_05" class="lb-checkbox">취소</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
                   </td>
                 </tr>
@@ -73,7 +148,8 @@
                 <col style="width: 8.8rem" />
                 <col />
                 <col style="width: 7rem" />
-                <col style="width: 23rem" />
+                <col style="width: 11rem" />
+                <col style="width: 15rem" />
                 <col style="width: 12rem" />
               </colgroup>
               <thead>
@@ -82,6 +158,7 @@
                   <th scope="col">콘텐츠 명</th>
                   <th scope="col">유형</th>
                   <th scope="col">업로드 진행상태</th>
+                  <th scope="col">처리</th>
                   <th scope="col">등록일</th>
                 </tr>
               </thead>
@@ -90,9 +167,9 @@
                   <td>100</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>업로드 중</td>
                   <td>
                     <div class="upload-grid">
-                      <span>업로드 중</span>
                       <span class="tbl-btns type-small">
                         <button type="button" class="btn base square apply-btn">
                           <span>중지</span>
@@ -106,10 +183,9 @@
                   <td>99</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -117,9 +193,9 @@
                   <td>98</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>중지됨</td>
                   <td>
                     <div class="upload-grid">
-                      <span>중지됨</span>
                       <span class="tbl-btns type-small">
                         <button type="button" class="btn base square apply-btn">
                           <span>재시작</span>
@@ -136,9 +212,9 @@
                   <td>97</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>실패</td>
                   <td>
                     <div class="upload-grid">
-                      <span>실패</span>
                       <span class="tbl-btns type-small">
                         <button type="button" class="btn base square apply-btn">
                           <span>재시작</span>
@@ -155,10 +231,9 @@
                   <td>96</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>취소</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>취소</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -166,10 +241,9 @@
                   <td>95</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -177,10 +251,9 @@
                   <td>94</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -188,10 +261,9 @@
                   <td>93</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -199,10 +271,9 @@
                   <td>92</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -210,29 +281,24 @@
                   <td>91</td>
                   <td class="txt-l">역량진단 결과는 어떻게 확인하나요?</td>
                   <td>동영상</td>
+                  <td>완료</td>
                   <td>
-                    <div class="upload-grid">
-                      <span>완료</span>
-                    </div>
+                    <div class="upload-grid"></div>
                   </td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
-                  <td colspan="5" class="nodata">검색된 내용이 없습니다.</td>
+                  <td colspan="6" class="nodata">검색된 내용이 없습니다.</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="tbl-btns mgt16">
             <div class="pager">
-              <a href="#" class="btn prev disabled"
-                ><span class="hide">이전으로</span></a
-              >
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
               <span class="num">
                 <a href="#">1</a>
-                <a href="#" class="on"
-                  ><span class="hide">현재 페이지:</span>2</a
-                >
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
@@ -242,9 +308,7 @@
                 <a href="#">9</a>
                 <a href="#">10</a>
               </span>
-              <a href="#" class="btn next"
-                ><span class="hide">다음으로</span></a
-              >
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
             </div>
           </div>
         </section>

@@ -26,32 +26,160 @@
         </div>
         <section class="main-conts">
           <h2>저작권 관리</h2>
-          <div class="tbl-base mgt10">
+          <div class="tbl-base mgt10 tab03-hide">
             <table>
               <colgroup>
+                <col style="width: 15rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
+                  <td>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>2주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">유형</th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력" />
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01" />
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02" />
+                        <label for="checkbox_01_02" class="lb-checkbox">동영상</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03" />
+                        <label for="checkbox_01_03" class="lb-checkbox">문서</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04" />
+                        <label for="checkbox_01_04" class="lb-checkbox">이미지</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">폐기대상사유</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_01" />
+                        <label for="checkbox_02_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_02" />
+                        <label for="checkbox_02_02" class="lb-checkbox">저작권미보유</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_03" />
+                        <label for="checkbox_02_03" class="lb-checkbox">콘텐츠 게시기간</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_04" />
+                        <label for="checkbox_02_04" class="lb-checkbox">콘텐츠 평가</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_05" />
+                        <label for="checkbox_02_05" class="lb-checkbox">콘텐츠 신고</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="tab02-hide">
+                  <th scope="row">게시여부</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_03_01" />
+                        <label for="checkbox_03_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_03_02" />
+                        <label for="checkbox_03_02" class="lb-checkbox">게시</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_03_03" />
+                        <label for="checkbox_03_03" class="lb-checkbox">비게시</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="tbl-btns center">
+          <div class="tbl-btns center tab03-hide">
             <button type="button" class="btn base secondary">
               <span>검색</span>
             </button>
           </div>
           <div class="ui-tab left mgt24" data-id="tab01" data-current="0">
             <div class="ui-tab-btns">
-              <button type="button" class="ui-tab-btn" data-tab="0">전체</button>
-              <button type="button" class="ui-tab-btn" data-tab="1">폐기 대상</button>
-              <button type="button" class="ui-tab-btn" data-tab="2">폐기 완료 목록</button>
+              <button type="button" class="ui-tab-btn" data-tab="0" onclick="$('.tab02-hide,.tab03-hide').show()">전체</button>
+              <button
+                type="button"
+                class="ui-tab-btn"
+                data-tab="1"
+                onclick="
+                  $('.tab02-hide').hide();
+                  $('.tab03-hide').show();
+                "
+              >
+                폐기 대상
+              </button>
+              <button
+                type="button"
+                class="ui-tab-btn"
+                data-tab="2"
+                onclick="
+                  $('.tab02-hide').show();
+                  $('.tab03-hide').hide();
+                "
+              >
+                폐기 완료 목록
+              </button>
             </div>
             <div class="ui-tab-pnls mgt40">
               <div class="ui-tab-pnl" data-tab="0">
