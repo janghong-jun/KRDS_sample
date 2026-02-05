@@ -1136,6 +1136,7 @@ $mode-setting: light;
           display: grid;
           grid-template-columns: 15.4rem auto;
           gap: var(--gap-6);
+          border-radius: var(--radius-medium3);
           h5 {
             font-size: var(--pc-font-size-heading-xsmall);
             @include ellipsis(2);
@@ -1163,7 +1164,29 @@ $mode-setting: light;
       .video-side-contents {
         display: flex;
         flex-direction: column;
-        gap: var(--gap-2);
+        .video-ability,
+        .video-keyword {
+          margin-top: 0;
+          font-size: var(--pc-font-size-body-xsmall);
+          color: var(--light-color-text-basic);
+        }
+        .video-rating {
+          display: flex;
+          align-items: center;
+          gap: 0 var(--gap-2);
+          font-size: var(--pc-font-size-body-xsmall);
+          strong {
+            font-weight: var(--font-weight-regular);
+            color: var(--light-color-text-subtle);
+          }
+          span {
+            display: flex;
+            font-weight: var(--font-weight-bold);
+            color: var(--light-color-text-basic);
+            gap: 0 var(--gap-2);
+            align-items: center;
+          }
+        }
       }
       @media (max-width: 1279px) {
         grid-template-columns: 1fr 1fr;
@@ -1195,6 +1218,11 @@ $mode-setting: light;
     justify-content: space-between;
     align-items: flex-start;
     gap: var(--gap-4);
+  }
+  &-keyword {
+    margin-top: var(--gap-1);
+    font-size: var(--pc-font-size-body-medium);
+    color: var(--light-color-text-subtle);
   }
   &-title {
     font-size: var(--pc-font-size-heading-medium);
@@ -1248,6 +1276,46 @@ $mode-setting: light;
 
         &::before {
           display: none;
+        }
+      }
+    }
+    &-level {
+      display: flex;
+      > span {
+        display: flex;
+        position: relative;
+        margin-right: var(--gap-4);
+        padding-right: var(--gap-4);
+        font-size: var(--pc-font-size-body-small);
+        color: var(--light-color-text-subtle);
+        gap: var(--gap-2);
+        flex-wrap: wrap;
+        align-items: center;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 0.1rem;
+          height: 1.4rem;
+          background-color: var(--light-color-divider-gray-light);
+          transform: translateY(-50%);
+        }
+        &:last-child {
+          margin-right: 0 !important;
+          padding-right: 0 !important;
+
+          &::before {
+            display: none;
+          }
+        }
+        > span {
+          display: flex;
+          padding: var(--padding-2) var(--padding-5);
+          border-radius: var(--radius-max);
+          background-color: var(--light-color-background-gray-subtler);
+          align-items: center;
+          gap: var(--gap-2);
         }
       }
     }

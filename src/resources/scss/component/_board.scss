@@ -333,6 +333,7 @@
         width: 8rem;
         font-size: var(--pc-font-size-body-medium);
         font-weight: var(--font-weight-regular);
+        text-align: left;
         color: var(--light-color-text-basic);
         opacity: 0.8;
         flex: none;
@@ -340,14 +341,22 @@
       .level-list {
         li {
           display: flex;
-          align-items: center;
           gap: var(--padding-4) var(--gap-6);
+          @include size-medium {
+            flex-direction: column;
+          }
+
+          & + li {
+            margin-top: var(--gap-4);
+          }
         }
       }
       .krds-check-area {
-        display: grid;
+        max-width: 48rem;
         margin-top: -0.3rem;
-        grid-template-columns: repeat(5, 1fr);
+        .krds-form-check {
+          width: 8rem;
+        }
         input[type='radio'] {
           &:checked {
             ~ label {
@@ -391,6 +400,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: var(--gap-3) var(--gap-7);
+      flex-direction: row;
       > div {
         display: flex;
         flex-wrap: wrap;
