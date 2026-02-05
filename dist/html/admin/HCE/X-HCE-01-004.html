@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -189,48 +186,88 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 33rem">
-                <col style="width: 13.5rem">
+                <col style="width: 15rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
                   <td>
                     <div class="flex-box align-center">
-                      <div class="ui-date-wrap small">
+                      <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="startDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
                       </div>
                       <span class="date-sep">~</span>
-                      <div class="ui-date-wrap small">
+                      <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="endDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
                       </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row">유형</th>
                   <td>
                     <div class="frm-area">
-                      <select>
-                        <option>유형 전체</option>
-                        <option>콘텐츠 학습</option>
-                        <option>모듈 학습</option>
-                        <option>학습공동체 활동</option>
-                        <option>전문가 코칭</option>
-                        <option>역량진단</option>
-                      </select>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01">
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02">
+                        <label for="checkbox_01_02" class="lb-checkbox">콘텐츠 학습</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03">
+                        <label for="checkbox_01_03" class="lb-checkbox">모듈 학습</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04">
+                        <label for="checkbox_01_04" class="lb-checkbox">학습공동체 활동</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_05">
+                        <label for="checkbox_01_05" class="lb-checkbox">전문가 코칭</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_06">
+                        <label for="checkbox_01_06" class="lb-checkbox">역량진단</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_07">
+                        <label for="checkbox_01_07" class="lb-checkbox">기타</label>
+                      </span>
                     </div>
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row">검색</th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="searchKeyword" placeholder="최소 2글자 이상 입력해주세요" class="inp-text">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>
@@ -367,9 +404,9 @@
               </tbody>
             </table>
           </div>
-          <div class="tbl-btns mgt16">
+          <div class="tbl-btns flex-box mgt16">
             <div>
-              <button type="button" class="btn base primary">
+              <button type="button" class="btn base secondary">
                 <span>엑셀 다운로드</span>
               </button>
             </div>
@@ -388,6 +425,11 @@
                 <a href="#">10</a>
               </span>
               <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+            </div>
+            <div>
+              <button type="button" class="btn base primary">
+                <span>등록</span>
+              </button>
             </div>
           </div>
         </section>

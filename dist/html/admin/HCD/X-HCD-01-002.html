@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -209,7 +206,7 @@
                     <label for="userCategory">사용자 분류</label>
                     <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
-                  <td colspan="6">
+                  <td colspan="3">
                     <div class="frm-area type2">
                       <select id="userCategory">
                         <option>교사</option>
@@ -218,9 +215,32 @@
                         <option>교장</option>
                         <option>교육전문직원</option>
                       </select>
-                      <span class="note left">
-                        사용자 분류(회원 구분)를 선택해주세요.
-                      </span>
+                      <span class="note left"> 사용자 분류(회원 구분)를 선택해주세요. </span>
+                    </div>
+                  </td>
+                  <th scope="row">
+                    설문기간
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td colspan="2">
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </td>
                 </tr>

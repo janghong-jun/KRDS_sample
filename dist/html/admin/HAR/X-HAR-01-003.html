@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -306,8 +303,7 @@
                           </span>
                         </div>
                         <div class="file-list mgt8">
-                          <span class="file-info">이미지 파일만 등록가능 합니다.(권장 :
-                            000*000)</span>
+                          <span class="file-info">이미지 파일만 등록가능 합니다.(권장 : 000*000)</span>
                         </div>
                       </div>
                     </div>
@@ -393,12 +389,12 @@
               <tbody>
                 <tr>
                   <th scope="row">
-                    <label for="select01">역량군</label>
+                    <label for="select00">교원구분(1)</label>
                   </th>
                   <td>
-                    <div class="frm-area flex-box">
-                      <select id="select01">
-                        <option>역량군 선택</option>
+                    <div class="frm-area flex-box mgt0">
+                      <select id="select00">
+                        <option>교원구분 선택</option>
                       </select>
                       <div class="tbl-btns type-small">
                         <button type="button" class="btn base square apply-btn">
@@ -410,7 +406,19 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    <label for="select02">대분류</label>
+                    <label for="select01">역량군(1)</label>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <select id="select01">
+                        <option>역량군 선택</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="select02">대분류(1)</label>
                   </th>
                   <td>
                     <div class="frm-area">
@@ -421,14 +429,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">
-                    <label for="select03">중분류</label>
-                  </th>
+                  <th scope="row">가중치 설정</th>
                   <td>
-                    <div class="frm-area">
-                      <select id="select03">
-                        <option>중분류 선택</option>
-                      </select>
+                    <div class="frm-area flex left small">
+                      <label for="heaviness01">역량군(1)</label>
+                      <input type="text" class="inp-text right" id="heaviness01">
+                      <span class="unit">%</span>
+                      <p class="info">(가중치의 합계가 100%가 되도록 입력해 주세요)</p>
                     </div>
                   </td>
                 </tr>

@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -189,34 +186,17 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 10rem">
+                <col style="width: 15rem">
                 <col>
               </colgroup>
               <tbody>
-                <tr>
-                  <th scope="row">
-                    <label for="userCategory">사용자 분류</label>
-                  </th>
-                  <td>
-                    <div class="frm-area">
-                      <select id="userCategory">
-                        <option>전체</option>
-                        <option>교사</option>
-                        <option>수석교사</option>
-                        <option>교감</option>
-                        <option>교장</option>
-                        <option>교육전문직원</option>
-                      </select>
-                    </div>
-                  </td>
-                </tr>
                 <tr>
                   <th scope="row">기간</th>
                   <td>
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="startDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
@@ -225,20 +205,23 @@
                       <span class="date-sep">~</span>
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="endDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
                       </div>
-                      <div class="tbl-btns">
-                        <button type="button" class="btn base square">
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
                           <span>1개월</span>
                         </button>
-                        <button type="button" class="btn base square">
+                        <button type="button" class="btn base square secondary">
                           <span>3개월</span>
                         </button>
-                        <button type="button" class="btn base square">
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
                           <span>1년</span>
                         </button>
                       </div>
@@ -246,10 +229,36 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"><label for="searchKeyword">키워드</label></th>
+                  <th scope="row">교원구분</th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="searchKeyword" placeholder="최소 2글자 이상 입력해주세요" class="inp-text">
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_01" name="rdoBtn01">
+                        <label for="rdo_01_01" class="lb-radio">교사</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_02" name="rdoBtn01">
+                        <label for="rdo_01_02" class="lb-radio">수석교사</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_03" name="rdoBtn01">
+                        <label for="rdo_01_03" class="lb-radio">교감</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_04" name="rdoBtn01">
+                        <label for="rdo_01_04" class="lb-radio">교장</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="radio" id="rdo_01_05" name="rdoBtn01">
+                        <label for="rdo_01_05" class="lb-radio">교육전문직원</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>
@@ -302,9 +311,7 @@
                   </td>
                   <td>100</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -317,9 +324,7 @@
                   </td>
                   <td>99</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -332,9 +337,7 @@
                   </td>
                   <td>98</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -347,9 +350,7 @@
                   </td>
                   <td>97</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -362,9 +363,7 @@
                   </td>
                   <td>96</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -377,9 +376,7 @@
                   </td>
                   <td>95</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -392,9 +389,7 @@
                   </td>
                   <td>94</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -407,9 +402,7 @@
                   </td>
                   <td>93</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -422,9 +415,7 @@
                   </td>
                   <td>92</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
@@ -437,9 +428,7 @@
                   </td>
                   <td>91</td>
                   <td>교사</td>
-                  <td class="txt-l">
-                    2026년도 경기교원(교사) 핵심역량 진단 설문 2차
-                  </td>
+                  <td class="txt-l">2026년도 경기교원(교사) 핵심역량 진단 설문 2차</td>
                   <td>홍길동</td>
                   <td>YYYY-MM-DD</td>
                 </tr>

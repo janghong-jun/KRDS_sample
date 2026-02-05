@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -186,16 +183,98 @@
         </div>
         <section class="main-conts">
           <h2>저작권 관리</h2>
+
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
+                <col style="width: 15rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
+                  <td>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>2주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">유형</th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01">
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02">
+                        <label for="checkbox_01_02" class="lb-checkbox">동영상</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03">
+                        <label for="checkbox_01_03" class="lb-checkbox">문서</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04">
+                        <label for="checkbox_01_04" class="lb-checkbox">이미지</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">저작권</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_01">
+                        <label for="checkbox_02_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_02">
+                        <label for="checkbox_02_02" class="lb-checkbox">등록</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_02_03">
+                        <label for="checkbox_02_03" class="lb-checkbox">미등록</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>

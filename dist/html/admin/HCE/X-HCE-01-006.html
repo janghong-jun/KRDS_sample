@@ -91,9 +91,6 @@
       <li>
         <a href="#"><span>폐기대상관리</span></a>
       </li>
-      <li>
-        <a href="#"><span>콘텐츠 설정</span></a>
-      </li>
     </ul>
   </li>
   <li>
@@ -189,31 +186,75 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
+                <col style="width: 15rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
                   <td>
-                    <div class="frm-area flex left">
-                      <select aria-label="정산 년도 선택">
-                        <option>년도 전체</option>
-                      </select>
-                      <select aria-label="기준 선택">
-                        <option>기준 전체</option>
-                        <option>년도</option>
-                        <option>반기</option>
-                        <option>분기</option>
-                        <option>월</option>
-                      </select>
-                      <select aria-label="기간 선택">
-                        <option>기간 전체</option>
-                      </select>
-                      <select aria-label="상태 선택">
-                        <option>상태 전체</option>
-                        <option>대기</option>
-                        <option>승인</option>
-                        <option>거부</option>
-                      </select>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상태</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01">
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02">
+                        <label for="checkbox_01_02" class="lb-checkbox">대기</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03">
+                        <label for="checkbox_01_03" class="lb-checkbox">승인</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04">
+                        <label for="checkbox_01_04" class="lb-checkbox">거부</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>
