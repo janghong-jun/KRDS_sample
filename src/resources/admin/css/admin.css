@@ -623,6 +623,9 @@ footer {
   max-height: 33.9rem;
   border-bottom: 0.1rem solid #dfe0e2;
 }
+.tbl-base.scroll.big {
+  max-height: 50rem;
+}
 .tbl-base.scroll table {
   border-bottom: none;
 }
@@ -631,6 +634,7 @@ footer {
   top: 0;
   left: 0;
   border-bottom: none;
+  z-index: 1;
 }
 .tbl-base.scroll table thead tr th {
   position: relative;
@@ -642,6 +646,20 @@ footer {
   left: 0;
   right: 0;
   border-bottom: 0.1rem solid #222;
+}
+.tbl-base.scroll .depth span {
+  display: flex;
+  gap: 0.8rem;
+}
+.tbl-base.scroll .depth .depth2 {
+  padding-left: 2rem;
+}
+.tbl-base.scroll .depth .depth3 {
+  padding-left: 4rem;
+}
+.tbl-base.scroll .depth .depth2::before,
+.tbl-base.scroll .depth .depth3::before {
+  content: '└';
 }
 .tbl-base .ui-tablescroll-clone {
   position: absolute;

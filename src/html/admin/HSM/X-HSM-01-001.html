@@ -29,27 +29,85 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 13rem" />
+                <col style="width: 15rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
+                  <td class="pr0">
+                    <select>
+                      <option>가입일</option>
+                    </select>
+                  </td>
                   <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>이름</option>
-                        <option>아이디</option>
-                        <option>회원구분</option>
-                      </select>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input
+                            type="text"
+                            id="startDate"
+                            class="inp-base date"
+                            aria-label="날짜입력"
+                            readonly
+                            placeholder="YYYY-MM-DD"
+                          />
+                          <button
+                            type="button"
+                            class="ui-datepicker-btn"
+                            data-target="startDate"
+                          >
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input
+                            type="text"
+                            id="endDate"
+                            class="inp-base date"
+                            aria-label="날짜입력"
+                            readonly
+                            placeholder="YYYY-MM-DD"
+                          />
+                          <button
+                            type="button"
+                            class="ui-datepicker-btn"
+                            data-target="endDate"
+                          >
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
                     </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pr0">
+                    <select>
+                      <option>회원구분</option>
+                    </select>
                   </td>
                   <td>
                     <div class="frm-area">
                       <input
                         type="text"
                         class="inp-text"
-                        placeholder="최소 2글자 이상 입력해주세요"
                         aria-label="검색어 입력"
                       />
                     </div>
@@ -72,12 +130,12 @@
           <div class="tbl-base type2 mgt10">
             <table>
               <colgroup>
-                <col style="width: 8.8rem" />
                 <col style="width: 10rem" />
-                <col style="width: 15rem" />
+                <col style="width: 20rem" />
                 <col />
-                <col style="width: 19rem" />
-                <col style="width: 19rem" />
+                <col style="width: 20rem" />
+                <col style="width: 20rem" />
+                <col style="width: 20rem" />
               </colgroup>
               <thead>
                 <tr>
@@ -92,81 +150,81 @@
               <tbody>
                 <tr>
                   <td>100</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>99</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교감</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교감</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>98</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교육전문</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교육전문</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>97</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">수석교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>수석교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>96</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">운영관리</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>운영관리</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>95</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교육전문</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교육전문</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>94</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>93</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>92</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
                 <tr>
                   <td>91</td>
-                  <td>홍길동</td>
-                  <td class="txt-l">Arkab409</td>
-                  <td class="txt-l">교사</td>
+                  <td><a href="#">홍길동</a></td>
+                  <td>Arkab409</td>
+                  <td>교사</td>
                   <td>2025-03-20 16:49:59</td>
                   <td>2020-02-25 16:08:14</td>
                 </tr>
