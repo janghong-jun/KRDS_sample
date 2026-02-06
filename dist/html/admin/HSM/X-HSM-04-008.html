@@ -18,7 +18,7 @@
   src="../../../resources/admin/js/ui.observer.js"
 ></script> -->
     <script type="text/javascript">
-      pageInfo = { mid: '1', sid: '6' };
+      pageInfo = { mid: '1', sid: '8' };
     </script>
   </head>
 
@@ -60,13 +60,36 @@
         <a href="#"><span>게시판관리</span></a>
       </li>
       <li>
+        <a href="#"><span>게시판 추가 요청 관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시글관리</span></a>
+      </li>
+      </ul></li>
+      <li>
         <a href="#"><span>금칙어관리</span></a>
       </li>
     </ul>
+  
+  <li>
+    <a href="#" id="menu2" class="mMenu">전문가관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>전문가관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>전문가설정</span></a>
+      </li>
+    </ul>
   </li>
-  <li><a href="#" id="menu2">전문가관리</a></li>
   <li><a href="#" id="menu3">역량관리</a></li>
-  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu4" class="mMenu">모듈관리</a>
+    <ul class="sub">
+      <li><a href="#">모듈관리</a></li>
+      <li><a href="#">모듈설정</a></li>
+    </ul>
+  </li>
   <li>
     <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
     <ul class="sub">
@@ -179,29 +202,81 @@
       </li>
     </ul>
   </li>
-</ul>
+
         </div>
         <section class="main-conts">
-          <h2>커뮤니티 게시판 관리</h2>
-          <div class="tbl-base mgt10">
+          <h2>커뮤니티 게시글 관리</h2>
+          <div class="ui-tab grid mgt10">
+            <div class="ui-tab-btns">
+              <button type="button" class="ui-tab-btn selected">자유</button>
+              <button type="button" class="ui-tab-btn">주제1</button>
+              <button type="button" class="ui-tab-btn">주제2</button>
+              <button type="button" class="ui-tab-btn">주제3</button>
+              <button type="button" class="ui-tab-btn">주제4</button>
+              <button type="button" class="ui-tab-btn">주제5</button>
+              <button type="button" class="ui-tab-btn">주제6</button>
+            </div>
+          </div>
+          <div class="tbl-base mgt24">
             <table>
               <colgroup>
-                <col style="width: 13rem">
+                <col style="width: 15rem">
+                <col style="width: 26rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
-                  <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>제목</option>
-                      </select>
+                  <th scope="row">기간</th>
+                  <td colspan="2">
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
-                  <td>
+                </tr>
+                <tr>
+                  <th scope="row">상태</th>
+                  <td class="pr0">
+                    <select>
+                      <option>전체</option>
+                      <option>제목</option>
+                      <option>내용</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
                     <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>
@@ -213,35 +288,10 @@
               <span>검색</span>
             </button>
           </div>
-          <div class="tbl-btns type-small mgt24 right">
-            <div>
-              <button type="button" class="btn base square fill btn-modal" data-id="X-HSM-04-010" data-src="X-HSM-04-010.html">
-                <span>게시판 추가</span>
-              </button>
-            </div>
-          </div>
-          <div class="ui-tab grid mgt10">
-            <div class="ui-tab-btns">
-              <button class="ui-tab-btn btn-all selected">전체 보기</button>
-              <div>
-                <button type="button" class="ui-tab-btn">자유</button>
-                <button type="button" class="ui-tab-btn">주제1</button>
-                <button type="button" class="ui-tab-btn">주제2</button>
-                <button type="button" class="ui-tab-btn">주제3</button>
-                <button type="button" class="ui-tab-btn">주제4</button>
-                <button type="button" class="ui-tab-btn">주제5</button>
-                <button type="button" class="ui-tab-btn">주제6</button>
-              </div>
-            </div>
-          </div>
-          <div class="sub-title">
-            <h3>전체보기</h3>
-          </div>
-          <div class="tbl-base type2 mgt10">
+          <div class="tbl-base type2 mgt24">
             <table>
               <colgroup>
                 <col style="width: 8rem">
-                <col style="width: 7rem">
                 <col>
                 <col style="width: 7rem">
                 <col style="width: 7rem">
@@ -252,7 +302,6 @@
               <thead>
                 <tr>
                   <th scope="col">No.</th>
-                  <th scope="col">구분</th>
                   <th scope="col">제목</th>
                   <th scope="col">상태</th>
                   <th scope="col">글쓴이</th>
@@ -264,7 +313,6 @@
               <tbody>
                 <tr>
                   <td><span class="notice">공지</span></td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -274,7 +322,6 @@
                 </tr>
                 <tr>
                   <td><span class="featured">추천</span></td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -284,7 +331,6 @@
                 </tr>
                 <tr>
                   <td><span class="featured">추천</span></td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -294,7 +340,6 @@
                 </tr>
                 <tr>
                   <td>97</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -304,7 +349,6 @@
                 </tr>
                 <tr>
                   <td>96</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -314,7 +358,6 @@
                 </tr>
                 <tr>
                   <td>95</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -324,7 +367,6 @@
                 </tr>
                 <tr>
                   <td>94</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -334,7 +376,6 @@
                 </tr>
                 <tr>
                   <td>93</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -344,7 +385,6 @@
                 </tr>
                 <tr>
                   <td>92</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -354,7 +394,6 @@
                 </tr>
                 <tr>
                   <td>91</td>
-                  <td>자유1</td>
                   <td class="txt-l">깊이있는 수업 on 보평초등학교</td>
                   <td>게시</td>
                   <td>홍길동</td>
@@ -363,7 +402,7 @@
                   <td>8888</td>
                 </tr>
                 <tr>
-                  <td colspan="8" class="nodata">검색된 내용이 없습니다.</td>
+                  <td colspan="7" class="nodata">검색된 내용이 없습니다.</td>
                 </tr>
               </tbody>
             </table>

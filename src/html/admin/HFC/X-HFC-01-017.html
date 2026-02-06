@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!--# include virtual="../../../components/_admin-head.html" -->
+    <script type="text/javascript">
+      pageInfo = { mid: '6', sid: '10' };
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="gnb-wrap" id="header">
+        <div>
+          <h1><span class="hide">Hi-Coaching</span></h1>
+          <div class="links">
+            <button type="button" class="logout">로그아웃</button>
+          </div>
+        </div>
+      </header>
+      <main class="main-wrap" id="content">
+        <div class="sub-nav">
+          <button type="button" class="menu">
+            <span class="hide">메뉴</span>
+          </button>
+          <!--# include virtual="../../../components/_admin-lnb.html" -->
+        </div>
+        <section class="main-conts">
+          <h2>신고 관리</h2>
+
+          <div class="ui-tab left mgt24" data-id="tab01" data-current="0">
+            <div class="ui-tab-btns">
+              <button type="button" class="ui-tab-btn" data-tab="0">전체</button>
+              <button type="button" class="ui-tab-btn" data-tab="1">폐기 대상</button>
+              <button type="button" class="ui-tab-btn" data-tab="2">폐기 완료 목록</button>
+            </div>
+            <div class="ui-tab-pnls">
+              <div class="ui-tab-pnl" data-tab="0">
+                <div class="tbl-base mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>등록일</option>
+                            <option>신고일</option>
+                          </select>
+                        </td>
+                        <td colspan="3">
+                          <div class="flex-box align-center">
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <span class="date-sep">~</span>
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="date-select">
+                              <button type="button" class="btn base square secondary">
+                                <span>1개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>3개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>6개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>1년</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>제목</option>
+                            <option>내용</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>유형</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>대기</option>
+                            <option>처리</option>
+                          </select>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td colspan="4">
+                          <div class="frm-area">
+                            <input type="text" class="inp-text" aria-label="검색어 입력" />
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns center">
+                  <button type="button" class="btn base secondary">
+                    <span>검색</span>
+                  </button>
+                </div>
+                <div class="sub-title">
+                  <div style="margin-left: auto">
+                    <label for="select01">처리상태</label>
+                    <select id="select01">
+                      <option>전체</option>
+                      <option>대기중</option>
+                      <option>처리</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="tbl-base type2 mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 8.8rem" />
+                      <col />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 7rem" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">모듈 명</th>
+                        <th scope="col">신고자</th>
+                        <th scope="col">신고 유형</th>
+                        <th scope="col">모듈 등록일</th>
+                        <th scope="col">신고일</th>
+                        <th scope="col">처리상태</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>100</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>99</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>박역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>98</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김발전</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>97</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>96</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>95</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>94</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>93</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>92</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>91</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>이교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns mgt16">
+                  <div class="pager">
+                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <span class="num">
+                      <a href="#">1</a>
+                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">5</a>
+                      <a href="#">6</a>
+                      <a href="#">7</a>
+                      <a href="#">8</a>
+                      <a href="#">9</a>
+                      <a href="#">10</a>
+                    </span>
+                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-tab-pnl" data-tab="1">
+                <div class="tbl-base mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>등록일</option>
+                            <option>신고일</option>
+                          </select>
+                        </td>
+                        <td colspan="3">
+                          <div class="flex-box align-center">
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <span class="date-sep">~</span>
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="date-select">
+                              <button type="button" class="btn base square secondary">
+                                <span>1개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>3개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>6개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>1년</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>제목</option>
+                            <option>내용</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>유형</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>대기</option>
+                            <option>처리</option>
+                          </select>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td colspan="4">
+                          <div class="frm-area">
+                            <input type="text" class="inp-text" aria-label="검색어 입력" />
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns center">
+                  <button type="button" class="btn base secondary">
+                    <span>검색</span>
+                  </button>
+                </div>
+                <div class="sub-title">
+                  <div style="margin-left: auto">
+                    <label for="select02">처리상태</label>
+                    <select id="select02">
+                      <option>전체</option>
+                      <option>대기중</option>
+                      <option>처리</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="tbl-base type2 mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 8.8rem" />
+                      <col />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 7rem" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">전문가 이름</th>
+                        <th scope="col">신고자</th>
+                        <th scope="col">신고 유형</th>
+                        <th scope="col">전문가 등재일</th>
+                        <th scope="col">신고일</th>
+                        <th scope="col">처리상태</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>100</td>
+                        <td><a href="#">김멘토</a></td>
+                        <td>김역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>99</td>
+                        <td><a href="#">박전문</a></td>
+                        <td>박역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>98</td>
+                        <td><a href="#">최역량</a></td>
+                        <td>김발전</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>97</td>
+                        <td><a href="#">김멘토</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>96</td>
+                        <td><a href="#">박전문</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>95</td>
+                        <td><a href="#">최역량</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>94</td>
+                        <td><a href="#">김멘토</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>93</td>
+                        <td><a href="#">박전문</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>92</td>
+                        <td><a href="#">최역량</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>91</td>
+                        <td><a href="#">박전문</a></td>
+                        <td>이교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns mgt16">
+                  <div class="pager">
+                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <span class="num">
+                      <a href="#">1</a>
+                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">5</a>
+                      <a href="#">6</a>
+                      <a href="#">7</a>
+                      <a href="#">8</a>
+                      <a href="#">9</a>
+                      <a href="#">10</a>
+                    </span>
+                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-tab-pnl" data-tab="2">
+                <div class="tbl-base mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>등록일</option>
+                            <option>신고일</option>
+                          </select>
+                        </td>
+                        <td colspan="3">
+                          <div class="flex-box align-center">
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <span class="date-sep">~</span>
+                            <div class="ui-date-wrap">
+                              <div class="ui-datepicker">
+                                <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                                <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                                  <span class="a11y-hidden">년월일 선택</span>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="date-select">
+                              <button type="button" class="btn base square secondary">
+                                <span>1개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>3개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>6개월</span>
+                              </button>
+                              <button type="button" class="btn base square secondary">
+                                <span>1년</span>
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>제목</option>
+                            <option>내용</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>유형</option>
+                          </select>
+                        </td>
+                        <td class="pr0">
+                          <select>
+                            <option>전체</option>
+                            <option>대기</option>
+                            <option>처리</option>
+                          </select>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td colspan="4">
+                          <div class="frm-area">
+                            <input type="text" class="inp-text" aria-label="검색어 입력" />
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns center">
+                  <button type="button" class="btn base secondary">
+                    <span>검색</span>
+                  </button>
+                </div>
+                <div class="sub-title">
+                  <div style="margin-left: auto">
+                    <label for="select03">처리상태</label>
+                    <select id="select03">
+                      <option>전체</option>
+                      <option>대기중</option>
+                      <option>처리</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="tbl-base type2 mgt10">
+                  <table>
+                    <colgroup>
+                      <col style="width: 8.8rem" />
+                      <col />
+                      <col style="width: 15rem" />
+                      <col style="width: 15rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 12rem" />
+                      <col style="width: 7rem" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">콘텐츠 명</th>
+                        <th scope="col">신고자</th>
+                        <th scope="col">신고 유형</th>
+                        <th scope="col">콘텐츠 등록일</th>
+                        <th scope="col">신고일</th>
+                        <th scope="col">처리상태</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>100</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>99</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>박역량</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>98</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김발전</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>97</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>대기</td>
+                      </tr>
+                      <tr>
+                        <td>96</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>95</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>94</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>조스승</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>93</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>장교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>92</td>
+                        <td class="txt-l"><a href="#">깊이있는 수업 on 보평초등학교</a></td>
+                        <td>김경기</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                      <tr>
+                        <td>91</td>
+                        <td class="txt-l"><a href="#">체육활동 관련 안전사고 현황 및 대처</a></td>
+                        <td>이교육</td>
+                        <td>신고시 선택한 유형</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>YYYY-MM-DD</td>
+                        <td>처리</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl-btns mgt16">
+                  <div class="pager">
+                    <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
+                    <span class="num">
+                      <a href="#">1</a>
+                      <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">5</a>
+                      <a href="#">6</a>
+                      <a href="#">7</a>
+                      <a href="#">8</a>
+                      <a href="#">9</a>
+                      <a href="#">10</a>
+                    </span>
+                    <a href="#" class="btn next"><span class="hide">다음으로</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>Copyright©2025 Hi-Coaching. All rights reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -60,13 +60,36 @@
         <a href="#"><span>게시판관리</span></a>
       </li>
       <li>
+        <a href="#"><span>게시판 추가 요청 관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시글관리</span></a>
+      </li>
+      </ul></li>
+      <li>
         <a href="#"><span>금칙어관리</span></a>
       </li>
     </ul>
+  
+  <li>
+    <a href="#" id="menu2" class="mMenu">전문가관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>전문가관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>전문가설정</span></a>
+      </li>
+    </ul>
   </li>
-  <li><a href="#" id="menu2">전문가관리</a></li>
   <li><a href="#" id="menu3">역량관리</a></li>
-  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu4" class="mMenu">모듈관리</a>
+    <ul class="sub">
+      <li><a href="#">모듈관리</a></li>
+      <li><a href="#">모듈설정</a></li>
+    </ul>
+  </li>
   <li>
     <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
     <ul class="sub">
@@ -179,7 +202,7 @@
       </li>
     </ul>
   </li>
-</ul>
+
         </div>
         <section class="main-conts">
           <h2>공지사항</h2>
@@ -203,15 +226,40 @@
                       <span class="lb-item flex-none">
                         <select id="select01">
                           <option>구분 전체</option>
-                          <option selected="selected">공지</option>
+                          <option>공지</option>
                           <option>업데이트</option>
                           <option>점검</option>
                         </select>
                       </span>
                       <span class="lb-item">
-                        <input type="checkbox" id="chk01" checked="checked">
+                        <input type="checkbox" id="chk01">
                         <label for="chk01" class="lb-checkbox"><span>중요공지 (목록에 표시)</span></label>
                       </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">중요공지 기간</th>
+                  <td>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      해당 기간 동안 중요공지로 상단 노출됩니다.
                     </div>
                   </td>
                 </tr>
@@ -222,7 +270,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" id="inp01" class="inp-text" value="[필독] 12월 15일 시스템 점검">
+                      <input type="text" id="inp01" class="inp-text">
                     </div>
                   </td>
                 </tr>
@@ -267,20 +315,7 @@
                         </span>
                       </div>
                       <div class="file-list mgt8">
-                        <div class="file">
-                          <p class="file-name">시스템점검안내_20251215.pdf</p>
-                          <button type="button" class="btn-del">
-                            <span>삭제</span>
-                          </button>
-                        </div>
-                        <div class="file">
-                          <p class="file-name">시스템점검안내_20251215.pdf</p>
-                          <button type="button" class="btn-del">
-                            <span>삭제</span>
-                          </button>
-                        </div>
-                        <span class="file-info">jpg, png, pdf, hwp, docx만 등록 가능 (최대
-                          10MB)</span>
+                        <span class="file-info">jpg, png, pdf, hwp, docx만 등록 가능 (최대 10MB)</span>
                       </div>
                     </div>
                   </td>
@@ -289,15 +324,12 @@
             </table>
           </div>
           <div class="tbl-btns">
-            <button type="button" class="btn base tertiary">
-              <span>삭제</span>
-            </button>
             <div>
               <button type="button" class="btn base secondary">
-                <span>취소</span>
+                <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
-                <span>수정</span>
+                <span>등록</span>
               </button>
             </div>
           </div>

@@ -18,7 +18,7 @@
   src="../../../resources/admin/js/ui.observer.js"
 ></script> -->
     <script type="text/javascript">
-      pageInfo = { mid: '1', sid: '7' };
+      pageInfo = { mid: '1', sid: '9' };
     </script>
   </head>
 
@@ -60,13 +60,36 @@
         <a href="#"><span>게시판관리</span></a>
       </li>
       <li>
+        <a href="#"><span>게시판 추가 요청 관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시글관리</span></a>
+      </li>
+      </ul></li>
+      <li>
         <a href="#"><span>금칙어관리</span></a>
       </li>
     </ul>
+  
+  <li>
+    <a href="#" id="menu2" class="mMenu">전문가관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>전문가관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>전문가설정</span></a>
+      </li>
+    </ul>
   </li>
-  <li><a href="#" id="menu2">전문가관리</a></li>
   <li><a href="#" id="menu3">역량관리</a></li>
-  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu4" class="mMenu">모듈관리</a>
+    <ul class="sub">
+      <li><a href="#">모듈관리</a></li>
+      <li><a href="#">모듈설정</a></li>
+    </ul>
+  </li>
   <li>
     <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
     <ul class="sub">
@@ -179,7 +202,7 @@
       </li>
     </ul>
   </li>
-</ul>
+
         </div>
         <section class="main-conts">
           <h2>금칙어 관리</h2>
@@ -213,64 +236,12 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    적용범위
-                    <span class="ico-req"><span class="hide">필수</span></span>
-                  </th>
-                  <td>
-                    <div class="frm-area">
-                      <span class="lb-item">
-                        <input type="radio" id="rdo_01_01" name="rdoBtn01" checked="checked">
-                        <label for="rdo_01_01" class="lb-radio">전체 게시글(댓글 포함)</label>
-                      </span>
-                      <span class="lb-item">
-                        <input type="radio" id="rdo_01_02" name="rdoBtn01">
-                        <label for="rdo_01_02" class="lb-radio">학습공동체 게시용</label>
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    금칙어 처리
-                    <span class="ico-req"><span class="hide">필수</span></span>
-                  </th>
-                  <td>
-                    <div class="frm-area">
-                      <span class="lb-item">
-                        <input type="radio" id="rdo_02_01" name="rdoBtn02" checked="checked">
-                        <label for="rdo_02_01" class="lb-radio">등록 불가</label>
-                      </span>
-                      <span class="lb-item">
-                        <input type="radio" id="rdo_02_02" name="rdoBtn02">
-                        <label for="rdo_02_02" class="lb-radio">삭제(표시 안함)</label>
-                      </span>
-                      <span class="lb-item">
-                        <input type="radio" id="rdo_02_03" name="rdoBtn02">
-                        <label for="rdo_02_03" class="lb-radio">마스킹 표시(*******)</label>
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label for="inp01">대표금칙어</label>
-                    <span class="ico-req"><span class="hide">필수</span></span>
-                  </th>
-                  <td>
-                    <div class="frm-area">
-                      <input type="text" id="inp01" class="inp-text" value="강아지">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
                     <label for="inp02">관련금칙어</label>
                     <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
-                      <textarea type="text" id="inp02" class="inp-textrea" style="height: 10rem">
-강아지, 강 아지, 강아 지, 강 아 지, 강아지같은, 강아지스러운, 10강아지, 신난강아지</textarea>
+                      <textarea type="text" id="inp02" class="inp-textrea" style="height: 10rem">강아지, 강 아지, 강아 지, 강 아 지, 강아지같은, 강아지스러운, 10강아지, 신난강아지</textarea>
                     </div>
                   </td>
                 </tr>
@@ -296,12 +267,9 @@
             </table>
           </div>
           <div class="tbl-btns">
-            <button type="button" class="btn base tertiary">
-              <span>삭제</span>
-            </button>
             <div>
               <button type="button" class="btn base secondary">
-                <span>취소</span>
+                <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
                 <span>수정</span>

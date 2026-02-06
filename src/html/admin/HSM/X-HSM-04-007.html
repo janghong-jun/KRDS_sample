@@ -29,28 +29,73 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 18.9rem" />
+                <col style="width: 15rem" />
+                <col style="width: 26rem" />
+                <col style="width: 26rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
                   <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>내역</option>
-                        <option>수신자</option>
-                      </select>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
-                  <td>
+                </tr>
+                <tr>
+                  <th scope="row">상태</th>
+                  <td class="pr0">
+                    <select>
+                      <option>전체</option>
+                      <option>발송내역</option>
+                      <option>수신자</option>
+                    </select>
+                  </td>
+                  <td class="pr0">
+                    <select>
+                      <option>수신거부여부</option>
+                      <option>전체</option>
+                      <option>수신</option>
+                      <option>수신거부</option>
+                    </select>
+                  </td>
+                  <td class="pr0"></td>
+                </tr>
+                <tr>
+                  <td colspan="4">
                     <div class="frm-area">
-                      <input
-                        type="text"
-                        class="inp-text"
-                        placeholder="최소 2글자 이상 입력해주세요"
-                        aria-label="검색어 입력"
-                      />
+                      <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
                   </td>
                 </tr>
@@ -185,14 +230,10 @@
           </div>
           <div class="tbl-btns mgt16">
             <div class="pager">
-              <a href="#" class="btn prev disabled"
-                ><span class="hide">이전으로</span></a
-              >
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
               <span class="num">
                 <a href="#">1</a>
-                <a href="#" class="on"
-                  ><span class="hide">현재 페이지:</span>2</a
-                >
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
@@ -202,9 +243,7 @@
                 <a href="#">9</a>
                 <a href="#">10</a>
               </span>
-              <a href="#" class="btn next"
-                ><span class="hide">다음으로</span></a
-              >
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
             </div>
           </div>
         </section>

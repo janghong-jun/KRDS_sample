@@ -29,49 +29,19 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 18.9rem" />
+                <col style="width: 15rem" />
+                <col style="width: 26rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
-                  <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>제목</option>
-                        <option>채널명</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="frm-area">
-                      <input
-                        type="text"
-                        class="inp-text"
-                        placeholder="최소 2글자 이상 입력해주세요"
-                        aria-label="검색어 입력"
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" class="txt-l">게시일</th>
-                  <td>
+                  <th scope="row">기간</th>
+                  <td colspan="2">
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input
-                            type="text"
-                            id="startDate"
-                            class="inp-base date"
-                            aria-label="날짜입력"
-                            readonly
-                          />
-                          <button
-                            type="button"
-                            class="ui-datepicker-btn"
-                            data-target="startDate"
-                          >
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
@@ -79,22 +49,42 @@
                       <span class="date-sep">~</span>
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input
-                            type="text"
-                            id="endDate"
-                            class="inp-base date"
-                            aria-label="날짜입력"
-                            readonly
-                          />
-                          <button
-                            type="button"
-                            class="ui-datepicker-btn"
-                            data-target="endDate"
-                          >
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
                       </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상태</th>
+                  <td class="pr0">
+                    <select>
+                      <option>전체</option>
+                    </select>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
                   </td>
                 </tr>
@@ -127,100 +117,70 @@
               <tbody>
                 <tr>
                   <td>100</td>
-                  <td class="txt-l">
-                    2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는
-                    교육과정
-                  </td>
+                  <td class="txt-l">2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는 교육과정</td>
                   <td>경기도교육청</td>
                   <td>30:00:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>99</td>
-                  <td class="txt-l">
-                    [KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막
-                    영상)
-                  </td>
+                  <td class="txt-l">[KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막 영상)</td>
                   <td>교육과정평가원</td>
                   <td>25:15:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>98</td>
-                  <td class="txt-l">
-                    [KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도
-                    평가 출제 방안 연구
-                  </td>
+                  <td class="txt-l">[KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도 평가 출제 방안 연구</td>
                   <td>오늘의도덕</td>
                   <td>1:15:30</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>97</td>
-                  <td class="txt-l">
-                    2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는
-                    교육과정
-                  </td>
+                  <td class="txt-l">2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는 교육과정</td>
                   <td>민샘리코더</td>
                   <td>30:00:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>96</td>
-                  <td class="txt-l">
-                    [KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막
-                    영상)
-                  </td>
+                  <td class="txt-l">[KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막 영상)</td>
                   <td>물고기자리 영어샘 TV</td>
                   <td>25:15:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>95</td>
-                  <td class="txt-l">
-                    [KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도
-                    평가 출제 방안 연구
-                  </td>
+                  <td class="txt-l">[KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도 평가 출제 방안 연구</td>
                   <td>경기도교육청</td>
                   <td>1:15:30</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>94</td>
-                  <td class="txt-l">
-                    2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는
-                    교육과정
-                  </td>
+                  <td class="txt-l">2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는 교육과정</td>
                   <td>교육과정평가원</td>
                   <td>30:00:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>93</td>
-                  <td class="txt-l">
-                    [KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막
-                    영상)
-                  </td>
+                  <td class="txt-l">[KICE 영상보고서] 좋은 수업이란? (청각장애인을 위한 자막 영상)</td>
                   <td>오늘의도덕</td>
                   <td>25:15:00</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>92</td>
-                  <td class="txt-l">
-                    [KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도
-                    평가 출제 방안 연구
-                  </td>
+                  <td class="txt-l">[KICE 카드뉴스] 2022 개정 교육과정 적용에 따른 학업성취도 평가 출제 방안 연구</td>
                   <td>민샘리코더</td>
                   <td>1:15:30</td>
                   <td>YYYY-MM-DD</td>
                 </tr>
                 <tr>
                   <td>91</td>
-                  <td class="txt-l">
-                    2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는
-                    교육과정
-                  </td>
+                  <td class="txt-l">2025 교육광장 겨울호 「학교 탐방」 학생의 선택이 만들어 가는 교육과정</td>
                   <td>물고기자리 영어샘 TV</td>
                   <td>25:15:00</td>
                   <td>YYYY-MM-DD</td>
@@ -234,14 +194,10 @@
           </div>
           <div class="tbl-btns mgt16">
             <div class="pager">
-              <a href="#" class="btn prev disabled"
-                ><span class="hide">이전으로</span></a
-              >
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
               <span class="num">
                 <a href="#">1</a>
-                <a href="#" class="on"
-                  ><span class="hide">현재 페이지:</span>2</a
-                >
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
@@ -251,9 +207,7 @@
                 <a href="#">9</a>
                 <a href="#">10</a>
               </span>
-              <a href="#" class="btn next"
-                ><span class="hide">다음으로</span></a
-              >
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
             </div>
           </div>
         </section>

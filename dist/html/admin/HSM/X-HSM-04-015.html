@@ -1,7 +1,7 @@
 <section class="ui-modal type-small" id="X-HSM-04-015">
   <div class="ui-modal-wrap">
     <div class="ui-modal-header">
-      <h1 class="ui-modal-tit">공지사항 작성</h1>
+      <h1 class="ui-modal-tit">공지글 작성</h1>
       <button type="button" class="icon-close ui-modal-close" aria-label="close">
         <span class="hide">모달 닫기</span>
       </button>
@@ -20,6 +20,30 @@
                 <td>
                   <div class="frm-area">
                     <input type="text" class="inp-text" id="inp-text">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">기간</th>
+                <td>
+                  <div class="flex-box align-center">
+                    <div class="ui-date-wrap">
+                      <div class="ui-datepicker">
+                        <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                        <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                          <span class="a11y-hidden">년월일 선택</span>
+                        </button>
+                      </div>
+                    </div>
+                    <span class="date-sep">~</span>
+                    <div class="ui-date-wrap">
+                      <div class="ui-datepicker">
+                        <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
+                        <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                          <span class="a11y-hidden">년월일 선택</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </td>
               </tr>

@@ -3,7 +3,7 @@
   <head>
     <!--# include virtual="../../../components/_admin-head.html" -->
     <script type="text/javascript">
-      pageInfo = { mid: '2' };
+      pageInfo = { mid: '2', sid: '1' };
     </script>
   </head>
 
@@ -26,9 +26,7 @@
         </div>
         <section class="main-conts">
           <h2>전문가관리</h2>
-          <h3 class="mgt24">
-            <span class="fc-primary">김전문(id12345)</span>님의 정보 입니다.
-          </h3>
+          <h3 class="mgt24"><span class="fc-primary">김전문(id12345)</span>님의 정보 입니다.</h3>
           <div class="sub-title">
             <h4 class="fc-black">기본정보</h4>
           </div>
@@ -126,18 +124,14 @@
               </colgroup>
               <tbody>
                 <tr>
-                  <th scope="col" colspan="4" class="txt-c">
-                    주요활동 및 학습이력
-                  </th>
+                  <th scope="col" colspan="4" class="txt-c">주요활동 및 학습이력</th>
                 </tr>
                 <tr>
                   <td class="txt-l" colspan="4">
                     <ul class="list-dot">
                       <li>교사 교육과정 설계 개념과 방향성 실습 코칭</li>
                       <li>학습공동체 모임을 통한 학습 역량 획득 사례 연구</li>
-                      <li>
-                        교사들의 올바른 학생 생활지도 노하우 공유 모임 활동
-                      </li>
+                      <li>교사들의 올바른 학생 생활지도 노하우 공유 모임 활동</li>
                     </ul>
                   </td>
                 </tr>
@@ -145,12 +139,13 @@
                   <th scope="col" colspan="4" class="txt-c">자기소개</th>
                 </tr>
                 <tr>
-                  <td class="txt-l" colspan="4">
-                    항상 진심을 다한다는 마음으로 목표를 위해 달려왔습니다. 열린
-                    마음으로 소통할 수 있는 준비된 자세로 학교가 원하는 방향에
-                    우리의 가치를 더 발전 시킬 수 있도록 함께 하겠습니다.
-                    감사합니다.
-                  </td>
+                  <td class="txt-l" colspan="4">항상 진심을 다한다는 마음으로 목표를 위해 달려왔습니다. 열린 마음으로 소통할 수 있는 준비된 자세로 학교가 원하는 방향에 우리의 가치를 더 발전 시킬 수 있도록 함께 하겠습니다. 감사합니다.</td>
+                </tr>
+                <tr>
+                  <th scope="row">교원구분</th>
+                  <td>교사</td>
+                  <th scope="row">전문분야</th>
+                  <td>교수 역량, 생활교육 역량, 자기개발 역량</td>
                 </tr>
                 <tr>
                   <th scope="row">매칭 회원수</th>
@@ -171,26 +166,14 @@
                   <td>
                     <div class="flex-box mgt0">
                       <span>27 건</span>
-                      <button
-                        class="btn-modal btn-text btn-modal"
-                        data-id="X-HER-06-004"
-                        data-src="X-HER-06-004.html"
-                      >
-                        학습모듈보기
-                      </button>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-004" data-src="X-HER-06-004.html">학습모듈보기</button>
                     </div>
                   </td>
                   <th scope="row">등록 학습콘텐츠 건수</th>
                   <td>
                     <div class="flex-box mgt0">
                       <span>36 건</span>
-                      <button
-                        class="btn-modal btn-text btn-modal"
-                        data-id="X-HER-06-005"
-                        data-src="X-HER-06-005.html"
-                      >
-                        등록 학습콘텐츠 건수
-                      </button>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-005" data-src="X-HER-06-005.html">등록 학습콘텐츠 건수</button>
                     </div>
                   </td>
                 </tr>
@@ -199,20 +182,14 @@
                   <td>
                     <div class="flex-box mgt0">
                       <span>7 건</span>
-                      <button
-                        class="btn-modal btn-text btn-modal"
-                        data-id="X-HER-06-006"
-                        data-src="X-HER-06-006.html"
-                      >
-                        학습공동체보기
-                      </button>
+                      <button class="btn-modal btn-text btn-modal" data-id="X-HER-06-006" data-src="X-HER-06-006.html">학습공동체보기</button>
                     </div>
                   </td>
                   <th scope="row">신고 건수</th>
                   <td>
                     <div class="flex-box mgt0">
                       <span>36 건</span>
-                      <button
+                      <!-- <button
                         class="btn-modal btn-text btn-modal"
                         onClick="
                           UI.modal.show({
@@ -230,7 +207,7 @@
                           });"
                       >
                         신고내용보기
-                      </button>
+                      </button> -->
                     </div>
                   </td>
                 </tr>
@@ -254,12 +231,7 @@
                 <span>작성자 <strong>윤*습(amer*****)</strong></span>
                 <span>작성일 <strong>2026-03-16</strong></span>
               </div>
-              <p>
-                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
-                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
-                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
-                제안해 주시고... 최고의 멘토가 되어 주셨어요..
-              </p>
+              <p>저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움 주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^ 어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도 제안해 주시고... 최고의 멘토가 되어 주셨어요..</p>
             </li>
             <li>
               <div>
@@ -267,12 +239,7 @@
                 <span>작성자 <strong>윤*습(amer*****)</strong></span>
                 <span>작성일 <strong>2026-03-16</strong></span>
               </div>
-              <p>
-                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
-                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
-                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
-                제안해 주시고... 최고의 멘토가 되어 주셨어요..
-              </p>
+              <p>저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움 주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^ 어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도 제안해 주시고... 최고의 멘토가 되어 주셨어요..</p>
             </li>
             <li>
               <div>
@@ -280,12 +247,7 @@
                 <span>작성자 <strong>윤*습(amer*****)</strong></span>
                 <span>작성일 <strong>2026-03-16</strong></span>
               </div>
-              <p>
-                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
-                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
-                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
-                제안해 주시고... 최고의 멘토가 되어 주셨어요..
-              </p>
+              <p>저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움 주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^ 어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도 제안해 주시고... 최고의 멘토가 되어 주셨어요..</p>
             </li>
             <li>
               <div>
@@ -293,12 +255,7 @@
                 <span>작성자 <strong>윤*습(amer*****)</strong></span>
                 <span>작성일 <strong>2026-03-16</strong></span>
               </div>
-              <p>
-                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
-                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
-                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
-                제안해 주시고... 최고의 멘토가 되어 주셨어요..
-              </p>
+              <p>저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움 주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^ 어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도 제안해 주시고... 최고의 멘토가 되어 주셨어요..</p>
             </li>
             <li>
               <div>
@@ -306,33 +263,19 @@
                 <span>작성자 <strong>윤*습(amer*****)</strong></span>
                 <span>작성일 <strong>2026-03-16</strong></span>
               </div>
-              <p>
-                저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움
-                주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^
-                어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도
-                제안해 주시고... 최고의 멘토가 되어 주셨어요..
-              </p>
+              <p>저의 부족한 교육과정 역량을 보완, 키울 수 있도록 많은 도움 주셔서 감사합니다. 선생님께서 구성하신 학습모듈 또한 최고에요^^ 어려운 문제에 대해서도 함께 고민해 주시고 적절한 대응방안도 제안해 주시고... 최고의 멘토가 되어 주셨어요..</p>
             </li>
           </ul>
 
           <div class="tbl-btns flex-box mgt16">
-            <button
-              type="button"
-              class="btn base secondary btn-modal"
-              data-id="X-HER-06-003"
-              data-src="X-HER-06-003.html"
-            >
-              <span>전문가 철회 </span>
+            <button type="button" class="btn base secondary btn-modal" data-id="X-HER-06-003" data-src="X-HER-06-003.html">
+              <span>전문가 해제</span>
             </button>
             <div class="pager">
-              <a href="#" class="btn prev disabled"
-                ><span class="hide">이전으로</span></a
-              >
+              <a href="#" class="btn prev disabled"><span class="hide">이전으로</span></a>
               <span class="num">
                 <a href="#">1</a>
-                <a href="#" class="on"
-                  ><span class="hide">현재 페이지:</span>2</a
-                >
+                <a href="#" class="on"><span class="hide">현재 페이지:</span>2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#">5</a>
@@ -342,9 +285,7 @@
                 <a href="#">9</a>
                 <a href="#">10</a>
               </span>
-              <a href="#" class="btn next"
-                ><span class="hide">다음으로</span></a
-              >
+              <a href="#" class="btn next"><span class="hide">다음으로</span></a>
             </div>
             <button type="button" class="btn base primary">
               <span>목록</span>

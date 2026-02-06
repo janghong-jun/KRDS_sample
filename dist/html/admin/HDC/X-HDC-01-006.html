@@ -60,13 +60,36 @@
         <a href="#"><span>게시판관리</span></a>
       </li>
       <li>
+        <a href="#"><span>게시판 추가 요청 관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>게시글관리</span></a>
+      </li>
+      </ul></li>
+      <li>
         <a href="#"><span>금칙어관리</span></a>
       </li>
     </ul>
+  
+  <li>
+    <a href="#" id="menu2" class="mMenu">전문가관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>전문가관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>전문가설정</span></a>
+      </li>
+    </ul>
   </li>
-  <li><a href="#" id="menu2">전문가관리</a></li>
   <li><a href="#" id="menu3">역량관리</a></li>
-  <li><a href="#" id="menu4">모듈관리</a></li>
+  <li>
+    <a href="#" id="menu4" class="mMenu">모듈관리</a>
+    <ul class="sub">
+      <li><a href="#">모듈관리</a></li>
+      <li><a href="#">모듈설정</a></li>
+    </ul>
+  </li>
   <li>
     <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
     <ul class="sub">
@@ -179,40 +202,25 @@
       </li>
     </ul>
   </li>
-</ul>
+
         </div>
         <section class="main-conts">
           <h2>연계로그 관리</h2>
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 18.9rem">
+                <col style="width: 15rem">
+                <col style="width: 26rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
-                  <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>연계명</option>
-                        <option>시스템명</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" class="txt-l">게시일</th>
-                  <td>
+                  <th scope="row">기간</th>
+                  <td colspan="2">
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="startDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
@@ -221,12 +229,42 @@
                       <span class="date-sep">~</span>
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
-                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="readonly" placeholder="YYYY-MM-DD">
                           <button type="button" class="ui-datepicker-btn" data-target="endDate">
                             <span class="a11y-hidden">년월일 선택</span>
                           </button>
                         </div>
                       </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>6개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1년</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">상태</th>
+                  <td class="pr0">
+                    <select>
+                      <option>전체</option>
+                    </select>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
                   </td>
                 </tr>
@@ -245,7 +283,7 @@
                 <col style="width: 12rem">
                 <col>
                 <col>
-                <col style="width: 18rem">
+                <col style="width: 18.5rem">
                 <col style="width: 5rem">
                 <col style="width: 12rem">
               </colgroup>

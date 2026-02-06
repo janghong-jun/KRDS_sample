@@ -46,17 +46,40 @@
                       <span class="lb-item flex-none">
                         <select id="select01">
                           <option>구분 전체</option>
-                          <option selected>공지</option>
+                          <option>공지</option>
                           <option>업데이트</option>
                           <option>점검</option>
                         </select>
                       </span>
                       <span class="lb-item">
-                        <input type="checkbox" id="chk01" checked />
-                        <label for="chk01" class="lb-checkbox"
-                          ><span>중요공지 (목록에 표시)</span></label
-                        >
+                        <input type="checkbox" id="chk01" />
+                        <label for="chk01" class="lb-checkbox"><span>중요공지 (목록에 표시)</span></label>
                       </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">중요공지 기간</th>
+                  <td>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      해당 기간 동안 중요공지로 상단 노출됩니다.
                     </div>
                   </td>
                 </tr>
@@ -67,12 +90,7 @@
                   </th>
                   <td>
                     <div class="frm-area">
-                      <input
-                        type="text"
-                        id="inp01"
-                        class="inp-text"
-                        value="[필독] 12월 15일 시스템 점검"
-                      />
+                      <input type="text" id="inp01" class="inp-text" />
                     </div>
                   </td>
                 </tr>
@@ -93,12 +111,7 @@
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input
-                          type="radio"
-                          id="rdo_01_01"
-                          name="rdoBtn01"
-                          checked
-                        />
+                        <input type="radio" id="rdo_01_01" name="rdoBtn01" checked />
                         <label for="rdo_01_01" class="lb-radio">노출</label>
                       </span>
                       <span class="lb-item">
@@ -115,39 +128,14 @@
                   <td>
                     <div class="file-wrap">
                       <div class="input-item">
-                        <input
-                          type="text"
-                          name="inpUpload"
-                          class="inp-text"
-                          readonly
-                          aria-label="첨부 파일"
-                        />
+                        <input type="text" name="inpUpload" class="inp-text" readonly aria-label="첨부 파일" />
                         <span class="btn base square">
-                          <input
-                            type="file"
-                            title="첨부파일 선택"
-                            id="inpUpload"
-                          />
+                          <input type="file" title="첨부파일 선택" id="inpUpload" />
                           <span>찾아보기</span>
                         </span>
                       </div>
                       <div class="file-list mgt8">
-                        <div class="file">
-                          <p class="file-name">시스템점검안내_20251215.pdf</p>
-                          <button type="button" class="btn-del">
-                            <span>삭제</span>
-                          </button>
-                        </div>
-                        <div class="file">
-                          <p class="file-name">시스템점검안내_20251215.pdf</p>
-                          <button type="button" class="btn-del">
-                            <span>삭제</span>
-                          </button>
-                        </div>
-                        <span class="file-info"
-                          >jpg, png, pdf, hwp, docx만 등록 가능 (최대
-                          10MB)</span
-                        >
+                        <span class="file-info">jpg, png, pdf, hwp, docx만 등록 가능 (최대 10MB)</span>
                       </div>
                     </div>
                   </td>
@@ -156,15 +144,12 @@
             </table>
           </div>
           <div class="tbl-btns">
-            <button type="button" class="btn base tertiary">
-              <span>삭제</span>
-            </button>
             <div>
               <button type="button" class="btn base secondary">
-                <span>취소</span>
+                <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
-                <span>수정</span>
+                <span>등록</span>
               </button>
             </div>
           </div>
