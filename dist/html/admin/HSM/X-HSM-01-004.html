@@ -18,7 +18,7 @@
   src="../../../resources/admin/js/ui.observer.js"
 ></script> -->
     <script type="text/javascript">
-      pageInfo = { mid: '1', sid: '2' };
+      pageInfo = { mid: '1', sid: '3' };
     </script>
   </head>
 
@@ -43,6 +43,9 @@
     <ul class="sub">
       <li>
         <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>회원권한 관리</span></a>
       </li>
       <li>
         <a href="#"><span>관리자관리</span></a>
@@ -303,7 +306,32 @@
                       <li>Depth 1 > Depth 2</li>
                     </ul>
                     <div class="tbl-btns type-small">
-                      <button type="button" class="btn base square primary btn-modal" data-id="X-HSM-01-006" data-src="X-HSM-01-006.html">
+                      <button type="button" class="btn base square primary" onclick="UI.modal.show({
+                            id: 'X-HSM-01-006',
+                            src: 'X-HSM-01-006.html',
+                            callback: () => { 
+                              const $modal = $('#X-HSM-01-006');
+                              const $tree = $modal.find('.tree-area');
+                              const $toggleAllBtn = $modal.find('.tbl-btns .btn-all');
+                              $tree.find('.active').removeClass('active')
+                              $tree.find('> ul > li > div > button').off('click').on('click', function () { 
+                                const $btn = $(this);
+                                const $wrap = $btn.parent();
+
+                                $btn.toggleClass('active');
+                                $wrap.toggleClass('active');
+                              });
+
+                              $toggleAllBtn.off('click').on('click', function () { 
+                                const $btn = $(this);
+
+                                $btn.toggleClass('expanded');
+                                
+                                const $depthBtns = $tree.find('> ul > li > div > button');
+                                  $depthBtns.addClass('active').parent().addClass('active');
+                              });
+                            }
+                          });">
                         <span>권한설정</span>
                       </button>
                     </div>
@@ -345,7 +373,7 @@
             </button>
             <div>
               <button type="button" class="btn base secondary">
-                <span>취소</span>
+                <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
                 <span>수정</span>

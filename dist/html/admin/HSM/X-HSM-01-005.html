@@ -18,7 +18,7 @@
   src="../../../resources/admin/js/ui.observer.js"
 ></script> -->
     <script type="text/javascript">
-      pageInfo = { mid: '1', sid: '2' };
+      pageInfo = { mid: '1', sid: '3' };
     </script>
   </head>
 
@@ -43,6 +43,9 @@
     <ul class="sub">
       <li>
         <a href="#"><span>회원관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>회원권한 관리</span></a>
       </li>
       <li>
         <a href="#"><span>관리자관리</span></a>
@@ -303,7 +306,7 @@
                       <li>Depth 1 > Depth 2</li>
                     </ul>
                     <div class="tbl-btns type-small">
-                      <button type="button" class="btn base square primary btn-modal" onclick="UI.modal.show({
+                      <button type="button" class="btn base square primary" onclick="UI.modal.show({
                             id: 'X-HSM-01-006',
                             src: 'X-HSM-01-006.html',
                             callback: () => { 
@@ -358,7 +361,7 @@
           <div class="tbl-btns">
             <div>
               <button type="button" class="btn base secondary">
-                <span>취소</span>
+                <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
                 <span>등록</span>
