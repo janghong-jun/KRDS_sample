@@ -126,6 +126,7 @@ $mode-setting: light;
         @include focus();
       }
       &.active {
+        color: var(--light-color-text-secondary);
         &::before {
           left: 0;
           width: 100%;
@@ -135,6 +136,7 @@ $mode-setting: light;
         }
       }
       &.selected {
+        color: var(--light-color-text-secondary);
         &::before {
           left: 0;
           width: 100%;

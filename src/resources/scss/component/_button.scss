@@ -493,9 +493,7 @@ $mode-setting: light;
     }
     .underline {
       &.hidden-underline {
-        text-decoration-color: var(
-          --#{$mode-setting}-color-border-transparency
-        );
+        text-decoration-color: var(--#{$mode-setting}-color-border-transparency);
         transition: var(--transition-base);
       }
     }
@@ -705,9 +703,7 @@ label.krds-btn {
       }
       .underline {
         &.hidden-underline {
-          text-decoration-color: var(
-            --#{$mode-setting}-color-border-transparency
-          );
+          text-decoration-color: var(--#{$mode-setting}-color-border-transparency);
         }
       }
       &:hover,
@@ -801,6 +797,12 @@ label.krds-btn {
           @include size-medium {
             text-align: left;
           }
+        }
+      }
+      &:first-child:last-child {
+        margin-left: auto;
+        @include size-medium {
+          margin: 0;
         }
       }
     }

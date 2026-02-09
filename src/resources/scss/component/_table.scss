@@ -289,6 +289,16 @@ $mode-setting: light;
       }
     }
 
+    @include size-medium {
+      &.write.mob-scroll {
+        tbody {
+          > tr {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
     @include size-small {
       &.write {
         border-bottom: none;

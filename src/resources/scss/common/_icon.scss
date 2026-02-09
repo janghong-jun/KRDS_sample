@@ -279,6 +279,9 @@
   &.ico-login-go {
     @include icon-set(ico_login_certify_go);
   }
+  &.ico-move {
+    @include icon-set(ico_move, pure);
+  }
 
   &.ico-global {
     @include icon-set(ico_global);
@@ -418,6 +421,13 @@
   }
   &.ico-level03 {
     @include icon-set(ico_level03, pure);
+  }
+
+  &.ico-customizing {
+    @include icon-set(ico_customizing, pure);
+  }
+  &.ico-empty {
+    @include icon-set(ico_empty, pure);
   }
 }
 .icon-wrap {
