@@ -25067,3 +25067,70 @@ td .info-wrap {
   font-weight: var(--font-weight-bold);
   color: var(--light-color-text-basic);
 }
+
+.evaluation-form {
+  display: block;
+}
+.evaluation-form .title {
+  font-size: var(--pc-font-size-heading-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--light-color-text-subtle);
+}
+.evaluation-form .krds-input {
+  height: 16rem;
+  margin-top: var(--padding-5);
+}
+.evaluation-form dl {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  gap: var(--gap-4);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  padding: var(--padding-3) 0 var(--padding-7) var(--padding-4);
+}
+.evaluation-form dl div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+}
+.evaluation-form dl div dt {
+  width: 7rem;
+  font-size: var(--pc-font-size-body-medium);
+  color: var(--light-color-text-basic);
+}
+.evaluation-form dl div dd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  flex: 1;
+}
+.evaluation-form dl div dd .krds-check-area {
+  gap: var(--gap-3) 0;
+}
+.evaluation-form dl div dd .krds-check-area .krds-form-check {
+  width: 8rem;
+}
+.evaluation-form dl div dd .krds-check-area .krds-form-check label {
+  font-size: var(--pc-font-size-label-small);
+}
+.evaluation-form dl div dd .krds-check-area .krds-form-check label span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  align-items: center;
+  gap: var(--gap-2);
+}
+.evaluation-form input[type=radio]:checked ~ label span .svg-icon.ico-star-off {
+  background-image: url(../img/component/icon/ico_star_on.svg);
+}

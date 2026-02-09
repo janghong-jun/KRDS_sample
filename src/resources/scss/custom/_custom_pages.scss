@@ -2144,6 +2144,63 @@ $mode-setting: light;
     }
   }
 }
+.evaluation-form {
+  display: block;
+  .title {
+    font-size: var(--pc-font-size-heading-small);
+    font-weight: var(--font-weight-bold);
+    color: var(--light-color-text-subtle);
+  }
+
+  .krds-input {
+    height: 16rem;
+    margin-top: var(--padding-5);
+  }
+
+  dl {
+    display: flex;
+    gap: var(--gap-4);
+    flex-direction: column;
+    padding: var(--padding-3) 0 var(--padding-7) var(--padding-4);
+    div {
+      display: flex;
+      dt {
+        width: 7rem;
+        font-size: var(--pc-font-size-body-medium);
+        color: var(--light-color-text-basic);
+      }
+      dd {
+        flex: 1;
+        .krds-check-area {
+          gap: var(--gap-3) 0;
+          .krds-form-check {
+            width: 8rem;
+            label {
+              font-size: var(--pc-font-size-label-small);
+              span {
+                display: flex;
+                align-items: center;
+                gap: var(--gap-2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  input[type='radio'] {
+    &:checked {
+      ~ label {
+        span {
+          .svg-icon.ico-star-off {
+            background-image: url(#{$url}/img/component/icon/ico_star_on.svg);
+          }
+        }
+      }
+    }
+  }
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정
