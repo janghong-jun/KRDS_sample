@@ -429,6 +429,15 @@
   &.ico-empty {
     @include icon-set(ico_empty, pure);
   }
+  &.ico-cart {
+    @include icon-set(ico_cart, pure);
+  }
+  &.ico-cart-disabled {
+    @include icon-set(ico_cart_disabled, pure);
+  }
+  &.ico-on-play {
+    @include icon-set(ico_on_play, pure);
+  }
 }
 .icon-wrap {
   display: flex;

@@ -183,6 +183,7 @@
       }
     }
     .krds-check-area {
+      width: auto;
       flex: none;
       @include size-medium {
         margin: 0;

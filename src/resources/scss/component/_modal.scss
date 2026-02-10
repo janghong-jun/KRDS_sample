@@ -5,6 +5,7 @@
 /* 모달 */
 //사이즈 정의
 @mixin modal-size-variable() {
+  --modal--size-xxlarge: 120rem;
   --modal--size-xlarge: 100rem;
   --modal--size-large: 80rem;
   --modal--size-medium: 56rem;
@@ -51,6 +52,7 @@ $modal-size: (
   md: var(--modal--size-medium),
   lg: var(--modal--size-large),
   xlg: var(--modal--size-xlarge),
+  xxlg: var(--modal--size-xxlarge),
 ) !default;
 
 //modal default css
@@ -143,8 +145,35 @@ $mode-setting: light;
     @each $size, $value in $modal-size {
       &.modal-#{$size} {
         max-width: $value;
+        @if $size == xxlg {
+          .modal-header {
+            padding: calc(var(--pc-padding-card-small) + 2.4rem) var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
+            text-align: center;
+          }
+          .modal-conts {
+            margin-top: var(--gap-7);
+            margin-bottom: 0 !important;
+            padding: 0 var(--pc-padding-card-small) var(--padding-10) var(--pc-padding-card-small);
+            overflow: hidden;
+            @include size-medium {
+            }
+          }
+          .btn-close {
+            top: var(--pc-padding-card-small);
+            right: var(--pc-padding-card-small);
+          }
+          @include size-medium {
+            .modal-header {
+              padding: calc(var(--mobile-padding-card-small) + 2.4rem) var(--mobile-padding-card-small) 0 var(--mobile-padding-card-small);
+            }
+            .modal-conts {
+              padding: 0 var(--mobile-padding-card-small) var(--padding-10) var(--mobile-padding-card-small);
+            }
+          }
+        }
       }
     }
+
     .modal-content {
       @include flex-layout($ai: center, $fd: column);
       position: relative;
@@ -336,6 +365,7 @@ $mode-setting: light;
 
   //바텀시트(모바일만 사용)
   &[data-type='bottom-sheet'] {
+    --modal--bottom-sheet-radius: var(--radius-xxlarge1);
     --modal--bottom-sheet-radius: var(--radius-xlarge1);
     --modal--bottom-sheet-padding: var(--padding-6);
     --modal--bottom-sheet-btn-close-position-top: var(--gap-6);
