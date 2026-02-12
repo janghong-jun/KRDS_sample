@@ -217,6 +217,10 @@ $mode-setting: light;
   flex-wrap: wrap;
   gap: var(--padding-6);
 
+  &.right {
+    justify-content: flex-end;
+  }
+
   > div {
     width: auto;
     &:first-child {

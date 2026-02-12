@@ -150,7 +150,6 @@ textarea {
     --input--textarea-padding-y: var(--padding-3);
     height: var(--input--textarea-size-height);
     padding: var(--input--textarea-padding-y) var(--input--textarea-padding-x);
-    line-height: var(--transition-base);
   }
 }
 .is-error {
@@ -174,12 +173,8 @@ textarea {
   --input--count-number-pc-font-size: var(--pc-font-size-body-small);
   --input--count-number-mobile-font-size: var(--mobile-font-size-body-small);
   --input--count-number-color-text: var(--#{$mode-setting}-color-text-subtle);
-  --input--count-number-color-text-active: var(
-    --#{$mode-setting}-color-text-primary
-  );
-  --input--count-number-color-text-error: var(
-    --#{$mode-setting}-color-text-danger
-  );
+  --input--count-number-color-text-active: var(--#{$mode-setting}-color-text-primary);
+  --input--count-number-color-text-error: var(--#{$mode-setting}-color-text-danger);
 
   @include flex-layout($ai: center, $jc: flex-end);
   gap: var(--gap-1);
@@ -230,10 +225,7 @@ textarea {
     background-image: none;
   }
   .krds-btn {
-    @include position(
-      $t: 50%,
-      $r: var(--padding-7)
-    ); //form control large 사이즈에만 버튼 들어감
+    @include position($t: 50%, $r: var(--padding-7)); //form control large 사이즈에만 버튼 들어감
     transform: translateY(-50%);
     &.small {
       right: 1.8rem;
@@ -260,9 +252,7 @@ textarea {
   }
   .textarea-count {
     --input--count-number-color-text: var(--#{$mode-setting}-color-text-subtle);
-    --input--count-number-color-text-active: var(
-      --#{$mode-setting}-color-text-primary
-    );
+    --input--count-number-color-text-active: var(--#{$mode-setting}-color-text-primary);
   }
 
   /* 날짜선택 */

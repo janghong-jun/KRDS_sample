@@ -438,6 +438,18 @@
   &.ico-on-play {
     @include icon-set(ico_on_play, pure);
   }
+  &.ico-round-check {
+    @include icon-set(ico_round_check, pure);
+  }
+  &.ico-thumbsup {
+    @include icon-set(ico_thumbsup, pure);
+  }
+  &.ico-face-sad {
+    @include icon-set(ico_face_sad, pure);
+  }
+  &.ico-face-smile {
+    @include icon-set(ico_face_smile, pure);
+  }
 }
 .icon-wrap {
   display: flex;

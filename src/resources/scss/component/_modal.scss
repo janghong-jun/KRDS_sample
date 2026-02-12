@@ -148,7 +148,6 @@ $mode-setting: light;
         @if $size == xxlg {
           .modal-header {
             padding: calc(var(--pc-padding-card-small) + 2.4rem) var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
-            text-align: center;
           }
           .modal-conts {
             margin-top: var(--gap-7);

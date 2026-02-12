@@ -817,4 +817,19 @@ label.krds-btn {
       }
     }
   }
+
+  &.in-table {
+    gap: var(--gap-2);
+    .krds-btn {
+      &.xsmall {
+        min-width: 6rem;
+      }
+    }
+    & > span {
+      min-width: 9rem;
+      margin-right: 0.8rem;
+      text-align: right;
+      flex: none;
+    }
+  }
 }

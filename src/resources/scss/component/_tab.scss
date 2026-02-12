@@ -266,22 +266,23 @@ $mode-setting: light;
   .tab {
     &.fill {
       &.full {
-        .btn-tab {
-          border-color: var(--tab--fill-button-color-border);
-          padding: 0 var(--padding-5);
-          border-width: 0;
-        }
-        > ul {
-          gap: var(--gap-3);
-          flex-wrap: nowrap;
-          > li {
-            width: fit-content;
-            flex: none;
-            .btn-tab {
-              border-radius: var(--tab--fill-button-radius);
-            }
-          }
-        }
+        position: static !important;
+        // .btn-tab {
+        //   border-color: var(--tab--fill-button-color-border);
+        //   padding: 0 var(--padding-5);
+        //   border-width: 0;
+        // }
+        // > ul {
+        //   gap: var(--gap-3);
+        //   flex-wrap: nowrap;
+        //   > li {
+        //     width: fit-content;
+        //     flex: none;
+        //     .btn-tab {
+        //       border-radius: var(--tab--fill-button-radius);
+        //     }
+        //   }
+        // }
       }
     }
     &.line {

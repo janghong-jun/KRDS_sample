@@ -8,16 +8,12 @@
   --side-navigation--padding: var(--padding-10);
   --side-navigation--title-padding-x: var(--padding-3);
   --side-navigation--title-padding-bottom: var(--padding-6);
-  --side-navigation--title-font-size: var(
-    --pc-font-size-navigation-title-medium
-  );
+  --side-navigation--title-font-size: var(--pc-font-size-navigation-title-medium);
   --side-navigation--btn-gap: var(--gap-3);
   --side-navigation--btn-padding-x: var(--padding-3);
   --side-navigation--btn-padding-y: var(--padding-6);
   --side-navigation--btn-padding-y-selected: var(--padding-3);
-  --side-navigation--btn-font-size: var(
-    --pc-font-size-navigation-depth-medium-bold
-  );
+  --side-navigation--btn-font-size: var(--pc-font-size-navigation-depth-medium-bold);
   --side-navigation--3depth-padding-y: var(--padding-3);
   --side-navigation--3depth-btn-padding-x: var(--padding-6);
   --side-navigation--3depth-btn-padding-y: var(--padding-3);
@@ -25,43 +21,23 @@
   --side-navigation--4depth-padding: var(--padding-6);
   --side-navigation--4depth-title-padding: var(--padding-3);
   --side-navigation--4depth-title-radius: var(--radius-medium3);
-  --side-navigation--4depth-title-font-size: var(
-    --pc-font-size-navigation-title-medium
-  );
+  --side-navigation--4depth-title-font-size: var(--pc-font-size-navigation-title-medium);
 }
 //컬러 정의
 @mixin side-menu-color-variable($mode: light) {
   --side-navigation--title-color-border: var(--#{$mode}-color-divider-gray);
-  --side-navigation--title-border-width: var(
-    --#{$mode}-border-width-static-regular
-  );
+  --side-navigation--title-border-width: var(--#{$mode}-border-width-static-regular);
   --side-navigation--color-action: var(--#{$mode}-color-action-secondary);
-  --side-navigation--color-action-hover: var(
-    --#{$mode}-color-action-secondary-hover
-  );
-  --side-navigation--color-action-pressed: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
-  --side-navigation--color-action-selected: var(
-    --#{$mode}-color-action-secondary-selected
-  );
+  --side-navigation--color-action-hover: var(--#{$mode}-color-action-secondary-hover);
+  --side-navigation--color-action-pressed: var(--#{$mode}-color-action-secondary-pressed);
+  --side-navigation--color-action-selected: var(--#{$mode}-color-action-secondary-selected);
   --side-navigation--color-border: var(--#{$mode}-color-divider-gray-light);
   --side-navigation--color-text-selected: var(--#{$mode}-color-text-secondary);
-  --side-navigation--color-border-selected: var(
-    --#{$mode}-color-action-secondary-active
-  );
-  --side-navigation--item-color-border: var(
-    --#{$mode}-color-divider-gray-light
-  );
-  --side-navigation--item-color-border-selected: var(
-    --#{$mode}-color-border-gray
-  );
-  --side-navigation--item-border-width: var(
-    --#{$mode}-border-width-static-regular
-  );
-  --side-navigation--2depth-btn-color-border: var(
-    --#{$mode}-color-border-secondary
-  );
+  --side-navigation--color-border-selected: var(--#{$mode}-color-action-secondary-active);
+  --side-navigation--item-color-border: var(--#{$mode}-color-divider-gray-light);
+  --side-navigation--item-color-border-selected: var(--#{$mode}-color-border-gray);
+  --side-navigation--item-border-width: var(--#{$mode}-border-width-static-regular);
+  --side-navigation--2depth-btn-color-border: var(--#{$mode}-color-border-secondary);
   --side-navigation--4depth-color-border: var(--#{$mode}-color-border-gray);
   --side-navigation--4depth-background: var(--#{$mode}-color-background-white);
 }
@@ -80,8 +56,7 @@ $mode-setting: light;
 
   .lnb-tit {
     padding: 1.5rem 0;
-    border-bottom: var(--side-navigation--title-border-width) solid
-      var(--side-navigation--title-color-border);
+    border-bottom: var(--side-navigation--title-border-width) solid var(--side-navigation--title-color-border);
     border-radius: var(--number-7) var(--number-7) 0 0;
     font-size: var(--side-navigation--title-font-size);
     font-weight: var(--font-weight-bold);
@@ -92,16 +67,14 @@ $mode-setting: light;
   .lnb-list {
     padding: var(--number-6) var(--number-9) var(--number-12) var(--number-9);
     .lnb-item {
-      border-bottom: var(--side-navigation--item-border-width) solid
-        var(--side-navigation--item-color-border);
+      border-bottom: var(--side-navigation--item-border-width) solid var(--side-navigation--item-color-border);
       .lnb-btn {
         @include flex-layout();
         gap: var(--side-navigation--btn-gap);
         position: relative;
         width: 100%;
         background-color: var(--side-navigation--color-action);
-        padding: var(--side-navigation--btn-padding-y)
-          var(--side-navigation--btn-padding-x);
+        padding: var(--side-navigation--btn-padding-y) var(--side-navigation--btn-padding-x);
         font-size: var(--side-navigation--btn-font-size);
         font-weight: var(--font-weight-bold);
         text-align: left;
@@ -159,8 +132,7 @@ $mode-setting: light;
           overflow: hidden;
         }
         .lnb-btn {
-          padding: var(--side-navigation--3depth-btn-padding-y)
-            var(--side-navigation--3depth-btn-padding-x);
+          padding: var(--side-navigation--3depth-btn-padding-y) var(--side-navigation--3depth-btn-padding-x);
           border-radius: var(--side-navigation--3depth-btn-radius);
           font-weight: var(--font-weight-regular);
           &::before {
@@ -168,9 +140,9 @@ $mode-setting: light;
             width: auto;
           }
           &.selected {
-            color: var(--side-navigation--color-text-selected);
+            color: var(--light-color-border-primary);
             font-weight: var(--font-weight-bold);
-            background: var(--light-color-surface-secondary-subtler);
+            background: var(--light-color-surface-primary-subtler);
           }
         }
       }
@@ -194,8 +166,7 @@ $mode-setting: light;
           @include flex-layout($fd: column, $ai: normal);
           padding: var(--side-navigation--4depth-padidng) 0;
           border-top: 0.1rem solid var(--side-navigation--4depth-color-border);
-          border-bottom: 0.1rem solid
-            var(--side-navigation--4depth-color-border);
+          border-bottom: 0.1rem solid var(--side-navigation--4depth-color-border);
         }
         .lnb-btn-tit {
           @include flex-layout($fd: column, $jc: space-between, $ai: normal);
@@ -275,10 +246,7 @@ $mode-setting: light;
       .lnb-item {
         [class*='lnb-toggle'] {
           &::after {
-            @include svg-icon(
-              $size: var(--icon--size-medium),
-              $mode: #{$mode-setting}
-            );
+            @include svg-icon($size: var(--icon--size-medium), $mode: #{$mode-setting});
           }
         }
 

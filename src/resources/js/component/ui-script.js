@@ -713,28 +713,34 @@ const krds_tab = {
     this.layerTabArea.forEach((tabArea) => {
       const layerTabs = tabArea.querySelectorAll('.tab > ul > li');
 
+      // 👉 default tab 세팅
+      const defaultIndex = tabArea.dataset.defaultTab;
+      if (defaultIndex !== undefined) {
+        layerTabs.forEach((tab) => tab.classList.remove('active'));
+        layerTabs[defaultIndex]?.classList.add('active');
+      }
+
       // 탭 설정
       layerTabs.forEach((tab) => {
-        // 이미 이벤트가 연결된 탭을 건너뜀
         if (!tab.dataset.listenerAttached) {
-          // 연결된 탭 패널 찾기
           const control = tab.getAttribute('aria-controls');
           const selectedTabPanel = document.getElementById(control);
 
-          // aria 설정
           tab.setAttribute('aria-selected', 'false');
           tab.setAttribute('role', 'tab');
           selectedTabPanel.setAttribute('role', 'tabpanel');
+          selectedTabPanel.setAttribute('data-quick-nav', 'false');
 
-          // 초기 active 설정
+          // 초기 active 처리
           if (tab.classList.contains('active')) {
             if (!tab.querySelector('button .sr-only')) {
-              tab.setAttribute('aria-selected', 'true');
-              tab.querySelector('button').append(this.createAccText()); // 초점이 버튼이라 aria-selected 대체 텍스트 필요
+              tab.querySelector('button').append(this.createAccText());
             }
+            tab.setAttribute('aria-selected', 'true');
+            selectedTabPanel.classList.add('active');
+            selectedTabPanel.setAttribute('data-quick-nav', 'true');
           }
 
-          // 클릭 이벤트
           tab.addEventListener('click', () => {
             const closestTabs = tab.closest('.krds-tab-area.layer > .tab').querySelectorAll('li');
             const closestTabPanels = tab.closest('.krds-tab-area.layer').querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
@@ -745,13 +751,11 @@ const krds_tab = {
             tab.querySelector('button').append(this.createAccText());
             tab.setAttribute('aria-selected', 'true');
             selectedTabPanel.classList.add('active');
+            selectedTabPanel.setAttribute('data-quick-nav', 'true');
           });
 
-          // 키보드 이벤트
           this.setupKeyboardNavigation(tab);
-
-          // 이벤트가 추가된 탭을 표시
-          tab.dataset.listenerAttached = 'true';
+          tab.dataset.listenerAttached = '';
         }
       });
     });
@@ -771,6 +775,7 @@ const krds_tab = {
       if (srOnly) tab.querySelector('button').removeChild(srOnly);
     });
     closestTabPanels.forEach((panel) => {
+      panel.setAttribute('data-quick-nav', 'false');
       panel.classList.remove('active');
     });
   },
@@ -3032,58 +3037,245 @@ window.addEventListener('resize', () => {
 window.krdsReinitialize = initAllComponents;
 
 /**
- * GNB selected 클래스 동적 처리
+ * GNB + LNB selected 클래스 동적 처리
  *
  * 사용법:
- *   GNB.setSelected({ depth1: 1, depth2: 0 });
+ *   GNB.init({ depth1: 2, depth2: 1, depth3: 0 });
  *
  * 옵션:
- *   depth1 : 1Depth 인덱스 (0부터)  → PC + 모바일 공용
- *   depth2 : 2Depth 인덱스 (0부터)  → 모바일만 적용
- *            값을 주지 않으면 2Depth selected는 안 넣음
+ *   depth1 : 1Depth 인덱스 (0부터) - PC GNB, 모바일 GNB
+ *   depth2 : 2Depth 인덱스 (0부터) - LNB 기준, 모바일 GNB
+ *   depth3 : 3Depth 인덱스 (0부터) - LNB, 모바일 GNB
+ *
+ * ─────────────────────────────────────────────
+ * 적용 범위:
+ *
+ * depth1 →  PC GNB 1Depth, 모바일 GNB 1Depth
+ * depth2 →  PC LNB 2Depth (기준), 모바일 GNB 2Depth
+ *           PC GNB 2Depth는 LNB 선택값 기준으로 자동 매칭
+ * depth3 →  PC LNB 3Depth, 모바일 GNB 3Depth
+ * ─────────────────────────────────────────────
  */
+
 const GNB = (() => {
-  const setSelected = ({ depth1, depth2 }) => {
-    setPcSelected(depth1);
-    setMobileSelected(depth1, depth2);
+  let config = null;
+
+  const setSelected = ({ depth1, depth2, depth3 }) => {
+    setPcGnb(depth1, depth2);
+    setMobileGnb(depth1, depth2, depth3);
+    setLnb(depth2, depth3);
   };
 
-  // ── PC : 1Depth only ─────────────────────────────
-  const setPcSelected = (depth1) => {
-    const triggers = document.querySelectorAll('#gnb .gnb-menu > li > .gnb-main-trigger');
+  const init = ({ depth1, depth2, depth3 }) => {
+    config = { depth1, depth2, depth3 };
 
-    triggers.forEach((el, i) => {
-      el.classList.toggle('selected', i === depth1);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setSelected(config);
+      });
+    } else {
+      setSelected(config);
+    }
+  };
+
+  // ── PC GNB : 1Depth + 2Depth (자동 매칭) ─────────────────────────────
+  const setPcGnb = (depth1, depth2) => {
+    const gnbMenu = document.querySelector('.krds-main-menu:not(.krds-main-menu-mobile)');
+    if (!gnbMenu) return;
+
+    // ── 1Depth ──
+    if (depth1 !== undefined && depth1 !== null) {
+      const depth1Triggers = gnbMenu.querySelectorAll('.gnb-main-trigger');
+
+      depth1Triggers.forEach((el, i) => {
+        const isSelected = i === depth1;
+        el.classList.toggle('selected', isSelected);
+
+        if (isSelected) {
+          el.setAttribute('aria-current', 'page');
+        } else {
+          el.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    // ── 2Depth (LNB 선택값 기준으로 자동 매칭) ──
+    if (depth2 === undefined || depth2 === null) return;
+
+    // LNB에서 선택된 항목의 텍스트 가져오기
+    const lnbNav = document.querySelector('.krds-side-navigation');
+    if (!lnbNav) return;
+
+    const lnbItems = lnbNav.querySelectorAll('.lnb-list > .lnb-item');
+    const selectedLnbItem = lnbItems[depth2];
+    if (!selectedLnbItem) return;
+
+    // LNB 2Depth의 텍스트 추출
+    const lnbToggle = selectedLnbItem.querySelector('.lnb-toggle');
+    const lnbDirectLink = selectedLnbItem.querySelector(':scope > .lnb-link');
+    const lnbText = (lnbToggle || lnbDirectLink)?.textContent?.trim();
+
+    if (!lnbText) return;
+
+    // PC GNB에서 같은 텍스트를 가진 2Depth 찾기
+    const gnbDropdowns = gnbMenu.querySelectorAll('.gnb-dropdown');
+    const targetDropdown = gnbDropdowns[depth1];
+    if (!targetDropdown) return;
+
+    const depth2Links = targetDropdown.querySelectorAll('.gnb-sub-content ul > li > a');
+
+    depth2Links.forEach((link) => {
+      const linkText = link.textContent?.trim();
+      const isMatch = linkText && linkText.includes(lnbText);
+
+      link.classList.toggle('selected', isMatch);
+
+      if (isMatch) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   };
 
-  // ── Mobile : 1Depth + 2Depth ─────────────────────
-  const setMobileSelected = (depth1, depth2) => {
+  // ── 모바일 GNB : 1Depth + 2Depth + 3Depth ─────────────────────
+  const setMobileGnb = (depth1, depth2, depth3) => {
     const mobileNav = document.querySelector('.krds-main-menu-mobile');
     if (!mobileNav) return;
 
     // ── 1Depth ──
-    const mobile1Triggers = mobileNav.querySelectorAll('.menu-wrap ul > li > .gnb-main-trigger');
+    if (depth1 !== undefined && depth1 !== null) {
+      const mobile1Triggers = mobileNav.querySelectorAll('.menu-wrap .gnb-main-trigger');
 
-    mobile1Triggers.forEach((el, i) => {
-      el.classList.toggle('active', i === depth1);
-    });
+      mobile1Triggers.forEach((el, i) => {
+        const isActive = i === depth1;
+        el.classList.toggle('active', isActive);
+
+        if (isActive) {
+          el.setAttribute('aria-current', 'page');
+          el.setAttribute('aria-selected', 'true');
+        } else {
+          el.removeAttribute('aria-current');
+          el.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
 
     // ── 2Depth ──
     if (depth2 === undefined || depth2 === null) return;
 
-    // submenu-wrap 안의 .gnb-sub-list들은 1Depth와 동일한 순서
     const subMenuLists = mobileNav.querySelectorAll('.submenu-wrap > .gnb-sub-list');
     const targetList = subMenuLists[depth1];
     if (!targetList) return;
 
-    // 해당 submenu 안의 직속 .gnb-sub-trigger만 대상 (depth3 아래 것은 제외)
     const depth2Triggers = targetList.querySelectorAll(':scope > ul > li > .gnb-sub-trigger');
 
     depth2Triggers.forEach((el, i) => {
-      el.classList.toggle('selected', i === depth2);
+      const isActive = i === depth2;
+      el.classList.toggle('active', isActive);
+
+      if (isActive && el.classList.contains('has-depth3')) {
+        el.setAttribute('aria-expanded', 'true');
+      } else {
+        el.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ── 3Depth ──
+    if (depth3 === undefined || depth3 === null) return;
+
+    const selectedDepth2 = depth2Triggers[depth2];
+    if (!selectedDepth2 || !selectedDepth2.classList.contains('has-depth3')) return;
+
+    const depth3Wrap = selectedDepth2.nextElementSibling;
+    if (!depth3Wrap || !depth3Wrap.classList.contains('depth3-wrap')) return;
+
+    const depth3Triggers = depth3Wrap.querySelectorAll(':scope > ul > li > .depth3-trigger');
+
+    depth3Triggers.forEach((el, i) => {
+      const isSelected = i === depth3;
+      el.classList.toggle('selected', isSelected);
+
+      if (isSelected) {
+        el.setAttribute('aria-current', 'page');
+      } else {
+        el.removeAttribute('aria-current');
+      }
     });
   };
 
-  return { setSelected };
+  // ── PC LNB : 2Depth + 3Depth ─────────────────────
+  const setLnb = (depth2, depth3) => {
+    const lnbNav = document.querySelector('.krds-side-navigation');
+    if (!lnbNav) return;
+
+    const lnbItems = lnbNav.querySelectorAll('.lnb-list > .lnb-item');
+
+    // ── 먼저 모든 항목 초기화 ──
+    lnbItems.forEach((li) => {
+      li.classList.remove('active');
+
+      const toggleBtn = li.querySelector('.lnb-toggle');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      const directLink = li.querySelector(':scope > .lnb-link');
+      if (directLink) {
+        directLink.classList.remove('selected');
+        directLink.removeAttribute('aria-current');
+      }
+    });
+
+    // 모든 3Depth 링크 초기화
+    const allSubLinks = lnbNav.querySelectorAll('.lnb-subitem > .lnb-link');
+    allSubLinks.forEach((link) => {
+      link.classList.remove('active', 'selected');
+      link.removeAttribute('aria-current');
+    });
+
+    // ── 2Depth (.lnb-item) 설정 ──
+    if (depth2 !== undefined && depth2 !== null) {
+      const targetItem = lnbItems[depth2];
+
+      if (targetItem) {
+        targetItem.classList.add('active');
+
+        const toggleBtn = targetItem.querySelector('.lnb-toggle');
+        if (toggleBtn) {
+          setTimeout(() => {
+            toggleBtn.setAttribute('aria-expanded', 'true');
+          }, 0);
+        }
+
+        const directLink = targetItem.querySelector(':scope > .lnb-link');
+        if (directLink) {
+          directLink.classList.add('selected');
+          directLink.setAttribute('aria-current', 'page');
+        }
+      }
+    }
+
+    // ── 3Depth (.lnb-subitem) 설정 ──
+    if (depth3 === undefined || depth3 === null) return;
+
+    const targetItem = lnbItems[depth2];
+    if (!targetItem) return;
+
+    const submenu = targetItem.querySelector('.lnb-submenu ul');
+    if (!submenu) return;
+
+    const lnbLinks = submenu.querySelectorAll('.lnb-subitem > .lnb-link');
+    const targetLink = lnbLinks[depth3];
+
+    if (targetLink) {
+      targetLink.classList.add('active', 'selected');
+      targetLink.setAttribute('aria-current', 'page');
+    }
+  };
+
+  return {
+    setSelected,
+    init,
+  };
 })();
