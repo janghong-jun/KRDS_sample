@@ -759,7 +759,8 @@ $mode-setting: light;
               &:hover {
                 background-color: var(--main-menu-mobile--sub-menu-trigger-color-action-hover);
               }
-              &.selected {
+              &.selected,
+              &.active {
                 color: var(--main-menu-mobile--sub-menu-trigger-color-text);
                 font-size: var(--main-menu-mobile--sub-menu-trigger-font-size-active);
                 font-weight: var(--font-weight-bold);

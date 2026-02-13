@@ -52,9 +52,12 @@ $mode-setting: light;
   }
 
   &.etc {
-    margin-top: var(--gap-7);
-    gap: 0;
-    .tab.full {
+    &:not(.normal-etc) {
+      margin-top: var(--gap-7);
+      gap: 0;
+    }
+
+    .tab {
       > ul {
         gap: var(--gap-3);
         > li {
@@ -254,6 +257,7 @@ $mode-setting: light;
 
 .tab-conts {
   display: none;
+  width: 100%;
   margin-top: var(--tab--conts-padding-top);
   &.active {
     @include flex-layout($fd: column, $ai: normal);

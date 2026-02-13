@@ -39,6 +39,9 @@ $mode-setting: light;
 .krds-font-red {
   color: var(--light-color-border-point);
 }
+.krds-font-blue {
+  color: var(--light-color-text-primary);
+}
 
 /* ** align ** */
 .text-left {
@@ -62,6 +65,18 @@ $mode-setting: light;
 .krds-text {
   font-size: var(--pc-font-size-body-large);
   color: var(--light-color-text-basic);
+
+  @include size-medium {
+    font-size: var(--mobile-font-size-body-large);
+  }
+
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+
+  & + .krds-text {
+    margin-top: var(--gap-3);
+  }
 }
 .conts-area {
   @include flex-layout($ai: flex-start, $jc: flex-start, $fd: column);
@@ -192,6 +207,17 @@ td {
 
     .krds-check-area {
       gap: var(--gap-6) var(--gap-9);
+    }
+  }
+
+  &.type03 {
+    padding: var(--pc-padding-card-small);
+    @include size-medium {
+      padding: var(--mobile-padding-card-small);
+    }
+
+    & + .modal-sub-title {
+      margin-top: var(--gap-8);
     }
   }
 }

@@ -24,6 +24,11 @@ label {
     justify-content: center;
     gap: var(--gap-4) var(--gap-12);
   }
+  &.right {
+    margin-top: var(--gap-3);
+    justify-content: flex-end;
+    gap: var(--gap-7);
+  }
 }
 
 .chip-wrap {
