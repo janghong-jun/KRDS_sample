@@ -263,6 +263,10 @@ $mode-setting: light;
       font-size: var(--mobile-font-size-heading-medium);
     }
   }
+  & + div,
+  & + .card-list {
+    margin-top: var(--padding-7);
+  }
 }
 .modal-dialog {
   .modal-conts {
@@ -275,6 +279,8 @@ $mode-setting: light;
       color: var(--light-color-text-subtle);
       align-items: center;
       justify-content: space-between;
+      gap: var(--gap-2);
+      flex-wrap: wrap;
       .required {
         margin-right: auto;
         height: 2.3rem;
@@ -287,6 +293,14 @@ $mode-setting: light;
 
       &:first-child {
         margin-top: 0;
+      }
+      .krds-btns-wrap {
+        width: auto;
+        .krds-btn {
+          &.xsmall {
+            min-width: 8rem;
+          }
+        }
       }
     }
   }

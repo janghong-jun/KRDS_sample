@@ -238,6 +238,32 @@ td {
     margin-top: 0.8rem;
   }
 }
+.textarea {
+  width: 100%;
+  max-height: 17rem;
+  padding: var(--gap-4) var(--padding-6);
+  border-radius: var(--radius-medium3);
+  border: 0.1rem solid var(--light-color-border-gray);
+  font-size: var(--pc-font-size-label-large);
+  color: var(--light-color-text-basic);
+  background-color: var(--color-light-alpha-white100);
+  @include size-medium {
+    font-size: var(--mobile-font-size-label-large);
+  }
+  .textarea-inner {
+    max-height: calc(17rem - (2 * var(--gap-4)));
+    overflow-y: auto;
+  }
+  &.fiexd {
+    height: 17rem;
+  }
+}
+.hidden-box {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정

@@ -88,6 +88,20 @@ $mode-setting: light;
               min-width: 6.8rem;
             }
           }
+          > a {
+            &:not([class]) {
+              max-width: fit-content;
+              @include ellipsis(1);
+              word-break: break-all;
+            }
+          }
+          > button {
+            &.krds-btn.link {
+              max-width: fit-content;
+              @include ellipsis(1);
+              word-break: break-all;
+            }
+          }
         }
       }
     }
@@ -179,6 +193,9 @@ $mode-setting: light;
             }
             > .krds-badge {
               min-width: 7rem;
+            }
+            > .krds-btn.link {
+              width: auto;
             }
           }
         }

@@ -713,31 +713,34 @@ const krds_tab = {
     this.layerTabArea.forEach((tabArea) => {
       const layerTabs = tabArea.querySelectorAll('.tab > ul > li');
 
+      // 👉 default tab 세팅
+      const defaultIndex = tabArea.dataset.defaultTab;
+      if (defaultIndex !== undefined) {
+        layerTabs.forEach((tab) => tab.classList.remove('active'));
+        layerTabs[defaultIndex]?.classList.add('active');
+      }
+
       // 탭 설정
       layerTabs.forEach((tab) => {
-        // 이미 이벤트가 연결된 탭을 건너뜀
         if (!tab.dataset.listenerAttached) {
-          // 연결된 탭 패널 찾기
           const control = tab.getAttribute('aria-controls');
           const selectedTabPanel = document.getElementById(control);
 
-          // aria 설정
           tab.setAttribute('aria-selected', 'false');
           tab.setAttribute('role', 'tab');
           selectedTabPanel.setAttribute('role', 'tabpanel');
           selectedTabPanel.setAttribute('data-quick-nav', 'false');
 
-          // 초기 active 설정
+          // 초기 active 처리
           if (tab.classList.contains('active')) {
             if (!tab.querySelector('button .sr-only')) {
-              tab.querySelector('button').append(this.createAccText()); // 초점이 버튼이라 aria-selected 대체 텍스트 필요
+              tab.querySelector('button').append(this.createAccText());
             }
             tab.setAttribute('aria-selected', 'true');
             selectedTabPanel.classList.add('active');
             selectedTabPanel.setAttribute('data-quick-nav', 'true');
           }
 
-          // 클릭 이벤트
           tab.addEventListener('click', () => {
             const closestTabs = tab.closest('.krds-tab-area.layer > .tab').querySelectorAll('li');
             const closestTabPanels = tab.closest('.krds-tab-area.layer').querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
@@ -751,10 +754,7 @@ const krds_tab = {
             selectedTabPanel.setAttribute('data-quick-nav', 'true');
           });
 
-          // 키보드 이벤트
           this.setupKeyboardNavigation(tab);
-
-          // 이벤트가 추가된 탭을 표시
           tab.dataset.listenerAttached = '';
         }
       });

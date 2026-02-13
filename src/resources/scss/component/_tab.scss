@@ -77,6 +77,10 @@ $mode-setting: light;
           }
         }
       }
+
+      &:not([style='display: none']) + .krds-table-wrap {
+        margin-top: var(--gap-8);
+      }
     }
   }
 }
