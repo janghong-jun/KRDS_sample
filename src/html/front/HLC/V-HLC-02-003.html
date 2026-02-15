@@ -8,6 +8,11 @@
     <!--# include virtual="../../../components/_css.html" -->
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 1 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -54,8 +59,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      실행나눔 등록에 대한 표로 등록자, 제목, 내용, 썸네일,
-                      첨부파일로 구성되어있다.
+                      실행나눔 등록에 대한 표로 등록자, 제목, 내용, 썸네일, 첨부파일로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem" />
@@ -75,12 +79,7 @@
                           </label>
                         </th>
                         <td class="al">
-                          <input
-                            type="text"
-                            class="krds-input"
-                            id="input_name"
-                            placeholder="제목을 입력해주세요(최대 30자)"
-                          />
+                          <input type="text" class="krds-input" id="input_name" placeholder="제목을 입력해주세요(최대 30자)" />
                         </td>
                       </tr>
                       <tr>
@@ -92,55 +91,35 @@
                           </label>
                         </th>
                         <td class="al">
-                          <textarea
-                            class="krds-input"
-                            id="input_cont"
-                            placeholder="내용을 입력해주세요"
-                          ></textarea>
+                          <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요"></textarea>
                         </td>
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload" class="krds-label"
-                            >썸네일</label
-                          >
+                          <label for="file-upload" class="krds-label">썸네일</label>
                         </th>
                         <td>
                           <div class="file-box">
                             <div class="file-info">
                               <p>썸네일 파일을 등록해주세요</p>
-                              <strong>
-                                이미지 파일만 등록가능 합니다.(권장 : 000*000)
-                              </strong>
+                              <strong> 이미지 파일만 등록가능 합니다.(권장 : 000*000) </strong>
                             </div>
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload" hidden="" />
-                              <label
-                                for="file-upload"
-                                class="krds-btn tertiary medium"
-                              >
-                                찾아보기
-                              </label>
+                              <label for="file-upload" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload02" class="krds-label"
-                            >첨부파일</label
-                          >
+                          <label for="file-upload02" class="krds-label">첨부파일</label>
                         </th>
                         <td>
                           <div class="file-box">
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload02" hidden="" />
-                              <label
-                                for="file-upload02"
-                                class="krds-btn tertiary medium"
-                              >
-                                찾아보기
-                              </label>
+                              <label for="file-upload02" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>

@@ -8,6 +8,11 @@
     <!--# include virtual="../../../components/_css.html" -->
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 5, depth2: 3 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -51,8 +56,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      Q&amp;A 등록에 대한 표로 필수 입력 안내, 카테고리, 제목,
-                      내용, 첨부파일, 공개여부로 구성되어있다.
+                      Q&amp;A 등록에 대한 표로 필수 입력 안내, 카테고리, 제목, 내용, 첨부파일, 공개여부로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem" />
@@ -61,10 +65,7 @@
                     <tbody>
                       <tr>
                         <td>&nbsp;</td>
-                        <td class="al">
-                          <span class="krds-font-red">*</span> 표시는 필수 입력
-                          항목입니다.
-                        </td>
+                        <td class="al"><span class="krds-font-red">*</span> 표시는 필수 입력 항목입니다.</td>
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
@@ -95,12 +96,7 @@
                           </label>
                         </th>
                         <td class="al">
-                          <input
-                            type="text"
-                            class="krds-input"
-                            id="input_name"
-                            placeholder="제목을 입력해주세요(최대 30자)"
-                          />
+                          <input type="text" class="krds-input" id="input_name" placeholder="제목을 입력해주세요(최대 30자)" />
                         </td>
                       </tr>
                       <tr>
@@ -112,34 +108,21 @@
                           </label>
                         </th>
                         <td class="al">
-                          <textarea
-                            class="krds-input"
-                            id="input_cont"
-                            placeholder="내용을 입력해주세요"
-                          ></textarea>
+                          <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요"></textarea>
                         </td>
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload" class="krds-label"
-                            >첨부파일</label
-                          >
+                          <label for="file-upload" class="krds-label">첨부파일</label>
                         </th>
                         <td>
                           <div class="file-box">
                             <div class="file-info">
-                              <strong>
-                                jpg, png, pdf, hwp, docx만 등록 가능 (최대 10MB)
-                              </strong>
+                              <strong> jpg, png, pdf, hwp, docx만 등록 가능 (최대 10MB) </strong>
                             </div>
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload" hidden="" />
-                              <label
-                                for="file-upload"
-                                class="krds-btn tertiary medium"
-                              >
-                                찾아보기
-                              </label>
+                              <label for="file-upload" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>
@@ -167,9 +150,7 @@
               </div>
               <div class="krds-btns-wrap right">
                 <a href="#" class="krds-btn xlarge tertiary">취소</a>
-                <button type="button" class="krds-btn xlarge primary">
-                  등록
-                </button>
+                <button type="button" class="krds-btn xlarge primary">등록</button>
               </div>
             </div>
           </div>

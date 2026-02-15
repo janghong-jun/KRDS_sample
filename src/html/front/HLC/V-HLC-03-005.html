@@ -8,6 +8,11 @@
     <!--# include virtual="../../../components/_css.html" -->
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 2 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -55,8 +60,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      의견공유 등록에 대한 표로 등록자, 제목, 내용, 첨부파일로
-                      구성되어있다.
+                      의견공유 등록에 대한 표로 등록자, 제목, 내용, 첨부파일로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem" />
@@ -76,12 +80,7 @@
                           </label>
                         </th>
                         <td class="al">
-                          <input
-                            type="text"
-                            class="krds-input"
-                            id="input_name"
-                            placeholder="제목을 입력해주세요(최대 30자)"
-                          />
+                          <input type="text" class="krds-input" id="input_name" placeholder="제목을 입력해주세요(최대 30자)" />
                         </td>
                       </tr>
                       <tr>
@@ -93,18 +92,12 @@
                           </label>
                         </th>
                         <td class="al">
-                          <textarea
-                            class="krds-input"
-                            id="input_cont"
-                            placeholder="내용을 입력해주세요"
-                          ></textarea>
+                          <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요"></textarea>
                         </td>
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload" class="krds-label"
-                            >첨부파일</label
-                          >
+                          <label for="file-upload" class="krds-label">첨부파일</label>
                         </th>
                         <td>
                           <div class="file-box">
@@ -122,12 +115,7 @@
                             </ul>
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload" hidden="" />
-                              <label
-                                for="file-upload"
-                                class="krds-btn tertiary medium"
-                              >
-                                찾아보기
-                              </label>
+                              <label for="file-upload" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>
@@ -148,63 +136,36 @@
       <!--# include virtual="../../../components/_footer.html" -->
     </div>
   </body>
-  <section
-    id="modal_sample_01"
-    class="krds-modal fade system-modal"
-    role="dialog"
-    aria-labelledby="tit_modal_sample_01"
-  >
+  <section id="modal_sample_01" class="krds-modal fade system-modal" role="dialog" aria-labelledby="tit_modal_sample_01">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_01">
-            $연구지원명$에 참여신청 하시겠습니까?"
-          </div>
+          <div class="conts-area" id="tit_modal_sample_01">$연구지원명$에 참여신청 하시겠습니까?"</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button
-            type="button"
-            class="krds-btn medium primary close-modal open-modal"
-            data-target="modal_sample_02"
-          >
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal open-modal" data-target="modal_sample_02">확인</button>
         </div>
         <!-- //modal btn -->
       </div>
     </div>
     <div class="modal-back"></div>
   </section>
-  <section
-    id="modal_sample_02"
-    class="krds-modal fade system-modal"
-    role="dialog"
-    aria-labelledby="tit_modal_sample_02"
-  >
+  <section id="modal_sample_02" class="krds-modal fade system-modal" role="dialog" aria-labelledby="tit_modal_sample_02">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_02">
-            참여신청이 완료 되었습니다. 운영자 승인 후 연구지원에 참여하실 수
-            있습니다.
-          </div>
+          <div class="conts-area" id="tit_modal_sample_02">참여신청이 완료 되었습니다. 운영자 승인 후 연구지원에 참여하실 수 있습니다.</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button type="button" class="krds-btn medium primary close-modal">
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal">확인</button>
         </div>
         <!-- //modal btn -->
       </div>

@@ -435,6 +435,12 @@
   &.ico-cart-disabled {
     @include icon-set(ico_cart_disabled, pure);
   }
+  &.ico-heart {
+    @include icon-set(ico_heart, pure);
+  }
+  &.ico-heart-on {
+    @include icon-set(ico_heart_on, pure);
+  }
   &.ico-on-play {
     @include icon-set(ico_on_play, pure);
   }

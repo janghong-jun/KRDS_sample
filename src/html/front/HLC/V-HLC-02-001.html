@@ -8,6 +8,11 @@
     <!--# include virtual="../../../components/_css.html" -->
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 1 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -56,33 +61,19 @@
                 <div class="form-group">
                   <div class="sch-form-wrap">
                     <div class="form-conts">
-                      <select
-                        class="krds-form-select small completed"
-                        title="선택"
-                      >
+                      <select class="krds-form-select small completed" title="선택">
                         <option value="">전체</option>
                         <option value="">제목</option>
                         <option value="">작성자</option>
                       </select>
                     </div>
                     <div class="sch-input">
-                      <input
-                        type="text"
-                        id="keyword_search"
-                        class="krds-input small"
-                        placeholder="검색어를 입력해주세요"
-                        aria-label="검색어 입력"
-                      />
-                      <span
-                        type="button"
-                        class="krds-btn xsmall icon ico-search btn-exec"
-                      >
+                      <input type="text" id="keyword_search" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력" />
+                      <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
                         <i class="svg-icon ico-sch"></i>
                       </span>
                     </div>
-                    <button type="button" class="krds-btn small neutral">
-                      검색
-                    </button>
+                    <button type="button" class="krds-btn small neutral">검색</button>
                   </div>
                 </div>
               </div>
@@ -94,10 +85,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/noData/img_default.png"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/noData/img_default.png" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -113,10 +101,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -132,10 +117,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -151,10 +133,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -170,10 +149,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -189,10 +165,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -208,10 +181,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -227,10 +197,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -246,10 +213,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -265,10 +229,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -284,10 +245,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -303,10 +261,7 @@
               <li>
                 <a href="#" class="card-box">
                   <span class="card-thumbnail">
-                    <img
-                      src="../../../resources/img/sample/img_card_thumbnail01.jpg"
-                      alt="실행나눔 썸네일 이미지"
-                    />
+                    <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="실행나눔 썸네일 이미지" />
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
@@ -322,17 +277,9 @@
             </ul>
 
             <div class="krds-pagination">
-              <a
-                class="page-navi prev disabled"
-                aria-disabled="true"
-                tabindex="-1"
-              >
-                이전
-              </a>
+              <a class="page-navi prev disabled" aria-disabled="true" tabindex="-1"> 이전 </a>
               <div class="page-links">
-                <a class="page-link active" href="#"
-                  ><span class="sr-only">현재페이지 </span>1</a
-                >
+                <a class="page-link active" href="#"><span class="sr-only">현재페이지 </span>1</a>
                 <a class="page-link" href="#">2</a>
                 <a class="page-link" href="#">3</a>
                 <a class="page-link" href="#">4</a>

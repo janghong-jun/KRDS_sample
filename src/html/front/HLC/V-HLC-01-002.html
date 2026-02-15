@@ -8,6 +8,11 @@
     <!--# include virtual="../../../components/_css.html" -->
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 0 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -49,16 +54,11 @@
             <div class="page-title-wrap justify-between">
               <h3 class="h-tit">
                 AI 교과서 활용 방안 협업
-                <div class="sub-txt">
-                  AI 교과서의 새로운 기능 &amp; 공유를 위한 공간입니다.
-                </div>
+                <div class="sub-txt">AI 교과서의 새로운 기능 &amp; 공유를 위한 공간입니다.</div>
               </h3>
               <div class="page-utill">
                 <div class="krds-drop-wrap">
-                  <button
-                    type="button"
-                    class="krds-btn tertiary medium drop-btn member"
-                  >
+                  <button type="button" class="krds-btn tertiary medium drop-btn member">
                     <i class="svg-icon ico-my"></i>
                     멤버 33
                     <i class="svg-icon ico-angle"></i>
@@ -82,16 +82,8 @@
                     </div>
                   </div>
                 </div>
-                <button type="button" class="krds-btn medium secondary">
-                  멤버관리
-                </button>
-                <button
-                  type="button"
-                  class="krds-btn medium secondary open-modal"
-                  data-target="modal_sample_01"
-                >
-                  참여신청
-                </button>
+                <button type="button" class="krds-btn medium secondary">멤버관리</button>
+                <button type="button" class="krds-btn medium secondary open-modal" data-target="modal_sample_01">참여신청</button>
               </div>
             </div>
 
@@ -177,63 +169,36 @@
       <!--# include virtual="../../../components/_footer.html" -->
     </div>
   </body>
-  <section
-    id="modal_sample_01"
-    class="krds-modal fade system-modal"
-    role="dialog"
-    aria-labelledby="tit_modal_sample_01"
-  >
+  <section id="modal_sample_01" class="krds-modal fade system-modal" role="dialog" aria-labelledby="tit_modal_sample_01">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_01">
-            $협업공간명$에 참여신청 하시겠습니까?"
-          </div>
+          <div class="conts-area" id="tit_modal_sample_01">$협업공간명$에 참여신청 하시겠습니까?"</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button
-            type="button"
-            class="krds-btn medium primary close-modal open-modal"
-            data-target="modal_sample_02"
-          >
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal open-modal" data-target="modal_sample_02">확인</button>
         </div>
         <!-- //modal btn -->
       </div>
     </div>
     <div class="modal-back"></div>
   </section>
-  <section
-    id="modal_sample_02"
-    class="krds-modal fade system-modal"
-    role="dialog"
-    aria-labelledby="tit_modal_sample_02"
-  >
+  <section id="modal_sample_02" class="krds-modal fade system-modal" role="dialog" aria-labelledby="tit_modal_sample_02">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_02">
-            참여신청이 완료 되었습니다. 개설자 승인 후 협업공간에 참여하실 수
-            있습니다.
-          </div>
+          <div class="conts-area" id="tit_modal_sample_02">참여신청이 완료 되었습니다. 개설자 승인 후 협업공간에 참여하실 수 있습니다.</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button type="button" class="krds-btn medium primary close-modal">
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal">확인</button>
         </div>
         <!-- //modal btn -->
       </div>

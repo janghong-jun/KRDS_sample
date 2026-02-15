@@ -236,7 +236,8 @@ $mode-setting: light;
           color: var(--light-color-text-basic);
           flex: none;
         }
-        &.date {
+        &.date,
+        &.select {
           .col-title {
             line-height: 4rem;
           }
@@ -270,6 +271,14 @@ $mode-setting: light;
           .krds-form-check.large > input[type='radio'] ~ label::before,
           .krds-form-check.large > input[type='checkbox'] ~ label::before {
             margin-top: 0;
+          }
+        }
+        .krds-form-wrap {
+          display: flex;
+          flex: 1;
+          gap: var(--gap-3);
+          .krds-form-select {
+            flex: 1;
           }
         }
         @media (min-width: 1024px) and (max-width: 1270px) {
@@ -314,9 +323,12 @@ $mode-setting: light;
     }
 
     & + .krds-tab-area.etc,
-    & + .krds-table-wrap.center {
+    & ~ .krds-table-wrap.center {
       margin-top: calc((-1 * var(--number-18)) + var(--gap-8));
     }
+    // & + .krds-tab-area.etc {
+    //   margin-top: var(--gap-8);
+    // }
   }
   .bar {
     width: 0.1rem;
@@ -339,7 +351,7 @@ $mode-setting: light;
     grid-template-columns: 1fr;
     gap: var(--number-8) var(--number-0);
   }
-  li {
+  > li {
     position: relative;
     height: 100%;
     border: 1px solid var(--color-light-gray-20);
@@ -394,6 +406,14 @@ $mode-setting: light;
     font-size: var(--pc-font-size-heading-xsmall);
     font-weight: var(--font-weight-bold);
     @include ellipsis(2);
+    span {
+      font-weight: var(--font-weight-regular);
+    }
+
+    &.name {
+      display: flex;
+      gap: var(--gap-1);
+    }
   }
   .card-info {
     display: flex;
@@ -430,7 +450,8 @@ $mode-setting: light;
     font-size: var(--pc-font-size-body-xsmall);
     color: #6c7277;
   }
-  &.type-video {
+  &.type-video,
+  &.type-expert {
     .card-thumbnail {
       .timer {
         display: flex;
@@ -521,6 +542,9 @@ $mode-setting: light;
       justify-content: space-between;
       align-items: flex-end;
       gap: 1rem;
+      .card-level {
+        margin-top: var(--padding-6);
+      }
     }
     .card-meta {
       display: flex;
@@ -536,13 +560,21 @@ $mode-setting: light;
         gap: 0 var(--gap-4);
         align-items: center;
         flex-wrap: wrap;
-        .bar {
-          width: 0.1rem;
-          height: 1.6rem;
-          background-color: var(--light-color-divider-gray-light);
-        }
         .full {
           width: 100%;
+        }
+      }
+    }
+    .card-meta-list {
+      margin-top: var(--padding-3);
+      li {
+        display: grid;
+        font-size: var(--pc-font-size-body-small);
+        grid-template-columns: 2.6rem 0.1rem auto;
+        align-items: center;
+        gap: var(--padding-5);
+        .bar {
+          height: 1.2rem;
         }
       }
     }
@@ -551,9 +583,25 @@ $mode-setting: light;
       margin-top: var(--gap-4);
       padding: 0 var(--padding-3);
       gap: var(--gap-4);
+      &.type02 {
+        padding: 0;
+      }
     }
     .krds-badge {
       margin-top: var(--gap-4);
+    }
+    .bar {
+      width: 0.1rem;
+      height: 1.6rem;
+      background-color: var(--light-color-divider-gray-light);
+    }
+  }
+  &.type-expert {
+    .card-thumbnail {
+      background-color: var(--light-color-background-gray-subtler);
+      &::before {
+        display: none;
+      }
     }
   }
   & + .krds-btns-wrap {
@@ -2195,7 +2243,7 @@ $mode-setting: light;
     display: flex;
     gap: var(--gap-4);
     flex-direction: column;
-    padding: var(--padding-3) 0 var(--padding-7) var(--padding-4);
+    padding: var(--padding-3) 0 var(--padding-7) var(--padding-3);
     div {
       display: flex;
       dt {
@@ -2364,20 +2412,6 @@ $mode-setting: light;
                       display: none;
                     }
                   }
-                }
-              }
-            }
-
-            .krds-btn.radius {
-              padding: 0.8rem !important;
-              border-radius: var(--radius-max);
-              background-color: var(--light-color-surface-primary-subtler);
-              box-sizing: initial;
-
-              &:disabled {
-                background-color: var(--color-light-gray-10);
-                .ico-cart {
-                  background-image: url(#{$url}/img/component/icon/ico_cart_disabled.svg);
                 }
               }
             }
@@ -3064,7 +3098,42 @@ $circle-chart-types: (
     }
   }
 }
+.select-storage {
+  .item {
+    display: flex;
+    padding: var(--gap-7);
+    border-radius: var(--radius-xlarge2);
+    background: var(--light-color-surface-secondary-subtler);
+    gap: var(--gap-4);
+    align-items: center;
+    justify-content: space-between;
+    .krds-form-check {
+      label {
+        span {
+          @include ellipsis(1);
+          word-break: break-all;
+        }
+      }
+    }
+    .krds-input {
+      flex: 1;
+    }
+    .krds-badge {
+      min-width: 7rem;
+    }
+    .krds-btns-wrap {
+      width: max-content;
+      gap: var(--gap-2);
+      .krds-btn {
+        width: 8rem;
+      }
+    }
 
+    & + .item {
+      margin-top: var(--padding-5);
+    }
+  }
+}
 // 3️⃣ 타입별 스타일 자동 생성
 @each $name, $colors in $circle-chart-types {
   .circle-chart.#{$name} {

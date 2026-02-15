@@ -156,6 +156,15 @@ label {
             }
           }
         }
+        &.medium {
+          > input[type='radio'] {
+            ~ label {
+              &::before {
+                margin-top: 0;
+              }
+            }
+          }
+        }
         &.large {
           > input[type='checkbox'],
           > input[type='radio'] {

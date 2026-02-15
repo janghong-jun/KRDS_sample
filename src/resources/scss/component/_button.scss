@@ -1,6 +1,7 @@
 @use '../common/mixins/utils' as *;
 @use '../common/mixins/breakpoints' as *;
 @use '../common/mixins/icons' as *;
+@use '../common/path' as *;
 
 /* 버튼 / 링크 */
 //사이즈 정의
@@ -830,6 +831,48 @@ label.krds-btn {
       margin-right: 0.8rem;
       text-align: right;
       flex: none;
+    }
+  }
+}
+.krds-btn.radius {
+  padding: 0.8rem !important;
+  border-radius: var(--radius-max);
+  background-color: var(--light-color-surface-primary-subtler);
+  box-sizing: initial;
+
+  &:hover {
+    background-color: var(--light-color-surface-primary-subtler);
+  }
+
+  &:disabled {
+    background-color: var(--color-light-gray-10);
+    .ico-cart {
+      background-image: url(#{$url}/img/component/icon/ico_cart_disabled.svg);
+    }
+  }
+  &.disabled {
+    background-color: var(--color-light-gray-10);
+    cursor: pointer;
+    .ico-cart {
+      background-image: url(#{$url}/img/component/icon/ico_cart_disabled2.svg);
+    }
+  }
+}
+.krds-btn.radius02 {
+  padding: 0.8rem !important;
+  border-radius: var(--radius-max);
+  background-color: var(--color-light-gray-10);
+  box-sizing: initial;
+
+  &:hover {
+    background-color: var(--color-light-gray-10);
+  }
+
+  &.active {
+    background-color: var(--light-color-surface-danger-subtler);
+    cursor: pointer;
+    .ico-heart {
+      background-image: url(#{$url}/img/component/icon/ico_heart_on.svg);
     }
   }
 }
