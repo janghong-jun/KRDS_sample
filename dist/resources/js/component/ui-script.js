@@ -711,10 +711,10 @@ const krds_tab = {
   },
   setupTabs() {
     this.layerTabArea.forEach((tabArea) => {
-      const layerTabs = tabArea.querySelectorAll('.tab > ul > li');
+      const layerTabs = tabArea.querySelectorAll(':scope > .tab > ul > li');
 
       // 👉 default tab 세팅
-      const defaultIndex = tabArea.dataset.defaultTab;
+      const defaultIndex = Number(tabArea.dataset.defaultTab ?? 0);
       if (defaultIndex !== undefined) {
         layerTabs.forEach((tab) => tab.classList.remove('active'));
         layerTabs[defaultIndex]?.classList.add('active');
