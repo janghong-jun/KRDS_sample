@@ -456,6 +456,12 @@
   &.ico-face-smile {
     @include icon-set(ico_face_smile, pure);
   }
+  &.ico-history {
+    @include icon-set(ico_history, pure);
+  }
+  &.ico-user {
+    @include icon-set(ico_user, pure);
+  }
 }
 .icon-wrap {
   display: flex;
