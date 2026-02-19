@@ -13,6 +13,11 @@
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
 <script src="../../../resources/js/plugin/echarts.min.js"></script>
 <script src="../../../resources/js/component/ui-script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 5, depth2: 1 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -391,9 +396,7 @@
               <div class="board-detail">
                 <div class="board-detail-top">
                   <div class="board-title">
-                    <h4 class="title">
-                      자유게시판에 등록된 게시글의 타이틀입니다.
-                    </h4>
+                    <h4 class="title">자유게시판에 등록된 게시글의 타이틀입니다.</h4>
 
                     <div class="board-info">
                       <span>2025-12-16</span>
@@ -434,17 +437,13 @@
                     <i class="svg-icon ico-angle up">
                       <span class="sr-only">이전글</span>
                     </i>
-                    <a href="#" class="post-navigation-link">
-                      제목타이틀 출력됩니다.
-                    </a>
+                    <a href="#" class="post-navigation-link"> 제목타이틀 출력됩니다. </a>
                   </li>
                   <li class="post-navigation-item">
                     <i class="svg-icon ico-angle down">
                       <span class="sr-only">다음글</span>
                     </i>
-                    <a href="#" class="post-navigation-link">
-                      제목타이틀 출력됩니다.
-                    </a>
+                    <a href="#" class="post-navigation-link"> 제목타이틀 출력됩니다. </a>
                   </li>
                 </ul>
               </nav>

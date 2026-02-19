@@ -13,6 +13,11 @@
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
 <script src="../../../resources/js/plugin/echarts.min.js"></script>
 <script src="../../../resources/js/component/ui-script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 4 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -409,9 +414,7 @@
                         <i class="svg-icon ico-sch"></i>
                       </span>
                     </div>
-                    <button type="button" class="krds-btn small neutral">
-                      검색
-                    </button>
+                    <button type="button" class="krds-btn small neutral">검색</button>
                   </div>
                 </div>
               </div>
@@ -454,8 +457,7 @@
               <h4 class="krds-table-title">전체보기</h4>
               <table class="tbl">
                 <caption>
-                  커뮤니티 게시판에 대한 표로 글번호, 구분, 제목, 글쓴이,
-                  등록일, 추천, 조회 항목으로 구성되어있다.
+                  커뮤니티 게시판에 대한 표로 글번호, 구분, 제목, 글쓴이, 등록일, 추천, 조회 항목으로 구성되어있다.
                 </caption>
                 <colgroup>
                   <col style="width: 10.2rem">
@@ -484,9 +486,7 @@
                     </td>
                     <td>자유</td>
                     <td class="al">
-                      <a href="#">
-                        부지런한 쓰는 교사들의 경험과 기록을 나눠요
-                      </a>
+                      <a href="#"> 부지런한 쓰는 교사들의 경험과 기록을 나눠요 </a>
                     </td>
                     <td>홍길동</td>
                     <td>YYYY-MM-DD</td>
@@ -599,9 +599,7 @@
             </div>
 
             <div class="krds-pagination">
-              <a class="page-navi prev disabled" aria-disabled="true" tabindex="-1">
-                이전
-              </a>
+              <a class="page-navi prev disabled" aria-disabled="true" tabindex="-1"> 이전 </a>
               <div class="page-links">
                 <a class="page-link active" href="#"><span class="sr-only">현재페이지 </span>1</a>
                 <a class="page-link" href="#">2</a>

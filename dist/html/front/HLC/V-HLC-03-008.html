@@ -13,6 +13,11 @@
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
 <script src="../../../resources/js/plugin/echarts.min.js"></script>
 <script src="../../../resources/js/component/ui-script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 2 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -396,8 +401,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      자료공유 등록에 대한 표로 등록자, 제목, 내용, 첨부파일로
-                      구성되어있다.
+                      자료공유 등록에 대한 표로 등록자, 제목, 내용, 첨부파일로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem">
@@ -422,9 +426,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="input_cont" class="krds-label">
-                            내용
-                          </label>
+                          <label for="input_cont" class="krds-label"> 내용 </label>
                         </th>
                         <td class="al">
                           <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요"></textarea>
@@ -464,9 +466,7 @@
                             </ul>
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload" hidden="">
-                              <label for="file-upload" class="krds-btn tertiary medium">
-                                찾아보기
-                              </label>
+                              <label for="file-upload" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>
@@ -612,19 +612,13 @@
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_01">
-            $연구지원명$에 참여신청 하시겠습니까?"
-          </div>
+          <div class="conts-area" id="tit_modal_sample_01">$연구지원명$에 참여신청 하시겠습니까?"</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button type="button" class="krds-btn medium primary close-modal open-modal" data-target="modal_sample_02">
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal open-modal" data-target="modal_sample_02">확인</button>
         </div>
         <!-- //modal btn -->
       </div>
@@ -636,20 +630,13 @@
       <div class="modal-content">
         <!-- modal contents -->
         <div class="modal-conts">
-          <div class="conts-area" id="tit_modal_sample_02">
-            참여신청이 완료 되었습니다. 운영자 승인 후 연구지원에 참여하실 수
-            있습니다.
-          </div>
+          <div class="conts-area" id="tit_modal_sample_02">참여신청이 완료 되었습니다. 운영자 승인 후 연구지원에 참여하실 수 있습니다.</div>
         </div>
         <!-- //modal contents -->
         <!-- modal btn -->
         <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium tertiary close-modal">
-            취소
-          </button>
-          <button type="button" class="krds-btn medium primary close-modal">
-            확인
-          </button>
+          <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+          <button type="button" class="krds-btn medium primary close-modal">확인</button>
         </div>
         <!-- //modal btn -->
       </div>

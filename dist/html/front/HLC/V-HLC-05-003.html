@@ -13,6 +13,11 @@
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
 <script src="../../../resources/js/plugin/echarts.min.js"></script>
 <script src="../../../resources/js/component/ui-script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        GNB.setSelected({ depth1: 3, depth2: 4 });
+      });
+    </script>
   </head>
   <body>
     <div id="wrap">
@@ -396,8 +401,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      커뮤니티 게시판 등록에 대한 표로 참고사항, 카테고리, 제목,
-                      내용, 첨부파일로 구성되어있다.
+                      커뮤니티 게시판 등록에 대한 표로 참고사항, 카테고리, 제목, 내용, 첨부파일로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem">
@@ -408,14 +412,8 @@
                         <td colspan="2">
                           <div class="info-wrap">
                             <strong class="info-title">작성시 참고사항</strong>
-                            <p class="info-text">
-                              주제의 성격에 맞는 게시물을 작성하여 주시기
-                              바랍니다.
-                            </p>
-                            <p class="info-text">
-                              부적절한 게시물이나 주제에 적합하지 않은 게시물은
-                              관리자가 숨김 또는 삭제 처리할 수 있습니다.
-                            </p>
+                            <p class="info-text">주제의 성격에 맞는 게시물을 작성하여 주시기 바랍니다.</p>
+                            <p class="info-text">부적절한 게시물이나 주제에 적합하지 않은 게시물은 관리자가 숨김 또는 삭제 처리할 수 있습니다.</p>
                           </div>
                         </td>
                       </tr>
@@ -460,9 +458,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="input_title" class="krds-label">
-                            제목
-                          </label>
+                          <label for="input_title" class="krds-label"> 제목 </label>
                         </th>
                         <td class="al">
                           <input type="text" class="krds-input" id="input_title" placeholder="제목을 입력해주세요(최대 30자)">
@@ -470,9 +466,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="input_cont" class="krds-label">
-                            내용
-                          </label>
+                          <label for="input_cont" class="krds-label"> 내용 </label>
                         </th>
                         <td class="al">
                           <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요(최대 0000자)"></textarea>
@@ -480,9 +474,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload" class="krds-label">
-                            첨부파일
-                          </label>
+                          <label for="file-upload" class="krds-label"> 첨부파일 </label>
                         </th>
                         <td>
                           <div class="file-box">
@@ -510,9 +502,7 @@
                             </ul>
                             <div class="file-box-btn-wrap">
                               <input type="file" id="file-upload" hidden="">
-                              <label for="file-upload" class="krds-btn tertiary medium">
-                                찾아보기
-                              </label>
+                              <label for="file-upload" class="krds-btn tertiary medium"> 찾아보기 </label>
                             </div>
                           </div>
                         </td>
