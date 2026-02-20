@@ -49,9 +49,10 @@ $mode-setting: light;
   @include flex-layout($jc: center, $ai: center);
   position: relative;
   height: var(--size-height-6);
+  gap: var(--gap-2);
   .swiper-pagination-bullet {
     @include square(var(--size-height-1));
-    background-color: var(--#{$mode-setting}-color-element-gray);
+    background-color: var(--light-color-surface-disabled);
     opacity: 1;
     &.swiper-pagination-bullet-active {
       width: 2rem;
@@ -64,8 +65,7 @@ $mode-setting: light;
     padding: 0 var(--padding-6);
     color: var(--#{$mode-setting}-color-text-basic);
     font-weight: var(--font-weight-bold);
-    border: var(--#{$mode-setting}-border-width-variable-regular) solid
-      var(--#{$mode-setting}-color-border-gray-light);
+    border: var(--#{$mode-setting}-border-width-variable-regular) solid var(--#{$mode-setting}-color-border-gray-light);
     border-radius: var(--radius-max);
     background-color: var(--#{$mode-setting}-color-surface-white);
     .swiper-pagination-current {
@@ -81,19 +81,17 @@ $mode-setting: light;
 
 [class^='swiper-button-'] {
   @include flex-layout($jc: center, $ai: center);
-  @include square(var(--size-height-6));
+  @include square(4rem);
+  margin-top: -4rem;
   flex-shrink: 0;
-  border-radius: var(--radius-max);
-  border: var(--#{$mode-setting}-border-width-variable-regular) solid
-    var(--#{$mode-setting}-color-border-gray-light);
-  background-color: var(--#{$mode-setting}-color-action-white);
   &::after {
     @include pseudo();
     @include svg-icon();
     font-size: 0 !important;
+    background-color: var(--light-color-icon-gray);
   }
   &:hover {
-    background-color: var(--#{$mode-setting}-color-action-secondary-hover);
+    background-color: transparent !important;
   }
 }
 
@@ -118,7 +116,9 @@ $mode-setting: light;
 .swiper-button-next,
 .swiper-button-prev {
   &::after {
-    @include icon-set(ico_angle);
+    @include icon-set(ico_swiper_arrow);
+    width: 4rem;
+    height: 4rem;
   }
   &:hover {
     background-color: var(--#{$mode-setting}-color-action-secondary-hover);
@@ -127,10 +127,10 @@ $mode-setting: light;
     background-color: var(--#{$mode-setting}-color-action-secondary-pressed);
   }
   &.swiper-button-disabled {
-    background-color: var(--#{$mode-setting}-color-action-disabled);
-    opacity: 1;
+    // background-color: var(--#{$mode-setting}-color-action-disabled);
+    opacity: 0.3;
     &::after {
-      background-color: var(--#{$mode-setting}-color-icon-disabled-on);
+      // background-color: var(--#{$mode-setting}-color-icon-disabled-on);
     }
   }
 }

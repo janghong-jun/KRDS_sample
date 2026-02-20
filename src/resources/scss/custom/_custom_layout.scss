@@ -52,6 +52,7 @@ $mode-setting: light;
     }
     .contents {
       flex: 1;
+      min-width: 0;
       // padding-bottom: var(--gap-12);
       .breadcrumb-wrap {
         padding-top: var(--pc-gap-layout-header-breadcrumb);

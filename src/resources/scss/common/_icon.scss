@@ -462,6 +462,9 @@
   &.ico-user {
     @include icon-set(ico_user, pure);
   }
+  &.ico-point {
+    @include icon-set(ico_point, pure);
+  }
 }
 .icon-wrap {
   display: flex;
