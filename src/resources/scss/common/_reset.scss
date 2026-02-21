@@ -26,6 +26,11 @@ body {
   background-color: var(--#{$mode-setting}-color-background-white);
   font-size: var(--pc-font-size-body-medium);
   overflow-x: hidden;
+  &.main {
+    .main-switcher {
+      display: flex !important;
+    }
+  }
 }
 //시스템 고대비모드 켜도 우리 style 적용되도록
 // * {
