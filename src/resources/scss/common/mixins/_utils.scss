@@ -2,11 +2,7 @@
 
 //focus color
 //추후삭제
-@mixin focus(
-  $offset: -0.4rem,
-  $color: var(--light-color-border-primary),
-  $alpha: 0.8
-) {
+@mixin focus($offset: -0.4rem, $color: var(--light-color-border-primary), $alpha: 0.8) {
   box-shadow: var(--box-shadow-outline-inset);
   outline-offset: $offset;
 }
@@ -100,6 +96,9 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   line-clamp: $line;
+  @if $line == 1 {
+    word-break: break-all;
+  }
 }
 
 //sr-only

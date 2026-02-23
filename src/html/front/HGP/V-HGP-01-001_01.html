@@ -62,7 +62,7 @@
               <h3 class="h-tit">내 프로필</h3>
             </div>
             <!-- 전문가 등재 후 active 추가 -->
-            <div class="my-profile">
+            <div class="my-profile active">
               <div class="item">
                 <h4 class="title">내 프로필</h4>
                 <div class="profile-box-wrap">
@@ -286,41 +286,56 @@
                 </div>
                 <div class="inner-wrap row">
                   <div>
-                    <h4 class="title">포인트 현황</h4>
+                    <div class="title-wrap">
+                      <h4 class="title">포인트 현황</h4>
+                      <a href="#" class="krds-btn small text">
+                        적립 기록 보기
+                        <i class="svg-icon ico-angle right"></i>
+                      </a>
+                    </div>
                     <div class="point-wrap">
                       <dl class="point-list">
                         <div>
                           <dt>총 코칭</dt>
                           <dd>
-                            4,320
-                            <i class="svg-icon ico-point" aria-hidden="true"></i>
-                            <span class="sr-only">포인트</span>
+                            <span>완료</span>
+                            28건
                           </dd>
                         </div>
                         <div>
-                          <dt>총 누적 포인트</dt>
+                          <dt>코칭 적립</dt>
                           <dd>
-                            9,370
+                            +9,370
                             <i class="svg-icon ico-point" aria-hidden="true"></i>
                             <span class="sr-only">포인트</span>
                           </dd>
                         </div>
                       </dl>
-                      <div class="point-level" aria-labelledby="levelTitle">
-                        <strong id="levelTitle" class="level-title">Level 1 <span>씨앗</span></strong>
-                        <p class="level-title level-next" aria-hidden="true">Level 2 <span>새싹</span></p>
-                        <div class="progress-wrap">
-                          <!-- aria-valuenow, aria-valuetext에 달성률, 레벨 관련 대체텍스트 추가 필요 -->
-                          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-valuetext="현재 Level 1 씨앗 단계, 60% 달성">
-                            <span class="progress-fill" style="width: 60%"></span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                    <a href="#" class="krds-btn small text">
-                      적립 기록 보기
-                      <i class="svg-icon ico-angle right"></i>
-                    </a>
+                  </div>
+                  <div>
+                    <div class="title-wrap">
+                      <h4 class="title">전문가 평가 현황</h4>
+                      <a href="#" class="krds-btn small text">
+                        자세히 보기
+                        <i class="svg-icon ico-angle right"></i>
+                      </a>
+                    </div>
+                    <div class="point-wrap">
+                      <dl class="point-list">
+                        <div>
+                          <dt>총 평가 건수</dt>
+                          <dd>23건</dd>
+                        </div>
+                        <div>
+                          <dt>평균 평점</dt>
+                          <dd>
+                            <i class="svg-icon ico-start-on" aria-hidden="true"></i>
+                            4.5
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
                   </div>
                 </div>
                 <div class="inner-item">
@@ -374,6 +389,29 @@
                       </div>
                       <div>
                         <dt>처리 완료</dt>
+                        <dd>2건</dd>
+                      </div>
+                    </dl>
+                  </div>
+                  <div>
+                    <div class="title-wrap">
+                      <h4 class="title">코칭 요청 현황</h4>
+                      <a href="#" class="krds-btn small text">
+                        자세히보기
+                        <i class="svg-icon ico-angle right"></i>
+                      </a>
+                    </div>
+                    <dl>
+                      <div>
+                        <dt>승인 대기</dt>
+                        <dd>1건</dd>
+                      </div>
+                      <div>
+                        <dt>코칭 진행중</dt>
+                        <dd>2건</dd>
+                      </div>
+                      <div>
+                        <dt>코칭 완료</dt>
                         <dd>2건</dd>
                       </div>
                     </dl>
