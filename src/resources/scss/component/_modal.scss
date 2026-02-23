@@ -208,11 +208,18 @@ $mode-setting: light;
       &.center {
         text-align: center;
       }
+      &.flex {
+        display: flex;
+        padding-right: var(--modal--padding);
+        justify-content: space-between;
+        align-items: center;
+      }
     }
     .modal-conts {
       @include flex-layout($fd: column);
       position: relative;
       overflow-y: auto;
+      overflow-x: hidden;
       width: 100%;
       margin-top: var(--modal--conts-padding-top);
       padding: 0 var(--modal--padding) var(--modal--conts-padding-bottom);
@@ -232,6 +239,12 @@ $mode-setting: light;
           left: 0;
           z-index: 1;
           background-color: var(--modal--wrap-color-surface);
+          &.scroll {
+            overflow: auto;
+            ul {
+              flex-wrap: nowrap;
+            }
+          }
         }
       }
     }

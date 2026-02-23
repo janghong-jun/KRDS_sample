@@ -257,6 +257,9 @@ $mode-setting: light;
         }
         & > .krds-btn.neutral {
           flex: none;
+          &.center {
+            margin: 0 auto;
+          }
         }
         .sch-input {
           flex: 1;
@@ -366,6 +369,7 @@ $mode-setting: light;
   .card-thumbnail {
     display: block;
     position: relative;
+    height: 100%;
     .krds-badge {
       position: absolute;
       font-size: var(--pc-font-size-heading-xxsmall);
@@ -391,6 +395,7 @@ $mode-setting: light;
     }
     img {
       overflow: hidden;
+      width: 100%;
       border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
     }
   }
@@ -1533,7 +1538,7 @@ $mode-setting: light;
 .expert-register {
   display: flex;
   gap: var(--gap-9);
-  align-items: center;
+  align-items: flex-start;
 
   @include size-medium {
     flex-direction: column;
@@ -1547,6 +1552,9 @@ $mode-setting: light;
     @include size-medium {
       max-width: 16rem;
       margin: 0 auto;
+    }
+    img {
+      width: 100%;
     }
   }
   .expert-info {
@@ -3798,6 +3806,44 @@ $circle-chart-types: (
     gap: var(--gap-2);
   }
 }
+.point-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-4);
+  .item {
+    display: flex;
+    width: calc(50% - var(--gap-4) / 2);
+    height: 5rem;
+    padding: var(--padding-7) var(--padding-8);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--radius-xlarge1);
+    border: 0.1rem solid var(--light-color-border-gray-light);
+    .title {
+      font-size: var(--pc-font-size-body-medium);
+      font-weight: var(--font-weight-regular);
+      color: var(--light-color-text-subtle);
+    }
+    .point {
+      display: inline-flex;
+      font-size: var(--pc-font-size-body-large);
+      font-weight: var(--font-weight-bold);
+      color: #191919;
+      align-items: center;
+      gap: var(--gap-2);
+    }
+  }
+  .g-search-area {
+    width: 100%;
+    margin-bottom: 0;
+    .sch-form-wrap {
+      .col {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정

@@ -63,6 +63,11 @@
       element-lighter: var(--#{$mode}-color-element-information-lighter),
       text: var(--#{$mode}-color-text-information),
     ),
+    visited: (
+      element: var(--light-color-link-visited),
+      element-lighter: var(--#{$mode}-color-link-visited),
+      text: var(--light-color-link-visited),
+    ),
     disabled: (
       element: var(--#{$mode}-color-element-disabled-dark),
       element-lighter: var(--#{$mode}-color-element-disabled-light),
@@ -113,7 +118,7 @@
   @if ($color == 'primary') {
     border-color: var(--badge--color-primary-element);
   } @else {
-    border-color: var(--badge--#{$mode}-color-#{$color}-element);
+    // border-color: var(--badge--#{$mode}-color-#{$color}-element);
   }
 }
 

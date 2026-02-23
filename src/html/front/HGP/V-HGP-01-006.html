@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!--# include virtual="../../../components/_skip.html" -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <main id="container">
+        <div class="inner">
+          <button type="button" class="krds-btn open-modal" data-target="V-HGP-01-006">모달 열기</button>
+        </div>
+      </main>
+
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+  </body>
+  <section id="V-HGP-01-006" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HGP-01-006">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <!-- modal title -->
+        <div class="modal-header">
+          <h2 id="tit_V-HGP-01-006" class="modal-title">상품선택</h2>
+        </div>
+        <!-- //modal title -->
+        <!-- modal contents -->
+        <div class="modal-conts">
+          <div class="conts-area">
+            <div class="krds-check-area chk-column">
+              <div class="krds-form-check">
+                <input type="radio" name="prd-select" id="prd-red01" />
+                <label for="prd-red01">스타벅스 커피 쿠폰(5,000점)</label>
+              </div>
+              <div class="krds-form-check">
+                <input type="radio" name="prd-select" id="prd-red02" />
+                <label for="prd-red02">신세계 상품권 (1만원권)(10,000점)</label>
+              </div>
+              <div class="krds-form-check">
+                <input type="radio" name="prd-select" id="prd-red03" />
+                <label for="prd-red03">이마트 상품권 (5천원권)(5,000점)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //modal contents -->
+        <!-- modal btn -->
+        <div class="modal-btn btn-wrap">
+          <button type="button" class="krds-btn medium primary">확인</button>
+        </div>
+        <!-- //modal btn -->
+        <!-- close button -->
+        <button type="button" class="krds-btn medium icon btn-close close-modal">
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+        <!-- //close button -->
+      </div>
+    </div>
+    <div class="modal-back"></div>
+  </section>
+  <script>
+    krds_modal.openModal('V-HGP-01-006');
+  </script>
+</html>

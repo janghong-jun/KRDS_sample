@@ -12,9 +12,7 @@
       <header class="gnb-wrap" id="header">
         <div>
           <h1><span class="hide">Hi-Coaching</span></h1>
-          <div class="links">
-            <button type="button" class="logout">로그아웃</button>
-          </div>
+          <div class="links"><span>최종로그인일시 : 2026-02-06 10:56:30</span><button type="button" class="logout">로그아웃</button></div>
         </div>
       </header>
       <main class="main-wrap" id="content">
@@ -30,29 +28,68 @@
             <table>
               <colgroup>
                 <col style="width: 15rem" />
-                <col style="width: 15rem" />
+                <col style="width: 26rem" />
+                <col style="width: 26rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
-                  <td class="pr0">
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>시용</option>
-                        <option>정지</option>
-                      </select>
+                  <th scope="row">기간</th>
+                  <td colspan="3">
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly="" placeholder="YYYY-MM-DD" />
+
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate" aria-label="달력 보기" tabindex="-1"></button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly="" placeholder="YYYY-MM-DD" />
+
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate" aria-label="달력 보기" tabindex="-1"></button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>2주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
-                  <td class="pr0">
+                </tr>
+                <tr>
+                  <th scope="row">사용여부</th>
+                  <td colspan="3">
                     <div class="frm-area">
-                      <select>
-                        <option>이름</option>
-                        <option>아이디</option>
-                      </select>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_00" />
+                        <label for="checkbox_01_00" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01" />
+                        <label for="checkbox_01_01" class="lb-checkbox">사용</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02" />
+                        <label for="checkbox_01_02" class="lb-checkbox">정지</label>
+                      </span>
                     </div>
                   </td>
-                  <td>
+                </tr>
+                <tr>
+                  <td colspan="4">
                     <div class="frm-area">
                       <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>

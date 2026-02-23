@@ -78,6 +78,15 @@ $mode-setting: light;
     margin-top: var(--gap-3);
   }
 }
+.krds-text-box {
+  overflow: auto;
+  height: 10rem;
+  padding: var(--gap-4) var(--padding-6);
+  border-radius: var(--radius-medium3);
+  border: 0.1rem solid var(--light-color-border-gray);
+  font-size: var(--pc-font-size-label-large);
+  color: var(--light-color-text-basic);
+}
 .conts-area {
   @include flex-layout($ai: flex-start, $jc: flex-start, $fd: column);
   gap: var(--gap-9);

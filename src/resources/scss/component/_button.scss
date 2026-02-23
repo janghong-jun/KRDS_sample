@@ -613,6 +613,10 @@ $mode-setting: light;
     &.icon-front {
       padding: 0 var(--gap-7) 0 var(--gap-5);
     }
+
+    &.none-icon {
+      padding: 0 var(--gap-5);
+    }
   }
 
   &.more {

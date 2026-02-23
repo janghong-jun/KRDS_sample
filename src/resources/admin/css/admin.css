@@ -193,8 +193,9 @@ p.note.star {
   height: 1.6rem;
   background: url(../images/ico_comm.png) no-repeat -40rem 0;
 }
-.gnb-wrap .links a + a {
-  margin-left: 4.8rem;
+.gnb-wrap .links span {
+  font-size: 1.2rem;
+  color: #74757e;
 }
 .gnb-wrap .links .logout {
   position: relative;
@@ -2113,13 +2114,14 @@ td.color-type03 {
   }
   .gnb-wrap > div {
     border-radius: 0;
+    border-width: 0 0 0.1rem 0;
   }
   .gnb-wrap .links a {
     font-size: 1.3rem;
     margin-bottom: 0.3rem;
   }
   .gnb-wrap .links .logout {
-    margin-left: 0.5rem;
+    margin-left: 1.5rem;
     padding: 0 2rem 0 0;
     border: none;
     font-size: 1.3rem;
