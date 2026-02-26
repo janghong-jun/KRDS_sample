@@ -146,15 +146,22 @@ $mode-setting: light;
       &.modal-#{$size} {
         max-width: $value;
         @if $size == xxlg {
+          .modal-content {
+            overflow: hidden;
+          }
           .modal-header {
             padding: calc(var(--pc-padding-card-small) + 2.4rem) var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
           }
           .modal-conts {
             margin-top: var(--gap-7);
-            margin-bottom: 0 !important;
-            padding: 0 var(--pc-padding-card-small) var(--padding-10) var(--pc-padding-card-small);
+            margin-bottom: var(--padding-10) !important;
+            padding: 0 var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
+            border-radius: 0 0 var(--modal--wrap-radius) var(--modal--wrap-radius);
             overflow: hidden;
             @include size-medium {
+              overflow: auto;
+              height: 100%;
+              margin-bottom: 0 !important;
             }
           }
           .btn-close {

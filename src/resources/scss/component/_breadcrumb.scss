@@ -18,12 +18,8 @@ $mode-setting: light;
 //컬러 정의
 @mixin breadcrumb-color-variable($mode: light) {
   --breadcrumb--color-action: var(--#{$mode}-color-action-secondary);
-  --breadcrumb--color-action-hover: var(
-    --#{$mode}-color-action-secondary-hover
-  );
-  --breadcrumb--color-action-pressed: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
+  --breadcrumb--color-action-hover: var(--#{$mode}-color-action-secondary-hover);
+  --breadcrumb--color-action-pressed: var(--#{$mode}-color-action-secondary-pressed);
   --breadcrumb--color-text: var(--#{$mode}-color-text-basic);
   --breadcrumb--color-text-disabled: var(--#{$mode}-color-text-disabled);
 }
@@ -32,7 +28,6 @@ $mode-setting: light;
   @include breadcrumb-color-variable(#{$mode-setting});
 
   @include flex-layout($jc: center);
-  margin-bottom: var(--breadcrumb--margin-bottom);
   padding-top: var(--pc-gap-layout-header-breadcrumb);
   padding-bottom: var(--pc-gap-layout-breadcrumb-h2);
   .breadcrumb {
@@ -149,10 +144,7 @@ $mode-setting: light;
         &:not(:last-child) {
           //마지막 뎁스가 아니면 화살표 아이콘 표시
           &::after {
-            @include svg-icon(
-              $size: var(--icon--size-small),
-              $mode: high-contrast
-            );
+            @include svg-icon($size: var(--icon--size-small), $mode: high-contrast);
           }
         }
       }
@@ -160,10 +152,7 @@ $mode-setting: light;
         gap: 0;
         .txt {
           &::before {
-            @include svg-icon(
-              $size: var(--icon--size-small),
-              $mode: high-contrast
-            );
+            @include svg-icon($size: var(--icon--size-small), $mode: high-contrast);
           }
         }
       }
@@ -179,10 +168,7 @@ $mode-setting: light;
             &:last-child {
               &::before,
               &::after {
-                @include svg-icon(
-                  $size: var(--icon--size-small),
-                  $mode: high-contrast
-                );
+                @include svg-icon($size: var(--icon--size-small), $mode: high-contrast);
               }
             }
           }

@@ -634,6 +634,7 @@ $mode-setting: light;
       // gnb-utils
       .gnb-utils {
         @include flex-layout($jc: space-between);
+        display: none;
         .utility-list {
           @include flex-layout($ai: center);
           & > li {
@@ -655,7 +656,11 @@ $mode-setting: light;
       .gnb-login {
         @include flex-layout($d: inline-flex, $ai: center);
         gap: var(--main-menu-mobile--login-gap);
-        .user,
+        .user {
+          span {
+            font-weight: var(--font-weight-bold);
+          }
+        }
         button {
           font-weight: var(--font-weight-bold);
         }

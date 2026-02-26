@@ -15,7 +15,14 @@
     color: var(--light-color-border-point);
   }
 }
-
+.file-box-wrap {
+  display: flex;
+  gap: var(--gap-4);
+  flex-wrap: wrap;
+  .file-box {
+    flex: 1;
+  }
+}
 .file-box {
   display: flex;
   min-height: 10rem;

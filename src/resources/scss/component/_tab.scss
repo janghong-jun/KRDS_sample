@@ -204,6 +204,19 @@ $mode-setting: light;
     //     }
     //   }
     // }
+    &.scroll {
+      overflow-x: scroll;
+      > ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        > li {
+          flex: none;
+          white-space: nowrap;
+        }
+      }
+    }
   }
   &.fill {
     //bg 타입
@@ -349,6 +362,11 @@ $mode-setting: light;
         &[data-col='5'] {
           > ul {
             grid-template-columns: repeat(5, 1fr);
+          }
+        }
+        &[data-col='8'] {
+          > ul {
+            grid-template-columns: repeat(8, 1fr);
           }
         }
       }

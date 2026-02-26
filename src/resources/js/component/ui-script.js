@@ -791,6 +791,29 @@ const krds_tab = {
       newTab?.focus();
     });
   },
+  resetToDefault(tabArea) {
+    const tabs = tabArea.querySelectorAll(':scope > .tab > ul > li');
+    const panels = tabArea.querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
+
+    const defaultIndex = Number(tabArea.dataset.defaultTab ?? 0);
+
+    this.resetTabs(tabs, panels);
+
+    const defaultTab = tabs[defaultIndex];
+    const defaultPanel = document.getElementById(defaultTab?.getAttribute('aria-controls'));
+
+    if (!defaultTab || !defaultPanel) return;
+
+    defaultTab.classList.add('active');
+    defaultTab.setAttribute('aria-selected', 'true');
+
+    if (!defaultTab.querySelector('.sr-only')) {
+      defaultTab.querySelector('button').append(this.createAccText());
+    }
+
+    defaultPanel.classList.add('active');
+    defaultPanel.setAttribute('data-quick-nav', 'true');
+  },
 };
 
 /*** * krds_accordion * ***/
@@ -977,7 +1000,7 @@ const krds_modal = {
     // inert 설정
     document.getElementById('wrap')?.setAttribute('inert', '');
   },
-  closeModal(id) {
+  closeModal(id, callback) {
     const modalElement = document.getElementById(id);
     const openModals = document.querySelectorAll('.modal.in');
     const modalBack = modalElement.querySelector('.modal-back');
@@ -988,6 +1011,10 @@ const krds_modal = {
     // css transition 딜레이
     setTimeout(() => {
       modalElement.classList.remove('shown');
+      // callback 호출
+      if (typeof callback === 'function') {
+        callback(modalElement);
+      }
     }, 350);
 
     // 마지막 모달이 닫힐 때 페이지 스크롤 복원
@@ -2997,7 +3024,7 @@ const contentObserver = new MutationObserver((mutations) => {
     }
 
     if (hasKrdsComponent) {
-      console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
+      // console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
       initAllComponents();
     }
   }, 100);
@@ -3014,7 +3041,7 @@ window.addEventListener('DOMContentLoaded', () => {
     attributes: false,
   });
 
-  console.log('✅ UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
+  // console.log('✅ UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
 });
 
 // 스크롤 이벤트

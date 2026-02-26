@@ -134,13 +134,15 @@
   &.ico-plus2 {
     @include icon-set(ico_plus2, pure);
   }
+  &.ico-minus {
+    @include icon-set(ico_minus, pure);
+  }
   &.ico-setting {
     @include icon-set(ico_setting);
     & {
       gap: var(--gap-3);
     }
   }
-
   &.ico-link {
     @include icon-set(ico_go);
     & {
@@ -365,7 +367,7 @@
     background-color: var(--color-light-gray-80);
   }
   &.ico-img {
-    @include icon-set(ico_img, pure);
+    @include icon-set(ico_img);
     background-color: var(--color-light-gray-80);
   }
   &.ico-save {

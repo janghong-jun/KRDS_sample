@@ -49,7 +49,6 @@ $mode-setting: light;
       & > li {
         font-size: var(--pc-font-size-body-small);
         color: var(--light-color-text-subtle);
-        @include flex-layout($ai: center);
         .krds-btn.text {
           font-size: var(--pc-font-size-body-small);
           color: var(--light-color-text-subtle);
@@ -330,6 +329,7 @@ $mode-setting: light;
       .header-actions {
       }
       .btn-navi {
+        padding: 0 !important;
         font-size: var(--header--navi-font-size-mobile);
         justify-content: center;
         flex-direction: column;

@@ -34,6 +34,15 @@
       pc-font-size: var(--pc-font-size-label-medium),
       mobile-font-size: var(--mobile-font-size-label-medium),
     ),
+    xlarge: (
+      wrapper-gap-x: var(--gap-3),
+      wrapper-gap-y: var(--gap-4),
+      size-height: 4.8rem,
+      button-size: var(--size-height-2),
+      padding-x: var(--padding-6),
+      pc-font-size: var(--pc-font-size-label-medium),
+      mobile-font-size: var(--mobile-font-size-label-medium),
+    ),
   ) !default;
 
   //css variable 생성
@@ -59,8 +68,7 @@
   }
 }
 @mixin tag-wrapper($size) {
-  gap: var(--btn-tag--wrapper-gap-y-#{$size})
-    var(--btn-tag--wrapper-gap-x-#{$size});
+  gap: var(--btn-tag--wrapper-gap-y-#{$size}) var(--btn-tag--wrapper-gap-x-#{$size});
 }
 @mixin tag($size) {
   gap: var(--gap-1);
@@ -84,14 +92,10 @@
   --btn-tag--color-text: var(--#{$mode}-color-text-basic);
   --btn-tag--color-action: var(--#{$mode}-color-action-white);
   --btn-tag--color-action-hover: var(--#{$mode}-color-action-secondary-hover);
-  --btn-tag--color-action-pressed: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
+  --btn-tag--color-action-pressed: var(--#{$mode}-color-action-secondary-pressed);
   --btn-tag--color-border: var(--#{$mode}-color-border-gray-light);
   --btn-tag--color-border-hover: var(--#{$mode}-color-action-secondary-hover);
-  --btn-tag--color-border-pressed: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
+  --btn-tag--color-border-pressed: var(--#{$mode}-color-action-secondary-pressed);
 }
 //모드 설정
 $mode-setting: light;

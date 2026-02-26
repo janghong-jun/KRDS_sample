@@ -89,11 +89,7 @@
       {
         selector: 'input[type="file"]',
         init: function (element) {
-          if (
-            !element.hasAttribute('data-initialized') &&
-            UI.form &&
-            UI.form.fileUpload
-          ) {
+          if (!element.hasAttribute('data-initialized') && UI.form && UI.form.fileUpload) {
             UI.form.fileUpload();
             element.setAttribute('data-initialized', 'true');
           }
@@ -159,7 +155,7 @@
       this.observer = new MutationObserver(callback);
       this.observer.observe(config.rootElement, observerConfig);
 
-      console.log('UI Observer initialized');
+      // console.log('UI Observer initialized');
     },
 
     /**
@@ -173,10 +169,7 @@
           try {
             target.init(element);
           } catch (error) {
-            console.warn(
-              `Failed to initialize existing element: ${target.selector}`,
-              error,
-            );
+            console.warn(`Failed to initialize existing element: ${target.selector}`, error);
           }
         });
       });
@@ -204,10 +197,7 @@
             try {
               target.init(element);
             } catch (error) {
-              console.warn(
-                `Failed to initialize child element: ${target.selector}`,
-                error,
-              );
+              console.warn(`Failed to initialize child element: ${target.selector}`, error);
             }
           });
         }
@@ -246,7 +236,7 @@
     disconnect: function () {
       if (this.observer) {
         this.observer.disconnect();
-        console.log('UI Observer disconnected');
+        // console.log('UI Observer disconnected');
       }
     },
 

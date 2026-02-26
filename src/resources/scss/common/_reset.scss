@@ -27,7 +27,8 @@ body {
   font-size: var(--pc-font-size-body-medium);
   overflow-x: hidden;
   &.main {
-    .main-switcher {
+    .main-switcher,
+    .gnb-utils {
       display: flex !important;
     }
   }
