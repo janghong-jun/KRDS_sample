@@ -205,14 +205,19 @@ $mode-setting: light;
     //   }
     // }
     &.scroll {
-      overflow-x: scroll;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      min-width: 0; // flex 자식에서 overflow 동작 보장
       > ul {
+        display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto;
+        overflow-x: visible;
         overflow-y: hidden;
         white-space: nowrap;
+        width: max-content;
+        min-width: 100%;
         > li {
-          flex: none;
           white-space: nowrap;
         }
       }
@@ -362,11 +367,6 @@ $mode-setting: light;
         &[data-col='5'] {
           > ul {
             grid-template-columns: repeat(5, 1fr);
-          }
-        }
-        &[data-col='8'] {
-          > ul {
-            grid-template-columns: repeat(8, 1fr);
           }
         }
       }
