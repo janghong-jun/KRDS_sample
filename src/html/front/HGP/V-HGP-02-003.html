@@ -10,7 +10,7 @@
     <!--# include virtual="../../../components/_script.html" -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        GNB.setSelected({ depth1: 4, depth2: 2, depth3: 0 });
+        GNB.setSelected({ depth1: 4 + 1, depth2: 2 + 1, depth3: 0 + 1 });
 
         document.querySelectorAll('.circle-chart').forEach((chart) => {
           let percent = Number(chart.dataset.percent);

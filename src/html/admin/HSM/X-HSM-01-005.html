@@ -100,6 +100,34 @@
                   </td>
                 </tr>
                 <tr>
+                  <th scope="row">
+                    <label for="password">비밀번호</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area flex-wrap">
+                      <input type="password" id="password" class="inp-text" style="flex: 1" />
+                      <div class="tbl-btns mgt0">
+                        <button type="button" class="btn base square">
+                          <span>비밀번호 초기화</span>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <label for="inp_ip">IP</label>
+                    <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <div class="frm-area">
+                      <input type="text" id="inp_ip" class="inp-text" />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
                   <th scope="row" class="vertical-top">
                     권한관리
                     <span class="ico-req"><span class="hide">필수</span></span>
@@ -179,12 +207,15 @@
             </table>
           </div>
           <div class="tbl-btns">
+            <button type="button" class="btn base tertiary">
+              <span>삭제</span>
+            </button>
             <div>
               <button type="button" class="btn base secondary">
                 <span>목록</span>
               </button>
               <button type="button" class="btn base primary">
-                <span>등록</span>
+                <span>수정</span>
               </button>
             </div>
           </div>

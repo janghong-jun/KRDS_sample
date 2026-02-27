@@ -727,8 +727,9 @@ footer {
 }
 .tbl-base.align-left table th {
   background-color: #f7f9f8;
-  font-weight: 6 00;
+  font-weight: 600;
   color: #222;
+  word-break: keep-all;
 }
 .tbl-base.align-left table th,
 .tbl-base.align-left table td {
@@ -746,6 +747,9 @@ footer {
 
 .tbl-base.align-left table td .flex-wrap .inp-text {
   width: calc(100% - 14rem);
+}
+.tbl-base.align-left table td .flex-wrap .inp-text + .tbl-btns.type-small .btn {
+  min-width: 6rem;
 }
 .tbl-btns.type-small {
   display: flex;

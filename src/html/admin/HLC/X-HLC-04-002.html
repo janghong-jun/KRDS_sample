@@ -23,7 +23,7 @@
           <!--# include virtual="../../../components/_admin-lnb.html" -->
         </div>
         <section class="main-conts">
-          <h2>학습공동체 관리</h2>
+          <h2>학습공동체 채널관리</h2>
           <div class="tbl-base mgt10 align-left">
             <table>
               <colgroup>
@@ -34,7 +34,6 @@
                 <tr>
                   <th scope="row">
                     <label for="inp01">채널명</label>
-                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
@@ -43,10 +42,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">
-                    개설일
-                    <span class="ico-req"><span class="hide">필수</span></span>
-                  </th>
+                  <th scope="row">개설일</th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">
@@ -75,8 +71,27 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    <label for="inp02">개설자</label>
+                    <label for="select01">교원/역량 구분</label>
                     <span class="ico-req"><span class="hide">필수</span></span>
+                  </th>
+                  <td>
+                    <select id="select01">
+                      <option>선택</option>
+                      <option>교사</option>
+                      <option>수석교사</option>
+                      <option>교감</option>
+                      <option>교장</option>
+                      <option>교육전문직원</option>
+                    </select>
+                    <select id="select02">
+                      <option>선택</option>
+                      <option selected>생활교육</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <label for="inp02">개설자</label>
                   </th>
                   <td>
                     <div class="frm-area">
@@ -87,7 +102,6 @@
                 <tr>
                   <th scope="row">
                     <label for="inpUpload">썸네일</label>
-                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="file-wrap">
@@ -107,7 +121,6 @@
                 <tr>
                   <th scope="row">
                     <label for="inp03">Link</label>
-                    <span class="ico-req"><span class="hide">필수</span></span>
                   </th>
                   <td>
                     <div class="frm-area">
@@ -116,10 +129,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">
-                    게시여부
-                    <span class="ico-req"><span class="hide">필수</span></span>
-                  </th>
+                  <th scope="row">게시여부</th>
                   <td>
                     <div class="frm-area">
                       <span class="lb-item">

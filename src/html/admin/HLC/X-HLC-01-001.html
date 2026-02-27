@@ -27,23 +27,75 @@
           <div class="tbl-base mgt10">
             <table>
               <colgroup>
-                <col style="width: 13rem" />
+                <col style="width: 15rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
+                  <th scope="row">기간</th>
                   <td>
-                    <div class="frm-area">
-                      <select>
-                        <option>전체</option>
-                        <option>협업공간명</option>
-                        <option>개설자</option>
-                      </select>
+                    <div class="flex-box align-center">
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="startDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="startDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <span class="date-sep">~</span>
+                      <div class="ui-date-wrap">
+                        <div class="ui-datepicker">
+                          <input type="text" id="endDate" class="inp-base date" aria-label="날짜입력" readonly placeholder="YYYY-MM-DD" />
+                          <button type="button" class="ui-datepicker-btn" data-target="endDate">
+                            <span class="a11y-hidden">년월일 선택</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="date-select">
+                        <button type="button" class="btn base square secondary">
+                          <span>1주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>2주일</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>1개월</span>
+                        </button>
+                        <button type="button" class="btn base square secondary">
+                          <span>3개월</span>
+                        </button>
+                      </div>
                     </div>
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row">개설요청</th>
                   <td>
                     <div class="frm-area">
-                      <input type="text" class="inp-text" placeholder="최소 2글자 이상 입력해주세요" aria-label="검색어 입력" />
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01" />
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02" />
+                        <label for="checkbox_01_02" class="lb-checkbox">대기중</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03" />
+                        <label for="checkbox_01_03" class="lb-checkbox">승인</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_04" />
+                        <label for="checkbox_01_04" class="lb-checkbox">거절</label>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="frm-area">
+                      <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
                   </td>
                 </tr>
@@ -59,7 +111,7 @@
             <div class="ui-tab-btns">
               <button type="button" class="ui-tab-btn selected">전체</button>
               <button type="button" class="ui-tab-btn">개설처리 협업공간</button>
-              <button type="button" class="ui-tab-btn">요청 협업공간</button>
+              <button type="button" class="ui-tab-btn">요청협업공간</button>
             </div>
           </div>
           <div class="tbl-base type2 mgt40">

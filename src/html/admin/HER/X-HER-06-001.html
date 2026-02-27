@@ -31,15 +31,21 @@
                 class="btn-modal"
                 onClick="
                   UI.modal.show({
-                    id: 'X-HER-06-008',
-                    src: 'X-HER-06-008.html',
-                    callback: () => { 
-                      const $modal = $('#X-HER-06-008');
-                      const $tr = $modal.find(`tr:not([class]),tr[class='']`)
-                      $tr.next().hide();
+                  id: 'X-HER-06-008',
+                  src: 'X-HER-06-008.html',
+                  callback: () => { 
+                    const $modal = $('#X-HER-06-008');
+                    const $tr = $modal.find(`tr:not([class]), tr[class='']`);
 
-                      $tr.off('click').on('click', function () { 
-                        $(this).next().toggle();
+                    $tr.next().hide();
+
+                    $tr.off('click');
+
+                    $modal.off('click', '.toggle-btn')
+                      .on('click', '.toggle-btn', function (e) {
+                        e.stopPropagation();
+                        const $currentTr = $(this).closest('tr');
+                        $currentTr.next().toggle();
                       });
                     }
                   });"
@@ -100,24 +106,24 @@
                   <td colspan="3">
                     <div class="frm-area">
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_01" name="rdoBtn01" />
-                        <label for="rdo_01_01" class="lb-radio">교사</label>
+                        <input type="checkbox" id="chk_01_01" />
+                        <label for="chk_01_01" class="lb-checkbox">교사</label>
                       </span>
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_02" name="rdoBtn01" />
-                        <label for="rdo_01_02" class="lb-radio">수석교사</label>
+                        <input type="checkbox" id="chk_01_02" />
+                        <label for="chk_01_02" class="lb-checkbox">수석교사</label>
                       </span>
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_03" name="rdoBtn01" />
-                        <label for="rdo_01_03" class="lb-radio">교감</label>
+                        <input type="checkbox" id="chk_01_03" />
+                        <label for="chk_01_03" class="lb-checkbox">교감</label>
                       </span>
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_04" name="rdoBtn01" />
-                        <label for="rdo_01_04" class="lb-radio">교장</label>
+                        <input type="checkbox" id="chk_01_04" />
+                        <label for="chk_01_04" class="lb-checkbox">교장</label>
                       </span>
                       <span class="lb-item">
-                        <input type="radio" id="rdo_01_05" name="rdoBtn01" />
-                        <label for="rdo_01_05" class="lb-radio">교육전문직원</label>
+                        <input type="checkbox" id="chk_01_05" />
+                        <label for="chk_01_05" class="lb-checkbox">교육전문직원</label>
                       </span>
                     </div>
                   </td>
@@ -126,18 +132,25 @@
                   <th scope="row">지역</th>
                   <td class="pr0">
                     <select>
-                      <option>선택 하세요.</option>
+                      <option>전체</option>
                     </select>
                   </td>
                   <td class="pr0">
                     <select>
-                      <option>선택 하세요.</option>
+                      <option>전체</option>
                     </select>
                   </td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td colspan="4">
+                  <td class="pr0">
+                    <select>
+                      <option>선택</option>
+                      <option>이름</option>
+                      <option>ID</option>
+                    </select>
+                  </td>
+                  <td colspan="3">
                     <div class="frm-area">
                       <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>

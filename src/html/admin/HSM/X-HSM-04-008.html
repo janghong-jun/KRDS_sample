@@ -39,13 +39,12 @@
             <table>
               <colgroup>
                 <col style="width: 15rem" />
-                <col style="width: 26rem" />
                 <col />
               </colgroup>
               <tbody>
                 <tr>
                   <th scope="row">기간</th>
-                  <td colspan="2">
+                  <td>
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
@@ -82,17 +81,26 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">상태</th>
-                  <td class="pr0">
-                    <select>
-                      <option>전체</option>
-                      <option>제목</option>
-                      <option>내용</option>
-                    </select>
+                  <th scope="row">개시상태</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01" />
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02" />
+                        <label for="checkbox_01_02" class="lb-checkbox">게시</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03" />
+                        <label for="checkbox_01_03" class="lb-checkbox">숨김</label>
+                      </span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="3">
+                  <td colspan="2">
                     <div class="frm-area">
                       <input type="text" class="inp-text" aria-label="검색어 입력" />
                     </div>
@@ -106,7 +114,14 @@
               <span>검색</span>
             </button>
           </div>
-          <div class="tbl-base type2 mgt24">
+          <div class="sub-title">
+            <select style="margin-left: auto">
+              <option>최신순</option>
+              <option>추천순</option>
+              <option>조회순</option>
+            </select>
+          </div>
+          <div class="tbl-base type2 mgt10">
             <table>
               <colgroup>
                 <col style="width: 8rem" />

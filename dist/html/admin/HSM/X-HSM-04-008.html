@@ -72,49 +72,7 @@
     </ul>
   </li>
   <li>
-    <a href="#" id="menu2" class="mMenu">전문가관리</a>
-    <ul class="sub">
-      <li>
-        <a href="#"><span>전문가관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>전문가설정</span></a>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#" id="menu3">역량관리</a></li>
-  <li>
-    <a href="#" id="menu4" class="mMenu">모듈관리</a>
-    <ul class="sub">
-      <li><a href="#">모듈관리</a></li>
-      <li><a href="#">모듈설정</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
-    <ul class="sub">
-      <li>
-        <a href="#"><span>콘텐츠관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>콘텐츠 업로드 현황</span></a>
-      </li>
-      <li>
-        <a href="#"><span>카테고리관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>콘텐츠 이력관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>저작권관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>라이프사이클관리</span></a>
-      </li>
-      <li>
-        <a href="#"><span>폐기대상관리</span></a>
-      </li>
-    </ul>
+    <a href="#" id="menu11">방문현황관리</a>
   </li>
   <li>
     <a href="#" id="menu6" class="mMenu">사이트관리</a>
@@ -150,7 +108,52 @@
         <a href="#"><span>신고관리</span></a>
       </li>
       <li>
+        <a href="#"><span>개선요청관리</span></a>
+      </li>
+      <li>
         <a href="#"><span>추천/차단관리</span></a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu2" class="mMenu">전문가관리</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>전문가관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>전문가설정</span></a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#" id="menu3">역량관리</a></li>
+  <li>
+    <a href="#" id="menu4" class="mMenu">모듈관리</a>
+    <ul class="sub">
+      <li><a href="#">모듈관리</a></li>
+      <li><a href="#">모듈설정</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" id="menu5" class="mMenu">교육자원아카이브</a>
+    <ul class="sub">
+      <li>
+        <a href="#"><span>콘텐츠관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>카테고리관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>콘텐츠 이력관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>저작권관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>라이프사이클관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>폐기대상관리</span></a>
       </li>
     </ul>
   </li>
@@ -182,6 +185,9 @@
       </li>
       <li>
         <a href="#"><span>연계로그관리</span></a>
+      </li>
+      <li>
+        <a href="#"><span>LRS 연계로그</span></a>
       </li>
     </ul>
   </li>
@@ -221,13 +227,12 @@
             <table>
               <colgroup>
                 <col style="width: 15rem">
-                <col style="width: 26rem">
                 <col>
               </colgroup>
               <tbody>
                 <tr>
                   <th scope="row">기간</th>
-                  <td colspan="2">
+                  <td>
                     <div class="flex-box align-center">
                       <div class="ui-date-wrap">
                         <div class="ui-datepicker">
@@ -264,17 +269,26 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">상태</th>
-                  <td class="pr0">
-                    <select>
-                      <option>전체</option>
-                      <option>제목</option>
-                      <option>내용</option>
-                    </select>
+                  <th scope="row">개시상태</th>
+                  <td>
+                    <div class="frm-area">
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_01">
+                        <label for="checkbox_01_01" class="lb-checkbox">전체</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_02">
+                        <label for="checkbox_01_02" class="lb-checkbox">게시</label>
+                      </span>
+                      <span class="lb-item">
+                        <input type="checkbox" id="checkbox_01_03">
+                        <label for="checkbox_01_03" class="lb-checkbox">숨김</label>
+                      </span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="3">
+                  <td colspan="2">
                     <div class="frm-area">
                       <input type="text" class="inp-text" aria-label="검색어 입력">
                     </div>
@@ -288,7 +302,14 @@
               <span>검색</span>
             </button>
           </div>
-          <div class="tbl-base type2 mgt24">
+          <div class="sub-title">
+            <select style="margin-left: auto">
+              <option>최신순</option>
+              <option>추천순</option>
+              <option>조회순</option>
+            </select>
+          </div>
+          <div class="tbl-base type2 mgt10">
             <table>
               <colgroup>
                 <col style="width: 8rem">

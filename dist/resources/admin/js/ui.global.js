@@ -5631,7 +5631,6 @@
         document.querySelector('html').classList.add('is-modal');
 
         elModal.classList.remove('close');
-        elModal.classList.remove('type-full');
         elModal.classList.remove('ps-center');
         elModal.classList.remove('ps-top');
         elModal.classList.remove('ps-bottom');

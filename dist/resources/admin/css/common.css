@@ -625,6 +625,9 @@ input:checked:disabled + .lb-checkbox::after {
   margin-top: 1.6rem;
   text-align: center;
 }
+.tbl-btns.center + .tbl-base.type2.mgt10 {
+  margin-top: 4rem !important;
+}
 .tbl-btns > div {
   float: right;
   line-height: 0;
@@ -1161,7 +1164,8 @@ input:checked:disabled + .lb-checkbox::after {
   width: 56rem;
   max-height: 60rem;
 }
-.type-large .ui-modal-wrap {
+.type-large .ui-modal-wrap,
+.type-large.ui-modal-wrap {
   width: 96rem;
   max-width: 96rem;
   max-height: 80rem;

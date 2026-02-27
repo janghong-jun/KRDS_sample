@@ -713,11 +713,12 @@ const krds_tab = {
     this.layerTabArea.forEach((tabArea) => {
       const layerTabs = tabArea.querySelectorAll(':scope > .tab > ul > li');
 
-      // 👉 default tab 세팅
-      const defaultIndex = Number(tabArea.dataset.defaultTab ?? 0);
-      if (defaultIndex !== undefined) {
+      //  default tab 세팅
+      if (!tabArea.dataset.tabInitialized) {
+        const defaultIndex = Number(tabArea.dataset.defaultTab ?? 0);
         layerTabs.forEach((tab) => tab.classList.remove('active'));
         layerTabs[defaultIndex]?.classList.add('active');
+        tabArea.dataset.tabInitialized = 'true';
       }
 
       // 탭 설정
@@ -741,7 +742,9 @@ const krds_tab = {
             selectedTabPanel.setAttribute('data-quick-nav', 'true');
           }
 
-          tab.addEventListener('click', () => {
+          tab.addEventListener('click', (e) => {
+            const tabBtn = tab.querySelector('.btn-tab');
+            if (!tabBtn || !tabBtn.contains(e.target)) return;
             const closestTabs = tab.closest('.krds-tab-area.layer > .tab').querySelectorAll('li');
             const closestTabPanels = tab.closest('.krds-tab-area.layer').querySelectorAll(':scope > .tab-conts-wrap > .tab-conts');
 
@@ -3067,7 +3070,7 @@ window.krdsReinitialize = initAllComponents;
  * GNB + LNB selected 클래스 동적 처리
  *
  * 사용법:
- *   GNB.init({ depth1: 2, depth2: 1, depth3: 0 });
+ *   GNB.init({ depth1: 2 + 1, depth2: 1 + 1, depth3: 0 + 1 });
  *
  * 옵션:
  *   depth1 : 1Depth 인덱스 (0부터) - PC GNB, 모바일 GNB
@@ -3088,21 +3091,30 @@ const GNB = (() => {
   let config = null;
 
   const setSelected = ({ depth1, depth2, depth3 }) => {
-    setPcGnb(depth1, depth2);
-    setMobileGnb(depth1, depth2, depth3);
-    setLnb(depth2, depth3);
-  };
+    const d1 = depth1 != null ? depth1 - 1 : null;
+    const d2 = depth2 != null ? depth2 - 1 : null;
+    const d3 = depth3 != null ? depth3 - 1 : null;
 
+    setPcGnb(d1, d2);
+    setMobileGnb(d1, d2, d3);
+    setLnb(d2, d3);
+  };
   const init = ({ depth1, depth2, depth3 }) => {
     config = { depth1, depth2, depth3 };
+    const requiredSelectors = ['.krds-main-menu:not(.krds-main-menu-mobile)', '.krds-main-menu-mobile', '.krds-side-navigation'];
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        setSelected(config);
-      });
-    } else {
+    const tryInit = () => {
+      const allReady = requiredSelectors.every((sel) => document.querySelector(sel));
+
+      if (!allReady) {
+        requestAnimationFrame(tryInit);
+        return;
+      }
+
       setSelected(config);
-    }
+    };
+
+    tryInit();
   };
 
   // ── PC GNB : 1Depth + 2Depth (자동 매칭) ─────────────────────────────
