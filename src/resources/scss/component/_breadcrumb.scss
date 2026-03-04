@@ -28,7 +28,7 @@ $mode-setting: light;
   @include breadcrumb-color-variable(#{$mode-setting});
 
   @include flex-layout($jc: center);
-  padding-top: var(--pc-gap-layout-header-breadcrumb);
+  // padding-top: var(--pc-gap-layout-header-breadcrumb);
   padding-bottom: var(--pc-gap-layout-breadcrumb-h2);
   .breadcrumb {
     @include flex-layout($ai: center);
@@ -96,7 +96,7 @@ $mode-setting: light;
 //모바일 전용 속성
 @include size-medium {
   .krds-breadcrumb-wrap {
-    padding-top: var(--mobile-gap-layout-header-breadcrumb);
+    // padding-top: var(--mobile-gap-layout-header-breadcrumb);
     padding-bottom: var(--mobile-gap-layout-breadcrumb-h2);
     .breadcrumb {
       li {

@@ -50,6 +50,16 @@
           <!-- //학습공동체 사이드 메뉴 -->
 
           <div class="contents" id="contents">
+            <!-- breadcrumb -->
+            <nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="home"><a href="#" class="txt">홈</a></li>
+                <li><a href="#" class="txt">학습공동체</a></li>
+                <li><a href="#" class="txt">연구지원</a></li>
+                <li><a href="#" class="txt">연구지원 등록</a></li>
+              </ol>
+            </nav>
+            <!-- /breadcrumb -->
             <!-- Page Title -->
             <div class="page-title-wrap">
               <h3 class="h-tit">연구지원</h3>
@@ -74,7 +84,7 @@
                       <tr>
                         <th class="ac" scope="row">
                           <label for="input_name" class="krds-label">
-                            연구지원명
+                            연구지원 명
                             <i class="required" aria-hidden="true"></i>
                             <span class="sr-only">필수 항목</span>
                           </label>
@@ -85,8 +95,32 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
+                          <label for="category_select">
+                            교원/역량 구분
+                            <i class="required" aria-hidden="true"></i>
+                            <span class="sr-only">필수 항목</span>
+                          </label>
+                        </th>
+                        <td>
+                          <div class="krds-form-wrap">
+                            <select class="krds-form-select" id="category_select">
+                              <option value="">교원 구분 선택</option>
+                              <option value="">교사</option>
+                              <option value="">수석교사</option>
+                              <option value="">교감</option>
+                              <option value="">교장</option>
+                              <option value="">교육전문직원</option>
+                            </select>
+                            <select class="krds-form-select" aria-label="역량군 선택">
+                              <option value="">역량군 선택</option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="ac" scope="row">
                           <label for="input_cont" class="krds-label">
-                            연구지원소개
+                            연구지원 소개
                             <i class="required" aria-hidden="true"></i>
                             <span class="sr-only">필수 항목</span>
                           </label>
@@ -157,7 +191,7 @@
                 </div>
               </div>
               <div class="krds-btns-wrap right">
-                <a href="#" class="krds-btn xlarge primary">협업등록요청</a>
+                <a href="#" class="krds-btn xlarge primary">연구지원 등록요청</a>
               </div>
             </div>
           </div>

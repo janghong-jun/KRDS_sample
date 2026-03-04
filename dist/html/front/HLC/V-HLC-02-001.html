@@ -400,35 +400,140 @@
           <!-- //학습공동체 사이드 메뉴 -->
 
           <div class="contents" id="contents">
+            <!-- breadcrumb -->
+            <nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="home"><a href="#" class="txt">홈</a></li>
+                <li><a href="#" class="txt">학습공동체</a></li>
+                <li><a href="#" class="txt">실행나눔</a></li>
+              </ol>
+            </nav>
+            <!-- /breadcrumb -->
             <!-- Page Title -->
             <div class="page-title-wrap">
               <h3 class="h-tit">실행나눔</h3>
             </div>
-            <div class="g-search-area">
-              <!-- 검색 입력폼 -->
-
+            <div class="g-search-area colum">
               <div class="search-top-box">
                 <div class="form-group">
                   <div class="sch-form-wrap">
-                    <div class="form-conts">
-                      <select class="krds-form-select small completed" title="선택">
-                        <option value="">전체</option>
-                        <option value="">제목</option>
-                        <option value="">작성자</option>
-                      </select>
+                    <div class="col date">
+                      <div class="col-title">기간</div>
+                      <div class="form-date calendar-conts" data-calendar-type="range">
+                        <div class="calendar-input">
+                          <ul class="input-group range small">
+                            <li>
+                              <input class="krds-input datepicker small" placeholder="시작일" readonly="readonly" aria-label="시작일">
+                              <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                            </li>
+                            <li class="mark small">~</li>
+                            <li>
+                              <input class="krds-input datepicker small" placeholder="종료일" readonly="readonly" aria-label="종료일">
+                              <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="krds-calendar-area" data-keyboard-bound="false"></div>
+                      </div>
+                      <div class="krds-btns-wrap">
+                        <button type="button" class="krds-btn small secondary">1개월</button>
+                        <button type="button" class="krds-btn small secondary">3개월</button>
+                        <button type="button" class="krds-btn small secondary">6개월</button>
+                        <button type="button" class="krds-btn small secondary">1년</button>
+                      </div>
                     </div>
-                    <div class="sch-input">
-                      <input type="text" id="keyword_search" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력">
-                      <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
-                        <i class="svg-icon ico-sch"></i>
-                      </span>
+                    <div class="col">
+                      <div class="col-title">상태</div>
+                      <div class="krds-check-area">
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo01" id="search_rdo01_01">
+                          <label for="search_rdo01_01">전체</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo01" id="search_rdo01_02">
+                          <label for="search_rdo01_02">협업명</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo01" id="search_rdo01_03">
+                          <label for="search_rdo01_03">내용</label>
+                        </div>
+                      </div>
                     </div>
-                    <button type="button" class="krds-btn small neutral">검색</button>
+                    <div class="col">
+                      <div class="col-title">교원구분</div>
+                      <div class="krds-check-area">
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_01">
+                          <label for="search_rdo02_01">전체</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_02">
+                          <label for="search_rdo02_02">교사</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_03">
+                          <label for="search_rdo02_03">수석교사</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_04">
+                          <label for="search_rdo02_04">교감</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_05">
+                          <label for="search_rdo02_05">교장</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo02" id="search_rdo02_06">
+                          <label for="search_rdo02_06">교육전문직원</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="col-title">역량군</div>
+                      <div class="krds-check-area">
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo03" id="search_rdo03_01">
+                          <label for="search_rdo03_01">전체</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo03" id="search_rdo03_02">
+                          <label for="search_rdo03_02">역량군 1</label>
+                        </div>
+                        <div class="krds-form-check large">
+                          <input type="radio" name="search_rdo03" id="search_rdo03_03">
+                          <label for="search_rdo03_03">역량군 2</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col input">
+                      <div class="sch-input">
+                        <input type="text" class="krds-input small" aria-label="검색어 입력">
+                        <span class="krds-btn xsmall icon ico-search btn-exec" aria-hidden="true">
+                          <i class="svg-icon ico-sch"></i>
+                        </span>
+                      </div>
+                      <button type="button" class="krds-btn small neutral">검색</button>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- //검색 입력폼 -->
+            <div class="section-title-wrap right">
+              <div class="krds-check-area">
+                <div class="krds-form-check">
+                  <input type="radio" name="rdo_4" id="rdo_4" checked="checked">
+                  <label for="rdo_4">최신순</label>
+                </div>
+                <div class="krds-form-check">
+                  <input type="radio" name="rdo_4" id="rdo_5">
+                  <label for="rdo_5">조회수</label>
+                </div>
+                <div class="krds-form-check">
+                  <input type="radio" name="rdo_4" id="rdo_5">
+                  <label for="rdo_5">추천</label>
+                </div>
+              </div>
             </div>
 
             <ul class="card-list">
@@ -439,11 +544,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -455,11 +566,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -471,11 +588,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -487,11 +610,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -503,11 +632,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -519,11 +654,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -535,11 +676,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -551,11 +698,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -567,11 +720,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -583,11 +742,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -599,11 +764,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -615,11 +786,17 @@
                   </span>
                   <div class="card-conts">
                     <h4 class="card-tit">실행나눔 제목이 노출됩니다.</h4>
+                    <p class="card-ability">[교사] 공동체 역량</p>
                     <div class="card-info">
                       <span class="card-owner">
                         <span>김미래</span>
                       </span>
                       <span class="card-date">2025-11-15</span>
+                      <div>
+                        <span class="card-views">조회수 999회</span>
+                        <span class="bar" aria-hidden="true"></span>
+                        <span class="recommend">추천 21</span>
+                      </div>
                     </div>
                   </div>
                 </a>

@@ -400,6 +400,16 @@
           <!-- //학습공동체 사이드 메뉴 -->
 
           <div class="contents" id="contents">
+            <!-- breadcrumb -->
+            <nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="home"><a href="#" class="txt">홈</a></li>
+                <li><a href="#" class="txt">학습공동체</a></li>
+                <li><a href="#" class="txt">커뮤니티게시판</a></li>
+                <li><a href="#" class="txt">커뮤니티게시판 등록</a></li>
+              </ol>
+            </nav>
+            <!-- /breadcrumb -->
             <!-- Page Title -->
             <div class="page-title-wrap">
               <h3 class="h-tit">커뮤니티 게시판</h3>
@@ -410,7 +420,7 @@
                 <div class="krds-table-wrap write">
                   <table class="tbl">
                     <caption>
-                      커뮤니티 게시판 등록에 대한 표로 참고사항, 카테고리, 제목, 내용, 첨부파일로 구성되어있다.
+                      커뮤니티 게시판 등록에 대한 표로 참고사항, 제목, 내용, 첨부파일로 구성되어있다.
                     </caption>
                     <colgroup>
                       <col style="width: 15rem">
@@ -428,46 +438,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          카테고리선택
-                          <i class="required" aria-hidden="true"></i>
-                          <span class="sr-only">필수 항목</span>
-                        </th>
-                        <td class="al">
-                          <div class="filter-tab">
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_1" checked="checked">
-                              <label for="rdo_chip_1">전체보기</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_2">
-                              <label for="rdo_chip_2">자유</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_3">
-                              <label for="rdo_chip_3">주제1</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_4">
-                              <label for="rdo_chip_4">주제2</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_5">
-                              <label for="rdo_chip_5">주제3</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_6">
-                              <label for="rdo_chip_6">주제4</label>
-                            </div>
-                            <div class="filter-item">
-                              <input type="radio" class="radio" name="rdo_chip" id="rdo_chip_7">
-                              <label for="rdo_chip_7">주제5</label>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th class="ac" scope="row">
-                          <label for="input_title" class="krds-label"> 제목 </label>
+                          <label for="input_title" class="krds-label">제목</label>
                         </th>
                         <td class="al">
                           <input type="text" class="krds-input" id="input_title" placeholder="제목을 입력해주세요(최대 30자)">
@@ -475,7 +446,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="input_cont" class="krds-label"> 내용 </label>
+                          <label for="input_cont" class="krds-label">내용</label>
                         </th>
                         <td class="al">
                           <textarea class="krds-input" id="input_cont" placeholder="내용을 입력해주세요(최대 0000자)"></textarea>
@@ -483,7 +454,7 @@
                       </tr>
                       <tr>
                         <th class="ac" scope="row">
-                          <label for="file-upload" class="krds-label"> 첨부파일 </label>
+                          <label for="file-upload" class="krds-label">파일첨부</label>
                         </th>
                         <td>
                           <div class="file-box">

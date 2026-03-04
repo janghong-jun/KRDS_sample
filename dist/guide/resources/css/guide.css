@@ -25,7 +25,9 @@
 .guide > .krds-step-wrap,
 .guide .fieldset,
 .guide .krds-accordion,
-.guide .page-title-wrap {
+.guide .page-title-wrap,
+.guide .file-box,
+.guide .krds-form-file {
   width: 100%;
 }
 .guide > .krds-info-list {

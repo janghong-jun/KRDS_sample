@@ -244,7 +244,7 @@ $mode-setting: light;
           position: sticky;
           top: 0;
           left: 0;
-          z-index: 1;
+          z-index: 5;
           background-color: var(--modal--wrap-color-surface);
           &.scroll {
             overflow: auto;
@@ -352,7 +352,7 @@ $mode-setting: light;
   .krds-tab-area {
     gap: var(--padding-8);
   }
-  .g-search-area {
+  .g-search-area:not(.colum) {
     margin-bottom: var(--padding-8);
   }
   //full 팝업(통합검색, 관련기관링크)

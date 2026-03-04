@@ -200,8 +200,10 @@ td {
 .filter-tab {
   display: flex;
   gap: var(--gap-3);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: auto;
   .filter-item {
+    flex-shrink: 0;
     position: relative;
     .radio {
       top: 0;

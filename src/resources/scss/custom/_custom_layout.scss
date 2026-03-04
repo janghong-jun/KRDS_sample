@@ -57,7 +57,6 @@ $mode-setting: light;
       .breadcrumb-wrap {
         padding-top: var(--pc-gap-layout-header-breadcrumb);
         padding-bottom: var(--pc-gap-layout-breadcrumb-h2);
-
         @include size-medium {
           padding-top: var(--mobile-gap-layout-header-breadcrumb);
           padding-bottom: var(--mobile-gap-layout-breadcrumb-h2);

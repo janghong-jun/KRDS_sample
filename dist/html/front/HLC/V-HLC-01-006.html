@@ -400,11 +400,21 @@
           <!-- //학습공동체 사이드 메뉴 -->
 
           <div class="contents" id="contents">
+            <!-- breadcrumb -->
+            <nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="home"><a href="#" class="txt">홈</a></li>
+                <li><a href="#" class="txt">학습공동체</a></li>
+                <li><a href="#" class="txt">협업공간</a></li>
+                <li><a href="#" class="txt">자료공유</a></li>
+              </ol>
+            </nav>
+            <!-- /breadcrumb -->
             <!-- Page Title -->
             <div class="page-title-wrap justify-between">
               <h3 class="h-tit">
                 AI 교과서 활용 방안 협업
-                <div class="sub-txt">AI 교과서의 새로운 기능 &amp; 공유를 위한 공간입니다.</div>
+                <div class="sub-txt">[교사] 공동체 역량 <br>AI 교과서의 새로운 기능 &amp; 공유를 위한 공간입니다.</div>
               </h3>
               <div class="page-utill">
                 <div class="krds-drop-wrap">
@@ -462,31 +472,65 @@
                 <div class="tab-conts-wrap">
                   <section class="tab-conts active">
                     <h4 class="sr-only">자료공유</h4>
-                    <div class="g-search-area">
-                      <!-- 검색 입력폼 -->
 
+                    <div class="g-search-area colum">
                       <div class="search-top-box">
                         <div class="form-group">
                           <div class="sch-form-wrap">
-                            <div class="form-conts">
-                              <select class="krds-form-select small completed" title="선택">
-                                <option value="">전체</option>
-                                <option value="">제목</option>
-                                <option value="">작성자</option>
-                              </select>
+                            <div class="col date">
+                              <div class="col-title">기간</div>
+                              <div class="form-date calendar-conts" data-calendar-type="range">
+                                <div class="calendar-input">
+                                  <ul class="input-group range small">
+                                    <li>
+                                      <input class="krds-input datepicker small" placeholder="시작일" readonly="readonly" aria-label="시작일">
+                                      <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                                    </li>
+                                    <li class="mark small">~</li>
+                                    <li>
+                                      <input class="krds-input datepicker small" placeholder="종료일" readonly="readonly" aria-label="종료일">
+                                      <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="krds-calendar-area" data-keyboard-bound="false"></div>
+                              </div>
+                              <div class="krds-btns-wrap">
+                                <button type="button" class="krds-btn small secondary">1개월</button>
+                                <button type="button" class="krds-btn small secondary">3개월</button>
+                                <button type="button" class="krds-btn small secondary">6개월</button>
+                                <button type="button" class="krds-btn small secondary">1년</button>
+                              </div>
                             </div>
-                            <div class="sch-input">
-                              <input type="text" id="keyword_search" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력">
-                              <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
-                                <i class="svg-icon ico-sch"></i>
-                              </span>
+                            <div class="col">
+                              <div class="col-title">상태</div>
+                              <div class="krds-check-area">
+                                <div class="krds-form-check large">
+                                  <input type="radio" id="search_rdo_01_01_01" name="search_rdo_01_01">
+                                  <label for="search_rdo_01_01_01">전체</label>
+                                </div>
+                                <div class="krds-form-check large">
+                                  <input type="radio" id="search_rdo_01_01_02" name="search_rdo_01_01">
+                                  <label for="search_rdo_01_01_02">제목</label>
+                                </div>
+                                <div class="krds-form-check large">
+                                  <input type="radio" id="search_rdo_01_01_03" name="search_rdo_01_01">
+                                  <label for="search_rdo_01_01_03">작성자</label>
+                                </div>
+                              </div>
                             </div>
-                            <button type="button" class="krds-btn small neutral">검색</button>
+                            <div class="col input">
+                              <div class="sch-input">
+                                <input type="text" class="krds-input small" aria-label="검색어 입력">
+                                <span class="krds-btn xsmall icon ico-search btn-exec" aria-hidden="true">
+                                  <i class="svg-icon ico-sch"></i>
+                                </span>
+                              </div>
+                              <button type="button" class="krds-btn small neutral">검색</button>
+                            </div>
                           </div>
                         </div>
                       </div>
-
-                      <!-- //검색 입력폼 -->
                     </div>
 
                     <div class="krds-table-wrap">

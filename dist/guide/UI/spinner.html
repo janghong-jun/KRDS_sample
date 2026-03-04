@@ -369,28 +369,36 @@
       <div id="container">
         <div class="inner">
           <div class="guide">
+            <button class="krds-btn" onclick="const spinner = document.querySelector('.krds-spinner');
+                spinner.classList.add('is-active');
+                setTimeout(() => {
+                  spinner.classList.remove('is-active');
+                  alert('스피너 종료');
+                }, 5000);">
+              스피너 보기
+            </button>
             <!-- 인풋 내 스피너 -->
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="form-tit">
                 <label for="consult_name">Label</label>
               </div>
               <div class="form-conts">
                 <div class="form-spinner">
-                  <input type="text" id="consult_name" class="krds-input" placeholder="placeholder">
+                  <input type="text" id="consult_name" class="krds-input" placeholder="placeholder" />
                   <div class="krds-spinner" role="status">
                     <span class="sr-only">로딩 중</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- //인풋 내 스피너 -->
           </div>
           <div class="guide">
             <!-- 스피너 -->
-            <div class="krds-spinner" role="status">
+            <!-- <div class="krds-spinner" role="status">
               <span class="sr-only">로딩 중</span>
               Loading data..
-            </div>
+            </div> -->
             <!-- //스피너 -->
           </div>
         </div>
@@ -512,7 +520,7 @@
       <!-- //footer -->
       <!-- 스피너 -->
       <!-- 노출시 is-active 추가 -->
-      <div class="krds-spinner is-active" role="status">
+      <div class="krds-spinner" role="status">
         <span class="sr-only">로딩 중</span>
       </div>
       <!-- //스피너 -->

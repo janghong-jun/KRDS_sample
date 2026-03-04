@@ -79,3 +79,12 @@
   border-radius: var(--button--radius-medium);
   background-color: var(--color-light-alpha-white100);
 }
+
+.krds-form-wrap {
+  display: flex;
+  flex: 1;
+  gap: var(--gap-3);
+  .krds-form-select {
+    flex: 1;
+  }
+}

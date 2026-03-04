@@ -29,6 +29,27 @@ label {
     justify-content: flex-end;
     gap: var(--gap-7);
   }
+  &.chip {
+    gap: var(--gap-5);
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap-4);
+
+      > label {
+        @include ellipsis(1);
+      }
+      .small {
+        flex: none;
+        input + label {
+          &::before {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 .chip-wrap {
