@@ -103,6 +103,13 @@ $mode-setting: light;
         }
       }
     }
+    tr.fiexd {
+      background-color: var(--light-color-element-primary-lighter);
+      td,
+      th {
+        background-color: var(--light-color-element-primary-lighter);
+      }
+    }
     &.center {
       > tbody {
         td,

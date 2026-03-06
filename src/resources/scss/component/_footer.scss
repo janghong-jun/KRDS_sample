@@ -17,7 +17,6 @@ $mode-setting: light;
     background-color: var(--#{$mode-setting}-color-background-white);
     .inner {
       display: flex;
-      padding: 0;
       //모바일 전용
       @include size-medium {
         flex-direction: column;

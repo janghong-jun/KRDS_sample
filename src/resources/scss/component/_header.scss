@@ -91,7 +91,7 @@ $mode-setting: light;
       display: inline-flex;
       @include square(18.2rem, 4.2rem);
       @include size-medium {
-        @include square(11rem, 4.2rem);
+        // @include square(11rem, 4.2rem);
       }
       flex: none;
       a {
@@ -165,6 +165,12 @@ $mode-setting: light;
         padding: var(--padding-4) var(--padding-5);
         &::before {
           @include icon-set(ico_sch);
+        }
+      }
+      &.ai {
+        padding: var(--padding-4) var(--padding-5);
+        &::before {
+          @include icon-set(ico_faq);
         }
       }
       &.login {

@@ -649,6 +649,11 @@ $mode-setting: light;
                 background-color: var(--main-menu-mobile--utils-color-border);
               }
             }
+            &.active {
+              a {
+                font-weight: var(--font-weight-bold);
+              }
+            }
           }
         }
       }

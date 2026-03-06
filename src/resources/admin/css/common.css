@@ -1160,10 +1160,12 @@ input:checked:disabled + .lb-checkbox::after {
   margin: 0;
   width: 100%;
 }
+[data-size='sm'] .ui-modal-wrap,
 .type-small .ui-modal-wrap {
   width: 56rem;
   max-height: 60rem;
 }
+[data-size='lg'] .ui-modal-wrap,
 .type-large .ui-modal-wrap,
 .type-large.ui-modal-wrap {
   width: 96rem;

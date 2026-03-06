@@ -39,6 +39,9 @@
   }
   &.ico-like {
     @include icon-set(ico_like);
+    &.active {
+      @include icon-set(ico_heart_on, pure);
+    }
   }
   &.ico-share {
     @include icon-set(ico_share);

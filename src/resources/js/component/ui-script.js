@@ -3318,3 +3318,40 @@ const GNB = (() => {
     init,
   };
 })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const switcherLinks = document.querySelectorAll('.main-switcher a');
+  const utilityItems = document.querySelectorAll('.gnb-utils .utility-list li');
+
+  // 요소가 없으면 실행 안 함
+  if (!switcherLinks.length && !utilityItems.length) return;
+
+  function setActive(index) {
+    switcherLinks.forEach((a, i) => {
+      a.classList.toggle('active', i === index);
+    });
+    utilityItems.forEach((li, i) => {
+      li.classList.toggle('active', i === index);
+    });
+  }
+
+  // 클릭 이벤트
+  switcherLinks.forEach((a, i) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActive(i);
+    });
+  });
+
+  utilityItems.forEach((li, i) => {
+    li.querySelector('a')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActive(i);
+    });
+  });
+
+  // ✅ body 클래스 기준 초기 활성화
+  const pageIndex = document.body.classList.contains('ai-type') ? 1 : document.body.classList.contains('profile-type') ? 2 : 0;
+
+  setActive(pageIndex);
+});

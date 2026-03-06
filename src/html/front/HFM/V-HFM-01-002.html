@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 공통 meta -->
+    <!--# include virtual="../../../components/_meta.html" -->
+    <title>Hi-Coaching</title>
+    <!-- 공통 css -->
+    <!--# include virtual="../../../components/_css.html" -->
+    <!-- 공통 script -->
+    <!--# include virtual="../../../components/_script.html" -->
+    <script>
+      // ✅ 수정
+      document.addEventListener('DOMContentLoaded', function () {
+        function updateAria(swiper) {
+          swiper.slides.forEach((slide, index) => {
+            if (index === swiper.activeIndex) {
+              slide.setAttribute('aria-hidden', 'false');
+              slide.removeAttribute('tabindex');
+            } else {
+              slide.setAttribute('aria-hidden', 'true');
+              slide.setAttribute('tabindex', '-1');
+            }
+          });
+        }
+
+        function bindKeyboard(wrapper, swiper) {
+          let vbFocus = false;
+          wrapper.addEventListener('focusin', () => {
+            vbFocus = true;
+          });
+          wrapper.addEventListener('focusout', (e) => {
+            if (!wrapper.contains(e.relatedTarget)) vbFocus = false;
+          });
+          wrapper.addEventListener('keydown', (e) => {
+            if (!vbFocus) return;
+            if (e.key === 'ArrowLeft') swiper.slidePrev();
+            if (e.key === 'ArrowRight') swiper.slideNext();
+          });
+        }
+
+        document.querySelectorAll('.swiper-type01').forEach((wrapper) => {
+          const swiper = new Swiper(wrapper, {
+            slidesPerView: 'auto',
+            spaceBetween: 40,
+            a11y: { enabled: true },
+            navigation: {
+              nextEl: wrapper.querySelector('.swiper-button-next'),
+              prevEl: wrapper.querySelector('.swiper-button-prev'),
+            },
+            pagination: {
+              el: wrapper.querySelector('.swiper-pagination'),
+              clickable: true,
+            },
+            on: {
+              init() {
+                updateAria(this);
+              },
+              slideChange() {
+                updateAria(this);
+              },
+            },
+            observer: true,
+            observeParents: true,
+            observeSlideChildren: true,
+            updateOnWindowResize: true,
+          });
+
+          bindKeyboard(wrapper, swiper);
+        });
+
+        document.querySelectorAll('.notice-swiper').forEach((wrapper) => {
+          const swiper = new Swiper(wrapper, {
+            direction: 'vertical',
+            slidesPerView: 1,
+            spaceBetween: 0,
+            navigation: {
+              nextEl: wrapper.querySelector('.swiper-button-next'),
+              prevEl: wrapper.querySelector('.swiper-button-prev'),
+            },
+            a11y: { enabled: true },
+            observer: true,
+            observeParents: true,
+          });
+
+          let vbFocus = false;
+          wrapper.addEventListener('focusin', () => {
+            vbFocus = true;
+          });
+          wrapper.addEventListener('focusout', (e) => {
+            if (!wrapper.contains(e.relatedTarget)) vbFocus = false;
+          });
+          wrapper.addEventListener('keydown', (e) => {
+            if (!vbFocus) return;
+            if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              swiper.slidePrev();
+            }
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              swiper.slideNext();
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body class="main ai-type">
+    <div id="wrap">
+      <!-- 건너뛰기 링크 -->
+      <div id="krds-skip-link">
+        <a href="#container">본문 바로가기</a>
+        <a href="#gnb">주메뉴 바로가기</a>
+      </div>
+      <!-- //건너뛰기 링크 -->
+
+      <!--# include virtual="../../../components/_masthead.html" -->
+      <!--# include virtual="../../../components/_header.html" -->
+
+      <!-- Container -->
+      <main id="container">
+        <div class="inner">
+          <div class="main-contents">
+            <section class="chat">
+              <div class="chat-inner">
+                <div class="">
+                  <input type="text" placeholder="하이코칭 AI에게 물어보세요" />
+                  <button type="button" class="krds-btn icon">
+                    <span class="sr-only">AI 챗봇 검색하기</span>
+                    <i class="svg-icon ico-send" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+          <aside class="main-personalized">
+            <div class="item">
+              <h2 class="sr-only">내 프로필</h2>
+              <div class="expert-register">
+                <div class="profile-img">
+                  <img src="../../../resources/img/sample/img_comment02.jpg" alt="김코칭 프로필 사진" />
+                </div>
+                <div class="expert-info">
+                  <div>
+                    <strong class="expert-name">김코칭<span>선생님</span></strong>
+                    <a href="#" class="krds-btn icon">
+                      <span class="sr-only">내 프로필 바로가기</span>
+                      <i class="svg-icon ico-setting medium"></i>
+                    </a>
+                    <div class="krds-badge-wrap">
+                      <span class="krds-badge large bg-light-primary">Level 1 <span>씨앗</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="expert-info full">
+                  <dl>
+                    <div>
+                      <dt>학교</dt>
+                      <dd>
+                        <span>수원고등학교</span>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>과목(담당)</dt>
+                      <dd>
+                        <span>고등수학</span>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>SNS</dt>
+                      <dd>
+                        <ul>
+                          <li>
+                            <!-- 
+                              <i class="svg-icon ico-thread"></i>
+                              <i class="svg-icon ico-facebook2"></i>
+                              <i class="svg-icon ico-kakao"></i> 
+                            -->
+                            <i class="svg-icon ico-instagram2"></i>
+                            <span>coaching_kim</span>
+                          </li>
+                          <li>
+                            <i class="svg-icon ico-sns-x2"></i>
+                            <span>@coaching_kim</span>
+                          </li>
+                        </ul>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="krds-btns-wrap">
+                  <button type="button" class="krds-btn small primary">전문가 그룹 등재 신청</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <h2 class="main-title">내 관심분야</h2>
+              <div class="krds-tag-wrap medium">
+                <span class="krds-btn-tag">디지털교육</span>
+                <span class="krds-btn-tag">진로/직업교육</span>
+                <span class="krds-btn-tag">교육정책</span>
+                <span class="krds-btn-tag">STEM(과학, 기술, 공학, 수학)</span>
+                <span class="krds-btn-tag">특정대상교육</span>
+              </div>
+              <a href="#" class="krds-btn small text">
+                바로가기
+                <i class="svg-icon ico-angle right"></i>
+              </a>
+            </div>
+            <div class="item">
+              <h2 class="main-title">포인트현황</h2>
+              <div class="point-wrap">
+                <dl class="point-list">
+                  <div>
+                    <dt>총 코칭</dt>
+                    <dd>
+                      4,320
+                      <i class="svg-icon ico-point" aria-hidden="true"></i>
+                      <span class="sr-only">포인트</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>총 누적 포인트</dt>
+                    <dd>
+                      9,370
+                      <i class="svg-icon ico-point" aria-hidden="true"></i>
+                      <span class="sr-only">포인트</span>
+                    </dd>
+                  </div>
+                </dl>
+                <div class="point-level" aria-labelledby="levelTitle">
+                  <strong id="levelTitle" class="level-title">Level 1 <span>씨앗</span></strong>
+                  <p class="level-title level-next" aria-hidden="true">Level 2 <span>새싹</span></p>
+                  <div class="progress-wrap">
+                    <!-- aria-valuenow, aria-valuetext에 달성률, 레벨 관련 대체텍스트 추가 필요 -->
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-valuetext="현재 Level 1 씨앗 단계, 60% 달성">
+                      <span class="progress-fill" style="width: 60%"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="krds-btn small text">
+                적립 기록
+                <i class="svg-icon ico-angle right"></i>
+              </a>
+            </div>
+            <div class="item">
+              <h2 class="main-title">나의 학습공동체</h2>
+              <ul class="link-list">
+                <li>
+                  <a href="#">[실행나눔] 자율과 책임으로 함께 만들어가 자율과 책임으로 함께 만들어가 </a>
+                </li>
+                <li>
+                  <a href="#">[실행나눔] 선택형 교육과정〮고교학점제 연계 선택형 교육과정〮고교학점제 연계</a>
+                </li>
+
+                <li>
+                  <a href="#">[연구지원] 자율과 책임으로 함께 만들어가 자율과 책임으로 함께 만들어가 </a>
+                </li>
+                <!-- <li class="nodata">참여 중인 학습공동체가 없습니다</li> -->
+              </ul>
+              <a href="#" class="krds-btn small text">
+                개설신청
+                <i class="svg-icon ico-angle right"></i>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <!--# include virtual="../../../components/_footer.html" -->
+    </div>
+  </body>
+</html>

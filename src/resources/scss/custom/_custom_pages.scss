@@ -3783,6 +3783,7 @@ $circle-chart-types: (
   }
 }
 .module-swiper-ongoing {
+  padding: 0 7.2rem;
   &::before,
   &::after {
     content: '';
@@ -3799,7 +3800,6 @@ $circle-chart-types: (
   &::after {
     right: 0;
   }
-  padding: 0 7.2rem;
   .card-list {
     display: flex;
     margin: 0;
