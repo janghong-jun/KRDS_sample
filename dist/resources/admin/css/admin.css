@@ -314,7 +314,7 @@ footer {
 .main-wrap .sub-nav .sub li a:hover {
   color: #1a1a1a;
 }
-.main-wrap .sub-nav .sub li.current a {
+.main-wrap .sub-nav .sub li.current > a {
   position: relative;
   color: #000;
   font-weight: 700;
@@ -332,6 +332,55 @@ footer {
   height: 0.6rem;
   border-radius: 50%;
   background: #1a58cc;
+}
+.main-wrap .sub-nav .sub li:has(ul) > a {
+  display: flex;
+  gap: 0.4rem;
+}
+.main-wrap .sub-nav .sub li:has(ul) > a::after {
+  content: '';
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url(../images/ico_comm.png) no-repeat;
+  background-position: -4rem 0;
+  transform: rotate(90deg);
+}
+.main-wrap .sub-nav .sub li.current:has(ul) > a span::before {
+  right: -3rem;
+}
+.main-wrap .sub-nav .sub li ul {
+  display: none;
+}
+.main-wrap .sub-nav .sub li.current > a::after {
+  transform: rotate(-90deg);
+}
+.main-wrap .sub-nav .sub li.current ul {
+  display: block;
+}
+.main-wrap .sub-nav .sub li.current li {
+  margin: 0;
+  padding: 0 0.4rem;
+}
+.main-wrap .sub-nav .sub li.current li a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.main-wrap .sub-nav .sub li.current li.current span {
+  position: relative;
+}
+.main-wrap .sub-nav .sub li.current li.current span a {
+  position: relative;
+  color: #000;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.main-wrap .sub-nav .sub li.current li a::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.2rem;
+  background-color: #94a3b8;
 }
 .main-wrap .sub-nav .sub.on {
   position: relative;
@@ -2137,7 +2186,7 @@ td.color-type03 {
   }
   .main-wrap .sub-nav {
     top: 7.2rem;
-    left: -20rem;
+    left: -21rem;
   }
   .main-wrap .sub-nav.is-active {
     left: 0;

@@ -50,7 +50,7 @@ gulp.task('sass', () => {
   return gulp
     .src(path.scssEntry, { base: `${src}/resources/scss` })
     .pipe(sourcemap.init())
-    .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
+    .pipe(gulpSass({ outputStyle: 'expanded', silenceDeprecations: ['legacy-js-api', 'global-builtin', 'if-function'] }).on('error', gulpSass.logError))
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(path.css))
     .pipe(browser.stream({ match: '**/*.css' }));
@@ -66,7 +66,7 @@ gulp.task('guide-sass', () => {
   return gulp
     .src(guideScssEntry, { base: `${src}/resources/scss/guide` })
     .pipe(sourcemap.init())
-    .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
+    .pipe(gulpSass({ outputStyle: 'expanded', silenceDeprecations: ['legacy-js-api', 'global-builtin', 'if-function'] }).on('error', gulpSass.logError))
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest(guideCssOutput))
     .pipe(browser.stream({ match: '**/*.css' }));
@@ -113,9 +113,12 @@ const html = () =>
     )
     .pipe(gulp.dest(dist));
 
+const newer = require('gulp-newer');
+const gulpSsi = require('gulp-ssi');
 const imageBuild = () =>
   gulp
     .src(path.images)
+    .pipe(newer(`${dist}/resources/img`))
     .pipe(imagemin())
     .pipe(gulp.dest(`${dist}/resources/img`));
 
@@ -124,7 +127,7 @@ const fonts = () => gulp.src(path.font).pipe(gulp.dest(`${dist}/resources/fonts`
 const sassBuild = () =>
   gulp
     .src(path.scssEntry, { base: `${src}/resources/scss` })
-    .pipe(gulpSass({ outputStyle: 'expanded' }))
+    .pipe(gulpSass({ outputStyle: 'expanded', silenceDeprecations: ['legacy-js-api', 'global-builtin', 'if-function'] }))
     .pipe(
       autoprefix({
         overrideBrowserslist: ['> 0.2% in KR', 'cover 99.5% in KR', 'not dead'],
@@ -144,7 +147,7 @@ const guideSassBuild = () => {
   return gulp
     .src(guideScssEntry, { base: `${src}/resources/scss/guide` })
     .pipe(sourcemap.init())
-    .pipe(gulpSass({ outputStyle: 'expanded' }))
+    .pipe(gulpSass({ outputStyle: 'expanded', silenceDeprecations: ['legacy-js-api', 'global-builtin', 'if-function'] }))
     .pipe(
       autoprefix({
         overrideBrowserslist: ['> 0.2% in KR', 'cover 99.5% in KR', 'not dead'],
@@ -161,4 +164,5 @@ const adminResources = () => gulp.src(path.adminResources).pipe(gulp.dest(`${dis
 ========================= */
 gulp.task('default', gulp.series('sass', 'serv'));
 
-gulp.task('build', gulp.series(clean, html, fonts, imageBuild, sassBuild, js, guideResources, guideSassBuild, adminResources));
+gulp.task('build', gulp.series(html, fonts, imageBuild, sassBuild, js, guideResources, guideSassBuild, adminResources));
+gulp.task('clean', gulp.series(clean));
