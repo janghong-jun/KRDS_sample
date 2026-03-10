@@ -2302,7 +2302,7 @@
   width: 8.1rem !important;
   height: 8.1rem !important;
 }
-.svg-icon.ico-star-on {
+.svg-icon.ico-star-on, .svg-icon.ico-start-on {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
   -webkit-mask-size: contain;
@@ -2324,7 +2324,7 @@
   width: 1.6rem !important;
   height: 1.6rem !important;
 }
-.svg-icon.ico-star-off {
+.svg-icon.ico-star-off, .svg-icon.ico-start-off {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
   -webkit-mask-size: contain;
@@ -2371,46 +2371,6 @@
   background-color: var(--color-light-gray-50) !important;
   width: 1.6rem !important;
   height: 1.6rem !important;
-}
-.svg-icon.ico-start-on {
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center center;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: contain;
-  -webkit-mask-image: url(../img/component/icon/ico_star_on.svg);
-  mask-image: url(../img/component/icon/ico_star_on.svg);
-  -webkit-mask-image: none;
-  mask-image: none;
-  background-image: url(../img/component/icon/ico_star_on.svg);
-  background-color: transparent !important;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-mask: none;
-  mask: none;
-}
-.svg-icon.ico-start-off {
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center center;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: contain;
-  -webkit-mask-image: url(../img/component/icon/ico_star_off.svg);
-  mask-image: url(../img/component/icon/ico_star_off.svg);
-  -webkit-mask-image: none;
-  mask-image: none;
-  background-image: url(../img/component/icon/ico_star_off.svg);
-  background-color: transparent !important;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-mask: none;
-  mask: none;
 }
 .svg-icon.ico-level01 {
   -webkit-mask-repeat: no-repeat;
@@ -28161,6 +28121,10 @@ td .info-wrap {
 .point-list div dd span {
   font-size: var(--pc-font-size-body-small);
   font-weight: var(--font-weight-regular);
+}
+.point-list div dd .ico-star-on {
+  width: 2.4rem !important;
+  height: 2.4rem !important;
 }
 
 .point-level {

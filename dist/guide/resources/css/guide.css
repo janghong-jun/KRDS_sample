@@ -54,6 +54,33 @@
   -moz-box-flex: 1;
   flex: 1;
 }
+.guide.icon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.guide.icon > div {
+  padding: 2.4rem;
+  -webkit-border-radius: var(--radius-large1);
+  -moz-border-radius: var(--radius-large1);
+  border-radius: var(--radius-large1);
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -moz-box-flex: 0;
+  flex: none;
+}
+.guide.icon > div.icon-white {
+  background-color: #000;
+}
+.guide.icon .svg-icon {
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+  vertical-align: top;
+}
 
 @media (max-width: 767px) {
   .guide {

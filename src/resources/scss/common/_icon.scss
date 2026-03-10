@@ -390,12 +390,14 @@
     width: 8.1rem !important;
     height: 8.1rem !important;
   }
-  &.ico-star-on {
+  &.ico-star-on,
+  &.ico-start-on {
     @include icon-set(ico_star_on, pure);
     width: 1.6rem !important;
     height: 1.6rem !important;
   }
-  &.ico-star-off {
+  &.ico-star-off,
+  &.ico-start-off {
     @include icon-set(ico_star_off, pure);
     width: 1.6rem !important;
     height: 1.6rem !important;

@@ -2232,7 +2232,7 @@
   width: 8.1rem !important;
   height: 8.1rem !important;
 }
-.svg-icon.ico-star-on {
+.svg-icon.ico-star-on, .svg-icon.ico-start-on {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
   -webkit-mask-size: contain;
@@ -2252,7 +2252,7 @@
   width: 1.6rem !important;
   height: 1.6rem !important;
 }
-.svg-icon.ico-star-off {
+.svg-icon.ico-star-off, .svg-icon.ico-start-off {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
   -webkit-mask-size: contain;
