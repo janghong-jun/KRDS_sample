@@ -46,6 +46,7 @@ $mode-setting: light;
     @include flex-layout($jc: flex-end);
     .utility-list {
       @include flex-layout($jc: flex-end);
+      align-items: center;
       & > li {
         font-size: var(--pc-font-size-body-small);
         color: var(--light-color-text-subtle);
@@ -61,7 +62,8 @@ $mode-setting: light;
           gap: var(--header--utility-gap);
           margin-left: var(--header--utility-gap);
           &::before {
-            display: inline-flex;
+            display: inline-block;
+            vertical-align: middle;
             @include pseudo();
             width: 0.1rem;
             height: var(--size-height-2);

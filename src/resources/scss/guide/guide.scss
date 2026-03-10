@@ -50,6 +50,27 @@
     margin-top: 10rem;
     flex: 1;
   }
+
+  &.icon {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      padding: 2.4rem;
+      border-radius: var(--radius-large1);
+      background-color: rgba($color: #000000, $alpha: 0.05);
+      flex: none;
+
+      &.icon-white {
+        background-color: #000;
+      }
+    }
+    .svg-icon {
+      width: 2.4rem !important;
+      height: 2.4rem !important;
+      vertical-align: top;
+    }
+  }
 }
 
 @include size-medium {

@@ -9,79 +9,58 @@
     <!-- 공통 script -->
     <!--# include virtual="../../../components/_script.html" -->
     <script>
-      // ✅ 수정
       document.addEventListener('DOMContentLoaded', function () {
-        function updateAria(swiper) {
-          swiper.slides.forEach((slide, index) => {
-            if (index === swiper.activeIndex) {
-              slide.setAttribute('aria-hidden', 'false');
-              slide.removeAttribute('tabindex');
-            } else {
-              slide.setAttribute('aria-hidden', 'true');
-              slide.setAttribute('tabindex', '-1');
-            }
+        // ✅ 원본 tabindex 보존하며 비활성 슬라이드 포커스 차단
+        function updateTabIndex(swiper) {
+          swiper.slides.forEach((slide) => {
+            const focusables = slide.querySelectorAll('a, button, input, select, textarea, [tabindex]');
+            const isActive = slide.classList.contains('swiper-slide-active');
+
+            focusables.forEach((el) => {
+              if (isActive) {
+                const original = el.getAttribute('data-origin-tabindex');
+                if (original !== null) {
+                  el.setAttribute('tabindex', original);
+                  el.removeAttribute('data-origin-tabindex');
+                } else {
+                  el.removeAttribute('tabindex');
+                }
+              } else {
+                if (el.getAttribute('tabindex') === '-1') return; // 중복 방지
+                const current = el.getAttribute('tabindex');
+                if (current !== null) {
+                  el.setAttribute('data-origin-tabindex', current); // 원본 백업
+                }
+                el.setAttribute('tabindex', '-1');
+              }
+            });
           });
         }
 
-        function bindKeyboard(wrapper, swiper) {
-          let vbFocus = false;
-          wrapper.addEventListener('focusin', () => {
-            vbFocus = true;
-          });
-          wrapper.addEventListener('focusout', (e) => {
-            if (!wrapper.contains(e.relatedTarget)) vbFocus = false;
-          });
-          wrapper.addEventListener('keydown', (e) => {
-            if (!vbFocus) return;
-            if (e.key === 'ArrowLeft') swiper.slidePrev();
-            if (e.key === 'ArrowRight') swiper.slideNext();
-          });
-        }
-
-        document.querySelectorAll('.swiper-type01').forEach((wrapper) => {
-          const swiper = new Swiper(wrapper, {
-            slidesPerView: 'auto',
-            spaceBetween: 40,
-            a11y: { enabled: true },
-            navigation: {
-              nextEl: wrapper.querySelector('.swiper-button-next'),
-              prevEl: wrapper.querySelector('.swiper-button-prev'),
-            },
-            pagination: {
-              el: wrapper.querySelector('.swiper-pagination'),
-              clickable: true,
-            },
-            on: {
-              init() {
-                updateAria(this);
-              },
-              slideChange() {
-                updateAria(this);
-              },
-            },
-            observer: true,
-            observeParents: true,
-            observeSlideChildren: true,
-            updateOnWindowResize: true,
-          });
-
-          bindKeyboard(wrapper, swiper);
-        });
-
+        // ✅ notice-swiper (수직 슬라이더)
         document.querySelectorAll('.notice-swiper').forEach((wrapper) => {
           const swiper = new Swiper(wrapper, {
             direction: 'vertical',
             slidesPerView: 1,
             spaceBetween: 0,
+            a11y: { enabled: true },
             navigation: {
               nextEl: wrapper.querySelector('.swiper-button-next'),
               prevEl: wrapper.querySelector('.swiper-button-prev'),
             },
-            a11y: { enabled: true },
             observer: true,
             observeParents: true,
+            on: {
+              init(swiper) {
+                updateTabIndex(swiper);
+              },
+              slideChange(swiper) {
+                updateTabIndex(swiper);
+              },
+            },
           });
 
+          // ✅ 수직 키보드 탐색
           let vbFocus = false;
           wrapper.addEventListener('focusin', () => {
             vbFocus = true;
@@ -205,10 +184,10 @@
                           <span class="sr-only">남은시간</span>
                           <span>26:47</span>
                         </span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습콘텐츠 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습콘텐츠 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h4 class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></h4>
+                        <strong class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></strong>
                         <p class="card-ability">교수역량&gt;교과전문성&gt;교화과정 설계</p>
                         <p class="card-keyword">#영통구 #공동체역량</p>
                         <div class="card-bottom-cont">
@@ -229,10 +208,10 @@
                           <span class="sr-only">남은시간</span>
                           <span>26:47</span>
                         </span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습콘텐츠 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습콘텐츠 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h4 class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></h4>
+                        <strong class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></strong>
                         <p class="card-ability">교수역량&gt;교과전문성&gt;교화과정 설계</p>
                         <p class="card-keyword">#영통구 #공동체역량</p>
                         <div class="card-bottom-cont">
@@ -253,10 +232,10 @@
                           <span class="sr-only">남은시간</span>
                           <span>26:47</span>
                         </span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습콘텐츠 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습콘텐츠 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h4 class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></h4>
+                        <strong class="card-tit">경기교육지원청, 교육 공동체 역량 강화 프로그램 <em class="point-keyword">학습</em></strong>
                         <p class="card-ability">교수역량&gt;교과전문성&gt;교화과정 설계</p>
                         <p class="card-keyword">#영통구 #공동체역량</p>
                         <div class="card-bottom-cont">
@@ -280,15 +259,15 @@
                     <div class="card-box">
                       <a href="#" class="card-thumbnail">
                         <span class="learning-count">총 <strong>6개</strong> 학습</span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습모듈 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습모듈 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h5 class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></h5>
+                        <strong class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></strong>
                         <div class="card-level">
                           <span class="rating">
                             <strong>평점</strong>
                             <span>
-                              <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                              <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                               4.7
                             </span>
                           </span>
@@ -308,15 +287,15 @@
                     <div class="card-box">
                       <a href="#" class="card-thumbnail">
                         <span class="learning-count">총 <strong>6개</strong> 학습</span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습모듈 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습모듈 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h5 class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></h5>
+                        <strong class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></strong>
                         <div class="card-level">
                           <span class="rating">
                             <strong>평점</strong>
                             <span>
-                              <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                              <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                               4.7
                             </span>
                           </span>
@@ -336,15 +315,15 @@
                     <div class="card-box">
                       <a href="#" class="card-thumbnail">
                         <span class="learning-count">총 <strong>6개</strong> 학습</span>
-                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="학습모듈 썸네일 이미지" />
+                        <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="추천 학습모듈 썸네일 이미지" />
                       </a>
                       <div class="card-conts">
-                        <h5 class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></h5>
+                        <strong class="card-tit">AI 도구로 수업 영상 만들기, 브루·캡컷·캔바 활용 콘텐츠 제작 <em class="point-keyword">학습</em></strong>
                         <div class="card-level">
                           <span class="rating">
                             <strong>평점</strong>
                             <span>
-                              <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                              <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                               4.7
                             </span>
                           </span>
@@ -371,37 +350,37 @@
                 <button type="button" class="swiper-button-prev" aria-label="이전 슬라이드">
                   <span class="sr-only">이전</span>
                 </button>
-                <ul class="swiper-wrapper notice-list">
-                  <li class="swiper-slide">
+                <div class="swiper-wrapper notice-list">
+                  <div class="swiper-slide">
                     <a href="#">
                       <span>2026 전국 최초 교원역량강화를 위한 ‘AI 하이코칭’ 서비스 오픈</span>
                       <i class="icon-new"><span class="sr-only">새글</span></i>
                     </a>
                     <span class="bar" aria-hidden="true"></span>
                     <span class="date">2026-01-01</span>
-                  </li>
-                  <li class="swiper-slide">
+                  </div>
+                  <div class="swiper-slide">
                     <a href="#">
                       <span>2026 전국 최초 교원역량강화를 위한 ‘AI 하이코칭’ 서비스 오픈</span>
                     </a>
                     <span class="bar" aria-hidden="true"></span>
                     <span class="date">2026-01-01</span>
-                  </li>
-                  <li class="swiper-slide">
+                  </div>
+                  <div class="swiper-slide">
                     <a href="#">
                       <span>2026 전국 최초 교원역량강화를 위한 ‘AI 하이코칭’ 서비스 오픈</span>
                     </a>
                     <span class="bar" aria-hidden="true"></span>
                     <span class="date">2026-01-01</span>
-                  </li>
-                  <li class="swiper-slide">
+                  </div>
+                  <div class="swiper-slide">
                     <a href="#">
                       <span>2026 전국 최초 교원역량강화를 위한 ‘AI 하이코칭’ 서비스 오픈</span>
                     </a>
                     <span class="bar" aria-hidden="true"></span>
                     <span class="date">2026-01-01</span>
-                  </li>
-                </ul>
+                  </div>
+                </div>
                 <button type="button" class="swiper-button-next" aria-label="다음 슬라이드">
                   <span class="sr-only">다음</span>
                 </button>
@@ -520,7 +499,7 @@
                   <p class="level-title level-next" aria-hidden="true">Level 2 <span>새싹</span></p>
                   <div class="progress-wrap">
                     <!-- aria-valuenow, aria-valuetext에 달성률, 레벨 관련 대체텍스트 추가 필요 -->
-                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-valuetext="현재 Level 1 씨앗 단계, 60% 달성">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-valuetext="현재 Level 1 씨앗 단계, 60% 달성" aria-label="레벨 달성 진행률">
                       <span class="progress-fill" style="width: 60%"></span>
                     </div>
                   </div>

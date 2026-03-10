@@ -88,28 +88,10 @@
                       </span>
                     </span>
                   </div>
-                  <div class="krds-btns-wrap">
-                    <button class="krds-btn etc">
-                      담기
-                      <i class="svg-icon ico-plus2"></i>
-                    </button>
-                    <button class="krds-btn etc">
-                      학습하기
-                      <i class="svg-icon ico-angle right"></i>
-                    </button>
-                    <button class="krds-btn etc icon-front">
-                      <i class="svg-icon ico-setting"></i>
-                      커스텀
-                    </button>
-                    <button class="krds-btn etc icon-front">
-                      <i class="svg-icon ico-scrap"></i>
-                      즐겨찾기
-                    </button>
-                    <button class="krds-btn etc icon-front">
-                      <i class="svg-icon ico-share"></i>
-                      공유
-                    </button>
-                  </div>
+                  <button class="krds-btn etc icon-front">
+                    <i class="svg-icon ico-plus2"></i>
+                    담기
+                  </button>
                 </div>
               </div>
               <div class="learning-detail-contents">
@@ -154,26 +136,6 @@
                               <i class="svg-icon ico-plus small"></i>
                             </a>
                             <span class="krds-badge bg-primary">학습중</span>
-                          </div>
-                        </div>
-                      </li>
-                      <!-- 학습 시작 전 -->
-                      <li class="disabled">
-                        <i aria-hidden="true"></i>
-                        <!-- 학습 시작 전 케이스는 css로 버튼 이벤트 막아둠 -->
-                        <button type="button" class="learning-module-anchor">
-                          <img src="../../../resources/img/sample/img_thumbnail.jpg" alt="학습 모듈 썸네일 이미지" />
-                          <span class="sr-only">학습 모듈 실행</span>
-                        </button>
-                        <div class="conts">
-                          <strong class="tit">번아웃의 이해와 원인 분석, 교사가 알아야 할 모든 것 </strong>
-                          <p class="text">번아웃이란 무엇인지, 왜 발생하는지 알아봅니다. 교사가 겪는 번아웃의 주요 원인과 초기 증상을 파악하여 스스로 점검할 수 있습니다.</p>
-                          <div>
-                            <a href="#" class="krds-btn small text">
-                              이미지 더보기
-                              <i class="svg-icon ico-plus small"></i>
-                            </a>
-                            <span class="krds-badge bg-light-gray">학습전</span>
                           </div>
                         </div>
                       </li>
@@ -426,6 +388,159 @@
                       <button type="button" class="krds-btn xlarge tertiary">신고하기</button>
                     </div>
                   </div>
+                </div>
+                <div class="learning-detail-right">
+                  <!-- 공개 모듈 케이스 [s] -->
+                  <!-- 학습중 -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-round-check" aria-hidden="true"></i>
+                      <span>1개 학습중 / <strong>1개 완료</strong></span>
+                    </p>
+                    <div class="learning-progress">
+                      <span class="learning-progress-state">
+                        <i class="svg-icon ico-on-play" aria-hidden="true"></i>
+                        <strong>진행률</strong>
+                      </span>
+                      <span class="learning-progress-text">
+                        <strong>2/3</strong>
+                        (80%)
+                      </span>
+                      <div class="learning-progress-bar">
+                        <span style="width: 80%"></span>
+                      </div>
+                    </div>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium primary">이어서 학습하기</button>
+                    </div>
+                  </div>
+                  <!-- 학습 전(담은 상태) -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-document" aria-hidden="true"></i>
+                      <span>첫 번째 콘텐츠: 번아웃의 이해와 원인 분석</span>
+                    </p>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium tertiary">커스터마이징</button>
+                      <button type="button" class="krds-btn medium primary">학습하기</button>
+                    </div>
+                  </div>
+                  <!-- 학습 완료 -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-thumbsup" aria-hidden="true"></i>
+                      <span>학습 완료</span>
+                    </p>
+                    <div class="learning-progress">
+                      <span class="learning-progress-state">
+                        <i class="svg-icon ico-on-play" aria-hidden="true"></i>
+                        <strong>완료</strong>
+                        <span>2025-03-15</span>
+                      </span>
+                      <span class="learning-progress-text">
+                        <strong>3/3</strong>
+                        (100%)
+                      </span>
+                      <div class="learning-progress-bar">
+                        <span style="width: 100%"></span>
+                      </div>
+                    </div>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium primary">다시 학습하기</button>
+                    </div>
+                  </div>
+                  <!-- 학습전(미담기 상태) -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-face-sad" aria-hidden="true"></i>
+                      <span>아직 학습을 시작하지 않았습니다.</span>
+                    </p>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium primary">학습하기</button>
+                    </div>
+                  </div>
+                  <!--// 공개모듈 케이스 [e] -->
+
+                  <!-- 작성중/개인 모듈 케이스 [s] -->
+                  <!-- 구성 미완료(작성중) -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-face-sad" aria-hidden="true"></i>
+                      <span>모듈 구성을 완료해야 학습할 수 있습니다.</span>
+                    </p>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium primary">모듈 구성 완료</button>
+                    </div>
+                  </div>
+                  <!-- 개인학습(구성완료, 미공유) 학습 전 -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-face-sad" aria-hidden="true"></i>
+                      <span>아직 학습을 시작하지 않았습니다.</span>
+                    </p>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium tertiary">공유하기</button>
+                      <button type="button" class="krds-btn medium primary">학습하기</button>
+                    </div>
+                  </div>
+                  <!-- 개인학습(구성완료, 미공유) 학습 중 -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-round-check" aria-hidden="true"></i>
+                      <span>1개 학습중 / <strong>1개 완료</strong></span>
+                    </p>
+                    <div class="learning-progress">
+                      <span class="learning-progress-state">
+                        <i class="svg-icon ico-on-play" aria-hidden="true"></i>
+                        <strong>진행률</strong>
+                      </span>
+                      <span class="learning-progress-text">
+                        <strong>2/3</strong>
+                        (80%)
+                      </span>
+                      <div class="learning-progress-bar">
+                        <span style="width: 80%"></span>
+                      </div>
+                    </div>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium tertiary">공유하기</button>
+                      <button type="button" class="krds-btn medium primary">이어서 학습하기</button>
+                    </div>
+                  </div>
+                  <!-- 개인학습(구성완료, 미공유) 학습 완료 -->
+                  <div class="learning-summary">
+                    <h4 class="tit">나의 학습 현황</h4>
+                    <p class="info">
+                      <i class="svg-icon ico-thumbsup" aria-hidden="true"></i>
+                      <span>학습 완료</span>
+                    </p>
+                    <div class="learning-progress">
+                      <span class="learning-progress-state">
+                        <i class="svg-icon ico-on-play" aria-hidden="true"></i>
+                        <strong>완료</strong>
+                        <span>2025-03-15</span>
+                      </span>
+                      <span class="learning-progress-text">
+                        <strong>3/3</strong>
+                        (100%)
+                      </span>
+                      <div class="learning-progress-bar">
+                        <span style="width: 100%"></span>
+                      </div>
+                    </div>
+                    <div class="krds-btns-wrap">
+                      <button type="button" class="krds-btn medium tertiary">다시 학습하기</button>
+                      <button type="button" class="krds-btn medium primary">공유하기</button>
+                    </div>
+                  </div>
+                  <!--// 작성중/개인 모듈 케이스 [e] -->
                 </div>
               </div>
             </section>

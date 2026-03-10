@@ -156,7 +156,6 @@ $mode-setting: light;
             margin-top: var(--gap-7);
             margin-bottom: var(--padding-10) !important;
             padding: 0 var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
-            border-radius: 0 0 var(--modal--wrap-radius) var(--modal--wrap-radius);
             overflow: hidden;
             @include size-medium {
               overflow: auto;

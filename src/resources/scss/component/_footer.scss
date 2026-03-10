@@ -142,16 +142,19 @@ $mode-setting: light;
           flex-wrap: wrap;
 
           > span {
-            & + span {
-              display: flex;
-              gap: var(--gap-3);
-              align-items: center;
-              &::before {
-                content: '';
-                display: block;
-                width: 0.1rem;
-                height: 1.2rem;
-                background-color: var(--light-color-divider-gray);
+            display: flex;
+            gap: var(--gap-3);
+            align-items: center;
+            &::after {
+              content: '';
+              display: block;
+              width: 0.1rem;
+              height: 1.2rem;
+              background-color: var(--light-color-divider-gray);
+            }
+            &:last-child {
+              &::after {
+                display: none;
               }
             }
           }
@@ -160,10 +163,8 @@ $mode-setting: light;
             flex-direction: column;
 
             > span {
-              & + span {
-                &::before {
-                  display: none;
-                }
+              &::after {
+                display: none;
               }
             }
           }
@@ -173,10 +174,8 @@ $mode-setting: light;
             flex-direction: column;
 
             > span {
-              & + span {
-                &::before {
-                  display: none;
-                }
+              &::after {
+                display: none;
               }
             }
           }

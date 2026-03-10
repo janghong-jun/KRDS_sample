@@ -339,7 +339,7 @@
                         <div>
                           <dt>평균 평점</dt>
                           <dd>
-                            <i class="svg-icon ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon ico-star-on" aria-hidden="true"></i>
                             4.5
                           </dd>
                         </div>
@@ -459,7 +459,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -495,7 +495,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -531,7 +531,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -567,7 +567,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -603,7 +603,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -639,7 +639,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -675,7 +675,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -711,7 +711,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -747,7 +747,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -783,7 +783,7 @@
                         <span class="rating">
                           <strong>평점</strong>
                           <span>
-                            <i class="svg-icon small ico-start-on" aria-hidden="true"></i>
+                            <i class="svg-icon small ico-star-on" aria-hidden="true"></i>
                             4.7
                           </span>
                         </span>
@@ -811,65 +811,93 @@
     </div>
 
     <script>
-      const swiperwrapper = document.querySelector('.module-swiper-ongoing');
-      const swiper = new Swiper(swiperwrapper, {
-        slidesPerView: 1,
-        spaceBetween: 40,
-        a11y: { enabled: true },
-        breakpoints: {
-          769: {
-            slidesPerView: 2,
-          },
-        },
-        navigation: {
-          nextEl: '.module-swiper-ongoing .swiper-button-next',
-          prevEl: '.module-swiper-ongoing .swiper-button-prev',
-        },
-        pagination: {
-          el: '.module-swiper-ongoing .swiper-pagination',
-          clickable: true,
-        },
-        on: {
-          init() {
-            updateAria(this);
-          },
-          slideChange() {
-            updateAria(this);
-          },
-        },
-        observer: true,
-        observeParents: true,
-        observeSlideChildren: true,
-        updateOnWindowResize: true,
-      });
+      document.addEventListener('DOMContentLoaded', function () {
+        // ✅ slidesPerView 수만큼 aria-hidden 처리
+        function updateAria(swiper) {
+          const perView = Math.floor(swiper.params.slidesPerView) || 1;
+          const activeIndex = swiper.activeIndex;
 
-      function updateAria(swiper) {
-        swiper.slides.forEach((slide, index) => {
-          if (index === swiper.activeIndex) {
-            slide.setAttribute('aria-hidden', 'false');
-            slide.removeAttribute('tabindex');
-          } else {
-            slide.setAttribute('aria-hidden', 'true');
-            slide.setAttribute('tabindex', '-1');
-          }
+          swiper.slides.forEach((slide, index) => {
+            const isVisible = index >= activeIndex && index < activeIndex + perView;
+
+            if (isVisible) {
+              slide.setAttribute('aria-hidden', 'false');
+              // ✅ 내부 포커스 가능 요소 tabindex 복원
+              slide.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach((el) => {
+                const origin = el.getAttribute('data-origin-tabindex');
+                if (origin !== null) {
+                  el.setAttribute('tabindex', origin);
+                  el.removeAttribute('data-origin-tabindex');
+                } else {
+                  el.removeAttribute('tabindex');
+                }
+              });
+            } else {
+              slide.setAttribute('aria-hidden', 'true');
+              // ✅ 내부 포커스 가능 요소 tabindex 차단
+              slide.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach((el) => {
+                if (el.getAttribute('tabindex') === '-1') return;
+                const current = el.getAttribute('tabindex');
+                if (current !== null) el.setAttribute('data-origin-tabindex', current);
+                el.setAttribute('tabindex', '-1');
+              });
+            }
+          });
+        }
+
+        const swiperwrapper = document.querySelector('.module-swiper-ongoing');
+
+        // ✅ null 체크
+        if (!swiperwrapper) return;
+
+        const swiper = new Swiper(swiperwrapper, {
+          slidesPerView: 1,
+          spaceBetween: 40,
+          a11y: { enabled: true },
+          breakpoints: {
+            769: {
+              slidesPerView: 2,
+            },
+          },
+          navigation: {
+            nextEl: swiperwrapper.querySelector('.swiper-button-next'),
+            prevEl: swiperwrapper.querySelector('.swiper-button-prev'),
+          },
+          pagination: {
+            el: swiperwrapper.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          on: {
+            init(swiper) {
+              updateAria(swiper);
+            },
+            slideChange(swiper) {
+              updateAria(swiper);
+            },
+            // ✅ breakpoint 변경 시에도 aria 재계산
+            breakpoint(swiper) {
+              updateAria(swiper);
+            },
+          },
+          observer: true,
+          observeParents: true,
+          observeSlideChildren: true,
+          updateOnWindowResize: true, // ✅ resize는 이걸로 충분, 별도 리스너 불필요
         });
-      }
 
-      // 포커스 여부 + 키보드 제어
-      let vbFocus = false;
-      swiperwrapper.addEventListener('focusin', () => {
-        vbFocus = true;
-      });
-      swiperwrapper.addEventListener('focusout', (e) => {
-        if (!swiperwrapper.contains(e.relatedTarget)) vbFocus = false;
-      });
-      swiperwrapper.addEventListener('keydown', (e) => {
-        if (!vbFocus) return;
-        if (e.key === 'ArrowLeft') swiper.slidePrev();
-        if (e.key === 'ArrowRight') swiper.slideNext();
-      });
-      window.addEventListener('resize', () => {
-        swiper.update();
+        // ✅ 키보드 제어
+        let vbFocus = false;
+        swiperwrapper.addEventListener('focusin', () => {
+          vbFocus = true;
+        });
+        swiperwrapper.addEventListener('focusout', (e) => {
+          if (!swiperwrapper.contains(e.relatedTarget)) vbFocus = false;
+        });
+        swiperwrapper.addEventListener('keydown', (e) => {
+          if (!vbFocus) return;
+          if (e.key === 'ArrowLeft') swiper.slidePrev();
+          if (e.key === 'ArrowRight') swiper.slideNext();
+        });
       });
     </script>
   </body>
