@@ -222,6 +222,10 @@
         max-width: 8.4rem;
         height: auto;
         flex: none;
+        img {
+          overflow: hidden;
+          border-radius: var(--radius-medium3);
+        }
         @include size-medium {
         }
       }
@@ -362,7 +366,7 @@
           &:checked {
             ~ label {
               span {
-                .svg-icon {
+                .svg-icon.ico-star-off {
                   background-image: url(#{$url}/img/component/icon/ico_star_on.svg);
                 }
               }

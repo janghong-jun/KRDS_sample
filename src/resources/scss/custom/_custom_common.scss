@@ -158,6 +158,18 @@ $mode-setting: light;
   display: flex;
   align-items: center;
   gap: var(--gap-4);
+  &.between {
+    width: 100%;
+    justify-content: space-between;
+    .date {
+      flex: 1;
+    }
+    .krds-btns-wrap {
+      margin-top: 0 !important;
+      width: auto;
+      flex: none;
+    }
+  }
 }
 
 .top-btns {
@@ -287,7 +299,8 @@ td {
   }
 }
 
-.nodata {
+.nodata,
+.no-data {
   display: flex;
   width: 100%;
   padding: 0.8rem 0;

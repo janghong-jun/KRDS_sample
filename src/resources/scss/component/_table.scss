@@ -38,6 +38,49 @@ $mode-setting: light;
     th,
     td {
       vertical-align: middle;
+
+      &.nodata,
+      &.no-data {
+        display: table-cell;
+        width: 100%;
+        padding: 0.8rem 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--gap-4);
+        text-align: center;
+        &::before {
+          @include pseudo();
+          @include svg-icon($size: 5rem, $mode: #{$mode-setting});
+          @include icon-set(ico_nodata, pure);
+          flex: none;
+          display: block;
+          margin: 0 auto var(--gap-4);
+        }
+        p {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          gap: var(--gap-2);
+          strong {
+            font-size: var(--pc-font-size-heading-medium);
+            color: var(--light-color-text-basic);
+            @include size-medium {
+              font-size: var(--mobile-font-size-heading-medium);
+            }
+          }
+          span {
+            font-size: var(--pc-font-size-body-large);
+            color: var(--light-color-text-subtle);
+            @include size-medium {
+              font-size: var(--mobile-font-size-body-large);
+            }
+          }
+        }
+        .krds-btn {
+          margin-top: 0.8rem;
+        }
+      }
     }
     > thead {
       > tr {
@@ -167,6 +210,9 @@ $mode-setting: light;
       }
       th.al {
         padding: 0;
+      }
+      @include size-medium {
+        min-width: 100%;
       }
     }
   }

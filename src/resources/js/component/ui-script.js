@@ -893,6 +893,7 @@ const krds_modal = {
   modalOpenTriggers: null,
   modalCloseTriggers: null,
   outsideClickHandlers: {},
+  _triggerMap: {},
   init() {
     this.modalOpenTriggers = document.querySelectorAll('.open-modal');
     this.modalCloseTriggers = document.querySelectorAll('.close-modal');
@@ -1047,6 +1048,11 @@ const krds_modal = {
       triggerButton.setAttribute('tabindex', '0');
       triggerButton.classList.remove('modal-opened');
       triggerButton.removeAttribute('data-modal-id');
+      return;
+    }
+    if (this._triggerMap[id]) {
+      this._triggerMap[id].focus();
+      delete this._triggerMap[id];
     }
   },
 };
@@ -3015,6 +3021,7 @@ const contentObserver = new MutationObserver((mutations) => {
               node.classList?.contains('krds-drop-wrap') ||
               node.classList?.contains('krds-info-list') ||
               node.classList?.contains('krds-form-toggle-switch') ||
+              node.matches?.('[class*="krds-"]') ||
               node.querySelector?.('[class*="krds-"]') ||
               node.querySelector?.('.calendar-conts') ||
               node.querySelector?.('[data-tooltip]')
@@ -3027,7 +3034,7 @@ const contentObserver = new MutationObserver((mutations) => {
     }
 
     if (hasKrdsComponent) {
-      // console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
+      console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
       initAllComponents();
     }
   }, 100);

@@ -788,7 +788,7 @@ label.krds-btn {
     justify-content: space-between;
     > div {
       display: flex;
-      gap: var(--gap-4);
+      gap: var(--gap-3);
       flex-wrap: wrap;
 
       p {
@@ -825,6 +825,10 @@ label.krds-btn {
         width: 100% !important;
         min-height: var(--button--size-height-xlarge);
         flex: 1 !important;
+      }
+      .right {
+        width: 100%;
+        flex: 1;
       }
     }
     &02 {

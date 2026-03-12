@@ -152,6 +152,10 @@
                             <li><a href="#">연구지원</a></li>
                             <li><a href="#">학습공동체 채널 정보</a></li>
                             <li><a href="#">커뮤니티 게시판</a></li>
+                            <li><a href="#">수업공동체</a></li>
+                            <li><a href="#">경기도교육연구회</a></li>
+                            <li><a href="#">수석교사</a></li>
+                            <li><a href="#">교사연구년제</a></li>
                           </ul>
                         </div>
                       </div>
@@ -299,6 +303,10 @@
                       <li><a href="#" class="gnb-sub-trigger">연구지원</a></li>
                       <li><a href="#" class="gnb-sub-trigger">학습공동체 채널 정보</a></li>
                       <li><a href="#" class="gnb-sub-trigger">커뮤니티 게시판</a></li>
+                      <li><a href="#" class="gnb-sub-trigger">수업공동체</a></li>
+                      <li><a href="#" class="gnb-sub-trigger">경기도교육연구회</a></li>
+                      <li><a href="#" class="gnb-sub-trigger">수석교사</a></li>
+                      <li><a href="#" class="gnb-sub-trigger">교사연구년제</a></li>
                     </ul>
                   </div>
                   <div class="gnb-sub-list" id="mGnb-anchor5">
@@ -355,6 +363,7 @@
             <button type="button" class="krds-btn large open-modal" data-target="modal_sample_large">large</button>
             <button type="button" class="krds-btn large open-modal" data-target="modal_sample_xlarge">xlarge</button>
             <button type="button" class="krds-btn large open-modal" data-target="modal_sample_xxlarge">xxlarge</button>
+            <button type="button" id="btnExampleModal" class="krds-btn large">ajax 호출</button>
           </div>
         </div>
       </div>
@@ -702,4 +711,44 @@
     </div>
     <div class="modal-back"></div>
   </section>
+  <div id="exampleModalFm"></div>
+  <script>
+    // AjaxUtil Mock - 예제 확인용 (실제 개발 시 제거)
+    const AjaxUtil = {
+      ajaxHtml: function (url, data, target, callback) {
+        document.querySelector(target).innerHTML = `
+        <section id="exampleModal02" class="krds-modal fade" role="dialog" aria-labelledby="tit_exampleModal02">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_exampleModal02" class="modal-title">Ajax 모달 제목</h2>
+              </div>
+              <div class="modal-conts">
+                <p>Ajax로 불러온 모달 내용입니다.</p>
+              </div>
+              <div class="modal-btn btn-wrap">
+                <button type="button" class="krds-btn medium primary close-modal">확인</button>
+              </div>
+              <button type="button" class="krds-btn medium icon btn-close close-modal" onClick="krds_modal.closeModal('exampleModal02')">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon ico-popup-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back"></div>
+        </section>
+      `;
+        callback();
+      },
+    };
+
+    document.getElementById('btnExampleModal').addEventListener('click', function () {
+      // Ajax 호출 전에 반드시 트리거 저장
+      krds_modal._triggerMap['exampleModal02'] = document.activeElement;
+
+      AjaxUtil.ajaxHtml('', {}, '#exampleModalFm', function () {
+        krds_modal.openModal('exampleModal02');
+      });
+    });
+  </script>
 </html>

@@ -23,15 +23,9 @@
   --pagination--color-text-active: var(--#{$mode}-color-text-inverse-static);
   --pagination--color-text-disabled: var(--#{$mode}-color-text-disabled);
   --pagination--color-action: var(--#{$mode}-color-action-secondary);
-  --pagination--color-action-hover: var(
-    --#{$mode}-color-action-secondary-hover
-  );
-  --pagination--color-action-pressed: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
-  --pagination--color-action-active: var(
-    --#{$mode}-color-action-secondary-active
-  );
+  --pagination--color-action-hover: var(--#{$mode}-color-action-secondary-hover);
+  --pagination--color-action-pressed: var(--#{$mode}-color-action-secondary-pressed);
+  --pagination--color-action-active: var(--#{$mode}-color-action-secondary-active);
 }
 
 //모드 설정
@@ -63,8 +57,7 @@ $mode-setting: light;
   .page-navi {
     &.prev {
       order: 1;
-      padding: 0 var(--pagination--prev-btn-padding-right) 0
-        var(--pagination--prev-btn-padding-left);
+      padding: 0 var(--pagination--prev-btn-padding-right) 0 var(--pagination--prev-btn-padding-left);
       &::before {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo();
@@ -76,8 +69,7 @@ $mode-setting: light;
     }
     &.next {
       order: 3;
-      padding: 0 var(--pagination--prev-btn-padding-left) 0
-        var(--pagination--prev-btn-padding-right);
+      padding: 0 var(--pagination--prev-btn-padding-left) 0 var(--pagination--prev-btn-padding-right);
       &::after {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo();
@@ -125,7 +117,8 @@ $mode-setting: light;
   + .krds-btns-wrap.center {
     margin-top: var(--gap-10);
   }
-  + .krds-btns-wrap.right {
+  + .krds-btns-wrap.right,
+  + .krds-btns-wrap.between02 {
     margin-top: var(--padding-9);
   }
 }
@@ -140,18 +133,12 @@ $mode-setting: light;
     .page-navi {
       &.prev {
         &::before {
-          @include svg-icon(
-            $size: var(--icon--size-medium),
-            $mode: #{$mode-setting}
-          );
+          @include svg-icon($size: var(--icon--size-medium), $mode: #{$mode-setting});
         }
       }
       &.next {
         &::after {
-          @include svg-icon(
-            $size: var(--icon--size-medium),
-            $mode: #{$mode-setting}
-          );
+          @include svg-icon($size: var(--icon--size-medium), $mode: #{$mode-setting});
         }
       }
     }
