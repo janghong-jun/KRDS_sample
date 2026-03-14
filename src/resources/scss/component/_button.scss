@@ -763,6 +763,7 @@ label.krds-btn {
       min-width: 20rem;
       @include size-medium {
         width: 100% !important;
+        min-width: 0;
       }
     }
   }
@@ -774,11 +775,13 @@ label.krds-btn {
       min-width: 20rem;
       @include size-medium {
         width: 100% !important;
+        min-width: 0;
       }
 
       &.etc {
         @include size-medium {
           width: auto !important;
+          min-width: 0;
         }
       }
     }

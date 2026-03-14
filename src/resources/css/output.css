@@ -3474,6 +3474,7 @@ caption {
   --button--color-link-border-disabled: var(--light-color-border-transparency);
   --button--color-link-text: var(--light-color-link-default);
   --button--color-link-text-disabled: var(--light-color-text-disabled);
+  /* icon 버튼 (텍스트 없음) */
 }
 .krds-btn {
   background-color: var(--button--color-primary-fill);
@@ -3909,9 +3910,6 @@ caption {
   display: inline-block;
   margin-bottom: -0.5rem;
 }
-.krds-btn {
-  /* icon 버튼 (텍스트 없음) */
-}
 .krds-btn.icon {
   --button--icon-size-xsmall: var(--size-height-2);
   --button--icon-size-small: var(--size-height-3);
@@ -4096,6 +4094,7 @@ label.krds-btn {
   --button--color-link-border-disabled: var(--high-contrast-color-border-transparency);
   --button--color-link-text: var(--high-contrast-color-link-default);
   --button--color-link-text-disabled: var(--high-contrast-color-text-disabled);
+  /* icon 버튼 (텍스트 없음) */
 }
 [data-krds-mode=high-contrast] .krds-btn {
   background-color: var(--button--color-primary-fill);
@@ -4337,9 +4336,6 @@ label.krds-btn {
 [data-krds-mode=high-contrast] .krds-btn.link:hover .underline.hidden-underline, [data-krds-mode=high-contrast] .krds-btn.link:active .underline.hidden-underline, [data-krds-mode=high-contrast] .krds-btn.link:focus .underline.hidden-underline, [data-krds-mode=high-contrast] .krds-btn.link:visited .underline.hidden-underline {
   text-decoration-color: inherit;
 }
-[data-krds-mode=high-contrast] .krds-btn {
-  /* icon 버튼 (텍스트 없음) */
-}
 [data-krds-mode=high-contrast] .krds-btn.icon {
   background-color: transparent;
   border-color: var(--high-contrast-color-border-transparency);
@@ -4414,6 +4410,7 @@ label.krds-btn {
     --button--color-link-border-disabled: var(--high-contrast-color-border-transparency);
     --button--color-link-text: var(--high-contrast-color-link-default);
     --button--color-link-text-disabled: var(--high-contrast-color-text-disabled);
+    /* icon 버튼 (텍스트 없음) */
   }
   [data-krds-mode=theme] .krds-btn {
     background-color: var(--button--color-primary-fill);
@@ -4655,9 +4652,6 @@ label.krds-btn {
   [data-krds-mode=theme] .krds-btn.link:hover .underline.hidden-underline, [data-krds-mode=theme] .krds-btn.link:active .underline.hidden-underline, [data-krds-mode=theme] .krds-btn.link:focus .underline.hidden-underline, [data-krds-mode=theme] .krds-btn.link:visited .underline.hidden-underline {
     text-decoration-color: inherit;
   }
-  [data-krds-mode=theme] .krds-btn {
-    /* icon 버튼 (텍스트 없음) */
-  }
   [data-krds-mode=theme] .krds-btn.icon {
     background-color: transparent;
     border-color: var(--high-contrast-color-border-transparency);
@@ -4689,6 +4683,7 @@ label.krds-btn {
 @media (max-width: 767px) {
   .krds-btns-wrap.center .krds-btn {
     width: 100% !important;
+    min-width: 0;
   }
 }
 .krds-btns-wrap.right {
@@ -4700,11 +4695,13 @@ label.krds-btn {
 @media (max-width: 767px) {
   .krds-btns-wrap.right .krds-btn {
     width: 100% !important;
+    min-width: 0;
   }
 }
 @media (max-width: 767px) {
   .krds-btns-wrap.right .krds-btn.etc {
     width: auto !important;
+    min-width: 0;
   }
 }
 .krds-btns-wrap.between {
@@ -7311,6 +7308,7 @@ label.krds-btn {
   display: inline-flex;
   width: 18.2rem;
   height: 4.2rem;
+  flex: none;
 }
 @media (max-width: 767px) {
   #krds-header .header-container .logo {
@@ -7323,9 +7321,6 @@ label.krds-btn {
     width: 14rem;
     height: 4.2rem;
   }
-}
-#krds-header .header-container .logo {
-  flex: none;
 }
 #krds-header .header-container .logo a {
   display: block;
@@ -13205,6 +13200,9 @@ textarea.krds-input {
   display: none;
 }
 
+[data-krds-mode=high-contrast] {
+  /* 날짜선택 */
+}
 [data-krds-mode=high-contrast] .krds-input {
   --input--color-surface: var(--high-contrast-color-input-surface);
   --input--color-surface-readonly: var(--high-contrast-color-input-surface-disabled);
@@ -13227,14 +13225,14 @@ textarea.krds-input {
   --input--count-number-color-text: var(--high-contrast-color-text-subtle);
   --input--count-number-color-text-active: var(--high-contrast-color-text-primary);
 }
-[data-krds-mode=high-contrast] {
-  /* 날짜선택 */
-}
 [data-krds-mode=high-contrast] .calendar-input {
   --input--color-surface: var(--high-contrast-color-input-surface);
 }
 
 @media (prefers-color-scheme: dark) {
+  [data-krds-mode=theme] {
+    /* 날짜선택 */
+  }
   [data-krds-mode=theme] .krds-input {
     --input--color-surface: var(--high-contrast-color-input-surface);
     --input--color-surface-readonly: var(--high-contrast-color-input-surface-disabled);
@@ -13256,9 +13254,6 @@ textarea.krds-input {
   [data-krds-mode=theme] .textarea-count {
     --input--count-number-color-text: var(--high-contrast-color-text-subtle);
     --input--count-number-color-text-active: var(--high-contrast-color-text-primary);
-  }
-  [data-krds-mode=theme] {
-    /* 날짜선택 */
   }
   [data-krds-mode=theme] .calendar-input {
     --input--color-surface: var(--high-contrast-color-input-surface);
@@ -14550,6 +14545,8 @@ label {
     height: var(--form-check--button-size-small);
     margin-top: var(--form-check--button-margin-top);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.small > input[type=radio] ~ label + .krds-form-check-cnt,
   [data-krds-mode=theme] .krds-form-check.small > input[type=checkbox] ~ label + .krds-form-check-cnt {
     padding-left: calc(var(--form-check--button-size-small) + var(--form-check--gap));
@@ -14577,6 +14574,8 @@ label {
     background-color: var(--form-check--radio-check-color-element);
     border-radius: var(--radius-max);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.small > input[type=checkbox] ~ label::before {
     border-radius: var(--form-check--checkbox-button-radius-small);
   }
@@ -14598,6 +14597,8 @@ label {
     mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
     background-color: var(--form-check--checkbox-check-color-element);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.medium > input[type=radio] ~ label,
   [data-krds-mode=theme] .krds-form-check.medium > input[type=checkbox] ~ label {
     align-items: center;
@@ -14618,6 +14619,8 @@ label {
     height: var(--form-check--button-size-medium);
     margin-top: var(--form-check--button-margin-top);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.medium > input[type=radio] ~ label + .krds-form-check-cnt,
   [data-krds-mode=theme] .krds-form-check.medium > input[type=checkbox] ~ label + .krds-form-check-cnt {
     padding-left: calc(var(--form-check--button-size-medium) + var(--form-check--gap));
@@ -14645,6 +14648,8 @@ label {
     background-color: var(--form-check--radio-check-color-element);
     border-radius: var(--radius-max);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.medium > input[type=checkbox] ~ label::before {
     border-radius: var(--form-check--checkbox-button-radius-medium);
   }
@@ -14666,6 +14671,8 @@ label {
     mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
     background-color: var(--form-check--checkbox-check-color-element);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.large > input[type=radio] ~ label,
   [data-krds-mode=theme] .krds-form-check.large > input[type=checkbox] ~ label {
     align-items: center;
@@ -14686,6 +14693,8 @@ label {
     height: var(--form-check--button-size-large);
     margin-top: var(--form-check--button-margin-top);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.large > input[type=radio] ~ label + .krds-form-check-cnt,
   [data-krds-mode=theme] .krds-form-check.large > input[type=checkbox] ~ label + .krds-form-check-cnt {
     padding-left: calc(var(--form-check--button-size-large) + var(--form-check--gap));
@@ -14713,6 +14722,8 @@ label {
     background-color: var(--form-check--radio-check-color-element);
     border-radius: var(--radius-max);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check.large > input[type=checkbox] ~ label::before {
     border-radius: var(--form-check--checkbox-button-radius-large);
   }
@@ -14734,6 +14745,8 @@ label {
     mask-image: url(../img/component/icon/ico_checkbox_checked.svg);
     background-color: var(--form-check--checkbox-check-color-element);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check input[type=checkbox] ~ label::after {
     top: calc((var(--form-check--button-size-medium) - var(--form-check--checkbox-check-size-medium)) / 2 + var(--form-check--button-margin-top));
     left: calc((var(--form-check--button-size-medium) - var(--form-check--checkbox-check-size-medium)) / 2);
@@ -14759,6 +14772,8 @@ label {
   [data-krds-mode=theme] .krds-form-check input[type=checkbox]:checked:disabled ~ label::after {
     background-color: var(--form-check--checkbox-check-color-element-disabled);
   }
+}
+@media (prefers-color-scheme: dark) {
   [data-krds-mode=theme] .krds-form-check input[type=radio]:checked ~ label::before {
     border-color: var(--form-check--button-color-border-checked);
   }
@@ -15498,6 +15513,7 @@ label {
   transition: var(--transition-base);
   position: relative; /* 추가: 화살표 아이콘 위치 기준 */
   padding-right: 2.8rem; /* 추가: 화살표 공간 확보 */
+  /* 추가: active 상태일 때 화살표 회전 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch::after {
   content: "";
@@ -15525,9 +15541,6 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:focus, .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:active {
   background-color: var(--calendar--head-btn-cal-switch-color-action-active);
-}
-.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch {
-  /* 추가: active 상태일 때 화살표 회전 */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch.active {
   background-color: var(--calendar--head-btn-cal-switch-color-action-active);
@@ -15569,15 +15582,13 @@ label {
   box-shadow: var(--calendar--head-drop-down-shadow);
   z-index: 1001; /* 추가: 다른 요소 위에 표시 */
   /* 추가: active 클래스로 표시 제어 */
+  /* 수정: ul.sel 스타일 (KRDS 공식) */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select.active {
   visibility: visible;
   z-index: auto;
   opacity: 1;
   z-index: 10;
-}
-.krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select {
-  /* 수정: ul.sel 스타일 (KRDS 공식) */
 }
 .krds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel {
   display: flex;
@@ -15651,6 +15662,7 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
   padding: var(--padding-1) 0;
+  /* 수정: period 클래스 스타일 개선 */
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button {
   display: flex;
@@ -15724,9 +15736,6 @@ label {
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.old button, .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.new button, .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.disabled button {
   cursor: default;
-}
-.krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
-  /* 수정: period 클래스 스타일 개선 */
 }
 .krds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td.period {
   /* 추가: between 상태 (기간 사이) */
@@ -16420,14 +16429,12 @@ label {
 .comment-info > span {
   position: relative;
   font-size: var(--pc-font-size-label-xsmall);
+  color: #6c7277;
 }
 @media (max-width: 767px) {
   .comment-info > span {
     font-size: var(--mobile-font-size-label-xsmall);
   }
-}
-.comment-info > span {
-  color: #6c7277;
 }
 .comment-info > span::after {
   content: "";
@@ -16862,6 +16869,8 @@ label {
   flex: 1;
   max-width: calc(var(--contents-wrap-size));
   margin: var(--pc-gap-layout-h1-h2) auto 16rem;
+  /* **** PAGE LAYOUT ELEMENT **** */
+  /* ** 페이지 타이틀 ** */
 }
 @media (max-width: 767px) {
   #container {
@@ -16915,10 +16924,6 @@ label {
 }
 #container .in-between .contents .breadcrumb-wrap .breadcrumb {
   padding: 0;
-}
-#container {
-  /* **** PAGE LAYOUT ELEMENT **** */
-  /* ** 페이지 타이틀 ** */
 }
 #container .page-title-wrap {
   display: flex;
@@ -20032,15 +20037,13 @@ td .info-wrap {
   padding: var(--pc-padding-card-small) var(--pc-padding-card-medium);
   border-radius: var(--radius-medium3);
   background-color: var(--light-color-surface-primary-subtler);
+  flex-wrap: wrap;
+  gap: var(--gap-6);
 }
 @media (max-width: 767px) {
   .skill-report .report-graph .compare-box {
     padding: var(--mobile-padding-card-small) var(--mobile-padding-card-medium);
   }
-}
-.skill-report .report-graph .compare-box {
-  flex-wrap: wrap;
-  gap: var(--gap-6);
 }
 .skill-report .report-graph .compare-box .form-group {
   width: 100%;
