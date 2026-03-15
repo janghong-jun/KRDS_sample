@@ -855,6 +855,12 @@ label.krds-btn {
       .krds-btn {
         flex: 1;
         max-width: 20rem;
+        @include size-medium {
+          flex-direction: column;
+          .krds-btn {
+            max-width: 100%;
+          }
+        }
       }
     }
   }
