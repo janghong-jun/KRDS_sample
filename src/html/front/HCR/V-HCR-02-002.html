@@ -11,6 +11,31 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         GNB.setSelected({ depth1: 1 + 1, depth2: 0 + 1 });
+
+        const summary = document.querySelector('.video-summary');
+        const content = summary.querySelector('.cont');
+        const btn = summary.querySelector('.more');
+
+        function checkOverflow() {
+          if (content.scrollHeight <= content.clientHeight) {
+            btn.style.display = 'none';
+          } else {
+            btn.style.display = 'inline-flex';
+          }
+        }
+
+        btn.addEventListener('click', () => {
+          summary.classList.toggle('active');
+
+          btn.innerHTML = summary.classList.contains('active') ? '접기 <i class="svg-icon ico-angle"></i>' : '더보기 <i class="svg-icon ico-angle"></i>';
+        });
+
+        checkOverflow();
+
+        window.addEventListener('resize', checkOverflow);
+
+        const ro = new ResizeObserver(checkOverflow);
+        ro.observe(content);
       });
     </script>
   </head>
@@ -116,16 +141,12 @@
                         <dt>콘텐츠 설명</dt>
                         <dd>
                           <div class="cont">
-                            <p>2025년 교육 현장에서는 학생, 학부모, 교사가 함께 성장하는 '교육공동체 역량 강화'가 핵심 과제로 추진되고 있습니다. 주요 대상별 프로그램 유형과 내용은 다음과 같습니다.</p>
-                            <p>1. 교사 역량 강화 (전문적 학습공동체) 교사의 수업 전문성과 에듀테크 활용 능력을 높이는 데 집중합니다. 같습니다.</p>
-                            <p>1. 교사 역량 강화 (전문적 학습공동체) 교사의 수업 전문성과 에듀테크 활용 능력을 높이는 데 집중합니다.</p>
+                            <p>2025년 교육 현장에서는 학생, 학부모, 교사가 함께 성장하는 '교육공동체 역량 강화'가 핵심 과제로 추진되고 있습니다.2025년 교육 현장에서는 학생, 학부모, 교사가 함께 성장하는 '교육공동체 역량 강화'가 핵심 과제로 추진되고 있습니다.</p>
                           </div>
-                          <div class="krds-btns-wrap">
-                            <button type="button" class="krds-btn medium tertiary more" onclick="this.closest('.video-detail').querySelector('.video-summary').classList.add('active')">
-                              더보기
-                              <i class="svg-icon ico-angle"></i>
-                            </button>
-                          </div>
+                          <button type="button" class="krds-btn medium tertiary more">
+                            더보기
+                            <i class="svg-icon ico-angle"></i>
+                          </button>
                         </dd>
                       </div>
                       <div>

@@ -340,7 +340,7 @@ $mode-setting: light;
       .header-actions {
       }
       .btn-navi {
-        padding: 0 !important;
+        padding: var(--padding-4) var(--padding-2) !important;
         font-size: var(--header--navi-font-size-mobile);
         justify-content: center;
         flex-direction: column;

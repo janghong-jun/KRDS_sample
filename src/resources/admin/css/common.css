@@ -612,7 +612,10 @@ input:checked:disabled + .lb-checkbox::after {
 .frm-wrap .frm-area ~ .file-wrap {
   margin-top: 0.8rem;
 }
-
+.frm-wrap.level .inp-text {
+  width: 10rem;
+  flex: none;
+}
 .tbl-base [class*='inp-'] + .btn {
   margin-left: 0.8rem;
 }

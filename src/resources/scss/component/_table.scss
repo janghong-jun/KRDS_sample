@@ -111,6 +111,7 @@ $mode-setting: light;
         }
         > th,
         > td {
+          height: calc((var(--table--data-tbody-pc-font-size) * 1.5) + (var(--table--data-tbody-padding) * 2));
           padding: var(--table--data-tbody-padding) var(--table--data-tbody-padding-sides);
           background-color: var(--table--data-tbody-color-surface);
           border-bottom: var(--table--data-border-width) solid var(--table--data-tbody-color-divider);
@@ -119,6 +120,7 @@ $mode-setting: light;
           font-weight: var(--font-weight-regular);
           text-align: left;
           @include size-medium {
+            height: calc((var(--table--data-tbody-mobile-font-size) * 1.5) + (var(--table--data-tbody-padding) * 2));
             font-size: var(--table--data-tbody-mobile-font-size);
           }
           .krds-table-btns-wrap {
@@ -356,6 +358,7 @@ $mode-setting: light;
     @include scrollbar();
     .tbl {
       min-width: max-content;
+      width: clamp(100%, 100%, 100%);
     }
 
     &.mob-scroll {
