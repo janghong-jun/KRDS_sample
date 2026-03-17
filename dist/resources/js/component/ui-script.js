@@ -3363,9 +3363,21 @@ document.addEventListener('DOMContentLoaded', function () {
   setActive(pageIndex);
 });
 const setScrollbarWidth = () => {
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  const scrollbarWidth = window.innerWidth - document.body.clientWidth;
   document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 };
+const syncLnbTitleToPage = () => {
+  const lnbTitle = document.querySelector('#lnb .lnb-tit');
+  const pageTitleWrap = document.querySelector('.contents .page-title-wrap');
 
-window.addEventListener('load', setScrollbarWidth);
+  if (!lnbTitle || !pageTitleWrap) return;
+
+  const srTitle = document.createElement('h2');
+  srTitle.className = 'sr-only';
+  srTitle.textContent = lnbTitle.textContent.trim();
+
+  pageTitleWrap.prepend(srTitle);
+};
+
+window.addEventListener('load', syncLnbTitleToPage, setScrollbarWidth);
 window.addEventListener('resize', setScrollbarWidth);

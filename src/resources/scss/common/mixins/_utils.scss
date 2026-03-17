@@ -153,16 +153,19 @@
   &::-webkit-scrollbar-thumb {
     background-color: var(--#{$mode}-color-element-secondary-light);
     border-radius: 0.8rem;
+    border: 0.4rem solid transparent;
+    background-clip: content-box;
   }
   &::-webkit-scrollbar-track {
+    border-radius: 0.8rem;
     background-color: var(--#{$mode}-color-element-secondary-lighter);
   }
 }
 @mixin scrollbar($mode: light) {
   $mode-setting: $mode;
   &::-webkit-scrollbar {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
   @include scrollbar-mode(#{$mode-setting});
 }

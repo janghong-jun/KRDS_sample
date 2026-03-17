@@ -381,6 +381,7 @@ $mode-setting: light;
     display: block;
     position: relative;
     padding-top: 66.6667%;
+    border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
     .krds-badge {
       position: absolute;
       z-index: 1;
@@ -420,6 +421,7 @@ $mode-setting: light;
     display: flex;
     height: 100%;
     flex-direction: column;
+    border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
   }
   .card-conts {
     display: flex;
@@ -435,6 +437,9 @@ $mode-setting: light;
       margin-top: var(--gap-1);
       font-size: var(--pc-font-size-body-small);
       color: var(--light-color-text-basic);
+    }
+    .card-ability,
+    .card-keyword {
       @include ellipsis(1);
     }
     .card-level {
@@ -3905,6 +3910,7 @@ $circle-chart-types: (
       flex: none;
       width: 100%;
       .card-thumbnail {
+        border-radius: var(--radius-xlarge1);
         img {
           border-radius: var(--radius-xlarge1);
           width: 100%;
@@ -4757,6 +4763,9 @@ $circle-chart-types: (
   background-color: var(--light-color-surface-gray-subtler);
   @include scrollbar;
 
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
   .topic-list {
     display: inline-flex;
     width: max-content;
@@ -4786,6 +4795,7 @@ $circle-chart-types: (
         margin-top: var(--gap-4);
         gap: var(--gap-7);
         flex-direction: column;
+        min-height: 20rem;
         max-height: 50vh;
         @include scrollbar;
 
@@ -4839,6 +4849,11 @@ $circle-chart-types: (
                 font-size: var(--pc-font-size-body-small);
                 color: var(--light-color-text-subtle);
               }
+            }
+          }
+          .form-group {
+            .krds-btn {
+              right: var(--padding-6);
             }
           }
         }

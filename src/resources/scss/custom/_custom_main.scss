@@ -1203,6 +1203,7 @@
         width: 100% !important;
       }
       .card-thumbnail {
+        border-radius: var(--radius-xlarge1);
         img {
           border-radius: var(--radius-xlarge1);
           width: 100%;

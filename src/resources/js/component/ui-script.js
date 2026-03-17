@@ -3051,7 +3051,7 @@ window.addEventListener('DOMContentLoaded', () => {
     attributes: false,
   });
 
-  // console.log('✅ UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
+  // console.log('UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
 });
 
 // 스크롤 이벤트
@@ -3357,15 +3357,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ✅ body 클래스 기준 초기 활성화
+  // body 클래스 기준 초기 활성화
   const pageIndex = document.body.classList.contains('ai-type') ? 1 : document.body.classList.contains('profile-type') ? 2 : 0;
 
   setActive(pageIndex);
 });
 const setScrollbarWidth = () => {
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  const scrollbarWidth = window.innerWidth - document.body.clientWidth;
   document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 };
+const syncLnbTitleToPage = () => {
+  const lnbTitle = document.querySelector('#lnb .lnb-tit');
+  const pageTitleWrap = document.querySelector('.contents .page-title-wrap');
 
-window.addEventListener('load', setScrollbarWidth);
+  if (!lnbTitle || !pageTitleWrap) return;
+
+  const srTitle = document.createElement('h2');
+  srTitle.className = 'sr-only';
+  srTitle.textContent = lnbTitle.textContent.trim();
+
+  pageTitleWrap.prepend(srTitle);
+};
+
+window.addEventListener('load', syncLnbTitleToPage, setScrollbarWidth);
 window.addEventListener('resize', setScrollbarWidth);

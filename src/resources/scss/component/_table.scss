@@ -295,6 +295,17 @@ $mode-setting: light;
     & + .krds-pagination {
       margin-top: var(--number-10);
     }
+    &.center {
+      overflow: auto;
+      .tbl {
+        width: 60rem;
+      }
+      .krds-btns-wrap {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
 }
 
@@ -389,7 +400,7 @@ $mode-setting: light;
     }
 
     @include size-medium {
-      &.write.mob-scroll {
+      &.write {
         tbody {
           > tr {
             display: flex;

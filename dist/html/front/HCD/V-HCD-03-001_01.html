@@ -938,117 +938,6 @@
       </footer>
       <!-- //footer -->
     </div>
-    <!-- <script>
-      function remToPx(rem) {
-        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-      }
-
-      function getChartOption() {
-        return {
-          legend: {
-            data: ['나의 진단 결과', '연구평가 기준'],
-            textStyle: {
-              fontSize: remToPx(1.5),
-              fontFamily: 'inherit',
-              color: '#1E2124',
-            },
-            bottom: remToPx(3),
-            left: 'center',
-            itemGap: remToPx(4.6),
-            itemWidth: remToPx(1.6),
-            itemHeight: remToPx(1.6),
-            icon: 'roundRect',
-          },
-
-          radar: {
-            center: ['50%', remToPx(13.5)],
-            radius: '50%',
-            shape: 'polygon',
-            indicator: [
-              { name: '교수 역량', max: 100 },
-              { name: '자기개발 역량', max: 100 },
-              { name: '공동체 역량', max: 100 },
-              { name: '생활교육 역량', max: 100 },
-            ],
-            axisName: {
-              color: '#1E2124',
-              fontSize: remToPx(1.5),
-              fontFamily: 'inherit',
-              lineHeight: remToPx(2.3),
-              formatter: function (value) {
-                // 공백 기준으로 줄바꿈
-                // return value.replace(/\s+/g, '\n');
-
-                // 또는 단어 단위로 줄바꿈 (한글의 경우)
-                const words = value.split(' ');
-                return words.join('\n');
-              },
-              lineHeight: 16,
-            },
-            axisNameGap: remToPx(1),
-            axisLine: {
-              lineStyle: { color: '#CDDAFE', width: 0.8 },
-            },
-            splitLine: {
-              lineStyle: { color: '#CDDAFE', width: 0.8 },
-            },
-            splitArea: { show: false },
-            splitNumber: 3,
-          },
-
-          series: [
-            {
-              type: 'radar',
-              symbolSize: 0,
-              data: [
-                {
-                  name: '나의 진단 결과',
-                  value: [68.1, 71.9, 66.5, 73.8],
-                  lineStyle: { color: '#2563eb', width: 1.5 },
-                  areaStyle: { color: '#2563eb', opacity: 0.15 },
-                  label: {
-                    show: true,
-                    color: '#2563eb',
-                    fontSize: remToPx(1),
-                    fontFamily: 'inherit',
-                    formatter: '{c}',
-                    position: 'outside',
-                    padding: remToPx(0.5),
-                  },
-                  itemStyle: { color: '#2563eb' },
-                },
-                {
-                  name: '연구평가 기준',
-                  value: [72.1, 70.8, 71.6, 70.4],
-                  lineStyle: { color: '#ffb114', width: 1.5 },
-                  areaStyle: { color: '#ffb114', opacity: 0.15 },
-                  label: { show: false },
-                  itemStyle: { color: '#ffb114' },
-                },
-              ],
-            },
-          ],
-        };
-      }
-
-      const chartDom = document.querySelector('.chart.type01');
-      const myChart = echarts.init(chartDom, null, { renderer: 'svg' });
-
-      function renderChart() {
-        myChart.setOption(getChartOption(), true);
-        myChart.resize();
-      }
-
-      renderChart();
-
-      const ro = new ResizeObserver(() => {
-        renderChart();
-      });
-
-      ro.observe(chartDom);
-
-      window.addEventListener('resize', renderChart);
-    </script> -->
     <script>
       function remToPx(rem) {
         return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -1107,6 +996,7 @@
 
           common: {
             tooltip: {
+              overflow: { visible: true },
               format: '{value}',
               font: {
                 family: 'inherit',
@@ -1129,9 +1019,6 @@
           area: true,
           symbol: { size: 5, type: 'circle', color: '#2563eb' },
           data: [68.1, 71.9, 66.5, 73.8],
-          dataLabels: {
-            enable: false,
-          },
         },
         {
           name: '연구평가 기준',
@@ -1142,9 +1029,6 @@
           area: true,
           symbol: { size: 5, type: 'circle', color: '#ffb114' },
           data: [72.1, 40.8, 71.6, 70.4],
-          dataLabels: {
-            enable: false,
-          },
         },
       ];
 

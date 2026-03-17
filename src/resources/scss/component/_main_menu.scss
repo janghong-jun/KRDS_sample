@@ -659,7 +659,8 @@ $mode-setting: light;
       }
       // gnb-login
       .gnb-login {
-        @include flex-layout($d: inline-flex, $ai: center);
+        @include flex-layout($d: inline-flex, $ai: flex-start);
+        flex-direction: column;
         gap: var(--main-menu-mobile--login-gap);
         .user {
           span {

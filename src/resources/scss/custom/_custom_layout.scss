@@ -235,6 +235,9 @@ $mode-setting: light;
         align-items: flex-start;
       }
     }
+    &.krds-tab-area {
+      width: 100%;
+    }
   }
   .krds-check-area {
     flex: none;

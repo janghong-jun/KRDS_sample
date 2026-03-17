@@ -98,6 +98,7 @@ $mode-setting: light;
   > ul {
     display: flex;
     flex-wrap: wrap;
+    width: max-content;
     gap: var(--gap-3);
     > li {
       display: flex;
@@ -328,6 +329,11 @@ $mode-setting: light;
       display: none;
     }
   }
+  .g-search-area {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
 }
 
 //mobile only
@@ -335,11 +341,6 @@ $mode-setting: light;
   .tab-conts {
     &.active {
       gap: var(--padding-8);
-    }
-    .g-search-area {
-      &:first-of-type {
-        margin-top: 0;
-      }
     }
   }
   .tab {

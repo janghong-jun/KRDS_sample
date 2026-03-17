@@ -828,6 +828,7 @@ label.krds-btn {
         width: 100% !important;
         min-height: var(--button--size-height-xlarge);
         flex: 1 !important;
+        min-width: 0 !important;
       }
       .right {
         width: 100%;
