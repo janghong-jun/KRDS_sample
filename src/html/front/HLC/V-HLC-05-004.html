@@ -94,6 +94,96 @@
               <div class="tab-conts-wrap">
                 <section id="panel_01" aria-labelledby="tab_01" class="tab-conts active" data-quick-nav="false">
                   <h3 class="sr-only">수업달력</h3>
+                  <div class="calendar">
+                    <div class="calendar-controller">
+                      <div class="calendar-header" aria-live="polite">
+                        <button type="button" class="prev">
+                          <span class="sr-only">이전 달</span>
+                          <i class="svg-icon ico-angle small left" aria-hidden="true"></i>
+                        </button>
+                        <h4 id="calendar-title">2026.02</h4>
+                        <button type="button" class="next">
+                          <span class="sr-only">다음 달</span>
+                          <i class="svg-icon ico-angle small right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="krds-btn primary xsmall">오늘</button>
+                      </div>
+                      <div class="calendar-fillter">
+                        <div class="krds-check-area">
+                          <div class="krds-form-check medium">
+                            <input type="radio" name="rdo_2-1" id="rdo_2-2" />
+                            <label for="rdo_2-2">나의 학교</label>
+                          </div>
+                          <div class="krds-form-check medium">
+                            <input type="radio" name="rdo_2-1" id="rdo_2-3" />
+                            <label for="rdo_2-3">지역별</label>
+                          </div>
+                        </div>
+                        <select class="krds-form-select small" aria-label="교육지청 선택">
+                          <option>경기도 전체</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="calendar-table" aria-describedby="calendar-caption">
+                      <table>
+                        <caption id="calendar-caption">
+                          달력
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">일</th>
+                            <th scope="col">월</th>
+                            <th scope="col">화</th>
+                            <th scope="col">수</th>
+                            <th scope="col">목</th>
+                            <th scope="col">금</th>
+                            <th scope="col">토</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span>1</span></td>
+                            <td><span>2</span></td>
+                            <td><span>3</span></td>
+                            <td><span>4</span></td>
+                            <td><span>5</span></td>
+                            <td><span>6</span></td>
+                            <td><span>7</span></td>
+                          </tr>
+                          <tr>
+                            <td><span>8</span></td>
+                            <td><span>9</span></td>
+                            <td><span>10</span></td>
+                            <td><span>11</span></td>
+                            <td><span>12</span></td>
+                            <td><span>13</span></td>
+                            <td><span>14</span></td>
+                          </tr>
+                          <tr>
+                            <td><span>15</span></td>
+                            <td>
+                              <span>16</span>
+                              <button type="button" class="krds-btn xsmall secondary">+2</button>
+                            </td>
+                            <td><span>17</span></td>
+                            <td><span>18</span></td>
+                            <td><span>19</span></td>
+                            <td><span>20</span></td>
+                            <td><span>21</span></td>
+                          </tr>
+                          <tr>
+                            <td><span>22</span></td>
+                            <td class="today"><span>23</span> <button type="button" class="krds-btn xsmall secondary">+2</button></td>
+                            <td><span>24</span></td>
+                            <td><span>25</span></td>
+                            <td><span>26</span></td>
+                            <td><span>27</span></td>
+                            <td><span>28</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </section>
                 <section id="panel_02" aria-labelledby="tab_02" class="tab-conts" data-quick-nav="false">
                   <h3 class="sr-only">공지사항</h3>

@@ -100,7 +100,7 @@
   //기본실행
   doc.addEventListener('DOMContentLoaded', function () {
     UI.common.init();
-    const tabs = document.querySelectorAll('.ui-tab[data-id');
+    const tabs = document.querySelectorAll('.ui-tab[data-id]');
 
     tabs.forEach((tab) => {
       const id = tab.dataset.id;

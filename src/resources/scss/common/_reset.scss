@@ -21,11 +21,14 @@ body {
 }
 html {
   font-size: var(--font-size-base);
+  overflow-x: hidden;
 }
 body {
   background-color: var(--#{$mode-setting}-color-background-white);
   font-size: var(--pc-font-size-body-medium);
   overflow-x: hidden;
+  @include size-medium {
+  }
   &.main {
     .main-switcher,
     .gnb-utils {

@@ -466,6 +466,9 @@
   &.ico-point {
     @include icon-set(ico_point, pure);
   }
+  &.ico-send {
+    @include icon-set(ico_send, pure);
+  }
 }
 .icon-wrap {
   display: flex;

@@ -366,6 +366,127 @@ td {
     display: block;
   }
 }
+.calendar {
+  &-controller {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-4) var(--gap-8);
+  }
+  &-header {
+    display: flex;
+    flex: none;
+    gap: var(--gap-4) var(--gap-6);
+    align-items: center;
+    .prev,
+    .next {
+      display: inline-flex;
+      width: 3.2rem;
+      height: 3.2rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-max);
+      border: 0.1rem solid var(--light-color-border-gray-light);
+
+      .svg-icon {
+        vertical-align: top;
+      }
+    }
+  }
+  &-fillter {
+    display: flex;
+    gap: var(--padding-4) var(--padding-8);
+    flex-wrap: wrap;
+    flex: none;
+    .krds-check-area {
+      width: auto;
+      gap: var(--padding-6);
+      flex: none;
+      label {
+        align-items: normal !important;
+      }
+    }
+    .krds-form-select {
+      min-width: 20rem;
+      flex: 1;
+    }
+  }
+  &-table {
+    overflow: hidden;
+    margin-top: var(--gap-6);
+    border-radius: var(--radius-xlarge1);
+    border: 0.1rem solid var(--light-color-border-gray-light);
+    thead {
+      tr {
+        th {
+          padding: 0 var(--padding-6);
+          height: 5.6rem;
+          font-size: var(--pc-font-size-label-medium);
+          font-weight: var(--font-weight-regular);
+          color: var(--light-color-text-basic);
+          background-color: var(--light-color-surface-gray-subtler);
+          border-right: 0.1rem solid var(--light-color-border-gray-light);
+          border-bottom: 0.1rem solid var(--light-color-border-gray-light);
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          height: 12.8rem;
+          padding: var(--padding-5);
+          border-right: 0.1rem solid var(--light-color-border-gray-light);
+          border-bottom: 0.1rem solid var(--light-color-border-gray-light);
+          vertical-align: top;
+          span {
+            display: block;
+            max-width: 4.4rem;
+            height: 4.4rem;
+            font-size: var(--pc-font-size-label-medium);
+            color: var(--light-color-text-basic);
+            text-align: center;
+            line-height: 4.4rem;
+          }
+          .krds-btn {
+            margin-top: var(--pc-gap-layout-text-text-small);
+            min-width: 6rem;
+          }
+          &:first-child {
+            span {
+              color: var(--light-color-text-danger);
+            }
+          }
+          &:last-child {
+            border-right: none;
+            span {
+              color: var(--light-color-text-information);
+            }
+          }
+          &.today {
+            span {
+              position: relative;
+              &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 0.4rem;
+                width: 0.4rem;
+                height: 0.4rem;
+                margin-left: -0.2rem;
+                border-radius: var(--radius-max);
+                background-color: var(--light-color-element-point);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정
