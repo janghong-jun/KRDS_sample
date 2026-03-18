@@ -23539,6 +23539,9 @@ td .info-wrap {
   display: block;
   position: relative;
   padding-top: 66.6667%;
+  -webkit-border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
+  -moz-border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
+  border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
 }
 .card-list .card-thumbnail .krds-badge {
   position: absolute;
@@ -23592,6 +23595,9 @@ td .info-wrap {
   -moz-box-orient: vertical;
   -moz-box-direction: normal;
   flex-direction: column;
+  -webkit-border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
+  -moz-border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
+  border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
 }
 .card-list .card-conts {
   display: -webkit-box;
@@ -28820,6 +28826,11 @@ td .info-wrap {
   flex: none;
   width: 100%;
 }
+.module-swiper-ongoing .card-list .swiper-slide .card-thumbnail {
+  -webkit-border-radius: var(--radius-xlarge1);
+  -moz-border-radius: var(--radius-xlarge1);
+  border-radius: var(--radius-xlarge1);
+}
 .module-swiper-ongoing .card-list .swiper-slide .card-thumbnail img {
   -webkit-border-radius: var(--radius-xlarge1);
   -moz-border-radius: var(--radius-xlarge1);
@@ -32062,6 +32073,11 @@ td .info-wrap {
   .main-swiper-module .card-list .swiper-slide {
     width: 100% !important;
   }
+}
+.main-swiper-module .card-list .swiper-slide .card-thumbnail {
+  -webkit-border-radius: var(--radius-xlarge1);
+  -moz-border-radius: var(--radius-xlarge1);
+  border-radius: var(--radius-xlarge1);
 }
 .main-swiper-module .card-list .swiper-slide .card-thumbnail img {
   -webkit-border-radius: var(--radius-xlarge1);

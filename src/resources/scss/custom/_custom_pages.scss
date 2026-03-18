@@ -4785,9 +4785,6 @@ $circle-chart-types: (
         border: 0.1rem solid #d3d3d3;
         background-color: var(--light-color-surface-gray-subtle);
       }
-      & + li {
-        margin-left: var(--gap-7);
-      }
       .conts {
         display: flex;
         overflow-x: hidden;
