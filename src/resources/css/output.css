@@ -23075,6 +23075,87 @@ td .info-wrap {
   gap: var(--gap-2);
 }
 
+.chatbot {
+  display: flex;
+  height: 100%;
+}
+
+/* 좌측 사이드 */
+.chatbot-sidebar {
+  width: 24rem; /* 240px */
+  padding: 1.2rem;
+  border-right: 0.1rem solid #e0e0e0;
+}
+.chatbot-sidebar h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.chatbot-sidebar .empty {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+/* 채팅 영역 */
+.chatbot-content {
+  flex: 1;
+  padding: 1.6rem;
+  overflow-y: auto;
+}
+
+/* 메시지 */
+.chat-message {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+.chat-message .icon {
+  font-size: 1.8rem;
+}
+.chat-message .bubble {
+  background: #f1f3f5;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  max-width: 80%;
+}
+.chat-message .bubble p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+/* 버튼 */
+.quick-buttons {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.quick-buttons button {
+  padding: 0.8rem;
+  font-size: 1.3rem;
+  border-radius: 0.8rem;
+  border: none;
+  background: #e9ecef;
+}
+
+/* 입력 영역 */
+.chatbot-input {
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+.chatbot-input input {
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid #ddd;
+}
+.chatbot-input button {
+  padding: 0 1.6rem;
+  font-size: 1.4rem;
+  border-radius: 0.8rem;
+}
+
 .main #container {
   max-width: 100%;
   margin: 0 auto;
