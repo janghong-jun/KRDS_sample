@@ -72,6 +72,11 @@
      4. 테이블 레이아웃 보정
   ========================== */
   .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report {
+    > div {
+      &:nth-child(1) {
+        height: 65rem;
+      }
+    }
     .krds-table-wrap {
       width: 100%;
       min-width: 0;
@@ -90,7 +95,10 @@
                 width: 14.88% !important;
               }
               &:nth-child(3) {
-                width: 68.6% !important;
+                width: 22.96% !important;
+              }
+              &:nth-child(4) {
+                width: 22.96% !important;
               }
             }
           }
@@ -100,11 +108,6 @@
         .tbl {
           width: 100%;
           min-width: 0;
-
-          colgroup {
-            col {
-            }
-          }
         }
       }
     }
@@ -125,11 +128,19 @@
   /* =========================
      5. Fixed / z-index 잔존 제거
   ========================== */
-  [style*='z-index'],
-  svg {
-    position: static !important;
-  }
   .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
     width: 100% !important;
+  }
+
+  .krds-chart .chart.type01 {
+    svg {
+      position: absolute;
+
+      transform: translate(-9.4rem, 5%) !important;
+    }
+  }
+
+  button {
+    display: none !important;
   }
 }

@@ -220,10 +220,12 @@
       flex-wrap: wrap;
 
       .user-img {
+        width: 100%;
         max-width: 8.4rem;
         height: auto;
         flex: none;
         img {
+          width: 100%;
           overflow: hidden;
           border-radius: var(--radius-medium3);
         }

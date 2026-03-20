@@ -187,28 +187,26 @@
       .inner {
         .main-contents {
           .top-contents {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--gap-7);
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.9065fr);
+            gap: var(--gap-11) var(--gap-7);
+
+            @include size-large-to-xlarge {
+              grid-template-columns: 1fr;
+            }
+            @media (max-width: 1429px) {
+              grid-template-columns: 1fr;
+            }
             .item {
               display: flex;
               position: relative;
               flex-direction: column;
-              flex: 1;
               .item-inner {
                 flex: 1;
                 min-width: 0;
                 @include size-large-less {
                   width: 100%;
                   flex: none;
-                }
-              }
-              &:first-child {
-                width: 39rem;
-                flex: none;
-                @media (max-width: 1429px) {
-                  width: 100%;
                 }
               }
             }
@@ -254,7 +252,10 @@
               &.slide {
                 width: 100%;
                 .swiper {
-                  padding: 0 7.2rem;
+                  padding: 0 4rem;
+                  @media (max-width: 1429px) {
+                    padding: 0 3.2rem;
+                  }
                 }
 
                 @include size-medium {
@@ -274,7 +275,7 @@
             margin-top: var(--gap-11);
             gap: var(--gap-7);
             grid-template-columns: repeat(3, 1fr);
-            @include size-large-less {
+            @media (max-width: 1429px) {
               grid-template-columns: 1fr 1fr;
             }
             @include size-medium {
@@ -320,10 +321,7 @@
               .swiper {
                 padding: 0 4rem;
                 @media (max-width: 1429px) {
-                  padding: 0 2rem;
-                }
-                @include size-large-less {
-                  padding: 0 4rem;
+                  padding: 0 3.2rem;
                 }
                 @include size-medium {
                   padding: 0 var(--padding-7);
@@ -479,7 +477,7 @@
         display: flex;
         padding: 0 var(--padding-10);
         flex-direction: column;
-        @include size-medium {
+        @include size-large-less {
           padding: 0;
         }
         .top-contents {
@@ -755,6 +753,7 @@
                   padding: var(--gap-5) var(--padding-3);
                 }
                 .card-thumbnail {
+                  border-radius: var(--radius-xlarge1);
                   img {
                     border-radius: var(--radius-xlarge1);
                     width: 100%;
@@ -879,7 +878,7 @@
         .main-contents {
           .top-contents {
             display: grid;
-            grid-template-columns: 39rem auto;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.9065fr);
             gap: var(--gap-11) var(--gap-7);
 
             @include size-large-to-xlarge {
@@ -912,12 +911,10 @@
                 width: calc(100vw - 32px - var(--scrollbar-width)) !important;
               }
               .swiper:not(.main-swiper-module) {
-                padding: 0 5.8rem;
+                width: 100%;
+                padding: 0 4rem;
                 @media (max-width: 1429px) {
-                  padding: 0 2rem;
-                }
-                @include size-large-less {
-                  padding: 0 5.8rem;
+                  padding: 0 3.2rem;
                 }
                 @include size-medium {
                   padding: 0 var(--padding-7);
@@ -927,7 +924,7 @@
                   content: '';
                   position: absolute;
                   top: 0;
-                  width: 2.2rem;
+                  // width: 2.2rem;
                   height: 100%;
                   z-index: 3;
                   background-color: #fff;
@@ -986,6 +983,9 @@
                 width: 100%;
                 .swiper {
                   padding: 0 4rem;
+                  @media (max-width: 1429px) {
+                    padding: 0 3.2rem;
+                  }
                   @include size-medium {
                     padding: 0 var(--padding-7);
                   }
@@ -1014,6 +1014,9 @@
                 width: 100%;
                 .swiper {
                   padding: 0 4rem;
+                  @media (max-width: 1429px) {
+                    padding: 0 3.2rem;
+                  }
                   .swiper-slide {
                     width: calc(100% / 3 - 2.6rem);
                     @media (max-width: 1429px) {
@@ -1169,16 +1172,16 @@
     content: '';
     position: absolute;
     top: 0;
-    width: 4rem;
+    // width: 4rem;
     height: 100%;
     z-index: 3;
     background-color: #fff;
   }
   &::before {
-    left: 0rem;
+    left: 0;
   }
   &::after {
-    right: 0rem;
+    right: 0;
   }
   [class^='swiper-button-'] {
     width: 3.2rem;

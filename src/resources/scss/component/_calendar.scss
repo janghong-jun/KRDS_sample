@@ -8,21 +8,15 @@
   --calendar--radius: var(--radius-xlarge2);
   --calendar--head-pc-font-size: var(--pc-font-size-heading-small);
   --calendar--head-mobile-font-size: var(--mobile-font-size-heading-small);
-  --calendar--head-btn-cal-switch-pc-font-size: var(
-    --pc-font-size-label-medium
-  );
-  --calendar--head-btn-cal-switch-mobile-font-size: var(
-    --mobile-font-size-label-medium
-  );
+  --calendar--head-btn-cal-switch-pc-font-size: var(--pc-font-size-label-medium);
+  --calendar--head-btn-cal-switch-mobile-font-size: var(--mobile-font-size-label-medium);
   --calendar--head-btn-cal-switch-radius: var(--radius-max);
   --calendar--head-btn-cal-move-size: var(--size-height-5);
   --calendar--table-wrap-padding: var(--gap-5);
   --calendar--table-head-pc-font-size: var(--pc-font-size-label-small);
   --calendar--table-head-mobile-font-size: var(--mobile-font-size-label-small);
   --calendar--table-caption-pc-font-size: var(--pc-font-size-heading-xxsmall);
-  --calendar--table-caption-mobile-font-size: var(
-    --pc-font-size-heading-xxsmall
-  );
+  --calendar--table-caption-mobile-font-size: var(--pc-font-size-heading-xxsmall);
   --calendar--set-date-radius: var(--radius-max);
 }
 
@@ -31,52 +25,24 @@
   --calendar--color-border: var(--#{$mode}-color-border-secondary-light);
   --calendar--color-surface: var(--color-light-alpha-white100);
   --calendar--color-text-sub: var(--#{$mode}-color-text-subtle);
-  --calendar--head-btn-cal-move-color-text-active: var(
-    --#{$mode}-color-text-secondary
-  );
-  --calendar--head-btn-cal-move-color-border: var(
-    --#{$mode}-color-border-gray-light
-  );
-  --calendar--head-btn-cal-move-color-border-active: var(
-    --#{$mode}-color-border-secondary
-  );
-  --calendar--head-btn-cal-move-color-action: var(
-    --#{$mode}-color-action-white
-  );
-  --calendar--head-btn-cal-switch-color-action-hover: var(
-    --#{$mode}-color-action-secondary-hover
-  );
-  --calendar--head-btn-cal-switch-color-action-active: var(
-    --#{$mode}-color-action-secondary-pressed
-  );
-  --calendar--head-btn-cal-switch-color-text-disabled: var(
-    --#{$mode}-color-text-disabled-on
-  );
-  --calendar--head-drop-down-shadow:
-    0 0 0.2rem 0 var(--#{$mode}-color-alpha-shadow1),
-    0 0.4rem 0.8rem 0 var(--#{$mode}-color-alpha-shadow2);
-  --calendar--date-set-color-action: var(
-    --#{$mode}-color-action-secondary-active
-  );
+  --calendar--head-btn-cal-move-color-text-active: var(--#{$mode}-color-text-secondary);
+  --calendar--head-btn-cal-move-color-border: var(--#{$mode}-color-border-gray-light);
+  --calendar--head-btn-cal-move-color-border-active: var(--#{$mode}-color-border-secondary);
+  --calendar--head-btn-cal-move-color-action: var(--#{$mode}-color-action-white);
+  --calendar--head-btn-cal-switch-color-action-hover: var(--#{$mode}-color-action-secondary-hover);
+  --calendar--head-btn-cal-switch-color-action-active: var(--#{$mode}-color-action-secondary-pressed);
+  --calendar--head-btn-cal-switch-color-text-disabled: var(--#{$mode}-color-text-disabled-on);
+  --calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--#{$mode}-color-alpha-shadow1), 0 0.4rem 0.8rem 0 var(--#{$mode}-color-alpha-shadow2);
+  --calendar--date-set-color-action: var(--#{$mode}-color-action-secondary-active);
   --calendar--date-set-color-text: var(--#{$mode}-color-text-inverse-static);
   --calendar--date-set-color-text-day-off: var(--#{$mode}-color-text-danger);
-  --calendar--date-set-color-text-day-event: var(
-    --#{$mode}-color-text-information
-  );
+  --calendar--date-set-color-text-day-event: var(--#{$mode}-color-text-information);
   --calendar--date-set-color-text-disabled: var(--#{$mode}-color-text-disabled);
-  --calendar--date-set-color-action-pressed: var(
-    --#{$mode}-color-action-secondary-on-pressed
-  );
-  --calendar--date-set-color-action-period: var(
-    --#{$mode}-color-action-secondary-on-selected
-  );
+  --calendar--date-set-color-action-pressed: var(--#{$mode}-color-action-secondary-on-pressed);
+  --calendar--date-set-color-action-period: var(--#{$mode}-color-action-secondary-on-selected);
   --calendar--date-set-color-element-today: var(--#{$mode}-color-element-point);
-  --calendar--action-btn-wrap-color-border: var(
-    --#{$mode}-color-divider-gray-light
-  );
-  --calendar--action-btn-wrap-color-surface: var(
-    --#{$mode}-color-surface-white
-  );
+  --calendar--action-btn-wrap-color-border: var(--#{$mode}-color-divider-gray-light);
+  --calendar--action-btn-wrap-color-surface: var(--#{$mode}-color-surface-white);
 }
 
 //모드 설정
@@ -150,22 +116,16 @@ $mode-setting: light;
             transition: transform 0.2s ease; /* 추가: 회전 애니메이션 */
           }
           &:hover {
-            background-color: var(
-              --calendar--head-btn-cal-switch-color-action-hover
-            );
+            background-color: var(--calendar--head-btn-cal-switch-color-action-hover);
           }
           &:focus,
           &:active {
-            background-color: var(
-              --calendar--head-btn-cal-switch-color-action-active
-            );
+            background-color: var(--calendar--head-btn-cal-switch-color-action-active);
           }
 
           /* 추가: active 상태일 때 화살표 회전 */
           &.active {
-            background-color: var(
-              --calendar--head-btn-cal-switch-color-action-active
-            );
+            background-color: var(--calendar--head-btn-cal-switch-color-action-active);
             &::after {
               transform: translateY(-50%) rotate(180deg);
             }
@@ -176,9 +136,7 @@ $mode-setting: light;
             color: var(--calendar--head-btn-cal-switch-color-text-disabled);
             background-color: var(--calendar--action-btn-wrap-color-surface);
             &::after {
-              background-color: var(
-                --calendar--head-btn-cal-switch-color-text-disabled
-              );
+              background-color: var(--calendar--head-btn-cal-switch-color-text-disabled);
             }
           }
         }
@@ -196,10 +154,7 @@ $mode-setting: light;
             overflow-x: hidden;
             overflow-y: auto;
             min-width: 14rem;
-            max-height: calc(
-              (var(--calendar-drop-down-btn-height) * 6) +
-                (var(--padding-3) * 2)
-            );
+            max-height: calc((var(--calendar-drop-down-btn-height) * 6) + (var(--padding-3) * 2));
             border: 0.1rem solid var(--calendar--action-btn-wrap-color-border);
             background-color: var(--calendar--action-btn-wrap-color-surface);
             border-radius: var(--radius-medium4);
@@ -237,32 +192,21 @@ $mode-setting: light;
                 transition: var(--transition-base); /* 추가 */
 
                 &:hover {
-                  background-color: var(
-                    --calendar--head-btn-cal-switch-color-action-hover
-                  );
+                  background-color: var(--calendar--head-btn-cal-switch-color-action-hover);
                 }
                 &:focus,
                 &:active {
-                  background-color: var(
-                    --calendar--head-btn-cal-switch-color-action-active
-                  );
+                  background-color: var(--calendar--head-btn-cal-switch-color-action-active);
                 }
                 &.active {
                   color: var(--calendar--head-btn-cal-move-color-text-active);
-                  border: 0.1rem solid
-                    var(--calendar--head-btn-cal-move-color-border-active);
-                  background-color: var(
-                    --calendar--action-btn-wrap-color-surface
-                  );
+                  border: 0.1rem solid var(--calendar--head-btn-cal-move-color-border-active);
+                  background-color: var(--calendar--action-btn-wrap-color-surface);
                 }
                 &:disabled {
                   cursor: default;
-                  color: var(
-                    --calendar--head-btn-cal-switch-color-text-disabled
-                  );
-                  background-color: var(
-                    --calendar--action-btn-wrap-color-surface
-                  );
+                  color: var(--calendar--head-btn-cal-switch-color-text-disabled);
+                  background-color: var(--calendar--action-btn-wrap-color-surface);
                 }
               }
             }
@@ -276,16 +220,6 @@ $mode-setting: light;
         padding: 0 var(--calendar--table-wrap-padding);
         .calendar-tbl {
           caption {
-            // width: auto !important;
-            // height: auto !important;
-            // margin: 0 !important;
-            // clip: auto !important;
-            // text-align: left;
-            // top: 4.6rem;
-            // left: var(--calendar--table-wrap-padding);
-            // color: var(--calendar--color-text-sub);
-            // font-weight: var(--font-weight-bold);
-            // font-size: var(--calendar--table-caption-pc-font-size);
             @include sr-only;
           }
           th,
@@ -329,9 +263,7 @@ $mode-setting: light;
             &:not(.period, .old, .new, .disabled) .btn-set-date:focus,
             &:not(.period, .old, .new, .disabled) .btn-set-date:active {
               &::after {
-                background-color: var(
-                  --calendar--date-set-color-action-pressed
-                );
+                background-color: var(--calendar--date-set-color-action-pressed);
               }
             }
             &.today {
@@ -344,9 +276,7 @@ $mode-setting: light;
                     @include position($b: -10%);
                     @include position-center(x);
                     border-radius: var(--radius-max);
-                    background-color: var(
-                      --calendar--date-set-color-element-today
-                    );
+                    background-color: var(--calendar--date-set-color-element-today);
                   }
                 }
               }
@@ -447,34 +377,26 @@ $mode-setting: light;
             }
             td.start {
               .btn-set-date {
-                border-radius: var(--calendar--set-date-radius) 0 0
-                  var(--calendar--set-date-radius);
+                border-radius: var(--calendar--set-date-radius) 0 0 var(--calendar--set-date-radius);
               }
               &::after {
                 background-color: var(--color-light-secondary-70);
                 border-top-left-radius: var(--calendar--set-date-radius);
                 border-bottom-left-radius: var(--calendar--set-date-radius);
-                @include square(
-                  var(--calendar--after-size),
-                  var(--calendar--after-size)
-                );
+                @include square(var(--calendar--after-size), var(--calendar--after-size));
                 right: 0;
                 left: unset;
               }
             }
             td.end {
               .btn-set-date {
-                border-radius: 0 var(--calendar--set-date-radius)
-                  var(--calendar--set-date-radius) 0;
+                border-radius: 0 var(--calendar--set-date-radius) var(--calendar--set-date-radius) 0;
               }
               &::after {
                 background-color: var(--color-light-secondary-70);
                 border-top-right-radius: var(--calendar--set-date-radius);
                 border-bottom-right-radius: var(--calendar--set-date-radius);
-                @include square(
-                  var(--calendar--after-size),
-                  var(--calendar--after-size)
-                );
+                @include square(var(--calendar--after-size), var(--calendar--after-size));
               }
             }
             td.period.start.end {
@@ -508,10 +430,7 @@ $mode-setting: light;
         .calendar-switch-wrap {
           .btn-cal-switch {
             &::after {
-              @include svg-icon(
-                var(--icon--size-small),
-                $mode: #{$mode-setting}
-              );
+              @include svg-icon(var(--icon--size-small), $mode: #{$mode-setting});
             }
           }
         }

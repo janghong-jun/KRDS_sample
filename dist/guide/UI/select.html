@@ -13,7 +13,7 @@
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
-    <script src="../../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../../resources/js/plugin/crownix-chart.min.js"></script>
     <script src="../../../resources/js/component/ui-script.js"></script>
   </head>
   <body>
@@ -621,4 +621,59 @@
       <!-- //footer -->
     </div>
   </body>
+  <!-- 챗봇 팝업 -->
+<section id="V-HAI-01-001" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HAI-01-001">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- modal title -->
+      <div class="modal-header">
+        <h2 id="tit_V-HAI-01-001" class="modal-title">하이코칭 AI 챗봇</h2>
+      </div>
+      <!-- //modal title -->
+      <!-- modal contents -->
+      <div class="modal-conts">
+        <div class="chatbot">
+          <!-- 좌측 최근 대화 -->
+          <aside class="chatbot-sidebar">
+            <h3>최근 대화</h3>
+            <p class="empty">(대화 내용이 없습니다.)</p>
+          </aside>
+
+          <!-- 채팅 영역 -->
+          <div class="chatbot-content">
+            <!-- 봇 메시지 -->
+            <div class="chat-message bot">
+              <div class="bubble">
+                <p>
+                  <strong>김코칭 선생님</strong>, 안녕하세요!<br>
+                  무엇을 도와드릴까요?
+                </p>
+
+                <div class="quick-buttons">
+                  <button type="button">학습콘텐츠 추천받기</button>
+                  <button type="button">학습모듈 추천받기</button>
+                  <button type="button">전문가 추천받기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //modal contents -->
+      <!-- modal btn -->
+      <div class="modal-btn btn-wrap chatbot-input">
+        <input type="text" placeholder="하이코칭 AI에게 물어보세요">
+        <button type="button" class="krds-btn medium primary">전송</button>
+      </div>
+      <!-- //modal btn -->
+      <!-- close button -->
+      <button type="button" class="krds-btn medium icon btn-close close-modal">
+        <span class="sr-only">닫기</span>
+        <i class="svg-icon ico-popup-close"></i>
+      </button>
+      <!-- //close button -->
+    </div>
+  </div>
+  <div class="modal-back"></div>
+</section>
 </html>

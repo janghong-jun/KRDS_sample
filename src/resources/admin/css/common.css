@@ -628,6 +628,11 @@ input:checked:disabled + .lb-checkbox::after {
   margin-top: 1.6rem;
   text-align: center;
 }
+.tbl-btns.center.flex {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
 .tbl-btns.center + .tbl-base.type2.mgt10 {
   margin-top: 4rem !important;
 }
@@ -966,6 +971,19 @@ input:checked:disabled + .lb-checkbox::after {
   background-color: #74757e;
   border-radius: 100%;
 }
+.list-num li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 1.4rem;
+}
+.list-num li span {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.list-num li + li {
+  margin-top: 0.8rem;
+}
 .tbl-base + .list-dot {
   margin-top: 1rem;
 }
@@ -995,12 +1013,20 @@ input:checked:disabled + .lb-checkbox::after {
   color: #000;
 }
 .login-box {
+  position: relative;
   width: 77rem;
   padding: 7rem 9.9rem 9.1rem;
   background: #fff;
   border: 0.1rem solid #eee;
   border-radius: 4rem 0 4rem 4rem;
   box-shadow: 0rem 1.6rem 3.2rem 0rem rgba(0, 0, 0, 0.08);
+}
+.login-box .ip {
+  position: absolute;
+  left: 3rem;
+  bottom: 3rem;
+  font-size: 1.2rem;
+  color: #333;
 }
 .login-box .login-item {
   position: relative;

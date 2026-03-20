@@ -13,7 +13,6 @@
         GNB.setSelected({ depth1: 0 + 1, depth2: 1 + 1 });
       });
     </script>
-    <script src="../../../resources/js/plugin/crownix-chart.min.js"></script>
   </head>
   <body>
     <div id="wrap">
@@ -66,7 +65,7 @@
                     <h5 class="s-tit">4대 핵심역량</h5>
                   </div>
                   <div class="krds-chart">
-                    <div class="chart type01" id="test" role="img" aria-label="4대 핵심역량에 대한 차트 영역"></div>
+                    <div class="chart type01" role="img" aria-label="4대 핵심역량에 대한 차트 영역" id="test"></div>
                   </div>
                 </div>
                 <div class="report-result">
@@ -542,6 +541,7 @@
             min: 0,
             tickInterval: 100 / 3,
             clockwise: false,
+            //radius: remToPx(9.4),
           },
 
           common: {
@@ -599,5 +599,5 @@
       window.addEventListener('resize', render);
     </script>
   </body>
-  <!--# include virtual="../../components/_chatbot.html" -->
+  <!--# include virtual="../../../components/_chatbot.html" -->
 </html>

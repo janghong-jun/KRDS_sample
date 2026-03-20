@@ -6,8 +6,9 @@
 
 $mode-setting: light;
 .g-search-area {
+  position: relative;
   margin-bottom: var(--number-18);
-  padding: 2.4rem;
+  padding: 5.6rem 2.4rem 2.4rem 2.4rem;
   border-radius: var(--radius-xlarge1);
   border: 0.1rem solid #e4e5e7;
   background: #f8f8f8;
@@ -36,6 +37,7 @@ $mode-setting: light;
       background-color: var(--color-light-gray-80);
       border-color: var(--color-light-gray-80);
     }
+
     @media (max-width: 1279px) {
       .form-conts {
         max-width: 100%;
@@ -52,6 +54,11 @@ $mode-setting: light;
   }
   @include size-large-less {
     margin-top: var(--number-8);
+  }
+  .krds-btn.medium.text {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
   }
   &.type02 {
     label,
@@ -320,6 +327,15 @@ $mode-setting: light;
             width: 100%;
           }
         }
+        &.center {
+          .krds-btn.medium.text {
+            position: static;
+            margin: auto;
+            @include size-medium {
+              position: absolute;
+            }
+          }
+        }
       }
     }
 
@@ -367,12 +383,13 @@ $mode-setting: light;
     display: flex;
     position: relative;
     height: 100%;
-    border: 1px solid var(--color-light-gray-20);
+    border: 0.1rem solid var(--color-light-gray-20);
     border-radius: var(--radius-xlarge1);
     background: var(--color-light-gray-0);
     flex-direction: column;
     &.nodata,
-    &.no-data {
+    &.no-data,
+    &:has(> .nodata, > .no-data) {
       grid-column: 1 / -1;
       border: none;
     }
@@ -937,13 +954,13 @@ $mode-setting: light;
   flex-direction: column;
   gap: var(--padding-6);
   border-radius: var(--radius-xlarge1);
-  border: 1px solid var(--light-color-divider-gray-light);
+  border: 0.1rem solid var(--light-color-divider-gray-light);
   background: var(--light-color-surface-gray-subtler);
   ul {
     display: flex;
     padding: var(--padding-9);
     border-radius: var(--radius-large1);
-    border: 1px solid var(--light-color-border-gray-light);
+    border: 0.1rem solid var(--light-color-border-gray-light);
     background: var(--light-color-background-white);
     flex-direction: column;
     gap: var(--padding-7);
@@ -1271,7 +1288,9 @@ $mode-setting: light;
       overflow: hidden;
       position: relative;
       border-radius: var(--radius-xlarge1);
-
+      img {
+        width: 100%;
+      }
       &::before {
         content: '';
         position: absolute;
@@ -1338,6 +1357,9 @@ $mode-setting: light;
         position: relative;
         height: max-content;
         border-radius: var(--radius-medium3);
+        img {
+          width: 100%;
+        }
         &::after {
           content: '';
           position: absolute;
@@ -1393,6 +1415,7 @@ $mode-setting: light;
 .video {
   &-detail {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: var(--gap-7);
   }
@@ -1623,6 +1646,7 @@ $mode-setting: light;
   }
   .profile-img {
     overflow: hidden;
+    width: 100%;
     max-width: 22rem;
     height: fit-content;
     border-radius: var(--radius-xlarge1);
@@ -1711,6 +1735,7 @@ $mode-setting: light;
               }
 
               i.svg-icon {
+                margin-top: 0.2rem;
                 flex: none;
               }
 
@@ -1921,7 +1946,7 @@ $mode-setting: light;
 .gary-select-box {
   padding: var(--padding-6) 0;
   border-radius: var(--radius-medium3);
-  border: 1px solid var(--light-color-border-gray-light);
+  border: 0.1rem solid var(--light-color-border-gray-light);
   background: var(--light-color-surface-gray-subtler);
   .item {
     display: flex;
@@ -2404,8 +2429,12 @@ $mode-setting: light;
     .thumb {
       overflow: hidden;
       position: relative;
+      width: 100%;
       max-width: 13rem;
       border-radius: var(--radius-medium3);
+      img {
+        width: 100%;
+      }
       &::after {
         content: '';
         position: absolute;
@@ -2629,6 +2658,9 @@ $mode-setting: light;
               height: 100%;
               background-color: rgba($color: #000000, $alpha: 0.2);
             }
+            img {
+              width: 100%;
+            }
           }
 
           .cont-wrap {
@@ -2702,6 +2734,7 @@ $mode-setting: light;
     display: flex;
     margin-bottom: var(--gap-4);
     gap: var(--gap-3);
+    align-items: center;
     flex-wrap: wrap;
     select {
       width: 12.2rem;
@@ -2928,6 +2961,7 @@ $mode-setting: light;
     .thumb {
       overflow: hidden;
       position: relative;
+      width: 100%;
       max-width: 38.2rem;
       border-radius: var(--radius-xlarge1);
       flex: 1;
@@ -2935,6 +2969,10 @@ $mode-setting: light;
       @include size-medium {
         max-width: 100%;
         flex: none;
+      }
+
+      img {
+        width: 100%;
       }
 
       &::before {
@@ -3273,6 +3311,9 @@ $mode-setting: light;
       box-shadow: 0 1.5rem 7.5rem 0 rgba(27, 25, 68, 0.3);
       backdrop-filter: blur(1.3rem);
     }
+    img {
+      width: 100%;
+    }
   }
 }
 .video-info-box {
@@ -3510,7 +3551,7 @@ $circle-chart-types: (
       height: 100%;
       padding: var(--pc-padding-card-small) var(--pc-padding-card-medium);
       border-radius: var(--radius-xlarge2);
-      border: 1px solid var(--light-color-border-gray-light);
+      border: 0.1rem solid var(--light-color-border-gray-light);
       flex-direction: column;
       @include size-medium {
         padding: var(--mobile-padding-card-small) var(--mobile-padding-card-medium);
@@ -3541,7 +3582,7 @@ $circle-chart-types: (
         position: relative;
         padding: var(--pc-padding-card-small) var(--pc-padding-card-medium);
         border-radius: var(--radius-xlarge2);
-        border: 1px solid var(--light-color-border-gray-light);
+        border: 0.1rem solid var(--light-color-border-gray-light);
         flex: 1;
         flex-direction: column;
         @include size-medium {
@@ -3757,7 +3798,7 @@ $circle-chart-types: (
     .chart {
       height: 29rem;
     }
-    .krds-btns-wrap {
+    & + .krds-btns-wrap {
       margin-top: auto;
       .krds-btn {
         width: 100%;
@@ -4062,9 +4103,13 @@ $circle-chart-types: (
         flex-direction: column;
       }
       .profile-img-area {
+        width: 100%;
         max-width: 22rem;
         margin: 0 auto;
         flex: none;
+        img {
+          width: 100%;
+        }
         .profile-img {
           position: relative;
           button {
@@ -4811,6 +4856,20 @@ $circle-chart-types: (
           }
           .board-file-list {
             margin-top: var(--pc-gap-layout-text-text-large);
+            button {
+              padding: 0.2rem var(--padding-6);
+              min-height: 5rem;
+              height: auto;
+              .file-name {
+                span {
+                  display: block;
+                  -webkit-line-clamp: unset;
+                  -webkit-box-orient: unset;
+                  overflow: visible;
+                  font-size: var(--pc-font-size-body-small);
+                }
+              }
+            }
           }
           .comment-wrap {
             display: flex;
@@ -4885,7 +4944,6 @@ $circle-chart-types: (
 
 /* 좌측 사이드 */
 .chatbot-sidebar {
-  width: 24rem; /* 240px */
   padding: 1.2rem;
   border-right: 0.1rem solid #e0e0e0;
 
@@ -4964,6 +5022,15 @@ $circle-chart-types: (
     padding: 0 1.6rem;
     font-size: 1.4rem;
     border-radius: 0.8rem;
+  }
+}
+#pstListFm {
+  colgroup {
+    col {
+    }
+    col:nth-child(2) {
+      min-width: 20rem !important;
+    }
   }
 }
 //고대비모드

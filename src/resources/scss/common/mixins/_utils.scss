@@ -158,7 +158,7 @@
   }
   &::-webkit-scrollbar-track {
     border-radius: 0.8rem;
-    background-color: var(--#{$mode}-color-element-secondary-lighter);
+    background-color: transparent;
   }
 }
 @mixin scrollbar($mode: light) {

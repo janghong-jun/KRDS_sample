@@ -245,12 +245,36 @@ $mode-setting: light;
           left: 0;
           z-index: 5;
           background-color: var(--modal--wrap-color-surface);
+          &::before {
+            content: '';
+            position: absolute;
+            top: -0.2rem;
+            left: 0;
+            right: 0;
+            height: 0.2rem;
+            background-color: var(--color-light-alpha-white100);
+          }
           &.scroll {
             overflow: auto;
             ul {
               flex-wrap: nowrap;
             }
           }
+        }
+      }
+      .player-area {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: var(--radius-xlarge1);
+          border: none;
+          background-color: var(--color-light-alpha-black100);
         }
       }
     }
@@ -353,6 +377,9 @@ $mode-setting: light;
   }
   .g-search-area:not(.colum) {
     margin-bottom: var(--padding-8);
+  }
+  .g-search-area {
+    padding-top: 6.4rem !important;
   }
   //full 팝업(통합검색, 관련기관링크)
   &[data-type='full'] {

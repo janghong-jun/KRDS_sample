@@ -11,7 +11,7 @@
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
-    <script src="../../../resources/js/plugin/echarts.min.js"></script>
+    <script src="../../../resources/js/plugin/crownix-chart.min.js"></script>
     <script src="../../../resources/js/component/ui-script.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -32,130 +32,6 @@
       <!-- Container -->
       <div id="container">
         <div class="inner">
-          <!-- 검색 입력폼 -->
-          <div class="g-search-area">
-            <div class="search-top-box">
-              <div class="form-group">
-                <div class="sch-form-wrap">
-                  <div class="form-conts">
-                    <select class="krds-form-select small completed" title="선택">
-                      <option value="">전체</option>
-                      <option value="">공지</option>
-                      <option value="">업데이트</option>
-                      <option value="">점검</option>
-                    </select>
-                  </div>
-                  <div class="sch-input">
-                    <input type="text" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력" />
-                    <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
-                      <i class="svg-icon ico-sch"></i>
-                    </span>
-                  </div>
-                  <button type="button" class="krds-btn small neutral">검색</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- //검색 입력폼 -->
-
-          <!-- 검색 입력폼 -->
-          <div class="g-search-area type02">
-            <div class="search-top-box">
-              <div class="form-group">
-                <div class="sch-form-wrap">
-                  <div class="form-conts">
-                    <label for="select01">분야</label>
-                    <select class="krds-form-select small" id="select01">
-                      <option value="">선택 하세요</option>
-                      <option value="">교육과정</option>
-                      <option value="">생활교육</option>
-                      <option value="">학교공동체</option>
-                      <option value="">자기개발</option>
-                      <option value="">문제해결</option>
-                    </select>
-                  </div>
-                  <span class="bar" aria-hidden="true"></span>
-                  <div class="form-conts">
-                    <label for="select02">관심사</label>
-                    <select class="krds-form-select small" id="select02">
-                      <option value="">선택 하세요</option>
-                    </select>
-                  </div>
-                  <div class="form-search">
-                    <div class="sch-input">
-                      <input type="text" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력" />
-                      <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
-                        <i class="svg-icon ico-sch"></i>
-                      </span>
-                    </div>
-                    <button type="button" class="krds-btn small neutral">검색</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- //검색 입력폼 -->
-
-          <!-- 검색 입력폼 -->
-          <div class="g-search-area type03">
-            <div class="search-top-box">
-              <div class="form-group">
-                <div class="sch-form-wrap">
-                  <div class="form-date-wrap">
-                    <span class="form-label">기간</span>
-                    <div class="form-date calendar-conts" data-calendar-type="range">
-                      <div class="calendar-input">
-                        <ul class="input-group range small">
-                          <li>
-                            <input class="krds-input datepicker small" placeholder="시작일" readonly aria-label="시작일" />
-                            <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
-                          </li>
-                          <li class="mark small">~</li>
-                          <li>
-                            <input class="krds-input datepicker small" placeholder="종료일" readonly aria-label="종료일" />
-                            <button type="button" class="krds-btn icon form-btn-datepicker small"><span class="sr-only">달력 열기</span><i class="svg-icon ico-calendar"></i></button>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="krds-calendar-area" data-keyboard-bound="false"></div>
-                    </div>
-                    <div class="krds-btns-wrap">
-                      <button type="button" class="krds-btn small secondary">1개월</button>
-                      <button type="button" class="krds-btn small secondary">3개월</button>
-                      <button type="button" class="krds-btn small secondary">6개월</button>
-                      <button type="button" class="krds-btn small secondary">1년</button>
-                    </div>
-                  </div>
-                  <div class="form-search-wrap">
-                    <div class="krds-check-area">
-                      <div class="krds-form-check">
-                        <input type="radio" name="rdo_1" id="rdo_1" checked />
-                        <label for="rdo_1">전체</label>
-                      </div>
-                      <div class="krds-form-check">
-                        <input type="radio" name="rdo_1" id="rdo_2" />
-                        <label for="rdo_2">완료</label>
-                      </div>
-                      <div class="krds-form-check">
-                        <input type="radio" name="rdo_1" id="rdo_3" />
-                        <label for="rdo_3">진행중</label>
-                      </div>
-                    </div>
-                    <div class="form-search">
-                      <div class="sch-input">
-                        <input type="text" class="krds-input small" placeholder="검색어를 입력해주세요" aria-label="검색어 입력" />
-                        <span type="button" class="krds-btn xsmall icon ico-search btn-exec">
-                          <i class="svg-icon ico-sch"></i>
-                        </span>
-                      </div>
-                      <button type="button" class="krds-btn small neutral">검색</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- //검색 입력폼 -->
           <div class="g-search-area colum">
             <div class="search-top-box">
               <div class="form-group">
@@ -215,6 +91,32 @@
                       </span>
                     </div>
                     <button type="button" class="krds-btn small neutral">검색</button>
+                    <button type="button" class="krds-btn medium text">
+                      초기화
+                      <i class="svg-icon ico-reset" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="g-search-area colum">
+            <div class="search-top-box">
+              <div class="form-group">
+                <div class="sch-form-wrap">
+                  <div class="col center">
+                    <label for="sch-inp" class="col-title align-center">연구회명</label>
+                    <div class="sch-input">
+                      <input type="text" class="krds-input small" id="sch-inp" />
+                      <span class="krds-btn xsmall icon ico-search btn-exec" aria-hidden="true">
+                        <i class="svg-icon ico-sch"></i>
+                      </span>
+                    </div>
+                    <button type="button" class="krds-btn small neutral">검색</button>
+                    <button type="button" class="krds-btn medium text">
+                      초기화
+                      <i class="svg-icon ico-reset" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -227,4 +129,5 @@
       <!--# include virtual="../../components/_footer.html" -->
     </div>
   </body>
+  <!--# include virtual="../../components/_chatbot.html" -->
 </html>

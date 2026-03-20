@@ -43,7 +43,7 @@
                   <h3 class="s-tit">4대 핵심역량</h3>
                 </div>
                 <div class="krds-chart">
-                  <div class="chart type01" role="img" aria-label="4대 핵심역량에 대한 차트 영역"></div>
+                  <div class="chart type01" role="img" aria-label="4대 핵심역량에 대한 차트 영역" id="test"></div>
                 </div>
               </div>
               <div class="report-result">
@@ -431,110 +431,111 @@
       return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
     }
 
-    function getChartOption() {
+    let chart;
+    function addLineBreak(data) {
+      return data.map((v) => v.trim().split(/\s+/).join('\n'));
+    }
+    const labels = ['교수 역량', '자기개발 역량', '공동체 역량', '생활교육 역량'];
+    const processed = addLineBreak(labels);
+    function getOptions() {
       return {
+        chart: {
+          borderWidth: 0,
+          backgroundColor: 'transparent',
+          marginTop: remToPx(3),
+          marginRight: remToPx(3),
+          marginBottom: remToPx(3),
+          marginLeft: remToPx(3),
+        },
+
         legend: {
-          data: ['나의 진단 결과', '연구평가 기준'],
-          textStyle: {
-            fontSize: remToPx(1.5),
-            fontFamily: 'inherit',
+          font: {
+            family: 'inherit',
+            size: remToPx(1.5),
             color: '#1E2124',
+            weight: 'normal',
           },
-          bottom: remToPx(3),
-          left: 'center',
-          itemGap: remToPx(4.6),
-          itemWidth: remToPx(1.6),
-          itemHeight: remToPx(1.6),
-          icon: 'roundRect',
+          y: remToPx(4),
         },
 
-        radar: {
-          center: ['50%', remToPx(13.5)],
-          radius: '50%',
-          shape: 'polygon',
-          indicator: [
-            { name: '교수 역량', max: 100 },
-            { name: '자기개발 역량', max: 100 },
-            { name: '공동체 역량', max: 100 },
-            { name: '생활교육 역량', max: 100 },
-          ],
-          axisName: {
+        polarGrid: {
+          type: 'radial',
+          labels: processed,
+          lineColor: '#2563eb',
+          lineWidth: 0.8,
+          sectorLineColor: '#2563eb',
+          sectorLineWidth: 0.8,
+          outlineColor: '#2563eb',
+          backgroundColor: 'transparent',
+          font: {
+            family: 'inherit',
+            size: remToPx(1.5),
             color: '#1E2124',
-            fontSize: remToPx(1.5),
-            fontFamily: 'inherit',
-            lineHeight: remToPx(2.3),
-            formatter: function (value) {
-              // 공백 기준으로 줄바꿈
-              // return value.replace(/\s+/g, '\n');
+            weight: 'normal',
+          },
+          altType: 'none',
+          showTickLabel: false,
+          scale: 'linear',
+          max: 100,
+          min: 0,
+          tickInterval: 100 / 3,
+          clockwise: false,
+          radius: remToPx(9.4),
+        },
 
-              // 또는 단어 단위로 줄바꿈 (한글의 경우)
-              const words = value.split(' ');
-              return words.join('\n');
+        common: {
+          tooltip: {
+            overflow: { visible: true },
+            format: '{value}',
+            font: {
+              family: 'inherit',
+              size: remToPx(1),
+              color: '#1E2124',
+              weight: 'normal',
             },
-            lineHeight: 16,
           },
-          axisNameGap: remToPx(1),
-          axisLine: {
-            lineStyle: { color: '#CDDAFE', width: 0.8 },
-          },
-          splitLine: {
-            lineStyle: { color: '#CDDAFE', width: 0.8 },
-          },
-          splitArea: { show: false },
-          splitNumber: 3,
         },
-
-        series: [
-          {
-            type: 'radar',
-            symbolSize: 0,
-            data: [
-              {
-                name: '나의 진단 결과',
-                value: [68.1, 71.9, 66.5, 73.8],
-                lineStyle: { color: '#2563eb', width: 1.5 },
-                areaStyle: { color: '#2563eb', opacity: 0.15 },
-                label: {
-                  show: true,
-                  color: '#2563eb',
-                  fontSize: remToPx(1),
-                  fontFamily: 'inherit',
-                  formatter: '{c}',
-                  position: 'outside',
-                  padding: remToPx(0.5),
-                },
-                itemStyle: { color: '#2563eb' },
-              },
-              {
-                name: '연구평가 기준',
-                value: [72.1, 70.8, 71.6, 70.4],
-                lineStyle: { color: '#ffb114', width: 1.5 },
-                areaStyle: { color: '#ffb114', opacity: 0.15 },
-                label: { show: false },
-                itemStyle: { color: '#ffb114' },
-              },
-            ],
-          },
-        ],
       };
     }
 
-    const chartDom = document.querySelector('.chart.type01');
-    const myChart = echarts.init(chartDom, null, { renderer: 'svg' });
+    const series = [
+      {
+        name: '나의 진단 결과',
+        type: 'polar',
+        polarType: 'line',
+        color: '#2563eb',
+        lineWidth: 0.8,
+        area: true,
+        symbol: { size: 5, type: 'circle', color: '#2563eb' },
+        data: [68.1, 71.9, 66.5, 73.8],
+      },
+      {
+        name: '연구평가 기준',
+        type: 'polar',
+        polarType: 'line',
+        color: '#ffb114',
+        lineWidth: 0.8,
+        area: true,
+        symbol: { size: 5, type: 'circle', color: '#ffb114' },
+        data: [72.1, 40.8, 71.6, 70.4],
+      },
+    ];
 
-    function renderChart() {
-      myChart.setOption(getChartOption(), true);
-      myChart.resize();
+    function render() {
+      const container = document.getElementById('test');
+
+      container.innerHTML = '';
+
+      chart = new crownix.Chart('test');
+      chart.build(series, getOptions());
     }
 
-    renderChart();
+    window.addEventListener('load', render);
 
-    const ro = new ResizeObserver(() => {
-      renderChart();
-    });
+    const ro = new ResizeObserver(render);
+    ro.observe(document.getElementById('test'));
 
-    ro.observe(chartDom);
-
-    window.addEventListener('resize', renderChart);
+    window.addEventListener('resize', render);
   </script>
+  <!--# include virtual="../../../components/_chatbot.html" -->
 </html>

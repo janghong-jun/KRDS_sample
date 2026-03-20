@@ -134,7 +134,8 @@ $mode-setting: light;
             }
           }
           > a {
-            &:not([class]) {
+            &:not([class]),
+            .btn-detail {
               max-width: fit-content;
               @include ellipsis(1);
             }
@@ -369,7 +370,7 @@ $mode-setting: light;
     @include scrollbar();
     .tbl {
       min-width: max-content;
-      width: clamp(100%, 100%, 100%);
+      width: max(100%, 73.2rem);
     }
 
     &.mob-scroll {
