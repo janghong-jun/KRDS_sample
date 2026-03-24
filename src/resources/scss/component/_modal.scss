@@ -277,6 +277,9 @@ $mode-setting: light;
           background-color: var(--color-light-alpha-black100);
         }
       }
+      .skill-report .krds-table-wrap {
+        width: 100% !important;
+      }
     }
     .modal-btn {
       @include flex-layout($ai: center, $jc: center);
@@ -304,7 +307,6 @@ $mode-setting: light;
     }
     &.viewer {
       .modal-conts {
-        min-height: 50vh;
       }
     }
     &.print {
@@ -493,6 +495,19 @@ $mode-setting: light;
           }
           .krds-table-wrap {
             min-width: calc(100% - (var(--contents-padding-x) * 2) - 4.8rem);
+            &.row.mob-col.mob-scroll {
+              tr {
+                display: table-row;
+              }
+            }
+            &.center {
+              .tbl {
+                width: max(100%, 73.2rem);
+              }
+            }
+            .tbl {
+              width: 100%;
+            }
           }
         }
         .skill-report .krds-table-wrap {

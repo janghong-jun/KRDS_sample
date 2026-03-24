@@ -2101,22 +2101,6 @@ const krds_toggleSwitch = {
     });
   },
 };
-const krds_infoList = {
-  /*** * krds_infoList * ***/
-  init() {
-    const infoLists = document.querySelectorAll('.krds-info-list');
-
-    if (!infoLists.length) return;
-
-    infoLists.forEach((list) => {
-      list.setAttribute('role', 'list');
-      const listItems = list.querySelectorAll('li');
-      listItems.forEach((item) => {
-        item.setAttribute('role', 'listitem');
-      });
-    });
-  },
-};
 const krds_dropEvent = {
   /*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
   dropButtons: null,
@@ -2262,7 +2246,6 @@ function initAllComponents() {
   krds_calendar.init();
   krds_dropEvent.init();
   krds_tooltip.init();
-  krds_infoList.init();
   krds_toggleSwitch.init();
 }
 
@@ -2290,7 +2273,6 @@ const contentObserver = new MutationObserver((mutations) => {
               node.classList?.contains('krds-modal') ||
               node.classList?.contains('calendar-conts') ||
               node.classList?.contains('krds-drop-wrap') ||
-              node.classList?.contains('krds-info-list') ||
               node.classList?.contains('krds-form-toggle-switch') ||
               node.matches?.('[class*="krds-"]') ||
               node.querySelector?.('[class*="krds-"]') ||

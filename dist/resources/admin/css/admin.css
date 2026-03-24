@@ -322,16 +322,15 @@ footer {
 .main-wrap .sub-nav .sub li.current a span {
   position: relative;
 }
-.main-wrap .sub-nav .sub li.current a span::before {
+.main-wrap .sub-nav .sub li.current a span::after {
   content: '';
-  display: block;
-  position: absolute;
-  top: 0.1rem;
-  right: -1rem;
+  display: inline-block;
   width: 0.6rem;
   height: 0.6rem;
+  margin-left: 0.4rem;
   border-radius: 50%;
   background: #1a58cc;
+  vertical-align: top;
 }
 .main-wrap .sub-nav .sub li:has(ul) > a {
   display: flex;

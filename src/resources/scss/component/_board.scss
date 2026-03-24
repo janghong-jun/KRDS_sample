@@ -16,6 +16,33 @@
       min-width: 20rem;
     }
   }
+  .board-write {
+    .krds-table-wrap.mob-scroll {
+      .tbl {
+        width: 100%;
+      }
+    }
+    .krds-table-wrap.write {
+      @include size-medium {
+        .tbl {
+          width: 100%;
+          tr {
+            width: calc(100vw - (var(--contents-padding-x) * 2));
+            th,
+            td {
+              flex: 1;
+              text-align: left !important;
+              padding-left: 0;
+              padding-right: 0;
+              .info-wrap {
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .board-detail {
@@ -317,7 +344,6 @@
   &-write {
     margin-top: var(--gap-8);
     text-align: center;
-
     > .krds-btn.tertiary {
       width: 12rem;
       margin-top: var(--gap-6);
@@ -337,7 +363,8 @@
       gap: var(--padding-4);
       flex-wrap: wrap;
 
-      &-title {
+      &-title,
+      .rating-select-title {
         width: 8rem;
         font-size: var(--pc-font-size-body-medium);
         font-weight: var(--font-weight-regular);

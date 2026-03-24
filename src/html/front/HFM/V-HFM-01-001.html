@@ -1229,6 +1229,62 @@
     </div>
   </body>
 
+  <section id="V-HFM-01-001-modal" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HFM-01-001-modal">
+    <div class="modal-dialog modal-sm modal-notice">
+      <div class="modal-content">
+        <!-- modal title -->
+        <div class="modal-header">
+          <h2 id="tit_V-HFM-01-001-modal" class="modal-title">팝업 제목</h2>
+        </div>
+        <!-- //modal title -->
+        <!-- modal contents -->
+        <div class="modal-conts">
+          <div class="conts-area">
+            <div class="img-area">
+              <!-- pc 이미지 -->
+              <img src="../../../resources/img/sample/img_card_thumbnail01.jpg" alt="" class="is-pc" />
+              <!-- mo 이미지 -->
+              <img src="../../../resources/img/sample/img_card_thumbnail02.jpg" alt="" class="is-mo" />
+            </div>
+            <div class="cont">
+              <p>팝업 본문 내용이 들어갑니다.</p>
+            </div>
+
+            <div class="ktds-btns-wrap">
+              <!-- 새창으로 열때만 target, title 추가 -->
+              <a href="#" class="krds-btn small link" target="_blank" title="새 창 열림">
+                <span class="underline">버튼명</span>
+                <i class="svg-icon ico-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- //modal contents -->
+        <!-- modal btn -->
+        <div class="modal-btn btn-wrap">
+          <!-- 하단 버튼 영역 -->
+          <div class="krds-check-area">
+            <div class="krds-form-check small">
+              <!-- 체크 시 팝업 닫히면 안됨 (접근성 위배) -->
+              <input type="checkbox" id="doNotShowWeek" />
+              <label for="doNotShowWeek">7일간 보이지 않기</label>
+            </div>
+          </div>
+        </div>
+        <!-- //modal btn -->
+        <!-- close button -->
+        <button type="button" class="krds-btn medium icon btn-close close-modal">
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+        <!-- //close button -->
+      </div>
+    </div>
+    <div class="modal-back"></div>
+  </section>
+  <script>
+    krds_modal.openModal('V-HFM-01-001-modal');
+  </script>
   <script>
     function remToPx(rem) {
       return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);

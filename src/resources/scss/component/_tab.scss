@@ -70,6 +70,10 @@ $mode-setting: light;
             border: 0.1rem solid var(--light-color-border-primary-light);
             font-size: var(--pc-font-size-heading-small);
             color: var(--light-color-text-subtle);
+            @include size-medium {
+              min-width: 0;
+              padding: 0 var(--padding-6);
+            }
           }
           &.active {
             button {

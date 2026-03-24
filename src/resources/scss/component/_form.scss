@@ -1,4 +1,5 @@
 @use '../common/mixins/utils' as *;
+@use '../common/mixins/breakpoints' as *;
 
 .krds-label {
   gap: 0 0.2rem;
@@ -33,6 +34,9 @@
   align-items: center;
   gap: var(--gap-7);
   flex-wrap: wrap;
+  @include size-small {
+    padding: var(--padding-6) var(--padding-5);
+  }
 
   .file-info {
     p {

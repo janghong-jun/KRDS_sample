@@ -303,12 +303,14 @@ td {
 .no-data {
   display: flex;
   width: 100%;
-  padding: 0.8rem 0;
+  padding: 0.8rem 0 !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--gap-4);
   text-align: center;
+  border: none !important;
+  background: none !important;
   &::before {
     display: inline-flex;
     @include pseudo();

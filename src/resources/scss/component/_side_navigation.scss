@@ -55,6 +55,7 @@ $mode-setting: light;
   box-shadow: 0 var(--number-6) var(--number-12) 0 rgba(0, 0, 0, 0.04);
 
   .lnb-tit {
+    min-height: calc(var(--side-navigation--title-font-size) * 1.5 + 3rem + var(--side-navigation--title-border-width));
     padding: 1.5rem 0;
     border-bottom: var(--side-navigation--title-border-width) solid var(--side-navigation--title-color-border);
     border-radius: var(--number-7) var(--number-7) 0 0;

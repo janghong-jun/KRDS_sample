@@ -318,6 +318,7 @@ $mode-setting: light;
             max-width: 100%;
             .krds-btn {
               max-width: 100%;
+              padding: 0;
             }
           }
           .krds-form-select {
@@ -365,6 +366,7 @@ $mode-setting: light;
 }
 .card-list {
   display: grid;
+  width: 100%;
   margin-top: var(--gap-8);
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: var(--gap-7);
@@ -705,10 +707,6 @@ $mode-setting: light;
     }
   }
 
-  &.row {
-    li {
-    }
-  }
   & + .krds-btns-wrap {
     margin-top: var(--gap-6);
   }
@@ -720,6 +718,53 @@ $mode-setting: light;
       grid-template-columns: minmax(0, 76fr) minmax(0, 24fr);
       margin-top: var(--gap-9);
       gap: var(--gap-9);
+      .g-search-area.colum {
+        padding-top: 6.4rem;
+        max-width: 100%;
+        @include size-large-less {
+          padding: var(--mobile-padding-card-small) 4rem;
+        }
+        .col.date {
+          @media (min-width: 1024px) and (max-width: 1270px) {
+            .krds-btns-wrap {
+              max-width: 100%;
+              padding-left: 0;
+            }
+          }
+          .krds-btns-wrap {
+            flex: 1;
+            .krds-btn {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+          .form-date.calendar-conts {
+            flex: 1;
+            .input-group.range.small {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .board-write {
+        .krds-table-wrap.write {
+          @include size-medium {
+            .tbl {
+              width: 100%;
+              tr {
+                width: calc(100vw - (var(--contents-padding-x) * 2));
+                th,
+                td {
+                  flex: 1;
+                  text-align: left !important;
+                  padding-left: 0;
+                  padding-right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
     }
     .todo-box {
       padding: var(--padding-9);
@@ -915,15 +960,36 @@ $mode-setting: light;
       display: flex;
       gap: var(--padding-3);
       align-items: center;
+      flex-wrap: wrap;
+
       .num {
         width: 1.6rem;
         font-size: var(--pc-font-size-label-medium);
         color: var(--light-color-text-subtle);
+        @include size-small {
+          margin-bottom: auto;
+        }
         & + label {
           font-size: var(--pc-font-size-label-medium);
           color: var(--light-color-text-subtle);
           flex: 1;
           @include ellipsis(1);
+          @include size-small {
+            display: block;
+            overflow: visible;
+            max-height: max-content;
+            line-clamp: unset;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: unset;
+          }
+        }
+      }
+      .krds-form-chip {
+        @include size-small {
+          width: 100%;
+          .krds-form-chip-outline {
+            width: 100%;
+          }
         }
       }
       .krds-form-chip-outline {
@@ -1489,6 +1555,9 @@ $mode-setting: light;
           display: none;
         }
       }
+      &:empty {
+        display: none;
+      }
     }
     &-level {
       display: flex;
@@ -1527,6 +1596,11 @@ $mode-setting: light;
           background-color: var(--light-color-background-gray-subtler);
           align-items: center;
           gap: var(--gap-2);
+          span {
+            &:empty {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -1604,8 +1678,6 @@ $mode-setting: light;
     .comment.type02 + .krds-btns-wrap {
       margin-top: calc(-1 * var(--gap-8));
     }
-  }
-  &-side {
   }
 }
 .rating {
@@ -1835,6 +1907,9 @@ $mode-setting: light;
         .krds-btn {
           width: 18.8rem;
           @include size-large-to-xlarge {
+            flex: 1;
+          }
+          @include size-medium {
             flex: 1;
           }
         }
@@ -3031,6 +3106,9 @@ $mode-setting: light;
             gap: var(--gap-2);
             font-weight: var(--font-weight-bold);
             color: var(--light-color-text-basic);
+            span:empty {
+              display: none;
+            }
           }
         }
       }
@@ -3043,8 +3121,6 @@ $mode-setting: light;
       .krds-btns-wrap {
         margin-top: var(--gap-5);
         flex-wrap: wrap;
-        &.etc {
-        }
       }
       .cont {
         margin-top: var(--gap-2);
@@ -3400,6 +3476,7 @@ $circle-chart-types: (
     box-shadow: 0.2rem 0.8rem 0.8rem 0 rgba(42, 81, 125, 0.04);
     @include size-large-less {
       width: calc(50% - var(--gap-6));
+      min-width: calc(50% - var(--gap-6));
     }
     .circle-chart-title {
       font-size: var(--pc-font-size-heading-small);
@@ -3647,12 +3724,6 @@ $circle-chart-types: (
         }
       }
     }
-
-    > div {
-      &:nth-child(3),
-      &:nth-child(4) {
-      }
-    }
   }
   .item {
     position: relative;
@@ -3681,6 +3752,9 @@ $circle-chart-types: (
       font-size: var(--pc-font-size-heading-medium);
       font-weight: var(--font-weight-bold);
       color: var(--light-color-text-basic);
+      @include size-small {
+        margin-top: 3rem;
+      }
     }
 
     .krds-btn.text {
@@ -3690,6 +3764,10 @@ $circle-chart-types: (
       @include size-medium {
         top: calc(var(--mobile-padding-card-small));
         right: var(--mobile-padding-card-medium);
+      }
+      @include size-small {
+        right: auto;
+        left: var(--mobile-padding-card-medium);
       }
     }
   }
@@ -3925,7 +4003,16 @@ $circle-chart-types: (
   }
 }
 .module-swiper-ongoing {
+  margin: 0 calc(-1 * var(--mobile-padding-card-medium));
   padding: 0 7.2rem;
+  @include size-medium {
+    padding: 0 var(--padding-7);
+    [class^='swiper-button-'] {
+      width: 3.2rem;
+      height: 3.2rem;
+      margin-top: -1.6rem;
+    }
+  }
   &::before,
   &::after {
     content: '';
@@ -3935,6 +4022,9 @@ $circle-chart-types: (
     height: 100%;
     z-index: 3;
     background-color: #fff;
+    @include size-medium {
+      width: var(--padding-7);
+    }
   }
   &::before {
     left: -0.1rem;
@@ -3975,6 +4065,9 @@ $circle-chart-types: (
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
+  @include size-medium {
+    margin: 0;
+  }
   span {
     font-size: var(--pc-font-size-body-medium);
     color: var(--light-color-text-subtle);
@@ -3995,15 +4088,22 @@ $circle-chart-types: (
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-4);
+  @include size-medium {
+    flex-direction: column;
+  }
   .item {
     display: flex;
     width: calc(50% - var(--gap-4) / 2);
-    height: 5rem;
+    min-height: 5rem;
     padding: var(--padding-7) var(--padding-8);
     justify-content: space-between;
     align-items: center;
     border-radius: var(--radius-xlarge1);
     border: 0.1rem solid var(--light-color-border-gray-light);
+    flex-wrap: wrap;
+    @include size-medium {
+      width: 100%;
+    }
     .title {
       font-size: var(--pc-font-size-body-medium);
       font-weight: var(--font-weight-regular);
@@ -4021,9 +4121,35 @@ $circle-chart-types: (
   .g-search-area {
     width: 100%;
     margin-bottom: 0;
+    @include size-medium {
+      padding: var(--mobile-padding-card-small) !important;
+      .krds-btn.medium.text {
+        right: var(--mobile-padding-card-small);
+      }
+    }
     .sch-form-wrap {
+      .form-date {
+        flex: 1;
+      }
       .col {
         max-width: 100%;
+        &.date {
+          .input-group.range.small {
+            width: 100%;
+          }
+          .krds-btns-wrap {
+            max-width: 100%;
+            padding-left: 6rem;
+            @include size-large-less {
+              padding-left: 0;
+            }
+            .krds-btn {
+              max-width: 100%;
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
       }
     }
   }
@@ -4093,6 +4219,7 @@ $circle-chart-types: (
     background-color: var(--light-color-background-white);
     flex: 1;
     @include size-medium {
+      min-width: 0;
       padding: var(--gap-8);
     }
     &.basic {
@@ -4137,6 +4264,9 @@ $circle-chart-types: (
       dl {
         flex: 1;
         min-width: 50rem;
+        @include size-medium {
+          min-width: 0;
+        }
         @include size-large-less {
           width: 100%;
         }
@@ -4394,7 +4524,7 @@ $circle-chart-types: (
           overflow-y: auto;
           counter-reset: keyword-counter;
           li {
-            a {
+            .keyword-item {
               display: flex;
               padding: var(--gap-4) var(--gap-4);
               font-size: var(--pc-font-size-label-large);
@@ -4464,6 +4594,12 @@ $circle-chart-types: (
           .ico-angle {
             transform: rotate(180deg);
           }
+        }
+      }
+      .krds-form-check.large {
+        label::before,
+        label::after {
+          margin-top: calc(-1 * var(--form-check--button-margin-top) + 0.2rem);
         }
       }
     }
@@ -4863,6 +4999,7 @@ $circle-chart-types: (
               .file-name {
                 span {
                   display: block;
+                  line-clamp: unset;
                   -webkit-line-clamp: unset;
                   -webkit-box-orient: unset;
                   overflow: visible;
@@ -5026,11 +5163,41 @@ $circle-chart-types: (
 }
 #pstListFm {
   colgroup {
-    col {
-    }
     col:nth-child(2) {
       min-width: 20rem !important;
     }
+  }
+}
+.modal-notice {
+  .conts-area {
+    gap: 0 !important;
+  }
+  .img-area {
+    margin-bottom: 1.2rem;
+    img {
+      width: 100%;
+      border-radius: var(--radius-xlarge1);
+    }
+    .is-pc {
+      @include size-medium {
+        display: none;
+      }
+    }
+    .is-mo {
+      display: none;
+      @include size-medium {
+        display: block;
+      }
+    }
+  }
+  p {
+    font-size: var(--pc-font-size-body-small);
+    color: var(--light-color-text-subtle);
+  }
+  .ktds-btns-wrap {
+    margin-top: 0.8rem;
+  }
+  .modal-btn {
   }
 }
 //고대비모드

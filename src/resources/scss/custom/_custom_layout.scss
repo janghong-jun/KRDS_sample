@@ -219,6 +219,9 @@ $mode-setting: light;
 
   &.right {
     justify-content: flex-end;
+    > div:first-child {
+      flex-direction: row;
+    }
   }
 
   > div {
@@ -241,6 +244,9 @@ $mode-setting: light;
   }
   .krds-check-area {
     flex: none;
+    @include size-small {
+      margin-bottom: auto;
+    }
     .krds-form-check {
       display: inline-flex;
       align-items: center;

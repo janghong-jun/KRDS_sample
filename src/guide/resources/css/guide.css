@@ -30,11 +30,6 @@
 .guide .krds-form-file {
   width: 100%;
 }
-.guide > .krds-info-list {
-  width: -webkit-calc(50% - var(--gap-3) / 2);
-  width: -moz-calc(50% - var(--gap-3) / 2);
-  width: calc(50% - var(--gap-3) / 2);
-}
 .guide .krds-badge-wrap {
   width: 100%;
   margin-bottom: var(--badge--wrap-gap);
