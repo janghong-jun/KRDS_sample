@@ -367,9 +367,13 @@ $mode-setting: light;
 .card-list {
   display: grid;
   width: 100%;
+  min-height: 0;
   margin-top: var(--gap-8);
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: var(--gap-7);
+  * {
+    min-height: 0;
+  }
   @media (max-width: 1279px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -383,6 +387,7 @@ $mode-setting: light;
   > li,
   > div {
     display: flex;
+
     position: relative;
     height: 100%;
     border: 0.1rem solid var(--color-light-gray-20);
@@ -394,6 +399,7 @@ $mode-setting: light;
     &:has(> .nodata, > .no-data) {
       grid-column: 1 / -1;
       border: none;
+      width: 100% !important;
     }
   }
   .card-thumbnail {
@@ -479,6 +485,7 @@ $mode-setting: light;
         strong {
           font-weight: var(--font-weight-regular);
           color: var(--light-color-text-subtle);
+          flex: none;
         }
         span {
           display: flex;
@@ -3462,10 +3469,11 @@ $circle-chart-types: (
   border-radius: 3rem;
   background-color: var(--light-color-surface-gray-subtler);
   flex-wrap: wrap;
-
+  @include size-medium {
+    flex-direction: column;
+  }
   .circle-chart-item {
     display: flex;
-    width: calc(25% - var(--gap-6));
     padding: var(--pc-padding-card-small) 0 var(--pc-padding-card-large);
     border-radius: var(--radius-xlarge2);
     background-color: var(--color-light-alpha-white100);
@@ -3474,9 +3482,8 @@ $circle-chart-types: (
     gap: var(--gap-7);
     flex: 1;
     box-shadow: 0.2rem 0.8rem 0.8rem 0 rgba(42, 81, 125, 0.04);
-    @include size-large-less {
-      width: calc(50% - var(--gap-6));
-      min-width: calc(50% - var(--gap-6));
+    @include size-medium {
+      padding: var(--mobile-padding-card-small) 0 var(--mobile-padding-card-large);
     }
     .circle-chart-title {
       font-size: var(--pc-font-size-heading-small);

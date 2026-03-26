@@ -70,6 +70,7 @@ $mode-setting: light;
             border: 0.1rem solid var(--light-color-border-primary-light);
             font-size: var(--pc-font-size-heading-small);
             color: var(--light-color-text-subtle);
+            transition: var(--transition-collapse-width);
             @include size-medium {
               min-width: 0;
               padding: 0 var(--padding-6);
@@ -160,6 +161,7 @@ $mode-setting: light;
     color: var(--tab--button-color-text);
     font-weight: var(--font-weight-bold);
     transition: var(--transition-base);
+
     @include size-medium {
       font-size: var(--tab--button-mobile-font-size);
     }
@@ -375,18 +377,13 @@ $mode-setting: light;
           > ul {
             display: grid;
             max-width: calc(100vw - var(--contents-padding-x) - var(--contents-padding-x));
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
             > li {
               min-width: fit-content;
               .btn-tab {
                 padding: 0 var(--padding-4);
               }
             }
-          }
-        }
-        &[data-col='5'] {
-          > ul {
-            grid-template-columns: repeat(5, 1fr);
           }
         }
       }

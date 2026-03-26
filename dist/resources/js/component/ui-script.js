@@ -58,29 +58,109 @@ const scrollManager = {
 
 // common
 const common = {
+  _focusTrapMap: new WeakMap(),
+
   focusTrap(trap) {
-    const focusableElements = trap.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
+    if (this._focusTrapMap.has(trap)) {
+      const prev = this._focusTrapMap.get(trap);
+      document.removeEventListener('keydown', prev.handler);
+      this._removeiframeBlurHandlers(prev.iframeHandlers);
+      this._focusTrapMap.delete(trap);
+    }
 
-    if (!focusableElements.length) return;
+    const getFocusableElements = () => Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]):not(.krds-iframe-sentinel), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
 
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    // ── Tab / Shift+Tab 트랩 ───────────────────────────────────────
+    const handler = (event) => {
+      if (event.key !== 'Tab') return;
 
-    trap.addEventListener('keydown', (event) => {
-      if (event.key === 'Tab') {
-        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+      const focusableElements = getFocusableElements();
+      if (!focusableElements.length) return;
+
+      const firstEl = focusableElements[0];
+      const lastEl = focusableElements[focusableElements.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey) {
+        if (active === firstEl || active === trap) {
           event.preventDefault();
-          lastFocusableElement.focus();
-        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+          lastEl.focus();
+        }
+      } else {
+        if (active === lastEl) {
           event.preventDefault();
-          firstFocusableElement.focus();
-          // 모달 오픈 후 첫 초점 역방향 제어(modal-content가 첫초점이 아니면 사용 안해도 됨)
-        } else if (event.key === 'Tab' && event.shiftKey && document.activeElement === trap) {
-          event.preventDefault();
-          lastFocusableElement.focus();
+          firstEl.focus();
         }
       }
+    };
+
+    const iframeHandlers = this._attachIframeKeyHandlers(trap);
+
+    this._focusTrapMap.set(trap, { handler, iframeHandlers });
+    document.addEventListener('keydown', handler);
+  },
+
+  _attachIframeKeyHandlers(trap) {
+    const windowBlurHandler = () => {
+      setTimeout(() => {
+        const iframes = Array.from(trap.querySelectorAll('iframe'));
+        const focusedIframe = iframes.find((f) => document.activeElement === f);
+        if (!focusedIframe) return;
+
+        try {
+          const iframeWin = focusedIframe.contentWindow;
+          if (focusedIframe._krdsKeyHandler) {
+            iframeWin.removeEventListener('keydown', focusedIframe._krdsKeyHandler);
+          }
+          focusedIframe._krdsKeyHandler = (e) => {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+              const modal = trap.closest('.krds-modal');
+              if (modal) krds_modal.closeModal(modal.id);
+            }
+            if (e.key === 'Tab' && e.shiftKey) {
+              e.preventDefault();
+              const focusableElements = Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
+              const idx = focusableElements.indexOf(focusedIframe);
+              if (idx <= 0) {
+                focusableElements[focusableElements.length - 1].focus();
+              } else {
+                focusableElements[idx - 1].focus();
+              }
+            }
+          };
+          iframeWin.addEventListener('keydown', focusedIframe._krdsKeyHandler);
+        } catch (e) {}
+      }, 0);
+    };
+
+    window.addEventListener('blur', windowBlurHandler);
+    return { windowBlurHandler };
+  },
+
+  _removeiframeKeyHandlers(trap, { windowBlurHandler } = {}) {
+    if (windowBlurHandler) {
+      window.removeEventListener('blur', windowBlurHandler);
+    }
+    trap?.querySelectorAll('iframe').forEach((iframe) => {
+      if (iframe._krdsKeyHandler) {
+        try {
+          iframe.contentWindow.removeEventListener('keydown', iframe._krdsKeyHandler);
+        } catch (e) {}
+        delete iframe._krdsKeyHandler;
+      }
     });
+  },
+
+  /**
+   * focusTrap 해제 - 모달 닫힐 때 호출
+   */
+  focusTrapRemove(trap) {
+    if (this._focusTrapMap.has(trap)) {
+      const { handler, iframeHandlers } = this._focusTrapMap.get(trap);
+      document.removeEventListener('keydown', handler);
+      this._removeiframeKeyHandlers(trap, iframeHandlers);
+      this._focusTrapMap.delete(trap);
+    }
   },
 };
 
@@ -939,7 +1019,6 @@ const krds_modal = {
     const modalConts = modalElement.querySelector('.modal-conts');
 
     // document.querySelector('body').classList.add('scroll-no');
-    dialogElement.removeAttribute('tabindex');
     modalElement.setAttribute('role', 'dialog');
     modalElement.classList.add('shown');
     modalBack.classList.add('in');
@@ -961,33 +1040,57 @@ const krds_modal = {
       document.querySelector('body').classList.add('scroll-no');
     }, 0);
 
-    //열린 팝업창 포커스
+    // 열린 팝업창 포커스
     const focusables = modalElement.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
+    const firstFocusable = focusables[0];
+    const isFirstIframe = firstFocusable?.tagName === 'IFRAME';
+
+    // dialogElement: iframe이 첫 요소면 tabindex="-1"로 초기 포커스 대상으로 지정
+    dialogElement.setAttribute('tabindex', isFirstIframe ? '-1' : undefined);
+    if (!isFirstIframe) dialogElement.removeAttribute('tabindex');
+
     setTimeout(() => {
-      // modalTitle.focus();
-      focusables[0].focus();
+      if (isFirstIframe) {
+        dialogElement.focus();
+      } else {
+        firstFocusable?.focus();
+      }
     }, 350);
 
     // ESC 모달 닫기
-    dialogElement.addEventListener(
-      'keydown',
-      (event) => {
-        if (event.key === 'Escape' || event.key === 'Esc') {
-          this.closeModal(dialogElement.closest('.krds-modal').id);
+    // document 레벨에서 처리: iframe에 포커스가 있어도 동작하도록
+    if (!this._escHandlers) this._escHandlers = {};
+    // 기존 핸들러가 있으면 먼저 제거
+    if (this._escHandlers[id]) {
+      document.removeEventListener('keydown', this._escHandlers[id]);
+    }
+    this._escHandlers[id] = (event) => {
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        // 현재 가장 위에 열린(z-index 기준) 모달만 닫기
+        const openModals = Array.from(document.querySelectorAll('.krds-modal.in'));
+        if (!openModals.length) return;
+        const topModal = openModals.reduce((top, el) => {
+          const z = parseInt(el.style.zIndex || 0, 10);
+          const topZ = parseInt(top.style.zIndex || 0, 10);
+          return z >= topZ ? el : top;
+        });
+        if (topModal.getAttribute('id') === id) {
+          this.closeModal(id);
         }
-      },
-      { once: true },
-    );
+      }
+    };
+    document.addEventListener('keydown', this._escHandlers[id]);
 
     // 모달 외부 클릭 처리 핸들러 정의 및 저장
     if (!this.outsideClickHandlers[id]) {
       this.outsideClickHandlers[id] = (event) => {
         if (!event.target.closest('.modal-content')) {
-          // modalTitle.focus();
-          focusables[0].focus();
-
-          // dialogElement.focus();
-          // this.closeModal(id);
+          // iframe이 첫 요소면 dialogElement로, 아니면 첫 focusable로 복귀
+          if (isFirstIframe) {
+            dialogElement.focus();
+          } else {
+            firstFocusable?.focus();
+          }
         }
       };
     }
@@ -995,7 +1098,8 @@ const krds_modal = {
     modalElement.removeEventListener('click', this.outsideClickHandlers[id]);
     modalElement.addEventListener('click', this.outsideClickHandlers[id]);
 
-    // 포커스 트랩 설정
+    // 포커스 트랩 설정 (iframe 포함)
+    this._insertIframeSentinel(dialogElement);
     common.focusTrap(dialogElement);
 
     // 2개 이상의 모달이 열려 있는 경우 z-index 업데이트
@@ -1006,6 +1110,7 @@ const krds_modal = {
   },
   closeModal(id, callback) {
     const modalElement = document.getElementById(id);
+    const dialogElement = modalElement.querySelector('.modal-content');
     const openModals = document.querySelectorAll('.modal.in');
     const modalBack = modalElement.querySelector('.modal-back');
 
@@ -1028,6 +1133,18 @@ const krds_modal = {
 
     // inert 설정
     document.getElementById('wrap')?.removeAttribute('inert');
+
+    // ESC 핸들러 제거
+    if (this._escHandlers && this._escHandlers[id]) {
+      document.removeEventListener('keydown', this._escHandlers[id]);
+      delete this._escHandlers[id];
+    }
+
+    // 포커스 트랩 해제
+    common.focusTrapRemove(dialogElement);
+
+    // sentinel 정리
+    this._removeIframeSentinel(dialogElement);
 
     // 모달을 열었던 버튼으로 포커스 복귀
     this.returnFocusToTrigger(id);
@@ -1054,6 +1171,42 @@ const krds_modal = {
       this._triggerMap[id].focus();
       delete this._triggerMap[id];
     }
+  },
+
+  // ── iframe sentinel ─────────────────────────────────────────────
+  // cross-origin iframe(YouTube 등)에서 Shift+Tab 시 브라우저가 주소표시줄로
+  // 포커스를 보내는 것을 JS로 막을 수 없다.
+  // 대신 iframe 바로 앞에 tabindex="0" sentinel을 두면,
+  // 주소표시줄 → 페이지로 돌아올 때 sentinel이 포커스를 받는다.
+  // sentinel의 focus 핸들러에서 마지막 포커스 가능 요소로 redirect한다.
+  _insertIframeSentinel(dialogElement) {
+    // 이미 삽입된 sentinel이 있으면 재사용
+    const existing = dialogElement.querySelector('.krds-iframe-sentinel');
+    if (existing) return;
+
+    const iframes = dialogElement.querySelectorAll('iframe');
+    iframes.forEach((iframe) => {
+      const sentinel = document.createElement('span');
+      sentinel.className = 'krds-iframe-sentinel';
+      sentinel.setAttribute('tabindex', '0');
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;';
+
+      sentinel.addEventListener('focus', () => {
+        // sentinel에 포커스가 오면 → 모달 안 마지막 포커스 가능 요소로 이동
+        const focusables = Array.from(dialogElement.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]):not(.krds-iframe-sentinel), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
+
+        const lastEl = focusables[focusables.length - 1];
+        if (lastEl) lastEl.focus();
+      });
+
+      // iframe 바로 앞에 삽입
+      iframe.parentNode.insertBefore(sentinel, iframe);
+    });
+  },
+
+  _removeIframeSentinel(dialogElement) {
+    dialogElement?.querySelectorAll('.krds-iframe-sentinel').forEach((s) => s.remove());
   },
 };
 

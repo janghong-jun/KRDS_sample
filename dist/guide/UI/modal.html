@@ -774,7 +774,7 @@
 
     document.getElementById('btnExampleModal').addEventListener('click', function () {
       // Ajax 호출 전에 반드시 트리거 저장
-      krds_modal._triggerMap['exampleModal02'] = document.activeElement;
+      krds_modal._triggerMap['exampleModal02'] = this;
 
       AjaxUtil.ajaxHtml('', {}, '#exampleModalFm', function () {
         krds_modal.openModal('exampleModal02');

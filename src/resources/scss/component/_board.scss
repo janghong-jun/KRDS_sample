@@ -188,6 +188,14 @@
   width: 100%;
   flex-direction: column;
   gap: var(--gap-7);
+  > div {
+    &:not([class]) {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      gap: var(--gap-7);
+    }
+  }
 
   &-head {
     display: flex;
