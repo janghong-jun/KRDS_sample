@@ -136,6 +136,7 @@ $mode-setting: light;
           > a {
             &:not([class]),
             .btn-detail {
+              min-width: 10rem;
               max-width: fit-content;
               @include ellipsis(1);
             }

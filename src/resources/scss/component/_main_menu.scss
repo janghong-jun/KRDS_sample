@@ -663,8 +663,17 @@ $mode-setting: light;
         flex-direction: column;
         gap: var(--main-menu-mobile--login-gap);
         .user {
+          display: flex;
+          gap: 0.3rem;
+          align-items: center;
           span {
             font-weight: var(--font-weight-bold);
+          }
+          .krds-btn.icon {
+            margin-left: 0.2rem;
+            i {
+              background-color: var(--light-color-icon-danger-static);
+            }
           }
         }
         button {

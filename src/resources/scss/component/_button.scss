@@ -916,10 +916,10 @@ label.krds-btn {
   }
 
   &.active {
-    background-color: var(--light-color-surface-danger-subtler);
+    background-color: var(--light-color-surface-primary-subtler);
     cursor: pointer;
     .ico-heart {
-      background-image: url(#{$url}/img/component/icon/ico_heart_on.svg);
+      background-image: url(#{$url}/img/component/icon/ico_scrap_on.svg);
     }
   }
 }

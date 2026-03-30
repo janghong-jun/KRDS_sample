@@ -38,9 +38,9 @@
     @include icon-set(ico_faq);
   }
   &.ico-like {
-    @include icon-set(ico_like);
+    @include icon-set(ico_scrap);
     &.active {
-      @include icon-set(ico_heart_on, pure);
+      @include icon-set(ico_scrap_on, pure);
     }
   }
   &.ico-share {
@@ -437,10 +437,10 @@
     @include icon-set(ico_cart_disabled, pure);
   }
   &.ico-heart {
-    @include icon-set(ico_heart, pure);
+    @include icon-set(ico_scrap, pure);
   }
   &.ico-heart-on {
-    @include icon-set(ico_heart_on, pure);
+    @include icon-set(ico_scrap_on, pure);
   }
   &.ico-on-play {
     @include icon-set(ico_on_play, pure);

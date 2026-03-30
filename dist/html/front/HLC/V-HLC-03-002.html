@@ -14,8 +14,8 @@
 		<link rel="stylesheet" href="../../../resources/css/output.css" type="text/css">
     <!-- 공통 script -->
     <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
-<script src="../../../resources/js/plugin/crownix-chart.min.js"></script>
-<script src="../../../resources/js/component/ui-script.js"></script>
+  <script src="../../../resources/js/plugin/crownix-chart.min.js"></script>
+  <script src="../../../resources/js/component/ui-script.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         GNB.setSelected({ depth1: 3 + 1, depth2: 2 + 1 });
@@ -52,7 +52,13 @@
             <div class="inner">
               <div class="header-utility">
                 <ul class="utility-list">
-                  <li>안녕하세요 <span>김코칭</span>선생님</li>
+                  <li>
+                    <button type="button" class="krds-btn icon">
+                      <span class="sr-only">알림</span>
+                      <i class="svg-icon ico-urgent-danger small"></i>
+                    </button>
+                    안녕하세요 <span>김코칭</span>선생님
+                  </li>
                   <li>
                     <button type="button" class="krds-btn small text">로그아웃</button>
                   </li>
@@ -248,7 +254,14 @@
               <!-- //gnb-utils -->
               <!-- gnb-login -->
               <div class="gnb-login">
-                <span class="user">안녕하세요 <span>김코칭</span>선생님</span>
+                <span class="user">
+                  안녕하세요 <span>김코칭</span>선생님
+                
+                  <button type="button" class="krds-btn icon">
+                    <span class="sr-only">알림</span>
+                    <i class="svg-icon ico-urgent-danger small"></i>
+                  </button>
+                </span>
                 <button type="button" class="krds-btn large text"><i class="svg-icon ico-logout"></i> 로그아웃</button>
               </div>
             </div>
@@ -406,7 +419,6 @@
                 <li class="home"><a href="#" class="txt">홈</a></li>
                 <li><a href="#" class="txt">학습공동체</a></li>
                 <li><a href="#" class="txt">연구지원</a></li>
-                <li><a href="#" class="txt">문서작성 공동편집</a></li>
               </ol>
             </nav>
             <!-- /breadcrumb -->

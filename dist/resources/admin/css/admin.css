@@ -415,7 +415,7 @@ footer {
   font-weight: 700;
   line-height: 3.6rem;
 }
-.main-conts h2::before {
+/* .main-conts h2::before {
   content: '';
   display: block;
   position: absolute;
@@ -425,7 +425,7 @@ footer {
   height: 0.8rem;
   border-radius: 50%;
   background: #1a58cc;
-}
+} */
 .main-conts h3 {
   font-weight: 700;
   font-size: 1.6rem;

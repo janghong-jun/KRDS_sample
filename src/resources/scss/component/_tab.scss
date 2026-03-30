@@ -151,6 +151,7 @@ $mode-setting: light;
     @include flex-layout(inline-flex, center, center);
     position: relative;
     white-space: nowrap;
+    touch-action: manipulation;
   }
   .btn-tab {
     width: 100%;

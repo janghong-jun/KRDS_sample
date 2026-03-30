@@ -48,8 +48,16 @@ $mode-setting: light;
       @include flex-layout($jc: flex-end);
       align-items: center;
       & > li {
+        display: flex;
         font-size: var(--pc-font-size-body-small);
         color: var(--light-color-text-subtle);
+        align-items: center;
+        .krds-btn.icon {
+          margin-right: 0.4rem;
+          i {
+            background-color: var(--light-color-icon-danger-static);
+          }
+        }
         .krds-btn.text {
           font-size: var(--pc-font-size-body-small);
           color: var(--light-color-text-subtle);

@@ -252,6 +252,7 @@
               &.slide {
                 width: 100%;
                 .swiper {
+                  width: 100%;
                   padding: 0 4rem;
                   @media (max-width: 1429px) {
                     padding: 0 3.2rem;
@@ -663,11 +664,11 @@
 
             li {
               display: flex;
-              height: 3.2rem;
+              min-height: 3.2rem;
               gap: var(--gap-6);
               align-items: center;
               .title {
-                width: 8rem;
+                width: 12rem;
                 font-size: var(--pc-font-size-body-medium);
                 color: var(--light-color-text-basic);
               }
@@ -982,6 +983,7 @@
               &.slide {
                 width: 100%;
                 .swiper {
+                  width: 100%;
                   padding: 0 4rem;
                   @media (max-width: 1429px) {
                     padding: 0 3.2rem;
@@ -1013,6 +1015,7 @@
               &.slide {
                 width: 100%;
                 .swiper {
+                  width: 100%;
                   padding: 0 4rem;
                   @media (max-width: 1429px) {
                     padding: 0 3.2rem;

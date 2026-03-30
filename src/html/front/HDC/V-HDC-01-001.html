@@ -16,6 +16,7 @@
         const form = document.querySelector('.total-search-form');
         const input = form?.querySelector('.krds-input');
         const suggest = form?.querySelector('.keyword-suggest');
+        const closeBtn = suggest?.querySelector('.btn-close');
         const toggleBtn = document.querySelector('.btn-detail-toggle');
         const detailArea = document.getElementById('detailSearchArea');
 
@@ -25,51 +26,40 @@
         // 필터 토글
         // -----------------------------
         if (toggleBtn && detailArea) {
-          const focusableSelector = 'a, button, input, select, textarea, [tabindex],label';
-          const focusableEls = detailArea.querySelectorAll(focusableSelector);
+          const detailFocusables = detailArea.querySelectorAll('a, button, input, select, textarea, [tabindex], label');
           const submitDetailBtn = detailArea.querySelector('.krds-btn.xlarge.primary');
 
           function closeDetailArea() {
             toggleBtn.setAttribute('aria-expanded', 'false');
             detailArea.hidden = true;
             detailArea.classList.remove('is-active');
+            detailFocusables.forEach((el) => el.setAttribute('tabindex', '-1'));
+          }
 
-            focusableEls.forEach((el) => {
-              el.setAttribute('tabindex', '-1');
-            });
+          // 초기 상태: 닫혀 있으면 tabindex -1
+          if (!detailArea.classList.contains('is-active')) {
+            detailFocusables.forEach((el) => el.setAttribute('tabindex', '-1'));
           }
 
           toggleBtn.addEventListener('click', () => {
             const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
             toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
             detailArea.hidden = isExpanded;
-            // tabindex 제어
-            focusableEls.forEach((el) => {
-              if (isExpanded) {
-                // 닫을 때 포커스 막음
-                el.setAttribute('tabindex', '-1');
-              } else {
-                // 열 때 원래대로
-                el.removeAttribute('tabindex');
-              }
+            detailFocusables.forEach((el) => {
+              isExpanded ? el.setAttribute('tabindex', '-1') : el.removeAttribute('tabindex');
             });
           });
-          // ✅ 상세 검색 버튼 클릭 시 닫기
-          if (submitDetailBtn) {
-            submitDetailBtn.addEventListener('click', () => {
-              closeDetailArea();
-            });
-          }
 
-          // 초기 상태 닫혀 있으면 tabindex -1
-          if (!detailArea.classList.contains('is-active')) {
-            focusableEls.forEach((el) => el.setAttribute('tabindex', '-1'));
+          if (submitDetailBtn) {
+            submitDetailBtn.addEventListener('click', closeDetailArea);
           }
         }
 
         // -----------------------------
         // 추천 검색어 열기/닫기
         // -----------------------------
+        let isFocusingInput = false; // input.focus() 재진입 방지 플래그
+
         function openSuggest() {
           suggest.hidden = false;
           suggest.classList.add('is-active');
@@ -80,59 +70,78 @@
         function closeSuggest() {
           suggest.hidden = true;
           suggest.classList.remove('is-active');
+          form.classList.remove('is-focus');
           input.setAttribute('aria-expanded', 'false');
 
           // 탭 초기화
-          const tabAreas = suggest.querySelectorAll('.krds-tab-area.layer.etc');
-          tabAreas.forEach((tabArea) => {
+          suggest.querySelectorAll('.krds-tab-area.layer.etc').forEach((tabArea) => {
             krds_tab.resetToDefault(tabArea);
           });
+        }
+
+        function closeSuggestAndFocus() {
+          closeSuggest();
+          isFocusingInput = true;
+          input.focus();
+          isFocusingInput = false;
         }
 
         // -----------------------------
         // input 포커스 시 추천검색어 열기
         // -----------------------------
-        input.addEventListener('focus', openSuggest);
-
-        // -----------------------------
-        // ESC 처리 (form 전체)
-        // -----------------------------
-        form.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            closeSuggest();
-            input.focus();
-          }
+        input.addEventListener('focus', () => {
+          if (!isFocusingInput) openSuggest();
         });
 
         // -----------------------------
-        // document 클릭 시 추천검색어 닫기
+        // btn-close 클릭 시 닫기 + input 포커스 반환
         // -----------------------------
-        document.addEventListener('click', (e) => {
-          if (!form.contains(e.target)) {
-            closeSuggest();
-            form.classList.remove('is-focus');
-          }
-        });
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeSuggestAndFocus);
+        }
 
         // -----------------------------
-        // form 내부 포커스 유지 (input 전용)
+        // ESC 키: suggest 영역 + input 공통 처리
         // -----------------------------
-        form.addEventListener('focusin', (e) => {
-          form.classList.add('is-focus');
-
-          // 오직 input이 focus 되었을 때만 추천검색어 열기
-          if (e.target === input) {
-            openSuggest();
+        function handleEsc(e) {
+          if (e.key === 'Escape' && !suggest.hidden) {
+            closeSuggestAndFocus();
           }
-        });
+        }
+        input.addEventListener('keydown', handleEsc);
+        suggest.addEventListener('keydown', handleEsc);
 
-        form.addEventListener('focusout', (e) => {
-          // 다음 포커스가 form 내부에 없으면 닫기
-          if (!form.contains(e.relatedTarget)) {
-            closeSuggest();
-            form.classList.remove('is-focus');
+        // -----------------------------
+        // 포커스 트랩 (suggest 열린 상태)
+        // 범위: input (첫 요소) ↔ suggest 내부 포커스 가능 요소 (마지막 요소)
+        // -----------------------------
+        function getSuggestFocusables() {
+          const sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+          return [input, ...suggest.querySelectorAll(sel)].filter((el) => !el.closest('[hidden]') && el.offsetParent !== null);
+        }
+
+        function handleFocusTrap(e) {
+          if (e.key !== 'Tab' || suggest.hidden) return;
+
+          const trapEls = getSuggestFocusables();
+          if (trapEls.length === 0) return;
+
+          const first = trapEls[0];
+          const last = trapEls[trapEls.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            // Shift+Tab: 첫 요소(input)에서 → 마지막으로 순환
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            // Tab: 마지막 요소에서 → 첫 요소(input)로 순환
+            e.preventDefault();
+            first.focus();
           }
-        });
+        }
+
+        input.addEventListener('keydown', handleFocusTrap);
+        suggest.addEventListener('keydown', handleFocusTrap);
       });
     </script>
   </head>
@@ -260,6 +269,10 @@
                         </div>
                         <!-- //tab contents -->
                       </div>
+                      <button type="button" class="krds-btn medium icon btn-close">
+                        <span class="sr-only">닫기</span>
+                        <i class="svg-icon ico-popup-close"></i>
+                      </button>
                     </div>
                     <button type="button" class="krds-btn large icon">
                       <i class="svg-icon ico-sch" aria-hidden="true"></i>

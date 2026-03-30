@@ -77,6 +77,10 @@ $mode-setting: light;
   & + .krds-text {
     margin-top: var(--gap-3);
   }
+
+  &.medium {
+    font-size: var(--pc-font-size-body-medium);
+  }
 }
 .krds-text-box {
   overflow: auto;
@@ -497,15 +501,15 @@ td {
           &.today,
           &.toDay {
             span {
+              display: flex;
               position: relative;
+              align-items: center;
+              gap: var(--gap-1);
               &::after {
                 content: '';
-                position: absolute;
-                left: 50%;
-                bottom: 0.4rem;
-                width: 0.4rem;
-                height: 0.4rem;
-                margin-left: -0.2rem;
+                width: 0.8rem;
+                height: 0.8rem;
+                margin-top: -2.4rem;
                 border-radius: var(--radius-max);
                 background-color: var(--light-color-element-point);
               }
