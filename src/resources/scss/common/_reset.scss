@@ -299,6 +299,8 @@ caption {
   text-align: left !important;
   button {
     text-align: left;
+    @include ellipsis(1);
+    width: auto;
   }
 }
 .ac {

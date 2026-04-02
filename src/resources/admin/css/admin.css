@@ -2259,20 +2259,9 @@ td.color-type03 {
   margin-bottom: 1.6rem;
 }
 
-.text-radio-wrap {
-  display: flex;
-  gap: 0.8rem;
-}
-.text-radio-wrap span {
-  color: #73737a;
-}
-.text-radio-wrap span input:checked + label {
-  color: #000;
-  font-weight: 700;
-}
-
 .dashboard {
   display: grid;
+  margin-top: 4rem;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.4rem;
 }

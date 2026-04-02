@@ -554,8 +554,10 @@ const krds_mainMenuMobile = {
     const navItems = mobileGnb.querySelectorAll('.submenu-wrap .gnb-sub-list');
 
     if (!document.querySelector('.menu-wrap .gnb-main-trigger.active')) {
-      menuItems[0].classList.add('active');
-      menuItems[0].setAttribute('aria-selected', 'true');
+      if (menuItems && menuItems.length > 0) {
+        menuItems[0].classList.add('active');
+        menuItems[0].setAttribute('aria-selected', 'true');
+      }
     }
 
     // 3depth
@@ -2406,11 +2408,15 @@ function initAllComponents() {
 // MutationObserver - 타임리프 동적 감지
 // ========================================
 let observerTimeout = null;
+let isInitializing = false;
 
 const contentObserver = new MutationObserver((mutations) => {
+  if (isInitializing) return;
   clearTimeout(observerTimeout);
 
   observerTimeout = setTimeout(() => {
+    if (isInitializing) return;
+
     let hasKrdsComponent = false;
 
     for (const mutation of mutations) {
@@ -2441,23 +2447,29 @@ const contentObserver = new MutationObserver((mutations) => {
 
     if (hasKrdsComponent) {
       console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
-      initAllComponents();
+      isInitializing = true;
+      contentObserver.disconnect();
+
+      try {
+        initAllComponents();
+      } finally {
+        contentObserver.observe(document.body, observerConfig);
+        isInitializing = false;
+      }
     }
   }, 100);
 });
 
 // 초기 이벤트
+const observerConfig = {
+  childList: true,
+  subtree: true,
+  attributes: false,
+};
+
 window.addEventListener('DOMContentLoaded', () => {
   initAllComponents();
-
-  // Observer 시작
-  contentObserver.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: false,
-  });
-
-  // console.log('UI 스크립트 초기화 완료 (타임리프 동적 감지 활성화)');
+  contentObserver.observe(document.body, observerConfig);
 });
 
 // 스크롤 이벤트

@@ -2258,3 +2258,26 @@ td.color-type03 {
 .menu-management .tbl-base {
   margin-bottom: 1.6rem;
 }
+
+.dashboard {
+  display: grid;
+  margin-top: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+}
+.dashboard-item {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  gap: 1.2rem;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+.dashboard-item .chart {
+  width: 100%;
+  height: 30rem;
+}
+
+.dashboard-item.full {
+  grid-column: 1 / -1;
+}

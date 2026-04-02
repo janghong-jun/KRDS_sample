@@ -28,14 +28,39 @@
             <div class="dashboard-item full">
               <div class="sub-title">
                 <h3>3) 콘텐츠 활용 현황</h3>
-                <div class="text-radio-wrap">
-                  <span><input type="radio" id="text-radio03_01" name="text-radio03" checked /><label for="text-radio03_01">일별</label></span>
-                  <span>/</span>
-                  <span><input type="radio" id="text-radio03_02" name="text-radio03" /><label for="text-radio03_02">월별</label></span>
+                <div class="frm-area flex">
+                  <select aria-label="년도 선택">
+                    <option>2026</option>
+                  </select>
+                  <select aria-label="월 선택">
+                    <option>전체</option>
+                    <option>1월</option>
+                    <option>2월</option>
+                    <option>3월</option>
+                    <option>4월</option>
+                    <option>5월</option>
+                    <option>6월</option>
+                    <option>7월</option>
+                    <option>8월</option>
+                    <option>9월</option>
+                    <option>10월</option>
+                    <option>11월</option>
+                    <option>12월</option>
+                  </select>
                 </div>
               </div>
               <!-- 개발시 style 제거 -->
               <div class="chart" style="background-color: rgba(0, 0, 0, 0.3)"></div>
+            </div>
+          </div>
+          <div class="tbl-btns">
+            <a href="#" class="btn base secondary">
+              <span>목록</span>
+            </a>
+            <div>
+              <button type="button" class="btn base primary">
+                <span>보고서</span>
+              </button>
             </div>
           </div>
         </section>

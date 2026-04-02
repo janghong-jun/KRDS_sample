@@ -245,12 +245,97 @@
                   padding: 0 var(--mobile-padding-card-medium);
                 }
               }
-              &.chart {
+              &.first {
                 display: flex;
-                flex-direction: column;
+                flex-wrap: wrap;
+                margin-top: var(--gap-6);
+                width: 100%;
+                padding: var(--pc-padding-card-medium) 0;
+                border-radius: var(--radius-xlarge2);
+                background-color: var(--light-color-background-white);
+                box-shadow: 0.2rem 0.8rem 0.8rem 0 rgba(217, 224, 233, 0.15);
+                flex: 1;
+                @include size-medium {
+                  width: calc(100vw - 3.6rem);
+                  padding: var(--mobile-padding-card-medium) 0;
+                }
+                .swiper {
+                  width: 100%;
+                  padding: 0 4rem;
+                  @media (max-width: 1429px) {
+                    padding: 0 3.2rem;
+                  }
+                  @include size-medium {
+                    padding: 0 var(--padding-7);
+                  }
+                  &::before,
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    width: 0.2rem;
+                    height: 100%;
+                    z-index: 3;
+                    background-color: #fff;
+                  }
+                  &::before {
+                    left: -0.1rem;
+                  }
+                  &::after {
+                    right: -0.1rem;
+                  }
+                  .swiper-wrapper {
+                    display: flex;
+                    margin: 0;
+                    gap: 4rem;
+                    flex: none;
+                    height: calc(100% - 4rem);
+                    .swiper-slide {
+                      border: none;
+                      flex: none;
+                      width: 100%;
+                      flex-shrink: 0;
+                      margin: 0 !important;
+                      @include size-medium {
+                        width: 100%;
+                      }
+                      .card-thumbnail {
+                        border-radius: var(--radius-xlarge1);
+                        overflow: hidden;
+                        img {
+                          width: 100%;
+                          border-radius: var(--radius-xlarge1);
+                        }
+                        &::before {
+                          display: none;
+                        }
+                      }
+                      .card-conts {
+                        padding: var(--gap-5) var(--padding-3) 0;
+                      }
+                    }
+                  }
+                  .swiper-slide {
+                    border: 0;
+                  }
+                  [class^='swiper-button-'] {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    margin-top: -4.2rem;
+                    @media (max-width: 1429px) {
+                      margin-top: -1.6rem;
+                    }
+                    &::after {
+                      width: 3.2rem;
+                      height: 3.2rem;
+                    }
+                  }
+                }
               }
               &.slide {
+                display: flex;
                 width: 100%;
+                flex-direction: column;
                 .swiper {
                   width: 100%;
                   padding: 0 4rem;
@@ -691,7 +776,7 @@
                 }
               }
               .point {
-                width: 4.5rem;
+                width: 5.5rem;
                 font-size: var(--pc-font-size-label-small);
                 color: var(--light-color-text-primary);
                 flex: none;
@@ -981,7 +1066,9 @@
                 }
               }
               &.slide {
+                display: flex;
                 width: 100%;
+                flex-direction: column;
                 .swiper {
                   width: 100%;
                   padding: 0 4rem;
@@ -1013,7 +1100,9 @@
                 width: calc(100vw - 32px - var(--scrollbar-width)) !important;
               }
               &.slide {
+                display: flex;
                 width: 100%;
+                flex-direction: column;
                 .swiper {
                   width: 100%;
                   padding: 0 4rem;
@@ -1317,10 +1406,10 @@
       background-color: var(--light-color-background-white);
     }
     &::before {
-      top: 0;
+      top: -0.1rem;
     }
     &::after {
-      bottom: 0;
+      bottom: -0.1rem;
     }
   }
   [class^='swiper-button-'] {
