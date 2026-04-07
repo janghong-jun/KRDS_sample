@@ -414,9 +414,12 @@
         label {
           span {
             display: flex;
-            margin-top: 0.15rem;
             align-items: center;
             gap: var(--gap-1);
+            .svg-icon {
+              width: 1.6rem;
+              height: 1.6rem;
+            }
           }
         }
       }

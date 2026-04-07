@@ -112,6 +112,18 @@
               .expert-name {
                 font-size: var(--pc-font-size-heading-small);
                 gap: var(--gap-2);
+                & + .krds-btn.icon {
+                  position: relative;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 4.4rem;
+                    height: 4.4rem;
+                    transform: translate(-50%, -50%);
+                  }
+                }
               }
               &.full {
                 width: 100%;
@@ -321,6 +333,15 @@
                   [class^='swiper-button-'] {
                     width: 3.2rem;
                     height: 3.2rem;
+                    &::before {
+                      content: '';
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      width: 4.4rem;
+                      height: 4.4rem;
+                      transform: translate(-50%, -50%);
+                    }
                     margin-top: -4.2rem;
                     @media (max-width: 1429px) {
                       margin-top: -1.6rem;
@@ -352,7 +373,6 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              height: 100%;
               padding: var(--padding-8) 0;
             }
           }
@@ -466,6 +486,15 @@
                   width: 3.2rem;
                   height: 3.2rem;
                   margin-top: -1.6rem;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 4.4rem;
+                    height: 4.4rem;
+                    transform: translate(-50%, -50%);
+                  }
                   &::after {
                     width: 3.2rem;
                     height: 3.2rem;
@@ -782,6 +811,9 @@
                 flex: none;
                 text-align: right;
               }
+              &.nodata {
+                grid-column: 1 / -1;
+              }
             }
           }
         }
@@ -1059,6 +1091,15 @@
                   width: 3.2rem;
                   height: 3.2rem;
                   margin-top: -1.6rem;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 4.4rem;
+                    height: 4.4rem;
+                    transform: translate(-50%, -50%);
+                  }
                   &::after {
                     width: 3.2rem;
                     height: 3.2rem;
@@ -1279,6 +1320,15 @@
     width: 3.2rem;
     height: 3.2rem;
     margin-top: -1.6rem;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4.4rem;
+      height: 4.4rem;
+      transform: translate(-50%, -50%);
+    }
     &::after {
       width: 3.2rem;
       height: 3.2rem;

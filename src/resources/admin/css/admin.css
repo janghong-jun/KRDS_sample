@@ -1463,7 +1463,14 @@ footer {
 .flex-box.right {
   justify-content: flex-end;
 }
-.upload-grid {
+.flex-box.type02 {
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  gap: 1.2rem;
+}
+.flex-box.type02 > div {
+  flex: none;
 }
 .upload-grid .tbl-btns {
   justify-content: center;

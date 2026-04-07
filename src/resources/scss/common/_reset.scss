@@ -373,7 +373,10 @@ caption {
     line-height: inherit;
   }
 }
-
+iframe {
+  margin-top: 0 !important;
+  border: 0 !important;
+}
 //고대비모드
 @include color-mode($mode: high-contrast) {
   //모드 설정
