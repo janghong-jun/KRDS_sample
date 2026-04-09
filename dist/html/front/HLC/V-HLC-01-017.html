@@ -874,13 +874,25 @@
           <div class="chatbot-container">
             <!-- 채팅 영역 -->
             <div class="chatbot-content">
+              <p class="fiexd">하이코칭 서비스관련 질문에 대하여 답변이 가능합니다.</p>
               <!-- 사용자 메시지 -->
               <div class="chat-message user">
                 <div class="bubble">
                   <p>OO연수 추천해 줘</p>
                 </div>
               </div>
-              <!-- 봇 메시지 -->
+              <!-- 봇 메시지  로딩 중 case -->
+              <div class="chat-message bot">
+                <div class="bubble">
+                  <div class="loading-dots" role="status" aria-live="polite" aria-busy="true">
+                    <span class="sr-only">답변 준비 중</span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </div>
+                </div>
+              </div>
+              <!-- 봇 메시지  답변 완료 case -->
               <div class="chat-message bot">
                 <div class="bubble">
                   <p>OO과 관련된 연수에는 경기도남부 연수원 OO과정[출처 : 경기도남부연수원 연구운영 기본계획], 경기도북부연수원 OO과정[출처 : 경기도북부연수원 연구운영 기본계획] 이 있습니다.</p>

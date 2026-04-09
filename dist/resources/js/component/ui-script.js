@@ -1113,7 +1113,6 @@ const krds_modal = {
   closeModal(id, callback) {
     const modalElement = document.getElementById(id);
     const dialogElement = modalElement.querySelector('.modal-content');
-    const openModals = document.querySelectorAll('.modal.in');
     const modalBack = modalElement.querySelector('.modal-back');
 
     modalElement.classList.remove('in');
@@ -1122,14 +1121,13 @@ const krds_modal = {
     // css transition 딜레이
     setTimeout(() => {
       modalElement.classList.remove('shown');
-      // callback 호출
       if (typeof callback === 'function') {
         callback(modalElement);
       }
     }, 350);
 
-    // 마지막 모달이 닫힐 때 페이지 스크롤 복원
-    if (openModals.length < 2) {
+    const remainingModals = document.querySelectorAll('.krds-modal.in');
+    if (remainingModals.length === 0) {
       document.querySelector('body').classList.remove('scroll-no');
     }
 

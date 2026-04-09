@@ -157,6 +157,11 @@ $mode-setting: light;
             margin-bottom: var(--padding-10) !important;
             padding: 0 var(--pc-padding-card-small) 0 var(--pc-padding-card-small);
             overflow: hidden;
+            @media (max-height: 600px) {
+              overflow: auto;
+              height: 100%;
+              margin-bottom: 0 !important;
+            }
             @include size-medium {
               overflow: auto;
               height: 100%;
@@ -183,7 +188,7 @@ $mode-setting: light;
       @include flex-layout($ai: center, $fd: column);
       position: relative;
       width: 100%;
-      max-height: 80%;
+      max-height: 95%;
       background-color: var(--modal--wrap-color-surface);
       border-radius: var(--modal--wrap-radius);
       border: var(--modal--border-width) solid var(--modal--wrap-color-border);
@@ -316,31 +321,41 @@ $mode-setting: light;
         }
 
         .skill-report {
+          flex-direction: column;
+          .compare-box .form-group {
+            padding: 0;
+          }
+          .krds-btn {
+            display: none;
+          }
           .krds-table-wrap {
-            width: 100% !important;
             pointer-events: auto;
+            .tbl {
+              width: max(100%, 73.2rem);
+            }
             &.row {
               colgroup {
                 col {
                   &:nth-child(1) {
-                    width: 20rem !important;
+                    width: 15rem !important;
                   }
                   &:nth-child(2) {
-                    width: 18rem !important;
+                    width: 22rem !important;
                   }
                   &:nth-child(3) {
-                    width: auto !important;
+                    width: calc(100% - 38rem) !important;
                   }
-                  @include size-medium {
-                    &:nth-child(1) {
-                      width: 16.53% !important;
+                }
+              }
+              tr {
+                td {
+                  &:nth-child(2) {
+                    span {
+                      word-break: break-word;
                     }
-                    &:nth-child(2) {
-                      width: 14.88% !important;
-                    }
-                    &:nth-child(3) {
-                      width: 68.6% !important;
-                    }
+                  }
+                  &:last-child {
+                    padding-right: 0;
                   }
                 }
               }

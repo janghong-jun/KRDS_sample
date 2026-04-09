@@ -3,39 +3,18 @@
   <head>
     <!-- 공통 meta -->
     <!--# include virtual="../../../components/_meta.html" -->
-    <title>Hi-Coaching</title>
+    <title>회원가입 | Hi-Coaching</title>
     <!-- 공통 css -->
     <!--# include virtual="../../../components/_css.html" -->
-    <!-- 공통 script -->
-    <!--# include virtual="../../../components/_script.html" -->
   </head>
-  <body>
+  <body class="login">
     <div id="wrap">
-      <!--# include virtual="../../../components/_skip.html" -->
-
-      <!--# include virtual="../../../components/_masthead.html" -->
-      <!--# include virtual="../../../components/_header_out.html" -->
-
       <!-- Container -->
-      <main id="container">
-        <div class="inner">
-          <button type="button" class="krds-btn open-modal" data-target="V-HSM-02-002">모달 열기</button>
-        </div>
-      </main>
-
-      <!--# include virtual="../../../components/_footer.html" -->
-    </div>
-  </body>
-  <section id="V-HSM-02-002" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HSM-02-002">
-    <div class="modal-dialog modal-lg viewer">
-      <div class="modal-content">
-        <!-- modal contents -->
-        <!-- modal title -->
-        <div class="modal-header">
-          <h1 id="tit_V-HSM-02-002" class="modal-title">경기도 교육청 하이코칭에 오신걸 환영합니다.</h1>
-        </div>
-        <!-- //modal title -->
-        <div class="modal-conts">
+      <main id="container" style="max-width: 160rem">
+        <div class="login-box" style="margin: 3.2rem; gap: 0">
+          <div class="page-title-wrap">
+            <h1 class="h-tit">경기도 교육청 하이코칭에 오신걸 환영합니다.</h1>
+          </div>
           <p class="krds-text medium">하이코칭서비스 이용을 위하여 아래의 경기도교육청 하이코칭의 이용약관과 개인정보 수집 및 이용을 확인하시고, 동의해주시기 바랍니다.</p>
           <div class="terms">
             <div class="krds-form-check medium all">
@@ -95,7 +74,7 @@
               </div>
             </div>
           </div>
-          <div class="join-form">
+          <div class="join-form" style="width: 100%">
             <h2>필수 개인 정보 입력</h2>
             <ul>
               <li>
@@ -148,25 +127,11 @@
               </li>
             </ul>
           </div>
+          <div class="krds-btns-wrap" style="margin-top: var(--pc-padding-card-medium)">
+            <button type="button" class="krds-btn primary xlarge">회원가입</button>
+          </div>
         </div>
-        <!-- //modal contents -->
-        <!-- modal btn -->
-        <div class="modal-btn btn-wrap">
-          <button type="button" class="krds-btn medium primary">회원가입</button>
-        </div>
-        <!-- //modal btn -->
-        <!-- close button -->
-        <button type="button" class="krds-btn medium icon btn-close close-modal">
-          <span class="sr-only">닫기</span>
-          <i class="svg-icon ico-popup-close" aria-hidden="true"></i>
-        </button>
-        <!-- //close button -->
-      </div>
+      </main>
     </div>
-    <div class="modal-back"></div>
-  </section>
-  <script>
-    krds_modal.openModal('V-HSM-02-002');
-  </script>
-  <!--# include virtual="../../../components/_chatbot.html" -->
+  </body>
 </html>

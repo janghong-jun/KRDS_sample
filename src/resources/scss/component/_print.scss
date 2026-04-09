@@ -1,4 +1,8 @@
 @media print {
+  // @media (max-width: 2767px) {
+  .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
+    width: 100% !important;
+  }
   /* =========================
      1. 기본 문서 환경 초기화
   ========================== */
@@ -25,6 +29,10 @@
     height: auto !important;
     overflow: visible !important;
     background: none !important;
+    * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
 
   .modal-dialog {
@@ -66,62 +74,89 @@
 
   .print {
     position: static !important;
+    .skill-report .report-graph .krds-table-info {
+      margin-top: 2rem !important;
+    }
+    .skill-report > div {
+      flex: none !important;
+      width: 100% !important;
+    }
+    .skill-report > .report-result,
+    .skill-report > .report-result + div {
+      /* 페이지 나누기 설정: 이 클래스가 있는 요소 앞을 새 페이지로 시작 */
+      page-break-before: always;
+      break-before: always;
+    }
   }
 
   /* =========================
      4. 테이블 레이아웃 보정
   ========================== */
-  .scroll-no .krds-modal .modal-dialog.print .modal-conts .skill-report {
-    > div {
-      &:nth-child(1) {
-        height: 65rem;
-      }
-    }
-    .krds-table-wrap {
-      width: 100%;
-      min-width: 0;
+  .tbl tbody td span {
+    display: inline !important;
+  }
+  .scroll-no .krds-modal .modal-dialog.print .modal-conts {
+    margin: 0;
+    .skill-report {
+      .krds-table-wrap {
+        width: 100%;
+        min-width: 0;
 
-      &.full {
-        .tbl {
-          width: 100%;
-          min-width: 0;
+        &.full {
+          .tbl {
+            width: 100%;
+            min-width: 0;
 
-          colgroup {
-            col {
-              &:nth-child(1) {
-                width: 16.53% !important;
-              }
-              &:nth-child(2) {
-                width: 14.88% !important;
-              }
-              &:nth-child(3) {
-                width: 22.96% !important;
-              }
-              &:nth-child(4) {
-                width: 22.96% !important;
+            colgroup {
+              col {
+                &:nth-child(1) {
+                  width: 15rem !important;
+                }
+                &:nth-child(2) {
+                  width: 14.88% !important;
+                }
+                &:nth-child(3) {
+                  width: 22.96% !important;
+                }
+                &:nth-child(4) {
+                  width: 22.96% !important;
+                }
               }
             }
           }
         }
-      }
-      &.row {
-        .tbl {
-          width: 100%;
-          min-width: 0;
+        &.row {
+          .tbl {
+            width: 100%;
+            min-width: 0;
+          }
         }
       }
     }
   }
 
-  .scroll-no .krds-modal .krds-table-wrap.full {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-
-    .tbl {
+  .scroll-no .krds-modal {
+    .krds-table-wrap.full {
       width: 100% !important;
       min-width: 0 !important;
       max-width: 100% !important;
+
+      .tbl {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+      }
+    }
+    .modal-dialog.print .skill-report .krds-table-wrap.row colgroup col {
+      &:nth-child(1) {
+        width: 20% !important;
+      }
+      &:nth-child(2) {
+        width: 30% !important;
+      }
+      &:nth-child(3) {
+        width: 50% !important;
+      }
     }
   }
 
@@ -131,16 +166,29 @@
   .krds-modal .modal-dialog .modal-conts .skill-report .krds-table-wrap {
     width: 100% !important;
   }
-
+  .skill-report .report-graph .compare-box .form-group {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  .krds-chart {
+    position: relative;
+  }
   .krds-chart .chart.type01 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+    width: max-content !important;
     svg {
-      position: absolute;
-
-      transform: translate(-9.4rem, 5%) !important;
+      width: 100% !important;
+      height: auto !important;
     }
   }
-
-  button {
+  .krds-modal .modal-dialog .modal-conts {
+    padding-inline: 0 !important;
+  }
+  button,
+  .krds-check-area {
     display: none !important;
   }
 }

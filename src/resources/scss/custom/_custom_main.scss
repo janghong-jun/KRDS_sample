@@ -60,6 +60,7 @@
             gap: var(--gap-6);
             .profile-img {
               max-width: 6rem;
+              margin-bottom: auto;
               flex: none;
             }
             .expert-info {
@@ -425,6 +426,7 @@
                 padding: var(--mobile-padding-card-small) 0;
               }
               .swiper {
+                width: 100%;
                 padding: 0 4rem;
                 @media (max-width: 1429px) {
                   padding: 0 3.2rem;

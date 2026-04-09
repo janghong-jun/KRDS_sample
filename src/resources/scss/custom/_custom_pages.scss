@@ -232,13 +232,14 @@ $mode-setting: light;
       .col {
         display: flex;
         width: 100%;
-        max-width: 81.3rem;
+        max-width: 83.3rem;
         flex-wrap: wrap;
         gap: var(--gap-4);
         &-title {
-          width: 6rem;
+          width: 8rem;
           margin-right: calc(-1 * var(--gap-4));
-          font-size: var(--pc-font-size-body-medium);
+          font-size: var(--pc-font-size-body-large);
+          font-weight: var(--font-weight-bold);
           line-height: 3rem;
           color: var(--light-color-text-basic);
           flex: none;
@@ -254,7 +255,7 @@ $mode-setting: light;
         }
         &.input {
           margin-top: var(--gap-4);
-          padding-left: 6rem;
+          padding-left: 8rem;
         }
         &.center {
           margin: 0 auto;
@@ -282,7 +283,7 @@ $mode-setting: light;
           width: 35.7rem;
         }
         .krds-check-area {
-          width: calc(100% - 6rem);
+          width: calc(100% - 8rem);
           gap: var(--gap-4) var(--gap-7);
           .krds-form-check.large > input[type='radio'] ~ label::before,
           .krds-form-check.large > input[type='checkbox'] ~ label::before {
@@ -292,8 +293,8 @@ $mode-setting: light;
         @media (min-width: 1024px) and (max-width: 1360px) {
           &.date {
             .krds-btns-wrap {
-              max-width: 41.7rem;
-              padding-left: 6rem;
+              max-width: 43.7rem;
+              padding-left: 8rem;
               .krds-btn {
                 max-width: 100%;
               }
@@ -405,7 +406,7 @@ $mode-setting: light;
   .card-thumbnail {
     display: block;
     position: relative;
-    padding-top: 66.6667%;
+    aspect-ratio: 16 / 9;
     border-radius: var(--radius-xlarge1) var(--radius-xlarge1) 0 0;
     .krds-badge {
       position: absolute;
@@ -1286,6 +1287,9 @@ $mode-setting: light;
       flex: none;
     }
   }
+  &:first-child {
+    margin-top: 0;
+  }
 }
 .question-title {
   font-size: var(--pc-font-size-heading-medium);
@@ -1299,6 +1303,7 @@ $mode-setting: light;
   font-size: var(--pc-font-size-heading-small);
   font-weight: var(--font-weight-bold);
   color: var(--light-color-text-bolder);
+  word-break: break-word;
   @include size-medium {
     font-size: var(--mobile-font-size-heading-small);
   }
@@ -1307,7 +1312,7 @@ $mode-setting: light;
   margin-top: var(--gap-6);
   .krds-check-area {
     gap: var(--padding-4) var(--gap-9);
-    @include size-small {
+    @include size-medium {
       flex-direction: column;
     }
   }
@@ -1363,9 +1368,15 @@ $mode-setting: light;
     .player-area {
       overflow: hidden;
       position: relative;
-      border-radius: var(--radius-xlarge1);
+      aspect-ratio: 16 / 9;
       img {
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
         width: 100%;
+        height: 100%;
+        border-radius: var(--radius-xlarge1);
+        object-fit: cover;
       }
       &::before {
         content: '';
@@ -1374,6 +1385,7 @@ $mode-setting: light;
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: var(--radius-xlarge1);
         background-color: rgba($color: #000000, $alpha: 0.2);
       }
       .krds-btn {
@@ -1432,9 +1444,15 @@ $mode-setting: light;
         overflow: hidden;
         position: relative;
         height: max-content;
-        border-radius: var(--radius-medium3);
+        padding-top: 66.6667%;
         img {
+          overflow: hidden;
+          position: absolute;
+          inset: 0;
           width: 100%;
+          height: 100%;
+          border-radius: var(--radius-medium3);
+          object-fit: cover;
         }
         // &::after {
         //   content: '';
@@ -1728,16 +1746,21 @@ $mode-setting: light;
   }
   .profile-img {
     overflow: hidden;
+    position: relative;
     width: 100%;
     max-width: 22rem;
     height: fit-content;
-    border-radius: var(--radius-xlarge1);
+    aspect-ratio: 1 / 1;
     @include size-medium {
       max-width: 16rem;
       margin: 0 auto;
     }
     img {
+      position: absolute;
+      inset: 0;
       width: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-xlarge1);
     }
   }
   .expert-info {
@@ -2316,8 +2339,17 @@ $mode-setting: light;
           td {
             height: 6rem;
             padding: var(--padding-2) var(--size-height-3);
-            span {
-              display: inline-block;
+          }
+          tr {
+            td {
+              &:nth-child(2) {
+                span {
+                  word-break: break-word;
+                }
+              }
+              &:last-child {
+                padding-right: 0;
+              }
             }
           }
         }
@@ -2338,7 +2370,7 @@ $mode-setting: light;
   li {
     position: relative;
     height: 2.6rem;
-    width: calc(100% - 4.2rem);
+    width: calc(100% - 5rem);
     .bar {
       display: block;
       position: absolute;
@@ -2398,12 +2430,17 @@ $mode-setting: light;
   flex-wrap: wrap;
   align-items: center;
   .thumb {
+    position: relative;
     width: 18rem;
     flex: none;
     margin: auto;
+    aspect-ratio: 16 / 9;
     img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      overflow: hidden;
+      height: 100%;
+      object-fit: cover;
       border-radius: var(--radius-large1);
     }
   }
@@ -2518,10 +2555,15 @@ $mode-setting: light;
       position: relative;
       width: 100%;
       max-width: 13rem;
-      border-radius: var(--radius-medium3);
       flex: none;
+      aspect-ratio: 16 / 9;
       img {
+        position: absolute;
+        inset: 0;
         width: 100%;
+        height: 100%;
+        border-radius: var(--radius-medium3);
+        object-fit: cover;
       }
       &::after {
         content: '';
@@ -2531,6 +2573,7 @@ $mode-setting: light;
         width: 100%;
         height: 100%;
         background-color: rgba($color: #000000, $alpha: 0.2);
+        border-radius: var(--radius-medium3);
       }
     }
 
@@ -2673,6 +2716,25 @@ $mode-setting: light;
     display: flex;
     flex-direction: column;
   }
+  @media (max-height: 600px) {
+    grid-template-columns: 1fr;
+    .contents-search,
+    .contents-cart {
+      width: 100%;
+    }
+    .contents-cart {
+      border-top: 0.1rem solid var(--light-color-border-secondary-light);
+      border-left: none;
+      width: 100%;
+    }
+    .content-search-result-list,
+    .my-contents-list {
+      height: 100%;
+    }
+    .content-search-result-list .content-card {
+      flex-direction: row !important;
+    }
+  }
   .contents-search,
   .contents-cart {
     height: fit-content;
@@ -2707,13 +2769,6 @@ $mode-setting: light;
           padding: var(--padding-5);
           flex-wrap: wrap;
           gap: var(--gap-6);
-          @include size-medium-to-large {
-            flex-direction: column;
-            .thumb {
-              // width: 100% !important;
-              margin: auto;
-            }
-          }
           .thumb {
             overflow: hidden;
             position: relative;
@@ -2721,7 +2776,7 @@ $mode-setting: light;
             height: max-content;
             margin: auto;
             flex: none;
-            border-radius: var(--radius-medium3);
+            aspect-ratio: 16 / 9;
 
             .time {
               display: flex;
@@ -2747,9 +2802,15 @@ $mode-setting: light;
               width: 100%;
               height: 100%;
               background-color: rgba($color: #000000, $alpha: 0.2);
+              border-radius: var(--radius-medium3);
             }
             img {
+              position: absolute;
+              inset: 0;
               width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: var(--radius-medium3);
             }
           }
 
@@ -2965,10 +3026,10 @@ $mode-setting: light;
 }
 .content-search-result-list {
   overflow: auto;
-  height: calc(90vh - 41.8rem);
+  height: calc(98vh - 41.8rem);
 
   @include size-medium-to-large {
-    height: calc(90vh - 46.6rem);
+    height: calc(98vh - 46.6rem);
   }
   @include size-medium {
     height: 100%;
@@ -2976,7 +3037,7 @@ $mode-setting: light;
 }
 .my-contents-list {
   overflow: auto;
-  height: calc(90vh - 31.4rem);
+  height: calc(98vh - 31.4rem);
   @include size-medium {
     height: 100%;
   }
@@ -3053,16 +3114,21 @@ $mode-setting: light;
       position: relative;
       width: 100%;
       max-width: 38.2rem;
-      border-radius: var(--radius-xlarge1);
-      flex: 1;
+      flex: none;
+      aspect-ratio: 16 / 9;
 
       @include size-medium {
         max-width: 100%;
-        flex: none;
       }
 
       img {
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-xlarge1);
       }
 
       &::before {
@@ -3072,6 +3138,7 @@ $mode-setting: light;
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: var(--radius-xlarge1);
         background-color: rgba($color: #000000, $alpha: 0.2);
       }
     }
@@ -3377,6 +3444,7 @@ $mode-setting: light;
     width: 18.8rem;
     margin: var(--padding-5) 0;
     border-radius: var(--radius-medium3);
+    aspect-ratio: 16 / 9;
     &::before {
       content: '';
       position: absolute;
@@ -3385,6 +3453,7 @@ $mode-setting: light;
       width: 100%;
       height: 100%;
       background-color: rgba($color: #000000, $alpha: 0.2);
+      border-radius: var(--radius-medium3);
     }
     &::after {
       content: '';
@@ -3403,7 +3472,11 @@ $mode-setting: light;
       backdrop-filter: blur(1.3rem);
     }
     img {
+      position: absolute;
+      inset: 0;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
@@ -4154,7 +4227,7 @@ $circle-chart-types: (
           }
           .krds-btns-wrap {
             max-width: 100%;
-            padding-left: 6rem;
+            padding-left: 8rem;
             @include size-large-less {
               padding-left: 0;
             }
@@ -4991,8 +5064,7 @@ $circle-chart-types: (
         margin-top: var(--gap-4);
         gap: var(--gap-7);
         flex-direction: column;
-        min-height: 20rem;
-        max-height: 50vh;
+        height: 100rem;
         @include scrollbar;
 
         .item {
@@ -5135,9 +5207,11 @@ $circle-chart-types: (
   #wrap {
     display: flex;
     width: 100%;
-    height: 100%;
-    padding: 1.6rem;
+    padding: 3.2rem;
     align-items: center;
+    @include size-medium {
+      padding: var(--padding-6);
+    }
   }
 
   #container {
@@ -5157,6 +5231,10 @@ $circle-chart-types: (
     border-radius: var(--radius-xlarge1);
     border: 0.1rem solid #e4e5e7;
 
+    @include size-medium {
+      margin: 0 !important;
+      padding: var(--padding-8);
+    }
     .logo {
       width: 100%;
       max-width: 15.6rem;
@@ -5277,6 +5355,9 @@ $circle-chart-types: (
   gap: var(--gap-6);
   border-radius: var(--radius-xlarge1);
   border: 0.1rem solid #e4e5e7;
+  @include size-medium {
+    padding: var(--mobile-padding-card-small);
+  }
 
   &.no-gap {
     overflow: auto;

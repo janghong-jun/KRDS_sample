@@ -339,7 +339,8 @@ $mode-setting: light;
   /* container */
   #container {
     .in-between {
-      .krds-side-navigation {
+      .krds-side-navigation,
+      #lnb-wrap {
         display: none;
       }
       .contents {
