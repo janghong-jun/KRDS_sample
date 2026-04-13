@@ -64,11 +64,11 @@ const common = {
     if (this._focusTrapMap.has(trap)) {
       const prev = this._focusTrapMap.get(trap);
       document.removeEventListener('keydown', prev.handler);
-      this._removeiframeBlurHandlers(prev.iframeHandlers);
+      this._removeiframeKeyHandlers(trap, prev.iframeHandlers);
       this._focusTrapMap.delete(trap);
     }
 
-    const getFocusableElements = () => Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]):not(.krds-iframe-sentinel), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
+    const getFocusableElements = () => Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]):not(.krds-iframe-sentinel), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
 
     // ── Tab / Shift+Tab 트랩 ───────────────────────────────────────
     const handler = (event) => {
@@ -119,7 +119,7 @@ const common = {
             }
             if (e.key === 'Tab' && e.shiftKey) {
               e.preventDefault();
-              const focusableElements = Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
+              const focusableElements = Array.from(trap.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([[type="hidden"]]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]), iframe')).filter((el) => !el.closest('[inert]') && !el.closest('[hidden]'));
               const idx = focusableElements.indexOf(focusedIframe);
               if (idx <= 0) {
                 focusableElements[focusableElements.length - 1].focus();

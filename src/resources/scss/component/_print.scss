@@ -32,6 +32,8 @@
     * {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -43,7 +45,9 @@
     margin: 0 !important;
   }
 
-  .modal-header,
+  .modal-header {
+    display: none;
+  }
   .modal-content,
   .modal-conts {
     height: auto !important;
@@ -53,7 +57,13 @@
     border-radius: 0 !important;
     border: none !important;
   }
-
+  h2.print-tit {
+    display: block !important;
+    font-size: var(--modal--header-pc-font-size);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
   .modal-back {
     display: none !important;
     visibility: hidden !important;
@@ -74,6 +84,9 @@
 
   .print {
     position: static !important;
+    .skill-report {
+      margin: 0;
+    }
     .skill-report .report-graph .krds-table-info {
       margin-top: 2rem !important;
     }
@@ -81,11 +94,16 @@
       flex: none !important;
       width: 100% !important;
     }
-    .skill-report > .report-result,
-    .skill-report > .report-result + div {
-      /* 페이지 나누기 설정: 이 클래스가 있는 요소 앞을 새 페이지로 시작 */
+    .skill-report > .report-chart {
+      position: relative;
+      h2 {
+        position: absolute !important;
+        top: -2rem;
+      }
+    }
+    .skill-report .report-result,
+    .skill-report .report-graph {
       page-break-before: always;
-      break-before: always;
     }
   }
 

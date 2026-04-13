@@ -15544,6 +15544,8 @@ label {
   .krds-modal * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
   }
   .modal-dialog {
     position: static !important;
@@ -15552,7 +15554,9 @@ label {
     height: auto !important;
     margin: 0 !important;
   }
-  .modal-header,
+  .modal-header {
+    display: none;
+  }
   .modal-content,
   .modal-conts {
     height: auto !important;
@@ -15561,6 +15565,13 @@ label {
     box-shadow: none !important;
     border-radius: 0 !important;
     border: none !important;
+  }
+  h2.print-tit {
+    display: block !important;
+    font-size: var(--modal--header-pc-font-size);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 3rem;
+    text-align: center;
   }
   .modal-back {
     display: none !important;
@@ -15580,6 +15591,9 @@ label {
   .print {
     position: static !important;
   }
+  .print .skill-report {
+    margin: 0;
+  }
   .print .skill-report .report-graph .krds-table-info {
     margin-top: 2rem !important;
   }
@@ -15587,11 +15601,16 @@ label {
     flex: none !important;
     width: 100% !important;
   }
-  .print .skill-report > .report-result,
-  .print .skill-report > .report-result + div {
-    /* 페이지 나누기 설정: 이 클래스가 있는 요소 앞을 새 페이지로 시작 */
+  .print .skill-report > .report-chart {
+    position: relative;
+  }
+  .print .skill-report > .report-chart h2 {
+    position: absolute !important;
+    top: -2rem;
+  }
+  .print .skill-report .report-result,
+  .print .skill-report .report-graph {
     page-break-before: always;
-    break-before: always;
   }
   /* =========================
      4. 테이블 레이아웃 보정
@@ -18540,7 +18559,6 @@ td .info-wrap {
 }
 .video-contents .player-area img {
   overflow: hidden;
-  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -19373,19 +19391,28 @@ td .info-wrap {
     width: calc(100vw - var(--contents-padding-x) * 2 - var(--mobile-padding-card-medium) * 2) !important;
   }
 }
-.skill-report > div {
+.skill-report .report-chart,
+.skill-report .report-result,
+.skill-report .report-graph {
   padding: var(--pc-padding-card-medium);
   border-radius: var(--radius-xlarge1);
   border: 0.1rem solid #e4e5e7;
 }
 @media (max-width: 767px) {
-  .skill-report > div {
+  .skill-report .report-chart,
+  .skill-report .report-result,
+  .skill-report .report-graph {
     padding: var(--mobile-padding-card-medium);
   }
 }
-.skill-report > div .section-title-wrap {
+.skill-report .report-chart .section-title-wrap,
+.skill-report .report-result .section-title-wrap,
+.skill-report .report-graph .section-title-wrap {
   padding-bottom: var(--gap-6);
   border-bottom: 0.1rem solid var(--color-light-alpha-black100);
+}
+.skill-report .print-tit {
+  display: none;
 }
 .skill-report .report-chart {
   min-width: 33rem;
@@ -20698,7 +20725,6 @@ td .info-wrap {
 }
 .video-info-box .meta {
   display: flex;
-  margin-top: var(--gap-3);
 }
 .video-info-box .meta li {
   position: relative;
@@ -22483,6 +22509,7 @@ td .info-wrap {
 .modal-notice .ktds-btns-wrap {
   margin-top: 0.8rem;
 }
+
 .login #wrap {
   display: flex;
   width: 100%;
