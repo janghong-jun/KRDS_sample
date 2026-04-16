@@ -115,7 +115,9 @@ const common = {
           focusedIframe._krdsKeyHandler = (e) => {
             if (e.key === 'Escape' || e.key === 'Esc') {
               const modal = trap.closest('.krds-modal');
-              if (modal) krds_modal.closeModal(modal.id);
+              if (modal) {
+                krds_modal.closeModal(modal.id);
+              }
             }
             if (e.key === 'Tab' && e.shiftKey) {
               e.preventDefault();
@@ -166,7 +168,9 @@ const common = {
 
 /*** * krds_mainMenuPC * ***/
 const krds_mainMenuPC = {
+  _initialized: false,
   init() {
+    if (this._initialized) return;
     const gnbMenu = document.querySelector('.krds-main-menu .gnb-menu');
 
     if (!gnbMenu) return;
@@ -183,8 +187,10 @@ const krds_mainMenuPC = {
     mainTriggers.forEach((mainTrigger) => this.setupMainTrigger(mainTrigger));
     this.attachEvents(mainTriggers, subTriggers);
     this.setupKeyboardNavigation(mainTriggers);
+    this._initialized = true;
   },
   setupMainTrigger(mainTrigger) {
+    if (mainTrigger.hasAttribute('aria-controls')) return;
     const toggleWrap = mainTrigger.nextElementSibling;
     if (toggleWrap) {
       const uniqueIdx = `gnb-main-menu-${Math.random().toString(36).substring(2, 9)}`;
@@ -207,6 +213,7 @@ const krds_mainMenuPC = {
     }
   },
   setupSubTrigger(subTrigger) {
+    if (subTrigger.hasAttribute('aria-controls')) return;
     const hasMenu = subTrigger.nextElementSibling;
     if (hasMenu) {
       const uniqueIdx = `gnb-sub-menu-${Math.random().toString(36).substring(2, 9)}`;
@@ -284,17 +291,27 @@ const krds_mainMenuPC = {
   attachEvents(mainTriggers, subTriggers) {
     // krds-main-menu 외부 클릭시 닫기
     document.addEventListener('click', ({ target }) => {
-      if (!target.closest('.krds-main-menu')) this.closeMainMenu();
+      if (document.querySelector('.krds-modal.in')) {
+        return;
+      }
+      if (target.closest('.krds-main-menu') || target.closest('.krds-modal')) return;
+      this.closeMainMenu();
     });
 
     // 백드롭 클릭 시 메뉴 닫기
     // this.backdrop.addEventListener("click", () => this.closeMainMenu());
 
-    // ESC 키를 눌러 메뉴를 닫거나, TAB 키로 초점이 메뉴 외부로 이동했을 때 메뉴 닫기
+    // ESC 키를 눌러 메뉴를 닫거나, 모달/메뉴 외부에서 키 입력이 발생하면 메뉴 닫기
     document.addEventListener('keyup', (event) => {
-      if (event.code === 'Escape' || !event.target.closest('.krds-main-menu')) {
-        this.closeMainMenu();
+      if (document.querySelector('.krds-modal.in')) {
+        return;
       }
+      if (event.code === 'Escape') {
+        this.closeMainMenu();
+        return;
+      }
+      if (event.target.closest('.krds-main-menu') || event.target.closest('.krds-modal')) return;
+      this.closeMainMenu();
     });
 
     // 메인 메뉴 트리거 설정
@@ -987,7 +1004,8 @@ const krds_modal = {
   setupTriggers() {
     // 모달 열기 이벤트 설정
     this.modalOpenTriggers.forEach((trigger) => {
-      trigger.addEventListener('click', (event) => {
+      if (trigger._krdsModalOpenHandler) return;
+      const handler = (event) => {
         event.preventDefault();
         const modalId = trigger.getAttribute('data-target');
 
@@ -999,21 +1017,27 @@ const krds_modal = {
 
           this.openModal(modalId);
         }
-      });
+      };
+      trigger.addEventListener('click', handler);
+      trigger._krdsModalOpenHandler = handler;
     });
     // 모달 닫기 이벤트 설정
     this.modalCloseTriggers.forEach((trigger) => {
-      trigger.addEventListener('click', (event) => {
+      if (trigger._krdsModalCloseHandler) return;
+      const handler = (event) => {
         event.preventDefault();
         const modalId = trigger.closest('.krds-modal').getAttribute('id');
 
         if (modalId) {
           this.closeModal(modalId);
         }
-      });
+      };
+      trigger.addEventListener('click', handler);
+      trigger._krdsModalCloseHandler = handler;
     });
   },
   openModal(id) {
+    krds_mainMenuPC.closeMainMenu();
     const modalElement = document.getElementById(id);
     const dialogElement = modalElement.querySelector('.modal-content');
     const modalBack = modalElement.querySelector('.modal-back');
@@ -1021,8 +1045,8 @@ const krds_modal = {
     const modalConts = modalElement.querySelector('.modal-conts');
 
     // document.querySelector('body').classList.add('scroll-no');
+    modalElement.style.display = 'block';
     modalElement.setAttribute('role', 'dialog');
-    modalElement.classList.add('shown');
     modalBack.classList.add('in');
     // modalTitle.setAttribute("tabindex", "0");
 
@@ -1120,7 +1144,7 @@ const krds_modal = {
 
     // css transition 딜레이
     setTimeout(() => {
-      modalElement.classList.remove('shown');
+      modalElement.style.display = 'none'; // 추가
       if (typeof callback === 'function') {
         callback(modalElement);
       }
@@ -1150,7 +1174,7 @@ const krds_modal = {
     this.returnFocusToTrigger(id);
   },
   updateZIndex(modalElement) {
-    const openModals = document.querySelectorAll('.modal.in');
+    const openModals = document.querySelectorAll('.krds-modal.in');
     const openModalsLengtn = openModals.length + 1;
     const newZIndex = 1010 + openModalsLengtn;
     if (openModalsLengtn > 1) {
@@ -2444,7 +2468,6 @@ const contentObserver = new MutationObserver((mutations) => {
     }
 
     if (hasKrdsComponent) {
-      console.log('🔄 타임리프 콘텐츠 변경 감지 - 컴포넌트 재초기화');
       isInitializing = true;
       contentObserver.disconnect();
 
@@ -2761,14 +2784,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // 클릭 이벤트
   switcherLinks.forEach((a, i) => {
     a.addEventListener('click', (e) => {
-      e.preventDefault();
       setActive(i);
     });
   });
 
   utilityItems.forEach((li, i) => {
     li.querySelector('a')?.addEventListener('click', (e) => {
-      e.preventDefault();
       setActive(i);
     });
   });

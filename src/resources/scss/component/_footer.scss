@@ -85,7 +85,7 @@ $mode-setting: light;
   }
 
   .f-logo {
-    @include square(19.7rem, 5rem);
+    @include square(15rem, 4rem);
     background-image: url(#{$url}/img/component/icon/ico_logo_hico.svg);
     background-position: center;
     background-size: contain;
