@@ -19714,7 +19714,6 @@ label {
     position: absolute !important;
     top: -2rem;
   }
-  .print .skill-report .report-result,
   .print .skill-report .report-graph {
     page-break-before: always;
   }
@@ -22777,6 +22776,7 @@ td .info-wrap {
 }
 .card-list.type-video .card-meta-list, .card-list.type-expert .card-meta-list {
   margin-top: var(--padding-3);
+  width: 100%;
 }
 .card-list.type-video .card-meta-list li, .card-list.type-expert .card-meta-list li {
   display: grid;
@@ -22791,6 +22791,15 @@ td .info-wrap {
 .card-list.type-video .card-meta-list li .bar, .card-list.type-expert .card-meta-list li .bar {
   margin-top: 0.5rem;
   height: 1.2rem;
+}
+.card-list.type-video .card-meta-list li span, .card-list.type-expert .card-meta-list li span {
+  word-break: break-word;
+}
+.card-list.type-video .card-meta-list li span.rating, .card-list.type-expert .card-meta-list li span.rating {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -moz-box-flex: 0;
+  flex: none;
 }
 .card-list.type-video .card-btns, .card-list.type-expert .card-btns {
   display: -webkit-box;
@@ -30979,6 +30988,69 @@ td .info-wrap {
   .main.ai-type #container .main-contents .middle-contents .item-inner .my-competency, .main.ai-type #container .main-contents .middle-contents .item-inner.msg {
     padding: var(--padding-7);
   }
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview {
+  background-color: #eef2f7;
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul {
+  display: grid;
+  margin-top: var(--gap-5);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--gap-5);
+}
+@media (max-width: 767px) {
+  .main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+  }
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  padding: 2rem;
+  height: 13.6rem;
+  -webkit-border-radius: var(--radius-xlarge1);
+  -moz-border-radius: var(--radius-xlarge1);
+  border-radius: var(--radius-xlarge1);
+  background-color: var(--light-color-surface-white);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li h3, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li h3 {
+  font-size: var(--pc-font-size-heading-xxsmall);
+  color: var(--light-color-text-subtle);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li span, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--pc-font-size-body-xsmall);
+  color: var(--light-color-text-primary);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li span.total, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li span.total {
+  color: var(--light-color-border-warning);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li strong, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li strong {
+  margin-top: auto;
+  font-size: var(--pc-font-size-heading-medium);
+  text-align: right;
+  color: var(--light-color-text-basic);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul ~ h3, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul ~ h3 {
+  margin-top: var(--gap-8);
 }
 .main.ai-type #container .main-contents .middle-contents .item-inner.msg {
   width: -webkit-max-content;

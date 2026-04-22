@@ -85,7 +85,7 @@
           input.focus();
           isFocusingInput = false;
         }
-
+        window.closeSuggestAndFocus = closeSuggestAndFocus;
         // -----------------------------
         // input 포커스 시 추천검색어 열기
         // -----------------------------
@@ -142,6 +142,16 @@
 
         input.addEventListener('keydown', handleFocusTrap);
         suggest.addEventListener('keydown', handleFocusTrap);
+        document.addEventListener('mousedown', (e) => {
+          if (suggest.hidden) return;
+
+          const isInsideForm = form.contains(e.target);
+          const isInsideSuggest = suggest.contains(e.target);
+
+          if (!isInsideForm && !isInsideSuggest) {
+            closeSuggest();
+          }
+        });
       });
     </script>
   </head>
@@ -274,7 +284,7 @@
                         <i class="svg-icon ico-popup-close" aria-hidden="true"></i>
                       </button>
                     </div>
-                    <button type="button" class="krds-btn large icon">
+                    <button type="button" class="krds-btn large icon" onclick="closeSuggestAndFocus()">
                       <i class="svg-icon ico-sch" aria-hidden="true"></i>
                       <span class="sr-only">검색</span>
                     </button>

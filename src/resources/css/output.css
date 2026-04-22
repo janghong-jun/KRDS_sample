@@ -15608,7 +15608,6 @@ label {
     position: absolute !important;
     top: -2rem;
   }
-  .print .skill-report .report-result,
   .print .skill-report .report-graph {
     page-break-before: always;
   }
@@ -17584,6 +17583,7 @@ td .info-wrap {
 }
 .card-list .card-conts .card-level > span {
   display: flex;
+  width: 100%;
   gap: var(--gap-2);
   align-items: center;
 }
@@ -21949,16 +21949,24 @@ td .info-wrap {
   justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
-  gap: var(--gap-4);
+  flex-wrap: wrap;
 }
 .total-search .total-search-top .total-search-uitll .btn-detail-toggle {
   align-items: flex-start;
+  margin-right: auto;
+}
+.total-search .total-search-top .total-search-uitll .btn-detail-toggle i {
+  flex: none;
 }
 .total-search .total-search-top .total-search-uitll .btn-detail-toggle span {
   line-height: 2.4rem;
+  flex: none;
 }
 .total-search .total-search-top .total-search-uitll .btn-detail-toggle[aria-expanded=true] .ico-angle {
   transform: rotate(180deg);
+}
+.total-search .total-search-top .total-search-uitll .krds-form-check.large {
+  flex: none;
 }
 .total-search .total-search-top .total-search-uitll .krds-form-check.large label::before,
 .total-search .total-search-top .total-search-uitll .krds-form-check.large label::after {
@@ -23175,6 +23183,57 @@ td .info-wrap {
     padding: 0 3.2rem;
   }
 }
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview {
+  padding: var(--pc-padding-card-medium);
+  background-color: #eef2f7;
+}
+@media (max-width: 767px) {
+  .main.portal-type #container .inner .main-contents .top-contents .item-inner.preview {
+    padding: var(--mobile-padding-card-medium);
+  }
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-5);
+}
+@media (max-width: 767px) {
+  .main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+  }
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li {
+  display: flex;
+  padding: 2rem;
+  border-radius: var(--radius-xlarge1);
+  background-color: var(--light-color-surface-white);
+  flex-direction: column;
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li:last-child {
+  grid-column: span 2;
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li h3 {
+  font-size: var(--pc-font-size-heading-xxsmall);
+  color: var(--light-color-text-subtle);
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--pc-font-size-body-xsmall);
+  color: var(--light-color-text-primary);
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li span.total {
+  color: var(--light-color-border-warning);
+}
+.main.portal-type #container .inner .main-contents .top-contents .item-inner.preview ul li strong {
+  margin-top: auto;
+  font-size: var(--pc-font-size-heading-medium);
+  text-align: right;
+  color: var(--light-color-text-basic);
+}
 .main.portal-type #container .inner .main-contents .top-contents .krds-chart {
   display: flex;
   justify-content: center;
@@ -23593,6 +23652,51 @@ td .info-wrap {
   .main.ai-type #container .main-contents .middle-contents .item-inner .my-competency, .main.ai-type #container .main-contents .middle-contents .item-inner.msg {
     padding: var(--padding-7);
   }
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview {
+  background-color: #eef2f7;
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul {
+  display: grid;
+  margin-top: var(--gap-5);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--gap-5);
+}
+@media (max-width: 767px) {
+  .main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li {
+  display: flex;
+  padding: 2rem;
+  height: 13.6rem;
+  border-radius: var(--radius-xlarge1);
+  background-color: var(--light-color-surface-white);
+  flex-direction: column;
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li h3, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li h3 {
+  font-size: var(--pc-font-size-heading-xxsmall);
+  color: var(--light-color-text-subtle);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li span, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--pc-font-size-body-xsmall);
+  color: var(--light-color-text-primary);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li span.total, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li span.total {
+  color: var(--light-color-border-warning);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul li strong, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul li strong {
+  margin-top: auto;
+  font-size: var(--pc-font-size-heading-medium);
+  text-align: right;
+  color: var(--light-color-text-basic);
+}
+.main.ai-type #container .main-contents .middle-contents .item-inner .my-competency.preview ul ~ h3, .main.ai-type #container .main-contents .middle-contents .item-inner.msg.preview ul ~ h3 {
+  margin-top: var(--gap-8);
 }
 .main.ai-type #container .main-contents .middle-contents .item-inner.msg {
   width: max-content;
