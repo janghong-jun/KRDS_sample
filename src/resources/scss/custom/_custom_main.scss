@@ -334,6 +334,7 @@
                   [class^='swiper-button-'] {
                     width: 3.2rem;
                     height: 3.2rem;
+                    margin-top: -1.6rem;
                     &::before {
                       content: '';
                       position: absolute;
@@ -342,10 +343,6 @@
                       width: 4.4rem;
                       height: 4.4rem;
                       transform: translate(-50%, -50%);
-                    }
-                    margin-top: -4.2rem;
-                    @media (max-width: 1429px) {
-                      margin-top: -1.6rem;
                     }
                     &::after {
                       width: 3.2rem;

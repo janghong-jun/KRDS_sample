@@ -17583,7 +17583,6 @@ td .info-wrap {
 }
 .card-list .card-conts .card-level > span {
   display: flex;
-  width: 100%;
   gap: var(--gap-2);
   align-items: center;
 }
@@ -23147,6 +23146,7 @@ td .info-wrap {
 .main.portal-type #container .inner .main-contents .top-contents .item-inner.first .swiper [class^=swiper-button-] {
   width: 3.2rem;
   height: 3.2rem;
+  margin-top: -1.6rem;
 }
 .main.portal-type #container .inner .main-contents .top-contents .item-inner.first .swiper [class^=swiper-button-]::before {
   content: "";
@@ -23156,14 +23156,6 @@ td .info-wrap {
   width: 4.4rem;
   height: 4.4rem;
   transform: translate(-50%, -50%);
-}
-.main.portal-type #container .inner .main-contents .top-contents .item-inner.first .swiper [class^=swiper-button-] {
-  margin-top: -4.2rem;
-}
-@media (max-width: 1429px) {
-  .main.portal-type #container .inner .main-contents .top-contents .item-inner.first .swiper [class^=swiper-button-] {
-    margin-top: -1.6rem;
-  }
 }
 .main.portal-type #container .inner .main-contents .top-contents .item-inner.first .swiper [class^=swiper-button-]::after {
   width: 3.2rem;
