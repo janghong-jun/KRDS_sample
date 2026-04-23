@@ -68,7 +68,10 @@
             <!-- Page Title -->
             <div class="page-title-wrap" style="align-items: center; flex-direction: row">
               <h3 class="h-tit">내 프로필</h3>
-              <button type="button" class="krds-btn small primary" style="margin-left: auto">보고서</button>
+              <div class="krds-btns-wrap" style="width: auto; margin-left: auto">
+                <button type="button" class="krds-btn small tertiary open-modal" data-target="V-HGP-01-001_02">업로드</button>
+                <button type="button" class="krds-btn small primary">보고서</button>
+              </div>
             </div>
             <!-- 전문가 등재 후 active 추가 -->
             <div class="my-profile active">
@@ -363,25 +366,6 @@
                   </a>
                 </div>
                 <div class="inner-wrap col">
-                  <div>
-                    <div class="title-wrap">
-                      <h4 class="title">초대받은 학습공동체</h4>
-                      <a href="#" class="krds-btn small text">
-                        자세히보기
-                        <i class="svg-icon ico-angle right" aria-hidden="true"></i>
-                      </a>
-                    </div>
-                    <dl>
-                      <div>
-                        <dt>협업공간 초대</dt>
-                        <dd>2건</dd>
-                      </div>
-                      <div>
-                        <dt>연구지원 초대</dt>
-                        <dd>1건</dd>
-                      </div>
-                    </dl>
-                  </div>
                   <div>
                     <div class="title-wrap">
                       <h4 class="title">내 신고 처리 현황</h4>
@@ -808,6 +792,84 @@
 
       <!--# include virtual="../../../components/_footer.html" -->
     </div>
+    <section id="V-HGP-01-001_02" class="krds-modal fade" role="dialog" aria-labelledby="tit_V-HGP-01-001_02">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- modal title -->
+          <div class="modal-header">
+            <h2 id="tit_V-HGP-01-001_02" class="modal-title">일괄등록</h2>
+          </div>
+          <!-- //modal title -->
+          <!-- modal contents -->
+          <div class="modal-conts">
+            <div class="conts-area">
+              <div class="krds-btns-wrap right">
+                <button type="button" class="krds-btn small neutral" style="min-width: 0">sample</button>
+              </div>
+
+              <div class="krds-table-wrap row mob-col mob-scroll">
+                <table class="tbl">
+                  <caption>
+                    업로드에 대한 표로 파일찾기로 구성되어 있다.
+                  </caption>
+                  <colgroup>
+                    <col style="width: 12.8rem" />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <label for="file-upload" class="krds-label">
+                          파일찾기
+                          <i class="required" aria-hidden="true"></i>
+                          <span class="sr-only">필수 항목</span>
+                        </label>
+                      </th>
+                      <td>
+                        <div class="file-box">
+                          <ul class="file-list">
+                            <li>
+                              <span class="file-name">
+                                <i class="svg-icon ico-pdf"></i>
+                                <span>실행나눔 사례1.pdf</span>
+                              </span>
+                              <button type="button" class="krds-btn icon">
+                                <i class="svg-icon ico-delete-fill2"></i>
+                                <span class="sr-only">삭제</span>
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="file-box-btn-wrap">
+                            <input type="file" id="file-upload" hidden="" />
+                            <label for="file-upload" class="krds-btn tertiary medium">찾아보기</label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="krds-text medium">Sample 파일을 다운로드 후 작성하여 업로드 해주시기 바랍니다. <br />등록완료 안내 이전에 팝업을 닫지 말고 기다려주십시오.</p>
+            </div>
+          </div>
+          <!-- //modal contents -->
+          <!-- modal btn -->
+          <div class="modal-btn btn-wrap">
+            <button type="button" class="krds-btn medium tertiary close-modal">취소</button>
+            <button type="button" class="krds-btn medium primary">등록</button>
+          </div>
+          <!-- //modal btn -->
+          <!-- close button -->
+          <button type="button" class="krds-btn medium icon btn-close close-modal">
+            <span class="sr-only">닫기</span>
+            <i class="svg-icon ico-popup-close" aria-hidden="true"></i>
+          </button>
+          <!-- //close button -->
+        </div>
+      </div>
+      <div class="modal-back"></div>
+    </section>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
