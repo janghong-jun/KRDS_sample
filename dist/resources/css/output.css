@@ -2732,6 +2732,16 @@
   -webkit-mask: none;
   mask: none;
 }
+.svg-icon.ico-certified {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(../img/component/icon/ico_certified.svg);
+  mask-image: url(../img/component/icon/ico_certified.svg);
+}
 
 .icon-wrap {
   display: -webkit-box;
@@ -5287,7 +5297,7 @@ label.krds-btn {
   -webkit-border-radius: var(--radius-max) !important;
   -moz-border-radius: var(--radius-max) !important;
   border-radius: var(--radius-max) !important;
-  border: 0.1rem solid var(--light-color-border-primary-light);
+  border: 0.1rem solid var(--light-color-border-primary-light) !important;
   font-size: var(--pc-font-size-heading-small);
   color: var(--light-color-text-subtle);
   -webkit-transition: var(--transition-collapse-width);
@@ -6140,6 +6150,20 @@ label.krds-btn {
 .krds-table-wrap.center .tbl > tbody > tr > th > .krds-btn.link,
 .krds-table-wrap.center .tbl > tbody > tr > td > .krds-btn.link {
   width: auto;
+}
+.krds-table-wrap.center .tbl > thead > tr > th.al a,
+.krds-table-wrap.center .tbl > thead > tr > td.al a,
+.krds-table-wrap.center .tbl > tbody > tr > th.al a,
+.krds-table-wrap.center .tbl > tbody > tr > td.al a {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: inline-flex;
+  gap: 0.4rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  align-items: center;
 }
 .krds-table-wrap.center + .krds-btns-wrap.center {
   margin-top: var(--gap-7);
@@ -22350,7 +22374,7 @@ td .info-wrap {
   display: -moz-box;
   display: flex;
   position: relative;
-  height: augo;
+  height: auto;
   border: 0.1rem solid var(--color-light-gray-20);
   -webkit-border-radius: var(--radius-xlarge1);
   -moz-border-radius: var(--radius-xlarge1);
@@ -29775,6 +29799,25 @@ td .info-wrap {
   .terms.no-gap {
     padding: var(--mobile-padding-card-medium);
   }
+}
+.terms.no-gap::-webkit-scrollbar {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.terms.no-gap {
+  -webkit-overflow-scrolling: touch;
+}
+.terms.no-gap::-webkit-scrollbar-thumb {
+  background-color: var(--light-color-element-secondary-light);
+  -webkit-border-radius: 0.8rem;
+  border-radius: 0.8rem;
+  border: 0.4rem solid transparent;
+  background-clip: content-box;
+}
+.terms.no-gap::-webkit-scrollbar-track {
+  -webkit-border-radius: 0.8rem;
+  border-radius: 0.8rem;
+  background-color: transparent;
 }
 .terms.no-gap + div {
   margin-top: 1.6rem;

@@ -291,6 +291,13 @@ $mode-setting: light;
             > .krds-btn.link {
               width: auto;
             }
+            &.al {
+              a {
+                display: inline-flex;
+                gap: 0.4rem;
+                align-items: center;
+              }
+            }
           }
         }
       }

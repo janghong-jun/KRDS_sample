@@ -390,7 +390,7 @@ $mode-setting: light;
   > div {
     display: flex;
     position: relative;
-    height: augo;
+    height: auto;
     border: 0.1rem solid var(--color-light-gray-20);
     border-radius: var(--radius-xlarge1);
     background: var(--color-light-gray-0);
@@ -5374,6 +5374,7 @@ $circle-chart-types: (
     @include size-medium {
       padding: var(--mobile-padding-card-medium);
     }
+    @include scrollbar();
 
     & + div {
       margin-top: 1.6rem;

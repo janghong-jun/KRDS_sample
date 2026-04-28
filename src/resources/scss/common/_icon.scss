@@ -469,6 +469,9 @@
   &.ico-send {
     @include icon-set(ico_send, pure);
   }
+  &.ico-certified {
+    @include icon-set(ico_certified);
+  }
 }
 .icon-wrap {
   display: flex;

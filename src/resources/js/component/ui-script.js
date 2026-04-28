@@ -2425,6 +2425,24 @@ function initAllComponents() {
   krds_tooltip.init();
   krds_toggleSwitch.init();
 }
+function initMenus() {
+  windowSize.setWinSize();
+
+  krds_mainMenuPC.init();
+  krds_mainMenuMobile.init();
+  krds_sideNavigation.init();
+}
+function initContents() {
+  windowSize.setWinSize();
+
+  krds_tab.init();
+  krds_accordion.init();
+  krds_modal.init();
+  krds_calendar.init();
+  krds_dropEvent.init();
+  krds_tooltip.init();
+  krds_toggleSwitch.init();
+}
 
 // ========================================
 // MutationObserver - 타임리프 동적 감지
@@ -2472,7 +2490,7 @@ const contentObserver = new MutationObserver((mutations) => {
       contentObserver.disconnect();
 
       try {
-        initAllComponents();
+        initContents();
       } finally {
         contentObserver.observe(document.body, observerConfig);
         isInitializing = false;

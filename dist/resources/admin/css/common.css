@@ -937,6 +937,16 @@ input:checked:disabled + .lb-checkbox::after {
   height: 3.8rem;
 }
 
+.ui-tab.right .ui-tab-btns {
+  display: flex;
+  justify-content: flex-end;
+}
+.ui-tab.right .ui-tab-btns .ui-tab-btn {
+  flex: none;
+  padding: 0 1.6rem;
+  height: 3.8rem;
+}
+
 .tab-info {
   margin-top: 2rem;
   text-align: right;
